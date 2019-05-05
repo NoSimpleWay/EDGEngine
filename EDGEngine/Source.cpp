@@ -34,6 +34,7 @@ glm::mat4 transform;
 Shader * ourShader;
 
 Batcher * batch;
+Batcher* batch2;
 
 ECamera* camera;
 
@@ -41,6 +42,8 @@ short tilemap[100][100];
 int available_tile[20];
 int final_available_tile[20];
 int tile_array_index = 0;
+
+bool draw_tile_info = false;
 
 int main()
 {
@@ -55,32 +58,48 @@ int main()
 	{
 		if (tilemap[j][i] == -1)
 		{
-			for (int k = 0; k <= 16; k++)
+			//refill available tile
+			for (int k = 0; k < 16; k++)
 			{
 				available_tile[k]=k;
 			}
 
-			if (j >= 0)		{ available_tile[tilemap[j - 1][i]] = -1; }
-			if (j < 100)	{ available_tile[tilemap[j + 1][i]] = -1; }
 
-			if (i >= 0)		{ available_tile[tilemap[j][i-1]] = -1; }
-			if (i < 100)	{ available_tile[tilemap[j][i+1]] = -1; }
+			//exclude potencial duplicate
+			for (int b=-1; b<=1; b++)
+			for (int a=-1; a<=1; a++)
+			if (
+				(
+					(a!=0)||(b!=0)
+				)
+				&&(j>=0)
+				&& (j<100)
+				&& (i>=0)
+				&& (i<100))
+			{
+				int target_tile = tilemap[j + b][i + a];
+
+				if (target_tile >= 0) { available_tile[target_tile] = -1; }
+			}
+
 
 			tile_array_index = 0;
-			for (int k = 0; k <= 16; k++)
+			for (int k = 0; k < 16; k++)
 			if (available_tile[k]>=0)
 			{
 				final_available_tile[tile_array_index] = available_tile[k];
 				tile_array_index++;
 			}
 
-			int selected_tile = final_available_tile[rand() % 17];
+			int selected_tile = final_available_tile[rand() % tile_array_index];
 
 			//available_tile._Make_iter;
 
 			//tilemap[j][i] = choosen_tile._Getcont;
 
+			if (rand() % 25 != 0) { selected_tile += 4; } else { selected_tile =rand()%4;}
 			tilemap[j][i] = selected_tile;
+			
 			
 			//std::cout << "tile: " << selected_tile << std::endl;
 		}
@@ -164,7 +183,7 @@ int main()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	// load image, create texture and generate mipmaps
-	data2 = stbi_load("data/tile02.png", &width, &height, &nrChannels, STBI_rgb_alpha);
+	data2 = stbi_load("data/tile_info.png", &width, &height, &nrChannels, STBI_rgb_alpha);
 
 	if (data2)
 	{
@@ -182,7 +201,7 @@ int main()
 	// tell opengl for each sampler to which texture unit it belongs to (only has to be done once)
 	// -------------------------------------------------------------------------------------------
 	ourShader->use();
-	ourShader->setInt("texture1", 0);
+
 	//ourShader->setInt("texture2", 1);
 	glfwSwapInterval(0);
 	
@@ -194,6 +213,7 @@ int main()
 	glBindTexture(GL_TEXTURE_2D, texture1);
 
 	batch = new Batcher();
+	batch2 = new Batcher();
 	camera = new ECamera();
 
 	camera->x = 0.0f;
@@ -204,15 +224,22 @@ int main()
 	for (int i = 0; i < 30; i++)
 	for (int j = 0; j < 30; j++)
 	{
-		batch->draw_rect_without_color(0.1f * j, 0.1f * i, 0.05f, 0.05f, rand() % 4, rand() % 4);
+		int tile_y = (int)(tilemap[j][i] / 4);
+		int tile_x = tilemap[j][i] - tile_y * 4;
+
+
+		batch->draw_rect_without_color(0.1f * j, 0.1f * i, 0.05f, 0.05f, tile_x, tile_y);
+		batch2->draw_rect_without_color(0.1f* j, 0.1f* i, 0.05f, 0.05f, tile_x, tile_y);
 	}
 
 	for (int i = 0; i < 900; i++)
 	{
 		batch->fill_indices();
+		batch2->fill_indices();
 	}
 
 	batch->init();
+	batch2->init();
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -220,7 +247,7 @@ int main()
 		transform = glm::scale(transform, glm::vec3((SCR_HEIGHT * 1.0f) / SCR_WIDTH, 1, 1));
 		// input
 		// -----
-		
+
 
 		// render
 		// ------
@@ -230,7 +257,7 @@ int main()
 		// bind textures on corresponding texture units
 		//if (rand() % 10 <= 5)
 		//{
-			
+
 		//}
 		//else
 		//{
@@ -244,9 +271,9 @@ int main()
 
 		// create transformations
 		transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-		
+
 		transform = glm::translate(transform, glm::vec3(camera->x, camera->y, 0.0f));
-		transform = glm::scale(transform,glm::vec3((SCR_HEIGHT*1.0f)/SCR_WIDTH*camera->zoom,camera->zoom,1));
+		transform = glm::scale(transform, glm::vec3((SCR_HEIGHT * 1.0f) / SCR_WIDTH * camera->zoom, camera->zoom, 1));
 
 
 		//transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
@@ -258,14 +285,28 @@ int main()
 
 		// render container
 
-		
+
 		/*
 		glBindVertexArray(VAO);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		*/
 
-		batch->draw_call();
+		if (!draw_tile_info)
+		{
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, texture1);
+			ourShader->setInt("texture1", 0);
+		}
+		else
+		{
 
+			glActiveTexture(GL_TEXTURE1);
+			glBindTexture(GL_TEXTURE_2D, texture2);
+			ourShader->setInt("texture1", 1);
+		}
+
+		batch->draw_call();
+		
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		// -------------------------------------------------------------------------------
 		glfwSwapBuffers(window);
@@ -300,13 +341,15 @@ void processInput(GLFWwindow* window)
 
 	if (glfwGetKey(window, GLFW_KEY_HOME) == GLFW_PRESS) { camera->zoom = 1.0f; }
 
+	draw_tile_info = false;
+	if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) { draw_tile_info = true; }
 
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
 // ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow * window, int width, int height)
-{
+{//
 	// make sure the viewport matches the new window dimensions; note that width and 
 	// height will be significantly larger than specified on retina displays.
 	glViewport(0, 0, width, height);
@@ -321,17 +364,17 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
 	if (yoffset>0)
 	{
-		camera->zoom*=1.1f;
+		camera->zoom*=2.0f;
 
-		camera->x *= 1.1f;
-		camera->y *= 1.1f;
+		camera->x *= 2.0f;
+		camera->y *= 2.0f;
 	}
 
 	if (yoffset < 0)
 	{
-		camera->zoom *= 0.9f;
+		camera->zoom *= 0.5f;
 
-		camera->x *= 0.9f;
-		camera->y *= 0.9f;
+		camera->x *= 0.5f;
+		camera->y *= 0.5f;
 	}
 }

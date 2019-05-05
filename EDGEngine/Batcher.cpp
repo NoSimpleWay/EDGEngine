@@ -124,7 +124,7 @@ void Batcher::draw_rect_without_color(float _x, float _y, float _w, float _h, in
 	vertices[id + 2] = 0;
 
 	vertices[id + 3] = 0.25f + 0.25f * _tx;
-	vertices[id + 4] = 0.25f + 0.25f * _ty;
+	vertices[id + 4] = 0.20f + 0.20f * _ty;
 
 
 
@@ -136,7 +136,7 @@ void Batcher::draw_rect_without_color(float _x, float _y, float _w, float _h, in
 	vertices[id + 7] = 0;
 
 	vertices[id + 8] = 0.25f + 0.25f * _tx;
-	vertices[id + 9] = 0.0f + 0.25f * _ty;
+	vertices[id + 9] = 0.0f + 0.20f * _ty;
 
 
 
@@ -148,7 +148,7 @@ void Batcher::draw_rect_without_color(float _x, float _y, float _w, float _h, in
 	vertices[id + 12] = 0;
 
 	vertices[id + 13] = 0.0f + 0.25f * _tx;
-	vertices[id + 14] = 0.0f + 0.25f * _ty;
+	vertices[id + 14] = 0.0f + 0.20f * _ty;
 
 
 
@@ -160,7 +160,7 @@ void Batcher::draw_rect_without_color(float _x, float _y, float _w, float _h, in
 	vertices[id + 17] = 0;
 
 	vertices[id + 18] = 0.0f + 0.25f * _tx;
-	vertices[id + 19] = 0.25f + 0.25f * _ty;
+	vertices[id + 19] = 0.20f + 0.20f * _ty;
 
 	id += 20;
 }
