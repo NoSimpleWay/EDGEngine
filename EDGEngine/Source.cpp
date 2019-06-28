@@ -168,7 +168,7 @@ int main()
 	ourShader->use();
 
 	//ourShader->setInt("texture2", 1);
-	glfwSwapInterval(0);
+	glfwSwapInterval(1);
 	
 
 	// render loop
@@ -324,11 +324,11 @@ void processInput(GLFWwindow* window)
 		glfwSetWindowShouldClose(window, true);
 	}	
 
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) { camera->speed_x += 0.00001f; }
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) { camera->speed_x -= 0.00001f; }
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) { camera->speed_x += 0.0001f; }
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) { camera->speed_x -= 0.0001f; }
 
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) { camera->speed_y -= 0.00001f; }
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) { camera->speed_y += 0.00001f; }
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) { camera->speed_y -= 0.0001f; }
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) { camera->speed_y += 0.0001f; }
 
 	if (glfwGetKey(window, GLFW_KEY_HOME) == GLFW_PRESS) { camera->zoom = 1.0f; }
 

@@ -14,7 +14,7 @@ public:
 	void reinit();
 
 	unsigned int id = 0;
-	unsigned int VBO, VAO, EBO;
+	unsigned int VBO, VAO, EBO=0;
 	float vertices[250000];
 	void draw_call();
 };
