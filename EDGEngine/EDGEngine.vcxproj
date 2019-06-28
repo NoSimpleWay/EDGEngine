@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Batcher.cpp" />
     <ClCompile Include="ECamera.cpp" />
+    <ClCompile Include="EInit.cpp" />
     <ClCompile Include="ETexture.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Source.cpp" />
@@ -136,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Batcher.h" />
     <ClInclude Include="ECamera.h" />
+    <ClInclude Include="EInit.h" />
     <ClInclude Include="ETexture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
