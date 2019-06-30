@@ -1,4 +1,4 @@
-#include <glad/glad.h>
+﻿#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -12,13 +12,30 @@
 #include "Batcher.h"
 #include "ECamera.h"
 
+#include <fstream>
 #include <iostream>
+
 #include <list>   
 #include <vector>
 #include "EInit.h"
+#include "EFont.h"
+
+#include <ctime>
+#include "Helper.h"
+
+using namespace std;
+
+//Helper helper_object;
+float Helper::correction_x = 0;
+float Helper::correction_y = 0;
+
+
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void recalculate_correction();
 void processInput(GLFWwindow* window);
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+
 //void load_texture();
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void load_texture(const char* _path, int _id);
@@ -34,10 +51,13 @@ unsigned char* data2;
 
 glm::mat4 transform;
 
-Shader * ourShader;
+Shader* ourShader;
 
 Batcher * batch;
 Batcher* batch2;
+Batcher* font_batch;
+
+EFont* font;
 
 ECamera* camera;
 
@@ -48,8 +68,60 @@ int tile_array_index = 0;
 
 bool draw_tile_info = false;
 
+float delta_time;
+float saved_time_for_delta;
+
+string work_text;
+
 int main()
 {
+	recalculate_correction();
+	setlocale(LC_ALL, ".1251"); // для ввода; 
+
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+
+	//SetConsoleCP(65001);
+
+	cout << "Эх, вот бы жить в 2019..." << endl;
+	//setlocale(LC_ALL, "ru-RU");
+	//setlocale(LC_CTYPE, "rus"); // вызов функции настройки локали
+
+
+	string s;
+	
+	for (int i = 32; i < 300; i++)
+	{
+		char ch = i;  // Присвоили в ch число 1, символ, выводимый на экран будет иным
+		s += ch;
+
+		//cout <<'a' - 0 << endl;
+	}
+	//cout << "|" << s << "|\n";
+
+
+
+
+
+	string line;
+	char* ccc;
+	ifstream myfilez("data/rus_text.txt", ios::binary);
+	if (myfilez.is_open())
+	{
+
+		while (getline(myfilez, line))
+		{
+			//CharToOem("Ёпрст", ccc);
+
+		}
+
+		myfilez.close();
+	}
+	else cout << "Unable to open file";
+
+	//cout << "QQQ: " << "" << endl;
+	
+
 	for (int i = 0; i < 100; i++)
 	for (int j = 0; j < 100; j++)
 	{
@@ -82,7 +154,7 @@ int main()
 			{
 				int target_tile = tilemap[j + b][i + a];
 
-				if (target_tile >= 0) { available_tile[target_tile] = -1; }
+				//if (target_tile >= 0) { available_tile[target_tile] = -1; }
 			}
 
 
@@ -135,6 +207,9 @@ int main()
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glfwSetScrollCallback(window, scroll_callback);
+	glfwSetMouseButtonCallback(window, mouse_button_callback);
+
+
 
 	// glad: load all OpenGL function pointers
 	// ---------------------------------------
@@ -158,7 +233,7 @@ int main()
 	// ---------
 	load_texture("data/tile03.png",0);
 	load_texture("data/tile_info.png", 1);
-
+	load_texture("data/font_arial.png", 2);
 	// texture 2
 	// ---------
 	
@@ -168,18 +243,26 @@ int main()
 	ourShader->use();
 
 	//ourShader->setInt("texture2", 1);
-	glfwSwapInterval(1);
+	glfwSwapInterval(0);
 	
 
 	// render loop
 	// -----------
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, texture[0]);
 
 	batch = new Batcher();
 	batch2 = new Batcher();
+	font_batch = new Batcher();
+
+
 	camera = new ECamera();
+
+	font = new EFont();
 
 	camera->x = 0.0f;
 	camera->y = 0.0f;
@@ -193,52 +276,61 @@ int main()
 		int tile_x = tilemap[j][i] - tile_y * 4;
 
 
-		batch->draw_rect_without_color(0.1f * j, 0.1f * i, 0.05f, 0.05f, tile_x, tile_y);
-		batch2->draw_rect_without_color(0.1f* j, 0.1f* i, 0.05f, 0.05f, tile_x, tile_y);
+		batch->draw_rect(0.1f * j, 0.1f * i, 0.05f, 0.05f, tile_x, tile_y);
+		batch2->draw_rect(0.1f* j, 0.1f* i, 0.05f, 0.05f, tile_x, tile_y);
 	}
 
 	for (int i = 0; i < 900; i++)
 	{
 		batch->fill_indices();
 		batch2->fill_indices();
+		font_batch->fill_indices();
 	}
 
+	
+	font->load_font("!");
+
+	
+
+	/*
+	string cyr = "АБВГДЕЁЗЖИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюя";
+
+	for (int c = 0; c < cyr.length(); c++)
+	{
+		cout << "why? " << cyr.at(c) << " " << (int)cyr.at(c)+256 << endl;
+	}
+	*/
+
+
+
+	//string control_text = "Ну наконец-то эта ";
+
+	
 	batch->init();
 	batch2->init();
 
+	font_batch->reset();
+	batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "Ну наконец то эта ", 0, 0);
+	batch->setcolor_255(255, 0, 0, 100); font->draw(font_batch, "срань ", 0, 0);
+	batch->setcolor_255(0, 255, 0, 100); font->draw(font_batch, "заработала!", 0, 0);
+	font_batch->init();
+
 	while (!glfwWindowShouldClose(window))
 	{
+		clock_t time = clock();
+		delta_time = (time-saved_time_for_delta)/1000.0;
+		saved_time_for_delta = time;
+
 		camera->update();
-		transform = glm::scale(transform, glm::vec3((SCR_HEIGHT * 1.0f) / SCR_WIDTH, 1, 1));
-		// input
-		// -----
 
-
-		// render
-		// ------
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClearColor(0.1f, 0.11f, 0.12f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		// bind textures on corresponding texture units
-		//if (rand() % 10 <= 5)
-		//{
 
-		//}
-		//else
-		//{
-		//	glActiveTexture(GL_TEXTURE0);
-		//	glBindTexture(GL_TEXTURE_2D, texture2);
-		//}
-
-
-		//glActiveTexture(GL_TEXTURE1);
-		//glBindTexture(GL_TEXTURE_2D, texture2);
-
-		// create transformations
 		transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
 
 		transform = glm::translate(transform, glm::vec3(camera->x, camera->y, 0.0f));
-		transform = glm::scale(transform, glm::vec3((SCR_HEIGHT * 1.0f) / SCR_WIDTH * camera->zoom, camera->zoom, 1));
+		transform = glm::scale(transform, glm::vec3(camera->zoom*Helper::correction_x, camera->zoom * Helper::correction_y, 1));
 
 
 		//transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
@@ -256,22 +348,24 @@ int main()
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		*/
 
-		if (!draw_tile_info)
-		{
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, texture[0]);
-			ourShader->setInt("texture1", 0);
-		}
-		else
-		{
 
-			glActiveTexture(GL_TEXTURE1);
-			glBindTexture(GL_TEXTURE_2D, texture[1]);
-			ourShader->setInt("texture1", 1);
-		}
 
-		batch->draw_call();
-		
+
+		//batch->draw_call();
+
+		glActiveTexture(GL_TEXTURE2);
+		glBindTexture(GL_TEXTURE_2D, texture[2]);
+		ourShader->setInt("texture1", 2);
+
+		font_batch->reset();
+		font->x_adding = 0;
+		batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "Ну наконец то эта ", 0, 0);
+		batch->setcolor_255(255, 0, 0, 100); font->draw(font_batch, "срань ", 0, 0);
+		batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "заработала!", 0, 0);
+		font_batch->reinit();
+
+
+		font_batch->draw_call();
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		// -------------------------------------------------------------------------------
 		glfwSwapBuffers(window);
@@ -301,6 +395,7 @@ void load_texture(char const *_path, int _id)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	// load image, create texture and generate mipmaps
 	stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
+
 	data1 = stbi_load(_path, &width, &height, &nrChannels, STBI_rgb_alpha);
 	if (data1)
 	{
@@ -309,7 +404,7 @@ void load_texture(char const *_path, int _id)
 	}
 	else
 	{
-		std::cout << "Failed to load texture" << std::endl;
+		cout << "Failed to load texture" << endl;
 	}
 
 	stbi_image_free(data1);
@@ -324,11 +419,11 @@ void processInput(GLFWwindow* window)
 		glfwSetWindowShouldClose(window, true);
 	}	
 
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) { camera->speed_x += 0.0001f; }
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) { camera->speed_x -= 0.0001f; }
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) { camera->speed_x += 100.0f * delta_time*Helper::correction_x; }
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) { camera->speed_x -= 100.0f * delta_time * Helper::correction_x; }
 
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) { camera->speed_y -= 0.0001f; }
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) { camera->speed_y += 0.0001f; }
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) { camera->speed_y -= 100.0f * delta_time * Helper::correction_y; }
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) { camera->speed_y += 100.0f * delta_time * Helper::correction_y; }
 
 	if (glfwGetKey(window, GLFW_KEY_HOME) == GLFW_PRESS) { camera->zoom = 1.0f; }
 
@@ -345,10 +440,23 @@ void framebuffer_size_callback(GLFWwindow * window, int width, int height)
 	// height will be significantly larger than specified on retina displays.
 	glViewport(0, 0, width, height);
 
-	std::cout << "Resize event" << std::endl;
+	
+
 
 	glfwGetWindowSize(window, &SCR_WIDTH, &SCR_HEIGHT);
+
+	std::cout << "Resize event width:" << width << " height: " << height << std::endl;
+
+	recalculate_correction();
 	
+}
+
+void recalculate_correction()
+{
+	Helper::correction_x = 1.0 / SCR_WIDTH * 2.0;
+	Helper::correction_y = 1.0 / SCR_HEIGHT * 2.0;
+
+	std::cout << "helper correction_x: " << Helper::correction_x << " correction_y: " << Helper::correction_y << std::endl;
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
@@ -369,3 +477,15 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 		camera->y *= 0.5f;
 	}
 }
+
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
+	{
+		double xpos, ypos;
+		//getting cursor position
+		glfwGetCursorPos(window, &xpos, &ypos);
+		cout << "Cursor Position at (" << xpos << " : " << ypos << endl;
+	}
+}
+

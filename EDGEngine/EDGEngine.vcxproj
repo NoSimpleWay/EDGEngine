@@ -132,13 +132,17 @@
     <ClCompile Include="EInit.cpp" />
     <ClCompile Include="ETexture.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="EFont.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h" />
     <ClInclude Include="ECamera.h" />
     <ClInclude Include="EInit.h" />
     <ClInclude Include="ETexture.h" />
+    <ClInclude Include="EFont.h" />
+    <ClInclude Include="Helper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

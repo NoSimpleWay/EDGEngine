@@ -22,6 +22,6 @@ void ECamera::update()
 	x += speed_x;
 	y += speed_y;
 
-	speed_x *= 0.992f;
-	speed_y *= 0.992f;
+	speed_x *= 0.9f;
+	speed_y *= 0.9f;
 }

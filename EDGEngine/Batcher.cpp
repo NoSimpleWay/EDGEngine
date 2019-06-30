@@ -1,4 +1,5 @@
 #include "Batcher.h"
+#include "Helper.h"
 
 #include <glad/glad.h>
 #include <iostream>
@@ -17,6 +18,8 @@ float batch_color_g = 1;
 float batch_color_b = 1;
 float batch_color_a = 1;
 
+
+
 void setcolor(float _r, float _g, float _b, float _a)
 {
 	batch_color_r = _r;
@@ -25,10 +28,6 @@ void setcolor(float _r, float _g, float _b, float _a)
 	batch_color_a = _a;
 }
 
-void setcolor_255(int _r, int _g, int _b, int _a)
-{
-	setcolor(_r / 255.0f, _g / 255.0f, _b / 255.0f, _a / 100.0f);
-}
 
 
 Batcher::Batcher()
@@ -52,11 +51,14 @@ void Batcher::init()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	// position attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-	// texture coord attribute
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+	// color attribute
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
+	// texture coord attribute
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glEnableVertexAttribArray(2);
 }
 
 void Batcher::draw_rect(float _x, float _y, float _w, float _h, int _tx, int _ty)
@@ -70,8 +72,8 @@ void Batcher::draw_rect(float _x, float _y, float _w, float _h, int _tx, int _ty
 	vertices[id + 4] = batch_color_g;
 	vertices[id + 5] = batch_color_b;
 
-	vertices[id + 6] = 0.333f + 0.333f * _tx;
-	vertices[id + 7] = 0.333f + 0.333f * _ty;
+	vertices[id + 6] = 0.25f + 0.25f * _tx;
+	vertices[id + 7] = 0.20f + 0.20f * _ty;
 
 
 
@@ -83,8 +85,8 @@ void Batcher::draw_rect(float _x, float _y, float _w, float _h, int _tx, int _ty
 	vertices[id + 12] = batch_color_g;
 	vertices[id + 13] = batch_color_b;
 
-	vertices[id + 14] = 0.333f + 0.333f * _tx;
-	vertices[id + 15] = 0.0f + 0.333f * _ty;
+	vertices[id + 14] = 0.25f + 0.25f * _tx;
+	vertices[id + 15] = 0.0f + 0.20f * _ty;
 
 
 
@@ -96,8 +98,8 @@ void Batcher::draw_rect(float _x, float _y, float _w, float _h, int _tx, int _ty
 	vertices[id + 20] = batch_color_g;
 	vertices[id + 21] = batch_color_b;
 
-	vertices[id + 22] = 0.0f + 0.333f * _tx;
-	vertices[id + 23] = 0.0f + 0.333f * _ty;
+	vertices[id + 22] = 0.0f + 0.25f * _tx;
+	vertices[id + 23] = 0.0f + 0.20f * _ty;
 
 
 
@@ -109,8 +111,8 @@ void Batcher::draw_rect(float _x, float _y, float _w, float _h, int _tx, int _ty
 	vertices[id + 28] = batch_color_g;
 	vertices[id + 29] = batch_color_b;
 
-	vertices[id + 30] = 0.0f + 0.333f * _tx;
-	vertices[id + 31] = 0.33f + 0.333f * _ty;
+	vertices[id + 30] = 0.0f + 0.25f * _tx;
+	vertices[id + 31] = 0.20f + 0.20f * _ty;
 
 	id += 32;
 }
@@ -165,6 +167,76 @@ void Batcher::draw_rect_without_color(float _x, float _y, float _w, float _h, in
 	id += 20;
 }
 
+void Batcher::draw_rect_with_uv(float _x, float _y, float _w, float _h, float _start_x, float _start_y, float _end_x, float _end_y)
+{
+	//std::cout << "filled rect" << std::endl;
+
+	//.#
+	//..
+	vertices[id + 0] = (_x + _w);
+	vertices[id + 1] = (_y + _h);
+	vertices[id + 2] = 0;
+
+	vertices[id + 3] = batch_color_r;
+	vertices[id + 4] = batch_color_g;
+	vertices[id + 5] = batch_color_b;
+
+	vertices[id + 6] = _end_x;
+	vertices[id + 7] = _end_y;
+
+
+
+
+
+	//..
+	//.#
+	vertices[id + 8] = (_x + _w);
+	vertices[id + 9] = _y;
+	vertices[id + 10] = 0;
+
+	vertices[id + 11] = batch_color_r;
+	vertices[id + 12] = batch_color_g;
+	vertices[id + 13] = batch_color_b;
+
+	vertices[id + 14] = _end_x;
+	vertices[id + 15] =_start_y;
+
+
+
+
+	//..
+	//#.
+	vertices[id + 16] = _x;
+	vertices[id + 17] = _y;
+	vertices[id + 18] = 0;
+
+	vertices[id + 19] = batch_color_r;
+	vertices[id + 20] = batch_color_g;
+	vertices[id + 21] = batch_color_b;
+
+	vertices[id + 22] =_start_x;
+	vertices[id + 23] =_start_y;
+
+
+
+
+
+	//#.
+	//..
+	vertices[id + 24] = _x;
+	vertices[id + 25] = (_y + _h);
+	vertices[id + 26] = 0;
+
+	vertices[id + 27] = batch_color_r;
+	vertices[id + 28] = batch_color_g;
+	vertices[id + 29] = batch_color_b;
+
+	vertices[id + 30] =_start_x;
+	vertices[id + 31] =_end_y;
+
+	id += 32;
+}
+
 void Batcher::fill_indices()
 {
 	indices[indices_id + 0] = indices_order + 0;
@@ -178,6 +250,11 @@ void Batcher::fill_indices()
 
 	indices_id += 6;
 	indices_order += 4;
+}
+
+void Batcher::setcolor_255(int _r, int _g, int _b, int _a)
+{
+	setcolor(_r / 255.0f, _g / 255.0f, _b / 255.0f, _a / 100.0f);
 }
 
 
@@ -198,5 +275,13 @@ void Batcher::draw_call()
 {
 	//reinit();
 	glBindVertexArray(VAO);
-	glDrawElements(GL_TRIANGLES, 6*(id/20), GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 6*(id/32), GL_UNSIGNED_INT, 0);
+}
+
+void Batcher::reset()
+{
+	id = 0;
+	indices_id = 0;
+	indices_order = 0;
+
 }
