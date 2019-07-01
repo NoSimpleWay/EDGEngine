@@ -27,6 +27,8 @@ int font_array_id = 32;
 
 float x_addind = 0;
 
+bool show_console_info = false;
+
 EFont::EFont()
 {
 }
@@ -90,8 +92,8 @@ void EFont::draw(Batcher* _batcher, string _s, float _x, float _y)
 
 		_batcher->draw_rect_with_uv
 		(
-			1 + x_adding - offset_x[target_symbol],
-			0.5 - offset_y[target_symbol],
+			_x + x_adding - offset_x[target_symbol],
+			_y - offset_y[target_symbol],
 
 			real_size_x[target_symbol],
 			real_size_y[target_symbol],
@@ -145,39 +147,39 @@ void EFont::load_font(string _path)
 				if ((line.at(i) == ' ')||(i+1>= line.length()))
 				{
 					
-					cout << "subdata | " << sub_data << " |" << endl;
+					//if (show_console_info)cout << "subdata | " << sub_data << " |" << endl;
 					if (compare_with_key (sub_data,"text="))
 					{
-						cout << "name | " << sub_data << " | id:" <<font_array_id << endl;
+						if (show_console_info) cout << "name | " << sub_data << " | id:" <<font_array_id << endl;
 						name[font_array_id] =sub_data;
 					}
 					if (compare_with_key (sub_data,"x="))
 					{
-						cout << "x pos | " << get_data_from_sub_data(sub_data) << " |" << endl;
+						if (show_console_info) cout << "x pos | " << get_data_from_sub_data(sub_data) << " |" << endl;
 						x[font_array_id] = get_data_from_sub_data(sub_data);
 					}
 					
 					if (compare_with_key(sub_data, "y="))
 					{ 
-						//cout << "y pos | " << get_data_from_sub_data(sub_data) << " |" << endl;
+						if (show_console_info) cout << "y pos | " << get_data_from_sub_data(sub_data) << " |" << endl;
 						y[font_array_id] = get_data_from_sub_data(sub_data);
 					}
 					
 					if (compare_with_key(sub_data, "width="))
 					{
-						//cout << "x size | " << get_data_from_sub_data(sub_data) << " |" << endl;
+						if (show_console_info) cout << "x size | " << get_data_from_sub_data(sub_data) << " |" << endl;
 						real_size_x[font_array_id] = size_x[font_array_id] = get_data_from_sub_data(sub_data);
 					}
 
 					if (compare_with_key(sub_data, "height="))
 					{
 						real_size_y[font_array_id] = size_y[font_array_id] = get_data_from_sub_data(sub_data);
-						//cout << "y size | " << size_y[font_array_id] << " |" << endl;
+						if (show_console_info) cout << "y size | " << size_y[font_array_id] << " |" << endl;
 					}
 
 					if (compare_with_key(sub_data, "origin-x="))
 					{
-						//cout << "x offset | " << get_data_from_sub_data(sub_data) << " |" << endl;
+						if (show_console_info) cout << "x offset | " << get_data_from_sub_data(sub_data) << " |" << endl;
 						offset_x[font_array_id] = get_data_from_sub_data(sub_data);
 					}
 
@@ -185,14 +187,14 @@ void EFont::load_font(string _path)
 					{
 						
 						offset_y[font_array_id] = size_y[font_array_id]-get_data_from_sub_data(sub_data);
-						//cout << "y offset | size_y=" << size_y[font_array_id] <<" offset=" << get_data_from_sub_data(sub_data) << " result=" << offset_y[font_array_id] << " |" << endl;
+						if (show_console_info) cout << "y offset | size_y=" << size_y[font_array_id] <<" offset=" << get_data_from_sub_data(sub_data) << " result=" << offset_y[font_array_id] << " |" << endl;
 
 	
 					}
 
 					if (compare_with_key(sub_data, "advance="))
 					{
-						//cout << "advance | " << get_data_from_sub_data(sub_data) << " |" << endl;
+						if (show_console_info) cout << "advance | " << get_data_from_sub_data(sub_data) << " |" << endl;
 						advance[font_array_id] = get_data_from_sub_data(sub_data);
 
 						

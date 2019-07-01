@@ -13,14 +13,14 @@ unsigned int id = 0;
 unsigned int indices_id = 0;
 unsigned int indices_order = 0;
 
-float batch_color_r = 1;
-float batch_color_g = 1;
-float batch_color_b = 1;
-float batch_color_a = 1;
+float batch_color_r;
+float batch_color_g;
+float batch_color_b;
+float batch_color_a;
 
 
 
-void setcolor(float _r, float _g, float _b, float _a)
+void Batcher::setcolor(float _r, float _g, float _b, float _a)
 {
 	batch_color_r = _r;
 	batch_color_g = _g;

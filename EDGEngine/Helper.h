@@ -5,7 +5,19 @@ public:
 	static float correction_x;
 	static float correction_y;
 
-	Helper();
-	~Helper();
-	
+	static float correction_x_offset;
+	static float correction_y_offset;
+
+	static int x;
+	static int y;
+
+	Helper()
+	{
+
+	}
+
+	~Helper()
+	{
+
+	}
 };

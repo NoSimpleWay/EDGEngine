@@ -42,12 +42,12 @@
     <ClCompile Include="Helper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ETexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ECamera.h">

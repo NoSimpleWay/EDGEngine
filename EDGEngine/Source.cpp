@@ -21,20 +21,33 @@
 #include "EFont.h"
 
 #include <ctime>
-#include "Helper.h"
+#include "Helper.h";
+#include <vector>
+#include "EButton.cpp"
+
+
+
+#include "ETexture.cpp"
 
 using namespace std;
 
 //Helper helper_object;
+
 float Helper::correction_x = 0;
 float Helper::correction_y = 0;
 
+float Helper::correction_x_offset = 0;
+float Helper::correction_y_offset = 0;
+
+static int im_static = 0;
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void recalculate_correction();
 void processInput(GLFWwindow* window);
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+void mouse_position_callback(GLFWwindow* window, double _x, double _y);
+void char_input_callback(GLFWwindow* window, unsigned int _char);
 
 //void load_texture();
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
@@ -44,7 +57,8 @@ void load_texture(const char* _path, int _id);
 int SCR_WIDTH = 640;
 int SCR_HEIGHT = 640;
 
-unsigned int texture[32];
+
+
 int width, height, nrChannels;
 unsigned char* data1;
 unsigned char* data2;
@@ -71,15 +85,38 @@ bool draw_tile_info = false;
 float delta_time;
 float saved_time_for_delta;
 
-string work_text;
+string work_text="";
+std::vector<int> v = { 7, 5, 16, 8 };
+
+std::vector<EButton*> button_list;
+
+
+int Helper::x = 0;
+int Helper::y = 0;
+
+unsigned int ETexture::texture[32];
 
 int main()
 {
-	recalculate_correction();
-	setlocale(LC_ALL, ".1251"); // для ввода; 
+	button_list.push_back (new EButton());
 
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+	cout << "vector [2]=" << v.at(2) << endl;
+	ofstream myfile;
+	myfile.open("example.txt");
+
+	for (int i = 0; i < 256; i++)
+	{
+		myfile << (char)i;
+	}
+	myfile.close();
+
+	recalculate_correction();
+	setlocale(LC_ALL, "Russian");
+	setlocale(LC_ALL, "ru_RU.UTF-8");
+	setlocale(LC_ALL, "");
+
+	//SetConsoleCP(1251);
+	//SetConsoleOutputCP(1251);
 
 	//SetConsoleCP(65001);
 
@@ -204,11 +241,14 @@ int main()
 		glfwTerminate();
 		return -1;
 	}
+
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glfwSetScrollCallback(window, scroll_callback);
 	glfwSetMouseButtonCallback(window, mouse_button_callback);
+	glfwSetCursorPosCallback(window, mouse_position_callback);
 
+	glfwSetCharCallback(window, char_input_callback);
 
 
 	// glad: load all OpenGL function pointers
@@ -243,7 +283,7 @@ int main()
 	ourShader->use();
 
 	//ourShader->setInt("texture2", 1);
-	glfwSwapInterval(0);
+	glfwSwapInterval(1);
 	
 
 	// render loop
@@ -253,7 +293,7 @@ int main()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, texture[0]);
+	glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
 
 	batch = new Batcher();
 	batch2 = new Batcher();
@@ -329,7 +369,7 @@ int main()
 
 		transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
 
-		transform = glm::translate(transform, glm::vec3(camera->x, camera->y, 0.0f));
+		transform = glm::translate(transform, glm::vec3(camera->x-1, camera->y-1, 0.0f));
 		transform = glm::scale(transform, glm::vec3(camera->zoom*Helper::correction_x, camera->zoom * Helper::correction_y, 1));
 
 
@@ -354,18 +394,39 @@ int main()
 		//batch->draw_call();
 
 		glActiveTexture(GL_TEXTURE2);
-		glBindTexture(GL_TEXTURE_2D, texture[2]);
+		glBindTexture(GL_TEXTURE_2D, ETexture::texture[2]);
 		ourShader->setInt("texture1", 2);
 
 		font_batch->reset();
-		font->x_adding = 0;
-		batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "Ну наконец то эта ", 0, 0);
-		batch->setcolor_255(255, 0, 0, 100); font->draw(font_batch, "срань ", 0, 0);
-		batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "заработала!", 0, 0);
+			
+			//batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "123 Ну наконец то эта ", 0, 0);
+			//batch->setcolor_255(255, 0, 0, 100); font->draw(font_batch, "срань ", 0, 0);
+			//batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "заработала!", 0, 0);
+			font->x_adding = 0;
+			batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "!!!"+work_text, 0, 100);
+			/*
+			for (int i=0; i<10; i++)
+			for (int j = 0; j < 10; j++)
+			{
+				font->x_adding = 0;
+			
+
+				font->draw(font_batch, "Ё", j*100, i*100);
+			}*/
 		font_batch->reinit();
 
 
 		font_batch->draw_call();
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
+		ourShader->setInt("texture1", 0);
+
+		batch->reset();
+		//batch->setcolor_255(0, 0, 255, 100);
+		button_list.at(0)->draw(batch);
+		batch->reinit();
+		batch->draw_call();
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		// -------------------------------------------------------------------------------
 		glfwSwapBuffers(window);
@@ -385,8 +446,8 @@ int main()
 
 void load_texture(char const *_path, int _id)
 {
-	glGenTextures(_id, &texture[_id]);
-	glBindTexture(GL_TEXTURE_2D, texture[_id]);
+	glGenTextures(_id, &ETexture::texture[_id]);
+	glBindTexture(GL_TEXTURE_2D, ETexture::texture[_id]);
 	// set the texture wrapping parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -419,7 +480,7 @@ void processInput(GLFWwindow* window)
 		glfwSetWindowShouldClose(window, true);
 	}	
 
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) { camera->speed_x += 100.0f * delta_time*Helper::correction_x; }
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) { camera->speed_x += 100.0f * delta_time * Helper::correction_x; }
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) { camera->speed_x -= 100.0f * delta_time * Helper::correction_x; }
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) { camera->speed_y -= 100.0f * delta_time * Helper::correction_y; }
@@ -436,19 +497,12 @@ void processInput(GLFWwindow* window)
 // ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow * window, int width, int height)
 {//
-	// make sure the viewport matches the new window dimensions; note that width and 
-	// height will be significantly larger than specified on retina displays.
 	glViewport(0, 0, width, height);
-
-	
-
-
 	glfwGetWindowSize(window, &SCR_WIDTH, &SCR_HEIGHT);
 
 	std::cout << "Resize event width:" << width << " height: " << height << std::endl;
 
 	recalculate_correction();
-	
 }
 
 void recalculate_correction()
@@ -487,5 +541,27 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		glfwGetCursorPos(window, &xpos, &ypos);
 		cout << "Cursor Position at (" << xpos << " : " << ypos << endl;
 	}
+}
+
+void mouse_position_callback(GLFWwindow* window, double _x, double _y)
+{
+	cout << "Mouse move (" << _x << " : " << _y << endl;
+	Helper::x = _x;
+	Helper::y = SCR_HEIGHT-_y;
+}
+
+void char_input_callback(GLFWwindow* window, unsigned int _char)
+{
+	int inputed_c = (int)_char;
+
+	if (inputed_c == 1025) { inputed_c = 168; }
+	else
+	if (inputed_c == 1105) { inputed_c = 184; }
+	else
+	if (inputed_c > 255) { inputed_c -= 848; }
+
+	cout << "input character: " << inputed_c <<"|"<<(int)_char << "[  " << (char)inputed_c << " ]" << " ("<<work_text<<")" <<endl;
+
+	work_text += (char)inputed_c;
 }
 

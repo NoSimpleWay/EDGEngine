@@ -135,12 +135,12 @@
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="EFont.cpp" />
+    <ClCompile Include="EButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h" />
     <ClInclude Include="ECamera.h" />
     <ClInclude Include="EInit.h" />
-    <ClInclude Include="ETexture.h" />
     <ClInclude Include="EFont.h" />
     <ClInclude Include="Helper.h" />
   </ItemGroup>

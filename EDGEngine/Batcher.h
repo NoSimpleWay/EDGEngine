@@ -10,8 +10,15 @@ public:
 	void draw_rect_without_color(float _x, float _y, float _w, float _h, int _tx, int _ty);
 	void draw_rect_with_uv(float _x, float _y, float _w, float _h, float _start_x, float _start_y, float _end_x, float _end_y);
 	void fill_indices();
+
 	void setcolor_255(int _r, int _g, int _b, int _a);
+	void setcolor(float _r, float _g, float _b, float _a);
 	~Batcher();
+
+	float batch_color_r;
+	float batch_color_g;
+	float batch_color_b;
+	float batch_color_a;
 
 	void reinit();
 
