@@ -30,9 +30,9 @@ public:
 		//ETexture::texture[0] = 0;
 		//std::cout << "" << std::endl;
 
-		std::cout << Helper::x << " " << Helper::y << " " << std::endl;
+		//std::cout << Helper::x << " " << Helper::y << " " << std::endl;
 
-		if ((Helper::x>x) && (Helper::x < x+size_x) && (Helper::y > y) && (Helper::y < y + size_y))
+		if ((x>x) && (mouse_x < x+size_x) && (mouse_y > y) && (mouse_y < y + size_y))
 		{
 			return true;
 		}

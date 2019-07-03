@@ -24,20 +24,17 @@
 #include "Helper.h";
 #include <vector>
 #include "EButton.cpp"
+#include "FilterBlock.cpp"
 
 
 
 #include "ETexture.cpp"
 
 using namespace std;
-
+using namespace VectorMath;
 //Helper helper_object;
 
-float Helper::correction_x = 0;
-float Helper::correction_y = 0;
 
-float Helper::correction_x_offset = 0;
-float Helper::correction_y_offset = 0;
 
 static int im_static = 0;
 
@@ -89,18 +86,332 @@ string work_text="";
 std::vector<int> v = { 7, 5, 16, 8 };
 
 std::vector<EButton*> button_list;
+std::vector<FilterBlock*> filter_block_list;
 
-
-int Helper::x = 0;
-int Helper::y = 0;
 
 unsigned int ETexture::texture[32];
 
+string username;
+string path_to_poe_folder;
+
+
+#include <windows.h>
+#include <Lmcons.h>
+#include <shlobj.h>
+#include "Enums.h"
+
+#include "ConsoleColor.h"
+
+int block_scroll=0;
+
+string tchar_to_string(TCHAR* _t)
+{
+	for (int i=0; i<UNLEN; i++)
+	{cout << "char at [" << i << "] | "<< _t[i] <<" |" << endl;}
+
+	return "!";
+}
+
+bool convert_text_to_bool(string _text)
+{
+	if (_text == "True")
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void parse_loot_filter_data(string _path)
+{
+	ifstream myfile;
+	myfile.open(_path);
+
+	string line;
+	int line_number = 0;
+	int data_order = 0;
+	
+	Enums::ParserMode parser_mode = Enums::ParserMode::NOTHING;
+
+	cout << endl << endl << endl;
+
+	FilterBlock* just_created_block = new FilterBlock();
+
+	int error_counts = 0;
+
+	while ((getline(myfile, line))&&(line_number<100))
+	{
+
+		//std::cout << "array is " << sizeof(condition_names)  << " length" << std::endl;
+
+		bool comment_mode = false;
+		string subdata = "";
+		data_order = 0;
+		parser_mode = Enums::ParserMode::NOTHING;
+
+		bool space_is_not_separator = false;
+
+		
+
+		cout << "#################" << endl;
+		cout <<green<< "___what readed: '" << blue << line  <<"'" << white << endl;
+		cout << "#################" << endl << endl;
+
+		for (int i = 0; i < line.length(); i++)
+		{
+			if (line.at(i) == '"') { space_is_not_separator = !space_is_not_separator; }
+			if (line.at(i) == '#') { comment_mode = true; cout << "comment mode activate, now i dont parse data by normal way" << endl;  parser_mode = Enums::ParserMode::NOTHING; }
+
+			if (	((line.at(i) != ' ')||(space_is_not_separator)) && (line.at(i) != '\t') && (line.at(i) != '"'))
+			{
+				subdata += line.at(i);
+			}
+			
+			if
+			(
+				(				
+					((line.at(i) == ' ')&&(!space_is_not_separator)) || (line.at(i) == '\t')||(i+1>=line.length())
+				)
+			)
+			{
+				
+				if (subdata.length() > 0)
+				{
+					//if ((i >= line.length())&&(line.at(i)!=' ')) { subdata += line.at(i); }
+
+					cout << "--- subdata:'" << subdata <<"'" << endl;
+					
+
+					if (parser_mode == Enums::ParserMode::NOTHING)
+					{
+						if (!comment_mode)
+						{
+							if (subdata == "Show") { just_created_block = new FilterBlock(); filter_block_list.push_back(just_created_block); parser_mode = Enums::ParserMode::SHOW;  cout << "And new block is created!" << endl; }
+
+							if (subdata == "Corrupted") { parser_mode = Enums::ParserMode::IS_CORRUPTED; just_created_block->is_corrupted_active = true; }
+							if (subdata == "LinkedSockets") { parser_mode = Enums::ParserMode::LINKED_SOCKETS; just_created_block->is_links_active = true; }
+							if (subdata == "Rarity") { parser_mode = Enums::ParserMode::RARITY; just_created_block->is_item_rarity_active = true; }
+							if (subdata == "Class") { parser_mode = Enums::ParserMode::CLASS; }
+
+							if (subdata == "SetFontSize") { parser_mode = Enums::ParserMode::FONT_SIZE; just_created_block->is_font_size_active = true;}
+							if (subdata == "SetTextColor") { parser_mode = Enums::ParserMode::TEXT_COLOR; just_created_block->is_text_color_active = true;
+							}
+							if (subdata == "SetBorderColor") { parser_mode = Enums::ParserMode::BORDER_COLOR; just_created_block->is_rama_color_active = true;}
+							if (subdata == "SetBackgroundColor") { parser_mode = Enums::ParserMode::BACKGROUND_COLOR; just_created_block->is_bg_color_active = true;}
+
+							if (subdata == "PlayAlertSound") { parser_mode = Enums::ParserMode::ALERT_SOUND; just_created_block->is_alert_sound = true;}
+							if (subdata == "PlayEffect") { parser_mode = Enums::ParserMode::RAY; just_created_block->is_ray = true;}
+							if (subdata == "MinimapIcon") { parser_mode = Enums::ParserMode::MINIMAP_ICON; just_created_block->is_minimap_icon = true;}
+
+							if (subdata == "BaseType") { parser_mode = Enums::ParserMode::BASETYPE; }
+
+							if (subdata == "ShaperItem") { parser_mode = Enums::ParserMode::IS_SHAPER_ITEM; just_created_block->is_shaper_item_active = true;}
+							if (subdata == "ItemLevel") { parser_mode = Enums::ParserMode::ITEM_LEVEL; just_created_block->is_item_level_active = true; }
+							if (subdata == "HasExplicitMod") { parser_mode = Enums::ParserMode::EXPLICIT_MOD; }
+							if (subdata == "Identified") { parser_mode = Enums::ParserMode::IDENTIFIED; just_created_block->is_identified_active = true;}
+							
+						}
+					}
+					else
+					{
+						if (parser_mode == Enums::ParserMode::IS_CORRUPTED)
+						{
+							if (data_order == 0) { cout << "activate corrupted property" << endl; }
+							if (data_order == 1) { cout << "set corruption as <" << subdata << ">" << endl; just_created_block->is_corrupted = convert_text_to_bool(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::LINKED_SOCKETS)
+						{
+							if (data_order == 0) { cout << "activate links property" << endl; }
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata))) { cout << "set links as <" << subdata << ">" << endl; just_created_block->links_count = std::stoi(subdata); just_created_block->links_condition = Enums::ConditionSymbols::EQUAL; }
+							if ((data_order == 1) && (check_is_condition_symbols(subdata))) { cout << "set links condition as <" << subdata << ">" << endl; just_created_block->links_condition = Enums::ConditionSymbols(get_id_from_array(condition_names,subdata)); }
+
+							if (data_order == 2) { cout << "set links as <" << subdata << ">" << endl; just_created_block->links_count = std::stoi(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::RARITY)
+						{
+							if (data_order == 0) { cout << "activate rarity property" << endl; }
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata))) { cout << "set rarity as <" << subdata << ">" << endl; just_created_block->item_rarity = Enums::rarity(get_id_from_array(rarity_value,subdata)); just_created_block->rarity_condition = Enums::ConditionSymbols::EQUAL; }
+							if ((data_order == 1) && (check_is_condition_symbols(subdata))) { cout << "set rarity condition as <" << subdata << ">" << endl; just_created_block->rarity_condition = Enums::ConditionSymbols(get_id_from_array(condition_names, subdata)); }
+
+							if (data_order == 2) { cout << "set rarity as <" << subdata << ">" << endl; just_created_block->item_rarity = Enums::rarity(get_id_from_array(rarity_value, subdata));}
+						}
+
+
+						if (parser_mode == Enums::ParserMode::CLASS)
+						{
+							//if (data_order == 0) { cout << "activate rarity property" << endl; }
+							if (data_order > 0) { cout << "add new base class <" << subdata << ">" << endl; just_created_block->class_list.push_back(new string(subdata)); }
+						}
+
+						if (parser_mode == Enums::ParserMode::FONT_SIZE)
+						{
+							//if (data_order == 0) { cout << "activate rarity property" << endl; }
+							if (data_order > 0) { cout << "set font size <" << subdata << ">" << endl; just_created_block->font_size=std::stoi(subdata); }
+						}
+						
+						if (parser_mode == Enums::ParserMode::TEXT_COLOR)
+						{
+							if (data_order == 0) { cout << "activate text color property" << endl;}
+							if (data_order == 1) { cout << "set font color (red) <" << subdata << ">" << endl; just_created_block->text_color_red=std::stoi(subdata); }
+							if (data_order == 2) { cout << "set font color (green) <" << subdata << ">" << endl; just_created_block->text_color_green=std::stoi(subdata); }
+							if (data_order == 3) { cout << "set font color (blue) <" << subdata << ">" << endl; just_created_block->text_color_blue=std::stoi(subdata); }
+							if (data_order == 4) { cout << "set font color (alpha) <" << subdata << ">" << endl; just_created_block->text_color_alpha=std::stoi(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::BORDER_COLOR)
+						{
+							if (data_order == 0) { cout << "activate border color property" << endl;  }
+							if (data_order == 1) { cout << "set border color (red) <" << subdata << ">" << endl; just_created_block->rama_red = std::stoi(subdata); }
+							if (data_order == 2) { cout << "set border color (green) <" << subdata << ">" << endl; just_created_block->rama_green = std::stoi(subdata); }
+							if (data_order == 3) { cout << "set border color (blue) <" << subdata << ">" << endl; just_created_block->rama_blue = std::stoi(subdata); }
+							if (data_order == 4) { cout << "set border color (alpha) <" << subdata << ">" << endl; just_created_block->rama_alpha = std::stoi(subdata); }
+						}						
+						
+						if (parser_mode == Enums::ParserMode::BACKGROUND_COLOR)
+						{
+							if (data_order == 0) { cout << "activate background color property" << endl;  }
+							if (data_order == 1) { cout << "set background color (red) <" << subdata << ">" << endl; just_created_block->bg_red = std::stoi(subdata); }
+							if (data_order == 2) { cout << "set background color (green) <" << subdata << ">" << endl; just_created_block->bg_green = std::stoi(subdata); }
+							if (data_order == 3) { cout << "set background color (blue) <" << subdata << ">" << endl; just_created_block->bg_blue = std::stoi(subdata); }
+							if (data_order == 4) { cout << "set background color (alpha) <" << subdata << ">" << endl; just_created_block->bg_alpha = std::stoi(subdata); }
+						}
+						
+						if (parser_mode == Enums::ParserMode::ALERT_SOUND)
+						{
+							if (data_order == 0) { cout << "activate alert sound property" << endl;  }
+							if (data_order == 1) { cout << "set alert sound name <" << subdata << ">" << endl; just_created_block->alert_sound_name = subdata; }
+							if (data_order == 2) { cout << "set alert sound volume <" << subdata << ">" << endl; just_created_block->alert_sound_volume = std::stoi(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::RAY)
+						{
+							if (data_order == 0) { cout << "activate ray property" << endl; }
+
+							if (data_order == 1) { cout << "set ray color <" << subdata << ">" << endl; just_created_block->ray_color = Enums::GameColors(get_id_from_game_color_text(subdata)); }
+							//if (data_order == 2) { cout << "set alert sound volume <" << subdata << ">" << endl; just_created_block->alert_sound_volume = std::stoi(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::BASETYPE)
+						{
+							//if (data_order == 0) { cout << "activate rarity property" << endl; }
+							if (data_order > 0) { cout << "add new base type <" << subdata << ">" << endl; just_created_block->base_type_list.push_back(new string(subdata)); }
+						}
+
+						if (parser_mode == Enums::ParserMode::IS_SHAPER_ITEM)
+						{
+							if (data_order == 0) { cout << "activate shaper item property" << endl; }
+							if (data_order == 1) { cout << "set shaper item as <" << subdata << ">" << endl; just_created_block->is_shaper_item = convert_text_to_bool(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::ITEM_LEVEL)
+						{
+							if (data_order == 0) { cout << "activate item level" << endl; }
+
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata))) { cout << "set item level as <" << subdata << "> condition autogenerated" << endl; just_created_block->item_level = std::stoi(subdata); just_created_block->item_level_condition = Enums::ConditionSymbols::EQUAL; }
+							if ((data_order == 1) && (check_is_condition_symbols(subdata))) { cout << "set item level condition as <" << subdata << "> id of symbol=" << get_id_from_array(condition_names, "=") << endl; just_created_block->item_level_condition = Enums::ConditionSymbols(get_id_from_array(condition_names, subdata)); }
+
+							if (data_order == 2) { cout << "set item_level as <" << subdata << ">" << endl; just_created_block->item_level = std::stoi(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::EXPLICIT_MOD)
+						{
+							//if (data_order == 0) { cout << "activate rarity property" << endl; }
+							if (data_order > 0) { cout << "add new explicit mod <" << subdata << ">" << endl; just_created_block->explicit_mod_list.push_back(new string(subdata)); }
+						}
+
+						if (parser_mode == Enums::ParserMode::IDENTIFIED)
+						{
+							if (data_order == 0) { cout << "activate indetify property" << endl; }
+							if (data_order == 1) { cout << "set indetification as <" << subdata << ">" << endl; just_created_block->is_identified = convert_text_to_bool(subdata); }
+						}
+
+
+
+					}
+
+					data_order++;
+					if ((data_order == 1) && (parser_mode == Enums::ParserMode::NOTHING) && (!comment_mode))
+					{ 
+						cout << red << "=================================================" << endl;
+						cout << red << "ERROR: undefined property: " << yellow << "" << subdata << endl;
+						cout << red << "=================================================" << endl<<white;
+
+						error_counts++;
+					}
+
+					subdata = "";
+				}
+				else
+				{
+					cout << "--EMPTY SUBDATA#" << endl;
+				}
+			}
+		}
+		cout <<  endl << endl;
+		
+		line_number++;
+	}
+
+	if (error_counts <= 0) { cout << green << "Error count:0"; }
+	else
+	{
+		cout << red << "Error count:" << yellow << error_counts << white << endl;;
+	}
+	myfile.close();
+}
+
 int main()
 {
-	button_list.push_back (new EButton());
 
-	cout << "vector [2]=" << v.at(2) << endl;
+	CHAR my_documents[MAX_PATH];
+	HRESULT result = SHGetFolderPath(NULL, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, my_documents);
+
+	if (result != S_OK)
+	{
+		std::cout << "Error: " << result << "\n";
+	}
+	else
+	{
+		path_to_poe_folder = (string)my_documents + "\\My Games\\Path of Exile\\";
+		std::cout << "Path: " << path_to_poe_folder << "\n";
+		
+	}
+
+	button_list.push_back(new EButton());
+
+	//filter_block_list.push_back(new FilterBlock());
+	//cout << "vector [2]=" << v.at(2) << endl;
+
+	TCHAR name[UNLEN + 1];
+	DWORD size = UNLEN + 1;
+
+
+
+
+
+	if (GetUserName(name, &size))
+	{
+		username = name;
+		cout << "Hello, " << username << "!\n";
+	}
+	else
+	{
+		cout << "Hello, unnamed person!\n";
+	}
+
+	//##################################
+	//##################################
+	parse_loot_filter_data(path_to_poe_folder+"NeverSink's filter.filter");
+	//##################################
+	//##################################
+
 	ofstream myfile;
 	myfile.open("example.txt");
 
@@ -271,7 +582,7 @@ int main()
 	// -------------------------
 	// texture 1
 	// ---------
-	load_texture("data/tile03.png",0);
+	load_texture("data/white_pixel.png",0);
 	load_texture("data/tile_info.png", 1);
 	load_texture("data/font_arial.png", 2);
 	// texture 2
@@ -320,11 +631,18 @@ int main()
 		batch2->draw_rect(0.1f* j, 0.1f* i, 0.05f, 0.05f, tile_x, tile_y);
 	}
 
-	for (int i = 0; i < 900; i++)
+	for (int i = 0; i < 100000; i++)
 	{
 		batch->fill_indices();
-		batch2->fill_indices();
-		font_batch->fill_indices();
+		//batch2->fill_indices();
+		
+	}
+
+	for (int i = 0; i < 100000; i++)
+	{
+		batch->fill_indices();
+		//batch2->fill_indices();
+
 	}
 
 	
@@ -370,7 +688,7 @@ int main()
 		transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
 
 		transform = glm::translate(transform, glm::vec3(camera->x-1, camera->y-1, 0.0f));
-		transform = glm::scale(transform, glm::vec3(camera->zoom*Helper::correction_x, camera->zoom * Helper::correction_y, 1));
+		transform = glm::scale(transform, glm::vec3(camera->zoom*correction_x, camera->zoom * correction_y, 1));
 
 
 		//transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
@@ -393,17 +711,9 @@ int main()
 
 		//batch->draw_call();
 
-		glActiveTexture(GL_TEXTURE2);
-		glBindTexture(GL_TEXTURE_2D, ETexture::texture[2]);
-		ourShader->setInt("texture1", 2);
 
-		font_batch->reset();
-			
-			//batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "123 Ну наконец то эта ", 0, 0);
-			//batch->setcolor_255(255, 0, 0, 100); font->draw(font_batch, "срань ", 0, 0);
-			//batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "заработала!", 0, 0);
-			font->x_adding = 0;
-			batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "!!!"+work_text, 0, 100);
+
+		
 			/*
 			for (int i=0; i<10; i++)
 			for (int j = 0; j < 10; j++)
@@ -413,22 +723,62 @@ int main()
 
 				font->draw(font_batch, "Ё", j*100, i*100);
 			}*/
-		font_batch->reinit();
+		
+
+		batch->reset();
+		//batch->setcolor_255(0, 0, 255, 100);
+
+		//button_list.at(0)->draw(batch);
+		//batch->setcolor_255(0, 0, 0, 100);
+		int block_index = 0;
+
+		for (int i = 0; i < 5; i++)
+		{
+			block_index = i + block_scroll;
+
+			if (block_index < filter_block_list.size())
+			{
+				filter_block_list.at(block_index)->x = 15;
+				filter_block_list.at(block_index)->y = SCR_HEIGHT - filter_block_list.at(block_index)->size_y - 15 - i * 105;
+				filter_block_list.at(block_index)->size_x = SCR_WIDTH - 30;
+
+				filter_block_list.at(block_index)->draw(batch);
+			}
+		}
 
 
-		font_batch->draw_call();
 
+
+		//main draw call
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
 		ourShader->setInt("texture1", 0);
 
-		batch->reset();
-		//batch->setcolor_255(0, 0, 255, 100);
-		button_list.at(0)->draw(batch);
 		batch->reinit();
 		batch->draw_call();
-		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-		// -------------------------------------------------------------------------------
+
+		//text draw call
+		glActiveTexture(GL_TEXTURE2);
+		glBindTexture(GL_TEXTURE_2D, ETexture::texture[2]);
+		ourShader->setInt("texture1", 2);
+
+		font_batch->reset(); 
+
+		font_batch->setcolor_255(255, 255, 255, 100);
+		for (int i = 0; i < 5; i++)
+		{
+			block_index = i + block_scroll;
+
+			if (block_index < filter_block_list.size())
+			{
+				filter_block_list.at(block_index)->text_pass(font, font_batch);
+			}
+		}
+		font->draw(font_batch, "01!02!03!04" + work_text, 0, 100);
+		
+		font_batch->reinit();
+		font_batch->draw_call();
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 		processInput(window);
@@ -480,12 +830,13 @@ void processInput(GLFWwindow* window)
 		glfwSetWindowShouldClose(window, true);
 	}	
 
+	/*
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) { camera->speed_x += 100.0f * delta_time * Helper::correction_x; }
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) { camera->speed_x -= 100.0f * delta_time * Helper::correction_x; }
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) { camera->speed_y -= 100.0f * delta_time * Helper::correction_y; }
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) { camera->speed_y += 100.0f * delta_time * Helper::correction_y; }
-
+	*/
 	if (glfwGetKey(window, GLFW_KEY_HOME) == GLFW_PRESS) { camera->zoom = 1.0f; }
 
 	draw_tile_info = false;
@@ -507,14 +858,15 @@ void framebuffer_size_callback(GLFWwindow * window, int width, int height)
 
 void recalculate_correction()
 {
-	Helper::correction_x = 1.0 / SCR_WIDTH * 2.0;
-	Helper::correction_y = 1.0 / SCR_HEIGHT * 2.0;
+	correction_x = 1.0 / SCR_WIDTH * 2.0;
+	correction_y = 1.0 / SCR_HEIGHT * 2.0;
 
-	std::cout << "helper correction_x: " << Helper::correction_x << " correction_y: " << Helper::correction_y << std::endl;
+	std::cout << "helper correction_x: " << correction_x << " correction_y: " << correction_y << std::endl;
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
+	/*
 	if (yoffset>0)
 	{
 		camera->zoom*=2.0f;
@@ -530,6 +882,10 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 		camera->x *= 0.5f;
 		camera->y *= 0.5f;
 	}
+	*/
+
+	block_scroll -= yoffset;
+	if (block_scroll < 0) { block_scroll = 0; }
 }
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
@@ -545,9 +901,9 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 void mouse_position_callback(GLFWwindow* window, double _x, double _y)
 {
-	cout << "Mouse move (" << _x << " : " << _y << endl;
-	Helper::x = _x;
-	Helper::y = SCR_HEIGHT-_y;
+	//cout << "Mouse move (" << _x << " : " << _y << endl;
+	mouse_x = _x;
+	mouse_y = SCR_HEIGHT-_y;
 }
 
 void char_input_callback(GLFWwindow* window, unsigned int _char)

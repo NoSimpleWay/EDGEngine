@@ -3,9 +3,10 @@
 
 #include <glad/glad.h>
 #include <iostream>
+#include "ConsoleColor.h"
 
 float vertices[250000];
-unsigned int indices[125000];
+unsigned int indices[1000000];
 
 unsigned int VBO, VAO, EBO;
 
@@ -51,13 +52,13 @@ void Batcher::init()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	// position attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 	// color attribute
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)(2 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 	// texture coord attribute
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)(5 * sizeof(float)));
 	glEnableVertexAttribArray(2);
 }
 
@@ -175,14 +176,14 @@ void Batcher::draw_rect_with_uv(float _x, float _y, float _w, float _h, float _s
 	//..
 	vertices[id + 0] = (_x + _w);
 	vertices[id + 1] = (_y + _h);
-	vertices[id + 2] = 0;
+	//vertices[id + 2] = 0;
 
-	vertices[id + 3] = batch_color_r;
-	vertices[id + 4] = batch_color_g;
-	vertices[id + 5] = batch_color_b;
+	vertices[id + 2] = batch_color_r;
+	vertices[id + 3] = batch_color_g;
+	vertices[id + 4] = batch_color_b;
 
-	vertices[id + 6] = _end_x;
-	vertices[id + 7] = _end_y;
+	vertices[id + 5] = _end_x;
+	vertices[id + 6] = _end_y;
 
 
 
@@ -190,32 +191,32 @@ void Batcher::draw_rect_with_uv(float _x, float _y, float _w, float _h, float _s
 
 	//..
 	//.#
-	vertices[id + 8] = (_x + _w);
-	vertices[id + 9] = _y;
-	vertices[id + 10] = 0;
+	vertices[id + 7] = (_x + _w);
+	vertices[id + 8] = _y;
+	//vertices[id + 10] = 0;
 
-	vertices[id + 11] = batch_color_r;
-	vertices[id + 12] = batch_color_g;
-	vertices[id + 13] = batch_color_b;
+	vertices[id + 9] = batch_color_r;
+	vertices[id + 10] = batch_color_g;
+	vertices[id + 11] = batch_color_b;
 
-	vertices[id + 14] = _end_x;
-	vertices[id + 15] =_start_y;
+	vertices[id + 12] = _end_x;
+	vertices[id + 13] =_start_y;
 
 
 
 
 	//..
 	//#.
-	vertices[id + 16] = _x;
-	vertices[id + 17] = _y;
-	vertices[id + 18] = 0;
+	vertices[id + 14] = _x;
+	vertices[id + 15] = _y;
+	//vertices[id + 18] = 0;
 
-	vertices[id + 19] = batch_color_r;
-	vertices[id + 20] = batch_color_g;
-	vertices[id + 21] = batch_color_b;
+	vertices[id + 16] = batch_color_r;
+	vertices[id + 17] = batch_color_g;
+	vertices[id + 18] = batch_color_b;
 
-	vertices[id + 22] =_start_x;
-	vertices[id + 23] =_start_y;
+	vertices[id + 19] =_start_x;
+	vertices[id + 20] =_start_y;
 
 
 
@@ -223,18 +224,18 @@ void Batcher::draw_rect_with_uv(float _x, float _y, float _w, float _h, float _s
 
 	//#.
 	//..
-	vertices[id + 24] = _x;
-	vertices[id + 25] = (_y + _h);
-	vertices[id + 26] = 0;
+	vertices[id + 21] = _x;
+	vertices[id + 22] = (_y + _h);
+	//vertices[id + 26] = 0;
 
-	vertices[id + 27] = batch_color_r;
-	vertices[id + 28] = batch_color_g;
-	vertices[id + 29] = batch_color_b;
+	vertices[id + 23] = batch_color_r;
+	vertices[id + 24] = batch_color_g;
+	vertices[id + 25] = batch_color_b;
 
-	vertices[id + 30] =_start_x;
-	vertices[id + 31] =_end_y;
+	vertices[id + 26] =_start_x;
+	vertices[id + 27] =_end_y;
 
-	id += 32;
+	id += 28;
 }
 
 void Batcher::fill_indices()
@@ -275,7 +276,8 @@ void Batcher::draw_call()
 {
 	//reinit();
 	glBindVertexArray(VAO);
-	glDrawElements(GL_TRIANGLES, 6*(id/32), GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 6 * (id / 28), GL_UNSIGNED_INT, 0);
+	//std::cout << blue << "vertices: " << red << id << std::endl<<white;
 }
 
 void Batcher::reset()

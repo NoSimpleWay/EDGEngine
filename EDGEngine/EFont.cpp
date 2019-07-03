@@ -39,6 +39,12 @@ EFont::~EFont()
 {
 }
 
+/*
+int get_size()
+{
+
+}
+*/
 float EFont::get_data_from_sub_data(string _s)
 {
 	string get_data = "";
@@ -79,8 +85,10 @@ bool compare_with_key(string _data, string _key)
 	}
 }
 
-void EFont::draw(Batcher* _batcher, string _s, float _x, float _y)
+void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 {
+	
+
 	for (int sym = 0; sym < _s.length(); sym++)
 	{
 		float a = 0.5f;
@@ -107,6 +115,16 @@ void EFont::draw(Batcher* _batcher, string _s, float _x, float _y)
 
 		x_adding += real_size_x[target_symbol] - offset_x[target_symbol];
 	}
+}
+void EFont::draw(Batcher* _batcher, string _s, float _x, float _y)
+{
+	x_adding = 0;
+	final_draw(_batcher, _s, _x, _y);
+}
+
+void EFont::add_draw(Batcher* _batcher, string _s, float _x, float _y)
+{
+	final_draw(_batcher, _s, _x, _y);
 }
 
 void EFont::load_font(string _path)
@@ -233,7 +251,7 @@ void EFont::load_font(string _path)
 					sub_data += line.at(i);
 				}
 			}
-			cout << endl;
+			if (show_console_info) { cout << endl; }
 
 			font_array_id++;
 		}
