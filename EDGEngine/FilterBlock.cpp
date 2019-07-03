@@ -11,9 +11,9 @@ public:
 	float size_x=300;
 	float size_y=100;
 
-	int socket_count = 0;		bool is_socket_active = false;			Enums::ConditionSymbols socket_condition = Enums::ConditionSymbols::EQUAL;
-	int links_count=0;			bool is_links_active = false;			Enums::ConditionSymbols links_condition = Enums::ConditionSymbols::EQUAL;
-	int item_level=0;			bool is_item_level_active = false;		Enums::ConditionSymbols item_level_condition = Enums::ConditionSymbols::EQUAL;
+	int socket_count = 0;		bool is_socket_active = false;			std::string socket_condition = "=";
+	int links_count=0;			bool is_links_active = false;			std::string links_condition = "=";
+	int item_level=0;			bool is_item_level_active = false;		std::string item_level_condition = "=";
 
 	bool is_socket_group_active = false;
 	int red_sockets=0;
@@ -22,7 +22,7 @@ public:
 	int white_sockets=0;
 
 	
-	Enums::rarity	item_rarity = Enums::rarity::RARE;				bool is_item_rarity_active = false;	 Enums::ConditionSymbols rarity_condition = Enums::ConditionSymbols::EQUAL;
+	std::string	item_rarity = "Rare";				bool is_item_rarity_active = false;	 std::string rarity_condition = "=";
 
 	bool		is_corrupted		= false;		bool is_corrupted_active = false;
 
@@ -126,12 +126,12 @@ public:
 		_batch->setcolor_255(bg_red, bg_green, bg_blue, bg_alpha/2.55f);
 		_batch->draw_rect_with_uv(x+size_x-100, y+5, 100, 25, 0, 0, 1, 1);
 
-		if (ray_color = Enums::GameColors::RED) { _batch->setcolor_255(255, 0, 0, 100); }
-		if (ray_color = Enums::GameColors::GREEN) { _batch->setcolor_255(0, 255, 0, 100); }
-		if (ray_color = Enums::GameColors::BLUE) { _batch->setcolor_255(0, 0, 255, 100); }
-		if (ray_color = Enums::GameColors::BROWN) { _batch->setcolor_255(255, 128, 64, 100); }
-		if (ray_color = Enums::GameColors::WHITE) { _batch->setcolor_255(255, 255, 255, 100); }
-		if (ray_color = Enums::GameColors::YELLOW) { _batch->setcolor_255(255, 255, 0, 100); }
+		if (ray_color == Enums::GameColors::RED) { _batch->setcolor_255(255, 0, 0, 100); }
+		if (ray_color == Enums::GameColors::GREEN) { _batch->setcolor_255(0, 255, 0, 100); }
+		if (ray_color == Enums::GameColors::BLUE) { _batch->setcolor_255(0, 0, 255, 100); }
+		if (ray_color == Enums::GameColors::BROWN) { _batch->setcolor_255(255, 128, 64, 100); }
+		if (ray_color == Enums::GameColors::WHITE) { _batch->setcolor_255(255, 255, 255, 100); }
+		if (ray_color == Enums::GameColors::YELLOW) { _batch->setcolor_255(255, 255, 0, 100); }
 
 		_batch->draw_rect_with_uv(x + size_x - 120, y + 5, 5, 50, 0, 0, 1, 1);
 	}
@@ -163,14 +163,15 @@ public:
 		debug_text_y = 0;
 		debug_text_x = 0;
 
-		add_debug(is_socket_active, "Sockets " + condition_names[socket_condition] + " " + std::to_string(socket_count), _font, _batch);
-		add_debug(is_links_active, "Links " + condition_names[links_condition] + " " + std::to_string(links_count), _font, _batch);
+		add_debug(is_socket_active, "Sockets " + socket_condition + " " + std::to_string(socket_count), _font, _batch);
+		add_debug(is_links_active, "Links " + links_condition + " " + std::to_string(links_count), _font, _batch);
 
-		add_debug(is_item_level_active, "Item level " + condition_names[item_level_condition]+ " " + std::to_string(item_level), _font, _batch);
+		add_debug(is_item_level_active, "Item level " + item_level_condition+ " " + std::to_string(item_level), _font, _batch);
 
-		add_debug(is_corrupted_active, "Rarity "+ condition_names[rarity_condition] + " " + rarity_value[item_rarity], _font, _batch);
+		add_debug(is_corrupted_active, "Rarity "+ rarity_condition + " " + item_rarity, _font, _batch);
 		add_debug(is_alert_sound, "Aler sound: " + alert_sound_name, _font, _batch);
 		add_debug(is_ray, "Ray", _font, _batch);
+
 		add_debug(is_corrupted_active, "Corrupted: " + bool_to_string(is_corrupted), _font, _batch);
 		add_debug(is_shaper_item_active, "Shaper item: " + bool_to_string(is_shaper_item), _font, _batch);
 		add_debug(is_identified_active, "Identified: " + bool_to_string(is_identified), _font, _batch);

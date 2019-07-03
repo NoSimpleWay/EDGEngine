@@ -1,7 +1,7 @@
 #include "Helper.h"
 #include <iostream>
 
-namespace VectorMath {
+namespace Helper {
 	
 	int rarity_text_to_id(std::string _text)
 	{

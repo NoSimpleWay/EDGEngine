@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Helpers">
       <UniqueIdentifier>{10bde02a-659b-48c4-9e4d-7b61153803f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Buttons">
+      <UniqueIdentifier>{cd039065-e1b4-484e-8d2c-597d89085a6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -39,14 +42,14 @@
     <ClCompile Include="Batcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FilterBlock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Helper.cpp">
       <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="EButton.cpp">
+      <Filter>Source Files\Buttons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
