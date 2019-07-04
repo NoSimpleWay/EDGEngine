@@ -13,14 +13,26 @@ public:
 
 	int socket_count = 0;		bool is_socket_active = false;			std::string socket_condition = "=";
 	int links_count=0;			bool is_links_active = false;			std::string links_condition = "=";
+
 	int item_level=0;			bool is_item_level_active = false;		std::string item_level_condition = "=";
+	int required_level=0;		bool is_required_level_active = false;	std::string required_level_condition = "=";
+
+	int item_width = 0;			bool is_item_width_active = false;		std::string item_width_condition = "=";
+	int item_height = 0;		bool is_item_height_active = false;		std::string item_height_condition = "=";
+
+	int item_quality = 0;		bool is_item_qualityt_active = false;	std::string item_quality_condition = "=";
+	int item_stack_size = 0;	bool is_stack_size_active = false;		std::string item_stack_size_condition = "=";
+	int gem_level = 0;			bool is_gem_level_active = false;		std::string gem_level_condition = "=";
+
+	int map_tier = 0;			bool is_map_tier_active = false;		std::string map_tier_condition = "=";
+
 
 	bool is_socket_group_active = false;
 	int red_sockets=0;
 	int green_sockets=0;
 	int blue_sockets=0;
 	int white_sockets=0;
-
+	bool is_prophecy_active = false;
 	
 	std::string	item_rarity = "Rare";				bool is_item_rarity_active = false;	 std::string rarity_condition = "=";
 
@@ -31,6 +43,10 @@ public:
 	bool		is_elder_item		= false;		bool is_elder_item_active = false;
 	bool		is_fractured_item	= false;		bool is_fractured_item_active = false;
 	bool		is_synthesised_item	= false;		bool is_synthesised_item_active = false;
+	bool		is_enchantment_item = false;		bool is_enchantment_item_active = false;
+
+	bool		is_elder_map = false;				bool is_elder_map_active = false;
+	bool		is_shaper_map = false;				bool is_shaper_map_active = false;
 
 	bool is_font_size_active = false;
 	int font_size=30;
@@ -76,11 +92,13 @@ public:
 	std::vector<string*> class_list;
 	std::vector<string*> base_type_list;
 	std::vector<string*> explicit_mod_list;
+	std::vector<string*> prophecy_list;
 
 	string YNE_value[3] =  { "yes", "no", "either" };
 	
 
-
+	bool is_show = true;
+	bool disable_drop_sound = false;
 
 	static int rarity_text_to_id(string _text)
 	{
@@ -117,7 +135,11 @@ public:
 
 	void draw(Batcher* _batch)
 	{
-		_batch->setcolor_255(0, 0, 0, 100);
+		if (is_show)
+		{_batch->setcolor_255(0, 0, 0, 100);}
+		else
+		{_batch->setcolor_255(64, 32, 16, 100);}
+
 		_batch->draw_rect_with_uv(x,y,size_x,size_y,0,0,1,1);
 
 		_batch->setcolor_255(rama_red, rama_green, rama_blue, rama_alpha / 2.55f);
@@ -193,7 +215,7 @@ public:
 		{
 			_batch->setcolor(0.6f, 1.0f, 0.6f, 1.0f);
 
-			_font->add_draw(_batch, *base_type_list.at(i)+"   ", debug_text_x + 100, y + 30);
+			_font->add_draw(_batch, *base_type_list.at(i)+"   ", debug_text_x + 100, y + 20);
 		}
 
 		_font->x_adding = 0;
@@ -201,7 +223,15 @@ public:
 		{
 			_batch->setcolor(0.6f, 0.7f, 1.0f, 1.0f);
 
-			_font->add_draw(_batch, *explicit_mod_list.at(i)+"   ", debug_text_x + 100, y + 50);
+			_font->add_draw(_batch, *explicit_mod_list.at(i)+"   ", debug_text_x + 100, y + 40);
+		}
+
+		_font->x_adding = 0;
+		for (int i = 0; i < prophecy_list.size(); i++)
+		{
+			_batch->setcolor(1.0f, 0.0f, 1.0f, 1.0f);
+
+			_font->add_draw(_batch, *prophecy_list.at(i) + "   ", debug_text_x + 100, y + 60);
 		}
 
 		_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);

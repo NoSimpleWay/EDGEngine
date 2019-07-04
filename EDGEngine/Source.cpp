@@ -146,8 +146,9 @@ void parse_loot_filter_data(string _path)
 	FilterBlock* just_created_block = new FilterBlock();
 
 	int error_counts = 0;
+	bool show_info_to_console = false;
 
-	while ((getline(myfile, line))&&(line_number<100))
+	while ((getline(myfile, line))&&(line_number<10000))
 	{
 
 		//std::cout << "array is " << sizeof(condition_names)  << " length" << std::endl;
@@ -160,15 +161,22 @@ void parse_loot_filter_data(string _path)
 		bool space_is_not_separator = false;
 
 		
-
-		cout << "#################" << endl;
-		cout <<green<< "___what readed: '" << blue << line  <<"'" << white << endl;
-		cout << "#################" << endl << endl;
+		if (show_info_to_console)
+		{
+			cout << "#################" << endl;
+			cout << green << "___what readed: '" << blue << line << "'" << white << endl;
+			cout << "#################" << endl << endl;
+		}
 
 		for (int i = 0; i < line.length(); i++)
 		{
 			if (line.at(i) == '"') { space_is_not_separator = !space_is_not_separator; }
-			if (line.at(i) == '#') { comment_mode = true; cout << "comment mode activate, now i dont parse data by normal way" << endl;  parser_mode = Enums::ParserMode::NOTHING; }
+			if (line.at(i) == '#')
+			{
+				comment_mode = true; 
+				if (show_info_to_console) cout << "comment mode activate, now i dont parse data by normal way" << endl;
+				parser_mode = Enums::ParserMode::NOTHING;
+			}
 
 			if (	((line.at(i) != ' ')||(space_is_not_separator)) && (line.at(i) != '\t') && (line.at(i) != '"'))
 			{
@@ -187,14 +195,32 @@ void parse_loot_filter_data(string _path)
 				{
 					//if ((i >= line.length())&&(line.at(i)!=' ')) { subdata += line.at(i); }
 
-					cout << "--- subdata:'" << subdata <<"'" << endl;
+					if (show_info_to_console) cout << "--- subdata:'" << subdata <<"'" << endl;
 					
 
 					if (parser_mode == Enums::ParserMode::NOTHING)
 					{
 						if (!comment_mode)
 						{
-							if (subdata == "Show") { just_created_block = new FilterBlock(); filter_block_list.push_back(just_created_block); parser_mode = Enums::ParserMode::SHOW;  cout << "And new block is created!" << endl; }
+							if (subdata == "Show")
+							{
+								just_created_block = new FilterBlock();
+								filter_block_list.push_back(just_created_block);
+								parser_mode = Enums::ParserMode::SHOW;
+								if (show_info_to_console) { cout << "And new block is created! And block is SHOWED!" << endl; }
+
+								just_created_block->is_show = true;
+							}
+
+							if (subdata == "Hide")
+							{
+								just_created_block = new FilterBlock();
+								filter_block_list.push_back(just_created_block);
+								parser_mode = Enums::ParserMode::HIDE;
+								if (show_info_to_console) { cout << "And new block is created! And block is HIDED!" << endl; }
+
+								just_created_block->is_show = false;
+							}
 
 							if (subdata == "Corrupted") { parser_mode = Enums::ParserMode::IS_CORRUPTED; just_created_block->is_corrupted_active = true; }
 							if (subdata == "LinkedSockets") { parser_mode = Enums::ParserMode::LINKED_SOCKETS; just_created_block->is_links_active = true; }
@@ -202,8 +228,7 @@ void parse_loot_filter_data(string _path)
 							if (subdata == "Class") { parser_mode = Enums::ParserMode::CLASS; }
 
 							if (subdata == "SetFontSize") { parser_mode = Enums::ParserMode::FONT_SIZE; just_created_block->is_font_size_active = true;}
-							if (subdata == "SetTextColor") { parser_mode = Enums::ParserMode::TEXT_COLOR; just_created_block->is_text_color_active = true;
-							}
+							if (subdata == "SetTextColor") { parser_mode = Enums::ParserMode::TEXT_COLOR; just_created_block->is_text_color_active = true;}
 							if (subdata == "SetBorderColor") { parser_mode = Enums::ParserMode::BORDER_COLOR; just_created_block->is_rama_color_active = true;}
 							if (subdata == "SetBackgroundColor") { parser_mode = Enums::ParserMode::BACKGROUND_COLOR; just_created_block->is_bg_color_active = true;}
 
@@ -217,6 +242,28 @@ void parse_loot_filter_data(string _path)
 							if (subdata == "ItemLevel") { parser_mode = Enums::ParserMode::ITEM_LEVEL; just_created_block->is_item_level_active = true; }
 							if (subdata == "HasExplicitMod") { parser_mode = Enums::ParserMode::EXPLICIT_MOD; }
 							if (subdata == "Identified") { parser_mode = Enums::ParserMode::IDENTIFIED; just_created_block->is_identified_active = true;}
+							if (subdata == "ElderItem") { parser_mode = Enums::ParserMode::IS_ELDER_ITEM; just_created_block->is_elder_item_active = true; }
+							if (subdata == "Sockets") { parser_mode = Enums::ParserMode::SOCKETS; just_created_block->is_socket_active = true; }
+							if (subdata == "FracturedItem") { parser_mode = Enums::ParserMode::IS_FRACTURED_ITEM; just_created_block->is_fractured_item_active = true; }
+							if (subdata == "DropLevel") { parser_mode = Enums::ParserMode::DROP_LEVEL; just_created_block->is_required_level_active = true; }
+
+							if (subdata == "Width") { parser_mode = Enums::ParserMode::WIDTH; just_created_block->is_item_width_active = true; }
+							if (subdata == "Height") { parser_mode = Enums::ParserMode::HEIGHT; just_created_block->is_item_height_active = true; }
+
+							if (subdata == "SynthesisedItem") { parser_mode = Enums::ParserMode::IS_SYNTHESISED_ITEM; just_created_block->is_synthesised_item_active = true; }
+							if (subdata == "AnyEnchantment") { parser_mode = Enums::ParserMode::IS_ANY_ENCHANTMENT; just_created_block->is_enchantment_item_active = true; }
+
+							if (subdata == "Quality") { parser_mode = Enums::ParserMode::QUALITY; just_created_block->is_item_qualityt_active = true; }
+							if (subdata == "SocketGroup") { parser_mode = Enums::ParserMode::SOCKET_GROUP; just_created_block->is_socket_group_active = true; }
+							if (subdata == "StackSize") { parser_mode = Enums::ParserMode::STACK_SIZE; just_created_block->is_stack_size_active = true; }
+							if (subdata == "GemLevel") { parser_mode = Enums::ParserMode::GEM_LEVEL; just_created_block->is_gem_level_active = true; }
+
+							if (subdata == "ElderMap") { parser_mode = Enums::ParserMode::IS_ELDER_MAP; just_created_block->is_elder_map_active = true; }
+							if (subdata == "ShapedMap") { parser_mode = Enums::ParserMode::IS_SHAPER_MAP; just_created_block->is_shaper_map_active = true; }
+							if (subdata == "MapTier") { parser_mode = Enums::ParserMode::MAP_TIER; just_created_block->is_map_tier_active = true; }
+
+							if (subdata == "DisableDropSound") { parser_mode = Enums::ParserMode::DISABLE_DROP_SOUND; just_created_block->disable_drop_sound = true; }
+							if (subdata == "Prophecy") { parser_mode = Enums::ParserMode::PROPHECY; just_created_block->is_prophecy_active = true; }
 							
 						}
 					}
@@ -224,120 +271,442 @@ void parse_loot_filter_data(string _path)
 					{
 						if (parser_mode == Enums::ParserMode::IS_CORRUPTED)
 						{
-							if (data_order == 0) { cout << "activate corrupted property" << endl; }
-							if (data_order == 1) { cout << "set corruption as <" << subdata << ">" << endl; just_created_block->is_corrupted = convert_text_to_bool(subdata); }
+							if (data_order == 0)
+							{
+								if (show_info_to_console) { cout << "activate corrupted property" << endl; }
+							}
+
+							if (data_order == 1)
+							{
+								if (show_info_to_console) { cout << "set corruption as <" << subdata << ">" << endl; }
+								just_created_block->is_corrupted = convert_text_to_bool(subdata);
+							}
 						}
 
 						if (parser_mode == Enums::ParserMode::LINKED_SOCKETS)
 						{
-							if (data_order == 0) { cout << "activate links property" << endl; }
+							if (data_order == 0)
+							{
+								if (show_info_to_console) { cout << "activate links property" << endl; }
+							}
 
-							if ((data_order == 1) && (!check_is_condition_symbols(subdata))) { cout << "set links as <" << subdata << ">" << endl; just_created_block->links_count = std::stoi(subdata); just_created_block->links_condition = "="; }
-							if ((data_order == 1) && (check_is_condition_symbols(subdata))) { cout << "set links condition as <" << subdata << ">" << endl; just_created_block->links_condition = Enums::ConditionSymbols(get_id_from_array(condition_names,subdata)); }
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set links as <" << subdata << ">" << endl; }
+								just_created_block->links_count = std::stoi(subdata);
+								just_created_block->links_condition = "="; 
+							}
 
-							if (data_order == 2) { cout << "set links as <" << subdata << ">" << endl; just_created_block->links_count = std::stoi(subdata); }
+							if ((data_order == 1) && (check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set links condition as <" << subdata << ">" << endl; }
+								just_created_block->links_condition = subdata;
+							}
+
+							if (data_order == 2)
+							{
+								if (show_info_to_console) { cout << "set links as <" << subdata << ">" << endl; }
+								just_created_block->links_count = std::stoi(subdata);
+							}
 						}
 
 						if (parser_mode == Enums::ParserMode::RARITY)
 						{
-							if (data_order == 0) { cout << "activate rarity property" << endl; }
+							if (data_order == 0) 
+							{
+								if (show_info_to_console) { cout << "activate rarity property" << endl; }
+							}
 
-							if ((data_order == 1) && (!check_is_condition_symbols(subdata))) { cout << "set rarity as <" << subdata << ">" << endl; just_created_block->item_rarity = subdata; just_created_block->rarity_condition = "="; }
-							if ((data_order == 1) && (check_is_condition_symbols(subdata))) { cout << "set rarity condition as <" << subdata << ">" << endl; just_created_block->rarity_condition = subdata; }
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set rarity as <" << subdata << ">" << endl; }
+								just_created_block->item_rarity = subdata;
+								just_created_block->rarity_condition = "=";
+							}
 
-							if (data_order == 2) { cout << "set rarity as <" << subdata << ">" << endl; just_created_block->item_rarity = subdata;}
+							if ((data_order == 1) && (check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set rarity condition as <" << subdata << ">" << endl; }
+								just_created_block->rarity_condition = subdata;
+							}
+
+							if (data_order == 2)
+							{
+								if (show_info_to_console) { cout << "set rarity as <" << subdata << ">" << endl; }
+								just_created_block->item_rarity = subdata;
+							}
 						}
 
 
 						if (parser_mode == Enums::ParserMode::CLASS)
 						{
 							//if (data_order == 0) { cout << "activate rarity property" << endl; }
-							if (data_order > 0) { cout << "add new base class <" << subdata << ">" << endl; just_created_block->class_list.push_back(new string(subdata)); }
+							if (data_order > 0)
+							{
+								if (show_info_to_console) { cout << "add new base class <" << subdata << ">" << endl; }
+								just_created_block->class_list.push_back(new string(subdata));
+							}
 						}
 
 						if (parser_mode == Enums::ParserMode::FONT_SIZE)
 						{
 							//if (data_order == 0) { cout << "activate rarity property" << endl; }
-							if (data_order > 0) { cout << "set font size <" << subdata << ">" << endl; just_created_block->font_size=std::stoi(subdata); }
+							if (data_order > 0)
+							{
+								if (show_info_to_console) { cout << "set font size <" << subdata << ">" << endl; }
+								just_created_block->font_size=std::stoi(subdata);
+							}
 						}
 						
 						if (parser_mode == Enums::ParserMode::TEXT_COLOR)
 						{
-							if (data_order == 0) { cout << "activate text color property" << endl;}
-							if (data_order == 1) { cout << "set font color (red) <" << subdata << ">" << endl; just_created_block->text_color_red=std::stoi(subdata); }
-							if (data_order == 2) { cout << "set font color (green) <" << subdata << ">" << endl; just_created_block->text_color_green=std::stoi(subdata); }
-							if (data_order == 3) { cout << "set font color (blue) <" << subdata << ">" << endl; just_created_block->text_color_blue=std::stoi(subdata); }
-							if (data_order == 4) { cout << "set font color (alpha) <" << subdata << ">" << endl; just_created_block->text_color_alpha=std::stoi(subdata); }
+							if (data_order == 0){if (show_info_to_console) { cout << "activate text color property" << endl; }}
+
+							if (data_order == 1) { if (show_info_to_console) { cout << "set font color (red) <" << subdata << ">" << endl; } just_created_block->text_color_red = std::stoi(subdata); }
+							if (data_order == 2) { if (show_info_to_console) { cout << "set font color (green) <" << subdata << ">" << endl; } just_created_block->text_color_green = std::stoi(subdata); }
+							if (data_order == 3) { if (show_info_to_console) { cout << "set font color (blue) <" << subdata << ">" << endl; } just_created_block->text_color_blue = std::stoi(subdata); }
+							if (data_order == 4) { if (show_info_to_console) { cout << "set font color (alpha) <" << subdata << ">" << endl; } just_created_block->text_color_alpha = std::stoi(subdata); }
 						}
 
 						if (parser_mode == Enums::ParserMode::BORDER_COLOR)
 						{
-							if (data_order == 0) { cout << "activate border color property" << endl;  }
-							if (data_order == 1) { cout << "set border color (red) <" << subdata << ">" << endl; just_created_block->rama_red = std::stoi(subdata); }
-							if (data_order == 2) { cout << "set border color (green) <" << subdata << ">" << endl; just_created_block->rama_green = std::stoi(subdata); }
-							if (data_order == 3) { cout << "set border color (blue) <" << subdata << ">" << endl; just_created_block->rama_blue = std::stoi(subdata); }
-							if (data_order == 4) { cout << "set border color (alpha) <" << subdata << ">" << endl; just_created_block->rama_alpha = std::stoi(subdata); }
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate border color property" << endl; } }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set border color (red) <" << subdata << ">" << endl; } just_created_block->rama_red = std::stoi(subdata); }
+							if (data_order == 2) { if (show_info_to_console) { cout << "set border color (green) <" << subdata << ">" << endl; } just_created_block->rama_green = std::stoi(subdata); }
+							if (data_order == 3) { if (show_info_to_console) { cout << "set border color (blue) <" << subdata << ">" << endl; } just_created_block->rama_blue = std::stoi(subdata); }
+							if (data_order == 4) { if (show_info_to_console) { cout << "set border color (alpha) <" << subdata << ">" << endl; } just_created_block->rama_alpha = std::stoi(subdata); }
 						}						
 						
 						if (parser_mode == Enums::ParserMode::BACKGROUND_COLOR)
 						{
-							if (data_order == 0) { cout << "activate background color property" << endl;  }
-							if (data_order == 1) { cout << "set background color (red) <" << subdata << ">" << endl; just_created_block->bg_red = std::stoi(subdata); }
-							if (data_order == 2) { cout << "set background color (green) <" << subdata << ">" << endl; just_created_block->bg_green = std::stoi(subdata); }
-							if (data_order == 3) { cout << "set background color (blue) <" << subdata << ">" << endl; just_created_block->bg_blue = std::stoi(subdata); }
-							if (data_order == 4) { cout << "set background color (alpha) <" << subdata << ">" << endl; just_created_block->bg_alpha = std::stoi(subdata); }
+							if (data_order == 0) { if (show_info_to_console){cout << "activate background color property" << endl;}  }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set background color (red) <" << subdata << ">" << endl; } just_created_block->bg_red = std::stoi(subdata); }
+							if (data_order == 2) { if (show_info_to_console) { cout << "set background color (green) <" << subdata << ">" << endl; } just_created_block->bg_green = std::stoi(subdata); }
+							if (data_order == 3) { if (show_info_to_console) { cout << "set background color (blue) <" << subdata << ">" << endl; } just_created_block->bg_blue = std::stoi(subdata); }
+							if (data_order == 4) { if (show_info_to_console) { cout << "set background color (alpha) <" << subdata << ">" << endl; } just_created_block->bg_alpha = std::stoi(subdata); }
 						}
 						
 						if (parser_mode == Enums::ParserMode::ALERT_SOUND)
 						{
-							if (data_order == 0) { cout << "activate alert sound property" << endl;  }
-							if (data_order == 1) { cout << "set alert sound name <" << subdata << ">" << endl; just_created_block->alert_sound_name = subdata; }
-							if (data_order == 2) { cout << "set alert sound volume <" << subdata << ">" << endl; just_created_block->alert_sound_volume = std::stoi(subdata); }
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate alert sound property" << endl; } }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set alert sound name <" << subdata << ">" << endl; } just_created_block->alert_sound_name = subdata; }
+							if (data_order == 2) { if (show_info_to_console) { cout << "set alert sound volume <" << subdata << ">" << endl; } just_created_block->alert_sound_volume = std::stoi(subdata); }
 						}
 
 						if (parser_mode == Enums::ParserMode::RAY)
 						{
-							if (data_order == 0) { cout << "activate ray property" << endl; }
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate ray property" << endl; } }
 
-							if (data_order == 1) { cout << "set ray color <" << subdata << ">" << endl; just_created_block->ray_color = Enums::GameColors(get_id_from_game_color_text(subdata)); }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set ray color <" << subdata << ">" << endl; } just_created_block->ray_color = Enums::GameColors(get_id_from_game_color_text(subdata)); }
 							//if (data_order == 2) { cout << "set alert sound volume <" << subdata << ">" << endl; just_created_block->alert_sound_volume = std::stoi(subdata); }
 						}
 
 						if (parser_mode == Enums::ParserMode::BASETYPE)
 						{
 							//if (data_order == 0) { cout << "activate rarity property" << endl; }
-							if (data_order > 0) { cout << "add new base type <" << subdata << ">" << endl; just_created_block->base_type_list.push_back(new string(subdata)); }
+							if (data_order > 0) { if (show_info_to_console) { cout << "add new base type <" << subdata << ">" << endl; } just_created_block->base_type_list.push_back(new string(subdata)); }
 						}
 
 						if (parser_mode == Enums::ParserMode::IS_SHAPER_ITEM)
 						{
-							if (data_order == 0) { cout << "activate shaper item property" << endl; }
-							if (data_order == 1) { cout << "set shaper item as <" << subdata << ">" << endl; just_created_block->is_shaper_item = convert_text_to_bool(subdata); }
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate shaper item property" << endl; } }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set shaper item as <" << subdata << ">" << endl; } just_created_block->is_shaper_item = convert_text_to_bool(subdata); }
 						}
 
 						if (parser_mode == Enums::ParserMode::ITEM_LEVEL)
 						{
-							if (data_order == 0) { cout << "activate item level" << endl; }
+							if (data_order == 0) { if (show_info_to_console){cout << "activate item level" << endl; }}
 
 
-							if ((data_order == 1) && (!check_is_condition_symbols(subdata))) { cout << "set item level as <" << subdata << "> condition autogenerated" << endl; just_created_block->item_level = std::stoi(subdata); just_created_block->item_level_condition = "="; }
-							if ((data_order == 1) && (check_is_condition_symbols(subdata))) { cout << "set item level condition as <" << subdata << "> id of symbol=" << get_id_from_array(condition_names, "=") << endl; just_created_block->item_level_condition = subdata; }
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata))) { if (show_info_to_console) { cout << "set item level as <" << subdata << "> condition autogenerated" << endl; } just_created_block->item_level = std::stoi(subdata); just_created_block->item_level_condition = "="; }
+							if ((data_order == 1) && (check_is_condition_symbols(subdata))) { if (show_info_to_console) { cout << "set item level condition as <" << subdata << "> id of symbol=" << get_id_from_array(condition_names, "=") << endl; } just_created_block->item_level_condition = subdata; }
 
-							if (data_order == 2) { cout << "set item_level as <" << subdata << ">" << endl; just_created_block->item_level = std::stoi(subdata); }
+							if (data_order == 2) { if (show_info_to_console) { cout << "set item_level as <" << subdata << ">" << endl; } just_created_block->item_level = std::stoi(subdata); }
 						}
 
 						if (parser_mode == Enums::ParserMode::EXPLICIT_MOD)
 						{
 							//if (data_order == 0) { cout << "activate rarity property" << endl; }
-							if (data_order > 0) { cout << "add new explicit mod <" << subdata << ">" << endl; just_created_block->explicit_mod_list.push_back(new string(subdata)); }
+							if (data_order > 0) { if (show_info_to_console){cout << "add new explicit mod <" << subdata << ">" << endl;} just_created_block->explicit_mod_list.push_back(new string(subdata)); }
 						}
 
 						if (parser_mode == Enums::ParserMode::IDENTIFIED)
 						{
-							if (data_order == 0) { cout << "activate indetify property" << endl; }
-							if (data_order == 1) { cout << "set indetification as <" << subdata << ">" << endl; just_created_block->is_identified = convert_text_to_bool(subdata); }
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate indetify property" << endl; } }
+							if (data_order == 1) { if (show_info_to_console){cout << "set indetification as <" << subdata << ">" << endl;} just_created_block->is_identified = convert_text_to_bool(subdata); }
 						}
 
+						if (parser_mode == Enums::ParserMode::IS_ELDER_ITEM)
+						{
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate elder item property" << endl; } }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set elder item as <" << subdata << ">" << endl; } just_created_block->is_elder_item = convert_text_to_bool(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::DROP_LEVEL)
+						{
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate required level" << endl; } }
+
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata))) { if (show_info_to_console) { cout << "set required level as <" << subdata << "> condition autogenerated" << endl; } just_created_block->required_level = std::stoi(subdata); just_created_block->required_level_condition = "="; }
+							if ((data_order == 1) && (check_is_condition_symbols(subdata))) { if (show_info_to_console) { cout << "set required level condition as <" << subdata << "> id of symbol=" << get_id_from_array(condition_names, "=") << endl; } just_created_block->required_level_condition = subdata; }
+
+							if (data_order == 2) { if (show_info_to_console) { cout << "set required level as <" << subdata << ">" << endl; } just_created_block->required_level = std::stoi(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::SOCKETS)
+						{
+							if (data_order == 0)
+							{
+								if (show_info_to_console) { cout << "activate sockets property" << endl; }
+							}
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set sockets as <" << subdata << ">" << endl; }
+								just_created_block->socket_count = std::stoi(subdata);
+								just_created_block->socket_condition = "=";
+							}
+
+							if ((data_order == 1) && (check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set sockets condition as <" << subdata << ">" << endl; }
+								just_created_block->socket_condition = subdata;
+							}
+
+							if (data_order == 2)
+							{
+								if (show_info_to_console) { cout << "set sockets as <" << subdata << ">" << endl; }
+								just_created_block->socket_count = std::stoi(subdata);
+							}
+						}
+
+						if (parser_mode == Enums::ParserMode::WIDTH)
+						{
+							if (data_order == 0)
+							{
+								if (show_info_to_console) { cout << "activate width property" << endl; }
+							}
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set width as <" << subdata << ">" << endl; }
+								just_created_block->item_width = std::stoi(subdata);
+								just_created_block->item_width_condition = "=";
+							}
+
+							if ((data_order == 1) && (check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set width condition as <" << subdata << ">" << endl; }
+								just_created_block->item_width_condition = subdata;
+							}
+
+							if (data_order == 2)
+							{
+								if (show_info_to_console) { cout << "set width as <" << subdata << ">" << endl; }
+								just_created_block->item_width = std::stoi(subdata);
+							}
+						}
+
+						if (parser_mode == Enums::ParserMode::HEIGHT)
+						{
+							if (data_order == 0)
+							{
+								if (show_info_to_console) { cout << "activate height property" << endl; }
+							}
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set height as <" << subdata << ">" << endl; }
+								just_created_block->item_height = std::stoi(subdata);
+								just_created_block->item_height_condition = "=";
+							}
+
+							if ((data_order == 1) && (check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set height condition as <" << subdata << ">" << endl; }
+								just_created_block->item_height_condition = subdata;
+							}
+
+							if (data_order == 2)
+							{
+								if (show_info_to_console) { cout << "set height as <" << subdata << ">" << endl; }
+								just_created_block->item_height = std::stoi(subdata);
+							}
+						}
+
+						if (parser_mode == Enums::ParserMode::IS_FRACTURED_ITEM)
+						{
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate fractured item property" << endl; } }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set fractured item as <" << subdata << ">" << endl; } just_created_block->is_fractured_item = convert_text_to_bool(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::IS_SYNTHESISED_ITEM)
+						{
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate synthesised item property" << endl; } }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set synthesised item as <" << subdata << ">" << endl; } just_created_block->is_synthesised_item = convert_text_to_bool(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::IS_ANY_ENCHANTMENT)
+						{
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate enchantment item property" << endl; } }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set enchantment item as <" << subdata << ">" << endl; } just_created_block->is_enchantment_item = convert_text_to_bool(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::QUALITY)
+						{
+							if (data_order == 0)
+							{
+								if (show_info_to_console) { cout << "activate quality property" << endl; }
+							}
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set quality as <" << subdata << ">" << endl; }
+								just_created_block->item_quality = std::stoi(subdata);
+								just_created_block->item_quality_condition = "=";
+							}
+
+							if ((data_order == 1) && (check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set hqualityeight condition as <" << subdata << ">" << endl; }
+								just_created_block->item_quality_condition = subdata;
+							}
+
+							if (data_order == 2)
+							{
+								if (show_info_to_console) { cout << "set quality as <" << subdata << ">" << endl; }
+								just_created_block->item_quality = std::stoi(subdata);
+							}
+						}
+
+						if (parser_mode == Enums::ParserMode::SOCKET_GROUP)
+						{
+							if (data_order == 0)
+							{
+								if (show_info_to_console) { cout << "activate socket group property" << endl; }
+							}
+
+							if (data_order == 1 )
+							{
+								just_created_block->red_sockets = 0;
+								just_created_block->green_sockets = 0;
+								just_created_block->blue_sockets = 0;
+								just_created_block->white_sockets = 0;
+
+								for (int socket = 0; socket < subdata.length(); socket++)
+								{
+									if (subdata.at(socket) == 'R') { just_created_block->red_sockets++;		}
+									if (subdata.at(socket) == 'G') { just_created_block->green_sockets++;	}
+									if (subdata.at(socket) == 'B') { just_created_block->blue_sockets++;	}
+									if (subdata.at(socket) == 'W') { just_created_block->white_sockets++;	}
+								}
+
+								if (show_info_to_console) { cout << "set RED as <" << just_created_block->red_sockets << "> set GREEN as <" << just_created_block->green_sockets << "> set BLUE as <"  << just_created_block->blue_sockets << "> set WHITE as <" << just_created_block->white_sockets << ">" << endl; }
+								//just_created_block->item_height = std::stoi(subdata);
+								//just_created_block->item_height_condition = "=";
+							}
+
+							
+						}
+
+						if (parser_mode == Enums::ParserMode::STACK_SIZE)
+						{
+							if (data_order == 0)
+							{
+								if (show_info_to_console) { cout << "activate stack size property" << endl; }
+							}
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set quality as <" << subdata << ">" << endl; }
+								just_created_block->item_quality = std::stoi(subdata);
+								just_created_block->item_quality_condition = "=";
+							}
+
+							if ((data_order == 1) && (check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set hqualityeight condition as <" << subdata << ">" << endl; }
+								just_created_block->item_quality_condition = subdata;
+							}
+
+							if (data_order == 2)
+							{
+								if (show_info_to_console) { cout << "set quality as <" << subdata << ">" << endl; }
+								just_created_block->item_quality = std::stoi(subdata);
+							}
+						}
+						
+						if (parser_mode == Enums::ParserMode::GEM_LEVEL)
+						{
+							if (data_order == 0)
+							{
+								if (show_info_to_console) { cout << "activate gem level property" << endl; }
+							}
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
+								just_created_block->gem_level = std::stoi(subdata);
+								just_created_block->gem_level_condition = "=";
+							}
+
+							if ((data_order == 1) && (check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set gem level condition as <" << subdata << ">" << endl; }
+								just_created_block->gem_level_condition = subdata;
+							}
+
+							if (data_order == 2)
+							{
+								if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
+								just_created_block->gem_level = std::stoi(subdata);
+							}
+						}
+
+						if (parser_mode == Enums::ParserMode::IS_ELDER_MAP)
+						{
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate elder map property" << endl; } }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set elder map item as <" << subdata << ">" << endl; } just_created_block->is_elder_map = convert_text_to_bool(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::IS_SHAPER_MAP)
+						{
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate shaper map property" << endl; } }
+							if (data_order == 1) { if (show_info_to_console) { cout << "set shaper map item as <" << subdata << ">" << endl; } just_created_block->is_shaper_map = convert_text_to_bool(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::MAP_TIER)
+						{
+							if (data_order == 0)
+							{
+								if (show_info_to_console) { cout << "activate map tier property" << endl; }
+							}
+
+							if ((data_order == 1) && (!check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
+								just_created_block->map_tier = std::stoi(subdata);
+								just_created_block->map_tier_condition = "=";
+							}
+
+							if ((data_order == 1) && (check_is_condition_symbols(subdata)))
+							{
+								if (show_info_to_console) { cout << "set map tier condition as < " << subdata << " >" << endl; }
+								just_created_block->map_tier_condition = subdata;
+							}
+
+							if (data_order == 2)
+							{
+								if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
+								just_created_block->map_tier = std::stoi(subdata);
+							}
+						}
+
+						if (parser_mode == Enums::ParserMode::PROPHECY)
+						{
+							//if (data_order == 0) { cout << "activate rarity property" << endl; }
+							if (data_order > 0) { if (show_info_to_console) { cout << "add new prophecy mod <" << subdata << ">" << endl; } just_created_block->prophecy_list.push_back(new string(subdata)); }
+						}
 
 
 					}
@@ -356,16 +725,16 @@ void parse_loot_filter_data(string _path)
 				}
 				else
 				{
-					cout << "--EMPTY SUBDATA#" << endl;
+					if (show_info_to_console) { cout << "--EMPTY SUBDATA#" << endl; }
 				}
 			}
 		}
-		cout <<  endl << endl;
+		if (show_info_to_console) { cout << endl << endl; }
 		
 		line_number++;
 	}
 
-	if (error_counts <= 0) { cout << green << "Error count:0"; }
+	if (error_counts <= 0) { cout << green << "Error count:0" << endl;; }
 	else
 	{
 		cout << red << "Error count:" << yellow << error_counts << white << endl;;

@@ -9,17 +9,27 @@ class EButton
 {
 public:
 	float x=10;
-	float y=10;
+	float y=200;
 
 	float size_x=100;
 	float size_y=25;
 
 	std::string text = "!";
 
-	bool have_input_mode=true;
+	bool have_input_mode=false;
 	bool is_input_mode_active = false;
 
 	bool is_active=true;
+
+	float bound_size_left = 0;
+	float bound_size_right = 0;
+	float bound_size_up = 0;
+	float bound_size_down = 0;
+
+	bool is_expanded = false;
+	bool is_drop_list = true;
+
+	int drop_elements = 5;
 
 	EButton()
 	{
@@ -41,7 +51,7 @@ public:
 
 		//std::cout << Helper::x << " " << Helper::y << " " << std::endl;
 
-		if ((mouse_x >x) && (mouse_x < x+size_x) && (mouse_y > y) && (mouse_y < y + size_y))
+		if ((mouse_x >x- bound_size_left) && (mouse_x < x+size_x+ bound_size_right) && (mouse_y > y-bound_size_down) && (mouse_y < y + size_y+ bound_size_up))
 		{
 			return true;
 		}
@@ -58,6 +68,20 @@ public:
 		{
 			button_pressed = true;
 			std::cout << "Button pressed" << std::endl;
+
+			if (is_drop_list)
+			{
+				is_expanded = !is_expanded;
+
+				if (is_expanded)
+				{
+					bound_size_down = 150;
+				}
+				else
+				{
+					bound_size_down = 0;
+				}
+			}
 
 			if ((have_input_mode) && (!is_input_mode_active))
 			{
@@ -127,7 +151,13 @@ public:
 			_batch->setcolor_255(128, 128, 128, 100);
 		}
 
-		
+		if (is_expanded)
+		{
+			for (int i = 0; i < drop_elements; i++)
+			{
+				_batch->draw_rect_with_uv(x, y-i*27-30, size_x, 25, 0, 0, 1, 1);
+			}
+		}
 
 		
 		//std::cout << "red color is:" << _batch->batch_color_r;
