@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClInclude Include="Batcher.h" />
     <ClInclude Include="ConsoleColor.h" />
+    <ClInclude Include="EButton.h" />
     <ClInclude Include="ECamera.h" />
     <ClInclude Include="EInit.h" />
     <ClInclude Include="EFont.h" />
+    <ClInclude Include="EControl.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="Helper.h" />
   </ItemGroup>

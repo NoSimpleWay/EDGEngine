@@ -1,57 +1,38 @@
+
+#include "EButton.h"
+
 #include <glad/glad.h>
 #include "Batcher.h"
 #include <iostream>
 #include "Helper.h"
 #include <GLFW/glfw3.h>
 #include "EFont.h"
+#include "EControl.h"
 
-class EButton
-{
-public:
-	float x=10;
-	float y=200;
 
-	float size_x=100;
-	float size_y=25;
+	
 
-	std::string text = "!";
-
-	bool have_input_mode=false;
-	bool is_input_mode_active = false;
-
-	bool is_active=true;
-
-	float bound_size_left = 0;
-	float bound_size_right = 0;
-	float bound_size_up = 0;
-	float bound_size_down = 0;
-
-	bool is_expanded = false;
-	bool is_drop_list = true;
-
-	int drop_elements = 5;
-
-	EButton()
+	EButton::EButton()
 	{
 
 	}
 
 
 
-	~EButton()
+	EButton::~EButton()
 	{
 
 	}
 
-	bool is_overlap()
+	bool EButton::is_overlap()
 	{
 		
 		//ETexture::texture[0] = 0;
 		//std::cout << "" << std::endl;
 
 		//std::cout << Helper::x << " " << Helper::y << " " << std::endl;
-
-		if ((mouse_x >x- bound_size_left) && (mouse_x < x+size_x+ bound_size_right) && (mouse_y > y-bound_size_down) && (mouse_y < y + size_y+ bound_size_up))
+		//std::cout << "PIZDOS=" << EMouse::mouse_x<< endl;
+		if ((EControl::mouse_x > button_x- bound_size_left) && (EControl::mouse_x < button_x+ button_size_x+ bound_size_right) && (EControl::mouse_y > button_y-bound_size_down) && (EControl::mouse_y < button_y + button_size_y+ bound_size_up))
 		{
 			return true;
 		}
@@ -62,11 +43,11 @@ public:
 		//return false;
 	}
 
-	void update(float _d)
+	void EButton::update(float _d)
 	{
-		if ((mouse_pressed)&&(!button_pressed))
+		if ((EControl::mouse_pressed)&&(!EControl::button_pressed))
 		{
-			button_pressed = true;
+			EControl::button_pressed = true;
 			std::cout << "Button pressed" << std::endl;
 
 			if (is_drop_list)
@@ -109,10 +90,10 @@ public:
 						(glfwGetKey(main_window, GLFW_KEY_DELETE) == GLFW_PRESS)
 					)
 					&&
-					(button_backspace_released)
+					(EControl::button_backspace_released)
 				)
 			{
-				button_backspace_released=false;
+				EControl::button_backspace_released=false;
 
 				if (text.length() > 1)
 				{
@@ -133,7 +114,7 @@ public:
 		}
 	}
 
-	void draw(Batcher* _batch)
+	void EButton::draw(Batcher* _batch)
 	{
 		//std::cout << "!" << std::endl;
 		
@@ -155,19 +136,18 @@ public:
 		{
 			for (int i = 0; i < drop_elements; i++)
 			{
-				_batch->draw_rect_with_uv(x, y-i*27-30, size_x, 25, 0, 0, 1, 1);
+				_batch->draw_rect_with_uv(button_x, button_y-i*27-30, button_size_x, 25, 0, 0, 1, 1);
 			}
 		}
 
 		
 		//std::cout << "red color is:" << _batch->batch_color_r;
 
-		_batch->draw_rect_with_uv(x, y, size_x, size_y, 0, 0, 1, 1);
+		_batch->draw_rect_with_uv(button_x, button_y, button_size_x, button_size_y, 0, 0, 1, 1);
 	}
 
-	void text_pass(EFont* _font, Batcher* _batch)
+	void EButton::text_pass(EFont* _font, Batcher* _batch)
 	{
 		_batch->setcolor(0.0f, 0.0f, 0.0f, 1.0f);
-		_font->draw(_batch,text,x+2,y+2);
+		_font->draw(_batch,text, button_x+2, button_y+2);
 	}
-};

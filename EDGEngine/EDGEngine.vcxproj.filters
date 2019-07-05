@@ -74,5 +74,11 @@
     <ClInclude Include="ConsoleColor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

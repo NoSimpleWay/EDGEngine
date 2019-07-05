@@ -3,6 +3,8 @@
 #include "EFont.h"
 #include "Helper.h"
 #include <vector>
+#include "EButton.h"
+//#include "EButton.cpp"
 class FilterBlock
 {
 public:
@@ -100,6 +102,12 @@ public:
 	bool is_show = true;
 	bool disable_drop_sound = false;
 
+	std::vector<EButton*> filter_flock_button_list;
+
+	EButton* just_created_button;
+
+	//std::vector<EButton*> filter_block_button_list;
+
 	static int rarity_text_to_id(string _text)
 	{
 		for (int i = 0; i < rarity_value->length(); i++)
@@ -125,7 +133,8 @@ public:
 
 	FilterBlock()
 	{
-
+		just_created_button = new EButton();
+		just_created_button->button_x = 200;
 	}
 
 	~FilterBlock()
@@ -156,6 +165,11 @@ public:
 		if (ray_color == Enums::GameColors::YELLOW) { _batch->setcolor_255(255, 255, 0, 100); }
 
 		_batch->draw_rect_with_uv(x + size_x - 120, y + 5, 5, 50, 0, 0, 1, 1);
+
+		for (int i = 0; i < filter_flock_button_list.size(); i++)
+		{
+			filter_flock_button_list.at(i)->draw(_batch);
+		}
 	}
 
 	void add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)

@@ -12,8 +12,7 @@
 	static float correction_x_offset;
 	static float correction_y_offset;
 
-	static int mouse_x;
-	static int mouse_y;
+
 
 	static std::string rarity_value[4] = { "Normal", "Magic", "Rare", "Unique" };
 
@@ -23,14 +22,13 @@
 
 	static bool global_button_block = false;
 
-	static bool button_pressed = false;
-	static bool mouse_pressed = false;
+
 
 	static char last_inputed_char = NULL;
 
 	static GLFWwindow* main_window;
 
-	static bool button_backspace_released;
+
 
 
 	namespace Helper {

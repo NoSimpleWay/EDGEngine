@@ -23,12 +23,13 @@
 #include <ctime>
 #include "Helper.h";
 #include <vector>
-#include "EButton.cpp"
+#include "EButton.h"
 #include "FilterBlock.cpp"
 
 
 
 #include "ETexture.cpp"
+#include "EControl.h"
 
 using namespace std;
 using namespace Helper;
@@ -37,6 +38,14 @@ using namespace Helper;
 
 
 static int im_static = 0;
+int EControl::WTF = 0;
+
+int EControl::mouse_x = 0;
+int EControl::mouse_y = 0;
+
+bool EControl::button_pressed = false;
+bool EControl ::mouse_pressed = false;
+bool EControl ::button_backspace_released = false;
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -1055,11 +1064,11 @@ int main()
 	{
 		if ((glfwGetKey(main_window, GLFW_KEY_BACKSPACE) == GLFW_RELEASE))
 		{
-			button_backspace_released = true;
+			EControl::button_backspace_released = true;
 		}
 		if (0 == GLFW_PRESS)
 		{
-			button_pressed = false;
+			EControl::button_pressed = false;
 		}
 
 		clock_t time = clock();
@@ -1292,7 +1301,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		double xpos, ypos;
 		//getting cursor position
 		glfwGetCursorPos(window, &xpos, &ypos);
-		mouse_pressed = true;
+		EControl::mouse_pressed = true;
 		cout << "Cursor Position at (" << xpos << " : " << ypos << " button:" << button<<" action:" << action << endl;
 	}
 
@@ -1302,8 +1311,8 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		//getting cursor position
 		glfwGetCursorPos(window, &xpos, &ypos);
 
-		button_pressed = false;
-		mouse_pressed = false;
+		EControl::button_pressed = false;
+		EControl::mouse_pressed = false;
 
 		cout << "Cursor released at (" << xpos << " : " << ypos << " button:" << button << " action:" << action << endl;
 	}
@@ -1314,8 +1323,10 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 void mouse_position_callback(GLFWwindow* window, double _x, double _y)
 {
 	//cout << "Mouse move (" << _x << " : " << _y << endl;
-	mouse_x = _x;
-	mouse_y = SCR_HEIGHT-_y;
+	EControl::mouse_x = _x;
+	EControl::mouse_y = SCR_HEIGHT-_y;
+
+	EControl::WTF = _x;
 }
 
 void char_input_callback(GLFWwindow* window, unsigned int _char)
