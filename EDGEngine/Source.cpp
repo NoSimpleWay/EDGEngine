@@ -1,4 +1,5 @@
-﻿#include <glad/glad.h>
+﻿#pragma once
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -24,12 +25,15 @@
 #include "Helper.h";
 #include <vector>
 #include "EButton.h"
-#include "FilterBlock.cpp"
+#include "FilterBlock.h"
 
 
 
-#include "ETexture.cpp"
+#include "ETexture.h"
 #include "EControl.h"
+
+#include "DADItem.h"
+#include "EGabarite.h"
 
 using namespace std;
 using namespace Helper;
@@ -59,9 +63,12 @@ void char_input_callback(GLFWwindow* window, unsigned int _char);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void load_texture(const char* _path, int _id);
 
+void put_texture_to_atlas(char const* _path,float _x, float _y);
+void put_texture_to_atlas(char const* _path);
+
 // settings
-int SCR_WIDTH = 640;
-int SCR_HEIGHT = 640;
+int SCR_WIDTH = 1700;
+int SCR_HEIGHT = 900;
 
 
 
@@ -97,6 +104,8 @@ std::vector<int> v = { 7, 5, 16, 8 };
 std::vector<EButton*> button_list;
 std::vector<FilterBlock*> filter_block_list;
 
+std::vector<DADItem*> item_list;
+
 
 unsigned int ETexture::texture[32];
 
@@ -117,7 +126,104 @@ static GLFWwindow* window;
 
 int block_scroll=0;
 
+unsigned int FBO;
+unsigned int FBO_texture;
 
+unsigned int rbo;
+unsigned int framebuffer;
+unsigned int texColorBuffer;
+
+unsigned int last_texture_w;
+unsigned int last_texture_h;
+
+
+bool collision_matrix[4096][4096][10];
+
+EGabarite* just_created_gabarite = NULL;
+
+
+//0		-	1
+//1		-	2
+//2		-	4
+//3		-	8
+//4		-	16
+//5		-	32
+//6		-	64
+//7		-	128
+//8		-	256
+//9		-	512
+//10	-	1024
+
+float quadVertices[] = { // vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
+	// positions   // texCoords
+	0.0f,	500.0f,  0.0f, 1.0f,
+	0.0f,	0.0f,	0.0f, 0.0f,
+	500.0f,	0.0f,	1.0f, 0.0f,
+
+	0.0f,	500.0f,  0.0f, 1.0f,
+	500.0f,	0.0f,	 1.0f, 0.0f,
+	500.0f,	500.0f,  1.0f, 1.0f
+};
+
+bool check_can_put_here(int _x, int _y, int _size_x, int _size_y, int _value, int _dim)
+{
+	//cout << endl;
+	//cout << "#######" << endl;
+	//cout << "start collision search at dim: " << _dim << endl << endl;
+
+	for (int put_j = (int)(_x / _value) + 1; put_j < (int)((_x + _size_x) / _value); put_j++)
+	for (int put_i = (int)(_y / _value) + 1; put_i < (int)((_y + _size_y) / _value); put_i++)
+	{
+		if (collision_matrix[put_j][put_i][_dim])
+		{
+			//cout << "collision at dim:" << _dim << " x:" << _x << " y:" << _y << endl;
+			
+			put_j = 99999;
+			put_i = 99999;
+
+			return false;
+		}
+	}
+
+	return true;
+}
+//0		-	1
+//1		-	2
+//2		-	4
+//3		-	8
+//4		-	16
+//5		-	32
+//6		-	64
+//7		-	128
+//8		-	256
+//9		-	512
+//10	-	1024
+bool check_size_overlap(int _sx, int _sy, int _value)
+{
+	if ((_sx>_value)&&(_sy>_value))
+	{
+		return true;
+	}
+
+	return false;
+}
+
+bool is_no_collision(int _x, int _y, int _size_x, int _size_y)
+{
+	//return true;
+	//bool can_put=true;
+	if (!check_can_put_here(_x, _y, _size_x, _size_y, 256, 8)) { return false; }
+	if (!check_can_put_here(_x, _y, _size_x, _size_y, 128, 7)) { return false;  }
+	if (!check_can_put_here(_x,_y,_size_x,_size_y,64,6)) { return false; }
+	if (!check_can_put_here(_x,_y,_size_x,_size_y,32,5)) { return false; }
+	if (!check_can_put_here(_x,_y,_size_x,_size_y,16,4)) { return false; }
+	if (!check_can_put_here(_x,_y,_size_x,_size_y,8,3)) { return false; }
+	if (!check_can_put_here(_x,_y,_size_x,_size_y,4,2)) { return false; }
+	if (!check_can_put_here(_x,_y,_size_x,_size_y,2,1)) { return false; }
+	if (!check_can_put_here(_x,_y,_size_x,_size_y,1,0)) { return false; }
+
+	return true;
+}
 
 string tchar_to_string(TCHAR* _t)
 {
@@ -139,6 +245,81 @@ bool convert_text_to_bool(string _text)
 	}
 }
 
+void parse_item_data()
+{
+	ofstream myfile_open;
+	myfile_open.open("gemor.txt");
+
+	ifstream myfile;
+	myfile.open("data/ItemList.txt");
+	string line;
+
+	string subdata;
+	string subdata_array[50];
+
+	int line_id=0;
+	int data_order;
+
+	DADItem* just_created_item=NULL;
+
+	while ((getline(myfile, line))&&(line_id<1000))
+	{
+		just_created_item = new DADItem();
+
+		data_order = 0;
+		subdata = "";
+		for (int i = 0; i < line.length(); i++)
+		{
+			
+
+			if (line.at(i) != '\t')
+			{ subdata += line.at(i); }
+
+			if ((line.at(i)=='\t')||(i+1>=line.length()))
+			{
+				subdata_array[data_order] = subdata;
+				subdata = "";
+				data_order++;
+			}
+
+		}
+
+		for (int i = 0; i < 25; i++)
+		{
+			if (subdata_array[i * 2] == "item EN name")			{just_created_item->item_name = subdata_array[i * 2 + 1];}
+			if (subdata_array[i * 2] == "icon path")			{just_created_item->icon_path = subdata_array[i * 2 + 1];}
+			if (subdata_array[i * 2] == "item RU name")			{just_created_item->item_name_ru = subdata_array[i * 2 + 1];}
+			if (subdata_array[i * 2] == "base class")			{just_created_item->base_class = subdata_array[i * 2 + 1];}
+			if (subdata_array[i * 2] == "folder")				{just_created_item->folder = subdata_array[i * 2 + 1];}
+			
+			if (subdata_array[i * 2] == "item category")		{}
+			if (subdata_array[i * 2] == "item sub category")	{}
+		}
+
+		item_list.push_back(just_created_item);
+		//cout << "item data: " << line << endl << endl;
+
+		//cout << "item data [1]" << subdata_array[1] << endl;
+
+		line_id++;
+		
+		//myfile_open << line<<endl;
+	}
+
+	myfile.close();
+	myfile_open.close();
+}
+
+int find_item_by_full_name(string _name)
+{
+	for (int i = 0; i < item_list.size(); i++)
+	{
+		if (item_list.at(i)->item_name == _name) { return i; }
+	}
+
+	return -1;
+}
+
 void parse_loot_filter_data(string _path)
 {
 	ifstream myfile;
@@ -156,6 +337,10 @@ void parse_loot_filter_data(string _path)
 
 	int error_counts = 0;
 	bool show_info_to_console = false;
+
+	EButton* just_created_button=NULL;
+
+
 
 	while ((getline(myfile, line))&&(line_number<10000))
 	{
@@ -413,7 +598,32 @@ void parse_loot_filter_data(string _path)
 						if (parser_mode == Enums::ParserMode::BASETYPE)
 						{
 							//if (data_order == 0) { cout << "activate rarity property" << endl; }
-							if (data_order > 0) { if (show_info_to_console) { cout << "add new base type <" << subdata << ">" << endl; } just_created_block->base_type_list.push_back(new string(subdata)); }
+							if (data_order > 0)
+							{
+								if (show_info_to_console){ cout << "add new base type <" << subdata << ">" << endl; }
+
+								just_created_button=new EButton(0,0,30,30);
+								just_created_button->master_block = just_created_block;
+								just_created_button->master_position = Enums::ButtonPositionMaster::FILTER_BLOCK;
+								just_created_button->have_text = false;
+								
+								just_created_button->description_text = subdata;
+
+								int item_id = find_item_by_full_name(subdata);
+								if (item_id < 0) { item_id = 0;  }
+
+								if (item_id >= 0)
+								{
+									just_created_button->have_icon = true;
+									just_created_button->gabarite = item_list.at(item_id)->gabarite;
+									just_created_button->button_size_x = item_list.at(item_id)->gabarite->size_x / 2.0f;
+									just_created_button->button_size_y = item_list.at(item_id)->gabarite->size_y / 2.0f;
+									if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
+								}
+
+								//just_created_button->
+								just_created_block->filter_block_items_button_list.push_back(just_created_button);
+							}
 						}
 
 						if (parser_mode == Enums::ParserMode::IS_SHAPER_ITEM)
@@ -753,7 +963,6 @@ void parse_loot_filter_data(string _path)
 
 int main()
 {
-
 	CHAR my_documents[MAX_PATH];
 	HRESULT result = SHGetFolderPath(NULL, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, my_documents);
 
@@ -765,7 +974,7 @@ int main()
 	{
 		path_to_poe_folder = (string)my_documents + "\\My Games\\Path of Exile\\";
 		std::cout << "Path: " << path_to_poe_folder << "\n";
-		
+
 	}
 
 	button_list.push_back(new EButton());
@@ -790,11 +999,7 @@ int main()
 		cout << "Hello, unnamed person!\n";
 	}
 
-	//##################################
-	//##################################
-	parse_loot_filter_data(path_to_poe_folder+"NeverSink's filter.filter");
-	//##################################
-	//##################################
+
 
 	ofstream myfile;
 	myfile.open("example.txt");
@@ -806,9 +1011,9 @@ int main()
 	myfile.close();
 
 	recalculate_correction();
-	setlocale(LC_ALL, "Russian");
-	setlocale(LC_ALL, "ru_RU.UTF-8");
-	setlocale(LC_ALL, "");
+	//setlocale(LC_ALL, "Russian");
+	setlocale(LC_ALL, "UTF-8");
+	//setlocale(LC_ALL, "");
 
 	//SetConsoleCP(1251);
 	//SetConsoleOutputCP(1251);
@@ -821,7 +1026,7 @@ int main()
 
 
 	string s;
-	
+
 	for (int i = 32; i < 300; i++)
 	{
 		char ch = i;  // Присвоили в ch число 1, символ, выводимый на экран будет иным
@@ -852,65 +1057,66 @@ int main()
 	else cout << "Unable to open file";
 
 	//cout << "QQQ: " << "" << endl;
-	
+
 
 	for (int i = 0; i < 100; i++)
-	for (int j = 0; j < 100; j++)
-	{
-		tilemap[j][i] = -1;
-	}
-
-	for (int i = 0; i < 100; i++)
-	for (int j = 0; j < 100; j++)
-	{
-		if (tilemap[j][i] == -1)
+		for (int j = 0; j < 100; j++)
 		{
-			//refill available tile
-			for (int k = 0; k < 16; k++)
-			{
-				available_tile[k]=k;
-			}
-
-
-			//exclude potencial duplicate
-			for (int b=-1; b<=1; b++)
-			for (int a=-1; a<=1; a++)
-			if (
-				(
-					(a!=0)||(b!=0)
-				)
-				&&(j>=0)
-				&& (j<100)
-				&& (i>=0)
-				&& (i<100))
-			{
-				int target_tile = tilemap[j + b][i + a];
-
-				//if (target_tile >= 0) { available_tile[target_tile] = -1; }
-			}
-
-
-			tile_array_index = 0;
-			for (int k = 0; k < 16; k++)
-			if (available_tile[k]>=0)
-			{
-				final_available_tile[tile_array_index] = available_tile[k];
-				tile_array_index++;
-			}
-
-			int selected_tile = final_available_tile[rand() % tile_array_index];
-
-			//available_tile._Make_iter;
-
-			//tilemap[j][i] = choosen_tile._Getcont;
-
-			if (rand() % 25 != 0) { selected_tile += 4; } else { selected_tile =rand()%4;}
-			tilemap[j][i] = selected_tile;
-			
-			
-			//std::cout << "tile: " << selected_tile << std::endl;
+			tilemap[j][i] = -1;
 		}
-	}
+
+	for (int i = 0; i < 100; i++)
+		for (int j = 0; j < 100; j++)
+		{
+			if (tilemap[j][i] == -1)
+			{
+				//refill available tile
+				for (int k = 0; k < 16; k++)
+				{
+					available_tile[k] = k;
+				}
+
+
+				//exclude potencial duplicate
+				for (int b = -1; b <= 1; b++)
+					for (int a = -1; a <= 1; a++)
+						if (
+							(
+							(a != 0) || (b != 0)
+								)
+							&& (j >= 0)
+							&& (j < 100)
+							&& (i >= 0)
+							&& (i < 100))
+						{
+							int target_tile = tilemap[j + b][i + a];
+
+							//if (target_tile >= 0) { available_tile[target_tile] = -1; }
+						}
+
+
+				tile_array_index = 0;
+				for (int k = 0; k < 16; k++)
+					if (available_tile[k] >= 0)
+					{
+						final_available_tile[tile_array_index] = available_tile[k];
+						tile_array_index++;
+					}
+
+				int selected_tile = final_available_tile[rand() % tile_array_index];
+
+				//available_tile._Make_iter;
+
+				//tilemap[j][i] = choosen_tile._Getcont;
+
+				if (rand() % 25 != 0) { selected_tile += 4; }
+				else { selected_tile = rand() % 4; }
+				tilemap[j][i] = selected_tile;
+
+
+				//std::cout << "tile: " << selected_tile << std::endl;
+			}
+		}
 
 
 	// glfw: initialize and configure
@@ -923,12 +1129,12 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	#ifdef __APPLE__
+#ifdef __APPLE__
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
-	#endif
+#endif
 
-	// glfw window creation
-	// --------------------
+// glfw window creation
+// --------------------
 	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
 	main_window = window;
 	//main_window = window;
@@ -959,7 +1165,7 @@ int main()
 
 	// build and compile our shader zprogram
 	// ------------------------------------
-	ourShader=new Shader ("data/5.1.transform.vs", "data/5.1.transform.fs");
+	ourShader = new Shader("data/5.1.transform.vs", "data/5.1.transform.fs");
 
 	// set up vertex data (and buffer(s)) and configure vertex attributes
 	// ------------------------------------------------------------------
@@ -969,12 +1175,12 @@ int main()
 	// -------------------------
 	// texture 1
 	// ---------
-	load_texture("data/white_pixel.png",0);
+	load_texture("data/white_pixel.png", 0);
 	load_texture("data/tile_info.png", 1);
 	load_texture("data/font_arial.png", 2);
 	// texture 2
 	// ---------
-	
+
 
 	// tell opengl for each sampler to which texture unit it belongs to (only has to be done once)
 	// -------------------------------------------------------------------------------------------
@@ -982,7 +1188,7 @@ int main()
 
 	//ourShader->setInt("texture2", 1);
 	glfwSwapInterval(1);
-	
+
 
 	// render loop
 	// -----------
@@ -990,8 +1196,45 @@ int main()
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
+
+	//--------------------------------------------------------------------------------------------
+	//--------------------------FBO SECTION-----------------------------------------------------
+	//--------------------------------------------------------------------------------------------
+	unsigned int framebuffer;
+	glGenFramebuffers(1, &framebuffer);
+	glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+	// create a color attachment texture
+	unsigned int textureColorbuffer;
+	glGenTextures(1, &textureColorbuffer);
+	glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 4096, 4096, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
+	// create a renderbuffer object for depth and stencil attachment (we won't be sampling these)
+	unsigned int rbo;
+	glGenRenderbuffers(1, &rbo);
+	glBindRenderbuffer(GL_RENDERBUFFER, rbo);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, 4096, 4096); // use a single renderbuffer object for both a depth AND stencil buffer.
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo); // now actually attach it
+	// now that we actually created the framebuffer and added all attachments we want to check if it is actually complete now
+	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+		cout << "ERROR::FRAMEBUFFER:: Framebuffer is not complete!" << endl;
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+	unsigned int quadVAO, quadVBO;
+	glGenVertexArrays(1, &quadVAO);
+	glGenBuffers(1, &quadVBO);
+	glBindVertexArray(quadVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), &quadVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+	//--------------------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------------------
 
 	batch = new Batcher();
 	batch2 = new Batcher();
@@ -1007,6 +1250,7 @@ int main()
 	//camera->zoom = 1;
 
 
+	/*
 	for (int i = 0; i < 30; i++)
 	for (int j = 0; j < 30; j++)
 	{
@@ -1016,14 +1260,7 @@ int main()
 
 		batch->draw_rect(0.1f * j, 0.1f * i, 0.05f, 0.05f, tile_x, tile_y);
 		batch2->draw_rect(0.1f* j, 0.1f* i, 0.05f, 0.05f, tile_x, tile_y);
-	}
-
-	for (int i = 0; i < 100000; i++)
-	{
-		batch->fill_indices();
-		//batch2->fill_indices();
-		
-	}
+	}*/
 
 	for (int i = 0; i < 100000; i++)
 	{
@@ -1032,10 +1269,17 @@ int main()
 
 	}
 
-	
+	for (int i = 0; i < 100000; i++)
+	{
+		batch->fill_indices();
+		//batch2->fill_indices();
+
+	}
+
+
 	font->load_font("!");
 
-	
+
 
 	/*
 	string cyr = "АБВГДЕЁЗЖИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюя";
@@ -1050,7 +1294,7 @@ int main()
 
 	//string control_text = "Ну наконец-то эта ";
 
-	
+
 	batch->init();
 	batch2->init();
 
@@ -1060,8 +1304,130 @@ int main()
 	batch->setcolor_255(0, 255, 0, 100); font->draw(font_batch, "заработала!", 0, 0);
 	font_batch->init();
 
+	//--------------------------------texture atlas generator ------------------------------------------------
+	//--------------------------------------------------------------------------------------------------------
+	glViewport(0, 0, 4096, 4096);
+	cout << "Maxt texture size: " << GL_MAX_TEXTURE_SIZE << endl;
+	glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_ALPHA_TEST);
+
+	camera->update();
+	transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+
+	transform = glm::translate(transform, glm::vec3(camera->x - 1, camera->y - 1, 0.0f));
+	transform = glm::scale(transform, glm::vec3(camera->zoom / 4096.0f*2.0f, camera->zoom/ 4096.0f*2.0f, 1));
+
+
+
+
+	//transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+
+	// get matrix's uniform location and set matrix
+	ourShader->use();
+	unsigned int transformLoc = glGetUniformLocation(ourShader->ID, "transform");
+	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+
+	/////////////////
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
+	ourShader->setInt("texture1", 0);
+	batch->setcolor(EColor::WHITE);
+
+	
+	//##################################
+//##################################
+	parse_item_data();
+	//##################################
+	//##################################
+	put_texture_to_atlas("data/font_arial.png", 0, 4096 - 128);
+
+	for (int z = 0; z < item_list.size(); z++)
+	{
+
+		int select = rand() % 3;
+		
+		/*
+		if (select == 0) { put_texture_to_atlas("data/button_remove.png"); }
+		if (select == 1) { put_texture_to_atlas("data/Buckskin_Tunic_inventory_icon.png"); }
+		if (select == 2) { put_texture_to_atlas("data/Bone_Circlet_inventory_icon.png"); }
+		*/
+
+
+		string aaa="data/icon/"+(item_list.at(z)->folder) + "/" + item_list.at(z)->icon_path + ".png";
+		put_texture_to_atlas(aaa.c_str());
+		item_list.at(z)->gabarite=just_created_gabarite;
+
+		cout << "Collision pass:" << green<< z << white << endl;
+	}
+
+	put_texture_to_atlas("data/white_pixel.png");
+	just_created_gabarite->x += 1 / 4096.0f;
+	just_created_gabarite->y += 1 / 4096.0f;
+	just_created_gabarite->x2 -= 1 / 4096.0f;
+	just_created_gabarite->y2 -= 1 / 4096.0f;
+	DefaultGabarite::gabarite_white = just_created_gabarite;
+	
+
+	parse_loot_filter_data(path_to_poe_folder + "NeverSink's filter.filter");
+
+		load_texture("data/white_pixel.png", 0);
+		batch->reset();
+
+		/*
+		for (int j = 0; j < 512; j++)
+		{
+
+
+			for (int i = 0; i < 512; i++)
+			{
+				if (collision_matrix[j][i][0])
+				{
+					batch->setcolor(1,0,0,0.25f);
+				}
+				else
+				{
+					batch->setcolor(1,1,1,0.8f);
+				}
+
+				batch->draw_rect(j, i, 2.0f, 2.0f);
+			}
+
+
+		}
+		batch->reinit();
+		batch->draw_call();
+		*/
+
+		/*
+		batch->setcolor_alpha(EColor::GREEN,0.5f);
+		batch->draw_rect(200, 150, 200, 300);
+
+		batch->setcolor(EColor::BLUE);
+		batch->draw_rect(300, 500, 200, 300);
+		*/
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glDisable(GL_DEPTH_TEST);
+	//--------------------------------------------------------------------------------------------------------
+	//--------------------------------------------------------------------------------------------------------
+
+	//cout << (int)01.35f << endl;
+
+	recalculate_correction();
+	glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
+
 	while (!glfwWindowShouldClose(window))
 	{
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glDisable(GL_DEPTH_TEST);
+		//glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glDisable(GL_DEPTH_TEST);
+
 		if ((glfwGetKey(main_window, GLFW_KEY_BACKSPACE) == GLFW_RELEASE))
 		{
 			EControl::button_backspace_released = true;
@@ -1072,19 +1438,19 @@ int main()
 		}
 
 		clock_t time = clock();
-		delta_time = (time-saved_time_for_delta)/1000.0;
+		delta_time = (time - saved_time_for_delta) / 1000.0;
 		saved_time_for_delta = time;
 
 		camera->update();
 
-		glClearColor(0.1f, 0.11f, 0.12f, 1.0f);
+		glClearColor(0.8f, 0.81f, 0.82f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 
 		transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
 
-		transform = glm::translate(transform, glm::vec3(camera->x-1, camera->y-1, 0.0f));
-		transform = glm::scale(transform, glm::vec3(camera->zoom*correction_x, camera->zoom * correction_y, 1));
+		transform = glm::translate(transform, glm::vec3(camera->x - 1, camera->y - 1, 0.0f));
+		transform = glm::scale(transform, glm::vec3(camera->zoom * correction_x, camera->zoom * correction_y, 1));
 
 
 		//transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
@@ -1094,45 +1460,67 @@ int main()
 		unsigned int transformLoc = glGetUniformLocation(ourShader->ID, "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
 
-		// render container
 
+		
+		batch->reset();
+		
+		
 
 		/*
-		glBindVertexArray(VAO);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		batch->setcolor(EColor::BLACK);
+		for (int i = 0; i < 30; i++)
+		for (int j = 0; j < 30; j++)
+		{
+			batch->draw_rect(j*32+1.0f, i*32+1.0f, 30.0f, 30.0f);
+		}
 		*/
 
 
 
+		/*
+		batch->setcolor_alpha(EColor::WHITE,0.5f);
+		batch->draw_rect(EControl::mouse_x, EControl::mouse_y, 100, 100);
 
-		//batch->draw_call();
+		batch->setcolor(EColor::BLUE);
+		batch->draw_rect_position
+		(
+			(int)(EControl::mouse_x / 8) * 8 + 8,
+			(int)(EControl::mouse_y / 8) * 8 + 8,
+			(int)((EControl::mouse_x + 100.0f) / 8) * 8,
+			(int)((EControl::mouse_y + 100.0f) / 8) * 8
+		);
 
+		batch->setcolor(EColor::GREEN);
+		batch->draw_rect_position
+		(
+			(int)(EControl::mouse_x / 16.0f) * 16.0f + 16.0f,
+			(int)(EControl::mouse_y / 16.0f) * 16.0f + 16.0f,
+			(int)((EControl::mouse_x + 100.0f) / 16.0f) * 16.0f,
+			(int)((EControl::mouse_y + 100.0f) / 16.0f) * 16.0f
+		);
 
+		batch->setcolor(EColor::RED);
+		batch->draw_rect_position
+		(
+			(int)(EControl::mouse_x / 32.0f) * 32.0f + 32.0f,
+			(int)(EControl::mouse_y / 32.0f) * 32.0f + 32.0f,
+			(int)((EControl::mouse_x + 100.0f) / 32.0f) * 32.0f,
+			(int)((EControl::mouse_y + 100.0f) / 32.0f) * 32.0f
+		);
+		*/
 
-		
-			/*
-			for (int i=0; i<10; i++)
-			for (int j = 0; j < 10; j++)
-			{
-				font->x_adding = 0;
-			
-
-				font->draw(font_batch, "Ё", j*100, i*100);
-			}*/
-		
-
-		batch->reset();
-		//batch->setcolor_255(0, 0, 255, 100);
 
 		button_list.at(0)->update(delta_time);
 		button_list.at(0)->draw(batch);
-		
-		
+
+
 
 		//batch->setcolor_255(0, 0, 0, 100);
 		int block_index = 0;
 
-		for (int i = 0; i < 5; i++)
+
+
+		for (int i = 0; i < 9; i++)
 		{
 			block_index = i + block_scroll;
 
@@ -1140,15 +1528,24 @@ int main()
 			{
 				filter_block_list.at(block_index)->x = 15;
 				filter_block_list.at(block_index)->y = SCR_HEIGHT - filter_block_list.at(block_index)->size_y - 15 - i * 105;
+
 				filter_block_list.at(block_index)->size_x = SCR_WIDTH - 30;
 
+				filter_block_list.at(block_index)->update(delta_time);
 				filter_block_list.at(block_index)->draw(batch);
 			}
 		}
 
 
+		glActiveTexture(GL_TEXTURE0);
+		ourShader->setInt("texture1", 0);
 
+		glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
 
+		batch->reinit();
+		batch->draw_call();
+
+		/*
 		//main draw call
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
@@ -1161,11 +1558,11 @@ int main()
 		glActiveTexture(GL_TEXTURE2);
 		glBindTexture(GL_TEXTURE_2D, ETexture::texture[2]);
 		ourShader->setInt("texture1", 2);
-
-		font_batch->reset(); 
+		*/
+		font_batch->reset();
 
 		font_batch->setcolor_255(255, 255, 255, 100);
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 9; i++)
 		{
 			block_index = i + block_scroll;
 
@@ -1174,15 +1571,58 @@ int main()
 				filter_block_list.at(block_index)->text_pass(font, font_batch);
 			}
 		}
-		button_list.at(0)->text_pass(font, font_batch);
-		
 
-		
+		button_list.at(0)->text_pass(font, font_batch);
+
+
+
 
 		//font->draw(font_batch, "01!02!03!04" + work_text, 0, 100);
-		
+
 		font_batch->reinit();
 		font_batch->draw_call();
+
+
+
+		//glBindVertexArray(0);
+
+		//glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		//glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
+		// clear all relevant buffers
+
+
+
+
+
+		if (false)
+		{
+			glBindVertexArray(0);
+			// now bind back to default framebuffer and draw a quad plane with the attached framebuffer color texture
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
+			// clear all relevant buffers
+			glClearColor(0.2f, 0.3f, 0.4f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
+			glClear(GL_COLOR_BUFFER_BIT);
+
+			glActiveTexture(GL_TEXTURE0);
+			ourShader->setInt("texture1", 0);
+
+			glBindTexture(GL_TEXTURE_2D, textureColorbuffer);	// use the color attachment texture as the texture of the quad plane
+
+
+
+			batch->setcolor(1.0f, 1.0f, 1.0f, 1.0f);
+			batch->reset();
+
+			batch->draw_rect_with_uv(0, 0, 4096/4.0f, 4096/4.0f, 0, 0, 1, 1);
+			batch->draw_rect_with_uv(500, 500, 100, 100, item_list.at(0)->gabarite);
+
+			batch->reinit();
+			batch->draw_call();
+
+
+			
+		}
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
@@ -1198,6 +1638,75 @@ int main()
 	// ------------------------------------------------------------------
 	glfwTerminate();
 	return 0;
+}
+
+void fill_collision(int _x, int _y, int _size_x, int _size_y,int _siz, int _dim)
+{
+	for (int xx = (int)(_x / _siz); xx < (int)((_x + _size_x) / _siz); xx++)
+	for (int yy = (int)(_y / _siz); yy < (int)((_y + _size_y) / _siz); yy++)
+	{
+		collision_matrix[xx][yy][_dim] = true;
+	}
+}
+
+void put_texture_to_atlas(char const* _path, float _x, float _y)
+{
+	load_texture(_path, 0);
+
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 1, 0);
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 2, 1);
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 4, 2);
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 8, 3);
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 16, 4);
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 32, 5);
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 64, 6);
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 128, 7);
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 256, 8);
+
+	batch->reset();
+	batch->draw_rect(_x, _y, last_texture_w, last_texture_h);
+	batch->reinit();
+	batch->draw_call();
+
+	just_created_gabarite = new EGabarite(_path, _x / 4096.0f, _y / 4096.0f, last_texture_w / 4096.0f, last_texture_h / 4096.0f);
+}
+
+void put_texture_to_atlas(char const* _path)
+{
+	load_texture(_path, 0);
+
+	for (int j = 0; j < 4000; j+= last_texture_w)
+	for (int i = 0; i < 4000; i+= last_texture_h)
+		{
+			if (is_no_collision(j, i, last_texture_w, last_texture_h))
+			{
+				fill_collision(j,i,last_texture_w,last_texture_h,1,0);
+				fill_collision(j,i,last_texture_w,last_texture_h,2,1);
+				fill_collision(j,i,last_texture_w,last_texture_h,4,2);
+				fill_collision(j,i,last_texture_w,last_texture_h,8,3);
+				fill_collision(j,i,last_texture_w,last_texture_h,16,4);
+				fill_collision(j,i,last_texture_w,last_texture_h,32,5);
+				fill_collision(j,i,last_texture_w,last_texture_h,64,6);
+				fill_collision(j,i,last_texture_w,last_texture_h,128,7);
+				fill_collision(j,i,last_texture_w,last_texture_h,256,8);
+
+				batch->reset();
+				batch->draw_rect(j, i, last_texture_w, last_texture_h);
+				batch->reinit();
+				batch->draw_call();
+
+				just_created_gabarite = new EGabarite(_path,j/4096.0f,i/4096.0f,last_texture_w/4096.0f,last_texture_h/4096.0f);
+
+				//cout<<yellow << "end of search!"<<white << endl;
+
+				j = 99999;
+				i = 99999;
+			}
+			else
+			{
+
+			}
+		}
 }
 
 void load_texture(char const *_path, int _id)
@@ -1218,6 +1727,14 @@ void load_texture(char const *_path, int _id)
 	{
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data1);
 		glGenerateMipmap(GL_TEXTURE_2D);
+
+		//cout << "loaded texture W:" << width << " H:" << height << endl;
+
+		last_texture_h = height;
+		last_texture_w = width;
+
+		/*texture_w[_id] = width;
+		texture_h[_id] = height;*/
 	}
 	else
 	{

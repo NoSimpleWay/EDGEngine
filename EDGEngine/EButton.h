@@ -1,12 +1,18 @@
 #pragma once
 
+
 #include <glad/glad.h>
 #include "Batcher.h"
 #include <iostream>
 #include "Helper.h"
 #include <GLFW/glfw3.h>
 #include "EFont.h"
+#include "Enums.h"
 
+
+#include "FilterBlock.h"
+
+class FilterBlock;
 class EButton
 {
 public:
@@ -32,9 +38,27 @@ public:
 	bool is_drop_list = true;
 
 	int drop_elements = 5;
+	EGabarite* gabarite=NULL;
+
+	bool have_icon = false;
+	Enums::ButtonPositionMaster master_position=Enums::ButtonPositionMaster::SCREEN;
+
+	Enums::ButtonPositionMode position_mode_x=Enums::ButtonPositionMode::LEFT;
+	Enums::ButtonPositionMode position_mode_y=Enums::ButtonPositionMode::DOWN;
+
+	FilterBlock* master_block;
+
+
+	float master_position_x = 0;
+	float master_position_y = 0;
 
 	EButton();
+	EButton(float _x, float _y, float _sx, float _sy);
 
+	bool have_description = true;
+	string description_text;
+
+	bool have_text = true;
 
 
 

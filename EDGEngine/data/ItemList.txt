@@ -1,0 +1,878 @@
+item EN name	Albino Rhoa Feather	icon path	Albino_Rhoa_Feather_inventory_icon	item RU name	Перо белого роа	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	RARE_CURRENCY				
+item EN name	Alchemy Shard	icon path	Alchemy_Shard_inventory_icon	item RU name	Осколок алхимии	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Alteration Shard	icon path	Alteration_Shard_inventory_icon	item RU name	Осколок перемен	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Ancient Orb	icon path	Ancient_Orb_inventory_icon	item RU name	Древняя сфера	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	RARE_CURRENCY				
+item EN name	Ancient Shard	icon path	Ancient_Shard_inventory_icon	item RU name	Древний осколок	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Annulment Shard	icon path	Annulment_Shard_inventory_icon	item RU name	Осколок отмены	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Apprentice Cartographer's Seal	icon path	Apprentice_Cartographer's_Seal_inventory_icon	item RU name	Печать картоходца-ученика	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ATLAS				
+item EN name	Apprentice Cartographer's Sextant	icon path	Apprentice_Cartographer's_Sextant_inventory_icon	item RU name	Секстант картоходца-ученика	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ATLAS				
+item EN name	Armourer's Scrap	icon path	Armourer's_Scrap_inventory_icon	item RU name	Деталь доспеха	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	TRASH_CURRENCY				
+item EN name	Bestiary Orb	icon path	Bestiary_Orb_inventory_icon	item RU name	Сфера бестиария	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Binding Shard	icon path	Binding_Shard_inventory_icon	item RU name	Осколок сплетения	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Blacksmith's Whetstone	icon path	Blacksmith's_Whetstone_inventory_icon	item RU name	Точильный камень	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	TRASH_CURRENCY				
+item EN name	Blessed Orb	icon path	Blessed_Orb_inventory_icon	item RU name	Благодатная сфера	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	CHEAP_CURRENCY				
+item EN name	Blessing of Chayula	icon path	Blessing_of_Chayula_inventory_icon	item RU name	Благословение Чаюлы	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	BREACH_ITEM				
+item EN name	Blessing of Esh	icon path	Blessing_of_Esh_inventory_icon	item RU name	Благословение Иш	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	BREACH_ITEM				
+item EN name	Blessing of Tul	icon path	Blessing_of_Tul_inventory_icon	item RU name	Благословение Тула	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	BREACH_ITEM				
+item EN name	Blessing of Uul-Netol	icon path	Blessing_of_Uul-Netol_inventory_icon	item RU name	Благословение Уул-нетола	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	BREACH_ITEM				
+item EN name	Blessing of Xoph	icon path	Blessing_of_Xoph_inventory_icon	item RU name	Благословение Ксофа	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	BREACH_ITEM				
+item EN name	Cartographer's Chisel	icon path	Cartographer's_Chisel_inventory_icon	item RU name	Резец картографа	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Chaos Orb	icon path	Chaos_Orb_inventory_icon	item RU name	Сфера хаоса	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Chaos Shard	icon path	Chaos_Shard_inventory_icon	item RU name	Осколок хаоса	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Chromatic Orb	icon path	Chromatic_Orb_inventory_icon	item RU name	Цветная сфера	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Divine Orb	icon path	Divine_Orb_inventory_icon	item RU name	Божественная сфера	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	RARE_CURRENCY				
+item EN name	Engineer's Orb	icon path	Engineer's_Orb_inventory_icon	item RU name	Сфера инженера	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	HARBINGER_ITEM				
+item EN name	Engineer's Shard	icon path	Engineer's_Shard_inventory_icon	item RU name	Осколок инженера	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Eternal Orb	icon path	Eternal_Orb_inventory_icon	item RU name	Сфера вечного	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Exalted Orb	icon path	Exalted_Orb_inventory_icon	item RU name	Сфера возвышения	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	RARE_CURRENCY				
+item EN name	Exalted Shard	icon path	Exalted_Shard_inventory_icon	item RU name	Осколок возвышения	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Gemcutter's Prism	icon path	Gemcutter's_Prism_inventory_icon	item RU name	Призма камнереза	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Glassblower's Bauble	icon path	Glassblower's_Bauble_inventory_icon	item RU name	Стекольная масса	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	CHEAP_CURRENCY				
+item EN name	Harbinger's Orb	icon path	Harbinger's_Orb_inventory_icon	item RU name	Сфера предвестника	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	HARBINGER_ITEM				
+item EN name	Harbinger's Shard	icon path	Harbinger's_Shard_inventory_icon	item RU name	Околок предвестника	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Horizon Shard	icon path	Horizon_Shard_inventory_icon	item RU name	Осколок горизонтов	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Imprint	icon path	Imprint_inventory_icon	item RU name	Слепок	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Jeweller's Orb	icon path	Jeweller's_Orb_inventory_icon	item RU name	Сфера златокузнеца	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Journeyman Cartographer's Seal	icon path	Journeyman_Cartographer's_Seal_inventory_icon	item RU name	Печать картоходца-подмастерья	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ATLAS				
+item EN name	Journeyman Cartographer's Sextant	icon path	Journeyman_Cartographer's_Sextant_inventory_icon	item RU name	Секстант картоходца-подмастерья	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ATLAS				
+item EN name	Master Cartographer's Seal	icon path	Master_Cartographer's_Seal_inventory_icon	item RU name	Печать мастера-картоходца	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ATLAS				
+item EN name	Master Cartographer's Sextant	icon path	Master_Cartographer's_Sextant_inventory_icon	item RU name	Секстант мастера-картоходца	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ATLAS				
+item EN name	Mirror of Kalandra	icon path	Mirror_of_Kalandra_inventory_icon	item RU name	Зеркало каландры	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	RARE_CURRENCY				
+item EN name	Mirror Shard	icon path	Mirror_Shard_inventory_icon	item RU name	Осколок зеркала	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Necromancy Net	icon path	Necromancy_Net_inventory_icon	item RU name	Сеть некромантии	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Orb of Alchemy	icon path	Orb_of_Alchemy_inventory_icon	item RU name	Сфера алхимии	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Orb of Alteration	icon path	Orb_of_Alteration_inventory_icon	item RU name	Сфера перемен	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	CHEAP_CURRENCY				
+item EN name	Orb of Annulment	icon path	Orb_of_Annulment_inventory_icon	item RU name	Сфера отмены	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	RARE_CURRENCY				
+item EN name	Orb of Augmentation	icon path	Orb_of_Augmentation_inventory_icon	item RU name	Сфера усиления	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	TRASH_CURRENCY				
+item EN name	Orb of Binding	icon path	Orb_of_Binding_inventory_icon	item RU name	Сфера сплетения	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	HARBINGER_ITEM				
+item EN name	Orb of Chance	icon path	Orb_of_Chance_inventory_icon	item RU name	Сфера удачи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	CHEAP_CURRENCY				
+item EN name	Orb of Fusing	icon path	Orb_of_Fusing_inventory_icon	item RU name	Сфера соединения	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Orb of Horizons	icon path	Orb_of_Horizons_inventory_icon	item RU name	Сфера горизонтов	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	HARBINGER_ITEM				
+item EN name	Orb of Regret	icon path	Orb_of_Regret_inventory_icon	item RU name	Сфера раскаяния	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Orb of Scouring	icon path	Orb_of_Scouring_inventory_icon	item RU name	Сфера очищения	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	CHEAP_CURRENCY				
+item EN name	Orb of Transmutation	icon path	Orb_of_Transmutation_inventory_icon	item RU name	Сфера превращения	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	TRASH_CURRENCY				
+item EN name	Perandus Coin	icon path	Perandus_Coin_inventory_icon	item RU name	Монета перандусов	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Portal Scroll	icon path	Portal_Scroll_inventory_icon	item RU name	Свиток портала	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	TRASH_CURRENCY				
+item EN name	Prophecy	icon path	Prophecy_inventory_icon	item RU name	Пророчество	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Regal Orb	icon path	Regal_Orb_inventory_icon	item RU name	Сфера царей	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Regal Shard	icon path	Regal_Shard_inventory_icon	item RU name	Осколок царей	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Reinforced Iron Net	icon path	Reinforced_Iron_Net_inventory_icon	item RU name	Reinforced Iron Net	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Reinforced Rope Net	icon path	Reinforced_Rope_Net_inventory_icon	item RU name	Reinforced Rope Net	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Reinforced Steel Net	icon path	Reinforced_Steel_Net_inventory_icon	item RU name	Reinforced Steel Net	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Scroll Fragment	icon path	Scroll_Fragment_inventory_icon	item RU name	Обрывок свитка	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	TRASH_CURRENCY				
+item EN name	Scroll of Wisdom	icon path	Scroll_of_Wisdom_inventory_icon	item RU name	Свиток мудрости	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	TRASH_CURRENCY				
+item EN name	Silver Coin	icon path	Silver_Coin_inventory_icon	item RU name	Серебрянная монета	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	CHEAP_CURRENCY				
+item EN name	Simple Iron Net	icon path	Simple_Iron_Net_inventory_icon	item RU name	Simple Iron Net	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Simple Rope Net	icon path	Simple_Rope_Net_inventory_icon	item RU name	Simple Rope Net	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Simple Steel Net	icon path	Simple_Steel_Net_inventory_icon	item RU name	Simple Steel Net	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Splinter of Chayula	icon path	Splinter_of_Chayula_inventory_icon	item RU name	Осколок чаюлы	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	BREACH_ITEM				
+item EN name	Splinter of Esh	icon path	Splinter_of_Esh_inventory_icon	item RU name	Осколок иш	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	BREACH_ITEM				
+item EN name	Splinter of Tul	icon path	Splinter_of_Tul_inventory_icon	item RU name	Осколок тула	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	BREACH_ITEM				
+item EN name	Splinter of Uul-Netol	icon path	Splinter_of_Uul-Netol_inventory_icon	item RU name	Осколок уул-нетола	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	BREACH_ITEM				
+item EN name	Splinter of Xoph	icon path	Splinter_of_Xoph_inventory_icon	item RU name	Осколок ксофа	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	BREACH_ITEM				
+item EN name	Stacked Deck	icon path	Stacked_Deck_inventory_icon	item RU name	Колода карт	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Strong Iron Net	icon path	Strong_Iron_Net_inventory_icon	item RU name	Strong Iron Net	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Strong Rope Net	icon path	Strong_Rope_Net_inventory_icon	item RU name	Strong Rope Net	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Strong Steel Net	icon path	Strong_Steel_Net_inventory_icon	item RU name	Strong Steel Net	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Thaumaturgical Net	icon path	Thaumaturgical_Net_inventory_icon	item RU name	Thaumaturgical Net	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGACY				
+item EN name	Transmutation Shard	icon path	Transmutation_Shard_inventory_icon	item RU name	Осколок превращения	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SHARD				
+item EN name	Unshaping Orb	icon path	Unshaping_Orb_inventory_icon	item RU name	Сфера разрушения	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ATLAS				
+item EN name	Vaal Orb	icon path	Vaal_Orb_inventory_icon	item RU name	Сфера ваал	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	GOOD_CURRENCY				
+item EN name	Vial of Awakening	icon path	Vial_of_Awakening_inventory_icon	item RU name	Vial of Awakening	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Vial of Consequence	icon path	Vial_of_Consequence_inventory_icon	item RU name	Vial of Consequence	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Vial of Dominance	icon path	Vial_of_Dominance_inventory_icon	item RU name	Vial of Dominance	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Vial of Fate	icon path	Vial_of_Fate_inventory_icon	item RU name	Vial of Fate	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Vial of Sacrifice	icon path	Vial_of_Sacrifice_inventory_icon	item RU name	Vial of Sacrifice	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Vial of Summoning	icon path	Vial_of_Summoning_inventory_icon	item RU name	Vial of Summoning	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Vial of the Ghost	icon path	Vial_of_the_Ghost_inventory_icon	item RU name	Vial of the Ghost	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Vial of the Ritual	icon path	Vial_of_the_Ritual_inventory_icon	item RU name	Vial of the Ritual	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Vial of Transcendence	icon path	Vial_of_Transcendence_inventory_icon	item RU name	Vial of Transcendence	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OTHER				
+item EN name	Gold Amulet	icon path	Gold_Amulet_inventory_icon	item RU name	Золотой амулет	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Iron Hat	icon path	Iron_Hat_inventory_icon	item RU name	Железная шапка	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Cone Helmet	icon path	Cone_Helmet_inventory_icon	item RU name	Кабассет	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Barbute Helmet	icon path	Barbute_Helmet_inventory_icon	item RU name	Барбют	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Close Helmet	icon path	Close_Helmet_inventory_icon	item RU name	Закрытый шлем	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Gladiator Helmet	icon path	Gladiator_Helmet_inventory_icon	item RU name	Шлем гладиатора	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Reaver Helmet	icon path	Reaver_Helmet_inventory_icon	item RU name	Полный шлем	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Siege Helmet	icon path	Siege_Helmet_inventory_icon	item RU name	Осадный шлем	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Samite Helmet	icon path	Samite_Helmet_inventory_icon	item RU name	Шлем Самнита	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Ezomyte Burgonet	icon path	Ezomyte_Burgonet_inventory_icon	item RU name	Полный шлем эзомита	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Royal Burgonet	icon path	Royal_Burgonet_inventory_icon	item RU name	Полный шлем царя	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Eternal Burgonet	icon path	Eternal_Burgonet_inventory_icon	item RU name	Полный шлем вечного	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Leather Cap	icon path	Leather_Cap_inventory_icon	item RU name	Кожаный чепец	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Tricorne	icon path	Tricorne_inventory_icon	item RU name	Треуголка	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Leather Hood	icon path	Leather_Hood_inventory_icon	item RU name	Кожаный капюшон	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Wolf Pelt	icon path	Wolf_Pelt_inventory_icon	item RU name	Волчья морда	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Hunter Hood	icon path	Hunter_Hood_inventory_icon	item RU name	Капюшон охотника	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Noble Tricorne	icon path	Noble_Tricorne_inventory_icon	item RU name	Парадная треуголка	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Ursine Pelt	icon path	Ursine_Pelt_inventory_icon	item RU name	Медвежья морда	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Silken Hood	icon path	Silken_Hood_inventory_icon	item RU name	Шелковый капюшон	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Sinner Tricorne	icon path	Sinner_Tricorne_inventory_icon	item RU name	Треуголка грешника	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Lion Pelt	icon path	Lion_Pelt_inventory_icon	item RU name	Львиная морда	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Vine Circlet	icon path	Vine_Circlet_inventory_icon	item RU name	Венок из лозы	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Iron Circlet	icon path	Iron_Circlet_inventory_icon	item RU name	Железный обруч	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Torture Cage	icon path	Torture_Cage_inventory_icon	item RU name	Клеть мучений	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Tribal Circlet	icon path	Tribal_Circlet_inventory_icon	item RU name	Обруч аборигена	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Bone Circlet	icon path	Bone_Circlet_inventory_icon	item RU name	Обруч с костью	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Lunaris Circlet	icon path	Lunaris_Circlet_inventory_icon	item RU name	Диадема лунарис	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Steel Circlet	icon path	Steel_Circlet_inventory_icon	item RU name	Стальной обруч	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Necromancer Circlet	icon path	Necromancer_Circlet_inventory_icon	item RU name	Обруч некроманта	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Solaris Circlet	icon path	Solaris_Circlet_inventory_icon	item RU name	Диадема солярис	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Mind Cage	icon path	Mind_Cage_inventory_icon	item RU name	Клеть разума	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Hubris Circlet	icon path	Hubris_Circlet_inventory_icon	item RU name	Венец гордыни	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Battered Helm	icon path	Battered_Helm_inventory_icon	item RU name	Пробитый шлем	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Sallet	icon path	Sallet_inventory_icon	item RU name	Салад	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Visored Sallet	icon path	Visored_Sallet_inventory_icon	item RU name	Салад с забралом	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Gilded Sallet	icon path	Gilded_Sallet_inventory_icon	item RU name	Позолоченный салад	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Secutor Helm	icon path	Secutor_Helm_inventory_icon	item RU name	Шлем секутора	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Fencer Helm	icon path	Fencer_Helm_inventory_icon	item RU name	Шлем фехтовальщика	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Lacquered Helmet	icon path	Lacquered_Helmet_inventory_icon	item RU name	Шлем командира	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Fluted Bascinet	icon path	Fluted_Bascinet_inventory_icon	item RU name	Волнистый бацинет	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Pig-Faced Bascinet	icon path	Pig-Faced_Bascinet_inventory_icon	item RU name	Клювастый бацинет	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Nightmare Bascinet	icon path	Nightmare_Bascinet_inventory_icon	item RU name	Кошмарный бацинет	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Rusted Coif	icon path	Rusted_Coif_inventory_icon	item RU name	Ржавый койф	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Soldier Helmet	icon path	Soldier_Helmet_inventory_icon	item RU name	Шлем солдата	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Great Helmet	icon path	Great_Helmet_inventory_icon	item RU name	Большой шлем	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Crusader Helmet	icon path	Crusader_Helmet_inventory_icon	item RU name	Шлем подвижника	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Aventail Helmet	icon path	Aventail_Helmet_inventory_icon	item RU name	Шлем с бармицей	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Zealot Helmet	icon path	Zealot_Helmet_inventory_icon	item RU name	Шлем фанатика	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Great Crown	icon path	Great_Crown_inventory_icon	item RU name	Большая корона	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Magistrate Crown	icon path	Magistrate_Crown_inventory_icon	item RU name	Корона правителя	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Prophet Crown	icon path	Prophet_Crown_inventory_icon	item RU name	Корона провидца	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Praetor Crown	icon path	Praetor_Crown_inventory_icon	item RU name	Корона претора	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Bone Helmet	icon path	Bone_Helmet_inventory_icon	item RU name	Костяной шлем	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Scare Mask	icon path	Scare_Mask_inventory_icon	item RU name	Пугающая маска	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Plague Mask	icon path	Plague_Mask_inventory_icon	item RU name	Чумная маска	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Iron Mask	icon path	Iron_Mask_inventory_icon	item RU name	Железная маска	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Festival Mask	icon path	Festival_Mask_inventory_icon	item RU name	Карнавальная маска	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Golden Mask	icon path	Golden_Mask_inventory_icon	item RU name	Золотая маска	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Raven Mask	icon path	Raven_Mask_inventory_icon	item RU name	Воронья маска	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Callous Mask	icon path	Callous_Mask_inventory_icon	item RU name	Маска равнодушия	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Regicide Mask	icon path	Regicide_Mask_inventory_icon	item RU name	Маска цареубийцы	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Harlequin Mask	icon path	Harlequin_Mask_inventory_icon	item RU name	Шутовская маска	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Vaal Mask	icon path	Vaal_Mask_inventory_icon	item RU name	Маска ваал	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Deicide Mask	icon path	Deicide_Mask_inventory_icon	item RU name	Маска богоубийцы	base class	Helmets	folder	equip	item category	EQUIP	item sub category	HELMETS	width	2	height	2
+item EN name	Whispering Essence of	icon path	Essence_whispering	item RU name	Шепчущая сущность	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Muttering Essence of	icon path	Essence_muttering	item RU name	Бормочущая сущность	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Weeping Essence of	icon path	Essence_weepeng	item RU name	Плачущая сущность	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Wailing Essence of	icon path	Essence_wailing	item RU name	Вопящая сущность	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Screaming Essence of	icon path	Essence_screaming	item RU name	Кричащая сущность	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Shrieking Essence of	icon path	Essence_shrieking	item RU name	Визжащая сущность	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Deafening Essence of	icon path	Essence_deafening	item RU name	Оглушающая сущность	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Essence of Hysteria	icon path	Essence_of_Hysteria	item RU name	Сущность истерии	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Essence of Insanity	icon path	Essence_of_Insanity	item RU name	Сущность безумия	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Essence of Horror	icon path	Essence_of_Horror	item RU name	Сущность ужаса	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Essence of Delirium	icon path	Essence_of_Delirium	item RU name	Сущность бреда	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Remnant of Corruption	icon path	Remnant_of_Corruption	item RU name	След порчи	base class	Currency	folder	currency	item category	CURRENCY	item sub category	ESSENCE				
+item EN name	Plate Vest	icon path	Plate_Vest_inventory_icon	item RU name	Панцирь	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Chestplate	icon path	Chestplate_inventory_icon	item RU name	Нагрудник	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Copper Plate	icon path	Copper_Plate_inventory_icon	item RU name	Медные латы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	War Plate	icon path	War_Plate_inventory_icon	item RU name	Доспех бойца	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Full Plate	icon path	Full_Plate_inventory_icon	item RU name	Полные латы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Arena Plate	icon path	Arena_Plate_inventory_icon	item RU name	Доспех драчуна	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Lordly Plate	icon path	Lordly_Plate_inventory_icon	item RU name	Роскошные латы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Bronze Plate	icon path	Copper_Plate_inventory_icon	item RU name	Бронзовые латы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Battle Plate	icon path	War_Plate_inventory_icon	item RU name	Доспех воина	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Sun Plate	icon path	Full_Plate_inventory_icon	item RU name	Солнечные латы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Colosseum Plate	icon path	Arena_Plate_inventory_icon	item RU name	Доспех поединщика	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Majestic Plate	icon path	Lordly_Plate_inventory_icon	item RU name	Величествинные латы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Golden Plate	icon path	Copper_Plate_inventory_icon	item RU name	Золотые латы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Crusader Plate	icon path	War_Plate_inventory_icon	item RU name	Доспех поборника	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Astral Plate	icon path	Full_Plate_inventory_icon	item RU name	Звёздные латы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Gladiator Plate	icon path	Arena_Plate_inventory_icon	item RU name	Доспех гладиатора	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Glorious Plate	icon path	Lordly_Plate_inventory_icon	item RU name	Великолепные латы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Shabby Jerkin	icon path	Shabby_Jerkin_inventory_icon	item RU name	Рваная кожанка	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Strapped Leather	icon path	Strapped_Leather_inventory_icon	item RU name	Ременной кожанный доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Buckskin Tunic	icon path	Buckskin_Tunic_inventory_icon	item RU name	Шерстяной полукафтан	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Wild Leather	icon path	Wild_Leather_inventory_icon	item RU name	Охотничья кожанка	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Full Leather	icon path	Full_Leather_inventory_icon	item RU name	Полный кожаный доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Sun Leather	icon path	Sun_Leather_inventory_icon	item RU name	Солнечный кожаный доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Thief's Garb	icon path	Thief's_Garb_inventory_icon	item RU name	Облачение вора	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Eelskin Tunic	icon path	Buckskin_Tunic_inventory_icon	item RU name	Щучий полукафтан	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Frontier Leather	icon path	Wild_Leather_inventory_icon	item RU name	Кожанка разведчика	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Glorious Leather	icon path	Full_Leather_inventory_icon	item RU name	Великолепный кожаный доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Coronal Leather	icon path	Sun_Leather_inventory_icon	item RU name	Кожаный доспех короны	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Cutthroat's Garb	icon path	Thief's_Garb_inventory_icon	item RU name	Облачение головореза	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Sharkskin Tunic	icon path	Buckskin_Tunic_inventory_icon	item RU name	Акулий полукафтан	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Destiny Leather	icon path	Wild_Leather_inventory_icon	item RU name	Кожанка призвания	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Exquisite Leather	icon path	Full_Leather_inventory_icon	item RU name	Превосходный кожаный доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Zodiac Leather	icon path	Sun_Leather_inventory_icon	item RU name	Кожаный доспех зодиака	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Assassin's Garb	icon path	Thief's_Garb_inventory_icon	item RU name	Облачение убийцы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Simple Robe	icon path	Simple_Robe_inventory_icon	item RU name	Матерчатая безрукавка	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Silken Vest	icon path	Silken_Vest_inventory_icon	item RU name	Шелковый нагрудник	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Scholar's Robe	icon path	Sage's_Robe_inventory_icon	item RU name	Одеяние ученого	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Silken Garb	icon path	Necromancer_Silks_inventory_icon	item RU name	Шелковое облачение	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Mage's Vestment	icon path	Mage's_Vestment_inventory_icon	item RU name	Халат мага	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Silk Robe	icon path	Silk_Robe_inventory_icon	item RU name	Шелковое одеяние	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Cabalist Regalia	icon path	Cabalist_Regalia_inventory_icon	item RU name	Наряд мистика	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Sage's Robe	icon path	Sage's_Robe_inventory_icon	item RU name	Одеяние мудреца	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Silken Wrap	icon path	Necromancer_Silks_inventory_icon	item RU name	Шелковая одежда	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Conjurer's Vestment	icon path	Mage's_Vestment_inventory_icon	item RU name	Халат чародея	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Spidersilk Robe	icon path	Silk_Robe_inventory_icon	item RU name	Одеяние из паучьего шелка	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Destroyer Regalia	icon path	Cabalist_Regalia_inventory_icon	item RU name	Наряд разрушителя	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Savant's Robe	icon path	Sage's_Robe_inventory_icon	item RU name	Одеяние эрудита	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Necromancer Silks	icon path	Necromancer_Silks_inventory_icon	item RU name	Шелка некроманта	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Occultist's Vestment	icon path	Mage's_Vestment_inventory_icon	item RU name	Халат волшебника	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Widowsilk Robe	icon path	Silk_Robe_inventory_icon	item RU name	Одеяние черной вдовы	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Vaal Regalia	icon path	Cabalist_Regalia_inventory_icon	item RU name	Наряд ваал	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Scale Vest	icon path	Scale_Vest_inventory_icon	item RU name	Чешуйчатый нагрудник	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Light Brigandine	icon path	Light_Brigandine_inventory_icon	item RU name	Легкая бригандина	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Scale Doublet	icon path	Dragonscale_Doublet_inventory_icon	item RU name	Чешуйчатый дублет	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Infantry Brigandine	icon path	Desert_Brigandine_inventory_icon	item RU name	Бригандина ауксилария	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Full Scale Armour	icon path	Full_Dragonscale_inventory_icon	item RU name	Полный чешуйчатый доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Soldier's Brigandine	icon path	Commander's_Brigandine_inventory_icon	item RU name	Бригантина солдата	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Field Lamellar	icon path	Battle_Lamellar_inventory_icon	item RU name	Пластинчатый доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Wyrmscale Doublet	icon path	Dragonscale_Doublet_inventory_icon	item RU name	Дублет из чешуи змеи	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Hussar Brigandine	icon path	Desert_Brigandine_inventory_icon	item RU name	Бригандина всадника	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Full Wyrmscale	icon path	Full_Dragonscale_inventory_icon	item RU name	Полный доспех из чешуи змеи	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Commander's Brigandine	icon path	Commander's_Brigandine_inventory_icon	item RU name	Бригандина командира	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Battle Lamellar	icon path	Battle_Lamellar_inventory_icon	item RU name	Боевой пластинчатый доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Dragonscale Doublet	icon path	Dragonscale_Doublet_inventory_icon	item RU name	Дублет из чешуи дракона	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Desert Brigandine	icon path	Desert_Brigandine_inventory_icon	item RU name	Бригандина кочевника	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Full Dragonscale	icon path	Full_Dragonscale_inventory_icon	item RU name	Полный доспех из чешуи дракона	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	General's Brigandine	icon path	Commander's_Brigandine_inventory_icon	item RU name	Бригандина легата	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Triumphant Lamellar	icon path	Battle_Lamellar_inventory_icon	item RU name	Пластинчатый доспех триумфатора	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Chainmail Vest	icon path	Chainmail_Vest_inventory_icon	item RU name	Кольчужный жилет	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Chainmail Tunic	icon path	Chainmail_Tunic_inventory_icon	item RU name	Кольчужный жилет с пластинами	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Ringmail Coat	icon path	Latticed_Ringmail_inventory_icon	item RU name	Байдана	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Chainmail Doublet	icon path	Chainmail_Doublet_inventory_icon	item RU name	Кольчужный дублет	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Full Ringmail	icon path	Elegant_Ringmail_inventory_icon	item RU name	Полный кольчужный доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Full Chainmail	icon path	Chain_Hauberk_inventory_icon	item RU name	Полная кольчуга	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Holy Chainmail	icon path	Devout_Chainmail_inventory_icon	item RU name	Кольчуга послушника	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Latticed Ringmail	icon path	Latticed_Ringmail_inventory_icon	item RU name	Усиленная байдана	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Crusader Chainmail	icon path	Chainmail_Doublet_inventory_icon	item RU name	Кольчуга святого воина	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Ornate Ringmail	icon path	Elegant_Ringmail_inventory_icon	item RU name	Парадный кольчатый доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Chain Hauberk	icon path	Chain_Hauberk_inventory_icon	item RU name	Хауберг	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Devout Chainmail	icon path	Devout_Chainmail_inventory_icon	item RU name	Кольчуга праведника	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Loricated Ringmail	icon path	Latticed_Ringmail_inventory_icon	item RU name	Калантарь	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Conquest Chainmail	icon path	Chainmail_Doublet_inventory_icon	item RU name	Кольчуга завоевателя	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Elegant Ringmail	icon path	Elegant_Ringmail_inventory_icon	item RU name	Изящный кольчатый доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Saint's Hauberk	icon path	Chain_Hauberk_inventory_icon	item RU name	Хауберг святого	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Saintly Chainmail	icon path	Devout_Chainmail_inventory_icon	item RU name	Кольчуга святого	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Oiled Vest	icon path	Oiled_Vest_inventory_icon	item RU name	Стеганый доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Padded Jacket	icon path	Padded_Jacket_inventory_icon	item RU name	Жилет из дубленой кожи	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Oiled Coat	icon path	Oiled_Coat_inventory_icon	item RU name	Набивной доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Scarlet Raiment	icon path	Blood_Raiment_inventory_icon	item RU name	Доспех из дубленой кожи	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Waxed Garb	icon path	Lacquered_Garb_inventory_icon	item RU name	Лощеное облачение	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Bone Armour	icon path	Bone_Armour_inventory_icon	item RU name	Костяной доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Quilted Jacket	icon path	Padded_Jacket_inventory_icon	item RU name	Стеганая куртка	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Sleek Coat	icon path	Oiled_Coat_inventory_icon	item RU name	Модный жакет	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Crimson Raiment	icon path	Blood_Raiment_inventory_icon	item RU name	Багряный камзол	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Lacquered Garb	icon path	Lacquered_Garb_inventory_icon	item RU name	Лакированное облачение	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Crypt Armour	icon path	Bone_Armour_inventory_icon	item RU name	Могильные доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Sentinel Jacket	icon path	Padded_Jacket_inventory_icon	item RU name	Куртка стража	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Varnished Coat	icon path	Sleek_Coat_inventory_icon	item RU name	Франтоватый жакет	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Blood Raiment	icon path	Blood_Raiment_inventory_icon	item RU name	Кровавый камзол	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Sadist Garb	icon path	Lacquered_Garb_inventory_icon	item RU name	Облачение мучителя	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Carnal Armour	icon path	Bone_Armour_inventory_icon	item RU name	Кровожадный доспех	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Sacrificial Garb	icon path	Sacrificial_Garb_inventory_icon	item RU name	Жертвенное облачение	base class	Body Armours	folder	equip	item category	EQUIP	item sub category	BODY_ARMOURS	width	2	height	3
+item EN name	Iron Greaves	icon path	Iron_Greaves_inventory_icon	item RU name	Железные поножи	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Steel Greaves	icon path	Steel_Greaves_inventory_icon	item RU name	Стальные поножи	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Plated Greaves	icon path	Plated_Greaves_inventory_icon	item RU name	Латные поножи	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Reinforced Greaves	icon path	Titan_Greaves_inventory_icon	item RU name	Усиленные поножи	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Antique Greaves	icon path	Steel_Greaves_inventory_icon	item RU name	Старинные поножи	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Ancient Greaves	icon path	Plated_Greaves_inventory_icon	item RU name	Древние поножи	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Goliath Greaves	icon path	Titan_Greaves_inventory_icon	item RU name	Поножи великана	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Vaal Greaves	icon path	Plated_Greaves_inventory_icon	item RU name	Поножи ваал	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Titan Greaves	icon path	Titan_Greaves_inventory_icon	item RU name	Поножи титана	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Rawhide Boots	icon path	Buckskin_Tower_Shield_inventory_icon	item RU name	Сыромятые поножи	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Goathide Boots	icon path	Goathide_Boots_inventory_icon	item RU name	Сафьяновые ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Deerskin Boots	icon path	Deerskin_Boots_inventory_icon	item RU name	Ютевые ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Nubuck Boots	icon path	Slink_Boots_inventory_icon	item RU name	Нубуковые ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Eelskin Boots	icon path	Goathide_Boots_inventory_icon	item RU name	Щучьи ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Sharkskin Boots	icon path	Deerskin_Boots_inventory_icon	item RU name	Акульи ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Shagreen Boots	icon path	Slink_Boots_inventory_icon	item RU name	Шагреневые ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Stealth Boots	icon path	Deerskin_Boots_inventory_icon	item RU name	Шевровые ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Slink Boots	icon path	Slink_Boots_inventory_icon	item RU name	Замшевые ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Wool Shoes	icon path	Wool_Shoes_inventory_icon	item RU name	Шерстяные башмаки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Velvet Slippers	icon path	Velvet_Slippers_inventory_icon	item RU name	Бархатные тапочки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Silk Slippers	icon path	Silk_Slippers_inventory_icon	item RU name	Шелковые сапоги	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Scholar Boots	icon path	Scholar_Boots_inventory_icon	item RU name	Сапоги ученика	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Satin Slippers	icon path	Velvet_Slippers_inventory_icon	item RU name	Сатиновые тапочки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Samite Slippers	icon path	Silk_Slippers_inventory_icon	item RU name	Атласные сапоги	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Conjurer Boots	icon path	Scholar_Boots_inventory_icon	item RU name	Сапоги чародея	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Arcanist Slippers	icon path	Silk_Slippers_inventory_icon	item RU name	Сапоги тайнописца	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Sorcerer Boots	icon path	Scholar_Boots_inventory_icon	item RU name	Сапоги волшебника	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Leatherscale Boots	icon path	Leatherscale_Boots_inventory_icon	item RU name	Башмаки из вареной кожи	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Ironscale Boots	icon path	Ironscale_Boots_inventory_icon	item RU name	Железные ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Bronzescale Boots	icon path	Wyrmscale_Boots_inventory_icon	item RU name	Бронзовые ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Steelscale Boots	icon path	Leatherscale_Boots_inventory_icon	item RU name	Стальные башмаки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Serpentscale Boots	icon path	Ironscale_Boots_inventory_icon	item RU name	Ботинки из чешуи гадюки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Wyrmscale Boots	icon path	Wyrmscale_Boots_inventory_icon	item RU name	Ботинки из чешуи змея	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Hydrascale Boots	icon path	Ironscale_Boots_inventory_icon	item RU name	Ботинки из чешуи гидры	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Dragonscale Boots	icon path	Wyrmscale_Boots_inventory_icon	item RU name	Ботинки из чешуи дракона	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Two-Toned Boots	icon path	Two-Toned_Boots_(Fire_and_Cold_Resistance)_inventory_icon	item RU name	Двуцветные ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Chain Boots	icon path	Chain_Boots_inventory_icon	item RU name	Кольчужные башмаки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Ringmail Boots	icon path	Ringmail_Boots_inventory_icon	item RU name	Кольчужные сапоги	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Mesh Boots	icon path	Soldier_Boots_inventory_icon	item RU name	Полукольчужные сапоги	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Riveted Boots	icon path	Chain_Boots_inventory_icon	item RU name	Клепаные башмаки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Zealot Boots	icon path	Ringmail_Boots_inventory_icon	item RU name	Сапоги фанатика	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Soldier Boots	icon path	Soldier_Boots_inventory_icon	item RU name	Сапоги ауксилария	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Legion Boots	icon path	Ringmail_Boots_inventory_icon	item RU name	Сапоги легионера	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Crusader Boots	icon path	Soldier_Boots_inventory_icon	item RU name	Сапоги ревнителя веры	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Two-Toned Boots	icon path	Two-Toned_Boots_(Fire_and_Lightning_Resistance)_inventory_icon	item RU name	Двуцветные ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Wrapped Boots	icon path	Wrapped_Boots_inventory_icon	item RU name	Сандалии	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Strapped Boots	icon path	Strapped_Boots_inventory_icon	item RU name	Сандалеты	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Clasped Boots	icon path	Clasped_Boots_inventory_icon	item RU name	Калиги	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Shackled Boots	icon path	Shackled_Boots_inventory_icon	item RU name	Сапоги оков	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Trapper Boots	icon path	Strapped_Boots_inventory_icon	item RU name	Ботинки капканщика	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Ambush Boots	icon path	Clasped_Boots_inventory_icon	item RU name	Сандалеты разбойника	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Carnal Boots	icon path	Shackled_Boots_inventory_icon	item RU name	Сапоги крови	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Assassin's Boots	icon path	Clasped_Boots_inventory_icon	item RU name	Калиги убийцы	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Murder Boots	icon path	Shackled_Boots_inventory_icon	item RU name	Сапоги смерти	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Two-Toned Boots	icon path	Two-Toned_Boots_(Cold_and_Lightning_Resistance)_inventory_icon	item RU name	Двуцветные ботинки	base class	Boots	folder	equip	item category	EQUIP	item sub category	BOOTS	width	2	height	2
+item EN name	Iron Gauntlets	icon path	Iron_Gauntlets_inventory_icon	item RU name	Железные рукавицы	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Plated Gauntlets	icon path	Plated_Gauntlets_inventory_icon	item RU name	Латные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Bronze Gauntlets	icon path	Bronze_Gauntlets_inventory_icon	item RU name	Бронзовые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Steel Gauntlets	icon path	Steel_Gauntlets_inventory_icon	item RU name	Стальные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Antique Gauntlets	icon path	Plated_Gauntlets_inventory_icon	item RU name	Старинные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Ancient Gauntlets	icon path	Bronze_Gauntlets_inventory_icon	item RU name	Древние перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Goliath Gauntlets	icon path	Steel_Gauntlets_inventory_icon	item RU name	Перчатки гиганта	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Vaal Gauntlets	icon path	Bronze_Gauntlets_inventory_icon	item RU name	Перчатки ваал	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Titan Gauntlets	icon path	Titan_Gauntlets_inventory_icon	item RU name	Перчатки титана	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Spiked Gloves	icon path	Spiked_Gloves_inventory_icon	item RU name	Колючие перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Rawhide Gloves	icon path	Rawhide_Gloves_inventory_icon	item RU name	Сыромятые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Goathide Gloves	icon path	Goathide_Gloves_inventory_icon	item RU name	Сафьяновые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Deerskin Gloves	icon path	Deerskin_Gloves_inventory_icon	item RU name	Юфтевые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Nubuck Gloves	icon path	Nubuck_Gloves_inventory_icon	item RU name	Нубуковые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Eelskin Gloves	icon path	Goathide_Gloves_inventory_icon	item RU name	Щучьи перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Sharkskin Gloves	icon path	Deerskin_Gloves_inventory_icon	item RU name	Акульи перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Shagreen Gloves	icon path	Nubuck_Gloves_inventory_icon	item RU name	Шагреневые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Stealth Gloves	icon path	Deerskin_Gloves_inventory_icon	item RU name	Шевровые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Gripped Gloves	icon path	Gripped_Gloves_inventory_icon	item RU name	Замшевые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Slink Gloves	icon path	Nubuck_Gloves_inventory_icon	item RU name	Крепкие перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Wool Gloves	icon path	Wool_Gloves_inventory_icon	item RU name	Шерстяные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Velvet Gloves	icon path	Velvet_Gloves_inventory_icon	item RU name	Бархатные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Silk Gloves	icon path	Silk_Gloves_inventory_icon	item RU name	Шелковые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Embroidered Gloves	icon path	Embroidered_Gloves_inventory_icon	item RU name	Расшитые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Satin Gloves	icon path	Velvet_Gloves_inventory_icon	item RU name	Сатиновые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Samite Gloves	icon path	Silk_Gloves_inventory_icon	item RU name	Атласные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Conjurer Gloves	icon path	Embroidered_Gloves_inventory_icon	item RU name	Перчатки чародея	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Arcanist Gloves	icon path	Silk_Gloves_inventory_icon	item RU name	Перчатки тайнописца	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Sorcerer Gloves	icon path	Embroidered_Gloves_inventory_icon	item RU name	Перчатки волшебника	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Fingerless Silk Gloves	icon path	Fingerless_Silk_Gloves_inventory_icon	item RU name	Шелковые митенки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Fishscale Gauntlets	icon path	Fishscale_Gauntlets_inventory_icon	item RU name	Чешуйчатые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Ironscale Gauntlets	icon path	Ironscale_Gauntlets_inventory_icon	item RU name	Чешуйчатые железные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Bronzescale Gauntlets	icon path	Bronzescale_Gauntlets_inventory_icon	item RU name	Чешуйчайтые бронзовые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Steelscale Gauntlets	icon path	Fishscale_Gauntlets_inventory_icon	item RU name	Чешуйчатые стальные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Serpentscale Gauntlets	icon path	Ironscale_Gauntlets_inventory_icon	item RU name	Перчатки из чешуи гадюки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Wyrmscale Gauntlets	icon path	Bronzescale_Gauntlets_inventory_icon	item RU name	Перчатки из чешуи змея	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Hydrascale Gauntlets	icon path	Ironscale_Gauntlets_inventory_icon	item RU name	Перчатки из чешуи гидры	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Dragonscale Gauntlets	icon path	Bronzescale_Gauntlets_inventory_icon	item RU name	Перчатки из чешуи дракона	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Chain Gloves	icon path	Chain_Gloves_inventory_icon	item RU name	Кольчужные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Ringmail Gloves	icon path	Ringmail_Gloves_inventory_icon	item RU name	Кольчатые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Mesh Gloves	icon path	Soldier_Gloves_inventory_icon	item RU name	Усиленные кольчужные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Riveted Gloves	icon path	Chain_Gloves_inventory_icon	item RU name	Клепаные кольчужные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Zealot Gloves	icon path	Ringmail_Gloves_inventory_icon	item RU name	Перчатки фанатика	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Soldier Gloves	icon path	Soldier_Gloves_inventory_icon	item RU name	Перчатки ауксилария	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Legion Gloves	icon path	Ringmail_Gloves_inventory_icon	item RU name	Перчатки легионера	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Crusader Gloves	icon path	Soldier_Gloves_inventory_icon	item RU name	Перчатки поборника	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Wrapped Mitts	icon path	Trapper_Mitts_inventory_icon	item RU name	Тканевые перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Strapped Mitts	icon path	Strapped_Mitts_inventory_icon	item RU name	Ременные перчатки	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Clasped Mitts	icon path	Clasped_Mitts_inventory_icon	item RU name	Перчатки оков	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Trapper Mitts	icon path	Trapper_Mitts_inventory_icon	item RU name	Перчатки капканщика	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Ambush Mitts	icon path	Strapped_Mitts_inventory_icon	item RU name	Перчатки разбойника	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Carnal Mitts	icon path	Clasped_Mitts_inventory_icon	item RU name	Перчатки крови	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Assassin's Mitts	icon path	Strapped_Mitts_inventory_icon	item RU name	Перчатки убийцы	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Murder Mitts	icon path	Clasped_Mitts_inventory_icon	item RU name	Перчатки смерти	base class	Gloves	folder	equip	item category	EQUIP	item sub category	GLOVES	width	2	height	2
+item EN name	Splintered Tower Shield	icon path	Splintered_Tower_Shield_inventory_icon	item RU name	Разбитый ростовый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Corroded Tower Shield	icon path	Corroded_Tower_Shield_inventory_icon	item RU name	Ржавый ростовый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Rawhide Tower Shield	icon path	Buckskin_Tower_Shield_inventory_icon	item RU name	Сыромятый ростовый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Cedar Tower Shield	icon path	Cedar_Tower_Shield_inventory_icon	item RU name	Кедровый ростовый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Copper Tower Shield	icon path	Copper_Tower_Shield_inventory_icon	item RU name	Медный ростовый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Reinforced Tower Shield	icon path	Colossal_Tower_Shield_inventory_icon	item RU name	Укрепленный ростовый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Painted Tower Shield	icon path	Crested_Tower_Shield_inventory_icon	item RU name	Расписной ростовый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Buckskin Tower Shield	icon path	Buckskin_Tower_Shield_inventory_icon	item RU name	Кожаный ростовой щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Mahogany Tower Shield	icon path	Cedar_Tower_Shield_inventory_icon	item RU name	Палисандровый ростовой щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Bronze Tower Shield	icon path	Copper_Tower_Shield_inventory_icon	item RU name	Бронзовый ростовой щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Girded Tower Shield	icon path	Colossal_Tower_Shield_inventory_icon	item RU name	Ростовой щит у умбоном	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Crested Tower Shield	icon path	Crested_Tower_Shield_inventory_icon	item RU name	Ростовой щит с гербом	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Shagreen Tower Shield	icon path	Buckskin_Tower_Shield_inventory_icon	item RU name	Ростовой щит из акульей кожи	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Ebony Tower Shield	icon path	Cedar_Tower_Shield_inventory_icon	item RU name	Эбеновый ростовой щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Ezomyte Tower Shield	icon path	Copper_Tower_Shield_inventory_icon	item RU name	Ростовой щит эзомита	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Colossal Tower Shield	icon path	Colossal_Tower_Shield_inventory_icon	item RU name	Массивный ростовой щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Pinnacle Tower Shield	icon path	Crested_Tower_Shield_inventory_icon	item RU name	Лучший ростовой щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Goathide Buckler	icon path	Goathide_Buckler_inventory_icon	item RU name	Кожаный баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Pine Buckler	icon path	Pine_Buckler_inventory_icon	item RU name	Сосновый баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Painted Buckler	icon path	Painted_Buckler_inventory_icon	item RU name	Железный баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Hammered Buckler	icon path	Vaal_Buckler_inventory_icon	item RU name	Кованый баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	War Buckler	icon path	War_Buckler_inventory_icon	item RU name	Воинский баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Gilded Buckler	icon path	Golden_Buckler_inventory_icon	item RU name	Позолоченый баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Oak Buckler	icon path	Pine_Buckler_inventory_icon	item RU name	Дубовый баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Enameled Buckler	icon path	Painted_Buckler_inventory_icon	item RU name	Стальной баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Corrugated Buckler	icon path	Vaal_Buckler_inventory_icon	item RU name	Рифленый баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Battle Buckler	icon path	War_Buckler_inventory_icon	item RU name	Боевой баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Golden Buckler	icon path	Golden_Buckler_inventory_icon	item RU name	Золотой баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Ironwood Buckler	icon path	Pine_Buckler_inventory_icon	item RU name	Самшитовый баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Lacquered Buckler	icon path	Painted_Buckler_inventory_icon	item RU name	Многослойный баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Vaal Buckler	icon path	Vaal_Buckler_inventory_icon	item RU name	Баклер ваал	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Crusader Buckler	icon path	War_Buckler_inventory_icon	item RU name	Баклер подвижника	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Imperial Buckler	icon path	Golden_Buckler_inventory_icon	item RU name	Императорский баклер	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Twig Spirit Shield	icon path	Twig_Spirit_Shield_inventory_icon	item RU name	Сучковатый щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Yew Spirit Shield	icon path	Yew_Spirit_Shield_inventory_icon	item RU name	Тисовый щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Bone Spirit Shield	icon path	Ivory_Spirit_Shield_inventory_icon	item RU name	Щит духа из костей	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Tarnished Spirit Shield	icon path	Vaal_Spirit_Shield_inventory_icon	item RU name	Потертый щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Jingling Spirit Shield	icon path	Chiming_Spirit_Shield_inventory_icon	item RU name	Звенящий щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Brass Spirit Shield	icon path	Thorium_Spirit_Shield_inventory_icon	item RU name	Бронзовый щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Walnut Spirit Shield	icon path	Yew_Spirit_Shield_inventory_icon	item RU name	Ореховый щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Ivory Spirit Shield	icon path	Ivory_Spirit_Shield_inventory_icon	item RU name	Щит духа из старых костей	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Ancient Spirit Shield	icon path	Vaal_Spirit_Shield_inventory_icon	item RU name	Древний щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Chiming Spirit Shield	icon path	Chiming_Spirit_Shield_inventory_icon	item RU name	Мелодичный щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Thorium Spirit Shield	icon path	Thorium_Spirit_Shield_inventory_icon	item RU name	Орихалковый щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Lacewood Spirit Shield	icon path	Yew_Spirit_Shield_inventory_icon	item RU name	Платановый щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Fossilised Spirit Shield	icon path	Ivory_Spirit_Shield_inventory_icon	item RU name	Щит духа из окаменелостей	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Vaal Spirit Shield	icon path	Vaal_Spirit_Shield_inventory_icon	item RU name	Щит духа ваал	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Harmonic Spirit Shield	icon path	Chiming_Spirit_Shield_inventory_icon	item RU name	Поющий щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Titanium Spirit Shield	icon path	Thorium_Spirit_Shield_inventory_icons	item RU name	Адамантиевый щит духа	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Rotted Round Shield	icon path	Rotted_Round_Shield_inventory_icon	item RU name	Прогнивший круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Fir Round Shield	icon path	Fir_Round_Shield_inventory_icon	item RU name	Пихтовый круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Studded Round Shield	icon path	Spiny_Round_Shield_inventory_icon	item RU name	Клепаный круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Scarlet Round Shield	icon path	Scarlet_Round_Shield_inventory_icon	item RU name	Алый круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Splendid Round Shield	icon path	Fancy_Foil_inventory_icon	item RU name	Украшенный круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Maple Round Shield	icon path	Fir_Round_Shield_inventory_icon	item RU name	Кленовый круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Spiked Round Shield	icon path	Spiny_Round_Shield_inventory_icon	item RU name	Усиленный круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Crimson Round Shield	icon path	Scarlet_Round_Shield_inventory_icon	item RU name	Багряный круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Baroque Round Shield	icon path	Elegant_Round_Shield_inventory_icon	item RU name	Вычурный круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Teak Round Shield	icon path	Fir_Round_Shield_inventory_icon	item RU name	Тиковый круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Spiny Round Shield	icon path	Spiny_Round_Shield_inventory_icon	item RU name	Укрепленный круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Cardinal Round Shield	icon path	Scarlet_Round_Shield_inventory_icon	item RU name	Червленный круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Elegant Round Shield	icon path	Elegant_Round_Shield_inventory_icon	item RU name	Элегантный круглый щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Plank Kite Shield	icon path	Plank_Kite_Shield_inventory_icon	item RU name	Дощатый каплевидный щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Linden Kite Shield	icon path	Linden_Kite_Shield_inventory_icon	item RU name	Липовый каплевидный щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Reinforced Kite Shield	icon path	Steel_Kite_Shield_inventory_icon	item RU name	Укрепленный каплевидный щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Layered Kite Shield	icon path	Mosaic_Kite_Shield_inventory_icon	item RU name	Многослойный каплевидный щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Ceremonial Kite Shield	icon path	Archon_Kite_Shield_inventory_icon	item RU name	Церемониальный каплевидный щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Etched Kite Shield	icon path	Linden_Kite_Shield_inventory_icon	item RU name	Каплевидный щит с рисунком	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Steel Kite Shield	icon path	Steel_Kite_Shield_inventory_icon	item RU name	Стальной каплевидный щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Laminated Kite Shield	icon path	Mosaic_Kite_Shield_inventory_icon	item RU name	Проклееный каплевидный щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Angelic Kite Shield	icon path	Archon_Kite_Shield_inventory_icon	item RU name	Каплевидный щит ангела	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Branded Kite Shield	icon path	Linden_Kite_Shield_inventory_icon	item RU name	Каплевидный щит с символом	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Champion Kite Shield	icon path	Steel_Kite_Shield_inventory_icon	item RU name	Каплевидный щит триумфатора	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Mosaic Kite Shield	icon path	Mosaic_Kite_Shield_inventory_icon	item RU name	Мозаичный каплевидный щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Archon Kite Shield	icon path	Archon_Kite_Shield_inventory_icon	item RU name	Каплевидный щит архонта	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Spiked Bundle	icon path	Spiked_Bundle_inventory_icon	item RU name	Колючая повязка	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Driftwood Spiked Shield	icon path	Redwood_Spiked_Shield_inventory_icon	item RU name	Колючий щит из плавника	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Alloyed Spiked Shield	icon path	Ezomyte_Spiked_Shield_inventory_icon	item RU name	Бронзовый колючий щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Burnished Spiked Shield	icon path	Polished_Spiked_Shield_inventory_icon	item RU name	Вороненый колючий щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Ornate Spiked Shield	icon path	Ornate_Spiked_Shield_inventory_icon	item RU name	Украшенный колючий щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Redwood Spiked Shield	icon path	Redwood_Spiked_Shield_inventory_icon	item RU name	Сандаловый колючий щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Compound Spiked Shield	icon path	Ezomyte_Spiked_Shield_inventory_icon	item RU name	Латунный колючий щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Polished Spiked Shield	icon path	Polished_Spiked_Shield_inventory_icon	item RU name	Полированный колючий щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Sovereign Spiked Shield	icon path	Ornate_Spiked_Shield_inventory_icon	item RU name	Царский колючий щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Alder Spiked Shield	icon path	Redwood_Spiked_Shield_inventory_icon	item RU name	Ольховый коючий щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Ezomyte Spiked Shield	icon path	Ezomyte_Spiked_Shield_inventory_icon	item RU name	Колючий щит эзомита	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Mirrored Spiked Shield	icon path	Polished_Spiked_Shield_inventory_icon	item RU name	Зеркальный колючий щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Supreme Spiked Shield	icon path	Ornate_Spiked_Shield_inventory_icon	item RU name	Императорский колючий щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	SHIELDS	width	2	height	3
+item EN name	Rusted Hatchet	icon path	Rusted_Hatchet_inventory_icon	item RU name	Ржавый топорик	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	1	height	3
+item EN name	Jade Hatchet	icon path	Karui_Axe_inventory_icon	item RU name	Нефритовый топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Boarding Axe	icon path	Tomahawk_inventory_icon	item RU name	Абордажный топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Cleaver	icon path	Reaver_Axe_inventory_icon	item RU name	Секач	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Broad Axe	icon path	War_Axe_inventory_icon	item RU name	Плотничий топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Arming Axe	icon path	Vaal_Hatchet_inventory_icon	item RU name	Боевой топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Decorative Axe	icon path	Royal_Axe_inventory_icon	item RU name	Украшенный топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Spectral Axe	icon path	Wraith_Axe_inventory_icon	item RU name	Призрачный топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Etched Hatchet	icon path	Runic_Hatchet_inventory_icon	item RU name	Травлёный топорик	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Jasper Axe	icon path	Karui_Axe_inventory_icon	item RU name	Яшмовый топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Tomahawk	icon path	Tomahawk_inventory_icon	item RU name	Томагавк	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Wrist Chopper	icon path	Reaver_Axe_inventory_icon	item RU name	Рукоруб	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	War Axe	icon path	War_Axe_inventory_icon	item RU name	Воинский топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Chest Splitter	icon path	Vaal_Hatchet_inventory_icon	item RU name	Рассекатель ребер	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Ceremonial Axe	icon path	Royal_Axe_inventory_icon	item RU name	Церемоинальный топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Wraith Axe	icon path	Wraith_Axe_inventory_icon	item RU name	Потусторонний топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Engraved Hatchet	icon path	Runic_Hatchet_inventory_icon	item RU name	Гравированный топорик	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Karui Axe	icon path	Karui_Axe_inventory_icon	item RU name	Топор каруи	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Siege Axe	icon path	Tomahawk_inventory_icon	item RU name	Осадный топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Reaver Axe	icon path	Reaver_Axe_inventory_icon	item RU name	Разбойничий топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Butcher Axe	icon path	War_Axe_inventory_icon	item RU name	Топор мясника	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Vaal Hatchet	icon path	Vaal_Hatchet_inventory_icon	item RU name	Топорик ваал	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Royal Axe	icon path	Royal_Axe_inventory_icon	item RU name	Царский топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Infernal Axe	icon path	Wraith_Axe_inventory_icon	item RU name	Бесовский топор	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Runic Hatchet	icon path	Runic_Hatchet_inventory_icon	item RU name	Рунический топорик	base class	One Hand Axes	folder	equip	item category	EQUIP	item sub category	ONE_HAND_AXE	width	2	height	3
+item EN name	Stone Axe	icon path	Stone_Axe_inventory_icon	item RU name	Каменный топор	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Jade Chopper	icon path	Jade_Chopper_inventory_icon	item RU name	Нефритовое рубило	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Woodsplitter	icon path	Woodsplitter_inventory_icon	item RU name	Колун	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Poleaxe	icon path	Poleaxe_inventory_icon	item RU name	Алебарда	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Double Axe	icon path	Labrys_inventory_icon	item RU name	Секира	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Gilded Axe	icon path	Noble_Axe_inventory_icon	item RU name	Золоченый топор	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Shadow Axe	icon path	Void_Axe_inventory_icon	item RU name	Топор тени	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Dagger Axe	icon path	Talon_Axe_inventory_icon	item RU name	Топор кинжал	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Jasper Chopper	icon path	Jade_Chopper_inventory_icon	item RU name	Яшмовое рубило	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Timber Axe	icon path	Woodsplitter_inventory_icon	item RU name	Топор лесоруба	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Headsman Axe	icon path	Poleaxe_inventory_icon	item RU name	Топор палача	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Labrys	icon path	Labrys_inventory_icon	item RU name	Лабрис	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Noble Axe	icon path	Noble_Axe_inventory_icon	item RU name	Топор вельможи	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Abyssal Axe	icon path	Void_Axe_inventory_icon	item RU name	Топор кромешной тьмы	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Karui Chopper	icon path	Jade_Chopper_inventory_icon	item RU name	Рубило каруи	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Talon Axe	icon path	Talon_Axe_inventory_icon	item RU name	Топор когтя	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Sundering Axe	icon path	Woodsplitter_inventory_icon	item RU name	Раскалыватель	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Ezomyte Axe	icon path	Poleaxe_inventory_icon	item RU name	Топор эзомита	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Vaal Axe	icon path	Labrys_inventory_icon	item RU name	Топор ваал	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Despot Axe	icon path	Noble_Axe_inventory_icon	item RU name	Топор деспота	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Void Axe	icon path	Void_Axe_inventory_icon	item RU name	Топор пустоты	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Fleshripper	icon path	Talon_Axe_inventory_icon	item RU name	Раздиратель	base class	Two Hand Axes	folder	equip	item category	EQUIP	item sub category	TWO_HAND_AXE	width	2	height	4
+item EN name	Crude Bow	icon path	Crude_Bow_inventory_icon	item RU name	Грубый лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Short Bow	icon path	Short_Bow_inventory_icon	item RU name	Короткий лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Long Bow	icon path	Long_Bow_inventory_icon	item RU name	Длинный лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Composite Bow	icon path	Ranger_Bow_inventory_icon	item RU name	Императорский баклер	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Recurve Bow	icon path	Sniper_Bow_inventory_icon	item RU name	Загнутый лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Bone Bow	icon path	Ivory_Bow_inventory_icon	item RU name	Костяной лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Royal Bow	icon path	Royal_Bow_inventory_icon	item RU name	Царский лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Death Bow	icon path	Harbinger_Bow_inventory_icon	item RU name	Лук смерти	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Grove Bow	icon path	Short_Bow_inventory_icon	item RU name	Лесной лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Reflex Bow	icon path	Reflex_Bow_inventory_icon	item RU name	Лук прыти	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Decurve Bow	icon path	Long_Bow_inventory_icon	item RU name	Мощный лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Compound Bow	icon path	Ranger_Bow_inventory_icon	item RU name	Сложный лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Sniper Bow	icon path	Sniper_Bow_inventory_icon	item RU name	Лук птицебоя	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Ivory Bow	icon path	Ivory_Bow_inventory_icon	item RU name	Лук из бивня	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Highborn Bow	icon path	Royal_Bow_inventory_icon	item RU name	Лук патриция	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Decimation Bow	icon path	Harbinger_Bow_inventory_icon	item RU name	Лук палача	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Thicket Bow	icon path	Short_Bow_inventory_icon	item RU name	Чащобный лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Steelwood Bow	icon path	Reflex_Bow_inventory_icon	item RU name	Железный лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Citadel Bow	icon path	Long_Bow_inventory_icon	item RU name	Осадный лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Ranger Bow	icon path	Ranger_Bow_inventory_icon	item RU name	Лук охотника	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Assassin Bow	icon path	Sniper_Bow_inventory_icon	item RU name	Лук убийцы	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Spine Bow	icon path	Ivory_Bow_inventory_icon	item RU name	Лук из рога	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Imperial Bow	icon path	Royal_Bow_inventory_icon	item RU name	Имераторский лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Harbinger Bow	icon path	Harbinger_Bow_inventory_icon	item RU name	Лук предвестника	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Maraketh Bow	icon path	Reflex_Bow_inventory_icon	item RU name	Лук маракета	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4
+item EN name	Nailed Fist	icon path	Nailed_Fist_inventory_icon	item RU name	Шипастый лук	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Sharktooth Claw	icon path	Thresher_Claw_inventory_icon	item RU name	Кастет с зубами акулы	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Awl	icon path	Gouger_inventory_icon	item RU name	Шило	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Cat's Paw	icon path	Tiger's_Paw_inventory_icon	item RU name	Кошачья лапа	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Blinder	icon path	Eye_Gouger_inventory_icon	item RU name	Ослепитель	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Sparkling Claw	icon path	Noble_Claw_inventory_icon	item RU name	Истертый кастет	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Fright Claw	icon path	Fright_Claw_inventory_icon	item RU name	Блестящий коготь	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Double Claw	icon path	Double_Claw_inventory_icon	item RU name	Пугающий коготь	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Double Claw	icon path	Twin_Claw_inventory_icon	item RU name	Двойной коготь	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Gouger	icon path	Gouger_inventory_icon	item RU name	Кастет молотильщика	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Tiger's Paw	icon path	Tiger's_Paw_inventory_icon	item RU name	Тычок	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Gut Ripper	icon path	Eye_Gouger_inventory_icon	item RU name	Тигриная лапа	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Prehistoric Claw	icon path	Vaal_Claw_inventory_icon	item RU name	Вспарыватель	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Noble Claw	icon path	Noble_Claw_inventory_icon	item RU name	Доисторический кастет	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Eagle Claw	icon path	Fright_Claw_inventory_icon	item RU name	Коготь патриция	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Twin Claw	icon path	Twin_Claw_inventory_icon	item RU name	Орлиный коготь	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Great White Claw	icon path	Thresher_Claw_inventory_icon	item RU name	Парный коготь	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Throat Stabber	icon path	Gouger_inventory_icon	item RU name	Большой белый коготь	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Hellion's Paw	icon path	Tiger's_Paw_inventory_icon	item RU name	Затыкатель	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Eye Gouger	icon path	Eye_Gouger_inventory_icon	item RU name	Лапа волкодава	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Vaal Claw	icon path	Vaal_Claw_inventory_icon	item RU name	Выкалыватель	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Imperial Claw	icon path	Noble_Claw_inventory_icon	item RU name	Коготь ваал	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Terror Claw	icon path	Fright_Claw_inventory_icon	item RU name	Имперский коготь	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Gemini Claw	icon path	Twin_Claw_inventory_icon	item RU name	Жуткий коготь	base class	Claws	folder	equip	item category	EQUIP	item sub category	CLAW	width	2	height	2
+item EN name	Glass Shank	icon path	Glass_Shank_inventory_icon	item RU name	Коготь-близнец	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Skinning Knife	icon path	Gutting_Knife_inventory_icon	item RU name	Осколок стекла	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Carving Knife	icon path	Carving_Knife_inventory_icon	item RU name	Нож скорняка	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Stiletto	icon path	Poignard_inventory_icon	item RU name	Нож резчика	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Boot Knife	icon path	Boot_Knife_inventory_icon	item RU name	Стилет	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Copper Kris	icon path	Golden_Kris_inventory_icon	item RU name	Засапожный нож	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Skean	icon path	Skean_inventory_icon	item RU name	Медный крис	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Imp Dagger	icon path	Imp_Dagger_inventory_icon	item RU name	Короткий кинжал	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Flaying Knife	icon path	Gutting_Knife_inventory_icon	item RU name	Кинжал беса	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Prong Dagger	icon path	Trisula_inventory_icon	item RU name	Нож свежевателя	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Butcher Knife	icon path	Carving_Knife_inventory_icon	item RU name	Жало	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Poignard	icon path	Poignard_inventory_icon	item RU name	Нож мясника	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Boot Blade	icon path	Boot_Knife_inventory_icon	item RU name	Дага	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Golden Kris	icon path	Golden_Kris_inventory_icon	item RU name	Засапожный клинок	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Royal Skean	icon path	Skean_inventory_icon	item RU name	Золотой крис	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Fiend Dagger	icon path	Imp_Dagger_inventory_icon	item RU name	Короткий кинжал царя	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Trisula	icon path	Trisula_inventory_icon	item RU name	Кинжал изверга	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Gutting Knife	icon path	Gutting_Knife_inventory_icon	item RU name	Трезубец	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Slaughter Knife	icon path	Carving_Knife_inventory_icon	item RU name	Нож потрошителя	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Ambusher	icon path	Poignard_inventory_icon	item RU name	Нож душегуба	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Ezomyte Dagger	icon path	Boot_Knife_inventory_icon	item RU name	Кинжал эзомита	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Platinum Kris	icon path	Golden_Kris_inventory_icon	item RU name	Платиновый крис	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Imperial Skean	icon path	Skean_inventory_icon	item RU name	Короткий кинжал имератора	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Demon Dagger	icon path	Imp_Dagger_inventory_icon	item RU name	Кинжал демона	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Sai	icon path	Trisula_inventory_icon	item RU name	Сай	base class	Daggers	folder	equip	item category	EQUIP	item sub category	DAGGER	width	1	height	3
+item EN name	Driftwood Club	icon path	Driftwood_Club_inventory_icon	item RU name	Дубинка из плавника	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	1	height	3
+item EN name	Tribal Club	icon path	Tribal_Club_inventory_icon	item RU name	Дубинка аборигена	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	1	height	3
+item EN name	Spiked Club	icon path	Tenderizer_inventory_icon	item RU name	Шипастая дубинка	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	1	height	3
+item EN name	Stone Hammer	icon path	Rock_Breaker_inventory_icon	item RU name	Каменный молот	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	War Hammer	icon path	War_Hammer_inventory_icon	item RU name	Воинский молот	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Bladed Mace	icon path	Pernarch_inventory_icon	item RU name	Булава спластинами	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Ceremonial Mace	icon path	Ornate_Mace_inventory_icon	item RU name	Церемоинальная булава	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Dream Mace	icon path	Phantom_Mace_inventory_icon	item RU name	Булава видений	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Wyrm Mace	icon path	Wyrm_Mace_inventory_icon	item RU name	Булава червя	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Petrified Club	icon path	Tribal_Club_inventory_icon	item RU name	Окаменелая дубинка	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	1	height	3
+item EN name	Barbed Club	icon path	Tenderizer_inventory_icon	item RU name	Колючая дубинка	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	1	height	3
+item EN name	Rock Breaker	icon path	Rock_Breaker_inventory_icon	item RU name	Камнедробитель	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Battle Hammer	icon path	War_Hammer_inventory_icon	item RU name	Боевой молот	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Flanged Mace	icon path	Pernarch_inventory_icon	item RU name	Шестопер	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Ornate Mace	icon path	Ornate_Mace_inventory_icon	item RU name	Украшенная булава	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Phantom Mace	icon path	Phantom_Mace_inventory_icon	item RU name	Призрачная булава	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Dragon Mace	icon path	Wyrm_Mace_inventory_icon	item RU name	Булава дракона	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Ancestral Club	icon path	Tribal_Club_inventory_icon	item RU name	Дубинка предков	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	1	height	3
+item EN name	Tenderizer	icon path	Tenderizer_inventory_icon	item RU name	Палица	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	1	height	3
+item EN name	Gavel	icon path	Rock_Breaker_inventory_icon	item RU name	Камнетес	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Legion Hammer	icon path	War_Hammer_inventory_icon	item RU name	Молот легионера	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Pernarch	icon path	Pernarch_inventory_icon	item RU name	Пернач	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Auric Mace	icon path	Ornate_Mace_inventory_icon	item RU name	Золотая булава	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Nightmare Mace	icon path	Phantom_Mace_inventory_icon	item RU name	Кошмарная булава	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Behemoth Mace	icon path	Wyrm_Mace_inventory_icon	item RU name	Булава бегемота	base class	Maces	folder	equip	item category	EQUIP	item sub category	MACE	width	2	height	3
+item EN name	Driftwood Sceptre	icon path	Driftwood_Sceptre_inventory_icon	item RU name	Скипетр из плавника	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Darkwood Sceptre	icon path	Karui_Sceptre_inventory_icon	item RU name	Прогивший скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Bronze Sceptre	icon path	Sekhem_inventory_icon	item RU name	Бронзовый скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Quartz Sceptre	icon path	Quartz_Sceptre_inventory_icon	item RU name	Кварцевый скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Iron Sceptre	icon path	Lead_Sceptre_inventory_icon	item RU name	Железный скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Ochre Sceptre	icon path	Vaal_Sceptre_inventory_icon	item RU name	Бурый скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Ritual Sceptre	icon path	Royal_Sceptre_inventory_icon	item RU name	Ритуальный скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Shadow Sceptre	icon path	Void_Sceptre_inventory_icon	item RU name	Скипетр тени	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Grinning Fetish	icon path	Karui_Sceptre_inventory_icon	item RU name	Оскаленный фетиш	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Horned Sceptre	icon path	Stag_Sceptre_inventory_icon	item RU name	Рогатый скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Sekhem	icon path	Sekhem_inventory_icon	item RU name	Сехем	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Crystal Sceptre	icon path	Quartz_Sceptre_inventory_icon	item RU name	Кристальный скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Lead Sceptre	icon path	Lead_Sceptre_inventory_icon	item RU name	Скипетр командира	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Blood Sceptre	icon path	Vaal_Sceptre_inventory_icon	item RU name	Багряный скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Royal Sceptre	icon path	Royal_Sceptre_inventory_icon	item RU name	Царский скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Abyssal Sceptre	icon path	Void_Sceptre_inventory_icon	item RU name	Скипетр кромешной тьмы	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Stag Sceptre	icon path	Stag_Sceptre_inventory_icon	item RU name	Олений скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Karui Sceptre	icon path	Karui_Sceptre_inventory_icon	item RU name	Скипетр каруи	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Tyrant's Sekhem	icon path	Sekhem_inventory_icon	item RU name	Сехем тирана	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Opal Sceptre	icon path	Quartz_Sceptre_inventory_icon	item RU name	Опаловый скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Platinum Sceptre	icon path	Lead_Sceptre_inventory_icon	item RU name	Платиновый скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Vaal Sceptre	icon path	Vaal_Sceptre_inventory_icon	item RU name	Скипетр ваал	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Carnal Sceptre	icon path	Royal_Sceptre_inventory_icon	item RU name	Кровавый скипетр	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Void Sceptre	icon path	Void_Sceptre_inventory_icon	item RU name	Скипетр пустоты	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Sambar Sceptre	icon path	Stag_Sceptre_inventory_icon	item RU name	Скипетр замбара	base class	Sceptres	folder	equip	item category	EQUIP	item sub category	SCEPTRE				
+item EN name	Driftwood Maul	icon path	Driftwood_Maul_inventory_icon	item RU name	Дубина из плавника	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Tribal Maul	icon path	Tribal_Maul_inventory_icon	item RU name	Дубина аборигена	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Mallet	icon path	Mallet_inventory_icon	item RU name	Колотушка	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Sledgehammer	icon path	Steelhead_inventory_icon	item RU name	Кувалда	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Jagged Maul	icon path	Spiny_Maul_inventory_icon	item RU name	Зубастый молот	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Brass Maul	icon path	Plated_Maul_inventory_icon	item RU name	Латунный молот	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Fright Maul	icon path	Dread_Maul_inventory_icon	item RU name	Пугающий молот	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Morning Star	icon path	Solar_Maul_inventory_icon	item RU name	Моргенштейн	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Totemic Maul	icon path	Tribal_Maul_inventory_icon	item RU name	Тотемная дубина	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Great Mallet	icon path	Mallet_inventory_icon	item RU name	Большая колотушка	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Steelhead	icon path	Steelhead_inventory_icon	item RU name	Стальной молот	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Spiny Maul	icon path	Spiny_Maul_inventory_icon	item RU name	Колючая дубина	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Plated Maul	icon path	Plated_Maul_inventory_icon	item RU name	Позолоченный молот	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Dread Maul	icon path	Dread_Maul_inventory_icon	item RU name	Ужасающий молот	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Solar Maul	icon path	Solar_Maul_inventory_icon	item RU name	Молот светила	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Karui Maul	icon path	Tribal_Maul_inventory_icon	item RU name	Дубина каруи	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Colossus Mallet	icon path	Mallet_inventory_icon	item RU name	Громадная колотушка	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Piledriver	icon path	Steelhead_inventory_icon	item RU name	Забиватель	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Meatgrinder	icon path	Spiny_Maul_inventory_icon	item RU name	Мясодер	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Imperial Maul	icon path	Plated_Maul_inventory_icon	item RU name	Императорский молот	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Terror Maul	icon path	Dread_Maul_inventory_icon	item RU name	Чудовищный молот	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Coronal Maul	icon path	Solar_Maul_inventory_icon	item RU name	Венечный молот	base class	Two Hand Maces	folder	equip	item category	EQUIP	item sub category	TWO_HAND_MACE				
+item EN name	Gnarled Branch	icon path	Gnarled_Branch_inventory_icon	item RU name	Сучковатая ветка	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Primitive Staff	icon path	Woodful_Staff_inventory_icon	item RU name	Простейший посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Long Staff	icon path	Long_Staff_inventory_icon	item RU name	Длинный посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Iron Staff	icon path	Iron_Staff_inventory_icon	item RU name	Крепкий посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Coiled Staff	icon path	Serpentine_Staff_inventory_icon	item RU name	Крученый посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Royal Staff	icon path	Royal_Staff_inventory_icon	item RU name	Царский посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Vile Staff	icon path	Vile_Staff_inventory_icon	item RU name	Посох нечистого	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Crescent Staff	icon path	Moon_Staff_inventory_icon	item RU name	Посох с полумесяцем	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Woodful Staff	icon path	Woodful_Staff_inventory_icon	item RU name	Старинный посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Quarterstaff	icon path	Long_Staff_inventory_icon	item RU name	Окованный посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Military Staff	icon path	Iron_Staff_inventory_icon	item RU name	Боевой посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Serpentine Staff	icon path	Serpentine_Staff_inventory_icon	item RU name	Змеиный посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Highborn Staff	icon path	Royal_Staff_inventory_icon	item RU name	Посох патриция	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Foul Staff	icon path	Vile_Staff_inventory_icon	item RU name	Посох падшего	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Moon Staff	icon path	Moon_Staff_inventory_icon	item RU name	Лунный посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Primordial Staff	icon path	Woodful_Staff_inventory_icon	item RU name	Древний посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Lathi	icon path	Long_Staff_inventory_icon	item RU name	Бамбуковый посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Ezomyte Staff	icon path	Iron_Staff_inventory_icon	item RU name	Посох эзомита	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Maelström Staff	icon path	Serpentine_Staff_inventory_icon	item RU name	Посох вихрей	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Imperial Staff	icon path	Royal_Staff_inventory_icon	item RU name	Императорский посох	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Judgement Staff	icon path	Vile_Staff_inventory_icon	item RU name	Посох судьи	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Eclipse Staff	icon path	Moon_Staff_inventory_icon	item RU name	Посох затмения	base class	Staves	folder	equip	item category	EQUIP	item sub category	STAFF				
+item EN name	Rusted Sword	icon path	Rusted_Sword_inventory_icon	item RU name	Ржавый меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Copper Sword	icon path	Gemstone_Sword_inventory_icon	item RU name	Медный меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Sabre	icon path	Sabre_inventory_icon	item RU name	Сабля	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Broad Sword	icon path	Gladius_inventory_icon	item RU name	Широкий меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	War Sword	icon path	War_Sword_inventory_icon	item RU name	Воинский меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Ancient Sword	icon path	Vaal_Blade_inventory_icon	item RU name	Древний меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Elegant Sword	icon path	Eternal_Sword_inventory_icon	item RU name	Элегантный меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Dusk Blade	icon path	Midnight_Blade_inventory_icon	item RU name	Закатный клинок	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Hook Sword	icon path	Hook_Sword_inventory_icon	item RU name	Меч-крюк	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Variscite Blade	icon path	Gemstone_Sword_inventory_icon	item RU name	Варисцитовый меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Cutlass	icon path	Sabre_inventory_icon	item RU name	Абордажная сабля	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Baselard	icon path	Gladius_inventory_icon	item RU name	Короткий меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Battle Sword	icon path	War_Sword_inventory_icon	item RU name	Боевой меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Elder Sword	icon path	Vaal_Blade_inventory_icon	item RU name	Меч старейшины	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Graceful Sword	icon path	Eternal_Sword_inventory_icon	item RU name	Изящный меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Twilight Blade	icon path	Midnight_Blade_inventory_icon	item RU name	Сумрачный клинок	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Grappler	icon path	Hook_Sword_inventory_icon	item RU name	Хвататель	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Gemstone Sword	icon path	Gemstone_Sword_inventory_icon	item RU name	Самоцветный меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Corsair Sword	icon path	Sabre_inventory_icon	item RU name	Пиратский тесак	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Gladius	icon path	Gladius_inventory_icon	item RU name	Гладиус	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Legion Sword	icon path	War_Sword_inventory_icon	item RU name	Меч всадника	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Vaal Blade	icon path	Vaal_Blade_inventory_icon	item RU name	Клинок ваал	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Eternal Sword	icon path	Eternal_Sword_inventory_icon	item RU name	Меч вечного	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Midnight Blade	icon path	Midnight_Blade_inventory_icon	item RU name	Полуночный меч	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Tiger Hook	icon path	Hook_Sword_inventory_icon	item RU name	Тигровый крюк	base class	One Hand Swords	folder	equip	item category	EQUIP	item sub category	ONE_HAND_SWORD				
+item EN name	Rusted Spike	icon path	Rusted_Spike_inventory_icon	item RU name	Ржавый шип	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Whalebone Rapier	icon path	Wyrmbone_Rapier_inventory_icon	item RU name	Рапира из китовой кости	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Battered Foil	icon path	Tempered_Foil_inventory_icon	item RU name	Тупая шпага	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Basket Rapier	icon path	Pecoraro_inventory_icon	item RU name	Рапира с чашей	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Jagged Foil	icon path	Serrated_Foil_inventory_icon	item RU name	Старинная рапира	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Antique Rapier	icon path	Vaal_Rapier_inventory_icon	item RU name	Зазубренная шпага	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Elegant Foil	icon path	Elegant_Foil_inventory_icon	item RU name	Элегантная шпага	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Thorn Rapier	icon path	Harpy_Rapier_inventory_icon	item RU name	Колючая рапира	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Smallsword	icon path	Smallsword_inventory_icon	item RU name	Малый меч	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Wyrmbone Rapier	icon path	Wyrmbone_Rapier_inventory_icon	item RU name	Рапира из кости змея	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Burnished Foil	icon path	Tempered_Foil_inventory_icon	item RU name	Полированная шпага	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Estoc	icon path	Pecoraro_inventory_icon	item RU name	Короткая шпага	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Serrated Foil	icon path	Serrated_Foil_inventory_icon	item RU name	Шпага с зубцами	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Primeval Rapier	icon path	Vaal_Rapier_inventory_icon	item RU name	Древняя рапира	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Fancy Foil	icon path	Fancy_Foil_inventory_icon	item RU name	Вычурная шпага	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Apex Rapier	icon path	Harpy_Rapier_inventory_icon	item RU name	Острая рапира	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Courtesan Sword	icon path	Smallsword_inventory_icon	item RU name	Меч кокотки	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Dragonbone Rapier	icon path	Wyrmbone_Rapier_inventory_icon	item RU name	Рапира из кости дракона	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Tempered Foil	icon path	Tempered_Foil_inventory_icon	item RU name	Закаленная шпага	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Pecoraro	icon path	Pecoraro_inventory_icon	item RU name	Сабля пекораро	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Spiraled Foil	icon path	Serrated_Foil_inventory_icon	item RU name	Витая шпага	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Vaal Rapier	icon path	Vaal_Rapier_inventory_icon	item RU name	Рапира ваал	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Jewelled Foil	icon path	Fancy_Foil_inventory_icon	item RU name	Инкрустированная шпага	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Harpy Rapier	icon path	Harpy_Rapier_inventory_icon	item RU name	Рапира гарпии	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Dragoon Sword	icon path	Smallsword_inventory_icon	item RU name	Сабля драгуна	base class	Thrusting One Hand Sword	folder	equip	item category	EQUIP	item sub category	THRUSTING_ONE_HAND_SWORD				
+item EN name	Corroded Blade	icon path	Corroded_Blade_inventory_icon	item RU name	Ржавый клинок	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Longsword	icon path	Longsword_inventory_icon	item RU name	Длинный меч	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Bastard Sword	icon path	Reaver_Sword_inventory_icon	item RU name	Полуторный меч	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Two-Handed Sword	icon path	Highland_Blade_inventory_icon	item RU name	Двуручный меч	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Etched Greatsword	icon path	Vaal_Greatsword_inventory_icon	item RU name	Большой меч с травлением	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Ornate Sword	icon path	Tiger_Sword_inventory_icon	item RU name	Украшенный меч	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Spectral Sword	icon path	Wraith_Sword_inventory_icon	item RU name	Призрачный меч	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Curved Blade	icon path	Lithe_Blade_inventory_icon	item RU name	Кривой клинок	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Butcher Sword	icon path	Longsword_inventory_icon	item RU name	Меч мясника	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Footman Sword	icon path	Reaver_Sword_inventory_icon	item RU name	Меч пехотинца	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Highland Blade	icon path	Highland_Blade_inventory_icon	item RU name	Меч горца	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Engraved Greatsword	icon path	Vaal_Greatsword_inventory_icon	item RU name	Большой меч с чеканкой	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Tiger Sword	icon path	Tiger_Sword_inventory_icon	item RU name	Меч тигра	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Wraith Sword	icon path	Wraith_Sword_inventory_icon	item RU name	Потусторонний меч	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Lithe Blade	icon path	Lithe_Blade_inventory_icon	item RU name	Гибкий клинок	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Headman's Sword	icon path	Longsword_inventory_icon	item RU name	Меч палача	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Reaver Sword	icon path	Reaver_Sword_inventory_icon	item RU name	Меч наемника	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Ezomyte Blade	icon path	Highland_Blade_inventory_icon	item RU name	Клинок эзомита	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Vaal Greatsword	icon path	Vaal_Greatsword_inventory_icon	item RU name	Большой меч ваал	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Lion Sword	icon path	Tiger_Sword_inventory_icon	item RU name	Меч льва	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Infernal Sword	icon path	Wraith_Sword_inventory_icon	item RU name	Меч подземного царства	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Exquisite Blade	icon path	Lithe_Blade_inventory_icon	item RU name	Изысканный клинок	base class	Two Hand Swords	folder	equip	item category	EQUIP	item sub category	TWO_HAND_SWORD				
+item EN name	Driftwood Wand	icon path	Driftwood_Wand_inventory_icon	item RU name	Жезл из плавника	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Goat's Horn	icon path	Goat's_Horn_inventory_icon	item RU name	Козий рог	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Carved Wand	icon path	Imbued_Wand_inventory_icon	item RU name	Оструганный жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Quartz Wand	icon path	Quartz_Wand_inventory_icon	item RU name	Кварцевый жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Spiraled Wand	icon path	Tornado_Wand_inventory_icon	item RU name	Витой жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Sage Wand	icon path	Sage_Wand_inventory_icon	item RU name	Жезл провидца	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Pagan Wand	icon path	Pagan_Wand_inventory_icon	item RU name	Жезл язычника	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Faun's Horn	icon path	Goat's_Horn_inventory_icon	item RU name	Рог фавна	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Engraved Wand	icon path	Imbued_Wand_inventory_icon	item RU name	Резной жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Crystal Wand	icon path	Quartz_Wand_inventory_icon	item RU name	Кристальный жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Serpent Wand	icon path	Tornado_Wand_inventory_icon	item RU name	Змеиный жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Omen Wand	icon path	Sage_Wand_inventory_icon	item RU name	Жезл предвестия	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Heathen Wand	icon path	Pagan_Wand_inventory_icon	item RU name	Жезл варвара	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Demon's Horn	icon path	Goat's_Horn_inventory_icon	item RU name	Рог демона	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Imbued Wand	icon path	Imbued_Wand_inventory_icon	item RU name	Волшебгый жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Opal Wand	icon path	Quartz_Wand_inventory_icon	item RU name	Опаловый жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Tornado Wand	icon path	Tornado_Wand_inventory_icon	item RU name	Жезл торнадо	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Prophecy Wand	icon path	Sage_Wand_inventory_icon	item RU name	Жезл пророчества	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Profane Wand	icon path	Pagan_Wand_inventory_icon	item RU name	Жезл отступника	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND				
+item EN name	Amethyst Flask	icon path	Amethyst_Flask_inventory_icon	item RU name	Аметистовый флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Aquamarine Flask	icon path	Aquamarine_Flask_inventory_icon	item RU name	Аквамариновый флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Basalt Flask	icon path	Basalt_Flask_inventory_icon	item RU name	Базальтовый флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Bismuth Flask	icon path	Bismuth_Flask_inventory_icon	item RU name	Висмутовый флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Granite Flask	icon path	Granite_Flask_inventory_icon	item RU name	Гранитный флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Jade Flask	icon path	Jade_Flask_inventory_icon	item RU name	Нефритовый флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Quartz Flask	icon path	Quartz_Flask_inventory_icon	item RU name	Кварцевый флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Quicksilver Flask	icon path	Quicksilver_Flask_inventory_icon	item RU name	Ртутный флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Ruby Flask	icon path	Ruby_Flask_inventory_icon	item RU name	Рубиновый флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Sapphire Flask	icon path	Sapphire_Flask_inventory_icon	item RU name	Сапфировый флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Silver Flask	icon path	Silver_Flask_inventory_icon	item RU name	Серебряный флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Stibnite Flask	icon path	Stibnite_Flask_inventory_icon	item RU name	Стибнитовый слафкон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Sulphur Flask	icon path	Sulphur_Flask_inventory_icon	item RU name	Серный флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Topaz Flask	icon path	Topaz_Flask_inventory_icon	item RU name	Топазовый флакон	base class	Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Diamond Flask	icon path	Diamond_Flask_inventory_icon	item RU name	Алмазный флакон	base class	Critical Utility Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Chain Belt	icon path	Chain_Belt_inventory_icon	item RU name	Цепочка	base class	Belts	folder	equip	item category	EQUIP	item sub category	BELT				
+item EN name	Rustic Sash	icon path	Rustic_Sash_inventory_icon	item RU name	Кушак	base class	Belts	folder	equip	item category	EQUIP	item sub category	BELT				
+item EN name	Stygian Vise	icon path	Stygian_Vise_inventory_icon	item RU name	Тёмные тиски	base class	Belts	folder	equip	item category	EQUIP	item sub category	BELT				
+item EN name	Heavy Belt	icon path	Heavy_Belt_inventory_icon	item RU name	Широкий ремень	base class	Belts	folder	equip	item category	EQUIP	item sub category	BELT				
+item EN name	Leather Belt	icon path	Leather_Belt_inventory_icon	item RU name	Ремень	base class	Belts	folder	equip	item category	EQUIP	item sub category	BELT				
+item EN name	Cloth Belt	icon path	Cloth_Belt_inventory_icon	item RU name	Матерчатый пояс	base class	Belts	folder	equip	item category	EQUIP	item sub category	BELT				
+item EN name	Studded Belt	icon path	Studded_Belt_inventory_icon	item RU name	Клепаный ремень	base class	Belts	folder	equip	item category	EQUIP	item sub category	BELT				
+item EN name	Vanguard Belt	icon path	Vanguard_Belt_inventory_icon	item RU name	Ремень гастата	base class	Belts	folder	equip	item category	EQUIP	item sub category	BELT				
+item EN name	Crystal Belt	icon path	Crystal_Belt_inventory_icon	item RU name	Кристальный пояс	base class	Belts	folder	equip	item category	EQUIP	item sub category	BELT				
+item EN name	Steel Ring	icon path	Steel_Ring_inventory_icon	item RU name	Стальное кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Opal Ring	icon path	Opal_Ring_inventory_icon	item RU name	Опаловое кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Breach Ring	icon path	Breach_Ring_inventory_icon	item RU name	Кольцо Разлома	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Prismatic Ring	icon path	Prismatic_Ring_inventory_icon	item RU name	Радужное кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Blue Pearl Amulet	icon path	Blue_Pearl_Amulet_inventory_icon	item RU name	Амулет с голубой жемчужиной	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Marble Amulet	icon path	Marble_Amulet_inventory_icon	item RU name	Мраморный амулет	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Map	icon path	Map	item RU name	Карта	base class	Maps	folder	map	item category	MAP	item sub category	MAP				
+item EN name	Shaper's Orb	icon path	Shaper's_Orb_inventory_icon	item RU name	Сфера Создателя	base class	Quest Items	folder	quest	item category	QUEST	item sub category	ALL				
+item EN name	Elder's Orb	icon path	Elder's_Orb_inventory_icon	item RU name	Сфера Древнего	base class	Quest Items	folder	quest	item category	QUEST	item sub category	ALL				
+item EN name	Two-Point Arrow Quiver	icon path	Two-Point_Arrow_Quiver_inventory_icon	item RU name	Колчан двуглавых стрел	base class	Quivers	folder	equip	item category	EQUIP	item sub category	QUIVER				
+item EN name	Serrated Arrow Quiver	icon path	Serrated_Arrow_Quiver_inventory_icon	item RU name	Колчан зазубренных стрел	base class	Quivers	folder	equip	item category	EQUIP	item sub category	QUIVER				
+item EN name	Sharktooth Arrow Quiver	icon path	Sharktooth_Arrow_Quiver_inventory_icon	item RU name	Колчан акульих стрел	base class	Quivers	folder	equip	item category	EQUIP	item sub category	QUIVER				
+item EN name	Blunt Arrow Quiver	icon path	Blunt_Arrow_Quiver_inventory_icon	item RU name	Колчан промысловых стрел	base class	Quivers	folder	equip	item category	EQUIP	item sub category	QUIVER				
+item EN name	Fire Arrow Quiver	icon path	Fire_Arrow_Quiver_inventory_icon	item RU name	Колчан огненных стрел	base class	Quivers	folder	equip	item category	EQUIP	item sub category	QUIVER				
+item EN name	Broadhead Arrow Quiver	icon path	Broadhead_Arrow_Quiver_inventory_icon	item RU name	Колчан охотничьих стрел	base class	Quivers	folder	equip	item category	EQUIP	item sub category	QUIVER				
+item EN name	Penetrating Arrow Quiver	icon path	Penetrating_Arrow_Quiver_inventory_icon	item RU name	Колчан боевых стрел	base class	Quivers	folder	equip	item category	EQUIP	item sub category	QUIVER				
+item EN name	Spike-Point Arrow Quiver	icon path	Spike-Point_Arrow_Quiver_inventory_icon	item RU name	Колчан точных стрел	base class	Quivers	folder	equip	item category	EQUIP	item sub category	QUIVER				
+item EN name	Ruby Ring	icon path	Ruby_Ring_inventory_icon	item RU name	Кольцо с рубином	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Two-Stone Ring	icon path	Two-Stone_Ring_inventory_icon	item RU name	Кольцо с двумя камнями!!!	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Onyx Amulet	icon path	Onyx_Amulet_inventory_icon	item RU name	Амулет с ониксом	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Topaz Ring	icon path	Topaz_Ring_inventory_icon	item RU name	Кольцо с топазом	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Amber Amulet	icon path	Amber_Amulet_inventory_icon	item RU name	Амулет с янтарем	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Jade Amulet	icon path	Jade_Amulet_inventory_icon	item RU name	Амулет с нефритом	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Lapis Amulet	icon path	Lapis_Amulet_inventory_icon	item RU name	Амулет с лазуритом	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Turquoise Amulet	icon path	Turquoise_Amulet_inventory_icon	item RU name	Амулет с бирюзой	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Citrine Amulet	icon path	Citrine_Amulet_inventory_icon	item RU name	Амулет с цитрином	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Iron Ring	icon path	Iron_Ring_inventory_icon	item RU name	Железное кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Coral Ring	icon path	Coral_Ring_inventory_icon	item RU name	Кольцо с кораллом	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Sapphire Ring	icon path	Sapphire_Ring_inventory_icon	item RU name	Кольцо с сапфиром	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Coral Amulet	icon path	Coral_Amulet_inventory_icon	item RU name	Амулет с кораллом	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Unset Ring	icon path	Unset_Ring_inventory_icon	item RU name	Кольцо без камня	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Prismatic Jewel	icon path	Prismatic_Jewel_inventory_icon	item RU name	Радужный самоцвет	base class	Jewels	folder	jewel	item category	JEWEL	item sub category	ALL				
+item EN name	Clutching Talisman	icon path	Clutching_Talisman_inventory_icon	item RU name	Сжимающий талисман	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Greatwolf Talisman	icon path	Greatwolf_Talisman_inventory_icon	item RU name	Талисман Великого волка	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Rotfeather Talisman	icon path	Rotfeather_Talisman_inventory_icon	item RU name	Талисман перогнильца	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Wereclaw Talisman	icon path	Wereclaw_Talisman_inventory_icon	item RU name	Талисман когтистого оборотня	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Eber's Key	icon path	Eber's_Key_inventory_icon	item RU name	Ключ Эвера	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Inya's Key	icon path	Inya's_Key_inventory_icon	item RU name	Ключ Иньи	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Volkuur's Key	icon path	Volkuur's_Key_inventory_icon	item RU name	Ключ Волкуур	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Yriel's Key	icon path	Yriel's_Key_inventory_icon	item RU name	Ключ Ириэля	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Fragment of the Hydra	icon path	Fragment_of_the_Hydra_inventory_icon	item RU name	Фрагмент Гидры	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Fragment of the Phoenix	icon path	Fragment_of_the_Phoenix_inventory_icon	item RU name	Фрагмент Гидры	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Fragment of the Chimera	icon path	Fragment_of_the_Chimera_inventory_icon	item RU name	Фрагмент Гидры	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Fragment of the Minotaur	icon path	Fragment_of_the_Minotaur_inventory_icon	item RU name	Фрагмент Гидры	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Mortal Grief	icon path	Mortal_Grief_inventory_icon	item RU name	Смертное уныние	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Mortal Hope	icon path	Mortal_Hope_inventory_icon	item RU name	Смертная надежда	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Mortal Ignorance	icon path	Mortal_Ignorance_inventory_icon	item RU name	Смертное невежество	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Mortal Rage	icon path	Mortal_Rage_inventory_icon	item RU name	Смертный гнев	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Mortal	icon path	The_Alluring_Abyss_inventory_icon	item RU name	Смертное (манящая бездна)	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Key	icon path	The_Pale_Court_inventory_icon	item RU name	Ключ (бледный совет)	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Sacrifice at Dusk	icon path	Sacrifice_at_Dusk_inventory_icon	item RU name	Жертва на Закате	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Sacrifice at Dawn	icon path	Sacrifice_at_Dawn_inventory_icon	item RU name	Жертва на Рассвете	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Sacrifice at Noon	icon path	Sacrifice_at_Noon_inventory_icon	item RU name	Жертва в Полдень	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Sacrifice at Midnight	icon path	Sacrifice_at_Midnight_inventory_icon	item RU name	Жертва в Полночь	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Fragment of the	icon path	Shaper	item RU name	Фрагмент Шейпера	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Sacrifice at	icon path	The_Apex_of_Sacrifice_inventory_icon	item RU name	Жертва (вершина жертвоприношений)	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT				
+item EN name	Timeworn Reliquary Key	icon path	timeworn_reliquary_key	item RU name	Ключ Реликвария	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	MAP				
+item EN name	Fossil	icon path	fossil	item RU name	Ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Aberrant Fossil	icon path	Aberrant_Fossil_inventory_icon	item RU name	Искажённое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Aetheric Fossil	icon path	Aetheric_Fossil_inventory_icon	item RU name	Эфирное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Bloodstained Fossil	icon path	Bloodstained_Fossil_inventory_icon	item RU name	Окровавленное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Bound Fossil	icon path	Bound_Fossil_inventory_icon	item RU name	Связующее ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Corroded Fossil	icon path	Corroded_Fossil_inventory_icon	item RU name	Пористое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Dense Fossil	icon path	Dense_Fossil_inventory_icon	item RU name	Плотное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Enchanted Fossil	icon path	Enchanted_Fossil_inventory_icon	item RU name	Зачарованное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Encrusted Fossil	icon path	Encrusted_Fossil_inventory_icon	item RU name	Инкрустированное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Faceted Fossil	icon path	Faceted_Fossil_inventory_icon	item RU name	Гранёное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Fractured Fossil	icon path	Fractured_Fossil_inventory_icon	item RU name	Треснувшее ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Frigid Fossil	icon path	Frigid_Fossil_inventory_icon	item RU name	Ледяное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Gilded Fossil	icon path	Gilded_Fossil_inventory_icon	item RU name	Позолоченное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Glyphic Fossil	icon path	Glyphic_Fossil_inventory_icon	item RU name	Резное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Hollow Fossil	icon path	Hollow_Fossil_inventory_icon	item RU name	Пустое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Jagged Fossil	icon path	Jagged_Fossil_inventory_icon	item RU name	Шероховатое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Lucent Fossil	icon path	Lucent_Fossil_inventory_icon	item RU name	Светлое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Metallic Fossil	icon path	Metallic_Fossil_inventory_icon	item RU name	Металлическое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Perfect Fossil	icon path	Perfect_Fossil_inventory_icon	item RU name	Безупречное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Prismatic Fossil	icon path	Prismatic_Fossil_inventory_icon	item RU name	Радужное ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Sanctified Fossil	icon path	Sanctified_Fossil_inventory_icon	item RU name	Освящённое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Scorched Fossil	icon path	Scorched_Fossil_inventory_icon	item RU name	Опалённое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Serrated Fossil	icon path	Serrated_Fossil_inventory_icon	item RU name	Зубчатое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Shuddering Fossil	icon path	Shuddering_Fossil_inventory_icon	item RU name	Дрожащее ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Tangled Fossil	icon path	Tangled_Fossil_inventory_icon	item RU name	Замысловатое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+item EN name	Pristine Fossil	icon path	Pristine_Fossil_inventory_icon	item RU name	Чистое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				

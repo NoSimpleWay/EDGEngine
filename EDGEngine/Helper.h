@@ -3,6 +3,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "EGabarite.h"
 
 
 
@@ -27,6 +28,7 @@
 	static char last_inputed_char = NULL;
 
 	static GLFWwindow* main_window;
+	static EGabarite* gabarite_white_pixel;
 
 
 

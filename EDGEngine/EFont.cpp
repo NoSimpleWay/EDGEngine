@@ -216,11 +216,11 @@ void EFont::load_font(string _path)
 						advance[font_array_id] = get_data_from_sub_data(sub_data);
 
 						
-						size_x[font_array_id]= size_x[font_array_id]/512.0;
-						size_y[font_array_id]= size_y[font_array_id]/128.0;
+						size_x[font_array_id]= size_x[font_array_id]/4096.0f;
+						size_y[font_array_id]= size_y[font_array_id]/4096.0f;
 
-						x[font_array_id]= x[font_array_id]/512.0;
-						y[font_array_id]= 1-y[font_array_id]/128.0;
+						x[font_array_id]= x[font_array_id]/4096.0f;
+						y[font_array_id]= 1-y[font_array_id]/4096.0f;
 					}
 
 					

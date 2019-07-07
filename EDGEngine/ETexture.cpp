@@ -1,14 +1,11 @@
-class ETexture
-{
-public:
-	static unsigned int texture[32];
+#include "ETexture.h"
 
-	ETexture()
+	ETexture::ETexture()
 	{
 	}
 
 
-	~ETexture()
+	ETexture::~ETexture()
 	{
 	}
-};
+

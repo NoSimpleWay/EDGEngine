@@ -1,114 +1,23 @@
+#pragma once
+#include "FilterBlock.h"
+
 #include "Enums.h"
+
 #include "Batcher.h"
 #include "EFont.h"
 #include "Helper.h"
 #include <vector>
 #include "EButton.h"
+#include "ETexture.h"
+#include "EGabarite.h"
+
 //#include "EButton.cpp"
-class FilterBlock
-{
-public:
-	float x=0;
-	float y=0;
-	float size_x=300;
-	float size_y=100;
-
-	int socket_count = 0;		bool is_socket_active = false;			std::string socket_condition = "=";
-	int links_count=0;			bool is_links_active = false;			std::string links_condition = "=";
-
-	int item_level=0;			bool is_item_level_active = false;		std::string item_level_condition = "=";
-	int required_level=0;		bool is_required_level_active = false;	std::string required_level_condition = "=";
-
-	int item_width = 0;			bool is_item_width_active = false;		std::string item_width_condition = "=";
-	int item_height = 0;		bool is_item_height_active = false;		std::string item_height_condition = "=";
-
-	int item_quality = 0;		bool is_item_qualityt_active = false;	std::string item_quality_condition = "=";
-	int item_stack_size = 0;	bool is_stack_size_active = false;		std::string item_stack_size_condition = "=";
-	int gem_level = 0;			bool is_gem_level_active = false;		std::string gem_level_condition = "=";
-
-	int map_tier = 0;			bool is_map_tier_active = false;		std::string map_tier_condition = "=";
 
 
-	bool is_socket_group_active = false;
-	int red_sockets=0;
-	int green_sockets=0;
-	int blue_sockets=0;
-	int white_sockets=0;
-	bool is_prophecy_active = false;
-	
-	std::string	item_rarity = "Rare";				bool is_item_rarity_active = false;	 std::string rarity_condition = "=";
-
-	bool		is_corrupted		= false;		bool is_corrupted_active = false;
-
-	//Enums::YNE		is_corrupted		= Enums::YNE::EITHER;		bool is_corrupted_active = false;
-	bool		is_shaper_item		= false;		bool is_shaper_item_active = false;
-	bool		is_elder_item		= false;		bool is_elder_item_active = false;
-	bool		is_fractured_item	= false;		bool is_fractured_item_active = false;
-	bool		is_synthesised_item	= false;		bool is_synthesised_item_active = false;
-	bool		is_enchantment_item = false;		bool is_enchantment_item_active = false;
-
-	bool		is_elder_map = false;				bool is_elder_map_active = false;
-	bool		is_shaper_map = false;				bool is_shaper_map_active = false;
-
-	bool is_font_size_active = false;
-	int font_size=30;
-	
-	bool is_text_color_active = false;
-	int text_color_red=255;
-	int text_color_green=255;
-	int text_color_blue=255;
-	int text_color_alpha=255;
-
-	bool is_bg_color_active = false;
-	int bg_red = 128;
-	int bg_green = 128;
-	int bg_blue = 128;
-	int bg_alpha = 255;
-
-	bool is_rama_color_active = false;
-	int rama_red = 0;
-	int rama_green = 0;
-	int rama_blue = 0;
-	int rama_alpha = 255;
-
-	int debug_text_y = 0;
-	int debug_text_x = 0;
-
-	bool is_alert_sound = false;
-	string alert_sound_name = "1";
-	int alert_sound_volume = 100;
-
-	bool is_ray = false;
-	Enums::GameColors ray_color = Enums::GameColors::WHITE;
-
-	bool is_minimap_icon = false;
-	Enums::GameColors minimap_icon_color = Enums::GameColors::WHITE;
-	Enums::IconShape minimap_icon_shape = Enums::IconShape::CIRCLE;
-	Enums::IconSize minimap_icon_size = Enums::IconSize::SMALL;
-
-	bool is_identified = false;
-	bool is_identified_active = false;
-
-
-
-	std::vector<string*> class_list;
-	std::vector<string*> base_type_list;
-	std::vector<string*> explicit_mod_list;
-	std::vector<string*> prophecy_list;
-
-	string YNE_value[3] =  { "yes", "no", "either" };
-	
-
-	bool is_show = true;
-	bool disable_drop_sound = false;
-
-	std::vector<EButton*> filter_flock_button_list;
-
-	EButton* just_created_button;
 
 	//std::vector<EButton*> filter_block_button_list;
 
-	static int rarity_text_to_id(string _text)
+	int FilterBlock::rarity_text_to_id(string _text)
 	{
 		for (int i = 0; i < rarity_value->length(); i++)
 		{
@@ -118,7 +27,7 @@ public:
 		return -1;
 	}
 
-	static string bool_to_string(bool _b)
+	string FilterBlock::bool_to_string(bool _b)
 	{
 		if (_b)
 		{
@@ -131,31 +40,43 @@ public:
 
 	}
 
-	FilterBlock()
+	FilterBlock::FilterBlock()
 	{
-		just_created_button = new EButton();
-		just_created_button->button_x = 200;
+		//zzz = new EButton();
+		//zzz->button_x = 200;
 	}
 
-	~FilterBlock()
+	FilterBlock::~FilterBlock()
 	{
 
 	}
 
-	void draw(Batcher* _batch)
+	void FilterBlock::update(float _d)
+	{
+		for (int i = 0; i < filter_block_items_button_list.size(); i++)
+		{
+			filter_block_items_button_list.at(i)->update(_d);
+		}
+	}
+
+	void FilterBlock::draw(Batcher* _batch)
 	{
 		if (is_show)
-		{_batch->setcolor_255(0, 0, 0, 100);}
+		{_batch->setcolor_255(210,200,190,100);}
 		else
 		{_batch->setcolor_255(64, 32, 16, 100);}
 
-		_batch->draw_rect_with_uv(x,y,size_x,size_y,0,0,1,1);
+
+		if (DefaultGabarite::gabarite_white != NULL)
+		{
+			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
+		}
 
 		_batch->setcolor_255(rama_red, rama_green, rama_blue, rama_alpha / 2.55f);
-		_batch->draw_rect_with_uv(x + size_x - 102, y + 3, 104, 29, 0, 0, 1, 1);
+		_batch->draw_rect_with_uv(x + size_x - 102, y + 3, 104, 29, DefaultGabarite::gabarite_white);
 
 		_batch->setcolor_255(bg_red, bg_green, bg_blue, bg_alpha/2.55f);
-		_batch->draw_rect_with_uv(x+size_x-100, y+5, 100, 25, 0, 0, 1, 1);
+		_batch->draw_rect_with_uv(x+size_x-100, y+5, 100, 25, DefaultGabarite::gabarite_white);
 
 		if (ray_color == Enums::GameColors::RED) { _batch->setcolor_255(255, 0, 0, 100); }
 		if (ray_color == Enums::GameColors::GREEN) { _batch->setcolor_255(0, 255, 0, 100); }
@@ -164,20 +85,37 @@ public:
 		if (ray_color == Enums::GameColors::WHITE) { _batch->setcolor_255(255, 255, 255, 100); }
 		if (ray_color == Enums::GameColors::YELLOW) { _batch->setcolor_255(255, 255, 0, 100); }
 
-		_batch->draw_rect_with_uv(x + size_x - 120, y + 5, 5, 50, 0, 0, 1, 1);
+		_batch->draw_rect_with_uv(x + size_x - 120, y + 5, 5, 50, DefaultGabarite::gabarite_white);
 
-		for (int i = 0; i < filter_flock_button_list.size(); i++)
+		float temp_pos_x = 250;
+		float temp_pos_y = 0;
+
+		
+		for (int i = 0; i < filter_block_items_button_list.size(); i++)
+		{
+			filter_block_items_button_list.at(i)->button_x = temp_pos_x;
+			filter_block_items_button_list.at(i)->draw(_batch);
+
+
+			if (filter_block_items_button_list.at(i)->gabarite != NULL)
+			{
+				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 3;
+
+			}
+		}
+
+		/*for (int i = 0; i < filter_flock_button_list.size(); i++)
 		{
 			filter_flock_button_list.at(i)->draw(_batch);
-		}
+		}*/
 	}
 
-	void add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)
+	void FilterBlock::add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)
 	{
 		if (!_if)
 		{ _batch->setcolor(1, 0, 0, 1); }
 		else
-		{ _batch->setcolor(1, 1, 1, 1); } 
+		{ _batch->setcolor(0, 0.1f, 0.2f, 0.9f); } 
 
 		if (_if)
 		{
@@ -187,12 +125,12 @@ public:
 			if (debug_text_y + 20 > size_y)
 			{
 				debug_text_y = 0;
-				debug_text_x += 100;
+				debug_text_x += 200;
 			}
 		}
 	}
 
-	void text_pass(EFont* _font,Batcher* _batch)
+	void FilterBlock::text_pass(EFont* _font,Batcher* _batch)
 	{
 		_batch->setcolor(1, 1, 1, 1);
 
@@ -215,13 +153,14 @@ public:
 		//add_debug(is_text_color, "Font size: " + rarity_value[item_rarity], _font, _batch);
 
 
+
 		_font->x_adding = 0;
 		for (int i = 0; i < class_list.size(); i++)
 		{
 			_batch->setcolor(1.0f, 0.8f, 0.6f, 1.0f);
 
 			
-			_font->add_draw(_batch, *class_list.at(i)+"   ", debug_text_x+100, y+10);
+			_font->add_draw(_batch, *class_list.at(i)+"   ", debug_text_x+250, y+10);
 		}
 
 		_font->x_adding = 0;
@@ -229,7 +168,7 @@ public:
 		{
 			_batch->setcolor(0.6f, 1.0f, 0.6f, 1.0f);
 
-			_font->add_draw(_batch, *base_type_list.at(i)+"   ", debug_text_x + 100, y + 20);
+			_font->add_draw(_batch, *base_type_list.at(i)+"   ", debug_text_x + 250, y + 30);
 		}
 
 		_font->x_adding = 0;
@@ -237,7 +176,7 @@ public:
 		{
 			_batch->setcolor(0.6f, 0.7f, 1.0f, 1.0f);
 
-			_font->add_draw(_batch, *explicit_mod_list.at(i)+"   ", debug_text_x + 100, y + 40);
+			_font->add_draw(_batch, *explicit_mod_list.at(i)+"   ", debug_text_x + 250, y + 50);
 		}
 
 		_font->x_adding = 0;
@@ -245,14 +184,19 @@ public:
 		{
 			_batch->setcolor(1.0f, 0.0f, 1.0f, 1.0f);
 
-			_font->add_draw(_batch, *prophecy_list.at(i) + "   ", debug_text_x + 100, y + 60);
+			_font->add_draw(_batch, *prophecy_list.at(i) + "   ", debug_text_x + 250, y + 70);
 		}
 
 		_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
 
 		//_font->x_adding = 0;
 		_font->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
+
+		for (int i = 0; i < filter_block_items_button_list.size(); i++)
+		{
+			filter_block_items_button_list.at(i)->text_pass(_font,_batch);
+		}
 		
+
 	}
 
-};

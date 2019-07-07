@@ -49,4 +49,8 @@ public:
 	enum IconShape {CIRCLE, DIAMOND,HEXAGON, SQUARE, STAR, TRIANGLE};
 	enum IconSize {LARGE, MEDIUM, SMALL};
 	enum ConditionSymbols {LEQUAL, LESS, EQUAL, BIGGER, BEQUAL};
+
+	enum ButtonPositionMaster {WINDOW, FILTER_BLOCK, SCREEN};
+	enum ButtonPositionMode {LEFT, MID, RIGHT, UP, DOWN};
+
 };
