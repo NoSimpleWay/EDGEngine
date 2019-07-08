@@ -60,6 +60,9 @@
     <ClCompile Include="DADItem.h">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="EbuttonFilterItem.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">

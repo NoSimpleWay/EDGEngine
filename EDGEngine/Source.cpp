@@ -25,6 +25,8 @@
 #include "Helper.h";
 #include <vector>
 #include "EButton.h"
+#include "EButtonFilterItem.cpp"
+
 #include "FilterBlock.h"
 
 
@@ -602,10 +604,9 @@ void parse_loot_filter_data(string _path)
 							{
 								if (show_info_to_console){ cout << "add new base type <" << subdata << ">" << endl; }
 
-								just_created_button=new EButton(0,0,30,30);
+								just_created_button=new EButtonFilterItem(0,0,30,30);
+
 								just_created_button->master_block = just_created_block;
-								just_created_button->master_position = Enums::ButtonPositionMaster::FILTER_BLOCK;
-								just_created_button->have_text = false;
 								
 								just_created_button->description_text = subdata;
 

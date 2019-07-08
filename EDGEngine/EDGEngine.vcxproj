@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="Batcher.cpp" />
     <ClCompile Include="DADItem.h" />
+    <ClCompile Include="EbuttonFilterItem.cpp" />
     <ClCompile Include="ECamera.cpp" />
     <ClCompile Include="EColor.cpp" />
     <ClCompile Include="EGabarite.cpp" />
