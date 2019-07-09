@@ -1,5 +1,5 @@
 #pragma once
-class EColor_base
+class EColor
 {
 public:
 	float color_red = 1.0f;
@@ -7,23 +7,23 @@ public:
 	float color_blue = 1.0f;
 	float color_alpha = 1.0f;
 
-	EColor_base(float _r, float _g, float _b, float _a);
-	~EColor_base();
-
+	EColor(float _r, float _g, float _b, float _a);
+	~EColor();
+	void set(float _r, float _g, float _b, float _a);
 
 };
 
-class EColor
+class EColorCollection
 {
 public:
-	static EColor_base* RED;
-	static EColor_base* GREEN;
-	static EColor_base* BLUE;
+	static EColor* RED;
+	static EColor* GREEN;
+	static EColor* BLUE;
 
-	static EColor_base* WHITE;
-	static EColor_base* BLACK;
+	static EColor* WHITE;
+	static EColor* BLACK;
 
-	static EColor_base* YELLOW;
-	static EColor_base* CYAN;
-	static EColor_base* PINK;
+	static EColor* YELLOW;
+	static EColor* CYAN;
+	static EColor* PINK;
 };

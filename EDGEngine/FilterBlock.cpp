@@ -95,11 +95,12 @@
 		{
 			filter_block_items_button_list.at(i)->button_x = temp_pos_x;
 			filter_block_items_button_list.at(i)->draw(_batch);
-
+			//filter_block_items_button_list.at(i)->text_pass(EFont::font, _batch);
 
 			if (filter_block_items_button_list.at(i)->gabarite != NULL)
 			{
 				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 3;
+				
 
 			}
 		}
@@ -108,6 +109,10 @@
 		{
 			filter_flock_button_list.at(i)->draw(_batch);
 		}*/
+		_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
+
+		//_font->x_adding = 0;
+		EFont::font->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
 	}
 
 	void FilterBlock::add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)
@@ -192,10 +197,11 @@
 		//_font->x_adding = 0;
 		_font->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
 
+		/*
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
 		{
 			filter_block_items_button_list.at(i)->text_pass(_font,_batch);
-		}
+		}*/
 		
 
 	}

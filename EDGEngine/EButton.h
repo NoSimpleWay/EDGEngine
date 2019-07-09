@@ -11,8 +11,10 @@
 
 
 #include "FilterBlock.h"
+#include "EWindow.h"
 
 class FilterBlock;
+class EWindow;
 class EButton
 {
 public:
@@ -35,7 +37,7 @@ public:
 	float bound_size_down = 0;
 
 	bool is_expanded = false;
-	bool is_drop_list = true;
+	bool is_drop_list = false;
 
 	int drop_elements = 5;
 	EGabarite* gabarite=NULL;
@@ -47,6 +49,7 @@ public:
 	Enums::ButtonPositionMode position_mode_y=Enums::ButtonPositionMode::DOWN;
 
 	FilterBlock* master_block;
+	EWindow* master_window;
 
 
 	float master_position_x = 0;
@@ -65,7 +68,11 @@ public:
 	~EButton();
 
 	bool is_overlap();
+	bool is_click();
 	void update(float _d);
 	void draw(Batcher* _batch);
-	void text_pass(EFont* _font, Batcher* _batch);
+
+
+	virtual void click_event();
+	virtual void input_event();
 };

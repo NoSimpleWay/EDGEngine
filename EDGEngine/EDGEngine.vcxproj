@@ -143,14 +143,20 @@
     <ClCompile Include="Batcher.cpp" />
     <ClCompile Include="DADItem.h" />
     <ClCompile Include="EbuttonFilterItem.cpp" />
+    <ClCompile Include="EButtonInputSearchItem.cpp" />
+    <ClCompile Include="EButtonItemSearch.cpp" />
     <ClCompile Include="ECamera.cpp" />
     <ClCompile Include="EColor.cpp" />
     <ClCompile Include="EGabarite.cpp" />
     <ClCompile Include="EInit.cpp" />
     <ClCompile Include="ETexture.cpp" />
+    <ClCompile Include="EWindow.cpp" />
+    <ClCompile Include="EWindowFilterBlock.cpp" />
+    <ClCompile Include="EWindowFindItem.cpp" />
     <ClCompile Include="FilterBlock.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Helper.cpp" />
+    <ClCompile Include="ItemList.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="EFont.cpp" />
     <ClCompile Include="EButton.cpp" />
@@ -159,6 +165,9 @@
     <ClInclude Include="Batcher.h" />
     <ClInclude Include="ConsoleColor.h" />
     <ClInclude Include="EButton.h" />
+    <ClInclude Include="EButtonFilterItem.h" />
+    <ClInclude Include="EButtonInputSearchItem.h" />
+    <ClInclude Include="EButtonItemSearch.h" />
     <ClInclude Include="ECamera.h" />
     <ClInclude Include="EColor.h" />
     <ClInclude Include="EDGE_FBO.h" />
@@ -168,9 +177,12 @@
     <ClInclude Include="EControl.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="ETexture.h" />
+    <ClInclude Include="EWindow.h" />
     <ClInclude Include="FilterBlock.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="Helper.h" />
+    <ClInclude Include="ItemList.h" />
+    <ClInclude Include="StaticData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

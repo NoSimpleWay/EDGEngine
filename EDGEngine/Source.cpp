@@ -25,7 +25,12 @@
 #include "Helper.h";
 #include <vector>
 #include "EButton.h"
-#include "EButtonFilterItem.cpp"
+#include "EButtonFilterItem.h"
+
+#include "EWindow.h"
+#include "StaticData.h"
+
+
 
 #include "FilterBlock.h"
 
@@ -34,9 +39,9 @@
 #include "ETexture.h"
 #include "EControl.h"
 
-#include "DADItem.h"
+//#include "DADItem.h"
 #include "EGabarite.h"
-
+#include "ItemList.h"
 using namespace std;
 using namespace Helper;
 //Helper helper_object;
@@ -52,7 +57,11 @@ int EControl::mouse_y = 0;
 bool EControl::button_pressed = false;
 bool EControl ::mouse_pressed = false;
 bool EControl ::button_backspace_released = false;
+char EControl::last_inputed_char=NULL;
 
+EFont* EFont::font = NULL;
+
+int EControl::block_scroll = 0;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void recalculate_correction();
@@ -69,8 +78,10 @@ void put_texture_to_atlas(char const* _path,float _x, float _y);
 void put_texture_to_atlas(char const* _path);
 
 // settings
-int SCR_WIDTH = 1700;
-int SCR_HEIGHT = 900;
+int EWindow::SCR_WIDTH = 1700;
+int EWindow::SCR_HEIGHT = 900;
+int EWindow::top_layer_id = 0;
+GLFWwindow* EWindow::main_window = NULL;
 
 
 
@@ -78,7 +89,7 @@ int width, height, nrChannels;
 unsigned char* data1;
 unsigned char* data2;
 
-glm::mat4 transform;
+glm::mat4 matrix_transform;
 
 Shader* ourShader;
 
@@ -86,7 +97,7 @@ Batcher * batch;
 Batcher* batch2;
 Batcher* font_batch;
 
-EFont* font;
+
 
 ECamera* camera;
 
@@ -104,9 +115,8 @@ string work_text="";
 std::vector<int> v = { 7, 5, 16, 8 };
 
 std::vector<EButton*> button_list;
-std::vector<FilterBlock*> filter_block_list;
+//std::vector<FilterBlock*> filter_block_list;
 
-std::vector<DADItem*> item_list;
 
 
 unsigned int ETexture::texture[32];
@@ -126,7 +136,7 @@ static GLFWwindow* window;
 
 #include "ConsoleColor.h"
 
-int block_scroll=0;
+
 
 unsigned int FBO;
 unsigned int FBO_texture;
@@ -142,6 +152,11 @@ unsigned int last_texture_h;
 bool collision_matrix[4096][4096][10];
 
 EGabarite* just_created_gabarite = NULL;
+
+std::vector<EWindow*> window_list;
+
+EWindowFilterBlock* StaticData::window_filter_block = NULL;
+EWindowFindItem* StaticData::window_find_item = NULL;
 
 
 //0		-	1
@@ -227,13 +242,7 @@ bool is_no_collision(int _x, int _y, int _size_x, int _size_y)
 	return true;
 }
 
-string tchar_to_string(TCHAR* _t)
-{
-	for (int i=0; i<UNLEN; i++)
-	{cout << "char at [" << i << "] | "<< _t[i] <<" |" << endl;}
 
-	return "!";
-}
 
 bool convert_text_to_bool(string _text)
 {
@@ -247,6 +256,9 @@ bool convert_text_to_bool(string _text)
 	}
 }
 
+#include <codecvt>
+
+
 void parse_item_data()
 {
 	ofstream myfile_open;
@@ -257,12 +269,15 @@ void parse_item_data()
 	string line;
 
 	string subdata;
-	string subdata_array[50];
+	string subdata_array[100];
 
 	int line_id=0;
 	int data_order;
 
 	DADItem* just_created_item=NULL;
+
+
+	
 
 	while ((getline(myfile, line))&&(line_id<1000))
 	{
@@ -285,38 +300,65 @@ void parse_item_data()
 			}
 
 		}
-
-		for (int i = 0; i < 25; i++)
+		
+		for (int i = 0; i < 40; i++)
 		{
-			if (subdata_array[i * 2] == "item EN name")			{just_created_item->item_name = subdata_array[i * 2 + 1];}
-			if (subdata_array[i * 2] == "icon path")			{just_created_item->icon_path = subdata_array[i * 2 + 1];}
-			if (subdata_array[i * 2] == "item RU name")			{just_created_item->item_name_ru = subdata_array[i * 2 + 1];}
-			if (subdata_array[i * 2] == "base class")			{just_created_item->base_class = subdata_array[i * 2 + 1];}
-			if (subdata_array[i * 2] == "folder")				{just_created_item->folder = subdata_array[i * 2 + 1];}
+			
+			if (subdata_array[i * 2] == "item EN name")
+			{
+	
+
+				just_created_item->item_name = subdata_array[i * 2 + 1];
+			}
+
+			if (subdata_array[i * 2] == "icon path")			{ just_created_item->icon_path = subdata_array[i * 2 + 1];}
+
+			if (subdata_array[i * 2] == "item RU name")
+			{
+				char sInvalid[1024];
+				strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
+				 //комментарии
+
+				int size = strlen(sInvalid) + 1;
+				wchar_t* wsValid = new wchar_t[size];
+				char* sValid = new char[size];
+
+				MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
+				WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
+
+				//cout << "A: " << wsValid << " B: " << sValid << endl;
+
+				just_created_item->item_name_ru = sValid;
+			}
+
+			if (subdata_array[i * 2] == "base class")			{ just_created_item->base_class = subdata_array[i * 2 + 1];}
+			if (subdata_array[i * 2] == "folder")				{ just_created_item->folder = subdata_array[i * 2 + 1];}
 			
 			if (subdata_array[i * 2] == "item category")		{}
 			if (subdata_array[i * 2] == "item sub category")	{}
 		}
 
-		item_list.push_back(just_created_item);
+		ItemList::item_list.push_back(just_created_item);
 		//cout << "item data: " << line << endl << endl;
 
-		//cout << "item data [1]" << subdata_array[1] << endl;
+		
 
 		line_id++;
 		
 		//myfile_open << line<<endl;
 	}
 
+	
 	myfile.close();
 	myfile_open.close();
 }
 
 int find_item_by_full_name(string _name)
 {
-	for (int i = 0; i < item_list.size(); i++)
+	
+	for (int i = 0; i < ItemList::item_list.size(); i++)
 	{
-		if (item_list.at(i)->item_name == _name) { return i; }
+		if (ItemList::item_list.at(i)->item_name == _name) { return i; }
 	}
 
 	return -1;
@@ -401,7 +443,7 @@ void parse_loot_filter_data(string _path)
 							if (subdata == "Show")
 							{
 								just_created_block = new FilterBlock();
-								filter_block_list.push_back(just_created_block);
+								StaticData::window_filter_block->filter_block_list.push_back(just_created_block);
 								parser_mode = Enums::ParserMode::SHOW;
 								if (show_info_to_console) { cout << "And new block is created! And block is SHOWED!" << endl; }
 
@@ -411,7 +453,7 @@ void parse_loot_filter_data(string _path)
 							if (subdata == "Hide")
 							{
 								just_created_block = new FilterBlock();
-								filter_block_list.push_back(just_created_block);
+								StaticData::window_filter_block->filter_block_list.push_back(just_created_block);
 								parser_mode = Enums::ParserMode::HIDE;
 								if (show_info_to_console) { cout << "And new block is created! And block is HIDED!" << endl; }
 
@@ -607,21 +649,22 @@ void parse_loot_filter_data(string _path)
 								just_created_button=new EButtonFilterItem(0,0,30,30);
 
 								just_created_button->master_block = just_created_block;
+								just_created_button->master_window = StaticData::window_filter_block;
 								
 								just_created_button->description_text = subdata;
 
 								int item_id = find_item_by_full_name(subdata);
 								if (item_id < 0) { item_id = 0;  }
-
+							
 								if (item_id >= 0)
 								{
 									just_created_button->have_icon = true;
-									just_created_button->gabarite = item_list.at(item_id)->gabarite;
-									just_created_button->button_size_x = item_list.at(item_id)->gabarite->size_x / 2.0f;
-									just_created_button->button_size_y = item_list.at(item_id)->gabarite->size_y / 2.0f;
+									just_created_button->gabarite = ItemList::item_list.at(item_id)->gabarite;
+									just_created_button->button_size_x = ItemList::item_list.at(item_id)->gabarite->size_x / 2.0f;
+									just_created_button->button_size_y = ItemList::item_list.at(item_id)->gabarite->size_y / 2.0f;
 									if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
 								}
-
+								
 								//just_created_button->
 								just_created_block->filter_block_items_button_list.push_back(just_created_button);
 							}
@@ -964,6 +1007,16 @@ void parse_loot_filter_data(string _path)
 
 int main()
 {
+	StaticData::window_filter_block = new EWindowFilterBlock();
+	StaticData::window_filter_block->name = "Filter block";
+	window_list.push_back(StaticData::window_filter_block);
+
+
+
+	StaticData::window_find_item = new EWindowFindItem();
+	StaticData::window_filter_block->name = "Search item";
+	window_list.push_back(StaticData::window_find_item);
+
 	CHAR my_documents[MAX_PATH];
 	HRESULT result = SHGetFolderPath(NULL, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, my_documents);
 
@@ -1013,11 +1066,11 @@ int main()
 
 	recalculate_correction();
 	//setlocale(LC_ALL, "Russian");
-	setlocale(LC_ALL, "UTF-8");
+	//setlocale(LC_ALL, "UTF-8");
 	//setlocale(LC_ALL, "");
 
-	//SetConsoleCP(1251);
-	//SetConsoleOutputCP(1251);
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 
 	//SetConsoleCP(65001);
 
@@ -1136,8 +1189,8 @@ int main()
 
 // glfw window creation
 // --------------------
-	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
-	main_window = window;
+	window = glfwCreateWindow(EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+	EWindow::main_window = window;
 	//main_window = window;
 
 	if (window == NULL)
@@ -1244,7 +1297,7 @@ int main()
 
 	camera = new ECamera();
 
-	font = new EFont();
+	EFont::font = new EFont();
 
 	camera->x = 0.0f;
 	camera->y = 0.0f;
@@ -1278,7 +1331,7 @@ int main()
 	}
 
 
-	font->load_font("!");
+	EFont::font->load_font("!");
 
 
 
@@ -1300,9 +1353,9 @@ int main()
 	batch2->init();
 
 	font_batch->reset();
-	batch->setcolor_255(255, 255, 255, 100); font->draw(font_batch, "Ну наконец то эта ", 0, 0);
-	batch->setcolor_255(255, 0, 0, 100); font->draw(font_batch, "срань ", 0, 0);
-	batch->setcolor_255(0, 255, 0, 100); font->draw(font_batch, "заработала!", 0, 0);
+	batch->setcolor_255(255, 255, 255, 100); EFont::font->draw(font_batch, "Ну наконец то эта ", 0, 0);
+	batch->setcolor_255(255, 0, 0, 100); EFont::font->draw(font_batch, "срань ", 0, 0);
+	batch->setcolor_255(0, 255, 0, 100); EFont::font->draw(font_batch, "заработала!", 0, 0);
 	font_batch->init();
 
 	//--------------------------------texture atlas generator ------------------------------------------------
@@ -1317,10 +1370,10 @@ int main()
 	glEnable(GL_ALPHA_TEST);
 
 	camera->update();
-	transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+	matrix_transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
 
-	transform = glm::translate(transform, glm::vec3(camera->x - 1, camera->y - 1, 0.0f));
-	transform = glm::scale(transform, glm::vec3(camera->zoom / 4096.0f*2.0f, camera->zoom/ 4096.0f*2.0f, 1));
+	matrix_transform = glm::translate(matrix_transform, glm::vec3(camera->x - 1, camera->y - 1, 0.0f));
+	matrix_transform = glm::scale(matrix_transform, glm::vec3(camera->zoom / 4096.0f*2.0f, camera->zoom/ 4096.0f*2.0f, 1));
 
 
 
@@ -1330,13 +1383,13 @@ int main()
 	// get matrix's uniform location and set matrix
 	ourShader->use();
 	unsigned int transformLoc = glGetUniformLocation(ourShader->ID, "transform");
-	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(matrix_transform));
 
 	/////////////////
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
 	ourShader->setInt("texture1", 0);
-	batch->setcolor(EColor::WHITE);
+	batch->setcolor(EColorCollection::WHITE);
 
 	
 	//##################################
@@ -1346,21 +1399,18 @@ int main()
 	//##################################
 	put_texture_to_atlas("data/font_arial.png", 0, 4096 - 128);
 
-	for (int z = 0; z < item_list.size(); z++)
+	cout << "item list size=" << ItemList::item_list.size() << endl;
+	for (int z = 0; z < ItemList::item_list.size(); z++)
 	{
 
 		int select = rand() % 3;
 		
-		/*
-		if (select == 0) { put_texture_to_atlas("data/button_remove.png"); }
-		if (select == 1) { put_texture_to_atlas("data/Buckskin_Tunic_inventory_icon.png"); }
-		if (select == 2) { put_texture_to_atlas("data/Bone_Circlet_inventory_icon.png"); }
-		*/
 
 
-		string aaa="data/icon/"+(item_list.at(z)->folder) + "/" + item_list.at(z)->icon_path + ".png";
+
+		string aaa="data/icon/"+(ItemList::item_list.at(z)->folder) + "/" + ItemList::item_list.at(z)->icon_path + ".png";
 		put_texture_to_atlas(aaa.c_str());
-		item_list.at(z)->gabarite=just_created_gabarite;
+		ItemList::item_list.at(z)->gabarite=just_created_gabarite;
 
 		cout << "Collision pass:" << green<< z << white << endl;
 	}
@@ -1419,7 +1469,7 @@ int main()
 	//cout << (int)01.35f << endl;
 
 	recalculate_correction();
-	glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
+	glViewport(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT);
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -1429,7 +1479,7 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glDisable(GL_DEPTH_TEST);
 
-		if ((glfwGetKey(main_window, GLFW_KEY_BACKSPACE) == GLFW_RELEASE))
+		if ((glfwGetKey(EWindow::main_window, GLFW_KEY_BACKSPACE) == GLFW_RELEASE))
 		{
 			EControl::button_backspace_released = true;
 		}
@@ -1448,10 +1498,10 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 
-		transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+		matrix_transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
 
-		transform = glm::translate(transform, glm::vec3(camera->x - 1, camera->y - 1, 0.0f));
-		transform = glm::scale(transform, glm::vec3(camera->zoom * correction_x, camera->zoom * correction_y, 1));
+		matrix_transform = glm::translate(matrix_transform, glm::vec3(camera->x - 1, camera->y - 1, 0.0f));
+		matrix_transform = glm::scale(matrix_transform, glm::vec3(camera->zoom * correction_x, camera->zoom * correction_y, 1));
 
 
 		//transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
@@ -1459,7 +1509,7 @@ int main()
 		// get matrix's uniform location and set matrix
 		ourShader->use();
 		unsigned int transformLoc = glGetUniformLocation(ourShader->ID, "transform");
-		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(matrix_transform));
 
 
 		
@@ -1520,22 +1570,18 @@ int main()
 		int block_index = 0;
 
 
-
-		for (int i = 0; i < 9; i++)
+		for (EWindow* w : window_list) 
 		{
-			block_index = i + block_scroll;
-
-			if (block_index < filter_block_list.size())
+			if (w->is_active)
 			{
-				filter_block_list.at(block_index)->x = 15;
-				filter_block_list.at(block_index)->y = SCR_HEIGHT - filter_block_list.at(block_index)->size_y - 15 - i * 105;
-
-				filter_block_list.at(block_index)->size_x = SCR_WIDTH - 30;
-
-				filter_block_list.at(block_index)->update(delta_time);
-				filter_block_list.at(block_index)->draw(batch);
+				w->update(delta_time);
+				w->defaul_draw(batch);
+				w->draw(batch, delta_time);
+				//w->text_pass(EFont::font, batch);
 			}
 		}
+
+		
 
 
 		glActiveTexture(GL_TEXTURE0);
@@ -1563,17 +1609,18 @@ int main()
 		font_batch->reset();
 
 		font_batch->setcolor_255(255, 255, 255, 100);
+		/*
 		for (int i = 0; i < 9; i++)
 		{
-			block_index = i + block_scroll;
+			block_index = i + EControl::block_scroll;
 
 			if (block_index < filter_block_list.size())
 			{
 				filter_block_list.at(block_index)->text_pass(font, font_batch);
 			}
-		}
+		}*/
 
-		button_list.at(0)->text_pass(font, font_batch);
+		//button_list.at(0)->text_pass(EFont::font, font_batch);
 
 
 
@@ -1616,7 +1663,7 @@ int main()
 			batch->reset();
 
 			batch->draw_rect_with_uv(0, 0, 4096/4.0f, 4096/4.0f, 0, 0, 1, 1);
-			batch->draw_rect_with_uv(500, 500, 100, 100, item_list.at(0)->gabarite);
+			batch->draw_rect_with_uv(500, 500, 100, 100, ItemList::item_list.at(0)->gabarite);
 
 			batch->reinit();
 			batch->draw_call();
@@ -1773,7 +1820,7 @@ void processInput(GLFWwindow* window)
 void framebuffer_size_callback(GLFWwindow * window, int width, int height)
 {//
 	glViewport(0, 0, width, height);
-	glfwGetWindowSize(window, &SCR_WIDTH, &SCR_HEIGHT);
+	glfwGetWindowSize(window, &EWindow::SCR_WIDTH, &EWindow::SCR_HEIGHT);
 
 	std::cout << "Resize event width:" << width << " height: " << height << std::endl;
 
@@ -1782,8 +1829,8 @@ void framebuffer_size_callback(GLFWwindow * window, int width, int height)
 
 void recalculate_correction()
 {
-	correction_x = 1.0 / SCR_WIDTH * 2.0;
-	correction_y = 1.0 / SCR_HEIGHT * 2.0;
+	correction_x = 1.0 / EWindow::SCR_WIDTH * 2.0;
+	correction_y = 1.0 / EWindow::SCR_HEIGHT * 2.0;
 
 	std::cout << "helper correction_x: " << correction_x << " correction_y: " << correction_y << std::endl;
 }
@@ -1808,8 +1855,8 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 	}
 	*/
 
-	block_scroll -= yoffset;
-	if (block_scroll < 0) { block_scroll = 0; }
+	EControl::block_scroll -= yoffset;
+	if (EControl::block_scroll < 0) { EControl::block_scroll = 0; }
 }
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
@@ -1842,7 +1889,7 @@ void mouse_position_callback(GLFWwindow* window, double _x, double _y)
 {
 	//cout << "Mouse move (" << _x << " : " << _y << endl;
 	EControl::mouse_x = _x;
-	EControl::mouse_y = SCR_HEIGHT-_y;
+	EControl::mouse_y = EWindow::SCR_HEIGHT-_y;
 
 	EControl::WTF = _x;
 }
@@ -1858,7 +1905,7 @@ void char_input_callback(GLFWwindow* window, unsigned int _char)
 	if (inputed_c > 255) { inputed_c -= 848; }
 
 	cout << "input character: " << inputed_c <<"|"<<(int)_char << "[  " << (char)inputed_c << " ]" << " ("<<work_text<<")" <<endl;
-	last_inputed_char = (char)inputed_c;
+	EControl::last_inputed_char = (char)inputed_c;
 	//work_text += (char)inputed_c;
 }
 

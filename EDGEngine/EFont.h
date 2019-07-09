@@ -32,5 +32,7 @@ public:
 	void draw(string _s, Batcher _batch);
 
 	float x_adding=0;
+
+	static EFont* font;
 };
 

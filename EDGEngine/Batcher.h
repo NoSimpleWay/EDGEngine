@@ -31,6 +31,6 @@ public:
 	float vertices[250000];
 	void draw_call();
 	void reset();
-	void setcolor(EColor_base* _color);
-	void setcolor_alpha(EColor_base* _color, float _a);
+	void setcolor(EColor* _color);
+	void setcolor_alpha(EColor* _color, float _a);
 };

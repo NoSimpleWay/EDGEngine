@@ -469,7 +469,7 @@ void Batcher::reset()
 
 }
 
-void Batcher::setcolor(EColor_base* _color)
+void Batcher::setcolor(EColor* _color)
 {
 	batch_color_r = _color->color_red;
 	batch_color_g = _color->color_green;
@@ -477,7 +477,7 @@ void Batcher::setcolor(EColor_base* _color)
 	batch_color_a = _color->color_alpha;
 }
 
-void Batcher::setcolor_alpha(EColor_base* _color, float _a)
+void Batcher::setcolor_alpha(EColor* _color, float _a)
 {
 	batch_color_r = _color->color_red;
 	batch_color_g = _color->color_green;
