@@ -100,8 +100,6 @@
 			if (filter_block_items_button_list.at(i)->gabarite != NULL)
 			{
 				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 3;
-				
-
 			}
 		}
 
@@ -112,7 +110,7 @@
 		_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
 
 		//_font->x_adding = 0;
-		EFont::font->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
+		EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
 	}
 
 	void FilterBlock::add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)
@@ -135,73 +133,78 @@
 		}
 	}
 
-	void FilterBlock::text_pass(EFont* _font,Batcher* _batch)
+	void FilterBlock::text_pass(Batcher* _batch)
 	{
 		_batch->setcolor(1, 1, 1, 1);
 
 		debug_text_y = 0;
 		debug_text_x = 0;
 
-		add_debug(is_socket_active, "Sockets " + socket_condition + " " + std::to_string(socket_count), _font, _batch);
-		add_debug(is_links_active, "Links " + links_condition + " " + std::to_string(links_count), _font, _batch);
+		add_debug(is_socket_active, "Sockets " + socket_condition + " " + std::to_string(socket_count), EFont::font_arial, _batch);
+		add_debug(is_links_active, "Links " + links_condition + " " + std::to_string(links_count), EFont::font_arial, _batch);
 
-		add_debug(is_item_level_active, "Item level " + item_level_condition+ " " + std::to_string(item_level), _font, _batch);
+		add_debug(is_item_level_active, "Item level " + item_level_condition+ " " + std::to_string(item_level), EFont::font_arial, _batch);
 
-		add_debug(is_corrupted_active, "Rarity "+ rarity_condition + " " + item_rarity, _font, _batch);
-		add_debug(is_alert_sound, "Aler sound: " + alert_sound_name, _font, _batch);
-		add_debug(is_ray, "Ray", _font, _batch);
+		add_debug(is_corrupted_active, "Rarity "+ rarity_condition + " " + item_rarity, EFont::font_arial, _batch);
+		add_debug(is_alert_sound, "Aler sound: " + alert_sound_name, EFont::font_arial, _batch);
+		add_debug(is_ray, "Ray", EFont::font_arial, _batch);
 
-		add_debug(is_corrupted_active, "Corrupted: " + bool_to_string(is_corrupted), _font, _batch);
-		add_debug(is_shaper_item_active, "Shaper item: " + bool_to_string(is_shaper_item), _font, _batch);
-		add_debug(is_identified_active, "Identified: " + bool_to_string(is_identified), _font, _batch);
+		add_debug(is_corrupted_active, "Corrupted: " + bool_to_string(is_corrupted), EFont::font_arial, _batch);
+		add_debug(is_shaper_item_active, "Shaper item: " + bool_to_string(is_shaper_item), EFont::font_arial, _batch);
+		add_debug(is_identified_active, "Identified: " + bool_to_string(is_identified), EFont::font_arial, _batch);
 
 		//add_debug(is_text_color, "Font size: " + rarity_value[item_rarity], _font, _batch);
 
 
 
-		_font->x_adding = 0;
+		EFont::font_arial->x_adding = 0;
 		for (int i = 0; i < class_list.size(); i++)
 		{
 			_batch->setcolor(1.0f, 0.8f, 0.6f, 1.0f);
 
 			
-			_font->add_draw(_batch, *class_list.at(i)+"   ", debug_text_x+250, y+10);
+			EFont::font_arial->add_draw(_batch, *class_list.at(i)+"   ", debug_text_x+250, y+10);
 		}
 
-		_font->x_adding = 0;
+		EFont::font_arial->x_adding = 0;
 		for (int i = 0; i < base_type_list.size(); i++)
 		{
 			_batch->setcolor(0.6f, 1.0f, 0.6f, 1.0f);
 
-			_font->add_draw(_batch, *base_type_list.at(i)+"   ", debug_text_x + 250, y + 30);
+			EFont::font_arial->add_draw(_batch, *base_type_list.at(i)+"   ", debug_text_x + 250, y + 30);
 		}
 
-		_font->x_adding = 0;
+		EFont::font_arial->x_adding = 0;
 		for (int i = 0; i < explicit_mod_list.size(); i++)
 		{
 			_batch->setcolor(0.6f, 0.7f, 1.0f, 1.0f);
 
-			_font->add_draw(_batch, *explicit_mod_list.at(i)+"   ", debug_text_x + 250, y + 50);
+			EFont::font_arial->add_draw(_batch, *explicit_mod_list.at(i)+"   ", debug_text_x + 250, y + 50);
 		}
 
-		_font->x_adding = 0;
+		EFont::font_arial->x_adding = 0;
 		for (int i = 0; i < prophecy_list.size(); i++)
 		{
 			_batch->setcolor(1.0f, 0.0f, 1.0f, 1.0f);
 
-			_font->add_draw(_batch, *prophecy_list.at(i) + "   ", debug_text_x + 250, y + 70);
+			EFont::font_arial->add_draw(_batch, *prophecy_list.at(i) + "   ", debug_text_x + 250, y + 70);
 		}
 
 		_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
 
 		//_font->x_adding = 0;
-		_font->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
+		EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
 
 		/*
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
 		{
 			filter_block_items_button_list.at(i)->text_pass(_font,_batch);
 		}*/
+
+		for (int i = 0; i < filter_block_items_button_list.size(); i++)
+		{
+			filter_block_items_button_list.at(i)->text_pass(_batch);
+		}
 		
 
 	}

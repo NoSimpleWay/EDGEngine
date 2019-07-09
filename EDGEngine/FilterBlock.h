@@ -133,6 +133,6 @@ public:
 
 	void add_debug(bool _if, string _text, EFont* _font, Batcher* _batch);
 
-	void text_pass(EFont* _font, Batcher* _batch);
+	void text_pass(Batcher* _batch);
 
 };

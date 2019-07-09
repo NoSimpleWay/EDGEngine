@@ -269,3 +269,17 @@ void EFont::draw(string _s, Batcher _batch)
 {
 	
 }
+
+float EFont::get_width(EFont* _font, string _text)
+{
+	float temp_w = 0;
+	for (int sym = 0; sym < _text.length(); sym++)
+	{
+		int target_symbol = (int)_text.at(sym);
+		if (target_symbol < 0) { target_symbol += 256; }
+
+		temp_w += _font->real_size_x[target_symbol] - _font->offset_x[target_symbol];
+	}
+
+	return temp_w;
+}

@@ -43,10 +43,10 @@ public:
 	EGabarite* gabarite=NULL;
 
 	bool have_icon = false;
-	Enums::ButtonPositionMaster master_position=Enums::ButtonPositionMaster::SCREEN;
+	Enums::PositionMaster master_position=Enums::PositionMaster::SCREEN;
 
-	Enums::ButtonPositionMode position_mode_x=Enums::ButtonPositionMode::LEFT;
-	Enums::ButtonPositionMode position_mode_y=Enums::ButtonPositionMode::DOWN;
+	Enums::PositionMode position_mode_x=Enums::PositionMode::LEFT;
+	Enums::PositionMode position_mode_y=Enums::PositionMode::DOWN;
 
 	FilterBlock* master_block;
 	EWindow* master_window;
@@ -63,6 +63,8 @@ public:
 
 	bool have_text = true;
 
+	string input_hint;
+
 
 
 	~EButton();
@@ -71,6 +73,7 @@ public:
 	bool is_click();
 	void update(float _d);
 	void draw(Batcher* _batch);
+	void text_pass(Batcher* _batch);
 
 
 	virtual void click_event();

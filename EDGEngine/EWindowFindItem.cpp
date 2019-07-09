@@ -6,6 +6,8 @@
 #include "EButtonInputSearchItem.h"
 #include "ItemList.h"
 
+
+
 #include <algorithm>
 #include <cctype>
 
@@ -16,20 +18,35 @@ public:
 	EButtonInputSearchItem* input_button;
 	string upper_charset = "QWERTYUIOPASDFGHJKLZXCVBNM¨ÉÖÓÊÅÍÃØÙÇÕÚÔÛÂÀÏÐÎËÄÆÝß×ÑÌÈÒÜÁÞ";
 	string lower_charset = "qwertyuiopasdfghjklzxcvbnm¸éöóêåíãøùçõúôûâàïðîëäæýÿ÷ñìèòüáþ";
+	EButton* target_button=NULL;
 
 	EWindowFindItem() :EWindow()
 	{
 		is_active = false;
-		size_x = 1000;
-		size_y = 500;
+		window_size_x = 1000;
+		window_size_y = 500;
+		bg_color->set(0.3f, 0.4f, 0.5f, 0.9f);
+
+		EButtonItemSearch* but;
+		but= new EButtonItemSearch(0, 0, 40, 40);
+		but->master_window = this;
+		but->gabarite = DefaultGabarite::gabarite_undefined;
+		but->is_active = true;
+
+		button_list.push_back(but);
+		
 
 		for (int i = 0; i < 100; i++)
 		{
-			button_list.push_back(new EButtonItemSearch(0,0,40,40));
+			but = new EButtonItemSearch(0, 0, 40, 40);
+			but->master_window = this;
+
+			button_list.push_back(but);
+
 
 		}
 
-		input_button = new EButtonInputSearchItem(0, 0, 300, 30);
+		input_button = new EButtonInputSearchItem(0, -70, 300, 30);
 		input_button->master_window = this;
 	}
 
@@ -41,8 +58,13 @@ public:
 
 	virtual void draw(Batcher* _batch, float _delta)
 	{
-		float bx = 0;
-		float by = 0;
+		float bx = 5;
+		float by = -120;
+
+		int x_offset = 0;
+		int y_offset = 0;
+
+		bool undefined_button = true;
 
 		for (EButton* b : button_list)
 		{
@@ -55,12 +77,28 @@ public:
 				b->draw(_batch);
 
 				bx += 43;
-				if (bx > 400)
+				
+
+				if (bx > 800)
 				{
-					bx = 0;
-					by += 43;
+					bx = 5;
+					by -= 43;
+
+					x_offset = 0;
+					y_offset++;
 				}
+
+				if ((x_offset == 0) && (y_offset == 0)){bx += 43;}
+				if ((x_offset == 0) && (y_offset == 1)){ bx += 43*2;}
+
+				//string s = "x: "+ std::to_string(x_offset)+" y:"+ std::to_string(y_offset);
+	
+				//b->description_text = s;
+
+
 			}
+
+			x_offset++;
 		}
 
 		input_button->update(_delta);
@@ -85,6 +123,7 @@ public:
 				if (upper_charset.at(yy) == _s.at(zz))
 				{
 					result += lower_charset.at(yy);
+					break;
 				}
 				else
 				{
@@ -101,13 +140,23 @@ public:
 
 	void fill_search_array(EButton* _b)
 	{
-		for (EButton* b : button_list)
+		if (input_button->text!="")
 		{
-			b->is_active = false;
+			button_list.at(0)->description_text = input_button->text;
+			button_list.at(0)->is_active = true;
+		}
+		else
+		{
+			button_list.at(0)->is_active = false;
 		}
 
-		int search_count = 0;
-		
+		for (int i=1; i<button_list.size(); i++)
+		{
+			button_list.at(i)->is_active = false;
+		}
+
+		int search_count = 1;
+		int order = 0;
 		for (DADItem* item : ItemList::item_list)
 		{
 			//std::cout << "item_list_name |" << item->item_name << "| button description |" <<  _b->text << "|" << std::endl;
@@ -115,11 +164,13 @@ public:
 			
 			if
 				(
-				(to_lower(item->item_name,false).find(_b->text) != std::string::npos)
-				||
-				(item->item_name_ru.find(_b->text) != std::string::npos)
-				||
-				(item->item_name==_b->text)
+					(
+						(to_lower(item->item_name,false).find(to_lower(_b->text,false)) != std::string::npos)
+						||
+						(to_lower(item->item_name_ru,false).find(to_lower(_b->text,false)) != std::string::npos)
+					)
+					&&
+					(order>0)
 				)
 			{
 				if (search_count < 90)
@@ -133,20 +184,34 @@ public:
 				
 			}
 
+			order++;
+
 			
 		}
 
 
 	}
 
+
 	virtual void button_event(EButton* _b)
 	{
 		
 	}
 
+	virtual void text_pass(Batcher* _batch)
+	{
+		for (EButton* b : button_list)
+		{
+			if (b->is_active)
+			{
+				b->text_pass(_batch);
+			}
+		}
+	}
+
 	virtual void input_event(EButton* _b)
 	{
-		std::cout << "to lower: " << to_lower(_b->text,true)<<" normal:"<<_b->text << std::endl;
+		//std::cout << "to lower: " << to_lower(_b->text,true)<<" normal:"<<_b->text << std::endl;
 		fill_search_array(_b);
 
 		if (_b->master_window != NULL)

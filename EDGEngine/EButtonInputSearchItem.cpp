@@ -10,11 +10,12 @@ EButtonInputSearchItem::EButtonInputSearchItem(float _x, float _y, float _sx, fl
 	have_text = true;
 	have_description = true;
 	have_input_mode = true;
+	is_input_mode_active = true;
 
-	master_position = Enums::ButtonPositionMaster::WINDOW;
+	master_position = Enums::PositionMaster::WINDOW;
 
-	position_mode_x = Enums::ButtonPositionMode::MID;
-	position_mode_y = Enums::ButtonPositionMode::MID;
+	position_mode_x = Enums::PositionMode::MID;
+	position_mode_y = Enums::PositionMode::UP;
 
 	button_size_x = 300;
 	button_size_y = 25;
@@ -23,6 +24,7 @@ EButtonInputSearchItem::EButtonInputSearchItem(float _x, float _y, float _sx, fl
 	text = "";
 
 	description_text = "none";
+	input_hint = "Введите название предмета";
 }
 
 void EButtonInputSearchItem::input_event()

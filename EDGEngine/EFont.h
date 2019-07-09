@@ -31,8 +31,11 @@ public:
 
 	void draw(string _s, Batcher _batch);
 
+	static float get_width(EFont* _font, string _text);
+
 	float x_adding=0;
 
-	static EFont* font;
+	static EFont* font_arial;
+
 };
 

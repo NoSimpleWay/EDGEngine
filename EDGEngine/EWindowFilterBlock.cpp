@@ -38,7 +38,7 @@ public:
 		}
 	}
 
-	virtual void text_pass(EFont* _font, Batcher* _batch)
+	virtual void text_pass(Batcher* _batch)
 	{
 		int block_index = 0;
 		for (int i = 0; i < 9; i++)
@@ -47,7 +47,7 @@ public:
 
 			if (block_index < filter_block_list.size())
 			{
-				filter_block_list.at(block_index)->text_pass(_font,_batch);
+				filter_block_list.at(block_index)->text_pass(_batch);
 			}
 		}
 	}

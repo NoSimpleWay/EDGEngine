@@ -59,7 +59,7 @@ bool EControl ::mouse_pressed = false;
 bool EControl ::button_backspace_released = false;
 char EControl::last_inputed_char=NULL;
 
-EFont* EFont::font = NULL;
+EFont* EFont::font_arial = NULL;
 
 int EControl::block_scroll = 0;
 
@@ -646,7 +646,7 @@ void parse_loot_filter_data(string _path)
 							{
 								if (show_info_to_console){ cout << "add new base type <" << subdata << ">" << endl; }
 
-								just_created_button=new EButtonFilterItem(0,0,30,30);
+								just_created_button=new EButtonFilterItem(0,0,45,45);
 
 								just_created_button->master_block = just_created_block;
 								just_created_button->master_window = StaticData::window_filter_block;
@@ -660,8 +660,8 @@ void parse_loot_filter_data(string _path)
 								{
 									just_created_button->have_icon = true;
 									just_created_button->gabarite = ItemList::item_list.at(item_id)->gabarite;
-									just_created_button->button_size_x = ItemList::item_list.at(item_id)->gabarite->size_x / 2.0f;
-									just_created_button->button_size_y = ItemList::item_list.at(item_id)->gabarite->size_y / 2.0f;
+									//just_created_button->button_size_x = ItemList::item_list.at(item_id)->gabarite->size_x / 2.0f;
+									//just_created_button->button_size_y = ItemList::item_list.at(item_id)->gabarite->size_y / 2.0f;
 									if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
 								}
 								
@@ -1007,15 +1007,7 @@ void parse_loot_filter_data(string _path)
 
 int main()
 {
-	StaticData::window_filter_block = new EWindowFilterBlock();
-	StaticData::window_filter_block->name = "Filter block";
-	window_list.push_back(StaticData::window_filter_block);
-
-
-
-	StaticData::window_find_item = new EWindowFindItem();
-	StaticData::window_filter_block->name = "Search item";
-	window_list.push_back(StaticData::window_find_item);
+	
 
 	CHAR my_documents[MAX_PATH];
 	HRESULT result = SHGetFolderPath(NULL, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, my_documents);
@@ -1297,7 +1289,7 @@ int main()
 
 	camera = new ECamera();
 
-	EFont::font = new EFont();
+	EFont::font_arial = new EFont();
 
 	camera->x = 0.0f;
 	camera->y = 0.0f;
@@ -1331,7 +1323,7 @@ int main()
 	}
 
 
-	EFont::font->load_font("!");
+	EFont::font_arial->load_font("!");
 
 
 
@@ -1353,9 +1345,9 @@ int main()
 	batch2->init();
 
 	font_batch->reset();
-	batch->setcolor_255(255, 255, 255, 100); EFont::font->draw(font_batch, "Ну наконец то эта ", 0, 0);
-	batch->setcolor_255(255, 0, 0, 100); EFont::font->draw(font_batch, "срань ", 0, 0);
-	batch->setcolor_255(0, 255, 0, 100); EFont::font->draw(font_batch, "заработала!", 0, 0);
+	batch->setcolor_255(255, 255, 255, 100); EFont::font_arial->draw(font_batch, "Ну наконец то эта ", 0, 0);
+	batch->setcolor_255(255, 0, 0, 100); EFont::font_arial->draw(font_batch, "срань ", 0, 0);
+	batch->setcolor_255(0, 255, 0, 100); EFont::font_arial->draw(font_batch, "заработала!", 0, 0);
 	font_batch->init();
 
 	//--------------------------------texture atlas generator ------------------------------------------------
@@ -1422,8 +1414,20 @@ int main()
 	just_created_gabarite->y2 -= 1 / 4096.0f;
 	DefaultGabarite::gabarite_white = just_created_gabarite;
 	
+	put_texture_to_atlas("data/undefined.png"); DefaultGabarite::gabarite_undefined = just_created_gabarite;
+
+
+	
+
+	StaticData::window_filter_block = new EWindowFilterBlock();
+	StaticData::window_filter_block->name = "Filter block";
+	window_list.push_back(StaticData::window_filter_block);
 
 	parse_loot_filter_data(path_to_poe_folder + "NeverSink's filter.filter");
+
+	StaticData::window_find_item = new EWindowFindItem();
+	StaticData::window_filter_block->name = "Search item";
+	window_list.push_back(StaticData::window_find_item);
 
 		load_texture("data/white_pixel.png", 0);
 		batch->reset();
@@ -1574,10 +1578,18 @@ int main()
 		{
 			if (w->is_active)
 			{
+
 				w->update(delta_time);
 				w->defaul_draw(batch);
 				w->draw(batch, delta_time);
-				//w->text_pass(EFont::font, batch);
+			}
+		}
+
+		for (EWindow* w : window_list)
+		{
+			if (w->is_active)
+			{
+				w->text_pass(batch);
 			}
 		}
 
