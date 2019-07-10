@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Batcher.h"
+#include "Enums.h"
 using namespace std;
 
 class EFont
@@ -33,9 +34,16 @@ public:
 
 	static float get_width(EFont* _font, string _text);
 
+	void set_align_once(Enums::PositionMode _al);
+
 	float x_adding=0;
 
 	static EFont* font_arial;
+
+	Enums::PositionMode align_x = Enums::PositionMode::LEFT;
+
+	bool align_only_once = false;
+	Enums::PositionMode align_prev= Enums::PositionMode::LEFT;
 
 };
 

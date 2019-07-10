@@ -22,6 +22,9 @@
     <Filter Include="Source Files\windows">
       <UniqueIdentifier>{63254b10-2116-4a1f-a67c-3a6ccd8f623c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Button">
+      <UniqueIdentifier>{5849e16b-3d93-43cb-95af-762ede905008}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -84,6 +87,15 @@
     <ClCompile Include="EButtonInputSearchItem.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="EButtonDropCondition.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonInputBaseData.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonDropRarity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -105,9 +117,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ConsoleColor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EControl.h">
@@ -141,13 +150,25 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EButtonItemSearch.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButton.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonDropCondition.h">
+      <Filter>Header Files\Button</Filter>
     </ClInclude>
     <ClInclude Include="EButtonFilterItem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Button</Filter>
     </ClInclude>
     <ClInclude Include="EButtonInputSearchItem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonInputBaseData.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonDropRarity.h">
+      <Filter>Header Files\Button</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

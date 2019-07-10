@@ -8,12 +8,26 @@ EColor::EColor(float _r, float _g, float _b, float _a)
 	color_alpha = _a;
 }
 
+EColor::EColor()
+{
+}
+
+
+
 void EColor::set(float _r, float _g, float _b, float _a)
 {
 	color_red = _r;
 	color_green = _g;
 	color_blue = _b;
 	color_alpha = _a;
+}
+
+void EColor::set(EColor* _c)
+{
+		color_red = _c->color_red;
+		color_green = _c->color_green;
+		color_blue = _c->color_blue;
+		color_alpha = _c->color_alpha;
 }
 
 EColor::~EColor()

@@ -27,7 +27,9 @@ public:
 	bool have_bg=true;
 	EColor* bg_color = new EColor(1, 1, 1, 1);
 
-	EWindow();
+	int id;
+
+	EWindow(int _id);
 	~EWindow();
 
 	void update(float _d);

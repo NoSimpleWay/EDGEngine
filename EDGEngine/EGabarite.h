@@ -25,4 +25,5 @@ class DefaultGabarite
 public:
 	static EGabarite* gabarite_white;
 	static EGabarite* gabarite_undefined;
+	static EGabarite* gabarite_plus;
 };

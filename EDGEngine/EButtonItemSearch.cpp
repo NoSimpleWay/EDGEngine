@@ -16,6 +16,8 @@ EButtonItemSearch::EButtonItemSearch(float _x, float _y, float _sx, float _sy) :
 	master_position = Enums::PositionMaster::WINDOW;
 
 	description_text = "none";
+
+	have_rama = true;
 }
 
 void EButtonItemSearch::click_event()

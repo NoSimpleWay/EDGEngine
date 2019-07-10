@@ -1,8 +1,9 @@
 #include "EWindow.h"
 #include "EControl.h"
 
-EWindow::EWindow()
+EWindow::EWindow(int _id)
 {
+	id = _id;
 }
 
 EWindow::~EWindow()
@@ -12,16 +13,16 @@ EWindow::~EWindow()
 bool EWindow::is_overlap()
 {
 	if (
-		(EControl::mouse_x>=pos_x)
-		&&
-		(EControl::mouse_x <= pos_x+window_size_x)
-		&&
-		(EControl::mouse_y >= pos_y)
-		&&
-		(EControl::mouse_y <= pos_y + window_size_y)
+			(EControl::mouse_x>=pos_x)
+			&&
+			(EControl::mouse_x <= pos_x+window_size_x)
+			&&
+			(EControl::mouse_y >= pos_y)
+			&&
+			(EControl::mouse_y <= pos_y + window_size_y)
 		)
 		{
-		return true;
+			return true;
 		}
 
 	return false;
@@ -30,7 +31,10 @@ bool EWindow::is_overlap()
 void EWindow::update(float _d)
 {
 	if (align_x == Enums::PositionMode::MID) { pos_x = relative_x + (EWindow::SCR_WIDTH - window_size_x) / 2.0f; }
+	if (align_x == Enums::PositionMode::LEFT) { pos_x = relative_x; }
+
 	if (align_y == Enums::PositionMode::MID) { pos_y = relative_y + (EWindow::SCR_HEIGHT - window_size_y) / 2.0f; }
+	if (align_y == Enums::PositionMode::DOWN) { pos_y = relative_y; }
 }
 
 void EWindow::defaul_draw(Batcher* _batch)

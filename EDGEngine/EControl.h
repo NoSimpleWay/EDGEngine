@@ -8,7 +8,12 @@ public:
 	static int mouse_y;
 
 	static bool button_pressed;
+	static bool button_right_pressed;
+
 	static bool mouse_pressed;
+	static bool mouse_right_pressed;
+
+
 	static bool button_backspace_released;
 	static int block_scroll;
 

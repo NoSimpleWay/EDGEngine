@@ -24,3 +24,4 @@ EGabarite::~EGabarite()
 
 EGabarite* DefaultGabarite::gabarite_white=NULL;
 EGabarite* DefaultGabarite::gabarite_undefined=NULL;
+EGabarite* DefaultGabarite::gabarite_plus=NULL;

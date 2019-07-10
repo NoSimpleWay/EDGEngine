@@ -10,11 +10,15 @@
 #include "EButton.h"
 #include "ETexture.h"
 #include "EGabarite.h"
-
+#include "EButtonFilterItem.h"
+#include "EButtonDropCondition.h"
+#include "EButtonInputBaseData.h"
 //#include "EButton.cpp"
 
 
 
+	
+	
 	//std::vector<EButton*> filter_block_button_list;
 
 	int FilterBlock::rarity_text_to_id(string _text)
@@ -40,10 +44,94 @@
 
 	}
 
+	void FilterBlock::add_base_buttons(string _text, Enums::ButtonType _condition_type, Enums::ButtonType _button_type, bool _sep)
+	{
+		base_filter_data_name.push_back(_text);
+		base_filter_separator.push_back(_sep);
+
+		
+
+		if (_condition_type != Enums::ButtonType::BUTTON_NONE)
+		{
+			EButtonDropCondition* but;
+			but = new EButtonDropCondition(0, 0, 30, 13, _condition_type);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+
+			base_filter_condition_list.push_back(but);
+
+			//std::cout << "Added: " << _text << std::endl;
+		}
+		else
+		{
+			//std::cout << "NULL: " << _text << std::endl;
+			base_filter_condition_list.push_back(NULL);
+		}
+
+		if (_button_type != Enums::ButtonType::BUTTON_NONE)
+		{
+			EButtonInputBaseData* but;
+			but = new EButtonInputBaseData(0, 0, 65, 17, _condition_type);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+
+			base_filter_buttons.push_back(but);
+		}
+		else
+		{
+			base_filter_buttons.push_back(NULL);
+		}
+
+		base_filter_data_active.push_back(true);
+
+
+	}
+
 	FilterBlock::FilterBlock()
 	{
 		//zzz = new EButton();
 		//zzz->button_x = 200;
+
+		button_plus = new EButtonFilterItem(0, 0, 45, 45);
+		button_plus->gabarite = DefaultGabarite::gabarite_plus;
+
+		button_plus->master_block = this;
+		button_plus->master_window = StaticData::window_filter_block;
+
+		button_plus->master_position = Enums::FILTER_BLOCK;
+		button_plus->is_plus = true;
+		button_plus->description_text = "Add new item";
+
+
+
+		//std::cout << "_______________________________________ " << std::endl;
+		add_base_buttons("Rarity",				Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false);//0
+		add_base_buttons("Item level",			Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL,		Enums::ButtonType::BUTTON_ITEM_LEVEL,		false);//1
+		add_base_buttons("Req. level",			Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL,		Enums::ButtonType::BUTTON_DROP_LEVEL,		false);//2
+		add_base_buttons("Sockets",				Enums::ButtonType::BUTTON_CONDITION_SOCKETS,		Enums::ButtonType::BUTTON_SOCKETS,			false);//3
+		add_base_buttons("Links",				Enums::ButtonType::BUTTON_CONDITION_LINKS,			Enums::ButtonType::BUTTON_LINKS,			false);//4
+		add_base_buttons("Socket color",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SOCKET_GROUP,		false);//5
+
+		add_base_buttons("Quality",				Enums::ButtonType::BUTTON_CONDITION_QUALITY,		Enums::ButtonType::BUTTON_QUALITY,			true);//6
+		add_base_buttons("Gem level",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,		false);//7
+
+		add_base_buttons("Map tier",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,			true);//8
+
+		add_base_buttons("Width",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,			true);//9
+		add_base_buttons("Height",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,			false);//10
+		add_base_buttons("Stack size",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,		false);//11
+
+		add_base_buttons("Corrupted?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,		true);//12
+		add_base_buttons("Shaper item?",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,		false);//13
+		add_base_buttons("Elder item?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,		false);//14
+		add_base_buttons("Synthesised?",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false);//15
+		add_base_buttons("Fractured?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false);//16
+		add_base_buttons("Any enchantment?",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false);//17
+
+
+
+
+
 	}
 
 	FilterBlock::~FilterBlock()
@@ -57,14 +145,54 @@
 		{
 			filter_block_items_button_list.at(i)->update(_d);
 		}
+
+		button_plus->update(_d);
+
+		for (int i = 0; i < filter_block_items_button_list.size(); i++)
+		{
+			if (filter_block_items_button_list.at(i)->need_remove)
+			{
+				filter_block_items_button_list.erase(filter_block_items_button_list.begin()+i);
+				i--;
+			}
+		}
+
+			float data_x = x + 155;
+			float data_y = 25;
+
+			for (int i = 0; i < base_filter_data_active.size(); i++)
+			if (base_filter_data_active.at(i))
+			{
+				if (base_filter_condition_list.at(i) != NULL)
+				{
+					base_filter_condition_list.at(i)->button_x = data_x;
+					base_filter_condition_list.at(i)->button_y = size_y-data_y;
+
+					base_filter_condition_list.at(i)->update(_d);
+					
+				}
+
+				base_filter_buttons.at(i)->button_x = data_x+35;
+				base_filter_buttons.at(i)->button_y = size_y-data_y;
+
+				base_filter_buttons.at(i)->update(_d);
+
+				data_y += _data_y_offset;
+			}
 	}
 
 	void FilterBlock::draw(Batcher* _batch)
 	{
+		max_h = 100;
+
+		
+
+		
+
 		if (is_show)
-		{_batch->setcolor_255(210,200,190,100);}
+		{_batch->setcolor_255(210,200,190,50);}
 		else
-		{_batch->setcolor_255(64, 32, 16, 100);}
+		{_batch->setcolor_255(64, 32, 16, 50);}
 
 
 		if (DefaultGabarite::gabarite_white != NULL)
@@ -87,21 +215,37 @@
 
 		_batch->draw_rect_with_uv(x + size_x - 120, y + 5, 5, 50, DefaultGabarite::gabarite_white);
 
-		float temp_pos_x = 250;
-		float temp_pos_y = 0;
+		float temp_pos_x = 450;
+		float temp_pos_y = 10;
 
 		
+			
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
 		{
 			filter_block_items_button_list.at(i)->button_x = temp_pos_x;
+			filter_block_items_button_list.at(i)->button_y = temp_pos_y;
+
 			filter_block_items_button_list.at(i)->draw(_batch);
 			//filter_block_items_button_list.at(i)->text_pass(EFont::font, _batch);
 
 			if (filter_block_items_button_list.at(i)->gabarite != NULL)
 			{
-				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 3;
+				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 5;
+
+				if (temp_pos_x + 50 > size_x - 200)
+				{
+					temp_pos_x = 450;
+					temp_pos_y += 50;
+
+					if (temp_pos_y + 50 > max_h) { max_h = temp_pos_y + 50; }
+				}
 			}
 		}
+
+		button_plus->button_x = temp_pos_x;
+		button_plus->button_y = temp_pos_y;
+
+		button_plus->draw(_batch);
 
 		/*for (int i = 0; i < filter_flock_button_list.size(); i++)
 		{
@@ -111,6 +255,43 @@
 
 		//_font->x_adding = 0;
 		EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
+
+
+		float data_x = x + 155;
+		float data_y = 25;
+
+		
+		for (int i = 0; i < base_filter_data_active.size(); i++)
+		{
+			if (base_filter_data_active.at(i))
+			{
+				EFont::font_arial->align_x = Enums::RIGHT;
+				_batch->setcolor(EColorCollection::BLACK);
+
+				EFont::font_arial->draw(_batch, base_filter_data_name.at(i), data_x, y + size_y - data_y);
+				
+				if (base_filter_condition_list.at(i) != NULL)
+				{
+					base_filter_condition_list.at(i)->description_text = std::to_string(size_y - data_y);
+					base_filter_condition_list.at(i)->draw(_batch);
+				}
+
+				base_filter_buttons.at(i)->draw(_batch);
+
+				_batch->setcolor_alpha(EColorCollection::BLACK, 0.17f);
+				_batch->draw_rama(data_x - 150, y + size_y - data_y - 3, 155, 21, 1, DefaultGabarite::gabarite_white);
+				
+				data_y += _data_y_offset;
+			}
+		}
+
+
+
+		EFont::font_arial->align_x = Enums::LEFT;
+
+		if (data_y > max_h) { max_h = data_y; }
+
+		size_y = max_h;
 	}
 
 	void FilterBlock::add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)
@@ -137,8 +318,8 @@
 	{
 		_batch->setcolor(1, 1, 1, 1);
 
-		debug_text_y = 0;
-		debug_text_x = 0;
+		/*
+
 
 		add_debug(is_socket_active, "Sockets " + socket_condition + " " + std::to_string(socket_count), EFont::font_arial, _batch);
 		add_debug(is_links_active, "Links " + links_condition + " " + std::to_string(links_count), EFont::font_arial, _batch);
@@ -152,7 +333,7 @@
 		add_debug(is_corrupted_active, "Corrupted: " + bool_to_string(is_corrupted), EFont::font_arial, _batch);
 		add_debug(is_shaper_item_active, "Shaper item: " + bool_to_string(is_shaper_item), EFont::font_arial, _batch);
 		add_debug(is_identified_active, "Identified: " + bool_to_string(is_identified), EFont::font_arial, _batch);
-
+		*/
 		//add_debug(is_text_color, "Font size: " + rarity_value[item_rarity], _font, _batch);
 
 
@@ -205,7 +386,51 @@
 		{
 			filter_block_items_button_list.at(i)->text_pass(_batch);
 		}
-		
 
+		for (int i = 0; i < base_filter_data_active.size(); i++)
+		{
+			if (base_filter_data_active.at(i))
+			{
+				if (base_filter_condition_list.at(i)!=NULL) { base_filter_condition_list.at(i)->text_pass(_batch); }
+				base_filter_buttons.at(i)->text_pass(_batch);
+			}
+		}
+		button_plus->text_pass(_batch);
+		
+		//EFont::font_arial->draw(_batch, std::to_string(y), x, y);
+	}
+
+	void FilterBlock::init()
+	{
+
+	}
+
+	void FilterBlock::data_change()
+	{
+		for (EButtonDropCondition* b : base_filter_condition_list)
+		{
+			if (b!=NULL)
+			{b->incoming_data(this);}
+		}
+
+		base_filter_data_active.at(0)=is_item_rarity_active;
+		base_filter_data_active.at(1)=is_item_level_active;
+		base_filter_data_active.at(2)=is_required_level_active;
+		base_filter_data_active.at(3)=is_socket_active;
+		base_filter_data_active.at(4)=is_links_active;
+		base_filter_data_active.at(5)=is_socket_group_active;
+		base_filter_data_active.at(6)=is_item_qualityt_active;
+		base_filter_data_active.at(7)=is_gem_level_active;
+		base_filter_data_active.at(8)=is_map_tier_active;
+		base_filter_data_active.at(9)=is_item_width_active;
+		base_filter_data_active.at(10)=is_item_height_active;
+		base_filter_data_active.at(11)=is_stack_size_active;
+		base_filter_data_active.at(12)=is_corrupted;
+		base_filter_data_active.at(13)=is_shaper_item;
+		base_filter_data_active.at(14)=is_elder_item_active;
+		base_filter_data_active.at(15)=is_synthesised_item;
+		base_filter_data_active.at(16)=is_fractured_item;
+		base_filter_data_active.at(17)=is_enchantment_item;
+		
 	}
 

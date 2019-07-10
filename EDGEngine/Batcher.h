@@ -33,4 +33,5 @@ public:
 	void reset();
 	void setcolor(EColor* _color);
 	void setcolor_alpha(EColor* _color, float _a);
+	void draw_rama(float _x, float _y, float _sx, float _sy, float _t, EGabarite* _g);
 };

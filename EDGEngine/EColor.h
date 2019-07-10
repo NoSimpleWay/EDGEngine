@@ -8,8 +8,10 @@ public:
 	float color_alpha = 1.0f;
 
 	EColor(float _r, float _g, float _b, float _a);
+	EColor();
 	~EColor();
 	void set(float _r, float _g, float _b, float _a);
+	void set(EColor* _c);
 
 };
 

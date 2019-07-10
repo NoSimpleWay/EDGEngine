@@ -88,6 +88,8 @@ bool compare_with_key(string _data, string _key)
 void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 {
 	
+	if (align_x == Enums::PositionMode::MID)	{ _x -= get_width(this, _s)/2.0f; }
+	if (align_x == Enums::PositionMode::RIGHT)	{ _x -= get_width(this, _s); }
 
 	for (int sym = 0; sym < _s.length(); sym++)
 	{
@@ -114,6 +116,12 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 		);
 
 		x_adding += real_size_x[target_symbol] - offset_x[target_symbol];
+	}
+
+	if (align_only_once)
+	{
+		align_only_once = false;
+		align_x = align_prev;
 	}
 }
 void EFont::draw(Batcher* _batcher, string _s, float _x, float _y)
@@ -282,4 +290,11 @@ float EFont::get_width(EFont* _font, string _text)
 	}
 
 	return temp_w;
+}
+
+void EFont::set_align_once(Enums::PositionMode _al)
+{
+	align_prev = align_x;
+	align_x = _al;
+	align_only_once = true;
 }

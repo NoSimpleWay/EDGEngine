@@ -24,7 +24,7 @@
 #include <ctime>
 #include "Helper.h";
 #include <vector>
-#include "EButton.h"
+
 #include "EButtonFilterItem.h"
 
 #include "EWindow.h"
@@ -55,7 +55,11 @@ int EControl::mouse_x = 0;
 int EControl::mouse_y = 0;
 
 bool EControl::button_pressed = false;
+bool EControl::button_right_pressed = false;
+
 bool EControl ::mouse_pressed = false;
+bool EControl ::mouse_right_pressed = false;
+
 bool EControl ::button_backspace_released = false;
 char EControl::last_inputed_char=NULL;
 
@@ -440,6 +444,11 @@ void parse_loot_filter_data(string _path)
 					{
 						if (!comment_mode)
 						{
+							/*for (EButtonDropCondition* b : base_filter_condition_list)
+							{
+								b->incoming_data(this);
+							}*/
+
 							if (subdata == "Show")
 							{
 								just_created_block = new FilterBlock();
@@ -662,6 +671,9 @@ void parse_loot_filter_data(string _path)
 									just_created_button->gabarite = ItemList::item_list.at(item_id)->gabarite;
 									//just_created_button->button_size_x = ItemList::item_list.at(item_id)->gabarite->size_x / 2.0f;
 									//just_created_button->button_size_y = ItemList::item_list.at(item_id)->gabarite->size_y / 2.0f;
+
+									just_created_button->description_text = ItemList::item_list.at(item_id)->item_name+" ("+ ItemList::item_list.at(item_id)->item_name_ru+")";
+
 									if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
 								}
 								
@@ -995,6 +1007,11 @@ void parse_loot_filter_data(string _path)
 		if (show_info_to_console) { cout << endl << endl; }
 		
 		line_number++;
+	}
+
+	for (FilterBlock* f : StaticData::window_filter_block->filter_block_list)
+	{
+		f->data_change();
 	}
 
 	if (error_counts <= 0) { cout << green << "Error count:0" << endl;; }
@@ -1415,17 +1432,18 @@ int main()
 	DefaultGabarite::gabarite_white = just_created_gabarite;
 	
 	put_texture_to_atlas("data/undefined.png"); DefaultGabarite::gabarite_undefined = just_created_gabarite;
+	put_texture_to_atlas("data/plus.png"); DefaultGabarite::gabarite_plus = just_created_gabarite;
 
 
 	
 
-	StaticData::window_filter_block = new EWindowFilterBlock();
+	StaticData::window_filter_block = new EWindowFilterBlock(0);
 	StaticData::window_filter_block->name = "Filter block";
 	window_list.push_back(StaticData::window_filter_block);
 
 	parse_loot_filter_data(path_to_poe_folder + "NeverSink's filter.filter");
 
-	StaticData::window_find_item = new EWindowFindItem();
+	StaticData::window_find_item = new EWindowFindItem(1);
 	StaticData::window_filter_block->name = "Search item";
 	window_list.push_back(StaticData::window_find_item);
 
@@ -1475,8 +1493,26 @@ int main()
 	recalculate_correction();
 	glViewport(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT);
 
+	load_texture("data/background.png", 0);
 	while (!glfwWindowShouldClose(window))
 	{
+		
+
+
+		EButton::top_window_id = -1;
+
+		for (int i = 0; i < window_list.size(); i++)
+		{
+			if (
+				(window_list.at(i)->is_overlap())
+				&&
+				(window_list.at(i)->is_active)
+				)
+			{
+				EButton::top_window_id = i;
+			}
+		}
+
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		glDisable(GL_DEPTH_TEST);
 		//glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
@@ -1516,7 +1552,17 @@ int main()
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(matrix_transform));
 
 
+		glActiveTexture(GL_TEXTURE0);
+		ourShader->setInt("texture1", 0);
+		glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
 		
+		//batch->reset();
+		batch->setcolor(EColorCollection::WHITE);
+		batch->reset();
+			batch->draw_rect(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT);
+		batch->reinit();
+		batch->draw_call();
+
 		batch->reset();
 		
 		
@@ -1565,9 +1611,10 @@ int main()
 		*/
 
 
+		/*
 		button_list.at(0)->update(delta_time);
 		button_list.at(0)->draw(batch);
-
+		*/
 
 
 		//batch->setcolor_255(0, 0, 0, 100);
@@ -1583,22 +1630,26 @@ int main()
 				w->defaul_draw(batch);
 				w->draw(batch, delta_time);
 			}
-		}
 
-		for (EWindow* w : window_list)
-		{
 			if (w->is_active)
 			{
 				w->text_pass(batch);
 			}
 		}
 
+		/*for (EWindow* w : window_list)
+		{
+			if (w->is_active)
+			{
+				w->text_pass(batch);
+			}
+		}*/
+
 		
 
 
 		glActiveTexture(GL_TEXTURE0);
 		ourShader->setInt("texture1", 0);
-
 		glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
 
 		batch->reinit();
@@ -1882,7 +1933,16 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		cout << "Cursor Position at (" << xpos << " : " << ypos << " button:" << button<<" action:" << action << endl;
 	}
 
-	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE)
+	if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+	{
+		double xpos, ypos;
+		//getting cursor position
+		glfwGetCursorPos(window, &xpos, &ypos);
+		EControl::mouse_right_pressed = true;
+		cout << "Cursor Position at (" << xpos << " : " << ypos << " button:" << button << " action:" << action << endl;
+	}
+
+	if ((button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE))
 	{
 		double xpos, ypos;
 		//getting cursor position
@@ -1893,6 +1953,20 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 		cout << "Cursor released at (" << xpos << " : " << ypos << " button:" << button << " action:" << action << endl;
 	}
+
+	if ((button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE))
+	{
+		double xpos, ypos;
+		//getting cursor position
+		glfwGetCursorPos(window, &xpos, &ypos);
+
+		EControl::button_right_pressed = false;
+		EControl::mouse_right_pressed = false;
+
+		cout << "Cursor released at (" << xpos << " : " << ypos << " button:" << button << " action:" << action << endl;
+	}
+
+
 
 	//cout <<" mouse callback. Button=" <<button<<". Action="<<action<<"." << endl;
 }

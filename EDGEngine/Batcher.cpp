@@ -484,3 +484,12 @@ void Batcher::setcolor_alpha(EColor* _color, float _a)
 	batch_color_b = _color->color_blue;
 	batch_color_a = _a;
 }
+
+void Batcher::draw_rama(float _x, float _y, float _sx, float _sy, float _t, EGabarite* _g)
+{
+	draw_rect_with_uv(_x - _t,		_y - _t,		_t,				_sy+_t*2.0f,	_g);//left
+	draw_rect_with_uv(_x + _sx,		_y - _t,		_t,				_sy+_t*2.0f,	_g);//right
+
+	draw_rect_with_uv(_x - _t,		_y +_sy,		_sx+_t*2.0f,	_t,				_g);//up
+	draw_rect_with_uv(_x - _t,		_y -_t,		_sx+_t*2.0f,		_t,				_g);//up
+}

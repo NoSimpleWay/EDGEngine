@@ -13,7 +13,7 @@
 
 
 
-	
+	int EButton::top_window_id=-1;
 
 	EButton::EButton()
 	{
@@ -29,11 +29,44 @@
 		button_size_y = _sy;
 	}
 
+	EButton::EButton(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type)
+	{
+		button_x = _x;
+		button_y = _y;
+
+		button_size_x = _sx;
+		button_size_y = _sy;
+
+		button_type = _type;
+	}
+
 
 
 	EButton::~EButton()
 	{
 
+	}
+
+	bool EButton::is_number(char _c)
+	{
+		if
+		(
+			(_c == '0') ||
+			(_c == '1') ||
+			(_c == '2') ||
+			(_c == '3') ||
+			(_c == '4') ||
+			(_c == '5') ||
+			(_c == '6') ||
+			(_c == '7') ||
+			(_c == '8') ||
+			(_c == '9')
+		)
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 	bool EButton::is_overlap()
@@ -44,7 +77,17 @@
 
 		//std::cout << Helper::x << " " << Helper::y << " " << std::endl;
 		//std::cout << "PIZDOS=" << EMouse::mouse_x<< endl;
-		if ((EControl::mouse_x > master_position_x - bound_size_left) && (EControl::mouse_x < master_position_x + button_size_x+ bound_size_right) && (EControl::mouse_y > master_position_y -bound_size_down) && (EControl::mouse_y < master_position_y + button_size_y+ bound_size_up))
+		if (
+				(EControl::mouse_x > master_position_x - bound_size_left)
+				&&
+				(EControl::mouse_x < master_position_x + button_size_x+ bound_size_right)
+				&&
+				(EControl::mouse_y > master_position_y -bound_size_down)
+				&&
+				(EControl::mouse_y < master_position_y + button_size_y+ bound_size_up)
+				&&
+				(top_window_id==master_window->id)
+			)
 		{
 			return true;
 		}
@@ -58,6 +101,13 @@
 	bool EButton::is_click()
 	{
 		if ((EControl::mouse_pressed) && (!EControl::button_pressed) && (is_overlap())) { return true; }
+
+		return false;
+	}
+
+	bool EButton::is_right_click()
+	{
+		if ((EControl::mouse_right_pressed) && (!EControl::button_right_pressed) && (is_overlap())) { EControl::button_right_pressed = true; return true; }
 
 		return false;
 	}
@@ -90,6 +140,12 @@
 			if (position_mode_y == Enums::PositionMode::DOWN) { master_position_y = button_y; }
 		}
 
+		if ((is_right_click()) && (can_be_removed))
+		{
+			std::cout << "TRY REMOVE" << std::endl;
+			need_remove = true;
+		}
+
 		if (is_click())
 		{
 			
@@ -100,15 +156,13 @@
 			if (is_drop_list)
 			{
 				is_expanded = !is_expanded;
+				selected_element = (int)((master_position_y - EControl::mouse_y) / 22.0f);
 
-				if (is_expanded)
-				{
-					bound_size_down = 150;
-				}
-				else
-				{
-					bound_size_down = 0;
-				}
+				if (selected_element < 0) { selected_element = 0; }
+				if (selected_element > drop_elements) { selected_element = drop_elements; }
+
+				text = drop_text.at(selected_element);
+				
 			}
 
 			if ((have_input_mode) && (!is_input_mode_active))
@@ -122,7 +176,16 @@
 		if (is_input_mode_active)
 		{
 			//std::cout << last_inputed_char << std::endl;
-			if (EControl::last_inputed_char !=NULL )
+			if
+			(
+				(EControl::last_inputed_char !=NULL )
+				&&
+				(
+					(!input_only_numbers)
+					||
+					(is_number(EControl::last_inputed_char))
+				)
+			)
 			{
 				text += EControl::last_inputed_char;
 				EControl::last_inputed_char = NULL;
@@ -167,7 +230,13 @@
 			
 		}
 
-		
+		flash_cooldown-=_d;
+		if (flash_cooldown < 0)
+		{
+			flash_cooldown += 0.25f;
+
+			flash_line_active = !flash_line_active;
+		}
 
 	}
 
@@ -203,13 +272,7 @@
 
 		float temp_w = 0;
 
-		if (is_expanded)
-		{
-			for (int i = 0; i < drop_elements; i++)
-			{
-				_batch->draw_rect_with_uv(master_position_x, master_position_y - i * 27 - 30, button_size_x, 25, DefaultGabarite::gabarite_white);
-			}
-		}
+
 
 		if (have_icon)
 		{
@@ -237,36 +300,87 @@
 		if (have_text)
 		{
 			
+			float added_x = 0;
+
+			if (text_align_x == Enums::PositionMode::MID) { added_x = button_size_x / 2.0f; }
+			EFont::font_arial->align_x = text_align_x;
 
 			if (text != "")
 			{
 				_batch->setcolor(0.0f, 0.0f, 0.0f, 1.0f);
-				EFont::font_arial->draw(_batch, text, master_position_x + 2, master_position_y + 2);
+				EFont::font_arial->draw(_batch, text, master_position_x + 2+added_x, master_position_y + (button_size_y-20.0f)/2.0f+3.0f);
 			}
 
-			if ((text == "")&&(input_hint!="")&&(is_input_mode_active))
+			if ((text == "")&&(input_hint!=""))
 			{
 				_batch->setcolor(0.5f, 0.5f, 0.5f, 1.0f);
-				EFont::font_arial->draw(_batch, input_hint, master_position_x + 2, master_position_y + 2);
+				EFont::font_arial->draw(_batch, input_hint, master_position_x + 2+added_x, master_position_y + (button_size_y - 20.0f) / 2.0f + 3.0f);
+			}
+
+			if (is_input_mode_active)
+			{
+				if (flash_line_active)
+				{
+					_batch->setcolor(EColorCollection::BLACK);
+					_batch->draw_rect_with_uv(master_position_x + 2 + EFont::get_width(EFont::font_arial,text)+added_x, master_position_y + (button_size_y - 20.0f) / 2.0f + 3.0f, 3, 17, DefaultGabarite::gabarite_white);
+
+
+				}
 			}
 		}
 
 
-
+		if (have_rama)
+		{
+			_batch->setcolor(rama_color);
+			_batch->draw_rama(master_position_x, master_position_y, button_size_x, button_size_y,rama_thikness,DefaultGabarite::gabarite_white);
+		}
 
 	}
 
 	void EButton::text_pass(Batcher* _batch)
 	{
-		
+		catched_element = (int)((master_position_y - EControl::mouse_y) / 22.0f);
+		if (is_expanded)
+		{
+			bound_size_down = drop_elements*22;
+
+			for (int i = 0; i < drop_elements; i++)
+			{
+				if (catched_element==i)
+				{ _batch->setcolor(0.5f, 1.0f, 0.6f, 1.0f);}
+				else
+				{_batch->setcolor(0.8f, 0.9f, 1.0f, 1.0f);}
+
+				_batch->draw_rect_with_uv(master_position_x, master_position_y - i * 22 - 20, button_size_x, 20, DefaultGabarite::gabarite_white);
+
+				_batch->setcolor(0.0f,0.1f,0.2f,0.9f);
+				_batch->draw_rama(master_position_x, master_position_y - i * 22 - 20, button_size_x, 20, rama_thikness, DefaultGabarite::gabarite_white);
+
+				EFont::font_arial->set_align_once(Enums::PositionMode::MID);
+				EFont::font_arial->draw(_batch, drop_text.at(i), master_position_x+button_size_x/2.0f, master_position_y - i * 22 - 20+3);
+			}
+		}
+		else
+		{
+			bound_size_down = 0;
+		}
+
 		if ((have_description) && (is_overlap()))
 		{
 			_batch->setcolor(EColorCollection::WHITE);
-			_batch->draw_rect_with_uv(EControl::mouse_x+3, EControl::mouse_y-5, EFont::get_width(EFont::font_arial,description_text), 20, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(EControl::mouse_x+13, EControl::mouse_y-5, EFont::get_width(EFont::font_arial,description_text)+3, 20, DefaultGabarite::gabarite_white);
 
 			_batch->setcolor(EColorCollection::BLACK);
-			EFont::font_arial->draw(_batch, description_text, EControl::mouse_x+3, EControl::mouse_y -2);
+			EFont::font_arial->draw(_batch, description_text, EControl::mouse_x+15, EControl::mouse_y -1);
+
+			_batch->draw_rama(EControl::mouse_x + 13, EControl::mouse_y - 5, EFont::get_width(EFont::font_arial, description_text)+3, 20, 2, DefaultGabarite::gabarite_white);
 		}
+	}
+
+	void EButton::incoming_data(FilterBlock* _block)
+	{
+
 	}
 
 

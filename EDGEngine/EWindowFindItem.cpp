@@ -20,12 +20,12 @@ public:
 	string lower_charset = "qwertyuiopasdfghjklzxcvbnm¸éöóêåíãøùçõúôûâàïðîëäæýÿ÷ñìèòüáþ";
 	EButton* target_button=NULL;
 
-	EWindowFindItem() :EWindow()
+	EWindowFindItem(int _id) :EWindow(_id)
 	{
 		is_active = false;
 		window_size_x = 1000;
 		window_size_y = 500;
-		bg_color->set(0.3f, 0.4f, 0.5f, 0.9f);
+		bg_color->set(0.2f, 0.36f, 0.3f, 0.95f);
 
 		EButtonItemSearch* but;
 		but= new EButtonItemSearch(0, 0, 40, 40);
@@ -36,7 +36,7 @@ public:
 		button_list.push_back(but);
 		
 
-		for (int i = 0; i < 100; i++)
+		for (int i = 0; i < 150; i++)
 		{
 			but = new EButtonItemSearch(0, 0, 40, 40);
 			but->master_window = this;
@@ -79,7 +79,7 @@ public:
 				bx += 43;
 				
 
-				if (bx > 800)
+				if (bx > 930)
 				{
 					bx = 5;
 					by -= 43;
@@ -88,8 +88,11 @@ public:
 					y_offset++;
 				}
 
-				if ((x_offset == 0) && (y_offset == 0)){bx += 43;}
-				if ((x_offset == 0) && (y_offset == 1)){ bx += 43*2;}
+				if (button_list.at(0)->is_active)
+				{
+					if ((x_offset == 0) && (y_offset == 0)) { bx += 43; }
+					if ((x_offset == 0) && (y_offset == 1)) { bx += 43 * 2; }
+				}
 
 				//string s = "x: "+ std::to_string(x_offset)+" y:"+ std::to_string(y_offset);
 	
@@ -173,11 +176,11 @@ public:
 					(order>0)
 				)
 			{
-				if (search_count < 90)
+				if (search_count < 150)
 				{
 					button_list.at(search_count)->is_active = true;
 					button_list.at(search_count)->gabarite = item->gabarite;
-					button_list.at(search_count)->description_text = item->item_name + "|" + item->item_name_ru;
+					button_list.at(search_count)->description_text = item->item_name + " (" + item->item_name_ru+")";
 
 					search_count++;
 				}

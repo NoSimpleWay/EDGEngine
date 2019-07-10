@@ -9,8 +9,13 @@
 #include "EButton.h"
 
 
+
 //#include "EButton.cpp"
 class EButton;
+class EButtonFilterItem;
+class EButtonDropCondition;
+class EButtonInputBaseData;
+
 class FilterBlock
 {
 public:
@@ -122,6 +127,8 @@ public:
 
 	static string bool_to_string(bool _b);
 
+	void add_base_buttons(string _text, Enums::ButtonType _condition_type, Enums::ButtonType _button_type, bool _sep);
+
 	FilterBlock();
 
 	~FilterBlock();
@@ -135,4 +142,21 @@ public:
 
 	void text_pass(Batcher* _batch);
 
+	EButtonFilterItem* button_plus;
+
+	int max_h = 200;
+
+	
+	std::vector<string> base_filter_data_name;
+	std::vector<EButtonDropCondition*> base_filter_condition_list;
+	std::vector<EButton*> base_filter_buttons;
+	std::vector<bool> base_filter_separator;
+	std::vector<bool> base_filter_data_active;
+
+	const float _data_y_offset = 25;
+
+	void init();
+	void data_change();
+	
+	
 };
