@@ -28,4 +28,11 @@ public:
 	static EColor* YELLOW;
 	static EColor* CYAN;
 	static EColor* PINK;
+
+	static EColor* DAD_NORMAL;
+	static EColor* DAD_MAGIC;
+	static EColor* DAD_RARE;
+	static EColor* DAD_UNIQUE;
+
+
 };

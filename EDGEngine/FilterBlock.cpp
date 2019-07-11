@@ -13,6 +13,9 @@
 #include "EButtonFilterItem.h"
 #include "EButtonDropCondition.h"
 #include "EButtonInputBaseData.h"
+#include "EButtonDropRarity.h"
+#include "EButtonService.h"
+#include "EButtonCheck.h"
 //#include "EButton.cpp"
 
 
@@ -70,8 +73,35 @@
 
 		if (_button_type != Enums::ButtonType::BUTTON_NONE)
 		{
-			EButtonInputBaseData* but;
-			but = new EButtonInputBaseData(0, 0, 65, 17, _condition_type);
+			EButton* but=NULL;
+
+			if (_button_type!=Enums::ButtonType::BUTTON_RARITY)
+			{
+				but = new EButtonInputBaseData(0, 0, 65, 17, _button_type);
+
+				if
+					(
+						(_button_type == Enums::ButtonType::BUTTON_SHAPER_ITEM) ||
+						(_button_type == Enums::ButtonType::BUTTON_SHAPER_MAP) ||
+						(_button_type == Enums::ButtonType::BUTTON_ELDER_ITEM) ||
+						(_button_type == Enums::ButtonType::BUTTON_ELDER_MAP) ||
+
+						(_button_type == Enums::ButtonType::BUTTON_CORRUPTION) ||
+						(_button_type == Enums::ButtonType::BUTTON_FRACTURED) ||
+						(_button_type == Enums::ButtonType::BUTTON_SYNTHESISED) ||
+						(_button_type == Enums::ButtonType::BUTTON_IDENTIFIED) ||
+						(_button_type == Enums::ButtonType::BUTTON_ANY_ENCHANTMENT)
+					)
+				{
+					//cout << "Запилил" << endl;
+					but = new EButtonCheck(0, 0, 20, 20, _button_type);
+				}
+			}
+			else
+			{
+				if (_button_type == Enums::ButtonType::BUTTON_RARITY) { but = new EButtonDropRarity(0, 0, 65, 17, _button_type);}
+			}
+
 			but->master_block = this;
 			but->master_window = StaticData::window_filter_block;
 
@@ -103,6 +133,10 @@
 		button_plus->description_text = "Add new item";
 
 
+		button_service = new EButtonService(0, 0, 45, 45,Enums::ButtonType::BUTTON_FILTER_BLOCK_TO_CONSOLE);
+		button_service->master_block = this;
+		button_service->master_window = StaticData::window_filter_block;
+		button_service->gabarite = DefaultGabarite::gabarite_undefined;
 
 		//std::cout << "_______________________________________ " << std::endl;
 		add_base_buttons("Rarity",				Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false);//0
@@ -147,6 +181,7 @@
 		}
 
 		button_plus->update(_d);
+		//button_service->update(_d);
 
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
 		{
@@ -170,10 +205,17 @@
 
 					base_filter_condition_list.at(i)->update(_d);
 					
+
+					base_filter_buttons.at(i)->button_x = data_x + 35;
+					base_filter_buttons.at(i)->button_y = size_y - data_y;
+				}
+				else
+				{
+
+					base_filter_buttons.at(i)->button_x = data_x;
+					base_filter_buttons.at(i)->button_y = size_y - data_y;
 				}
 
-				base_filter_buttons.at(i)->button_x = data_x+35;
-				base_filter_buttons.at(i)->button_y = size_y-data_y;
 
 				base_filter_buttons.at(i)->update(_d);
 
@@ -190,9 +232,9 @@
 		
 
 		if (is_show)
-		{_batch->setcolor_255(210,200,190,50);}
+		{_batch->setcolor_255(210,200,190,25);}
 		else
-		{_batch->setcolor_255(64, 32, 16, 50);}
+		{_batch->setcolor_255(64, 32, 16, 25);}
 
 
 		if (DefaultGabarite::gabarite_white != NULL)
@@ -215,7 +257,7 @@
 
 		_batch->draw_rect_with_uv(x + size_x - 120, y + 5, 5, 50, DefaultGabarite::gabarite_white);
 
-		float temp_pos_x = 450;
+		float temp_pos_x = 310;
 		float temp_pos_y = 10;
 
 		
@@ -234,7 +276,7 @@
 
 				if (temp_pos_x + 50 > size_x - 200)
 				{
-					temp_pos_x = 450;
+					temp_pos_x = 310;
 					temp_pos_y += 50;
 
 					if (temp_pos_y + 50 > max_h) { max_h = temp_pos_y + 50; }
@@ -246,6 +288,7 @@
 		button_plus->button_y = temp_pos_y;
 
 		button_plus->draw(_batch);
+		//button_service->draw(_batch);
 
 		/*for (int i = 0; i < filter_flock_button_list.size(); i++)
 		{
@@ -396,6 +439,7 @@
 			}
 		}
 		button_plus->text_pass(_batch);
+		//button_service->text_pass(_batch);
 		
 		//EFont::font_arial->draw(_batch, std::to_string(y), x, y);
 	}
@@ -410,6 +454,12 @@
 		for (EButtonDropCondition* b : base_filter_condition_list)
 		{
 			if (b!=NULL)
+			{b->incoming_data(this);}
+		}
+
+		for (EButton* b : base_filter_buttons)
+		{
+			if (b != NULL)
 			{b->incoming_data(this);}
 		}
 

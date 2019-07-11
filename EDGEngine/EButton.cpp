@@ -155,13 +155,19 @@
 
 			if (is_drop_list)
 			{
+				if (is_expanded)
+				{
+					selected_element = (int)((master_position_y - EControl::mouse_y) / 22.0f);
+
+					if (selected_element < 0) { selected_element = 0; }
+					if (selected_element > drop_elements) { selected_element = drop_elements; }
+
+					text = drop_text.at(selected_element);
+					drop_list_select_event();
+				}
+
 				is_expanded = !is_expanded;
-				selected_element = (int)((master_position_y - EControl::mouse_y) / 22.0f);
-
-				if (selected_element < 0) { selected_element = 0; }
-				if (selected_element > drop_elements) { selected_element = drop_elements; }
-
-				text = drop_text.at(selected_element);
+				
 				
 			}
 
@@ -225,6 +231,7 @@
 			if (glfwGetKey(EWindow::main_window, GLFW_KEY_ENTER) == GLFW_PRESS)
 			{
 				is_input_mode_active = false;
+				input_finish_event();
 			}
 			
 			
@@ -267,7 +274,7 @@
 
 
 
-
+		_batch->setcolor(bg_color);
 		_batch->draw_rect_with_uv(master_position_x, master_position_y, button_size_x, button_size_y, DefaultGabarite::gabarite_white);
 
 		float temp_w = 0;
@@ -350,7 +357,14 @@
 				if (catched_element==i)
 				{ _batch->setcolor(0.5f, 1.0f, 0.6f, 1.0f);}
 				else
-				{_batch->setcolor(0.8f, 0.9f, 1.0f, 1.0f);}
+				{
+					if (have_list_color)
+					{
+						_batch->setcolor(drop_list_color.at(i));
+					}
+					else
+					{_batch->setcolor(0.8f, 0.9f, 1.0f, 1.0f);}
+				}
 
 				_batch->draw_rect_with_uv(master_position_x, master_position_y - i * 22 - 20, button_size_x, 20, DefaultGabarite::gabarite_white);
 
@@ -390,6 +404,14 @@
 	}
 
 	void EButton::input_event()
+	{
+	}
+
+	void EButton::input_finish_event()
+	{
+	}
+
+	void EButton::drop_list_select_event()
 	{
 	}
 

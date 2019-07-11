@@ -31,6 +31,8 @@ EButtonDropCondition::EButtonDropCondition(float _x, float _y, float _sx, float 
 	drop_text.push_back("=");
 	drop_text.push_back(">");
 	drop_text.push_back(">=");
+
+
 }
 
 void EButtonDropCondition::click_event()
@@ -50,7 +52,23 @@ void EButtonDropCondition::incoming_data(FilterBlock* _filter)
 	if (button_type == Enums::ButtonType::BUTTON_CONDITION_SOCKETS)			{ text = _filter->socket_condition; }
 	if (button_type == Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE)		{ text = _filter->item_stack_size_condition; }
 	if (button_type == Enums::ButtonType::BUTTON_CONDITION_WIDTH)			{ text = _filter->item_width_condition; }
-
 }
+
+void EButtonDropCondition::drop_list_select_event()
+{
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL)		{ master_block->required_level_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL)		{ master_block->gem_level_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_HEIGHT)			{ master_block->item_height_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL)		{ master_block->item_level_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_LINKS)			{ master_block->links_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_MAP_TIER)		{ master_block->map_tier_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_QUALITY)			{ master_block->item_quality_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_RARITY)			{ master_block->rarity_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_SOCKETS)			{ master_block->socket_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE)		{ master_block->item_stack_size_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_WIDTH)			{ master_block->item_width_condition=text; }
+}
+
+
 
 

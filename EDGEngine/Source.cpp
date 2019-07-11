@@ -1434,6 +1434,11 @@ int main()
 	put_texture_to_atlas("data/undefined.png"); DefaultGabarite::gabarite_undefined = just_created_gabarite;
 	put_texture_to_atlas("data/plus.png"); DefaultGabarite::gabarite_plus = just_created_gabarite;
 
+	
+	put_texture_to_atlas("data/checked.png"); DefaultGabarite::gabarite_checked = just_created_gabarite;
+	put_texture_to_atlas("data/unchecked.png"); DefaultGabarite::gabarite_unchecked = just_created_gabarite;
+	
+
 
 	
 

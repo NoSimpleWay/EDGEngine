@@ -94,7 +94,13 @@
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
     <ClCompile Include="EButtonDropRarity.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonService.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonCheck.cpp">
+      <Filter>Source Files\Buttons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +174,12 @@
       <Filter>Header Files\Button</Filter>
     </ClInclude>
     <ClInclude Include="EButtonDropRarity.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonService.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonCheck.h">
       <Filter>Header Files\Button</Filter>
     </ClInclude>
   </ItemGroup>

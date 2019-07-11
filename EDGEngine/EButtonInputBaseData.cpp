@@ -11,7 +11,7 @@ EButtonInputBaseData::EButtonInputBaseData(float _x, float _y, float _sx, float 
 	button_size_x = _sx;
 	button_size_y = _sy;
 
-	type = _type;
+	button_type = _type;
 
 	have_icon = false;
 	have_text = true;
@@ -22,9 +22,57 @@ EButtonInputBaseData::EButtonInputBaseData(float _x, float _y, float _sx, float 
 
 	input_hint = "";
 
-	rama_color->set(0.6f,0.8f,1.0f,0.55f);
+	rama_color->set(0.2f,0.1f,0.05f,0.55f);
+
 }
 
 void EButtonInputBaseData::click_event()
 {
+}
+
+
+
+void EButtonInputBaseData::incoming_data(FilterBlock* _filter)
+{
+	text = button_type;
+
+	if (button_type == Enums::ButtonType::BUTTON_DROP_LEVEL)	{text = std::to_string(_filter->required_level);}
+
+	if (button_type == Enums::ButtonType::BUTTON_GEM_LEVEL)		{ text = std::to_string(_filter->gem_level); }
+	if (button_type == Enums::ButtonType::BUTTON_HEIGHT)		{ text = std::to_string(_filter->item_height); }
+	if (button_type == Enums::ButtonType::BUTTON_ITEM_LEVEL)	{ text = std::to_string(_filter->item_level); }
+	if (button_type == Enums::ButtonType::BUTTON_LINKS)			{ text = std::to_string(_filter->links_count); }
+	if (button_type == Enums::ButtonType::BUTTON_MAP_TIER)		{ text = std::to_string(_filter->map_tier); }
+	if (button_type == Enums::ButtonType::BUTTON_QUALITY)		{ text = std::to_string(_filter->item_quality); }
+
+	if (button_type == Enums::ButtonType::BUTTON_RARITY)
+	{
+		text = _filter->item_rarity;
+
+		if (text == "Normal") { bg_color->set(EColorCollection::DAD_NORMAL); }
+		if (text == "Magic") { bg_color->set(EColorCollection::DAD_MAGIC); }
+		if (text == "Rare") { bg_color->set(EColorCollection::DAD_RARE); }
+		if (text == "Unique") { bg_color->set(EColorCollection::DAD_UNIQUE); }
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SOCKETS)		{ text = std::to_string(_filter->socket_count); }
+	if (button_type == Enums::ButtonType::BUTTON_STACK_SIZE)	{ text = std::to_string(_filter->item_stack_size); }
+	if (button_type == Enums::ButtonType::BUTTON_WIDTH)			{ text = std::to_string(_filter->item_width); }
+}
+
+void EButtonInputBaseData::input_finish_event()
+{
+	if (button_type == Enums::ButtonType::BUTTON_DROP_LEVEL) { master_block->required_level=std::stoi(text); }
+	if (button_type == Enums::ButtonType::BUTTON_GEM_LEVEL) { master_block->gem_level=std::stoi(text); }
+	if (button_type == Enums::ButtonType::BUTTON_HEIGHT) { master_block->item_height=std::stoi(text); }
+	if (button_type == Enums::ButtonType::BUTTON_ITEM_LEVEL) { master_block->item_level=std::stoi(text); }
+	if (button_type == Enums::ButtonType::BUTTON_LINKS) { master_block->links_count=std::stoi(text); }
+	if (button_type == Enums::ButtonType::BUTTON_MAP_TIER) { master_block->map_tier=std::stoi(text); }
+	if (button_type == Enums::ButtonType::BUTTON_QUALITY) { master_block->item_quality=std::stoi(text); }
+	if (button_type == Enums::ButtonType::BUTTON_RARITY) { master_block->item_rarity=text; }
+	if (button_type == Enums::ButtonType::BUTTON_SOCKETS) { master_block->socket_count=std::stoi(text); }
+	if (button_type == Enums::ButtonType::BUTTON_STACK_SIZE) { master_block->item_stack_size=std::stoi(text); }
+	if (button_type == Enums::ButtonType::BUTTON_WIDTH) { master_block->item_width=std::stoi(text); }
+
+
 }

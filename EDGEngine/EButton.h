@@ -39,8 +39,10 @@ public:
 	bool is_expanded = false;
 	bool is_drop_list = false;
 
-	int drop_elements = 5;
+	int drop_elements = 0;
 	std::vector<string> drop_text;
+	bool have_list_color=false;
+	std::vector<EColor*> drop_list_color;
 
 	EGabarite* gabarite=NULL;
 
@@ -87,6 +89,9 @@ public:
 
 	virtual void click_event();
 	virtual void input_event();
+	virtual void input_finish_event();
+	virtual void drop_list_select_event();
+
 
 	static int top_window_id;
 
@@ -99,6 +104,7 @@ public:
 	bool have_rama=false;
 	int rama_thikness = 2;
 	EColor* rama_color = new EColor();
+	EColor* bg_color = new EColor(0.8f,0.8f,0.8f,0.75f);
 
 	int catched_element = 0;
 	int selected_element = 0;
@@ -106,5 +112,6 @@ public:
 	Enums::ButtonType button_type;
 
 	bool input_only_numbers = false;
+	
 	
 };

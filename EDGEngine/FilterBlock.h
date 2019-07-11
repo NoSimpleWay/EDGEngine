@@ -15,6 +15,9 @@ class EButton;
 class EButtonFilterItem;
 class EButtonDropCondition;
 class EButtonInputBaseData;
+class EButtonDropRarity;
+class EButtonService;
+class EButtonCheck;
 
 class FilterBlock
 {
@@ -143,6 +146,7 @@ public:
 	void text_pass(Batcher* _batch);
 
 	EButtonFilterItem* button_plus;
+	EButtonService* button_service;
 
 	int max_h = 200;
 

@@ -14,6 +14,7 @@
 
 		have_rama = true;
 		rama_color->set(0.2f, 0.15f, 0.05f, 0.6f);
+		bg_color->set(0.2f, 0.15f, 0.05f, 0.2f);
 	}
 
 	void EButtonFilterItem::click_event()

@@ -33,13 +33,18 @@ void EColor::set(EColor* _c)
 EColor::~EColor()
 {
 }
-EColor* EColorCollection::WHITE=new EColor		(1.0f,		1.0f,		1.0f,		1.0f);
-EColor* EColorCollection::BLACK=new EColor		(0,			0,			0,			1.0f);
+EColor* EColorCollection::WHITE=new EColor			(1.0f,		1.0f,		1.0f,		1.0f);
+EColor* EColorCollection::BLACK=new EColor			(0,			0,			0,			1.0f);
 
-EColor* EColorCollection::RED=new EColor		(1.0f,		0,			0,			1.0f);
-EColor* EColorCollection::GREEN=new EColor		(0,			1.0f,		0,			1.0f);
-EColor* EColorCollection::BLUE=new EColor		(0,			0,			1.0f,		1.0f);
+EColor* EColorCollection::RED=new EColor			(1.0f,		0,			0,			1.0f);
+EColor* EColorCollection::GREEN=new EColor			(0,			1.0f,		0,			1.0f);
+EColor* EColorCollection::BLUE=new EColor			(0,			0,			1.0f,		1.0f);
 
-EColor* EColorCollection::YELLOW = new EColor	(1.0f,		1.0f,		0,			 1.0f);
-EColor* EColorCollection::PINK = new EColor		(1.0f,		0,			1.0f,		 1.0f);
-EColor* EColorCollection::CYAN = new EColor		(0,			1.0f,		1.0f,		 1.0f);
+EColor* EColorCollection::YELLOW = new EColor		(1.0f,		1.0f,		0,			1.0f);
+EColor* EColorCollection::PINK = new EColor			(1.0f,		0,			1.0f,		1.0f);
+EColor* EColorCollection::CYAN = new EColor			(0,			1.0f,		1.0f,		1.0f);
+
+EColor* EColorCollection::DAD_NORMAL = new EColor	(0.8f,		0.8f,		0.8f,		1.0f);
+EColor* EColorCollection::DAD_MAGIC = new EColor	(0.0f,		1.0f,		1.0f,		1.0f);
+EColor* EColorCollection::DAD_RARE = new EColor		(1.0f,		1.0f,		0,			1.0f);
+EColor* EColorCollection::DAD_UNIQUE = new EColor	(0.78f,		0.5f,		0.25f,		1.0f);

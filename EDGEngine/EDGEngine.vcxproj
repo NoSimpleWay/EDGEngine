@@ -142,12 +142,14 @@
   <ItemGroup>
     <ClCompile Include="Batcher.cpp" />
     <ClCompile Include="DADItem.h" />
+    <ClCompile Include="EButtonCheck.cpp" />
     <ClCompile Include="EButtonDropCondition.cpp" />
     <ClCompile Include="EButtonDropRarity.cpp" />
     <ClCompile Include="EbuttonFilterItem.cpp" />
     <ClCompile Include="EButtonInputBaseData.cpp" />
     <ClCompile Include="EButtonInputSearchItem.cpp" />
     <ClCompile Include="EButtonItemSearch.cpp" />
+    <ClCompile Include="EButtonService.cpp" />
     <ClCompile Include="ECamera.cpp" />
     <ClCompile Include="EColor.cpp" />
     <ClCompile Include="EGabarite.cpp" />
@@ -168,12 +170,14 @@
     <ClInclude Include="Batcher.h" />
     <ClInclude Include="ConsoleColor.h" />
     <ClInclude Include="EButton.h" />
+    <ClInclude Include="EButtonCheck.h" />
     <ClInclude Include="EButtonDropCondition.h" />
     <ClInclude Include="EButtonDropRarity.h" />
     <ClInclude Include="EButtonFilterItem.h" />
     <ClInclude Include="EButtonInputBaseData.h" />
     <ClInclude Include="EButtonInputSearchItem.h" />
     <ClInclude Include="EButtonItemSearch.h" />
+    <ClInclude Include="EButtonService.h" />
     <ClInclude Include="ECamera.h" />
     <ClInclude Include="EColor.h" />
     <ClInclude Include="EDGE_FBO.h" />

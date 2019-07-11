@@ -26,4 +26,6 @@ public:
 	static EGabarite* gabarite_white;
 	static EGabarite* gabarite_undefined;
 	static EGabarite* gabarite_plus;
+	static EGabarite* gabarite_checked;
+	static EGabarite* gabarite_unchecked;
 };
