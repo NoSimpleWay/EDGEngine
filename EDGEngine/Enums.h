@@ -80,4 +80,30 @@ public:
 		BUTTON_FILTER_BLOCK_TO_CONSOLE
 	};
 
+	enum BaseDataOrder
+	{
+		DATA_RARITY					=0,	
+		DATA_ITEM_LEVEL				=1,
+		DATA_REQUIRED_LEVEL			=2,		
+		DATA_SOCKETS				=3,		
+		DATA_LINKS					=4,		
+		DATA_SOCKET_GROUP			=5,		
+		DATA_QUALITY				=6,		
+		DATA_GEM_LEVEL				=7,		
+		DATA_MAP_TIER				=8,		
+		DATA_SHAPER_MAP				=9,		
+		DATA_ELDER_MAP				=10,		
+		DATA_WIDTH					=11,		
+		DATA_HEIGHT					=12,		
+		DATA_STACK_SIZE				=13,		
+		DATA_CORRUPTED				=14,		
+		DATA_SHAPER_ITEM			=15,		
+		DATA_ELDER_ITEM				=16,		
+		DATA_SYNTHESISED			=17,		
+		DATA_FRACTURED				=18,		
+		DATA_ENCHANTMENT			=19,	
+		DATA_IDENTIFIED				=20
+	};
+
+
 };

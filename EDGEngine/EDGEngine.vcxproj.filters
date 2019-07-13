@@ -102,6 +102,9 @@
     <ClCompile Include="EButtonCheck.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="EButtonRemoveBaseData.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -180,6 +183,9 @@
       <Filter>Header Files\Button</Filter>
     </ClInclude>
     <ClInclude Include="EButtonCheck.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonRemoveBaseData.h">
       <Filter>Header Files\Button</Filter>
     </ClInclude>
   </ItemGroup>

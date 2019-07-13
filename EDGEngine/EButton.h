@@ -112,6 +112,8 @@ public:
 	Enums::ButtonType button_type;
 
 	bool input_only_numbers = false;
+
+	int data_id;
 	
 	
 };

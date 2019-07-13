@@ -16,6 +16,7 @@
 #include "EButtonDropRarity.h"
 #include "EButtonService.h"
 #include "EButtonCheck.h"
+#include "EButtonRemoveBaseData.h"
 //#include "EButton.cpp"
 
 
@@ -47,7 +48,7 @@
 
 	}
 
-	void FilterBlock::add_base_buttons(string _text, Enums::ButtonType _condition_type, Enums::ButtonType _button_type, bool _sep)
+	void FilterBlock::add_base_buttons(string _text, Enums::ButtonType _condition_type, Enums::ButtonType _button_type, bool _sep, int _id)
 	{
 		base_filter_data_name.push_back(_text);
 		base_filter_separator.push_back(_sep);
@@ -112,8 +113,11 @@
 			base_filter_buttons.push_back(NULL);
 		}
 
-		base_filter_data_active.push_back(true);
+		base_filter_data_active.push_back(false);
+		EButton* but_remove = new EButtonRemoveBaseData(0, 0, 37, 37, _button_type);
+		but_remove->data_id = _id;
 
+		base_filter_data_remove_buttons.push_back(but_remove);
 
 	}
 
@@ -139,28 +143,31 @@
 		button_service->gabarite = DefaultGabarite::gabarite_undefined;
 
 		//std::cout << "_______________________________________ " << std::endl;
-		add_base_buttons("Rarity",				Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false);//0
-		add_base_buttons("Item level",			Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL,		Enums::ButtonType::BUTTON_ITEM_LEVEL,		false);//1
-		add_base_buttons("Req. level",			Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL,		Enums::ButtonType::BUTTON_DROP_LEVEL,		false);//2
-		add_base_buttons("Sockets",				Enums::ButtonType::BUTTON_CONDITION_SOCKETS,		Enums::ButtonType::BUTTON_SOCKETS,			false);//3
-		add_base_buttons("Links",				Enums::ButtonType::BUTTON_CONDITION_LINKS,			Enums::ButtonType::BUTTON_LINKS,			false);//4
-		add_base_buttons("Socket color",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SOCKET_GROUP,		false);//5
+		add_base_buttons("Rarity",				Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false,	0);//0
+		add_base_buttons("Item level",			Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL,		Enums::ButtonType::BUTTON_ITEM_LEVEL,		false,	1);//1
+		add_base_buttons("Req. level",			Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL,		Enums::ButtonType::BUTTON_DROP_LEVEL,		false,	2);//2
+		add_base_buttons("Sockets",				Enums::ButtonType::BUTTON_CONDITION_SOCKETS,		Enums::ButtonType::BUTTON_SOCKETS,			false,	3);//3
+		add_base_buttons("Links",				Enums::ButtonType::BUTTON_CONDITION_LINKS,			Enums::ButtonType::BUTTON_LINKS,			false,	4);//4
+		add_base_buttons("Socket color",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SOCKET_GROUP,		false,	5);//5
 
-		add_base_buttons("Quality",				Enums::ButtonType::BUTTON_CONDITION_QUALITY,		Enums::ButtonType::BUTTON_QUALITY,			true);//6
-		add_base_buttons("Gem level",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,		false);//7
+		add_base_buttons("Quality",				Enums::ButtonType::BUTTON_CONDITION_QUALITY,		Enums::ButtonType::BUTTON_QUALITY,			true,	6);//6
+		add_base_buttons("Gem level",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,		false,	7);//7
 
-		add_base_buttons("Map tier",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,			true);//8
+		add_base_buttons("Map tier",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,			true,	8);//8
+		add_base_buttons("Shaped map?",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,		true,	9);//9
+		add_base_buttons("Elder map?",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,		true,	10);//10
 
-		add_base_buttons("Width",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,			true);//9
-		add_base_buttons("Height",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,			false);//10
-		add_base_buttons("Stack size",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,		false);//11
+		add_base_buttons("Width",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,			true,	11);//11
+		add_base_buttons("Height",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,			false,	12);//12
+		add_base_buttons("Stack size",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,		false,	13);//13
 
-		add_base_buttons("Corrupted?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,		true);//12
-		add_base_buttons("Shaper item?",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,		false);//13
-		add_base_buttons("Elder item?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,		false);//14
-		add_base_buttons("Synthesised?",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false);//15
-		add_base_buttons("Fractured?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false);//16
-		add_base_buttons("Any enchantment?",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false);//17
+		add_base_buttons("Corrupted?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,		true,	14);//14
+		add_base_buttons("Shaper item?",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,		false,	15);//15
+		add_base_buttons("Elder item?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,		false,	16);//16
+		add_base_buttons("Synthesised?",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false,	17);//17
+		add_base_buttons("Fractured?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	18);//18
+		add_base_buttons("Any enchantment?",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	19);//19
+		add_base_buttons("Identified?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	20);//20
 
 
 
@@ -463,6 +470,7 @@
 			{b->incoming_data(this);}
 		}
 
+		/*
 		base_filter_data_active.at(0)=is_item_rarity_active;
 		base_filter_data_active.at(1)=is_item_level_active;
 		base_filter_data_active.at(2)=is_required_level_active;
@@ -480,7 +488,7 @@
 		base_filter_data_active.at(14)=is_elder_item_active;
 		base_filter_data_active.at(15)=is_synthesised_item;
 		base_filter_data_active.at(16)=is_fractured_item;
-		base_filter_data_active.at(17)=is_enchantment_item;
+		base_filter_data_active.at(17)=is_enchantment_item;*/
 		
 	}
 

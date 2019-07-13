@@ -18,6 +18,7 @@ class EButtonInputBaseData;
 class EButtonDropRarity;
 class EButtonService;
 class EButtonCheck;
+class EButtonRemoveBaseData;
 
 class FilterBlock
 {
@@ -130,7 +131,9 @@ public:
 
 	static string bool_to_string(bool _b);
 
-	void add_base_buttons(string _text, Enums::ButtonType _condition_type, Enums::ButtonType _button_type, bool _sep);
+	void add_base_buttons(string _text, Enums::ButtonType _condition_type, Enums::ButtonType _button_type, bool _sep, int _id);
+
+	//void add_base_buttons(string _text, Enums::ButtonType _condition_type, Enums::ButtonType _button_type, bool _sep);
 
 	FilterBlock();
 
@@ -156,6 +159,7 @@ public:
 	std::vector<EButton*> base_filter_buttons;
 	std::vector<bool> base_filter_separator;
 	std::vector<bool> base_filter_data_active;
+	std::vector<EButton*> base_filter_data_remove_buttons;
 
 	const float _data_y_offset = 25;
 

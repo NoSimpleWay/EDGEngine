@@ -149,6 +149,7 @@
     <ClCompile Include="EButtonInputBaseData.cpp" />
     <ClCompile Include="EButtonInputSearchItem.cpp" />
     <ClCompile Include="EButtonItemSearch.cpp" />
+    <ClCompile Include="EButtonRemoveBaseData.cpp" />
     <ClCompile Include="EButtonService.cpp" />
     <ClCompile Include="ECamera.cpp" />
     <ClCompile Include="EColor.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="EButtonInputBaseData.h" />
     <ClInclude Include="EButtonInputSearchItem.h" />
     <ClInclude Include="EButtonItemSearch.h" />
+    <ClInclude Include="EButtonRemoveBaseData.h" />
     <ClInclude Include="EButtonService.h" />
     <ClInclude Include="ECamera.h" />
     <ClInclude Include="EColor.h" />

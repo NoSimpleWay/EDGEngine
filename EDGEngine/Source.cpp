@@ -469,9 +469,9 @@ void parse_loot_filter_data(string _path)
 								just_created_block->is_show = false;
 							}
 
-							if (subdata == "Corrupted") { parser_mode = Enums::ParserMode::IS_CORRUPTED; just_created_block->is_corrupted_active = true; }
-							if (subdata == "LinkedSockets") { parser_mode = Enums::ParserMode::LINKED_SOCKETS; just_created_block->is_links_active = true; }
-							if (subdata == "Rarity") { parser_mode = Enums::ParserMode::RARITY; just_created_block->is_item_rarity_active = true; }
+							if (subdata == "Corrupted") { parser_mode = Enums::ParserMode::IS_CORRUPTED; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED) = true; }
+							if (subdata == "LinkedSockets") { parser_mode = Enums::ParserMode::LINKED_SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_LINKS) = true; }
+							if (subdata == "Rarity") { parser_mode = Enums::ParserMode::RARITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_RARITY) = true; }
 							if (subdata == "Class") { parser_mode = Enums::ParserMode::CLASS; }
 
 							if (subdata == "SetFontSize") { parser_mode = Enums::ParserMode::FONT_SIZE; just_created_block->is_font_size_active = true;}
@@ -485,29 +485,29 @@ void parse_loot_filter_data(string _path)
 
 							if (subdata == "BaseType") { parser_mode = Enums::ParserMode::BASETYPE; }
 
-							if (subdata == "ShaperItem") { parser_mode = Enums::ParserMode::IS_SHAPER_ITEM; just_created_block->is_shaper_item_active = true;}
-							if (subdata == "ItemLevel") { parser_mode = Enums::ParserMode::ITEM_LEVEL; just_created_block->is_item_level_active = true; }
+							if (subdata == "ShaperItem") { parser_mode = Enums::ParserMode::IS_SHAPER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM) = true;}
+							if (subdata == "ItemLevel") { parser_mode = Enums::ParserMode::ITEM_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL) = true; }
 							if (subdata == "HasExplicitMod") { parser_mode = Enums::ParserMode::EXPLICIT_MOD; }
 							if (subdata == "Identified") { parser_mode = Enums::ParserMode::IDENTIFIED; just_created_block->is_identified_active = true;}
-							if (subdata == "ElderItem") { parser_mode = Enums::ParserMode::IS_ELDER_ITEM; just_created_block->is_elder_item_active = true; }
-							if (subdata == "Sockets") { parser_mode = Enums::ParserMode::SOCKETS; just_created_block->is_socket_active = true; }
-							if (subdata == "FracturedItem") { parser_mode = Enums::ParserMode::IS_FRACTURED_ITEM; just_created_block->is_fractured_item_active = true; }
-							if (subdata == "DropLevel") { parser_mode = Enums::ParserMode::DROP_LEVEL; just_created_block->is_required_level_active = true; }
+							if (subdata == "ElderItem") { parser_mode = Enums::ParserMode::IS_ELDER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_ITEM) = true; }
+							if (subdata == "Sockets") { parser_mode = Enums::ParserMode::SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS) = true; }
+							if (subdata == "FracturedItem") { parser_mode = Enums::ParserMode::IS_FRACTURED_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_FRACTURED) = true; }
+							if (subdata == "DropLevel") { parser_mode = Enums::ParserMode::DROP_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_REQUIRED_LEVEL) = true; }
 
-							if (subdata == "Width") { parser_mode = Enums::ParserMode::WIDTH; just_created_block->is_item_width_active = true; }
-							if (subdata == "Height") { parser_mode = Enums::ParserMode::HEIGHT; just_created_block->is_item_height_active = true; }
+							if (subdata == "Width") { parser_mode = Enums::ParserMode::WIDTH; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_WIDTH) = true; }
+							if (subdata == "Height") { parser_mode = Enums::ParserMode::HEIGHT; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_HEIGHT) = true; }
 
-							if (subdata == "SynthesisedItem") { parser_mode = Enums::ParserMode::IS_SYNTHESISED_ITEM; just_created_block->is_synthesised_item_active = true; }
-							if (subdata == "AnyEnchantment") { parser_mode = Enums::ParserMode::IS_ANY_ENCHANTMENT; just_created_block->is_enchantment_item_active = true; }
+							if (subdata == "SynthesisedItem") { parser_mode = Enums::ParserMode::IS_SYNTHESISED_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SYNTHESISED) = true; }
+							if (subdata == "AnyEnchantment") { parser_mode = Enums::ParserMode::IS_ANY_ENCHANTMENT; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ENCHANTMENT) = true; }
 
-							if (subdata == "Quality") { parser_mode = Enums::ParserMode::QUALITY; just_created_block->is_item_qualityt_active = true; }
-							if (subdata == "SocketGroup") { parser_mode = Enums::ParserMode::SOCKET_GROUP; just_created_block->is_socket_group_active = true; }
-							if (subdata == "StackSize") { parser_mode = Enums::ParserMode::STACK_SIZE; just_created_block->is_stack_size_active = true; }
-							if (subdata == "GemLevel") { parser_mode = Enums::ParserMode::GEM_LEVEL; just_created_block->is_gem_level_active = true; }
+							if (subdata == "Quality") { parser_mode = Enums::ParserMode::QUALITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_QUALITY) = true; }
+							if (subdata == "SocketGroup") { parser_mode = Enums::ParserMode::SOCKET_GROUP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP) = true; }
+							if (subdata == "StackSize") { parser_mode = Enums::ParserMode::STACK_SIZE; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_STACK_SIZE) = true; }
+							if (subdata == "GemLevel") { parser_mode = Enums::ParserMode::GEM_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_GEM_LEVEL) = true; }
 
-							if (subdata == "ElderMap") { parser_mode = Enums::ParserMode::IS_ELDER_MAP; just_created_block->is_elder_map_active = true; }
-							if (subdata == "ShapedMap") { parser_mode = Enums::ParserMode::IS_SHAPER_MAP; just_created_block->is_shaper_map_active = true; }
-							if (subdata == "MapTier") { parser_mode = Enums::ParserMode::MAP_TIER; just_created_block->is_map_tier_active = true; }
+							if (subdata == "ElderMap") { parser_mode = Enums::ParserMode::IS_ELDER_MAP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_MAP) = true; }
+							if (subdata == "ShapedMap") { parser_mode = Enums::ParserMode::IS_SHAPER_MAP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_MAP) = true; }
+							if (subdata == "MapTier") { parser_mode = Enums::ParserMode::MAP_TIER; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MAP_TIER) = true; }
 
 							if (subdata == "DisableDropSound") { parser_mode = Enums::ParserMode::DISABLE_DROP_SOUND; just_created_block->disable_drop_sound = true; }
 							if (subdata == "Prophecy") { parser_mode = Enums::ParserMode::PROPHECY; just_created_block->is_prophecy_active = true; }
