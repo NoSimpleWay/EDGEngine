@@ -314,14 +314,14 @@
 
 			if (text != "")
 			{
-				_batch->setcolor(0.0f, 0.0f, 0.0f, 1.0f);
-				EFont::font_arial->draw(_batch, text, master_position_x + 2+added_x, master_position_y + (button_size_y-20.0f)/2.0f+3.0f);
+				_batch->setcolor(0.0f, 0.0f, 0.0f, 0.75f);
+				EFont::font_arial->draw(_batch, text, master_position_x + 2+added_x, master_position_y + round((button_size_y-20.0f)/2.0f+3.0f));
 			}
 
 			if ((text == "")&&(input_hint!=""))
 			{
 				_batch->setcolor(0.5f, 0.5f, 0.5f, 1.0f);
-				EFont::font_arial->draw(_batch, input_hint, master_position_x + 2+added_x, master_position_y + (button_size_y - 20.0f) / 2.0f + 3.0f);
+				EFont::font_arial->draw(_batch, input_hint, master_position_x + 2+added_x, master_position_y + round((button_size_y - 20.0f) / 2.0f + 3.0f));
 			}
 
 			if (is_input_mode_active)

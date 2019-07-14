@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Batcher.h"
 #include <fstream>
+#include <math.h>
 
 using namespace std;
 
@@ -88,8 +89,8 @@ bool compare_with_key(string _data, string _key)
 void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 {
 	
-	if (align_x == Enums::PositionMode::MID)	{ _x -= get_width(this, _s)/2.0f; }
-	if (align_x == Enums::PositionMode::RIGHT)	{ _x -= get_width(this, _s); }
+	if (align_x == Enums::PositionMode::MID) { _x -= get_width(this, _s) / 2.0f; _x = round(_x); }
+	if (align_x == Enums::PositionMode::RIGHT) { _x -= get_width(this, _s); _x = round(_x); }
 
 	for (int sym = 0; sym < _s.length(); sym++)
 	{

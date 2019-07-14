@@ -32,12 +32,17 @@ public:
 	EWindow(int _id);
 	~EWindow();
 
-	void update(float _d);
+	virtual void update(float _d);
+	void default_update(float _d);
 	void defaul_draw(Batcher* _batch);
+	void default_text_pass(Batcher* _batch);
 
 	string name;
 
 	bool is_overlap();
+
+	
+	
 
 	virtual void draw(Batcher* _batch, float _delta);
 	virtual void button_event(EButton* _b);
@@ -52,5 +57,7 @@ public:
 
 	Enums::PositionMode align_x = Enums::PositionMode::MID;
 	Enums::PositionMode align_y = Enums::PositionMode::MID;
+
+	std::vector<EButton*> button_list;
 };
 

@@ -28,4 +28,6 @@ public:
 	static EGabarite* gabarite_plus;
 	static EGabarite* gabarite_checked;
 	static EGabarite* gabarite_unchecked;
+	static EGabarite* gabarite_remove;
+	static EGabarite* gabarite_plus_wide;
 };

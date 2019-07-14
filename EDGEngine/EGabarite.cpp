@@ -27,3 +27,5 @@ EGabarite* DefaultGabarite::gabarite_undefined=NULL;
 EGabarite* DefaultGabarite::gabarite_plus=NULL;
 EGabarite* DefaultGabarite::gabarite_checked =NULL;
 EGabarite* DefaultGabarite::gabarite_unchecked =NULL;
+EGabarite* DefaultGabarite::gabarite_remove =NULL;
+EGabarite* DefaultGabarite::gabarite_plus_wide =NULL;

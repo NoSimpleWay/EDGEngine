@@ -17,6 +17,7 @@
 #include "EButtonService.h"
 #include "EButtonCheck.h"
 #include "EButtonRemoveBaseData.h"
+#include "EButtonPlusWide.h"
 //#include "EButton.cpp"
 
 
@@ -114,7 +115,10 @@
 		}
 
 		base_filter_data_active.push_back(false);
-		EButton* but_remove = new EButtonRemoveBaseData(0, 0, 37, 37, _button_type);
+
+		EButton* but_remove = new EButtonRemoveBaseData(0, 0, 17, 17, _button_type);
+		but_remove->master_window = StaticData::window_filter_block;
+		but_remove->master_block = this;
 		but_remove->data_id = _id;
 
 		base_filter_data_remove_buttons.push_back(but_remove);
@@ -141,6 +145,10 @@
 		button_service->master_block = this;
 		button_service->master_window = StaticData::window_filter_block;
 		button_service->gabarite = DefaultGabarite::gabarite_undefined;
+
+		button_add_new_base_data = new EButtonPlusWide(0, 0, 17, 17,Enums::ButtonType::BUTTON_FILTER_BLOCK_TO_CONSOLE);
+		button_add_new_base_data->master_block = this;
+		button_add_new_base_data->master_window = StaticData::window_filter_block;
 
 		//std::cout << "_______________________________________ " << std::endl;
 		add_base_buttons("Rarity",				Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false,	0);//0
@@ -188,6 +196,7 @@
 		}
 
 		button_plus->update(_d);
+		
 		//button_service->update(_d);
 
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
@@ -211,23 +220,35 @@
 					base_filter_condition_list.at(i)->button_y = size_y-data_y;
 
 					base_filter_condition_list.at(i)->update(_d);
-					
 
 					base_filter_buttons.at(i)->button_x = data_x + 35;
 					base_filter_buttons.at(i)->button_y = size_y - data_y;
 				}
 				else
 				{
-
 					base_filter_buttons.at(i)->button_x = data_x;
 					base_filter_buttons.at(i)->button_y = size_y - data_y;
 				}
+
+
+
+				base_filter_data_remove_buttons.at(i)->button_x = x-5;
+				base_filter_data_remove_buttons.at(i)->button_y = size_y - data_y;
+
+				
+				
+				base_filter_data_remove_buttons.at(i)->update(_d);
 
 
 				base_filter_buttons.at(i)->update(_d);
 
 				data_y += _data_y_offset;
 			}
+
+			button_add_new_base_data->button_x = x-5;
+			button_add_new_base_data->button_y = size_y - data_y;
+
+			button_add_new_base_data->update(_d);
 	}
 
 	void FilterBlock::draw(Batcher* _batch)
@@ -295,6 +316,7 @@
 		button_plus->button_y = temp_pos_y;
 
 		button_plus->draw(_batch);
+		button_add_new_base_data->draw(_batch);
 		//button_service->draw(_batch);
 
 		/*for (int i = 0; i < filter_flock_button_list.size(); i++)
@@ -315,6 +337,9 @@
 		{
 			if (base_filter_data_active.at(i))
 			{
+				_batch->setcolor_alpha(EColorCollection::WHITE, 0.17f);
+				_batch->draw_rect_with_uv(data_x - 150, y + size_y - data_y - 3, 155, 21, DefaultGabarite::gabarite_white);
+
 				EFont::font_arial->align_x = Enums::RIGHT;
 				_batch->setcolor(EColorCollection::BLACK);
 
@@ -322,11 +347,17 @@
 				
 				if (base_filter_condition_list.at(i) != NULL)
 				{
-					base_filter_condition_list.at(i)->description_text = std::to_string(size_y - data_y);
+					//base_filter_condition_list.at(i)->description_text = std::to_string(size_y - data_y);
 					base_filter_condition_list.at(i)->draw(_batch);
+				}
+				else
+				{
+					//base_filter_data_remove_buttons.at(i)->button_x = 0;
+					//base_filter_data_remove_buttons.at(i)->button_y = 0;
 				}
 
 				base_filter_buttons.at(i)->draw(_batch);
+				base_filter_data_remove_buttons.at(i)->draw(_batch);
 
 				_batch->setcolor_alpha(EColorCollection::BLACK, 0.17f);
 				_batch->draw_rama(data_x - 150, y + size_y - data_y - 3, 155, 21, 1, DefaultGabarite::gabarite_white);
@@ -443,9 +474,12 @@
 			{
 				if (base_filter_condition_list.at(i)!=NULL) { base_filter_condition_list.at(i)->text_pass(_batch); }
 				base_filter_buttons.at(i)->text_pass(_batch);
+
+				base_filter_data_remove_buttons.at(i)->text_pass(_batch);
 			}
 		}
 		button_plus->text_pass(_batch);
+		button_add_new_base_data->text_pass(_batch);
 		//button_service->text_pass(_batch);
 		
 		//EFont::font_arial->draw(_batch, std::to_string(y), x, y);

@@ -1,6 +1,6 @@
-#include "EButtonRemoveBaseData.h"
+#include "EButtonPlusWide.h"
 
-EButtonRemoveBaseData::EButtonRemoveBaseData(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type):EButton(_x,_y,_sx,_sy)
+EButtonPlusWide::EButtonPlusWide(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type):EButton(_x,_y,_sx,_sy)
 {
 	master_position = Enums::PositionMaster::FILTER_BLOCK;
 
@@ -15,7 +15,7 @@ EButtonRemoveBaseData::EButtonRemoveBaseData(float _x, float _y, float _sx, floa
 	is_drop_list = false;
 	can_be_removed = false;
 
-	gabarite = DefaultGabarite::gabarite_remove;
+	gabarite = DefaultGabarite::gabarite_plus;
 
 	rama_thikness = 1;
 
@@ -26,7 +26,7 @@ EButtonRemoveBaseData::EButtonRemoveBaseData(float _x, float _y, float _sx, floa
 	button_type = _type;
 }
 
-void EButtonRemoveBaseData::click_event()
+void EButtonPlusWide::click_event()
 {
-	master_block->base_filter_data_active.at(data_id) = false;
+	StaticData::window_add_new_base_data->button_event(this);
 }

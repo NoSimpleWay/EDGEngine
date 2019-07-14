@@ -105,6 +105,12 @@
     <ClCompile Include="EButtonRemoveBaseData.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="EButtonPlusWide.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonAddNewBaseData.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -187,6 +193,15 @@
     </ClInclude>
     <ClInclude Include="EButtonRemoveBaseData.h">
       <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonPlusWide.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonAddNewBaseData.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EWindowAddNewBaseData.cpp">
+      <Filter>Source Files\windows</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

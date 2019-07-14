@@ -161,6 +161,7 @@ std::vector<EWindow*> window_list;
 
 EWindowFilterBlock* StaticData::window_filter_block = NULL;
 EWindowFindItem* StaticData::window_find_item = NULL;
+EWindowAddNewBaseData* StaticData::window_add_new_base_data = NULL;
 
 
 //0		-	1
@@ -1431,12 +1432,14 @@ int main()
 	just_created_gabarite->y2 -= 1 / 4096.0f;
 	DefaultGabarite::gabarite_white = just_created_gabarite;
 	
-	put_texture_to_atlas("data/undefined.png"); DefaultGabarite::gabarite_undefined = just_created_gabarite;
-	put_texture_to_atlas("data/plus.png"); DefaultGabarite::gabarite_plus = just_created_gabarite;
+	put_texture_to_atlas("data/undefined.png");				DefaultGabarite::gabarite_undefined = just_created_gabarite;
+	put_texture_to_atlas("data/plus.png");					DefaultGabarite::gabarite_plus = just_created_gabarite;
 
 	
-	put_texture_to_atlas("data/checked.png"); DefaultGabarite::gabarite_checked = just_created_gabarite;
-	put_texture_to_atlas("data/unchecked.png"); DefaultGabarite::gabarite_unchecked = just_created_gabarite;
+	put_texture_to_atlas("data/checked.png");				DefaultGabarite::gabarite_checked = just_created_gabarite;
+	put_texture_to_atlas("data/unchecked.png");				DefaultGabarite::gabarite_unchecked = just_created_gabarite;
+	put_texture_to_atlas("data/button_remove.png");			DefaultGabarite::gabarite_remove = just_created_gabarite;
+	put_texture_to_atlas("data/button_plus_wide.png");		DefaultGabarite::gabarite_plus_wide = just_created_gabarite;
 	
 
 
@@ -1451,6 +1454,10 @@ int main()
 	StaticData::window_find_item = new EWindowFindItem(1);
 	StaticData::window_filter_block->name = "Search item";
 	window_list.push_back(StaticData::window_find_item);
+
+	StaticData::window_add_new_base_data = new EWindowAddNewBaseData(2);
+	StaticData::window_add_new_base_data->name = "Add new base data to filter block";
+	window_list.push_back(StaticData::window_add_new_base_data);
 
 		load_texture("data/white_pixel.png", 0);
 		batch->reset();
@@ -1631,6 +1638,7 @@ int main()
 			if (w->is_active)
 			{
 
+				w->default_update(delta_time);
 				w->update(delta_time);
 				w->defaul_draw(batch);
 				w->draw(batch, delta_time);
@@ -1638,6 +1646,7 @@ int main()
 
 			if (w->is_active)
 			{
+				w->default_text_pass(batch);
 				w->text_pass(batch);
 			}
 		}

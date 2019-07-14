@@ -19,6 +19,7 @@ class EButtonDropRarity;
 class EButtonService;
 class EButtonCheck;
 class EButtonRemoveBaseData;
+class EButtonPlusWide;
 
 class FilterBlock
 {
@@ -150,6 +151,7 @@ public:
 
 	EButtonFilterItem* button_plus;
 	EButtonService* button_service;
+	EButtonPlusWide* button_add_new_base_data;
 
 	int max_h = 200;
 
