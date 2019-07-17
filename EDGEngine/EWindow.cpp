@@ -59,7 +59,7 @@ void EWindow::defaul_draw(Batcher* _batch)
 
 	for (EButton* b : button_list)
 	{
-		b->draw(_batch);
+		b->default_draw(_batch);
 	}
 
 }

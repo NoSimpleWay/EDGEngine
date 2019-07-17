@@ -35,7 +35,7 @@ public:
 	float bound_size_right = 0;
 	float bound_size_up = 0;
 	float bound_size_down = 0;
-
+	
 	bool is_expanded = false;
 	bool is_drop_list = false;
 
@@ -82,7 +82,11 @@ public:
 	bool is_click();
 	bool is_right_click();
 	void update(float _d);
-	void draw(Batcher* _batch);
+
+	virtual void draw(Batcher* _batch);
+	void default_draw(Batcher* _batch);
+	
+
 	void text_pass(Batcher* _batch);
 	virtual void incoming_data(FilterBlock* _block);
 

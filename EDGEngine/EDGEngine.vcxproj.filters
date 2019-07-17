@@ -111,6 +111,12 @@
     <ClCompile Include="EButtonAddNewBaseData.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="EButtonSocketGroup.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonChange.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -201,6 +207,15 @@
       <Filter>Header Files\Button</Filter>
     </ClInclude>
     <ClInclude Include="EWindowAddNewBaseData.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonSocketGroup.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonChange.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EWindowSocketGroup.cpp">
       <Filter>Source Files\windows</Filter>
     </ClInclude>
   </ItemGroup>

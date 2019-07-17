@@ -15,6 +15,7 @@ EButtonCheck::EButtonCheck(float _x, float _y, float _sx, float _sy, Enums::Butt
 
 void EButtonCheck::click_event()
 {
+	std::cout << "C L I C K" << std::endl;
 	is_checked = !is_checked;
 
 	if (is_checked)

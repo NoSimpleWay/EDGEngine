@@ -18,6 +18,7 @@
 #include "EButtonCheck.h"
 #include "EButtonRemoveBaseData.h"
 #include "EButtonPlusWide.h"
+#include "EButtonSocketGroup.h"
 //#include "EButton.cpp"
 
 
@@ -79,29 +80,34 @@
 
 			if (_button_type!=Enums::ButtonType::BUTTON_RARITY)
 			{
-				but = new EButtonInputBaseData(0, 0, 65, 17, _button_type);
-
+				if (_button_type == Enums::ButtonType::BUTTON_SOCKET_GROUP) { but = new EButtonSocketGroup(0, 0, 100, 17, _button_type); }
+				else
 				if
-					(
-						(_button_type == Enums::ButtonType::BUTTON_SHAPER_ITEM) ||
-						(_button_type == Enums::ButtonType::BUTTON_SHAPER_MAP) ||
-						(_button_type == Enums::ButtonType::BUTTON_ELDER_ITEM) ||
-						(_button_type == Enums::ButtonType::BUTTON_ELDER_MAP) ||
+				(
+					(_button_type == Enums::ButtonType::BUTTON_SHAPER_ITEM) ||
+					(_button_type == Enums::ButtonType::BUTTON_SHAPER_MAP) ||
+					(_button_type == Enums::ButtonType::BUTTON_ELDER_ITEM) ||
+					(_button_type == Enums::ButtonType::BUTTON_ELDER_MAP) ||
 
-						(_button_type == Enums::ButtonType::BUTTON_CORRUPTION) ||
-						(_button_type == Enums::ButtonType::BUTTON_FRACTURED) ||
-						(_button_type == Enums::ButtonType::BUTTON_SYNTHESISED) ||
-						(_button_type == Enums::ButtonType::BUTTON_IDENTIFIED) ||
-						(_button_type == Enums::ButtonType::BUTTON_ANY_ENCHANTMENT)
-					)
+					(_button_type == Enums::ButtonType::BUTTON_CORRUPTION) ||
+					(_button_type == Enums::ButtonType::BUTTON_FRACTURED) ||
+					(_button_type == Enums::ButtonType::BUTTON_SYNTHESISED) ||
+					(_button_type == Enums::ButtonType::BUTTON_IDENTIFIED) ||
+					(_button_type == Enums::ButtonType::BUTTON_ANY_ENCHANTMENT)
+				)
 				{
 					//cout << "Запилил" << endl;
 					but = new EButtonCheck(0, 0, 20, 20, _button_type);
+				}
+				else
+				{
+					but = new EButtonInputBaseData(0, 0, 65, 17, _button_type);
 				}
 			}
 			else
 			{
 				if (_button_type == Enums::ButtonType::BUTTON_RARITY) { but = new EButtonDropRarity(0, 0, 65, 17, _button_type);}
+				//if (_button_type == Enums::ButtonType::BUTTON_SOCKET_GROUP) { but = new EButtonDropRarity(0, 0, 16, 17, _button_type);}
 			}
 
 			but->master_block = this;
@@ -295,6 +301,7 @@
 			filter_block_items_button_list.at(i)->button_x = temp_pos_x;
 			filter_block_items_button_list.at(i)->button_y = temp_pos_y;
 
+			filter_block_items_button_list.at(i)->default_draw(_batch);
 			filter_block_items_button_list.at(i)->draw(_batch);
 			//filter_block_items_button_list.at(i)->text_pass(EFont::font, _batch);
 
@@ -315,7 +322,10 @@
 		button_plus->button_x = temp_pos_x;
 		button_plus->button_y = temp_pos_y;
 
+		button_plus->default_draw(_batch);
 		button_plus->draw(_batch);
+
+		button_add_new_base_data->default_draw(_batch);
 		button_add_new_base_data->draw(_batch);
 		//button_service->draw(_batch);
 
@@ -348,6 +358,7 @@
 				if (base_filter_condition_list.at(i) != NULL)
 				{
 					//base_filter_condition_list.at(i)->description_text = std::to_string(size_y - data_y);
+					base_filter_condition_list.at(i)->default_draw(_batch);
 					base_filter_condition_list.at(i)->draw(_batch);
 				}
 				else
@@ -356,7 +367,10 @@
 					//base_filter_data_remove_buttons.at(i)->button_y = 0;
 				}
 
+				base_filter_buttons.at(i)->default_draw(_batch);
 				base_filter_buttons.at(i)->draw(_batch);
+
+				base_filter_data_remove_buttons.at(i)->default_draw(_batch);
 				base_filter_data_remove_buttons.at(i)->draw(_batch);
 
 				_batch->setcolor_alpha(EColorCollection::BLACK, 0.17f);

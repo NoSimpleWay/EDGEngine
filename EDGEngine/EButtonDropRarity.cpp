@@ -60,3 +60,9 @@ void EButtonDropRarity::drop_list_select_event()
 		master_block->item_rarity = text;
 	}
 }
+
+void EButtonDropRarity::draw(Batcher* _batch)
+{
+	/*_batch->setcolor(EColorCollection::RED);
+	_batch->draw_rect_with_uv(master_position_x, master_position_y, 100, 20, DefaultGabarite::gabarite_white);*/
+}

@@ -247,7 +247,7 @@
 
 	}
 
-	void EButton::draw(Batcher* _batch)
+	void EButton::default_draw(Batcher* _batch)
 	{
 		//std::cout << "!" << std::endl;
 		
@@ -343,6 +343,13 @@
 			_batch->draw_rama(master_position_x, master_position_y, button_size_x, button_size_y,rama_thikness,DefaultGabarite::gabarite_white);
 		}
 
+		draw(_batch);
+
+	}
+
+	void EButton::draw(Batcher* _batch)
+	{
+		//std::cout << "Default" << std::endl;
 	}
 
 	void EButton::text_pass(Batcher* _batch)

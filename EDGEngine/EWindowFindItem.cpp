@@ -74,7 +74,7 @@ public:
 				b->button_y = by;
 
 				b->update(_delta);
-				b->draw(_batch);
+				b->default_draw(_batch);
 
 				bx += 43;
 				
@@ -105,7 +105,7 @@ public:
 		}
 
 		input_button->update(_delta);
-		input_button->draw(_batch);
+		input_button->default_draw(_batch);
 	}
 
 	virtual void text_pass(EFont* _font, Batcher* _batch)

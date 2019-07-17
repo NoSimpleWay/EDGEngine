@@ -162,6 +162,7 @@ std::vector<EWindow*> window_list;
 EWindowFilterBlock* StaticData::window_filter_block = NULL;
 EWindowFindItem* StaticData::window_find_item = NULL;
 EWindowAddNewBaseData* StaticData::window_add_new_base_data = NULL;
+EWindowSocketGroup* StaticData::window_socket_group = NULL;
 
 
 //0		-	1
@@ -894,21 +895,21 @@ void parse_loot_filter_data(string _path)
 
 							if ((data_order == 1) && (!check_is_condition_symbols(subdata)))
 							{
-								if (show_info_to_console) { cout << "set quality as <" << subdata << ">" << endl; }
-								just_created_block->item_quality = std::stoi(subdata);
-								just_created_block->item_quality_condition = "=";
+								if (show_info_to_console) { cout << "set stack size as <" << subdata << ">" << endl; }
+								just_created_block->item_stack_size = std::stoi(subdata);
+								just_created_block->item_stack_size_condition = "=";
 							}
 
 							if ((data_order == 1) && (check_is_condition_symbols(subdata)))
 							{
-								if (show_info_to_console) { cout << "set hqualityeight condition as <" << subdata << ">" << endl; }
-								just_created_block->item_quality_condition = subdata;
+								if (show_info_to_console) { cout << "set stack size condition as <" << subdata << ">" << endl; }
+								just_created_block->item_stack_size_condition = subdata;
 							}
 
 							if (data_order == 2)
 							{
-								if (show_info_to_console) { cout << "set quality as <" << subdata << ">" << endl; }
-								just_created_block->item_quality = std::stoi(subdata);
+								if (show_info_to_console) { cout << "set stack size as <" << subdata << ">" << endl; }
+								just_created_block->item_stack_size = std::stoi(subdata);
 							}
 						}
 						
@@ -1440,6 +1441,9 @@ int main()
 	put_texture_to_atlas("data/unchecked.png");				DefaultGabarite::gabarite_unchecked = just_created_gabarite;
 	put_texture_to_atlas("data/button_remove.png");			DefaultGabarite::gabarite_remove = just_created_gabarite;
 	put_texture_to_atlas("data/button_plus_wide.png");		DefaultGabarite::gabarite_plus_wide = just_created_gabarite;
+
+	put_texture_to_atlas("data/button_increase.png");		DefaultGabarite::gabarite_increase = just_created_gabarite;
+	put_texture_to_atlas("data/button_decrease.png");		DefaultGabarite::gabarite_decrease = just_created_gabarite;
 	
 
 
@@ -1458,6 +1462,10 @@ int main()
 	StaticData::window_add_new_base_data = new EWindowAddNewBaseData(2);
 	StaticData::window_add_new_base_data->name = "Add new base data to filter block";
 	window_list.push_back(StaticData::window_add_new_base_data);
+
+	StaticData::window_socket_group = new EWindowSocketGroup(3);
+	StaticData::window_socket_group->name = "Change socket colors";
+	window_list.push_back(StaticData::window_socket_group);
 
 		load_texture("data/white_pixel.png", 0);
 		batch->reset();

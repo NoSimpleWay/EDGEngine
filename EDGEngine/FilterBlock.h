@@ -20,6 +20,7 @@ class EButtonService;
 class EButtonCheck;
 class EButtonRemoveBaseData;
 class EButtonPlusWide;
+class EButtonSocketGroup;
 
 class FilterBlock
 {
