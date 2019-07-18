@@ -1,9 +1,16 @@
 #include "EWindow.h"
 #include "EControl.h"
+#include "EButtonClose.h"
 
 EWindow::EWindow(int _id)
 {
 	id = _id;
+
+	EButton* but = new EButtonClose(0, 0, 16, 16);
+	but->master_window = this;
+	button_list.push_back(but);
+
+	//button_list.push_back
 }
 
 EWindow::~EWindow()

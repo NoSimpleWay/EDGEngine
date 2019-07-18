@@ -15,17 +15,40 @@ EButtonChange::EButtonChange(float _x, float _y, float _sx, float _sy, Enums::Bu
 		description_text = "Decrease value";
 	}
 
+	is_increase = _inc;
+
 	have_rama = false;
 
 	master_position = Enums::PositionMaster::WINDOW;
 
 	have_text = false;
+	button_type = _type;
 
 	
 }
 
 void EButtonChange::click_event()
 {
+	if (button_type == Enums::ButtonType::BUTTON_SOCKET_RED)
+	{
+		std::cout << "red " << master_block->red_sockets << std::endl;
+		if (is_increase) {master_block->red_sockets++; std::cout<<"increase "<<std::endl;} else {master_block->red_sockets--;}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SOCKET_GREEN)
+	{
+		if (is_increase) {master_block->green_sockets++;} else {master_block->green_sockets--;}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SOCKET_BLUE)
+	{
+		if (is_increase) {master_block->blue_sockets++;} else {master_block->blue_sockets--;}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SOCKET_WHITE)
+	{
+		if (is_increase) {master_block->white_sockets++;} else {master_block->white_sockets--;}
+	}
 
 }
 

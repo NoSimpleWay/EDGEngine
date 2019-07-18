@@ -31,7 +31,7 @@ void EButtonSocketGroup::draw(Batcher* _batch)
 		_batch->setcolor(EColorCollection::RED);
 		EFont::font_arial->draw(_batch, std::to_string(master_block->red_sockets),master_position_x+xx,master_position_y+2);
 
-		xx += 20;
+		xx += 15;
 	}
 
 	if (master_block->green_sockets > 0)
@@ -39,7 +39,7 @@ void EButtonSocketGroup::draw(Batcher* _batch)
 		_batch->setcolor(EColorCollection::GREEN);
 		EFont::font_arial->draw(_batch, std::to_string(master_block->green_sockets), master_position_x + xx, master_position_y+2);
 
-		xx += 20;
+		xx += 15;
 	}
 
 	if (master_block->blue_sockets > 0)
@@ -47,7 +47,7 @@ void EButtonSocketGroup::draw(Batcher* _batch)
 		_batch->setcolor(EColorCollection::BLUE);
 		EFont::font_arial->draw(_batch, std::to_string(master_block->blue_sockets), master_position_x + xx, master_position_y+2);
 
-		xx += 20;
+		xx += 15;
 	}
 
 	if (master_block->white_sockets > 0)
@@ -55,6 +55,6 @@ void EButtonSocketGroup::draw(Batcher* _batch)
 		_batch->setcolor(EColorCollection::WHITE);
 		EFont::font_arial->draw(_batch, std::to_string(master_block->white_sockets), master_position_x + xx, master_position_y+2);
 
-		xx += 20;
+		xx += 15;
 	}
 }

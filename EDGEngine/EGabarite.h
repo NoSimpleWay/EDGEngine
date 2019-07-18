@@ -32,4 +32,5 @@ public:
 	static EGabarite* gabarite_plus_wide;
 	static EGabarite* gabarite_increase;
 	static EGabarite* gabarite_decrease;
+	static EGabarite* gabarite_close;
 };

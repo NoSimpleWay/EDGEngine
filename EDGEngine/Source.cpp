@@ -1444,6 +1444,8 @@ int main()
 
 	put_texture_to_atlas("data/button_increase.png");		DefaultGabarite::gabarite_increase = just_created_gabarite;
 	put_texture_to_atlas("data/button_decrease.png");		DefaultGabarite::gabarite_decrease = just_created_gabarite;
+
+	put_texture_to_atlas("data/button_close.png");			DefaultGabarite::gabarite_close = just_created_gabarite;
 	
 
 
