@@ -272,9 +272,11 @@
 
 
 
-
-		_batch->setcolor(bg_color);
-		_batch->draw_rect_with_uv(master_position_x, master_position_y, button_size_x, button_size_y, DefaultGabarite::gabarite_white);
+		if (have_bg)
+		{
+			_batch->setcolor(bg_color);
+			_batch->draw_rect_with_uv(master_position_x, master_position_y, button_size_x, button_size_y, DefaultGabarite::gabarite_white);
+		}
 
 		float temp_w = 0;
 

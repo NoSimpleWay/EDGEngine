@@ -8,7 +8,7 @@ EWindow::EWindow(int _id)
 
 	EButton* but = new EButtonClose(0, 0, 16, 16);
 	but->master_window = this;
-	button_list.push_back(but);
+	default_button_list.push_back(but);
 
 	//button_list.push_back
 }
@@ -51,6 +51,11 @@ void EWindow::default_update(float _d)
 	{
 		b->update(_d);
 	}
+
+	for (EButton* b : default_button_list)
+	{
+		b->update(_d);
+	}
 }
 
 void EWindow::defaul_draw(Batcher* _batch)
@@ -69,6 +74,17 @@ void EWindow::defaul_draw(Batcher* _batch)
 		b->default_draw(_batch);
 	}
 
+	for (EButton* b : default_button_list)
+	{
+		b->default_draw(_batch);
+	}
+
+	if (have_rama)
+	{
+		_batch->setcolor(rama_color);
+		_batch->draw_rama(pos_x, pos_y, window_size_x, window_size_y, 2, DefaultGabarite::gabarite_white);
+	}
+
 }
 
 /*
@@ -79,12 +95,17 @@ bool EWindow::is_overlap()
 
 void EWindow::draw(Batcher* _batch, float _delta)
 {
-	std::cout << "F" << std::endl;
+	//std::cout << "F" << std::endl;
 }
 
 void EWindow::default_text_pass(Batcher* _batch)
 {
 	for (EButton* b : button_list)
+	{
+		b->text_pass(_batch);
+	}
+
+	for (EButton* b : default_button_list)
 	{
 		b->text_pass(_batch);
 	}

@@ -11,6 +11,9 @@ EButtonClose::EButtonClose(float _x, float _y, float _sx, float _sy): EButton(_x
 	position_mode_y = Enums::PositionMode::UP;
 
 	gabarite = DefaultGabarite::gabarite_close;
+
+	have_bg = false;
+	description_text = "Close window";
 }
 
 void EButtonClose::click_event()

@@ -30,7 +30,7 @@ public:
 
 
 		window_size_x = 75;
-		window_size_y = 105;
+		window_size_y = 125;
 
 		align_x = Enums::PositionMode::LEFT;
 		align_y = Enums::PositionMode::DOWN;
@@ -78,7 +78,7 @@ public:
 	virtual void button_event(EButton* _b)
 	{
 		relative_x = EControl::mouse_x;
-		relative_y = EControl::mouse_y;
+		relative_y = EControl::mouse_y-window_size_y;
 
 		for (EButton* b : button_list)
 		{

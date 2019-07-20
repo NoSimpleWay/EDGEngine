@@ -59,5 +59,9 @@ public:
 	Enums::PositionMode align_y = Enums::PositionMode::MID;
 
 	std::vector<EButton*> button_list;
+	std::vector<EButton*> default_button_list;
+
+	bool have_rama = true;
+	EColor* rama_color = new EColor(1.0f, 1.0f, 1.0f, 1.0f);
 };
 

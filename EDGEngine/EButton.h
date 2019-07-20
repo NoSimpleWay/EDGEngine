@@ -81,6 +81,7 @@ public:
 	bool is_overlap();
 	bool is_click();
 	bool is_right_click();
+	bool have_bg = true;
 	void update(float _d);
 
 	virtual void draw(Batcher* _batch);
