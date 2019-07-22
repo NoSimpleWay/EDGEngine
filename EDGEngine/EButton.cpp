@@ -11,6 +11,8 @@
 
 #include "FilterBlock.h"
 
+#include "EUtils.h"
+
 
 
 	int EButton::top_window_id=-1;
@@ -119,7 +121,13 @@
 		if (master_position == Enums::PositionMaster::FILTER_BLOCK)
 		{
 			if (position_mode_x == Enums::PositionMode::LEFT) { master_position_x = master_block->x + button_x; }
+			if (position_mode_x == Enums::PositionMode::RIGHT) { master_position_x = master_block->x + button_x-button_size_x+master_block->size_x;}
+
+
+			if (position_mode_y == Enums::PositionMode::UP) { master_position_y = master_block->y + button_y+master_block->size_y-button_size_y; }
 			if (position_mode_y == Enums::PositionMode::DOWN) { master_position_y = master_block->y + button_y; }
+
+
 		}
 
 		if (master_position == Enums::PositionMaster::WINDOW)
@@ -149,7 +157,7 @@
 		{
 			
 
-			EControl::button_pressed = true;
+			if (!is_holdable) { EControl::button_pressed = true; }
 			std::cout << "Button pressed" << std::endl;
 
 			if (is_drop_list)
@@ -175,7 +183,22 @@
 				is_input_mode_active = true;
 			}
 
+			
+			if (is_slider) { slider_activate = true; }
 			click_event();
+		}
+
+		if (!EControl::mouse_pressed)
+		{
+			slider_activate = false;
+		}
+
+		if ((is_slider)&&(slider_activate))
+		{
+			slider_value = (EControl::mouse_x - master_position_x) / button_size_x;
+			slider_value = EMath::clamp_value_float(slider_value, 0.0f, 1.0f);
+
+			slide_drag_event();
 		}
 
 		if (is_input_mode_active)
@@ -282,27 +305,36 @@
 
 
 
+
 		if (have_icon)
 		{
-			float mul_x = 1;
-			float mul_y = 1;
-
-			if ((gabarite->size_x > button_size_x) || (gabarite->size_y > button_size_y))
+			if (icon_adaptation)
 			{
-				if (gabarite->size_x > gabarite->size_y)
-				{
-					mul_x = button_size_x / gabarite->size_x;
-					mul_y = button_size_x / gabarite->size_x;
-				}
-				else
-				{
-					mul_x = button_size_y / gabarite->size_y;
-					mul_y = button_size_y / gabarite->size_y;
-				}
-			}
+				float mul_x = 1;
+				float mul_y = 1;
 
-			_batch->setcolor(EColorCollection::WHITE);
-			_batch->draw_rect_with_uv(master_position_x+(button_size_x- gabarite->size_x * mul_x)/2.0f, master_position_y, gabarite->size_x* mul_x, gabarite->size_y* mul_x, gabarite);
+				if ((gabarite->size_x > button_size_x) || (gabarite->size_y > button_size_y))
+				{
+					if (gabarite->size_x > gabarite->size_y)
+					{
+						mul_x = button_size_x / gabarite->size_x;
+						mul_y = button_size_x / gabarite->size_x;
+					}
+					else
+					{
+						mul_x = button_size_y / gabarite->size_y;
+						mul_y = button_size_y / gabarite->size_y;
+					}
+				}
+
+				_batch->setcolor(EColorCollection::WHITE);
+				_batch->draw_rect_with_uv(master_position_x + (button_size_x - gabarite->size_x * mul_x) / 2.0f, master_position_y, gabarite->size_x * mul_x, gabarite->size_y * mul_x, gabarite);
+			}
+			else
+			{
+				_batch->setcolor(EColorCollection::WHITE);
+				_batch->draw_rect_with_uv(master_position_x, master_position_y, button_size_x, button_size_y, gabarite);
+			}
 		}
 
 		if (have_text)
@@ -344,11 +376,17 @@
 			_batch->draw_rama(master_position_x, master_position_y, button_size_x, button_size_y,rama_thikness,DefaultGabarite::gabarite_white);
 		}
 
-		draw(_batch);
+		if (is_slider)
+		{
+			_batch->setcolor(EColorCollection::BLACK);
+			_batch->draw_rect_with_uv(master_position_x+(button_size_x-3.0f)*slider_value, master_position_y, 3, button_size_y,DefaultGabarite::gabarite_white);
+		}
+
+		additional_draw(_batch);
 
 	}
 
-	void EButton::draw(Batcher* _batch)
+	void EButton::additional_draw(Batcher* _batch)
 	{
 		//std::cout << "Default" << std::endl;
 	}
@@ -390,13 +428,22 @@
 
 		if ((have_description) && (is_overlap()))
 		{
+
+			float x_description= EControl::mouse_x + 13;
+			if (x_description + EFont::get_width(EFont::font_arial, description_text) + 3>EWindow::SCR_WIDTH)
+			{
+				x_description += EWindow::SCR_WIDTH - (x_description + EFont::get_width(EFont::font_arial, description_text) + 3);
+			}
+
+			EFont::font_arial->align_x=Enums::PositionMode::LEFT;
+
 			_batch->setcolor(EColorCollection::WHITE);
-			_batch->draw_rect_with_uv(EControl::mouse_x+13, EControl::mouse_y-5, EFont::get_width(EFont::font_arial,description_text)+3, 20, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(x_description, EControl::mouse_y-5, EFont::get_width(EFont::font_arial,description_text)+3, 20, DefaultGabarite::gabarite_white);
 
 			_batch->setcolor(EColorCollection::BLACK);
-			EFont::font_arial->draw(_batch, description_text, EControl::mouse_x+15, EControl::mouse_y -1);
+			EFont::font_arial->draw(_batch, description_text, x_description, EControl::mouse_y -1);
 
-			_batch->draw_rama(EControl::mouse_x + 13, EControl::mouse_y - 5, EFont::get_width(EFont::font_arial, description_text)+3, 20, 2, DefaultGabarite::gabarite_white);
+			_batch->draw_rama(x_description, EControl::mouse_y - 5, EFont::get_width(EFont::font_arial, description_text)+3, 20, 2, DefaultGabarite::gabarite_white);
 		}
 	}
 
@@ -422,5 +469,10 @@
 	void EButton::drop_list_select_event()
 	{
 	}
+
+	void EButton::slide_drag_event()
+	{
+	}
+
 
 

@@ -8,6 +8,7 @@ public:
 
 	void click_event();
 	virtual void input_finish_event();
+
 	//{
 	//	std::cout << " you are idiot? " << std::endl;
 	//}

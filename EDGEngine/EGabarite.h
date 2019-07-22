@@ -33,4 +33,14 @@ public:
 	static EGabarite* gabarite_increase;
 	static EGabarite* gabarite_decrease;
 	static EGabarite* gabarite_close;
+	static EGabarite* gabarite_visual_mode;
+
+	static EGabarite* gabarite_slider_hue;
+	static EGabarite* gabarite_slider_saturation;
+	static EGabarite* gabarite_slider_value;
+	static EGabarite* gabarite_slider_alpha;
+
+	static EGabarite* gabarite_visual_editor_bg;
+
+
 };

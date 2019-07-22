@@ -30,6 +30,7 @@ public:
 	bool is_input_mode_active = false;
 
 	bool is_active = true;
+	bool icon_adaptation = true;
 
 	float bound_size_left = 0;
 	float bound_size_right = 0;
@@ -43,6 +44,8 @@ public:
 	std::vector<string> drop_text;
 	bool have_list_color=false;
 	std::vector<EColor*> drop_list_color;
+
+	bool slider_activate = false;
 
 	EGabarite* gabarite=NULL;
 
@@ -84,7 +87,12 @@ public:
 	bool have_bg = true;
 	void update(float _d);
 
-	virtual void draw(Batcher* _batch);
+	bool is_holdable = false;
+
+	bool is_slider = false;
+	float slider_value;
+
+	virtual void additional_draw(Batcher* _batch);
 	void default_draw(Batcher* _batch);
 	
 
@@ -96,6 +104,8 @@ public:
 	virtual void input_event();
 	virtual void input_finish_event();
 	virtual void drop_list_select_event();
+
+	virtual void slide_drag_event();
 
 
 	static int top_window_id;

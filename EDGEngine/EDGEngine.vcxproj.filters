@@ -123,6 +123,15 @@
     <ClCompile Include="EButtonText.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="EUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EWindowFilterVisualEditor.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonSlider.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -229,6 +238,12 @@
     </ClInclude>
     <ClInclude Include="EButtonClose.h">
       <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonSlider.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EUtils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

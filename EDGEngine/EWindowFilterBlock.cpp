@@ -20,6 +20,9 @@ public:
 		align_y = Enums::PositionMode::DOWN;
 
 		have_bg = false;
+		have_shadow = false;
+
+		can_be_closed = false;
 
 	}
 

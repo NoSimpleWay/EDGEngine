@@ -147,10 +147,16 @@
 		button_plus->description_text = "Add new item";
 
 
+		/*
 		button_service = new EButtonService(0, 0, 45, 45,Enums::ButtonType::BUTTON_FILTER_BLOCK_TO_CONSOLE);
 		button_service->master_block = this;
 		button_service->master_window = StaticData::window_filter_block;
-		button_service->gabarite = DefaultGabarite::gabarite_undefined;
+		button_service->gabarite = DefaultGabarite::gabarite_undefined;*/
+
+		EButton* but = new EButtonService(-5,-5,30,30,Enums::ButtonType::BUTTON_SYS_VISUAL_MODE);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		button_list.push_back(but);
 
 		button_add_new_base_data = new EButtonPlusWide(0, 0, 17, 17,Enums::ButtonType::BUTTON_FILTER_BLOCK_TO_CONSOLE);
 		button_add_new_base_data->master_block = this;
@@ -200,6 +206,9 @@
 		{
 			filter_block_items_button_list.at(i)->update(_d);
 		}
+
+		for (EButton* b : button_list) { b->update(_d); }
+
 
 		button_plus->update(_d);
 		
@@ -262,7 +271,7 @@
 		max_h = 100;
 
 		
-
+		
 		
 
 		if (is_show)
@@ -302,7 +311,7 @@
 			filter_block_items_button_list.at(i)->button_y = temp_pos_y;
 
 			filter_block_items_button_list.at(i)->default_draw(_batch);
-			filter_block_items_button_list.at(i)->draw(_batch);
+			filter_block_items_button_list.at(i)->additional_draw(_batch);
 			//filter_block_items_button_list.at(i)->text_pass(EFont::font, _batch);
 
 			if (filter_block_items_button_list.at(i)->gabarite != NULL)
@@ -323,10 +332,10 @@
 		button_plus->button_y = temp_pos_y;
 
 		button_plus->default_draw(_batch);
-		button_plus->draw(_batch);
+		button_plus->additional_draw(_batch);
 
 		button_add_new_base_data->default_draw(_batch);
-		button_add_new_base_data->draw(_batch);
+		button_add_new_base_data->additional_draw(_batch);
 		//button_service->draw(_batch);
 
 		/*for (int i = 0; i < filter_flock_button_list.size(); i++)
@@ -359,7 +368,7 @@
 				{
 					//base_filter_condition_list.at(i)->description_text = std::to_string(size_y - data_y);
 					base_filter_condition_list.at(i)->default_draw(_batch);
-					base_filter_condition_list.at(i)->draw(_batch);
+					base_filter_condition_list.at(i)->additional_draw(_batch);
 				}
 				else
 				{
@@ -368,10 +377,9 @@
 				}
 
 				base_filter_buttons.at(i)->default_draw(_batch);
-				base_filter_buttons.at(i)->draw(_batch);
 
 				base_filter_data_remove_buttons.at(i)->default_draw(_batch);
-				base_filter_data_remove_buttons.at(i)->draw(_batch);
+				base_filter_data_remove_buttons.at(i)->additional_draw(_batch);
 
 				_batch->setcolor_alpha(EColorCollection::BLACK, 0.17f);
 				_batch->draw_rama(data_x - 150, y + size_y - data_y - 3, 155, 21, 1, DefaultGabarite::gabarite_white);
@@ -380,13 +388,14 @@
 			}
 		}
 
-
+		for (EButton* b : button_list) { b->default_draw(_batch); }
 
 		EFont::font_arial->align_x = Enums::LEFT;
 
 		if (data_y > max_h) { max_h = data_y; }
 
 		size_y = max_h;
+
 	}
 
 	void FilterBlock::add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)
@@ -412,6 +421,8 @@
 	void FilterBlock::text_pass(Batcher* _batch)
 	{
 		_batch->setcolor(1, 1, 1, 1);
+
+		for (EButton* b : button_list) { b->text_pass(_batch); }
 
 		/*
 
@@ -518,6 +529,8 @@
 			{b->incoming_data(this);}
 		}
 
+		change_color_consume(this);
+					
 		/*
 		base_filter_data_active.at(0)=is_item_rarity_active;
 		base_filter_data_active.at(1)=is_item_level_active;
@@ -538,5 +551,49 @@
 		base_filter_data_active.at(16)=is_fractured_item;
 		base_filter_data_active.at(17)=is_enchantment_item;*/
 		
+	}
+
+	void FilterBlock::change_color_consume(FilterBlock* _fb)
+	{
+		EMath::rgb temp_rgb;
+		EMath::hsv temp_hsv;
+
+		temp_rgb.r = _fb->bg_red;						temp_rgb.g = _fb->bg_green;							temp_rgb.b = _fb->bg_blue;
+		temp_hsv = EMath::rgb2hsv(temp_rgb);
+		_fb->bg_hue = temp_hsv.h;						_fb->bg_saturation = temp_hsv.s;					_fb->bg_value = temp_hsv.v;
+
+		temp_rgb.r = _fb->text_color_red;				temp_rgb.g = _fb->text_color_green;					temp_rgb.b = _fb->text_color_blue;
+		temp_hsv = EMath::rgb2hsv(temp_rgb);
+		_fb->text_color_hue = temp_hsv.h;				_fb->text_color_saturation = temp_hsv.s;			_fb->text_color_value = temp_hsv.v;
+
+
+		temp_rgb.r = _fb->rama_red;						temp_rgb.g = _fb->rama_green;						temp_rgb.b = _fb->rama_blue;
+		temp_hsv = EMath::rgb2hsv(temp_rgb);
+		_fb->rama_hue = temp_hsv.h;						_fb->rama_saturation = temp_hsv.s;					_fb->rama_value = temp_hsv.v;
+	}
+
+	void FilterBlock::change_color_extract(FilterBlock* _fb)
+	{
+		EMath::rgb temp_rgb;
+		EMath::hsv temp_hsv;
+
+		temp_hsv.h = _fb->bg_hue;							temp_hsv.s = _fb->bg_saturation;					temp_hsv.v = _fb->bg_value;
+		temp_rgb = EMath::hsv2rgb(temp_hsv);
+		_fb->bg_red = temp_rgb.r;							_fb->bg_green = temp_rgb.g;							_fb->bg_blue = temp_rgb.b;
+
+
+
+
+		temp_hsv.h = _fb->text_color_hue;					temp_hsv.s = _fb->text_color_saturation;			temp_hsv.v = _fb->text_color_value;
+		temp_rgb = EMath::hsv2rgb(temp_hsv);
+		_fb->text_color_red = temp_rgb.r;					_fb->text_color_green = temp_rgb.g;					_fb->text_color_blue = temp_rgb.b;
+
+
+
+
+
+		temp_hsv.h = _fb->rama_hue;							temp_hsv.s = _fb->rama_saturation;					temp_hsv.v = _fb->rama_value;
+		temp_rgb = EMath::hsv2rgb(temp_hsv);
+		_fb->rama_red = temp_rgb.r;							_fb->rama_green = temp_rgb.g;						_fb->rama_blue = temp_rgb.b;
 	}
 

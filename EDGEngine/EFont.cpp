@@ -103,8 +103,8 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 
 		_batcher->draw_rect_with_uv
 		(
-			_x + x_adding - offset_x[target_symbol],
-			_y - offset_y[target_symbol],
+			round(_x + x_adding - offset_x[target_symbol]),
+			round(_y - offset_y[target_symbol]),
 
 			real_size_x[target_symbol],
 			real_size_y[target_symbol],
@@ -127,7 +127,7 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 }
 void EFont::draw(Batcher* _batcher, string _s, float _x, float _y)
 {
-	x_adding = 0;
+	x_adding = 0.0f;
 	final_draw(_batcher, _s, _x, _y);
 }
 

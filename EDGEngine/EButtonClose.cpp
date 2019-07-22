@@ -14,6 +14,7 @@ EButtonClose::EButtonClose(float _x, float _y, float _sx, float _sy): EButton(_x
 
 	have_bg = false;
 	description_text = "Close window";
+	icon_adaptation = false;
 }
 
 void EButtonClose::click_event()

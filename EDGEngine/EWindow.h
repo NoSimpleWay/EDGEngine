@@ -63,5 +63,8 @@ public:
 
 	bool have_rama = true;
 	EColor* rama_color = new EColor(1.0f, 1.0f, 1.0f, 1.0f);
+
+	bool have_shadow = true;
+	bool can_be_closed = true;
 };
 

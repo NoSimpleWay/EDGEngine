@@ -6,10 +6,12 @@ EWindow::EWindow(int _id)
 {
 	id = _id;
 
-	EButton* but = new EButtonClose(0, 0, 16, 16);
-	but->master_window = this;
-	default_button_list.push_back(but);
-
+	if (can_be_closed)
+	{
+		EButton* but = new EButtonClose(0, 0, 24, 24);
+		but->master_window = this;
+		default_button_list.push_back(but);
+	}
 	//button_list.push_back
 }
 
@@ -60,6 +62,15 @@ void EWindow::default_update(float _d)
 
 void EWindow::defaul_draw(Batcher* _batch)
 {
+	_batch->setcolor(0.05f, 0.1f, 0.15f, 0.05f);
+	if (have_shadow)
+	{
+		for (int i = 0; i < 15; i++)
+		{
+			_batch->draw_rect_with_uv(pos_x - 2.0f * i, pos_y - 2.0f * i,window_size_x, window_size_y,DefaultGabarite::gabarite_white);
+		}
+	}
+
 	if (have_bg)
 	{
 		
@@ -84,6 +95,8 @@ void EWindow::defaul_draw(Batcher* _batch)
 		_batch->setcolor(rama_color);
 		_batch->draw_rama(pos_x, pos_y, window_size_x, window_size_y, 2, DefaultGabarite::gabarite_white);
 	}
+
+
 
 }
 

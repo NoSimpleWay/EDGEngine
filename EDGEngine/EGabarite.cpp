@@ -32,3 +32,12 @@ EGabarite* DefaultGabarite::gabarite_plus_wide =NULL;
 EGabarite* DefaultGabarite::gabarite_increase =NULL;
 EGabarite* DefaultGabarite::gabarite_decrease =NULL;
 EGabarite* DefaultGabarite::gabarite_close =NULL;
+EGabarite* DefaultGabarite::gabarite_visual_mode =NULL;
+
+EGabarite* DefaultGabarite::gabarite_slider_hue =NULL;
+EGabarite* DefaultGabarite::gabarite_slider_saturation =NULL;
+EGabarite* DefaultGabarite::gabarite_slider_value =NULL;
+EGabarite* DefaultGabarite::gabarite_slider_alpha =NULL;
+
+EGabarite* DefaultGabarite::gabarite_visual_editor_bg =NULL;
+

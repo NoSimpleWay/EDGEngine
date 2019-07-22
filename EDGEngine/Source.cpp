@@ -139,6 +139,7 @@ static GLFWwindow* window;
 #include "Enums.h"
 
 #include "ConsoleColor.h"
+#include "EUtils.h"
 
 
 
@@ -163,6 +164,7 @@ EWindowFilterBlock* StaticData::window_filter_block = NULL;
 EWindowFindItem* StaticData::window_find_item = NULL;
 EWindowAddNewBaseData* StaticData::window_add_new_base_data = NULL;
 EWindowSocketGroup* StaticData::window_socket_group = NULL;
+EWindowFilterVisualEditor* StaticData::window_filter_visual_editor = NULL;
 
 
 //0		-	1
@@ -282,7 +284,7 @@ void parse_item_data()
 
 	DADItem* just_created_item=NULL;
 
-
+	//cout << EMath::rgb::r << endl;
 	
 
 	while ((getline(myfile, line))&&(line_id<1000))
@@ -1374,11 +1376,17 @@ int main()
 	glViewport(0, 0, 4096, 4096);
 	cout << "Maxt texture size: " << GL_MAX_TEXTURE_SIZE << endl;
 	glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glEnable(GL_BLEND);
+	//glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE_MINUS_DST_ALPHA, GL_ONE);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glEnable(GL_ALPHA_TEST);
+
+	glBlendEquation(GL_MAX);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+
+	//glEnable(GL_ALPHA_TEST);
 
 	camera->update();
 	matrix_transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
@@ -1446,6 +1454,14 @@ int main()
 	put_texture_to_atlas("data/button_decrease.png");		DefaultGabarite::gabarite_decrease = just_created_gabarite;
 
 	put_texture_to_atlas("data/button_close.png");			DefaultGabarite::gabarite_close = just_created_gabarite;
+	put_texture_to_atlas("data/button_color_mode.png");		DefaultGabarite::gabarite_visual_mode = just_created_gabarite;
+
+	put_texture_to_atlas("data/slider_hue.png");			DefaultGabarite::gabarite_slider_hue = just_created_gabarite;
+	put_texture_to_atlas("data/slider_saturation.png");		DefaultGabarite::gabarite_slider_saturation = just_created_gabarite;
+	put_texture_to_atlas("data/slider_value.png");			DefaultGabarite::gabarite_slider_value = just_created_gabarite;
+	put_texture_to_atlas("data/slider_alpha.png");			DefaultGabarite::gabarite_slider_alpha = just_created_gabarite;
+
+	put_texture_to_atlas("data/visual_editor_bg.png");		DefaultGabarite::gabarite_visual_editor_bg = just_created_gabarite;
 	
 
 
@@ -1468,6 +1484,10 @@ int main()
 	StaticData::window_socket_group = new EWindowSocketGroup(3);
 	StaticData::window_socket_group->name = "Change socket colors";
 	window_list.push_back(StaticData::window_socket_group);
+
+	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(4);
+	StaticData::window_filter_visual_editor->name = "Change colors and sounds";
+	window_list.push_back(StaticData::window_filter_visual_editor);
 
 		load_texture("data/white_pixel.png", 0);
 		batch->reset();
@@ -1507,6 +1527,7 @@ int main()
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glDisable(GL_DEPTH_TEST);
+	glBlendEquation(GL_FUNC_ADD);
 	//--------------------------------------------------------------------------------------------------------
 	//--------------------------------------------------------------------------------------------------------
 
@@ -1538,8 +1559,8 @@ int main()
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		glDisable(GL_DEPTH_TEST);
 		//glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+		glClearColor(0.8f, 0.81f, 0.82f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glDisable(GL_DEPTH_TEST);
 
 		if ((glfwGetKey(EWindow::main_window, GLFW_KEY_BACKSPACE) == GLFW_RELEASE))
 		{
@@ -1556,7 +1577,7 @@ int main()
 
 		camera->update();
 
-		glClearColor(0.8f, 0.81f, 0.82f, 1.0f);
+
 		glClear(GL_COLOR_BUFFER_BIT);
 
 
@@ -1736,7 +1757,7 @@ int main()
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
 			// clear all relevant buffers
-			glClearColor(0.2f, 0.3f, 0.4f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
+			glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			glActiveTexture(GL_TEXTURE0);
@@ -1749,7 +1770,7 @@ int main()
 			batch->setcolor(1.0f, 1.0f, 1.0f, 1.0f);
 			batch->reset();
 
-			batch->draw_rect_with_uv(0, 0, 4096/4.0f, 4096/4.0f, 0, 0, 1, 1);
+			batch->draw_rect_with_uv(0, -3096, 4096/1.0f, 4096/1.0f, 0, 0, 1, 1);
 			batch->draw_rect_with_uv(500, 500, 100, 100, ItemList::item_list.at(0)->gabarite);
 
 			batch->reinit();

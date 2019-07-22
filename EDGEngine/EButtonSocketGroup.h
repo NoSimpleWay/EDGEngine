@@ -11,7 +11,8 @@ public:
 	EButtonSocketGroup(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type);
 
 	virtual void click_event();
-	virtual void draw(Batcher* _batch);
+	virtual void additional_draw(Batcher* _batch);
+
 
 
 };

@@ -75,18 +75,30 @@ public:
 	int text_color_green = 255;
 	int text_color_blue = 255;
 	int text_color_alpha = 255;
+	//
+	double text_color_hue = 0;
+	double text_color_saturation = 1;
+	double text_color_value = 1;
 
 	bool is_bg_color_active = false;
 	int bg_red = 128;
 	int bg_green = 128;
 	int bg_blue = 128;
 	int bg_alpha = 255;
+	//
+	double bg_hue = 0;
+	double bg_saturation = 1;
+	double bg_value = 1;
 
 	bool is_rama_color_active = false;
 	int rama_red = 0;
 	int rama_green = 0;
 	int rama_blue = 0;
 	int rama_alpha = 255;
+	//
+	double rama_hue = 0;
+	double rama_saturation = 1;
+	double rama_value = 1;
 
 	int debug_text_y = 0;
 	int debug_text_x = 0;
@@ -164,10 +176,16 @@ public:
 	std::vector<bool> base_filter_data_active;
 	std::vector<EButton*> base_filter_data_remove_buttons;
 
+
+	std::vector<EButton*> button_list;
+
 	const float _data_y_offset = 25;
 
 	void init();
 	void data_change();
+
+	static void change_color_consume(FilterBlock* _fb);
+	static void change_color_extract(FilterBlock* _fb);
 	
 	
 };

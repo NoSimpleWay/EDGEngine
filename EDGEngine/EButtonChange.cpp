@@ -52,6 +52,4 @@ void EButtonChange::click_event()
 
 }
 
-void EButtonChange::draw(Batcher* _batch)
-{
-}
+

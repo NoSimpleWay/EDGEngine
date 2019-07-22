@@ -10,7 +10,6 @@ public:
 	EButtonChange(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type, bool _inc);
 
 	virtual void click_event();
-	virtual void draw(Batcher* _batch);
 	bool is_increase=false;
 
 
