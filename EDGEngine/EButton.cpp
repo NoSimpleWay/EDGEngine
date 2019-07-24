@@ -147,6 +147,11 @@
 			if (position_mode_y == Enums::PositionMode::DOWN) { master_position_y = button_y; }
 		}
 
+		if (is_right_click())
+		{
+			right_click_event();
+		}
+
 		if ((is_right_click()) && (can_be_removed))
 		{
 			std::cout << "TRY REMOVE" << std::endl;
@@ -306,7 +311,7 @@
 
 
 
-		if (have_icon)
+		if ((have_icon) && (gabarite != NULL))
 		{
 			if (icon_adaptation)
 			{
@@ -327,7 +332,7 @@
 					}
 				}
 
-				_batch->setcolor(EColorCollection::WHITE);
+				_batch->setcolor(icon_color);
 				_batch->draw_rect_with_uv(master_position_x + (button_size_x - gabarite->size_x * mul_x) / 2.0f, master_position_y, gabarite->size_x * mul_x, gabarite->size_y * mul_x, gabarite);
 			}
 			else
@@ -383,6 +388,12 @@
 		}
 
 		additional_draw(_batch);
+
+		if (is_overlap())
+		{
+			_batch->setcolor_alpha(EColorCollection::GREEN, 0.55f);
+			_batch->draw_rect_with_uv(master_position_x - 3.0f, master_position_y - 3.0f, button_size_x + 6.0f, button_size_y + 6.0f, DefaultGabarite::gabarite_white);
+		}
 
 	}
 
@@ -458,6 +469,10 @@
 		std::cout << "STANDART click event" << std::endl;
 	}
 
+	void EButton::right_click_event()
+	{
+	}
+
 	void EButton::input_event()
 	{
 	}
@@ -474,5 +489,18 @@
 	{
 	}
 
+	void EButton::activate()
+	{
+		icon_color->set(icon_color_default);
+		rama_color->set(rama_color_default);
+		bg_color->set(bg_color_default);
+	}
+
+	void EButton::deactivate()
+	{
+		icon_color->set(icon_color_deactivated);
+		rama_color->set(icon_color_deactivated);
+		bg_color->set(bg_color_deactivated);
+	}
 
 

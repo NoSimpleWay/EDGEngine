@@ -21,11 +21,15 @@
 	{
 		std::cout << " ### pressed ### " << std::endl;
 
+		StaticData::window_find_item->window_searchs_mode = Enums::ITEM;
+
 		if (!is_plus)
 		{
 			StaticData::window_find_item->is_active = true;
 			StaticData::window_find_item->button_event(this);
 			StaticData::window_find_item->target_button = this;
+
+			
 		}
 		else
 		{

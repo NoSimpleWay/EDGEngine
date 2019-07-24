@@ -15,6 +15,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <filesystem>
 
 #include <list>   
 #include <vector>
@@ -23,7 +24,6 @@
 
 #include <ctime>
 #include "Helper.h";
-#include <vector>
 
 #include "EButtonFilterItem.h"
 
@@ -126,7 +126,7 @@ std::vector<EButton*> button_list;
 unsigned int ETexture::texture[32];
 
 string username;
-string path_to_poe_folder;
+//string path_to_poe_folder;
 
 static GLFWwindow* window;
 
@@ -139,7 +139,13 @@ static GLFWwindow* window;
 #include "Enums.h"
 
 #include "ConsoleColor.h"
+
+#include <irr/irrKlang.h>
 #include "EUtils.h"
+
+#include <experimental/filesystem>
+
+
 
 
 
@@ -269,8 +275,8 @@ bool convert_text_to_bool(string _text)
 
 void parse_item_data()
 {
-	ofstream myfile_open;
-	myfile_open.open("gemor.txt");
+	//ofstream myfile_open;
+	//myfile_open.open("gemor.txt");
 
 	ifstream myfile;
 	myfile.open("data/ItemList.txt");
@@ -358,7 +364,7 @@ void parse_item_data()
 
 	
 	myfile.close();
-	myfile_open.close();
+	//myfile_open.close();
 }
 
 int find_item_by_full_name(string _name)
@@ -374,8 +380,15 @@ int find_item_by_full_name(string _name)
 
 void parse_loot_filter_data(string _path)
 {
+
+
+
 	ifstream myfile;
 	myfile.open(_path);
+
+
+
+
 
 	string line;
 	int line_number = 0;
@@ -484,6 +497,7 @@ void parse_loot_filter_data(string _path)
 							if (subdata == "SetBackgroundColor") { parser_mode = Enums::ParserMode::BACKGROUND_COLOR; just_created_block->is_bg_color_active = true;}
 
 							if (subdata == "PlayAlertSound") { parser_mode = Enums::ParserMode::ALERT_SOUND; just_created_block->is_alert_sound = true;}
+							if (subdata == "CustomAlertSound") { parser_mode = Enums::ParserMode::CUSTOM_ALERT_SOUND; just_created_block->is_custom_alert_sound = true;}
 							if (subdata == "PlayEffect") { parser_mode = Enums::ParserMode::RAY; just_created_block->is_ray = true;}
 							if (subdata == "MinimapIcon") { parser_mode = Enums::ParserMode::MINIMAP_ICON; just_created_block->is_minimap_icon = true;}
 
@@ -640,8 +654,51 @@ void parse_loot_filter_data(string _path)
 						if (parser_mode == Enums::ParserMode::ALERT_SOUND)
 						{
 							if (data_order == 0) { if (show_info_to_console) { cout << "activate alert sound property" << endl; } }
-							if (data_order == 1) { if (show_info_to_console) { cout << "set alert sound name <" << subdata << ">" << endl; } just_created_block->alert_sound_name = subdata; }
-							if (data_order == 2) { if (show_info_to_console) { cout << "set alert sound volume <" << subdata << ">" << endl; } just_created_block->alert_sound_volume = std::stoi(subdata); }
+							if (data_order == 1)
+							{ 
+								if (show_info_to_console){cout << "set alert sound name <" << subdata << ">" << endl;}
+								
+								just_created_block->alert_sound_name = subdata;
+
+								if (subdata == "1") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_01;}
+								if (subdata == "2") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_02;}
+								if (subdata == "3") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_03;}
+								if (subdata == "4") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_04;}
+								if (subdata == "5") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_05;}
+								if (subdata == "6") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_06;}
+								if (subdata == "7") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_07;}
+								if (subdata == "8") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_08;}
+								if (subdata == "9") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_09;}
+								if (subdata == "10") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_10;}
+								if (subdata == "11") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_11;}
+								if (subdata == "12") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_12;}
+								if (subdata == "13") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_13;}
+								if (subdata == "14") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_14;}
+								if (subdata == "15") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_15;}
+								if (subdata == "16") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_16;}
+
+								if (subdata == "SHAlchemy") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_ALCHEMY;}
+								if (subdata == "SHBlessed") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_BLESSED;}
+								if (subdata == "SHChaos") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_CHAOS;}
+								if (subdata == "SHDivine") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_DIVINE;}
+								if (subdata == "SHExalted") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_EXALTED;}
+								if (subdata == "SHFusing") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_FUSING;}
+								if (subdata == "SHGeneral") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_GENERAL;}
+								if (subdata == "SHMirror") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_MIRROR;}
+								if (subdata == "SHRegal") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_REGAL;}
+								if (subdata == "SHVaal") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_VAAL;}
+							}
+
+								if (data_order == 2) { if (show_info_to_console) { cout << "set alert sound volume <" << subdata << ">" << endl; } just_created_block->alert_sound_volume = std::stoi(subdata); }
+						}
+
+						if (parser_mode == Enums::ParserMode::ALERT_SOUND)
+						{
+							if (data_order == 0) { if (show_info_to_console) { cout << "activate custom alert sound property" << endl; } }
+							if (data_order == 1)
+							{
+								just_created_block->custom_alert_sound_name = subdata;
+							}
 						}
 
 						if (parser_mode == Enums::ParserMode::RAY)
@@ -667,7 +724,6 @@ void parse_loot_filter_data(string _path)
 								just_created_button->description_text = subdata;
 
 								int item_id = find_item_by_full_name(subdata);
-								if (item_id < 0) { item_id = 0;  }
 							
 								if (item_id >= 0)
 								{
@@ -679,6 +735,15 @@ void parse_loot_filter_data(string _path)
 									just_created_button->description_text = ItemList::item_list.at(item_id)->item_name+" ("+ ItemList::item_list.at(item_id)->item_name_ru+")";
 
 									if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
+								}
+								else
+								{
+									just_created_button->have_icon = true;
+									just_created_button->gabarite = DefaultGabarite::gabarite_undefined;
+
+									just_created_button->description_text = "Unknown item (" + subdata + ")";
+
+									if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30;}
 								}
 								
 								//just_created_button->
@@ -1026,9 +1091,64 @@ void parse_loot_filter_data(string _path)
 	myfile.close();
 }
 
+
+
+//irrklang::ISoundEngine* engine= irrklang::createIrrKlangDevice();
+//irrklang::ISoundSource* shootSound = engine->addSoundSourceFromFile("data/cool01.wav");
+
 int main()
 {
+	//engine->play2D("data/cool01.wav");
+
 	
+	ESound::engine = irrklang::createIrrKlangDevice();
+
+	ESound::default_drop_sound_name.push_back("NONE");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert01");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert02");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert03");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert04");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert05");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert06");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert07");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert08");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert09");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert10");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert11");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert12");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert13");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert14");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert15");
+	ESound::default_drop_sound_name.push_back("ItemFilterAlert16");
+
+	ESound::default_drop_sound_name.push_back("SHAlchemy");
+	ESound::default_drop_sound_name.push_back("SHBlessed");
+	ESound::default_drop_sound_name.push_back("SHChaos");
+	ESound::default_drop_sound_name.push_back("SHDivine");
+	ESound::default_drop_sound_name.push_back("SHExalted");
+	ESound::default_drop_sound_name.push_back("SHFusing");
+	ESound::default_drop_sound_name.push_back("SHGeneral");
+	ESound::default_drop_sound_name.push_back("SHMirror");
+	ESound::default_drop_sound_name.push_back("SHRegal");
+	ESound::default_drop_sound_name.push_back("SHVaal");
+
+	int sound_order = 0;
+	for (string s : ESound::default_drop_sound_name)
+	{
+		if (sound_order > 0)
+		{
+			string sound_path = "data/sound/default_drop_sound/" + s + ".wav";
+			ESound::default_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(sound_path.c_str()));
+		}
+		else
+		{
+			ESound::default_drop_sound.push_back(NULL);
+		}
+		sound_order++;
+	}
+
+
+
 
 	CHAR my_documents[MAX_PATH];
 	HRESULT result = SHGetFolderPath(NULL, CSIDL_PERSONAL, NULL, SHGFP_TYPE_CURRENT, my_documents);
@@ -1039,11 +1159,18 @@ int main()
 	}
 	else
 	{
-		path_to_poe_folder = (string)my_documents + "\\My Games\\Path of Exile\\";
-		std::cout << "Path: " << path_to_poe_folder << "\n";
+		EString::path_to_poe_folder = (string)my_documents + "\\My Games\\Path of Exile\\";
+		std::cout << "Path: " << EString::path_to_poe_folder << "\n";
 
 	}
 
+	ESound::load_custom_sound();
+	//ofstream writer;
+	//writer.open("check.txt");
+
+	
+
+	//writer.close();
 	button_list.push_back(new EButton());
 
 	//filter_block_list.push_back(new FilterBlock());
@@ -1462,6 +1589,8 @@ int main()
 	put_texture_to_atlas("data/slider_alpha.png");			DefaultGabarite::gabarite_slider_alpha = just_created_gabarite;
 
 	put_texture_to_atlas("data/visual_editor_bg.png");		DefaultGabarite::gabarite_visual_editor_bg = just_created_gabarite;
+
+	put_texture_to_atlas("data/button_sound.png");			DefaultGabarite::gabarite_play_sound = just_created_gabarite;
 	
 
 
@@ -1471,23 +1600,26 @@ int main()
 	StaticData::window_filter_block->name = "Filter block";
 	window_list.push_back(StaticData::window_filter_block);
 
-	parse_loot_filter_data(path_to_poe_folder + "NeverSink's filter.filter");
+	parse_loot_filter_data(EString::path_to_poe_folder + "NeverSink's filter.filter");
 
-	StaticData::window_find_item = new EWindowFindItem(1);
-	StaticData::window_filter_block->name = "Search item";
-	window_list.push_back(StaticData::window_find_item);
+	//std::string path = "/path/to/directory";
 
-	StaticData::window_add_new_base_data = new EWindowAddNewBaseData(2);
+
+	StaticData::window_add_new_base_data = new EWindowAddNewBaseData(1);
 	StaticData::window_add_new_base_data->name = "Add new base data to filter block";
 	window_list.push_back(StaticData::window_add_new_base_data);
 
-	StaticData::window_socket_group = new EWindowSocketGroup(3);
+	StaticData::window_socket_group = new EWindowSocketGroup(2);
 	StaticData::window_socket_group->name = "Change socket colors";
 	window_list.push_back(StaticData::window_socket_group);
 
-	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(4);
+	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(3);
 	StaticData::window_filter_visual_editor->name = "Change colors and sounds";
 	window_list.push_back(StaticData::window_filter_visual_editor);
+
+	StaticData::window_find_item = new EWindowFindItem(4);
+	StaticData::window_filter_block->name = "Search item";
+	window_list.push_back(StaticData::window_find_item);
 
 		load_texture("data/white_pixel.png", 0);
 		batch->reset();
@@ -1908,6 +2040,13 @@ void processInput(GLFWwindow* window)
 	{
 		glfwSetWindowShouldClose(window, true);
 	}	
+
+	/*
+		if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+		{
+			ESound::engine->play2D(ESound::default_drop_sound.at(rand() % 26));
+		}
+	*/
 
 	/*
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) { camera->speed_x += 100.0f * delta_time * Helper::correction_x; }

@@ -153,10 +153,18 @@
 		button_service->master_window = StaticData::window_filter_block;
 		button_service->gabarite = DefaultGabarite::gabarite_undefined;*/
 
-		EButton* but = new EButtonService(-5,-5,30,30,Enums::ButtonType::BUTTON_SYS_VISUAL_MODE);
+		EButton*
+		but = new EButtonService(-5,-5,30,30,Enums::ButtonType::BUTTON_SYS_VISUAL_MODE);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
+
+		but = new EButtonService(-40, -5, 30, 30, Enums::ButtonType::BUTTON_SYS_PLAY_SOUND);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		sound_button_link = but;
+		button_list.push_back(but);
+
 
 		button_add_new_base_data = new EButtonPlusWide(0, 0, 17, 17,Enums::ButtonType::BUTTON_FILTER_BLOCK_TO_CONSOLE);
 		button_add_new_base_data->master_block = this;
@@ -342,10 +350,7 @@
 		{
 			filter_flock_button_list.at(i)->draw(_batch);
 		}*/
-		_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
 
-		//_font->x_adding = 0;
-		EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
 
 
 		float data_x = x + 155;
@@ -530,6 +535,11 @@
 		}
 
 		change_color_consume(this);
+
+		if (!is_alert_sound)
+		{
+			sound_button_link->deactivate();
+		}
 					
 		/*
 		base_filter_data_active.at(0)=is_item_rarity_active;

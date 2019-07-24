@@ -100,7 +100,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;user32.lib;advapi32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;user32.lib;advapi32.lib;shell32.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <IgnoreAllDefaultLibraries>
@@ -158,6 +158,7 @@
     <ClCompile Include="EButtonSlider.cpp" />
     <ClCompile Include="EButtonSocketGroup.cpp" />
     <ClCompile Include="EButtonText.cpp" />
+    <ClCompile Include="EButtonTextSearch.cpp" />
     <ClCompile Include="ECamera.cpp" />
     <ClCompile Include="EColor.cpp" />
     <ClCompile Include="EGabarite.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="EWindowFilterBlock.cpp" />
     <ClCompile Include="EWindowFilterVisualEditor.cpp" />
     <ClCompile Include="EWindowFindItem.cpp" />
+    <ClCompile Include="EWindowTextSearch.cpp" />
     <ClCompile Include="FilterBlock.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Helper.cpp" />
@@ -196,6 +198,7 @@
     <ClInclude Include="EButtonSlider.h" />
     <ClInclude Include="EButtonSocketGroup.h" />
     <ClInclude Include="EButtonText.h" />
+    <ClInclude Include="EButtonTextSearch.h" />
     <ClInclude Include="ECamera.h" />
     <ClInclude Include="EColor.h" />
     <ClInclude Include="EDGE_FBO.h" />

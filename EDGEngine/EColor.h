@@ -12,6 +12,7 @@ public:
 	~EColor();
 	void set(float _r, float _g, float _b, float _a);
 	void set(EColor* _c);
+	void set_alpha(EColor* _c, float _a);
 
 };
 
@@ -23,6 +24,7 @@ public:
 	static EColor* BLUE;
 
 	static EColor* WHITE;
+	static EColor* GRAY;
 	static EColor* BLACK;
 
 	static EColor* YELLOW;

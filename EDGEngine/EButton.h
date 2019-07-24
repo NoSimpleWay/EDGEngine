@@ -50,6 +50,8 @@ public:
 	EGabarite* gabarite=NULL;
 
 	bool have_icon = false;
+	EColor* icon_color = new EColor(1.0f,1.0f,1.0f,1.0f);
+
 	Enums::PositionMaster master_position=Enums::PositionMaster::SCREEN;
 
 	Enums::PositionMode position_mode_x=Enums::PositionMode::LEFT;
@@ -101,6 +103,7 @@ public:
 
 
 	virtual void click_event();
+	virtual void right_click_event();
 	virtual void input_event();
 	virtual void input_finish_event();
 	virtual void drop_list_select_event();
@@ -130,5 +133,15 @@ public:
 
 	int data_id;
 	
-	
+	EColor* icon_color_default = new EColor(1.0f, 1.0f, 1.0f, 1.0f);
+	EColor* icon_color_deactivated = new EColor(0.5f, 0.5f, 0.5f, 0.5f);
+
+	EColor* rama_color_default = new EColor(1.0f, 1.0f, 1.0f, 1.0f);
+	EColor* rama_color_deactivated = new EColor(0.5f, 0.5f, 0.5f, 0.5f);
+
+	EColor* bg_color_default = new EColor(0.5f, 0.5f, 0.5f, 0.25f);
+	EColor* bg_color_deactivated = new EColor(0.1f, 0.1f, 0.1f, 0.1f);
+
+	void activate();
+	void deactivate();
 };

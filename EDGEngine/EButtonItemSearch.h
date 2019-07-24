@@ -4,9 +4,12 @@
 class EButtonItemSearch : public EButton
 {
 public:
-	EButtonItemSearch(float _x, float _y, float _sx, float _sy);;
+	//EButtonItemSearch(float _x, float _y, float _sx, float _sy);;
 
-	void click_event();
+	EButtonItemSearch(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type);
+
+	virtual void click_event();
+	virtual void right_click_event();
 	//{
 	//	std::cout << " you are idiot? " << std::endl;
 	//}

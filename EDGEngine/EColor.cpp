@@ -30,10 +30,20 @@ void EColor::set(EColor* _c)
 		color_alpha = _c->color_alpha;
 }
 
+void EColor::set_alpha(EColor* _c, float _a)
+{
+	color_red = _c->color_red;
+	color_green = _c->color_green;
+	color_blue = _c->color_blue;
+
+	color_alpha = _a;
+}
+
 EColor::~EColor()
 {
 }
 EColor* EColorCollection::WHITE=new EColor			(1.0f,		1.0f,		1.0f,		1.0f);
+EColor* EColorCollection::GRAY=new EColor			(0.5f,		0.5f,		0.5f,		1.0f);
 EColor* EColorCollection::BLACK=new EColor			(0,			0,			0,			1.0f);
 
 EColor* EColorCollection::RED=new EColor			(1.0f,		0,			0,			1.0f);

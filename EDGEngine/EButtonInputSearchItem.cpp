@@ -27,6 +27,7 @@ EButtonInputSearchItem::EButtonInputSearchItem(float _x, float _y, float _sx, fl
 	input_hint = "Введите название предмета";
 
 	have_rama = true;
+
 }
 
 void EButtonInputSearchItem::input_event()

@@ -62,7 +62,7 @@ void EWindow::default_update(float _d)
 
 void EWindow::defaul_draw(Batcher* _batch)
 {
-	_batch->setcolor(0.05f, 0.1f, 0.15f, 0.05f);
+	_batch->setcolor(0.05f, 0.1f, 0.15f, 0.085f);
 	if (have_shadow)
 	{
 		for (int i = 0; i < 15; i++)

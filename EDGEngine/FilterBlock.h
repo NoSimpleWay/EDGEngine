@@ -104,8 +104,13 @@ public:
 	int debug_text_x = 0;
 
 	bool is_alert_sound = false;
-	string alert_sound_name = "1";
+	bool is_custom_alert_sound = false;
+
+	string alert_sound_name = "";
+	Enums::DefaultAlertSound alert_sound_id = Enums::DefaultAlertSound::SOUND_01;
 	int alert_sound_volume = 100;
+
+	string custom_alert_sound_name = "";
 
 	bool is_ray = false;
 	Enums::GameColors ray_color = Enums::GameColors::WHITE;
@@ -186,6 +191,11 @@ public:
 
 	static void change_color_consume(FilterBlock* _fb);
 	static void change_color_extract(FilterBlock* _fb);
+
+	EButton* sound_button_link;
+	EButton* custom_sound_button_link;
+
+
 	
 	
 };

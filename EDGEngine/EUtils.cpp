@@ -1,5 +1,8 @@
 #include "EUtils.h"
 #include <cmath>
+#include <irr/irrKlang.h>
+#include <experimental\filesystem>
+#include <iostream>
 
 float EMath::clamp_value_float(float _v, float _min, float _max)
 {
@@ -115,4 +118,92 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	return out;
 }
 
+	std::vector<irrklang::ISoundSource*> ESound::default_drop_sound;
+	std::vector<irrklang::ISoundSource*> ESound::custom_drop_sound;
 
+	std::vector < std::string > ESound::default_drop_sound_name;
+	std::vector < std::string > ESound::custom_drop_sound_name;
+
+
+	irrklang::ISoundEngine* ESound::engine;
+
+	std::string EString::upper_charset = "QWERTYUIOPASDFGHJKLZXCVBNM¨ÉÖÓÊÅÍÃØÙÇÕÚÔÛÂÀÏĞÎËÄÆİß×ÑÌÈÒÜÁŞ";
+	std::string EString::lower_charset = "qwertyuiopasdfghjklzxcvbnm¸éöóêåíãøùçõúôûâàïğîëäæıÿ÷ñìèòüáş";
+
+	std::string EString::path_to_poe_folder;
+
+	std::string EString::to_lower(std::string _s, bool _b)
+	{
+		std::string result = "";
+
+		for (int zz = 0; zz < _s.length(); zz++)
+		{
+			for (int yy = 0; yy < upper_charset.length(); yy++)
+			{
+				//if (_b) { std::cout << upper_charset.at(yy) << "(" << _s.at(zz) << ") "; }
+
+				if (upper_charset.at(yy) == _s.at(zz))
+				{
+					result += lower_charset.at(yy);
+					break;
+				}
+				else
+				{
+					if (yy + 1 >= upper_charset.length())
+					{
+						result += _s.at(zz);
+					}
+				}
+			}
+		}
+
+		return result;
+	}
+
+	void ESound::load_custom_sound()
+	{
+		ESound::custom_drop_sound.clear();
+		ESound::custom_drop_sound_name.push_back("NONE");
+		ESound::custom_drop_sound.push_back(NULL);
+
+		for (auto& p : std::experimental::filesystem::directory_iterator(EString::path_to_poe_folder))
+		{
+			std::cout << p.path() << '\n';
+
+			std::string custom_sound = p.path().u8string();
+			//writer << custom_sound << endl;;
+
+			if
+				(
+				(EString::to_lower(custom_sound.substr(custom_sound.length() - 4, 4), false) == ".wav")
+					||
+					(EString::to_lower(custom_sound.substr(custom_sound.length() - 4, 4), false) == ".mp3")
+					)
+			{
+
+				//cout <<"It sound!" << '\n'<<'\n';
+
+				ESound::custom_drop_sound_name.push_back(p.path().filename().u8string());
+				std::cout << "It sound! " << p.path().filename().u8string() << '\n' << '\n';
+
+				ESound::custom_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(custom_sound.c_str()));
+			}
+		}
+	}
+
+	irrklang::ISoundSource* ESound::get_sound_by_name(std::string _name)
+	{
+		int sound_id=0;
+
+		for (std::string s : custom_drop_sound_name)
+		{
+			if (s==_name)
+			{
+				return custom_drop_sound.at(sound_id);
+			}
+
+			sound_id++;
+		}
+
+		return custom_drop_sound.at(0);
+	}

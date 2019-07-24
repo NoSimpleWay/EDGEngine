@@ -1,0 +1,50 @@
+Base name	Life Flasks	RU name	Флаконы жизни
+Base name	Mana Flasks	RU name	Флаконы маны
+Base name	Hybrid Flasks	RU name	Флаконы равновесия
+Base name	Currency	RU name	Валюта
+Base name	Amulets	RU name	Амулеты
+Base name	Rings	RU name	Кольца
+Base name	Claws	RU name	Когти
+Base name	Daggers	RU name	Кинжалы
+Base name	Wands	RU name	Жезлы
+Base name	One Hand Swords	RU name	Одноручные мечи
+Base name	Thrusting One Hand Swords	RU name	Шпаги
+Base name	One Hand Axes	RU name	Одноручные топоры
+Base name	One Hand Maces	RU name	Одноручные булавы
+Base name	Bows	RU name	Луки
+Base name	Staves	RU name	Посохи
+Base name	Two Hand Swords	RU name	Двуручные мечи
+Base name	Two Hand Axes	RU name	Двуручные топоры
+Base name	Two Hand Maces	RU name	Двуручные булавы
+Base name	Active Skill Gems	RU name	Камни умений
+Base name	Support Skill Gems	RU name	Камни поддержки
+Base name	Quivers	RU name	Колчаны
+Base name	Belts	RU name	Пояса
+Base name	Gloves	RU name	Перчатки
+Base name	Boots	RU name	Обувь
+Base name	Body Armours	RU name	Нательные доспехи
+Base name	Helmets	RU name	Шлемы
+Base name	Shields	RU name	Щиты
+Base name	Stackable Currency	RU name	Валюта
+Base name	Quest Items	RU name	Вещи для заданий
+Base name	Sceptres	RU name	Скипетры
+Base name	Utility Flasks	RU name	Особые флаконы
+Base name	Critical Utility Flasks	RU name	Важные особые флаконы
+Base name	Maps	RU name	Карты
+Base name	Unarmed	RU name	Без оружия
+Base name	Fishing Rods	RU name	Удочки
+Base name	Map Fragments	RU name	Обрывки карт
+Base name	Hideout Doodads	RU name	Предметы убежища
+Base name	Microtransactions	RU name	Микротранзакции
+Base name	Jewel	RU name	Самоцветы
+Base name	Divination Card	RU name	Гадальные карты
+Base name	Labyrinth Item	RU name	Предмет лабиринта
+Base name	Labyrinth Trinket	RU name	Брелок лабиринта
+Base name	Labyrinth Map Item	RU name	Предмет карты лабиринта
+Base name	Leaguestones	RU name	Камни лиги
+Base name	Pantheon Soul	RU name	Душа Пантеона
+Base name	Piece	RU name	Часть
+Base name	Abyss Jewel	RU name	Самоцвет Бездны
+Base name	Incursion Item	RU name	Предмет Вмешательства
+Base name	Delve Socketable Currency	RU name	Валюта Спуска
+Base name	Incubator	RU name	Инкубатор

@@ -22,7 +22,7 @@ void EButtonSocketGroup::click_event()
 
 void EButtonSocketGroup::additional_draw(Batcher* _batch)
 {
-	std::cout << "!" << std::endl;
+	//std::cout << "!" << std::endl;
 	int xx = 2;
 	//_batch->draw_rect_with_uv(master_position_x, master_position_y,button_size_x);
 	EFont::font_arial->align_x = Enums::PositionMode::LEFT;

@@ -3,6 +3,7 @@
 #include "Enums.h"
 #include "FilterBlock.h"
 #include "EButtonSlider.h"
+#include "EButtonText.h"
 #include "EUtils.h"
 
 class EWindowFilterVisualEditor: public EWindow
@@ -11,13 +12,13 @@ public:
 	//std::vector<FilterBlock*> filter_block_list;
 	FilterBlock* master_block;
 
-	float default_positiox_x=15;
-	float default_positiox_y=15;
+	float default_positiox_x=15.0;
+	float default_positiox_y=315.0;
 	
-	float distance_between_x=350;
-	float distance_between_y=20;
+	float distance_between_x=350.0;
+	float distance_between_y=20.0f;
 
-	float button_size_x = 150;
+	float button_size_x = 150.0f;
 
 	std::vector<EButton*> link_to_sliders;
 	
@@ -44,7 +45,7 @@ public:
 		pos_y = 0;
 
 		window_size_x = 1000;
-		window_size_y = 300;
+		window_size_y = 600;
 
 		align_x = Enums::PositionMode::LEFT;
 		align_y = Enums::PositionMode::DOWN;
@@ -67,6 +68,15 @@ public:
 		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 2.0f, default_positiox_y + distance_between_y * 1.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_V));
 		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 2.0f, default_positiox_y + distance_between_y * 0.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_ALPHA));
 
+		EButton* but = new EButtonText(60,50,220,40,Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW);
+		but->master_window = this;
+		but->master_block = master_block;
+		button_list.push_back(but);
+
+		but = new EButtonText(60, 5, 220, 40, Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW);
+		but->master_window = this;
+		but->master_block = master_block;
+		button_list.push_back(but);
 
 		EMath::rgb target_color;
 
@@ -88,16 +98,16 @@ public:
 	virtual void draw(Batcher* _batch, float _delta)
 	{
 		_batch->setcolor(EColorCollection::WHITE);
-		_batch->draw_rect_with_uv(pos_x + default_positiox_x + distance_between_x * 1.0f + (button_size_x - 320.0f) / 2.0f, pos_y + distance_between_y * 4.0f + 100.0f + (25.0f - 150.0f) / 2.0f, 320, 150, DefaultGabarite::gabarite_visual_editor_bg);
+		_batch->draw_rect_with_uv(pos_x + default_positiox_x + distance_between_x * 1.0f + (button_size_x - 320.0f) / 2.0f, default_positiox_y+pos_y + distance_between_y * 4.0f + 100.0f + (25.0f - 150.0f) / 2.0f, 320, 150, DefaultGabarite::gabarite_visual_editor_bg);
 
 		_batch->setcolor_255(master_block->bg_red, master_block->bg_green, master_block->bg_blue, master_block->bg_alpha / 2.55f);
-		_batch->draw_rect_with_uv(pos_x+default_positiox_x + distance_between_x * 1.0f, pos_y + distance_between_y * 4.0f+100.0f, button_size_x, 25.0f, DefaultGabarite::gabarite_white);
+		_batch->draw_rect_with_uv(pos_x+default_positiox_x + distance_between_x * 1.0f, default_positiox_y + pos_y + distance_between_y * 4.0f+100.0f, button_size_x, 25.0f, DefaultGabarite::gabarite_white);
 
 		_batch->setcolor_255(master_block->text_color_red, master_block->text_color_green, master_block->text_color_blue, master_block->text_color_alpha / 2.55f);
-		EFont::font_arial->draw(_batch,"Sample text", round(pos_x + default_positiox_x + distance_between_x * 1.0f+(button_size_x -EFont::get_width(EFont::font_arial,"Sample text"))/2.0f), pos_y + distance_between_y * 4.0f+100.0f+10.0f);
+		EFont::font_arial->draw(_batch,"Sample text", round(pos_x + default_positiox_x + distance_between_x * 1.0f+(button_size_x -EFont::get_width(EFont::font_arial,"Sample text"))/2.0f), default_positiox_y + pos_y + distance_between_y * 4.0f+100.0f+10.0f);
 
 		_batch->setcolor_255(master_block->rama_red, master_block->rama_green, master_block->rama_blue, master_block->rama_alpha / 2.55f);
-		_batch->draw_rama(pos_x + default_positiox_x + distance_between_x * 1.0f, pos_y + distance_between_y * 4.0f+100.0f, button_size_x, 25.0f, 3, DefaultGabarite::gabarite_white);
+		_batch->draw_rama(pos_x + default_positiox_x + distance_between_x * 1.0f, default_positiox_y + pos_y + distance_between_y * 4.0f+100.0f, button_size_x, 25.0f, 3, DefaultGabarite::gabarite_white);
 	}
 
 	virtual void text_pass(Batcher* _batch)
@@ -110,6 +120,11 @@ public:
 		master_block = _b->master_block;
 
 		for (EButton* b : link_to_sliders)
+		{
+			b->master_block = _b->master_block;
+		}
+
+		for (EButton* b : button_list)
 		{
 			b->master_block = _b->master_block;
 		}

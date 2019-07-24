@@ -9,9 +9,13 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 	description_text = "Write filter block data to console";
 
 	have_rama = true;
-	rama_thikness = 1;
+	rama_thikness = 2;
 
 	rama_color->set(EColorCollection::RED);
+	rama_color_default->set(EColorCollection::RED);
+
+	bg_color_default->set(bg_color);
+
 	master_position = Enums::FILTER_BLOCK;
 
 	position_mode_x = Enums::PositionMode::RIGHT;
@@ -20,6 +24,11 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 	if (button_type == Enums::ButtonType::BUTTON_SYS_VISUAL_MODE)
 	{
 		gabarite = DefaultGabarite::gabarite_visual_mode;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SYS_PLAY_SOUND)
+	{
+		gabarite = DefaultGabarite::gabarite_play_sound;
 	}
 }
 
@@ -45,6 +54,11 @@ void EButtonService::click_event()
 	{
 		StaticData::window_filter_visual_editor->is_active = true;
 		StaticData::window_filter_visual_editor->button_event(this);
+	}
 
+	if ((button_type == Enums::ButtonType::BUTTON_SYS_PLAY_SOUND)&&(master_block->alert_sound_name!=""))
+	{
+		if (master_block->is_alert_sound)			{ ESound::engine->play2D(ESound::default_drop_sound.at(master_block->alert_sound_id)); }
+		if (master_block->is_custom_alert_sound)	{ ESound::engine->play2D(ESound::get_sound_by_name(master_block->custom_alert_sound_name));}
 	}
 }

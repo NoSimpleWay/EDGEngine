@@ -132,6 +132,12 @@
     <ClCompile Include="EButtonSlider.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="EButtonTextSearch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EWindowTextSearch.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -244,6 +250,9 @@
     </ClInclude>
     <ClInclude Include="EUtils.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonTextSearch.h">
+      <Filter>Header Files\Button</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -33,6 +33,7 @@ EGabarite* DefaultGabarite::gabarite_increase =NULL;
 EGabarite* DefaultGabarite::gabarite_decrease =NULL;
 EGabarite* DefaultGabarite::gabarite_close =NULL;
 EGabarite* DefaultGabarite::gabarite_visual_mode =NULL;
+EGabarite* DefaultGabarite::gabarite_play_sound =NULL;
 
 EGabarite* DefaultGabarite::gabarite_slider_hue =NULL;
 EGabarite* DefaultGabarite::gabarite_slider_saturation =NULL;
