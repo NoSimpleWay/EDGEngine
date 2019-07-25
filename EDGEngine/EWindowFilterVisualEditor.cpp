@@ -97,6 +97,7 @@ public:
 
 	virtual void draw(Batcher* _batch, float _delta)
 	{
+		EFont::font_arial->align_x = Enums::PositionMode::LEFT;
 		_batch->setcolor(EColorCollection::WHITE);
 		_batch->draw_rect_with_uv(pos_x + default_positiox_x + distance_between_x * 1.0f + (button_size_x - 320.0f) / 2.0f, default_positiox_y+pos_y + distance_between_y * 4.0f + 100.0f + (25.0f - 150.0f) / 2.0f, 320, 150, DefaultGabarite::gabarite_visual_editor_bg);
 

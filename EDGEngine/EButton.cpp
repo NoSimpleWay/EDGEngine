@@ -147,15 +147,17 @@
 			if (position_mode_y == Enums::PositionMode::DOWN) { master_position_y = button_y; }
 		}
 
+
+
 		if (is_right_click())
 		{
 			right_click_event();
-		}
 
-		if ((is_right_click()) && (can_be_removed))
-		{
-			std::cout << "TRY REMOVE" << std::endl;
-			need_remove = true;
+			if (can_be_removed)
+			{
+				std::cout << "TRY REMOVE" << std::endl;
+				need_remove = true;
+			}
 		}
 
 		if (is_click())

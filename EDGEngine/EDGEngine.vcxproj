@@ -148,12 +148,13 @@
     <ClCompile Include="EButtonClose.cpp" />
     <ClCompile Include="EButtonDropCondition.cpp" />
     <ClCompile Include="EButtonDropRarity.cpp" />
-    <ClCompile Include="EbuttonFilterItem.cpp" />
+    <ClCompile Include="EButtonExplicit.cpp" />
+    <ClCompile Include="EButtonFilterItem.cpp" />
     <ClCompile Include="EButtonInputBaseData.cpp" />
     <ClCompile Include="EButtonInputSearchItem.cpp" />
     <ClCompile Include="EButtonItemSearch.cpp" />
     <ClCompile Include="EButtonPlusWide.cpp" />
-    <ClCompile Include="EButtonRemoveBaseData.cpp" />
+    <ClCompile Include="EButtonRemove.cpp" />
     <ClCompile Include="EButtonService.cpp" />
     <ClCompile Include="EButtonSlider.cpp" />
     <ClCompile Include="EButtonSocketGroup.cpp" />
@@ -170,6 +171,8 @@
     <ClCompile Include="EWindowFilterVisualEditor.cpp" />
     <ClCompile Include="EWindowFindItem.cpp" />
     <ClCompile Include="EWindowTextSearch.cpp" />
+    <ClCompile Include="ExolicitGroup.cpp" />
+    <ClCompile Include="ExplicitGroup.cpp" />
     <ClCompile Include="FilterBlock.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Helper.cpp" />
@@ -188,12 +191,13 @@
     <ClInclude Include="EButtonClose.h" />
     <ClInclude Include="EButtonDropCondition.h" />
     <ClInclude Include="EButtonDropRarity.h" />
+    <ClInclude Include="EButtonExplicit.h" />
     <ClInclude Include="EButtonFilterItem.h" />
     <ClInclude Include="EButtonInputBaseData.h" />
     <ClInclude Include="EButtonInputSearchItem.h" />
     <ClInclude Include="EButtonItemSearch.h" />
     <ClInclude Include="EButtonPlusWide.h" />
-    <ClInclude Include="EButtonRemoveBaseData.h" />
+    <ClInclude Include="EButtonRemove.h" />
     <ClInclude Include="EButtonService.h" />
     <ClInclude Include="EButtonSlider.h" />
     <ClInclude Include="EButtonSocketGroup.h" />
@@ -212,6 +216,7 @@
     <ClInclude Include="EWindowAddNewBaseData.cpp" />
     <ClInclude Include="EWindow.h" />
     <ClInclude Include="EWindowSocketGroup.cpp" />
+    <ClInclude Include="ExplicitGroup.h" />
     <ClInclude Include="FilterBlock.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="Helper.h" />

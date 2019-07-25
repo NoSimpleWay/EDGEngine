@@ -66,9 +66,6 @@
     <ClCompile Include="DADItem.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="EbuttonFilterItem.cpp">
-      <Filter>Source Files\Buttons</Filter>
-    </ClCompile>
     <ClCompile Include="EWindow.cpp">
       <Filter>Source Files\windows</Filter>
     </ClCompile>
@@ -102,9 +99,6 @@
     <ClCompile Include="EButtonCheck.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
-    <ClCompile Include="EButtonRemoveBaseData.cpp">
-      <Filter>Source Files\Buttons</Filter>
-    </ClCompile>
     <ClCompile Include="EButtonPlusWide.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
@@ -132,11 +126,26 @@
     <ClCompile Include="EButtonSlider.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
-    <ClCompile Include="EButtonTextSearch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EWindowTextSearch.cpp">
       <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonExplicit.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonTextSearch.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="ExolicitGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplicitGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonFilterItem.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonRemove.cpp">
+      <Filter>Source Files\Buttons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,9 +227,6 @@
     <ClInclude Include="EButtonCheck.h">
       <Filter>Header Files\Button</Filter>
     </ClInclude>
-    <ClInclude Include="EButtonRemoveBaseData.h">
-      <Filter>Header Files\Button</Filter>
-    </ClInclude>
     <ClInclude Include="EButtonPlusWide.h">
       <Filter>Header Files\Button</Filter>
     </ClInclude>
@@ -252,6 +258,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EButtonTextSearch.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplicitGroup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonExplicit.h">
+      <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonRemove.h">
       <Filter>Header Files\Button</Filter>
     </ClInclude>
   </ItemGroup>

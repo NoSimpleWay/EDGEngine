@@ -6,11 +6,16 @@
 #include "EFont.h"
 #include "Helper.h"
 #include <vector>
+
 #include "EButton.h"
+//#include "ExplicitGroup.h"
+
 
 
 
 //#include "EButton.cpp"
+
+class ExplicitGroup;
 class EButton;
 class EButtonFilterItem;
 class EButtonDropCondition;
@@ -18,9 +23,13 @@ class EButtonInputBaseData;
 class EButtonDropRarity;
 class EButtonService;
 class EButtonCheck;
-class EButtonRemoveBaseData;
+class EButtonRemove;
 class EButtonPlusWide;
 class EButtonSocketGroup;
+
+class EButtonExplicit;
+
+
 
 class FilterBlock
 {
@@ -195,7 +204,7 @@ public:
 	EButton* sound_button_link;
 	EButton* custom_sound_button_link;
 
-
+	vector <ExplicitGroup*> explicit_list;
 	
 	
 };

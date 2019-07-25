@@ -25,14 +25,18 @@
 #include <ctime>
 #include "Helper.h";
 
+#include "FilterBlock.h"
+
 #include "EButtonFilterItem.h"
+#include "EButtonExplicit.h"
+#include "ExplicitGroup.h"
 
 #include "EWindow.h"
 #include "StaticData.h"
 
 
 
-#include "FilterBlock.h"
+
 
 
 
@@ -136,7 +140,6 @@ static GLFWwindow* window;
 #include <windows.h>
 #include <Lmcons.h>
 #include <shlobj.h>
-#include "Enums.h"
 
 #include "ConsoleColor.h"
 
@@ -405,7 +408,7 @@ void parse_loot_filter_data(string _path)
 
 	EButton* just_created_button=NULL;
 
-
+	int explicit_group_id = -1;
 
 	while ((getline(myfile, line))&&(line_number<10000))
 	{
@@ -416,6 +419,8 @@ void parse_loot_filter_data(string _path)
 		string subdata = "";
 		data_order = 0;
 		parser_mode = Enums::ParserMode::NOTHING;
+
+		
 
 		bool space_is_not_separator = false;
 
@@ -474,6 +479,8 @@ void parse_loot_filter_data(string _path)
 								if (show_info_to_console) { cout << "And new block is created! And block is SHOWED!" << endl; }
 
 								just_created_block->is_show = true;
+
+								explicit_group_id = -1;
 							}
 
 							if (subdata == "Hide")
@@ -484,6 +491,8 @@ void parse_loot_filter_data(string _path)
 								if (show_info_to_console) { cout << "And new block is created! And block is HIDED!" << endl; }
 
 								just_created_block->is_show = false;
+
+								explicit_group_id = -1;
 							}
 
 							if (subdata == "Corrupted") { parser_mode = Enums::ParserMode::IS_CORRUPTED; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED) = true; }
@@ -505,7 +514,7 @@ void parse_loot_filter_data(string _path)
 
 							if (subdata == "ShaperItem") { parser_mode = Enums::ParserMode::IS_SHAPER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM) = true;}
 							if (subdata == "ItemLevel") { parser_mode = Enums::ParserMode::ITEM_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL) = true; }
-							if (subdata == "HasExplicitMod") { parser_mode = Enums::ParserMode::EXPLICIT_MOD; }
+							if (subdata == "HasExplicitMod") { parser_mode = Enums::ParserMode::EXPLICIT_MOD; explicit_group_id++; }
 							if (subdata == "Identified") { parser_mode = Enums::ParserMode::IDENTIFIED; just_created_block->is_identified_active = true;}
 							if (subdata == "ElderItem") { parser_mode = Enums::ParserMode::IS_ELDER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_ITEM) = true; }
 							if (subdata == "Sockets") { parser_mode = Enums::ParserMode::SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS) = true; }
@@ -771,7 +780,27 @@ void parse_loot_filter_data(string _path)
 						if (parser_mode == Enums::ParserMode::EXPLICIT_MOD)
 						{
 							//if (data_order == 0) { cout << "activate rarity property" << endl; }
-							if (data_order > 0) { if (show_info_to_console){cout << "add new explicit mod <" << subdata << ">" << endl;} just_created_block->explicit_mod_list.push_back(new string(subdata)); }
+							if (data_order > 0)
+							{
+								if (show_info_to_console){cout << "add new explicit mod <" << subdata << ">" << endl;}
+								just_created_block->explicit_mod_list.push_back(new string(subdata));
+
+								cout << "try allocate explicit list at <" << explicit_group_id << ">" << endl;
+								EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20);
+								explicit_button->text = subdata;
+								explicit_button->master_block = just_created_block;
+								explicit_button->master_window = StaticData::window_filter_block;
+								explicit_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
+
+								just_created_block->explicit_list.at(explicit_group_id)->is_active = true;
+
+								just_created_block->explicit_list.at(explicit_group_id)->button_list.push_back(explicit_button);
+								just_created_block->button_list.push_back(explicit_button);
+
+								just_created_block->explicit_list.at(explicit_group_id)->button_close->is_active = true;
+
+								
+							}
 						}
 
 						if (parser_mode == Enums::ParserMode::IDENTIFIED)

@@ -1,14 +1,12 @@
 #pragma once
 #include "EButton.h"
-#include "StaticData.h"
-
-
-class EButtonRemoveBaseData : public EButton
+class EButtonExplicit : public EButton
 {
 public:
 	//EButtonService(float _x, float _y, float _sx, float _sy);   // конструктор класса SecondClass вызывает конструктор класса FirstClass
 
-	EButtonRemoveBaseData(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type);
+	EButtonExplicit(float _x, float _y, float _sx, float _sy);
+	int explicit_group_id;
 
 	virtual void click_event();
 

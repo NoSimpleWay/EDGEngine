@@ -16,9 +16,12 @@
 #include "EButtonDropRarity.h"
 #include "EButtonService.h"
 #include "EButtonCheck.h"
-#include "EButtonRemoveBaseData.h"
+#include "EButtonRemove.h"
 #include "EButtonPlusWide.h"
 #include "EButtonSocketGroup.h"
+#include "EButtonExplicit.h"
+
+#include "ExplicitGroup.h"
 //#include "EButton.cpp"
 
 
@@ -122,7 +125,7 @@
 
 		base_filter_data_active.push_back(false);
 
-		EButton* but_remove = new EButtonRemoveBaseData(0, 0, 17, 17, _button_type);
+		EButton* but_remove = new EButtonRemove(0, 0, 17, 17, Enums::ButtonType::BUTTON_REMOVE_BASE_DATA);
 		but_remove->master_window = StaticData::window_filter_block;
 		but_remove->master_block = this;
 		but_remove->data_id = _id;
@@ -145,6 +148,8 @@
 		button_plus->master_position = Enums::FILTER_BLOCK;
 		button_plus->is_plus = true;
 		button_plus->description_text = "Add new item";
+
+		button_list.push_back(button_plus);
 
 
 		/*
@@ -169,6 +174,7 @@
 		button_add_new_base_data = new EButtonPlusWide(0, 0, 17, 17,Enums::ButtonType::BUTTON_FILTER_BLOCK_TO_CONSOLE);
 		button_add_new_base_data->master_block = this;
 		button_add_new_base_data->master_window = StaticData::window_filter_block;
+		button_list.push_back(button_add_new_base_data);
 
 		//std::cout << "_______________________________________ " << std::endl;
 		add_base_buttons("Rarity",				Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false,	0);//0
@@ -197,7 +203,22 @@
 		add_base_buttons("Any enchantment?",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	19);//19
 		add_base_buttons("Identified?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	20);//20
 
+		
+		for (int i = 0; i < 6; i++)
+		{
+			ExplicitGroup* ex = new ExplicitGroup();
+			explicit_list.push_back(ex);
 
+			EButton* but_close = new EButtonRemove(0,0,17,17, Enums::ButtonType::BUTTON_REMOVE_EXPLICIT_GROUP);
+
+			but_close->master_block = this;
+			but_close->master_window = StaticData::window_filter_block;
+			but_close->is_active = false;
+			but_close->data_id = i;
+
+			ex->button_close=but_close;
+			button_list.push_back(but_close);
+		}
 
 
 
@@ -215,7 +236,7 @@
 			filter_block_items_button_list.at(i)->update(_d);
 		}
 
-		for (EButton* b : button_list) { b->update(_d); }
+		for (EButton* b : button_list) { if (b->is_active) { b->update(_d); } }
 
 
 		button_plus->update(_d);
@@ -228,6 +249,27 @@
 			{
 				filter_block_items_button_list.erase(filter_block_items_button_list.begin()+i);
 				i--;
+			}
+		}
+
+		for (int i = 0; i < button_list.size(); i++)
+		{
+			if (button_list.at(i)->need_remove)
+			{
+				button_list.erase(button_list.begin() + i);
+				i--;
+			}
+		}
+
+		for (ExplicitGroup* ex : explicit_list)
+		{
+			for (int i = 0; i < ex->button_list.size(); i++)
+			{
+				if (ex->button_list.at(i)->need_remove)
+				{
+					ex->button_list.erase(ex->button_list.begin() + i);
+					i--;
+				}
 			}
 		}
 
@@ -272,6 +314,8 @@
 			button_add_new_base_data->button_y = size_y - data_y;
 
 			button_add_new_base_data->update(_d);
+
+
 	}
 
 	void FilterBlock::draw(Batcher* _batch)
@@ -339,11 +383,47 @@
 		button_plus->button_x = temp_pos_x;
 		button_plus->button_y = temp_pos_y;
 
-		button_plus->default_draw(_batch);
-		button_plus->additional_draw(_batch);
+		float ex_x = 310;
+		float ex_y = -10;
 
-		button_add_new_base_data->default_draw(_batch);
-		button_add_new_base_data->additional_draw(_batch);
+		int close_button_id=0;
+
+		for (ExplicitGroup* ex : explicit_list)
+		{
+			ex_x = 310;
+
+			if (ex->is_active)
+			{
+				//std::cout << "Try align close button <" << close_button_id << std::endl;
+
+				ex->button_close->button_x=ex_x;
+				ex->button_close->button_y=ex_y;
+
+				//std::cout << "SUCCESS"<< std::endl;
+
+				ex_x += 20;
+
+				for (EButton* b : ex->button_list)
+				{
+					b->button_x = ex_x;
+					b->button_y = ex_y;
+
+					ex_x += b->button_size_x+5;
+					if (b->button_x + b->button_size_x > size_x - 200.0f)
+					{
+						ex_x = 310.0f;
+						ex_y -= 25.0f;
+					}
+
+				}
+
+				ex_y -= 35.0f;
+				close_button_id++;
+			}
+		}
+
+		if (ex_y * -1 + 55 > max_h) { max_h = ex_y * -1.0f + 55.0f; }
+
 		//button_service->draw(_batch);
 
 		/*for (int i = 0; i < filter_flock_button_list.size(); i++)
@@ -393,7 +473,7 @@
 			}
 		}
 
-		for (EButton* b : button_list) { b->default_draw(_batch); }
+		for (EButton* b : button_list) { if (b->is_active) { b->default_draw(_batch);} }
 
 		EFont::font_arial->align_x = Enums::LEFT;
 
@@ -427,7 +507,7 @@
 	{
 		_batch->setcolor(1, 1, 1, 1);
 
-		for (EButton* b : button_list) { b->text_pass(_batch); }
+		for (EButton* b : button_list) { if (b->is_active) { b->text_pass(_batch); } }
 
 		/*
 
@@ -448,7 +528,7 @@
 		//add_debug(is_text_color, "Font size: " + rarity_value[item_rarity], _font, _batch);
 
 
-
+		/*
 		EFont::font_arial->x_adding = 0;
 		for (int i = 0; i < class_list.size(); i++)
 		{
@@ -481,9 +561,9 @@
 
 			EFont::font_arial->add_draw(_batch, *prophecy_list.at(i) + "   ", debug_text_x + 250, y + 70);
 		}
-
+		*/
 		_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
-
+		
 		//_font->x_adding = 0;
 		EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
 
@@ -508,8 +588,7 @@
 				base_filter_data_remove_buttons.at(i)->text_pass(_batch);
 			}
 		}
-		button_plus->text_pass(_batch);
-		button_add_new_base_data->text_pass(_batch);
+
 		//button_service->text_pass(_batch);
 		
 		//EFont::font_arial->draw(_batch, std::to_string(y), x, y);
