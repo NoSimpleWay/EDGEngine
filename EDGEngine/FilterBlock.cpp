@@ -171,10 +171,15 @@
 		button_list.push_back(but);
 
 
-		button_add_new_base_data = new EButtonPlusWide(0, 0, 17, 17,Enums::ButtonType::BUTTON_FILTER_BLOCK_TO_CONSOLE);
+		button_add_new_base_data = new EButtonPlusWide(0, 0, 17, 17,Enums::ButtonType::BUTTON_BASE_DATA_WINDOW);
 		button_add_new_base_data->master_block = this;
 		button_add_new_base_data->master_window = StaticData::window_filter_block;
 		button_list.push_back(button_add_new_base_data);
+
+		button_add_new_EPC = new EButtonPlusWide(0, 0, 17, 17, Enums::ButtonType::BUTTON_EXPLICIT_PROPHECY_CLASS_WINDOW);
+		button_add_new_EPC->master_block = this;
+		button_add_new_EPC->master_window = StaticData::window_filter_block;
+		button_list.push_back(button_add_new_EPC);
 
 		//std::cout << "_______________________________________ " << std::endl;
 		add_base_buttons("Rarity",				Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false,	0);//0
@@ -218,6 +223,22 @@
 
 			ex->button_close=but_close;
 			button_list.push_back(but_close);
+
+			EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20);
+			explicit_button->text = "+";
+			explicit_button->master_block = this;
+			explicit_button->master_window = StaticData::window_filter_block;
+			explicit_button->button_size_x = EFont::get_width(EFont::font_arial, "+") + 5.0f;
+			explicit_button->can_be_removed = false;
+			explicit_button->have_input_mode = false;
+			explicit_button->is_plus = true;
+			explicit_button->is_active = false;
+			explicit_button->data_id = i;
+
+
+
+			ex->button_add = explicit_button;
+			button_list.push_back(explicit_button);
 		}
 
 
@@ -239,7 +260,7 @@
 		for (EButton* b : button_list) { if (b->is_active) { b->update(_d); } }
 
 
-		button_plus->update(_d);
+		//button_plus->update(_d);
 		
 		//button_service->update(_d);
 
@@ -417,12 +438,18 @@
 
 				}
 
+				ex->button_add->button_x = ex_x;
+				ex->button_add->button_y = ex_y;
+
 				ex_y -= 35.0f;
 				close_button_id++;
 			}
 		}
 
-		if (ex_y * -1 + 55 > max_h) { max_h = ex_y * -1.0f + 55.0f; }
+		button_add_new_EPC->button_x = 310;
+		button_add_new_EPC->button_y = ex_y;
+
+		if (ex_y * -1 + 75 > max_h) { max_h = ex_y * -1.0f + 75.0f; }
 
 		//button_service->draw(_batch);
 

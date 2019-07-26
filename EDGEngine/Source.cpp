@@ -791,13 +791,14 @@ void parse_loot_filter_data(string _path)
 								explicit_button->master_block = just_created_block;
 								explicit_button->master_window = StaticData::window_filter_block;
 								explicit_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
-
-								just_created_block->explicit_list.at(explicit_group_id)->is_active = true;
-
 								just_created_block->explicit_list.at(explicit_group_id)->button_list.push_back(explicit_button);
 								just_created_block->button_list.push_back(explicit_button);
+								just_created_block->explicit_list.at(explicit_group_id)->is_active = true;
+
+
 
 								just_created_block->explicit_list.at(explicit_group_id)->button_close->is_active = true;
+								just_created_block->explicit_list.at(explicit_group_id)->button_add->is_active = true;
 
 								
 							}

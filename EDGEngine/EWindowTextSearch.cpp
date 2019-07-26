@@ -6,7 +6,7 @@ class EWindowTextSearch : public EWindow
 {
 public:
 	std::vector<FilterBlock*> filter_block_list;
-	Enums::TextSearchMode window_searchs_mode=Enums::TextSearchMode::DEFAULT_DROP_SOUND;
+	Enums::WindowSearchMode window_searchs_mode=Enums::WindowSearchMode::DEFAULT_DROP_SOUND;
 
 	EWindowTextSearch(int _id) :EWindow(_id)
 	{

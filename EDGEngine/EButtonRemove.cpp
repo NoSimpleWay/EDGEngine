@@ -44,6 +44,7 @@ void EButtonRemove::click_event()
 	if (button_type == Enums::ButtonType::BUTTON_REMOVE_EXPLICIT_GROUP)
 	{
 		master_block->explicit_list.at(data_id)->is_active = false;
+		master_block->explicit_list.at(data_id)->button_add->is_active=false;
 
 		for (EButton* b : master_block->explicit_list.at(data_id)->button_list)
 		{

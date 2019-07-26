@@ -179,6 +179,7 @@ public:
 	EButtonFilterItem* button_plus;
 	EButtonService* button_service;
 	EButtonPlusWide* button_add_new_base_data;
+	EButtonPlusWide* button_add_new_EPC;
 
 	int max_h = 200;
 

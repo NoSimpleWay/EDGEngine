@@ -19,7 +19,7 @@ public:
 	std::vector<EButton*> button_list;
 	EButtonInputSearchItem* input_button;
 
-	Enums::TextSearchMode window_searchs_mode = Enums::TextSearchMode::ITEM;
+	Enums::WindowSearchMode window_searchs_mode = Enums::WindowSearchMode::ITEM;
 
 	EButton* target_button=NULL;
 	FilterBlock* master_block=NULL;
@@ -122,7 +122,7 @@ public:
 
 	void fill_search_array(EButton* _b)
 	{
-		if (window_searchs_mode == Enums::TextSearchMode::ITEM)
+		if (window_searchs_mode == Enums::WindowSearchMode::ITEM)
 		{
 			if (input_button->text != "")
 			{
@@ -174,7 +174,7 @@ public:
 			}
 		}
 
-		if (window_searchs_mode == Enums::TextSearchMode::DEFAULT_DROP_SOUND)
+		if (window_searchs_mode == Enums::WindowSearchMode::DEFAULT_DROP_SOUND)
 		{
 			button_list.at(0)->is_active = true;
 
@@ -214,7 +214,7 @@ public:
 			}
 		}
 
-		if (window_searchs_mode == Enums::TextSearchMode::CUSTOM_DROP_SOUND)
+		if (window_searchs_mode == Enums::WindowSearchMode::CUSTOM_DROP_SOUND)
 		{
 			button_list.at(0)->is_active = true;
 
@@ -262,7 +262,7 @@ public:
 			b->master_block = master_block;
 		}
 
-		if (window_searchs_mode == Enums::TextSearchMode::ITEM)
+		if (window_searchs_mode == Enums::WindowSearchMode::ITEM)
 		{
 			have_undefined_input = true;
 
@@ -280,7 +280,7 @@ public:
 			}
 		}
 
-		if (window_searchs_mode == Enums::TextSearchMode::DEFAULT_DROP_SOUND)
+		if (window_searchs_mode == Enums::WindowSearchMode::DEFAULT_DROP_SOUND)
 		{
 			have_undefined_input = false;
 
@@ -321,7 +321,7 @@ public:
 			}
 		}
 
-		if (window_searchs_mode == Enums::TextSearchMode::CUSTOM_DROP_SOUND)
+		if (window_searchs_mode == Enums::WindowSearchMode::CUSTOM_DROP_SOUND)
 		{
 			have_undefined_input = false;
 

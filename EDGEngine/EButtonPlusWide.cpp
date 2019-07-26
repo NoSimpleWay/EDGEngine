@@ -9,6 +9,8 @@ EButtonPlusWide::EButtonPlusWide(float _x, float _y, float _sx, float _sy, Enums
 
 	text_align_x = Enums::PositionMode::MID;
 
+	
+
 	have_text = false;
 	have_icon = true;
 	have_rama = true;
@@ -24,9 +26,24 @@ EButtonPlusWide::EButtonPlusWide(float _x, float _y, float _sx, float _sy, Enums
 
 
 	button_type = _type;
+
+	if (button_type==Enums::ButtonType::BUTTON_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	{
+		position_mode_y = Enums::PositionMode::UP;
+	}
 }
 
 void EButtonPlusWide::click_event()
 {
-	StaticData::window_add_new_base_data->button_event(this);
+	if (Enums::ButtonType::BUTTON_BASE_DATA_WINDOW)
+	{
+		StaticData::window_add_new_base_data->window_searchs_mode = Enums::WindowSearchMode::BASE_DATA_LIST;
+		StaticData::window_add_new_base_data->button_event(this);
+	}
+
+	if (Enums::ButtonType::BUTTON_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	{
+		StaticData::window_add_new_base_data->window_searchs_mode = Enums::WindowSearchMode::EXPLICIT_PROPHECY_CLASS_LIST;
+		StaticData::window_add_new_base_data->button_event(this);
+	}
 }
