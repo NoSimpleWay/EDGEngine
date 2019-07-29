@@ -144,9 +144,12 @@ static GLFWwindow* window;
 #include "ConsoleColor.h"
 
 #include <irr/irrKlang.h>
+
 #include "EUtils.h"
 
+
 #include <experimental/filesystem>
+
 
 
 
@@ -274,7 +277,91 @@ bool convert_text_to_bool(string _text)
 }
 
 #include <codecvt>
+void load_base_class()
+{
+	//ofstream myfile_open;
+	//myfile_open.open("gemor.txt");
 
+	ifstream myfile;
+	myfile.open("data/ItemClass.txt");
+	string line;
+
+	string subdata;
+	string subdata_array[100];
+
+	int line_id = 0;
+	int data_order;
+
+	BaseClass* just_created_base_class = NULL;
+
+	//cout << EMath::rgb::r << endl;
+
+
+	while ((getline(myfile, line)) && (line_id < 1000))
+	{
+		just_created_base_class = new BaseClass();
+
+		data_order = 0;
+		subdata = "";
+
+		for (int i = 0; i < line.length(); i++)
+		{
+
+
+			if (line.at(i) != '\t')
+			{
+				subdata += line.at(i);
+			}
+
+			if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+			{
+				subdata_array[data_order] = subdata;
+				subdata = "";
+				data_order++;
+			}
+
+		}
+
+		for (int i = 0; i < 40; i++)
+		{
+
+			if (subdata_array[i * 2] == "Base name")
+			{
+				just_created_base_class->base_name = subdata_array[i * 2 + 1];
+			}
+
+			if (subdata_array[i * 2] == "RU name")
+			{
+				char sInvalid[1024];
+				strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
+				//комментарии
+
+				int size = strlen(sInvalid) + 1;
+				wchar_t* wsValid = new wchar_t[size];
+				char* sValid = new char[size];
+
+				MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
+				WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
+
+				//cout << "A: " << wsValid << " B: " << sValid << endl;
+
+				just_created_base_class->ru_name = sValid;
+			}
+
+			
+		}
+
+		EString::base_class_list.push_back(just_created_base_class);
+
+	}
+
+	int wtf = 0;
+	for (BaseClass* b : EString::base_class_list)
+	{
+		cout << "["<<wtf<< "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
+		wtf++;
+	}
+}
 
 void parse_item_data()
 {
@@ -323,8 +410,6 @@ void parse_item_data()
 			
 			if (subdata_array[i * 2] == "item EN name")
 			{
-	
-
 				just_created_item->item_name = subdata_array[i * 2 + 1];
 			}
 
@@ -498,7 +583,16 @@ void parse_loot_filter_data(string _path)
 							if (subdata == "Corrupted") { parser_mode = Enums::ParserMode::IS_CORRUPTED; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED) = true; }
 							if (subdata == "LinkedSockets") { parser_mode = Enums::ParserMode::LINKED_SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_LINKS) = true; }
 							if (subdata == "Rarity") { parser_mode = Enums::ParserMode::RARITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_RARITY) = true; }
-							if (subdata == "Class") { parser_mode = Enums::ParserMode::CLASS; }
+							if (subdata == "Class")
+							{
+								std::cout << "Try get acess to remove button" << std::endl;
+
+								parser_mode = Enums::ParserMode::CLASS;
+								just_created_block->is_base_class_active = true;
+								just_created_block->plus_class_button_link->is_active = true;
+								just_created_block->remove_base_class_button->is_active = true;
+							}
+							
 
 							if (subdata == "SetFontSize") { parser_mode = Enums::ParserMode::FONT_SIZE; just_created_block->is_font_size_active = true;}
 							if (subdata == "SetTextColor") { parser_mode = Enums::ParserMode::TEXT_COLOR; just_created_block->is_text_color_active = true;}
@@ -618,7 +712,20 @@ void parse_loot_filter_data(string _path)
 							if (data_order > 0)
 							{
 								if (show_info_to_console) { cout << "add new base class <" << subdata << ">" << endl; }
-								just_created_block->class_list.push_back(new string(subdata));
+								//just_created_block->class_list.push_back(new string(subdata));
+
+								EButtonExplicit* class_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLASS_LIST);
+								class_button->text = subdata;
+								class_button->master_block = just_created_block;
+								class_button->master_window = StaticData::window_filter_block;
+								class_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
+								
+								just_created_block->button_list.push_back(class_button);
+								just_created_block->base_class_list.push_back(class_button);
+
+								
+
+								
 							}
 						}
 
@@ -786,7 +893,7 @@ void parse_loot_filter_data(string _path)
 								just_created_block->explicit_mod_list.push_back(new string(subdata));
 
 								cout << "try allocate explicit list at <" << explicit_group_id << ">" << endl;
-								EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20);
+								EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_EXPLICIT_LIST);
 								explicit_button->text = subdata;
 								explicit_button->master_block = just_created_block;
 								explicit_button->master_window = StaticData::window_filter_block;
@@ -1571,6 +1678,7 @@ int main()
 	//##################################
 //##################################
 	parse_item_data();
+	load_base_class();
 	//##################################
 	//##################################
 	put_texture_to_atlas("data/font_arial.png", 0, 4096 - 128);

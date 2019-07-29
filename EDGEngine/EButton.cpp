@@ -257,6 +257,11 @@
 				}
 			}
 
+			if (dynamic_input_width)
+			{
+				button_size_x = EFont::get_width(EFont::font_arial, text)+7.0f;
+			}
+
 			if (glfwGetKey(EWindow::main_window, GLFW_KEY_ENTER) == GLFW_PRESS)
 			{
 				is_input_mode_active = false;

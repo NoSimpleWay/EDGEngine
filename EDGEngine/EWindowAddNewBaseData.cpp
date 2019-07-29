@@ -60,7 +60,7 @@ public:
 		button_list.clear();
 		int data_id = 0;
 
-		if (window_searchs_mode == Enums::WindowSearchMode::BASE_DATA_LIST)
+		if (window_searchs_mode == Enums::WindowSearchMode::BASE_DATA_VERTICAL_LIST)
 		{
 			for (bool b : _b->master_block->base_filter_data_active)
 			{
@@ -86,7 +86,7 @@ public:
 			}
 		}
 
-		if (window_searchs_mode == Enums::WindowSearchMode::EXPLICIT_PROPHECY_CLASS_LIST)
+		if (window_searchs_mode == Enums::WindowSearchMode::EXPLICIT_PROPHECY_CLASS_VERTICAL_LIST)
 		{
 			bool free_space_detected = false;
 
@@ -123,7 +123,42 @@ public:
 
 				window_size_y += 23;
 			}
+
+			if (!_b->master_block->is_base_class_active)
+			{
+				EButton* but = new EButtonText(0, 0, 200, 17, Enums::ButtonType::BUTTON_ACTIVE_BASE_CLASS_LIST);
+
+				but->master_window = this;
+				but->button_x = 0;
+
+				but->master_window = this;
+				but->master_block = _b->master_block;
+
+				button_list.push_back(but);
+
+				window_size_y += 23;
+			}
 		}
+		
+		/*
+		if (window_searchs_mode == Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST)
+		{
+
+			if (!_b->master_block->is_base_class_active)
+			{
+				EButton* but = new EButtonText(0, 0, 200, 17, Enums::ButtonType::BUTTON_ACTIVE_BASE_CLASS_LIST);
+
+				but->master_window = this;
+				but->button_x = 0;
+
+				but->master_window = this;
+				but->master_block = _b->master_block;
+
+				button_list.push_back(but);
+
+				window_size_y += 23;
+			}
+		}*/
 	}
 
 };

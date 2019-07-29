@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseClass.cpp" />
     <ClCompile Include="Batcher.cpp" />
     <ClCompile Include="DADItem.h" />
     <ClCompile Include="EButtonAddNewBaseData.cpp" />
@@ -182,6 +183,7 @@
     <ClCompile Include="EButton.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseClass.h" />
     <ClInclude Include="Batcher.h" />
     <ClInclude Include="ConsoleColor.h" />
     <ClInclude Include="EButton.h" />

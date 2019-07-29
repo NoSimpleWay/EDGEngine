@@ -132,6 +132,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	std::string EString::path_to_poe_folder;
 
+	std::vector<BaseClass*> EString::base_class_list;
+
 	std::string EString::to_lower(std::string _s, bool _b)
 	{
 		std::string result = "";

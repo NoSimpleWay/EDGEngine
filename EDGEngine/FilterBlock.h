@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "EButton.h"
+#include "BaseClass.h"
 //#include "ExplicitGroup.h"
 
 
@@ -181,7 +182,7 @@ public:
 	EButtonPlusWide* button_add_new_base_data;
 	EButtonPlusWide* button_add_new_EPC;
 
-	int max_h = 200;
+	float max_h = 200;
 
 	
 	std::vector<string> base_filter_data_name;
@@ -189,6 +190,7 @@ public:
 	std::vector<EButton*> base_filter_buttons;
 	std::vector<bool> base_filter_separator;
 	std::vector<bool> base_filter_data_active;
+
 	std::vector<EButton*> base_filter_data_remove_buttons;
 
 
@@ -204,8 +206,14 @@ public:
 
 	EButton* sound_button_link;
 	EButton* custom_sound_button_link;
+	EButtonExplicit* plus_class_button_link;
 
 	vector <ExplicitGroup*> explicit_list;
+	vector <EButtonExplicit*> base_class_list;
+
+	EButton* remove_base_class_button;
+
+	bool is_base_class_active=false;
 	
 	
 };

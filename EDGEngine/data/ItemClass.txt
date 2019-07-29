@@ -7,12 +7,14 @@ Base name	Rings	RU name	Кольца
 Base name	Claws	RU name	Когти
 Base name	Daggers	RU name	Кинжалы
 Base name	Wands	RU name	Жезлы
+Base name	One Hand	RU name	Одноручные
 Base name	One Hand Swords	RU name	Одноручные мечи
 Base name	Thrusting One Hand Swords	RU name	Шпаги
 Base name	One Hand Axes	RU name	Одноручные топоры
 Base name	One Hand Maces	RU name	Одноручные булавы
 Base name	Bows	RU name	Луки
 Base name	Staves	RU name	Посохи
+Base name	Two Hand	RU name	Двуручные
 Base name	Two Hand Swords	RU name	Двуручные мечи
 Base name	Two Hand Axes	RU name	Двуручные топоры
 Base name	Two Hand Maces	RU name	Двуручные булавы
@@ -25,7 +27,7 @@ Base name	Boots	RU name	Обувь
 Base name	Body Armours	RU name	Нательные доспехи
 Base name	Helmets	RU name	Шлемы
 Base name	Shields	RU name	Щиты
-Base name	Stackable Currency	RU name	Валюта
+Base name	Stackable Currency	RU name	Складываемая валюта
 Base name	Quest Items	RU name	Вещи для заданий
 Base name	Sceptres	RU name	Скипетры
 Base name	Utility Flasks	RU name	Особые флаконы

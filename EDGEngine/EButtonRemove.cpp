@@ -15,6 +15,12 @@ EButtonRemove::EButtonRemove(float _x, float _y, float _sx, float _sy, Enums::Bu
 		position_mode_y = Enums::PositionMode::UP;
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_BASE_CLASS)
+	{
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+	}
+
 	text_align_x = Enums::PositionMode::MID;
 
 	have_text = false;
@@ -47,6 +53,20 @@ void EButtonRemove::click_event()
 		master_block->explicit_list.at(data_id)->button_add->is_active=false;
 
 		for (EButton* b : master_block->explicit_list.at(data_id)->button_list)
+		{
+			b->need_remove = true;
+		}
+
+		is_active = false;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_BASE_CLASS)
+	{
+		master_block->is_base_class_active = false;
+
+		master_block->plus_class_button_link->is_active = false;
+
+		for (EButton* b : master_block->base_class_list)
 		{
 			b->need_remove = true;
 		}

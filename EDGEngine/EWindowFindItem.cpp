@@ -249,6 +249,56 @@ public:
 				order++;
 			}
 		}
+
+		if (window_searchs_mode == Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST)
+		{
+			if (input_button->text != "")
+			{
+				button_list.at(0)->is_active = true;
+				button_list.at(0)->text=input_button->text;
+
+				button_list.at(0)->button_size_x = EFont::get_width(EFont::font_arial, button_list.at(0)->text)+7.0f;
+			}
+			else
+			{ 
+				button_list.at(0)->is_active = false;
+			}
+
+			for (int i = 1; i < button_list.size(); i++)
+			{
+				button_list.at(i)->is_active = false;
+			}
+
+			int search_count = 1;
+			int order = 0;
+			for (EButton* b : button_list)
+			{
+				//std::cout << "item_list_name |" << item->item_name << "| button description |" <<  _b->text << "|" << std::endl;
+
+
+				if
+					(
+						(
+							(EString::to_lower(b->text, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+						)
+						&&
+						(order > 0)
+					)
+				{
+					if (search_count < EString::base_class_list.size())
+					{
+						b->is_active = true;
+
+						search_count++;
+					}
+
+				}
+
+
+
+				order++;
+			}
+		}
 	}
 
 
@@ -346,6 +396,41 @@ public:
 					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
 					b->is_active = true;
 					b->button_type = Enums::ButtonType::BUTTON_SEARCH_CUSTOM_SOUND;
+					b->data_id = data_index;
+
+					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+
+					data_index++;
+				}
+				else
+				{
+					b->is_active = false;
+				}
+			}
+		}
+		
+		if (window_searchs_mode == Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST)
+		{
+			have_undefined_input = true;
+			data_index = 0;
+
+			for (EButton* b : button_list)
+			{
+				if (data_index < EString::base_class_list.size())
+				{
+					b->button_size_y = 21;
+
+					b->have_text = true;
+					b->have_icon = false;
+
+					if (data_index >= 1)
+					{b->text = EString::base_class_list.at(data_index-1)->base_name;}
+					else
+					{b->text = "?";}
+
+					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
+					b->is_active = true;
+					b->button_type = Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS;
 					b->data_id = data_index;
 
 					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);

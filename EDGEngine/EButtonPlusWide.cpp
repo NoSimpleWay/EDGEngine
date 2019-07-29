@@ -27,7 +27,12 @@ EButtonPlusWide::EButtonPlusWide(float _x, float _y, float _sx, float _sy, Enums
 
 	button_type = _type;
 
-	if (button_type==Enums::ButtonType::BUTTON_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	if (button_type==Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	{
+		position_mode_y = Enums::PositionMode::UP;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_BASE_CLASS_WINDOW)
 	{
 		position_mode_y = Enums::PositionMode::UP;
 	}
@@ -35,15 +40,23 @@ EButtonPlusWide::EButtonPlusWide(float _x, float _y, float _sx, float _sy, Enums
 
 void EButtonPlusWide::click_event()
 {
-	if (Enums::ButtonType::BUTTON_BASE_DATA_WINDOW)
+	if (button_type==Enums::ButtonType::BUTTON_OPEN_BASE_DATA_WINDOW)
 	{
-		StaticData::window_add_new_base_data->window_searchs_mode = Enums::WindowSearchMode::BASE_DATA_LIST;
+		StaticData::window_add_new_base_data->window_searchs_mode = Enums::WindowSearchMode::BASE_DATA_VERTICAL_LIST;
 		StaticData::window_add_new_base_data->button_event(this);
 	}
 
-	if (Enums::ButtonType::BUTTON_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	if (button_type==Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW)
 	{
-		StaticData::window_add_new_base_data->window_searchs_mode = Enums::WindowSearchMode::EXPLICIT_PROPHECY_CLASS_LIST;
+		StaticData::window_add_new_base_data->window_searchs_mode = Enums::WindowSearchMode::EXPLICIT_PROPHECY_CLASS_VERTICAL_LIST;
 		StaticData::window_add_new_base_data->button_event(this);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_BASE_CLASS_WINDOW)
+	{
+		StaticData::window_find_item->is_active = true;
+		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST;
+
+		StaticData::window_find_item->button_event(this);
 	}
 }

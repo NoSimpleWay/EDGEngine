@@ -147,6 +147,9 @@
     <ClCompile Include="EButtonRemove.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="BaseClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -268,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="EButtonRemove.h">
       <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseClass.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

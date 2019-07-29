@@ -63,6 +63,13 @@ void EButtonItemSearch::click_event()
 		}
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS)
+	{
+		StaticData::window_find_item->target_button->text = text;
+
+		StaticData::window_find_item->is_active = false;
+	}
+
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_CUSTOM_SOUND)
 	{
 

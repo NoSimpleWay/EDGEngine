@@ -39,8 +39,17 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		text = "Add explicit group list";
 
 		master_position = Enums::PositionMaster::WINDOW;
+	}
 
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_BASE_CLASS_LIST)
+	{
+		text_align_x = Enums::PositionMode::MID;
+		position_mode_x = Enums::PositionMode::MID;
+		position_mode_y = Enums::PositionMode::UP;
 
+		text = "Active base class list";
+
+		master_position = Enums::PositionMaster::WINDOW;
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_ADD_EXPLICIT_ELEMENT)
@@ -86,5 +95,14 @@ void EButtonText::click_event()
 	if (button_type == Enums::ButtonType::BUTTON_ADD_EXPLICIT_ELEMENT)
 	{
 
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_BASE_CLASS_LIST)
+	{
+		master_block->plus_class_button_link->is_active = true;
+		master_block->remove_base_class_button->is_active = true;
+		master_block->is_base_class_active=true;
+
+		StaticData::window_add_new_base_data->is_active = false;
 	}
 }

@@ -144,4 +144,6 @@ public:
 
 	void activate();
 	void deactivate();
+
+	bool dynamic_input_width = false;
 };
