@@ -24,7 +24,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW)
 	{
-		position_mode_y = Enums::PositionMode::UP;
+		text_align_x = Enums::PositionMode::MID;
 		text = "Select custom drop sound";
 
 		master_position = Enums::PositionMaster::WINDOW;
@@ -39,6 +39,8 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		text = "Add explicit group list";
 
 		master_position = Enums::PositionMaster::WINDOW;
+
+		bg_color->set(0.5f,0.5f,0.8f,0.5f);
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_BASE_CLASS_LIST)
@@ -50,6 +52,21 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		text = "Active base class list";
 
 		master_position = Enums::PositionMaster::WINDOW;
+
+		bg_color->set(0.5f, 0.8f, 0.5f, 0.5f);
+	}
+	
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_PROPHECY_LIST)
+	{
+		text_align_x = Enums::PositionMode::MID;
+		position_mode_x = Enums::PositionMode::MID;
+		position_mode_y = Enums::PositionMode::UP;
+
+		text = "Active prophecy list";
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		bg_color->set(0.8f, 0.5f, 0.8f, 0.5f);
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_ADD_EXPLICIT_ELEMENT)
@@ -102,6 +119,15 @@ void EButtonText::click_event()
 		master_block->plus_class_button_link->is_active = true;
 		master_block->remove_base_class_button->is_active = true;
 		master_block->is_base_class_active=true;
+
+		StaticData::window_add_new_base_data->is_active = false;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_PROPHECY_LIST)
+	{
+		master_block->plus_prophecy_button_link->is_active = true;
+		master_block->remove_prophecy_button->is_active = true;
+		master_block->is_prophecy_active = true;
 
 		StaticData::window_add_new_base_data->is_active = false;
 	}

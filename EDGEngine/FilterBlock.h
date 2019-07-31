@@ -9,6 +9,7 @@
 
 #include "EButton.h"
 #include "BaseClass.h"
+#include "ProphecyList.h"
 //#include "ExplicitGroup.h"
 
 
@@ -138,7 +139,7 @@ public:
 	std::vector<string*> class_list;
 	std::vector<string*> base_type_list;
 	std::vector<string*> explicit_mod_list;
-	std::vector<string*> prophecy_list;
+	std::vector<EButtonExplicit*> prophecy_list;
 
 	string YNE_value[3] = { "yes", "no", "either" };
 
@@ -168,6 +169,8 @@ public:
 
 	~FilterBlock();
 
+	void remove_button_from_list(std::vector<EButton*> _v);
+
 	void update(float _d);
 
 
@@ -183,6 +186,8 @@ public:
 	EButtonPlusWide* button_add_new_EPC;
 
 	float max_h = 200;
+	float button_h_max = 0;
+	float max_h_top = 200;
 
 	
 	std::vector<string> base_filter_data_name;
@@ -206,12 +211,17 @@ public:
 
 	EButton* sound_button_link;
 	EButton* custom_sound_button_link;
+
 	EButtonExplicit* plus_class_button_link;
+	EButton* remove_base_class_button;
+
+	EButtonExplicit* plus_prophecy_button_link;
+	EButton* remove_prophecy_button;
 
 	vector <ExplicitGroup*> explicit_list;
 	vector <EButtonExplicit*> base_class_list;
 
-	EButton* remove_base_class_button;
+
 
 	bool is_base_class_active=false;
 	

@@ -140,3 +140,8 @@ void EWindow::input_event(EButton* _b)
 {
 }
 
+void EWindow::manual_event()
+{
+
+}
+

@@ -92,7 +92,7 @@ public:
 					y_offset++;
 				}
 
-				if (button_list.at(0)->is_active)
+				if ((button_list.at(0)->is_active)&&(have_undefined_input))
 				{
 					if ((x_offset == 0) && (y_offset == 0)) { bx = button_list.at(0)->button_size_x + 40.0f + 7.0f; }
 					if ((x_offset == 0) && (y_offset == 1)) { bx = button_list.at(0)->button_size_x + 40.0f + 7.0f; }
@@ -299,6 +299,98 @@ public:
 				order++;
 			}
 		}
+
+		if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST)
+		{
+			if (input_button->text != "")
+			{
+				button_list.at(0)->is_active = true;
+				button_list.at(0)->text = input_button->text;
+
+				button_list.at(0)->button_size_x = EFont::get_width(EFont::font_arial, button_list.at(0)->text) + 7.0f;
+			}
+			else
+			{
+				button_list.at(0)->is_active = false;
+			}
+
+			for (int i = 1; i < button_list.size(); i++)
+			{
+				button_list.at(i)->is_active = false;
+			}
+
+			int search_count = 1;
+			int order = -1;
+			for (EButton* b : button_list)
+			{
+				//std::cout << "item_list_name |" << item->item_name << "| button description |" <<  _b->text << "|" << std::endl;
+
+
+				if
+					(
+						(order >= 0)
+						&&
+						(
+							(EString::to_lower(b->text, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+							||
+							(EString::to_lower(EString::prophecy_list.at(order)->ru_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+						)
+						&&
+						(search_count<30)
+					)
+				{
+					if (search_count < EString::prophecy_list.size())
+					{
+						b->is_active = true;
+
+						search_count++;
+					}
+
+				}
+
+
+
+				order++;
+			}
+		}
+
+		if (window_searchs_mode == Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST)
+		{
+			for (int i = 0; i < button_list.size(); i++)
+			{
+				button_list.at(i)->is_active = false;
+			}
+
+			int search_count = 0;
+			int order = 0;
+
+			for (EButton* b : button_list)
+			{
+				if
+				(
+					(order >= 0)
+					&&
+					(
+						(EString::to_lower(b->text, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+					)
+					&&
+					(search_count < 30)
+				)
+				{
+					if (search_count < EString::loot_filter_name_list.size())
+					{
+						b->is_active = true;
+
+						search_count++;
+					}
+
+				}
+
+
+
+				order++;
+			}
+		}
 	}
 
 
@@ -332,7 +424,7 @@ public:
 
 		if (window_searchs_mode == Enums::WindowSearchMode::DEFAULT_DROP_SOUND)
 		{
-			have_undefined_input = false;
+			have_undefined_input = true;
 
 			for (EButton* b : button_list)
 			{
@@ -373,7 +465,7 @@ public:
 
 		if (window_searchs_mode == Enums::WindowSearchMode::CUSTOM_DROP_SOUND)
 		{
-			have_undefined_input = false;
+			have_undefined_input = true;
 
 			for (EButton* b : button_list)
 			{
@@ -443,6 +535,57 @@ public:
 				}
 			}
 		}
+
+		if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST)
+		{
+			have_undefined_input = true;
+			data_index = 0;
+
+			for (EButton* b : button_list)
+			{
+				if (data_index < EString::prophecy_list.size())
+				{
+					b->button_size_y = 21;
+
+					b->have_text = true;
+					b->have_icon = false;
+
+					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+
+					if (data_index >= 1)
+					{
+						b->text = EString::prophecy_list.at(data_index - 1)->base_name;
+
+						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::TRASH) { b->bg_color->set(0.6f, 0.6f, 0.6f, 0.5f); }
+						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::LOW_COST) { b->bg_color->set(0.4f, 0.8f, 0.4f, 0.6f); }
+						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::MID_COST) { b->bg_color->set(0.4f, 0.8f, 0.8f, 0.7f); }
+						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::HIGH_COST) { b->bg_color->set(0.8f, 0.4f, 0.8f, 0.8f); }
+						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::TOP_COST) { b->bg_color->set(1.0f, 1.0f, 0.4f, 0.9f); }
+					}
+					else
+					{
+						b->text = "?";
+					}
+
+					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
+
+					if (data_index<30)
+					{b->is_active = true;} else { b->is_active = false; }
+					b->button_type = Enums::ButtonType::BUTTON_SEARCH_PROPHECY;
+					b->data_id = data_index - 1;
+
+					
+
+					
+
+					data_index++;
+				}
+				else
+				{
+					b->is_active = false;
+				}
+			}
+		}
 	}
 
 	virtual void text_pass(Batcher* _batch)
@@ -470,6 +613,56 @@ public:
 		{
 			std::cout << "windows of button is NULL" << endl;
 		}
+	}
+
+	virtual void manual_event()
+	{
+		int data_index=0;
+
+		if (window_searchs_mode == Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST)
+		{
+			have_undefined_input = false;
+			data_index = 0;
+
+			for (EButton* b : button_list)
+			{
+				if (data_index < EString::loot_filter_name_list.size())
+				{
+					b->button_size_y = 21;
+
+					b->have_text = true;
+					b->have_icon = false;
+
+					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+
+					if (data_index >= 0)
+					{
+						b->text = EString::loot_filter_name_list.at(data_index);
+					}
+					else
+					{
+						b->text = "?";
+					}
+
+					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
+
+					if (data_index < 30)
+					{b->is_active = true;}
+					else
+					{ b->is_active = false; }
+
+					b->button_type = Enums::ButtonType::BUTTON_SEARCH_LOOT_FILTER;
+					b->data_id = data_index;
+
+					data_index++;
+				}
+				else
+				{
+					b->is_active = false;
+				}
+			}
+		}
+
 	}
 
 };

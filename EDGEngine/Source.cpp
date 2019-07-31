@@ -277,6 +277,110 @@ bool convert_text_to_bool(string _text)
 }
 
 #include <codecvt>
+void load_prophecy_list()
+{
+	//ofstream myfile_open;
+	//myfile_open.open("gemor.txt");
+
+	ifstream myfile;
+	myfile.open("data/ProphecyList.txt");
+	string line;
+
+	string subdata;
+	string subdata_array[100];
+
+	int line_id = 0;
+	int data_order;
+
+	ProphecyList* just_created_prophecy = NULL;
+
+	//cout << EMath::rgb::r << endl;
+
+
+	while ((getline(myfile, line)) && (line_id < 1000))
+	{
+		just_created_prophecy = new ProphecyList();
+
+		data_order = 0;
+		subdata = "";
+
+		for (int i = 0; i < line.length(); i++)
+		{
+
+
+			if (line.at(i) != '\t')
+			{
+				subdata += line.at(i);
+			}
+
+			if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+			{
+				subdata_array[data_order] = subdata;
+				subdata = "";
+				data_order++;
+			}
+
+		}
+
+		for (int i = 0; i < 40; i++)
+		{
+
+			if (subdata_array[i * 2] == "name")
+			{
+				just_created_prophecy->base_name = subdata_array[i * 2 + 1];
+			}
+
+			if (subdata_array[i * 2] == "RU name")
+			{
+				char sInvalid[1024];
+				strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
+				//комментарии
+
+				int size = strlen(sInvalid) + 1;
+				wchar_t* wsValid = new wchar_t[size];
+				char* sValid = new char[size];
+
+				MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
+				WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
+
+				//cout << "A: " << wsValid << " B: " << sValid << endl;
+
+				just_created_prophecy->ru_name = sValid;
+			}
+
+			if (subdata_array[i * 2] == "tier")
+			{
+				if (subdata_array[i * 2 + 1]=="TRASH")
+				{ just_created_prophecy->cost=Enums::CostList::TRASH; }
+
+				if (subdata_array[i * 2 + 1]=="LOW COST")
+				{ just_created_prophecy->cost=Enums::CostList::LOW_COST; }
+
+				if (subdata_array[i * 2 + 1]=="MID COST")
+				{ just_created_prophecy->cost=Enums::CostList::MID_COST; }
+
+				if (subdata_array[i * 2 + 1]=="HIGH COST")
+				{ just_created_prophecy->cost=Enums::CostList::HIGH_COST; }
+
+				if (subdata_array[i * 2 + 1]=="TOP COST")
+				{ just_created_prophecy->cost=Enums::CostList::TOP_COST; }
+			}
+
+
+		}
+
+		EString::prophecy_list.push_back(just_created_prophecy);
+
+	}
+
+	int wtf = 0;
+	for (BaseClass* b : EString::base_class_list)
+	{
+		cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
+		wtf++;
+	}
+}
+
 void load_base_class()
 {
 	//ofstream myfile_open;
@@ -631,7 +735,14 @@ void parse_loot_filter_data(string _path)
 							if (subdata == "MapTier") { parser_mode = Enums::ParserMode::MAP_TIER; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MAP_TIER) = true; }
 
 							if (subdata == "DisableDropSound") { parser_mode = Enums::ParserMode::DISABLE_DROP_SOUND; just_created_block->disable_drop_sound = true; }
-							if (subdata == "Prophecy") { parser_mode = Enums::ParserMode::PROPHECY; just_created_block->is_prophecy_active = true; }
+							if (subdata == "Prophecy")
+							{
+								parser_mode = Enums::ParserMode::PROPHECY;
+								just_created_block->is_prophecy_active = true;
+
+								just_created_block->plus_prophecy_button_link->is_active = true;
+								just_created_block->remove_prophecy_button->is_active = true;
+							}
 							
 						}
 					}
@@ -714,7 +825,7 @@ void parse_loot_filter_data(string _path)
 								if (show_info_to_console) { cout << "add new base class <" << subdata << ">" << endl; }
 								//just_created_block->class_list.push_back(new string(subdata));
 
-								EButtonExplicit* class_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLASS_LIST);
+								EButtonExplicit* class_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
 								class_button->text = subdata;
 								class_button->master_block = just_created_block;
 								class_button->master_window = StaticData::window_filter_block;
@@ -893,7 +1004,7 @@ void parse_loot_filter_data(string _path)
 								just_created_block->explicit_mod_list.push_back(new string(subdata));
 
 								cout << "try allocate explicit list at <" << explicit_group_id << ">" << endl;
-								EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_EXPLICIT_LIST);
+								EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST);
 								explicit_button->text = subdata;
 								explicit_button->master_block = just_created_block;
 								explicit_button->master_window = StaticData::window_filter_block;
@@ -1186,7 +1297,32 @@ void parse_loot_filter_data(string _path)
 						if (parser_mode == Enums::ParserMode::PROPHECY)
 						{
 							//if (data_order == 0) { cout << "activate rarity property" << endl; }
-							if (data_order > 0) { if (show_info_to_console) { cout << "add new prophecy mod <" << subdata << ">" << endl; } just_created_block->prophecy_list.push_back(new string(subdata)); }
+							if (data_order > 0) {
+								if (show_info_to_console)
+								{
+									cout << "add new prophecy mod <" << subdata << ">" << endl;
+								}
+								EButtonExplicit* prophecy_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST);
+								prophecy_button->text = subdata;
+								prophecy_button->master_block = just_created_block;
+								prophecy_button->master_window = StaticData::window_filter_block;
+								prophecy_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
+
+								prophecy_button->data_id = -1;
+
+								for (int sr = 0; sr < EString::prophecy_list.size(); sr++)
+								{
+									if (EString::prophecy_list.at(sr)->base_name == subdata)
+									{
+										prophecy_button->data_id = sr;
+									}
+								}
+
+								just_created_block->button_list.push_back(prophecy_button);
+								just_created_block->prophecy_list.push_back(prophecy_button);
+							}
+							
+
 						}
 
 
@@ -1302,6 +1438,7 @@ int main()
 	}
 
 	ESound::load_custom_sound();
+	EString::load_loot_filter_list();
 	//ofstream writer;
 	//writer.open("check.txt");
 
@@ -1679,6 +1816,7 @@ int main()
 //##################################
 	parse_item_data();
 	load_base_class();
+	load_prophecy_list();
 	//##################################
 	//##################################
 	put_texture_to_atlas("data/font_arial.png", 0, 4096 - 128);
@@ -1739,7 +1877,7 @@ int main()
 	window_list.push_back(StaticData::window_filter_block);
 
 	parse_loot_filter_data(EString::path_to_poe_folder + "NeverSink's filter.filter");
-
+	EString::load_loot_filter_list();
 	//std::string path = "/path/to/directory";
 
 
@@ -1756,8 +1894,12 @@ int main()
 	window_list.push_back(StaticData::window_filter_visual_editor);
 
 	StaticData::window_find_item = new EWindowFindItem(4);
-	StaticData::window_filter_block->name = "Search item";
+	StaticData::window_find_item->name = "Search item";
 	window_list.push_back(StaticData::window_find_item);
+
+	StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
+	StaticData::window_find_item->is_active = true;
+	StaticData::window_find_item->manual_event();
 
 		load_texture("data/white_pixel.png", 0);
 		batch->reset();

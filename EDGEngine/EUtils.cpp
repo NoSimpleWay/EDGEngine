@@ -133,6 +133,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	std::string EString::path_to_poe_folder;
 
 	std::vector<BaseClass*> EString::base_class_list;
+	std::vector<ProphecyList*> EString::prophecy_list;
+
+	std::vector<std::string> EString::loot_filter_name_list;
+	std::vector<std::string> EString::loot_filter_path_list;
 
 	std::string EString::to_lower(std::string _s, bool _b)
 	{
@@ -162,9 +166,38 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		return result;
 	}
 
+	void EString::load_loot_filter_list()
+	{
+		for (auto& p : std::experimental::filesystem::directory_iterator(EString::path_to_poe_folder))
+		{
+			std::string loot_filter_name = p.path().u8string();
+			//writer << custom_sound << endl;;
+
+			if
+				(
+					(loot_filter_name.length()>=8)
+					&&
+					(EString::to_lower(loot_filter_name.substr(loot_filter_name.length() - 7, 7), false) == ".filter")
+				)
+			{
+
+				//cout <<"It sound!" << '\n'<<'\n';
+
+				EString::loot_filter_path_list.push_back(loot_filter_name);
+				EString::loot_filter_name_list.push_back(p.path().filename().u8string().substr(0, p.path().filename().u8string().length() - 7));
+
+				std::cout << "It filter! " << p.path().filename().u8string() << '\n' << '\n';
+
+				//ESound::custom_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(custom_sound.c_str()));
+			}
+		}
+	}
+
 	void ESound::load_custom_sound()
 	{
-		ESound::custom_drop_sound.clear();
+		ESound::custom_drop_sound		.clear();
+		ESound::custom_drop_sound_name	.clear();
+		//s 17:41:35 31.07.2019
 		ESound::custom_drop_sound_name.push_back("NONE");
 		ESound::custom_drop_sound.push_back(NULL);
 

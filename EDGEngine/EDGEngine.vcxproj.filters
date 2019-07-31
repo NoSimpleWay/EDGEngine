@@ -150,6 +150,9 @@
     <ClCompile Include="BaseClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ProphecyList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -273,6 +276,9 @@
       <Filter>Header Files\Button</Filter>
     </ClInclude>
     <ClInclude Include="BaseClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProphecyList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

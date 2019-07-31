@@ -2,6 +2,7 @@
 #include <vector>
 #include <irr/irrKlang.h>
 #include "BaseClass.h"
+#include "ProphecyList.h"
 
 #include <string>
 
@@ -53,4 +54,12 @@ public:
 
 	static std::string path_to_poe_folder;
 	static std::vector<BaseClass*> base_class_list;
+	static std::vector<ProphecyList*> prophecy_list;
+
+	static void load_loot_filter_list();
+	static std::vector<std::string> loot_filter_name_list;
+	static std::vector<std::string> loot_filter_path_list;
 };
+
+
+

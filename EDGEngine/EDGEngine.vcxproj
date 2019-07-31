@@ -178,6 +178,7 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="ItemList.cpp" />
+    <ClCompile Include="ProphecyList.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="EFont.cpp" />
     <ClCompile Include="EButton.cpp" />
@@ -223,6 +224,7 @@
     <ClInclude Include="Header.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="ItemList.h" />
+    <ClInclude Include="ProphecyList.h" />
     <ClInclude Include="StaticData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
