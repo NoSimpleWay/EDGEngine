@@ -70,11 +70,11 @@
 
 			base_filter_condition_list.push_back(but);
 
-			//std::cout << "Added: " << _text << std::endl;
+			
 		}
 		else
 		{
-			//std::cout << "NULL: " << _text << std::endl;
+			
 			base_filter_condition_list.push_back(NULL);
 		}
 
@@ -100,7 +100,7 @@
 					(_button_type == Enums::ButtonType::BUTTON_ANY_ENCHANTMENT)
 				)
 				{
-					//cout << "Запилил" << endl;
+					
 					but = new EButtonCheck(0, 0, 20, 20, _button_type);
 				}
 				else
@@ -188,7 +188,7 @@
 		button_list.push_back(button_add_new_EPC);
 
 
-		//std::cout << "_______________________________________ " << std::endl;
+		
 		add_base_buttons("Rarity",				Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false,	0);//0
 		add_base_buttons("Item level",			Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL,		Enums::ButtonType::BUTTON_ITEM_LEVEL,		false,	1);//1
 		add_base_buttons("Req. level",			Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL,		Enums::ButtonType::BUTTON_DROP_LEVEL,		false,	2);//2
@@ -280,7 +280,7 @@
 
 
 
-		std::cout << "Remove button created" << std::endl;
+		
 		remove_base_class_button = new EButtonRemove(0, 0, 17, 17, Enums::ButtonType::BUTTON_REMOVE_BASE_CLASS);
 
 		remove_base_class_button->master_block = this;
@@ -506,12 +506,12 @@
 
 			if (ex->is_active)
 			{
-				//std::cout << "Try align close button <" << close_button_id << std::endl;
+				
 
 				ex->button_close->button_x=ex_x;
 				ex->button_close->button_y=ex_y;
 
-				//std::cout << "SUCCESS"<< std::endl;
+				
 
 				ex_x += 20;
 
@@ -749,6 +749,15 @@
 		//_font->x_adding = 0;
 		EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
 
+		if (is_minimap_icon)
+		{
+			float siz = 1.0 / (minimap_icon_size*0.5f + 1.0);
+
+			_batch->setcolor(EColorCollection::MINIMAP_ICON_COLOR[minimap_icon_color]);
+
+			_batch->draw_rect_with_uv(x+size_x-160.0f,y,35.0f*siz,35.0f*siz,DefaultGabarite::gabarite_minimap_icon[minimap_icon_shape]);
+		}
+
 		/*
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
 		{
@@ -797,7 +806,7 @@
 
 		change_color_consume(this);
 
-		if (!is_alert_sound)
+		if ((!is_alert_sound)&&(!is_custom_alert_sound))
 		{
 			sound_button_link->deactivate();
 		}

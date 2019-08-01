@@ -1,3 +1,6 @@
+#pragma once
+#include "EButtonService.h"
+
 #include "EWindow.h"
 #include "EControl.h"
 #include "Enums.h"
@@ -5,6 +8,8 @@
 #include "EButtonSlider.h"
 #include "EButtonText.h"
 #include "EUtils.h"
+#include "EButtonCheck.h"
+
 
 class EWindowFilterVisualEditor: public EWindow
 {
@@ -20,7 +25,16 @@ public:
 
 	float button_size_x = 150.0f;
 
+	float icon_button_base_x = 625.0f;
+	float icon_button_base_y = 5.0f;
+
 	std::vector<EButton*> link_to_sliders;
+
+	std::vector<EButton*> link_to_icon_shape;
+	std::vector<EButton*> link_to_icon_color;
+	std::vector<EButton*> link_to_icon_size;
+
+	EButton* link_to_icon_checker;
 	
 
 
@@ -68,7 +82,7 @@ public:
 		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 2.0f, default_positiox_y + distance_between_y * 1.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_V));
 		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 2.0f, default_positiox_y + distance_between_y * 0.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_ALPHA));
 
-		EButton* but = new EButtonText(60,50,220,40,Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW);
+		EButton* but = new EButtonText(60, 50, 220, 40, Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW);
 		but->master_window = this;
 		but->master_block = master_block;
 		button_list.push_back(but);
@@ -80,9 +94,9 @@ public:
 
 		EMath::rgb target_color;
 
-		target_color.r = 255.0/255.0;
-		target_color.g = 0.0/255.0;
-		target_color.b = 0.0/255.0;
+		target_color.r = 255.0 / 255.0;
+		target_color.g = 0.0 / 255.0;
+		target_color.b = 0.0 / 255.0;
 
 		EMath::hsv changed_color;
 
@@ -91,9 +105,145 @@ public:
 		std::cout << "H: " << changed_color.h << " S: " << changed_color.s << " V: " << changed_color.v << std::endl;
 
 		bg_color->set(0.1f, 0.2f, 0.3f, 0.95f);
+
+
+		for (int i = 0; i < 6; i++)
+		{
+			but = new EButtonService(icon_button_base_x + 55.0f * i, icon_button_base_y+60.0*2.0f, 45.0f, 45.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SHAPE);
+			but->gabarite = DefaultGabarite::gabarite_minimap_icon[i];
+			but->data_id = i;
+
+			but->master_block = master_block;
+			but->master_window = this;
+
+			link_to_icon_shape.push_back(but);
+			button_list.push_back(but);
+
+
+
+			but = new EButtonService(icon_button_base_x + 55.0f * i, icon_button_base_y + 60.0 * 1.0f, 45.0f, 45.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR);
+			but->gabarite = DefaultGabarite::gabarite_minimap_icon[i];
+			but->data_id = i;
+
+			but->master_block = master_block;
+			but->master_window = this;
+
+			link_to_icon_color.push_back(but);
+			button_list.push_back(but);
+		}
+
+		for (int i = 0; i < 3; i++)
+		{
+			but = new EButtonText(icon_button_base_x + 110.0f * i, icon_button_base_y + 60.0 * 0.0f, 90.0f, 45.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE);
+			
+			but->data_id = i;
+
+			but->master_block = master_block;
+			but->master_window = this;
+
+			link_to_icon_size.push_back(but);
+			button_list.push_back(but);
+		}
+
+		link_to_icon_size.at(0)->text = "Big";
+		link_to_icon_size.at(1)->text = "Medium";
+		link_to_icon_size.at(2)->text = "Small";
+
+		but =new EButtonCheck(icon_button_base_x + 110.0f, icon_button_base_y + 60.0 * 3.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON);
+		but->master_block = master_block;
+		but->master_window = this;
+		but->master_position = Enums::PositionMaster::WINDOW;
+
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::DOWN;
+
+		link_to_icon_checker = but;
+		button_list.push_back(but);
 	}
 
+	void update_minimap_button()
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			link_to_icon_shape.at(i)->bg_color->set(0.4f, 0.3f, 0.2f, 0.4f);
+			link_to_icon_shape.at(i)->icon_color->set(EColorCollection::WHITE);
 
+			link_to_icon_shape.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+			link_to_icon_shape.at(i)->rama_thikness = 1;
+
+			if (i == master_block->minimap_icon_shape)
+			{
+				link_to_icon_shape.at(i)->rama_color->set_alpha(EColorCollection::YELLOW, 0.90f);
+				link_to_icon_shape.at(i)->rama_thikness = 4;
+			}
+		}
+
+		for (int i = 0; i < 6; i++)
+		{
+			link_to_icon_color.at(i)->bg_color->set(0.4f, 0.3f, 0.2f, 0.4f);
+
+			link_to_icon_color.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+			link_to_icon_color.at(i)->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i]);
+			link_to_icon_color.at(i)->rama_thikness = 1;
+			link_to_icon_color.at(i)->gabarite = DefaultGabarite::gabarite_minimap_icon[master_block->minimap_icon_shape];
+
+			if (i == master_block->minimap_icon_color)
+			{
+				link_to_icon_color.at(i)->rama_color->set_alpha(EColorCollection::YELLOW, 0.90f);
+				link_to_icon_color.at(i)->rama_thikness = 4;
+			}
+		}
+
+		for (int i = 0; i < 3; i++)
+		{
+			link_to_icon_size.at(i)->bg_color->set(0.4f, 0.3f, 0.2f, 0.4f);
+
+			link_to_icon_size.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+			link_to_icon_size.at(i)->rama_thikness = 1;
+
+			if (i == master_block->minimap_icon_size)
+			{
+				link_to_icon_size.at(i)->rama_color->set_alpha(EColorCollection::YELLOW, 0.90f);
+				link_to_icon_size.at(i)->rama_thikness = 4;
+			}
+		}
+	}
+
+	void deactivate_minimap_button()
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			
+			link_to_icon_shape.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+			link_to_icon_shape.at(i)->rama_thikness = 1;
+			link_to_icon_shape.at(i)->icon_color->set_alpha(EColorCollection::GRAY, 0.55f);
+			link_to_icon_shape.at(i)->bg_color->set_alpha(EColorCollection::GRAY, 0.35f);
+		}
+
+		for (int i = 0; i < 6; i++)
+		{
+			
+			link_to_icon_color.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+			
+			link_to_icon_color.at(i)->icon_color->set_alpha(EColorCollection::GRAY, 0.55f);
+			link_to_icon_color.at(i)->bg_color->set_alpha(EColorCollection::GRAY, 0.35f);
+
+			link_to_icon_color.at(i)->rama_thikness = 1;
+			link_to_icon_color.at(i)->gabarite = DefaultGabarite::gabarite_minimap_icon[master_block->minimap_icon_shape];
+		}
+
+		for (int i = 0; i < 3; i++)
+		{
+
+			link_to_icon_size.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+			link_to_icon_size.at(i)->rama_thikness = 1;
+
+			link_to_icon_size.at(i)->icon_color->set_alpha(EColorCollection::GRAY, 0.55f);
+			link_to_icon_size.at(i)->bg_color->set_alpha(EColorCollection::GRAY, 0.35f);
+			
+		}
+	}
 
 	virtual void draw(Batcher* _batch, float _delta)
 	{
@@ -119,6 +269,8 @@ public:
 	virtual void button_event(EButton* _b)
 	{
 		master_block = _b->master_block;
+
+		update_minimap_button();
 
 		for (EButton* b : link_to_sliders)
 		{

@@ -1,6 +1,6 @@
 #pragma once
 #include "EButton.h"
-#include "StaticData.h"
+
 
 
 class EButtonCheck : public EButton

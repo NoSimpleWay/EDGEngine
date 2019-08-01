@@ -57,8 +57,21 @@ public:
 	static std::vector<ProphecyList*> prophecy_list;
 
 	static void load_loot_filter_list();
+
+	static bool convert_text_to_bool(std::string _text);
+
+	static bool check_is_condition_symbols(std::string _s);
+
+	static int find_item_by_full_name(std::string _name);
+
 	static std::vector<std::string> loot_filter_name_list;
 	static std::vector<std::string> loot_filter_path_list;
+};
+
+class EFile
+{
+public:
+	static void parse_loot_filter_data(std::string _path);
 };
 
 

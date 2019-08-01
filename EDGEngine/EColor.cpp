@@ -42,6 +42,7 @@ void EColor::set_alpha(EColor* _c, float _a)
 EColor::~EColor()
 {
 }
+
 EColor* EColorCollection::WHITE=new EColor			(1.0f,		1.0f,		1.0f,		1.0f);
 EColor* EColorCollection::GRAY=new EColor			(0.5f,		0.5f,		0.5f,		1.0f);
 EColor* EColorCollection::BLACK=new EColor			(0,			0,			0,			1.0f);
@@ -58,3 +59,12 @@ EColor* EColorCollection::DAD_NORMAL = new EColor	(0.8f,		0.8f,		0.8f,		1.0f);
 EColor* EColorCollection::DAD_MAGIC = new EColor	(0.0f,		1.0f,		1.0f,		1.0f);
 EColor* EColorCollection::DAD_RARE = new EColor		(1.0f,		1.0f,		0,			1.0f);
 EColor* EColorCollection::DAD_UNIQUE = new EColor	(0.78f,		0.5f,		0.25f,		1.0f);
+
+EColor* EColorCollection::MINIMAP_ICON_COLOR[6] = {
+	new EColor(1.0f,		0.0f,		0.0f,		1.0f),
+	new EColor(0.0f,		1.0f,		0.0f,		1.0f),
+	new EColor(0.25f,		0.5f,		1.0f,		1.0f),
+	new EColor(0.78f,		0.47f,		0.15f,		1.0f),
+	new EColor(1.0f,		1.0f,		1.0f,		1.0f),
+	new EColor(1.0f,		1.0f,		0.0f,		1.0f)
+};

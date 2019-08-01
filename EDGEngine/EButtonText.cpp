@@ -79,6 +79,17 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE)
+	{
+		text_align_x = Enums::PositionMode::MID;
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		//text = "Select size of minimap icon";
+
+		master_position = Enums::PositionMaster::WINDOW;
+	}
 }
 
 void EButtonText::click_event()
@@ -130,5 +141,10 @@ void EButtonText::click_event()
 		master_block->is_prophecy_active = true;
 
 		StaticData::window_add_new_base_data->is_active = false;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE)
+	{
+		master_block->minimap_icon_size = Enums::IconSize(data_id);
 	}
 }

@@ -84,6 +84,7 @@ void load_texture(const char* _path, int _id);
 
 void put_texture_to_atlas(char const* _path,float _x, float _y);
 void put_texture_to_atlas(char const* _path);
+void put_texture_to_atlas(char const* _path, EGabarite* _g);
 
 // settings
 int EWindow::SCR_WIDTH = 1700;
@@ -1438,7 +1439,7 @@ int main()
 	}
 
 	ESound::load_custom_sound();
-	EString::load_loot_filter_list();
+
 	//ofstream writer;
 	//writer.open("check.txt");
 
@@ -1868,7 +1869,12 @@ int main()
 
 	put_texture_to_atlas("data/button_sound.png");			DefaultGabarite::gabarite_play_sound = just_created_gabarite;
 	
-
+	put_texture_to_atlas("data/icon_circle.png");			DefaultGabarite::gabarite_minimap_icon[0] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_diamond.png");			DefaultGabarite::gabarite_minimap_icon[1] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_hexagon.png");			DefaultGabarite::gabarite_minimap_icon[2] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_square.png");			DefaultGabarite::gabarite_minimap_icon[3] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_star.png");				DefaultGabarite::gabarite_minimap_icon[4] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_circle.png");			DefaultGabarite::gabarite_minimap_icon[5] = just_created_gabarite;
 
 	
 
@@ -1876,7 +1882,7 @@ int main()
 	StaticData::window_filter_block->name = "Filter block";
 	window_list.push_back(StaticData::window_filter_block);
 
-	parse_loot_filter_data(EString::path_to_poe_folder + "NeverSink's filter.filter");
+	
 	EString::load_loot_filter_list();
 	//std::string path = "/path/to/directory";
 
@@ -2237,6 +2243,12 @@ void put_texture_to_atlas(char const* _path, float _x, float _y)
 	batch->draw_call();
 
 	just_created_gabarite = new EGabarite(_path, _x / 4096.0f, _y / 4096.0f, last_texture_w / 4096.0f, last_texture_h / 4096.0f);
+}
+void put_texture_to_atlas(char const* _path, EGabarite* _g)
+{
+	put_texture_to_atlas("data/button_sound.png");
+	
+	_g = just_created_gabarite;
 }
 
 void put_texture_to_atlas(char const* _path)

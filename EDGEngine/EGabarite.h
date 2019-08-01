@@ -43,5 +43,7 @@ public:
 
 	static EGabarite* gabarite_visual_editor_bg;
 
+	static EGabarite* gabarite_minimap_icon[6];
+
 
 };

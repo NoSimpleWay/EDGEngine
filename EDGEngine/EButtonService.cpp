@@ -1,4 +1,5 @@
 #include "EButtonService.h"
+#include "StaticData.h"
 
 EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type) : EButton(_x, _y, _sx, _sy)
 {
@@ -30,6 +31,22 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 	{
 		gabarite = DefaultGabarite::gabarite_play_sound;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SHAPE)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::DOWN;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::DOWN;
+	}
 }
 
 void EButtonService::click_event()
@@ -56,9 +73,29 @@ void EButtonService::click_event()
 		StaticData::window_filter_visual_editor->button_event(this);
 	}
 
-	if ((button_type == Enums::ButtonType::BUTTON_SYS_PLAY_SOUND)&&(master_block->alert_sound_name!=""))
+	if ((button_type == Enums::ButtonType::BUTTON_SYS_PLAY_SOUND))
 	{
-		if (master_block->is_alert_sound)			{ ESound::engine->play2D(ESound::default_drop_sound.at(master_block->alert_sound_id)); }
-		if (master_block->is_custom_alert_sound)	{ ESound::engine->play2D(ESound::get_sound_by_name(master_block->custom_alert_sound_name));}
+		if ((master_block->is_alert_sound) && (master_block->alert_sound_name != "")) { ESound::engine->play2D(ESound::default_drop_sound.at(master_block->alert_sound_id)); }
+
+		if ((master_block->is_custom_alert_sound) && (master_block->custom_alert_sound_name != ""))
+		{ ESound::engine->play2D(ESound::get_sound_by_name(master_block->custom_alert_sound_name));}
+		else
+		{
+			std::cout << "Custom sound disabled" << std::endl;
+		}
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SHAPE))
+	{
+		master_block->minimap_icon_shape = Enums::IconShape(data_id);
+
+		StaticData::window_filter_visual_editor->update_minimap_button();
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR))
+	{
+		master_block->minimap_icon_color = Enums::GameColors(data_id);
+
+		StaticData::window_filter_visual_editor->update_minimap_button();
 	}
 }

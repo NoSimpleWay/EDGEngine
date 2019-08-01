@@ -42,3 +42,5 @@ EGabarite* DefaultGabarite::gabarite_slider_alpha =NULL;
 
 EGabarite* DefaultGabarite::gabarite_visual_editor_bg =NULL;
 
+EGabarite* DefaultGabarite::gabarite_minimap_icon[6];
+

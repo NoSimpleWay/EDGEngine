@@ -1,4 +1,5 @@
 #include "EButtonCheck.h"
+#include "StaticData.h"
 
 EButtonCheck::EButtonCheck(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type): EButton(_x,_y,_sx,_sy)
 {
@@ -9,6 +10,8 @@ EButtonCheck::EButtonCheck(float _x, float _y, float _sx, float _sy, Enums::Butt
 	master_position = Enums::PositionMaster::FILTER_BLOCK;
 
 	description_text = "Click to change";
+
+	button_type = _type;
 
 
 }
@@ -26,6 +29,7 @@ void EButtonCheck::click_event()
 	{
 		gabarite = DefaultGabarite::gabarite_unchecked;
 	}
+
 	if (button_type == Enums::ButtonType::BUTTON_CORRUPTION) { master_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED) = is_checked; }
 
 	if (button_type == Enums::ButtonType::BUTTON_SHAPER_ITEM) { master_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM) = is_checked; }
@@ -40,6 +44,21 @@ void EButtonCheck::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_SHAPER_MAP) { master_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_MAP) = is_checked; }
 	if (button_type == Enums::ButtonType::BUTTON_ELDER_MAP) { master_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_MAP) = is_checked; }
+
+	if (button_type == Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON)
+	{
+		master_block->is_minimap_icon = is_checked;
+
+		if (is_checked)
+		{
+			StaticData::window_filter_visual_editor->update_minimap_button();
+			//master_block->is_min
+		}
+		else
+		{
+			StaticData::window_filter_visual_editor->deactivate_minimap_button();
+		}
+	}
 
 	/*BUTTON_CORRUPTION,
 	BUTTON_SHAPER_ITEM,

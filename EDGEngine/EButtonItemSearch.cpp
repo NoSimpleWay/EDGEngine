@@ -66,6 +66,7 @@ void EButtonItemSearch::click_event()
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS)
 	{
 		StaticData::window_find_item->target_button->text = text;
+		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::font_arial, text) + 5.0f;
 
 		StaticData::window_find_item->is_active = false;
 	}
@@ -73,7 +74,7 @@ void EButtonItemSearch::click_event()
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
 	{
 		StaticData::window_find_item->target_button->text = text;
-		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::font_arial, text ) + 7.0f;
+		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::font_arial, text ) + 5.0f;
 
 		StaticData::window_find_item->is_active = false;
 	}
@@ -101,6 +102,12 @@ void EButtonItemSearch::click_event()
 
 			master_block->custom_alert_sound_name = "";
 		}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SEARCH_LOOT_FILTER)
+	{
+		EFile::parse_loot_filter_data(EString::loot_filter_path_list.at(data_id));
+		StaticData::window_find_item->is_active = false;
 	}
 	//StaticData::window_find_item->fill_search_array();
 

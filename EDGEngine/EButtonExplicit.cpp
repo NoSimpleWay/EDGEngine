@@ -13,6 +13,8 @@ EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums
 
 	if (button_type == Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST)
 	{
+		have_input_mode = false;
+
 		bg_color->set(0.4f, 1.0f, 0.5f, 0.8f);
 	}
 
@@ -55,6 +57,12 @@ void EButtonExplicit::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST)
 	{
+		StaticData::window_find_item->is_active = true;
+		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST;
+
+		StaticData::window_find_item->target_button = this;
+		StaticData::window_find_item->button_event(this);
+
 		if (is_plus)
 		{
 			EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
@@ -67,11 +75,7 @@ void EButtonExplicit::click_event()
 
 			master_block->button_list.push_back(explicit_button);
 
-			StaticData::window_find_item->is_active = true;
-			StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST;
-
 			StaticData::window_find_item->target_button = explicit_button;
-			StaticData::window_find_item->button_event(this);
 		}
 	}
 
