@@ -85,17 +85,15 @@ void EButtonService::click_event()
 		}
 	}
 
-	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SHAPE))
+	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SHAPE) && (master_block->is_minimap_icon))
 	{
 		master_block->minimap_icon_shape = Enums::IconShape(data_id);
-
 		StaticData::window_filter_visual_editor->update_minimap_button();
 	}
 
-	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR))
+	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR) && (master_block->is_minimap_icon))
 	{
 		master_block->minimap_icon_color = Enums::GameColors(data_id);
-
 		StaticData::window_filter_visual_editor->update_minimap_button();
 	}
 }

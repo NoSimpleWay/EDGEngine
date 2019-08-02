@@ -4,6 +4,7 @@
 #include "EWindowAddNewBaseData.cpp"
 #include "EWindowSocketGroup.cpp"
 #include "EWindowFilterVisualEditor.cpp"
+#include "EWindowMain.cpp"
 
 
 #include "EWindow.h"
@@ -16,6 +17,5 @@ public:
 	static EWindowAddNewBaseData* window_add_new_base_data;
 	static EWindowSocketGroup* window_socket_group;
 	static EWindowFilterVisualEditor* window_filter_visual_editor;
-	
-
+	static EWindowMain* window_main;
 };

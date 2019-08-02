@@ -178,6 +178,7 @@ EWindowFindItem* StaticData::window_find_item = NULL;
 EWindowAddNewBaseData* StaticData::window_add_new_base_data = NULL;
 EWindowSocketGroup* StaticData::window_socket_group = NULL;
 EWindowFilterVisualEditor* StaticData::window_filter_visual_editor = NULL;
+EWindowMain* StaticData::window_main=NULL;
 
 
 //0		-	1

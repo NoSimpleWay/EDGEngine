@@ -68,3 +68,17 @@ void EButtonCheck::click_event()
 	BUTTON_ANY_ENCHANTMENT,
 	BUTTON_IDENTIFIED,*/
 }
+
+void EButtonCheck::change_state(bool _b)
+{
+	is_checked = _b;
+
+	if (is_checked)
+	{
+		gabarite = DefaultGabarite::gabarite_checked;
+	}
+	else
+	{
+		gabarite = DefaultGabarite::gabarite_unchecked;
+	}
+}

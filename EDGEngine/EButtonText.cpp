@@ -143,8 +143,9 @@ void EButtonText::click_event()
 		StaticData::window_add_new_base_data->is_active = false;
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE)
+	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE)&&(master_block->is_minimap_icon))
 	{
 		master_block->minimap_icon_size = Enums::IconSize(data_id);
+		StaticData::window_filter_visual_editor->update_minimap_button();
 	}
 }

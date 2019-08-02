@@ -270,7 +270,14 @@ public:
 	{
 		master_block = _b->master_block;
 
-		update_minimap_button();
+		if (master_block->is_minimap_icon)
+		{update_minimap_button();}
+		else
+		{deactivate_minimap_button();}
+
+		((EButtonCheck*)link_to_icon_checker)->change_state(master_block->is_minimap_icon);
+
+
 
 		for (EButton* b : link_to_sliders)
 		{
