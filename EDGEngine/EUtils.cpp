@@ -145,6 +145,33 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	std::vector<std::string> EString::loot_filter_name_list;
 	std::vector<std::string> EString::loot_filter_path_list;
 
+	std::string EString::opened_loot_filter_name;
+	std::string EString::opened_loot_filter_path;
+
+	std::string EString::game_color_name[6]
+	=
+	{
+		"Red",
+		"Green",
+		"Blue",
+		"Brown",
+		"White",
+		"Yellow"
+	}
+	;
+
+	std::string EString::icon_shape_name[6]
+	=
+	{
+		"Circle",
+		"Diamond",
+		"Hexagon",
+		"Square",
+		"Star",
+		"Triangle"
+	}
+	;
+
 	std::string EString::to_lower(std::string _s, bool _b)
 	{
 		std::string result = "";
@@ -294,6 +321,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	{
 
 
+		StaticData::window_filter_block->filter_block_list.clear();
 
 		ifstream myfile;
 		myfile.open(_path);
@@ -478,7 +506,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (data_order == 1)
 								{
 									if (show_info_to_console) { cout << "set corruption as <" << subdata << ">" << endl; }
-									just_created_block->is_corrupted = EString::convert_text_to_bool(subdata);
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_CORRUPTION) = EString::convert_text_to_bool(subdata);
 								}
 							}
 
@@ -547,6 +575,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									EButtonExplicit* class_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
 									class_button->text = subdata;
+									class_button->data_string = subdata;
+
 									class_button->master_block = just_created_block;
 									class_button->master_window = StaticData::window_filter_block;
 									class_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
@@ -712,6 +742,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										//just_created_button->button_size_y = ItemList::item_list.at(item_id)->gabarite->size_y / 2.0f;
 
 										just_created_button->description_text = ItemList::item_list.at(item_id)->item_name + " (" + ItemList::item_list.at(item_id)->item_name_ru + ")";
+										just_created_button->data_string = ItemList::item_list.at(item_id)->item_name;
 
 										if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
 									}
@@ -721,6 +752,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										just_created_button->gabarite = DefaultGabarite::gabarite_undefined;
 
 										just_created_button->description_text = "Unknown item (" + subdata + ")";
+										just_created_button->data_string = subdata;
 
 										if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
 									}
@@ -733,7 +765,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							if (parser_mode == Enums::ParserMode::IS_SHAPER_ITEM)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate shaper item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set shaper item as <" << subdata << ">" << endl; } just_created_block->is_shaper_item = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set shaper item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_ITEM) = EString::convert_text_to_bool(subdata); }
 							}
 
 							if (parser_mode == Enums::ParserMode::ITEM_LEVEL)
@@ -777,13 +809,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							if (parser_mode == Enums::ParserMode::IDENTIFIED)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate indetify property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set indetification as <" << subdata << ">" << endl; } just_created_block->is_identified = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set indetification as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_IDENTIFIED) = EString::convert_text_to_bool(subdata); }
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_ELDER_ITEM)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate elder item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set elder item as <" << subdata << ">" << endl; } just_created_block->is_elder_item = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set elder item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_ITEM) = EString::convert_text_to_bool(subdata); }
 							}
 
 							if (parser_mode == Enums::ParserMode::DROP_LEVEL)
@@ -881,19 +913,19 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							if (parser_mode == Enums::ParserMode::IS_FRACTURED_ITEM)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate fractured item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set fractured item as <" << subdata << ">" << endl; } just_created_block->is_fractured_item = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set fractured item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_FRACTURED) = EString::convert_text_to_bool(subdata); }
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_SYNTHESISED_ITEM)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate synthesised item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set synthesised item as <" << subdata << ">" << endl; } just_created_block->is_synthesised_item = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set synthesised item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SYNTHESISED) = EString::convert_text_to_bool(subdata); }
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_ANY_ENCHANTMENT)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate enchantment item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set enchantment item as <" << subdata << ">" << endl; } just_created_block->is_enchantment_item = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set enchantment item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ANY_ENCHANTMENT) = EString::convert_text_to_bool(subdata); }
 							}
 
 							if (parser_mode == Enums::ParserMode::QUALITY)
@@ -1010,13 +1042,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							if (parser_mode == Enums::ParserMode::IS_ELDER_MAP)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate elder map property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set elder map item as <" << subdata << ">" << endl; } just_created_block->is_elder_map = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set elder map item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_MAP) = EString::convert_text_to_bool(subdata); }
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_SHAPER_MAP)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate shaper map property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set shaper map item as <" << subdata << ">" << endl; } just_created_block->is_shaper_map = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set shaper map item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_MAP) = EString::convert_text_to_bool(subdata); }
 							}
 
 							if (parser_mode == Enums::ParserMode::MAP_TIER)
@@ -1056,6 +1088,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									}
 									EButtonExplicit* prophecy_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST);
 									prophecy_button->text = subdata;
+									prophecy_button->data_string = subdata;
+
 									prophecy_button->master_block = just_created_block;
 									prophecy_button->master_window = StaticData::window_filter_block;
 									prophecy_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
@@ -1114,4 +1148,500 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			cout << red << "Error count:" << yellow << error_counts << white << endl;;
 		}
 		myfile.close();
+	}
+
+	void EFile::save_filter(std::string _path)
+	{
+		ofstream myfile;
+		myfile.open(_path);
+
+		std::string loot_writer;
+		loot_writer = "#Created due to DaD Editor (by NoSimpleWay)";
+		loot_writer += '\n';
+
+	
+		for (FilterBlock* fb:StaticData::window_filter_block->filter_block_list)
+		{
+			if (fb->is_show)
+			{
+				loot_writer += "Show";
+				loot_writer += '\n';
+			}
+			else
+			{
+				loot_writer += "Hide";
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_CORRUPTION))
+				{
+					loot_writer += '\t';
+					loot_writer += "Corrupted True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "Corrupted False";
+					loot_writer += '\n';
+				}
+			}
+			
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_LINKS))
+			{
+				loot_writer += '\t';
+				loot_writer += "LinkedSockets ";
+				loot_writer += fb->links_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->links_count);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_RARITY))
+			{
+				loot_writer += '\t';
+				loot_writer += "Rarity ";
+				loot_writer += fb->rarity_condition;
+				loot_writer += " ";
+				loot_writer += fb->item_rarity;
+
+				loot_writer += '\n';
+			}
+
+			if (fb->is_base_class_active)
+			{
+				loot_writer += '\t';
+				loot_writer += "Class";
+
+				for (EButton* b : fb->base_class_list)
+				{
+					loot_writer += " ";
+					loot_writer += '"';
+					loot_writer += b->data_string;
+					loot_writer += '"';
+				}
+
+				loot_writer += '\n';
+			}
+
+			if (fb->is_font_size_active)
+			{
+				loot_writer += '\t';
+				loot_writer += "SetFontSize ";
+				loot_writer += std::to_string(fb->font_size);
+				loot_writer += '\n';
+			}
+
+			if (fb->is_text_color_active)
+			{
+				loot_writer += '\t';
+				loot_writer += "SetTextColor ";
+
+				loot_writer += std::to_string(fb->text_color_red);
+				loot_writer += " ";
+
+				loot_writer += std::to_string(fb->text_color_green);
+				loot_writer += " ";
+
+				loot_writer += std::to_string(fb->text_color_blue);
+				loot_writer += " ";
+
+				loot_writer += std::to_string(fb->text_color_alpha);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->is_rama_color_active)
+			{
+				loot_writer += '\t';
+				loot_writer += "SetBorderColor ";
+
+				loot_writer += std::to_string(fb->rama_red);
+				loot_writer += " ";
+
+				loot_writer += std::to_string(fb->rama_green);
+				loot_writer += +" ";
+
+				loot_writer += std::to_string(fb->rama_blue);
+				loot_writer += " ";
+
+				loot_writer += std::to_string(fb->rama_alpha);
+
+				loot_writer += '\n';
+			}
+			if (fb->is_bg_color_active)
+			{
+				loot_writer += '\t';
+				loot_writer += "SetBackgroundColor ";
+
+				loot_writer += std::to_string(fb->bg_red);
+				loot_writer += " ";
+
+				loot_writer += std::to_string(fb->bg_green);
+				loot_writer += " ";
+
+				loot_writer += std::to_string(fb->bg_blue);
+				loot_writer += " ";
+
+				loot_writer += std::to_string(fb->bg_alpha);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->is_alert_sound)
+			{
+				loot_writer += '\t';
+				loot_writer += "PlayAlertSound ";
+
+				loot_writer += fb->alert_sound_name;
+				loot_writer += " ";
+
+				loot_writer += std::to_string(fb->alert_sound_volume);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->is_custom_alert_sound)
+			{
+				loot_writer += '\t';
+				loot_writer += "CustomAlertSound ";
+
+				loot_writer += fb->custom_alert_sound_name;
+
+				loot_writer += '\n';
+			}
+
+			if (fb->is_ray)
+			{
+				loot_writer += '\t';
+				loot_writer += "PlayAlertSound ";
+				loot_writer += EString::game_color_name[fb->ray_color];
+
+				loot_writer += '\n';
+			}
+
+			if (fb->is_minimap_icon)
+			{
+				loot_writer += '\t';
+				loot_writer += "MinimapIcon ";
+				loot_writer += std::to_string(fb->minimap_icon_size);
+				loot_writer += " ";
+
+				loot_writer += EString::game_color_name[fb->minimap_icon_color];
+				loot_writer += " ";
+				loot_writer += EString::icon_shape_name[fb->minimap_icon_color];
+
+				loot_writer += '\n';
+			}
+
+			if (fb->filter_block_items_button_list.size() > 0)
+			{
+				loot_writer += '\t';
+				loot_writer += "BaseType";
+
+				for (EButton* b : fb->filter_block_items_button_list)
+				{
+					loot_writer += ' ';
+					loot_writer += '"';
+					loot_writer += b->data_string;
+					loot_writer += '"';
+				}
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_ITEM))
+				{
+					loot_writer += '\t';
+					loot_writer += "ShaperItem True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "ShaperItem False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL))
+			{
+				loot_writer += '\t';
+				loot_writer += "ItemLevel ";
+
+				loot_writer += fb->item_level_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->item_level);
+
+				loot_writer += '\n';
+			}
+
+			for (ExplicitGroup* ex : fb->explicit_list)
+			{
+				if ((ex->is_active)&&(ex->button_list.size()>0))
+				{
+					loot_writer += '\t';
+					loot_writer += "HasExplicitMod";
+
+					for (EButton* b : ex->button_list)
+					{
+						loot_writer += ' ';
+						loot_writer += '"';
+						loot_writer += b->text;
+						loot_writer += '"';
+					}
+
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IDENTIFIED))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_IDENTIFIED))
+				{
+					loot_writer += '\t';
+					loot_writer += "Identified True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "Identified False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_ITEM))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_ITEM))
+				{
+					loot_writer += '\t';
+					loot_writer += "ElderItem True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "ElderItem False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_REQUIRED_LEVEL))
+			{
+				loot_writer += '\t';
+				loot_writer += "DropLevel ";
+
+				loot_writer += fb->required_level_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->required_level);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS))
+			{
+				loot_writer += '\t';
+				loot_writer += "Sockets ";
+
+				loot_writer += fb->socket_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->socket_count);
+
+				loot_writer += '\n';
+			}
+
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_FRACTURED))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_FRACTURED))
+				{
+					loot_writer += '\t';
+					loot_writer += "FracturedItem True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "FracturedItem False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_WIDTH))
+			{
+				loot_writer += '\t';
+				loot_writer += "Width ";
+
+				loot_writer += fb->item_width_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->item_width);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_HEIGHT))
+			{
+				loot_writer += '\t';
+				loot_writer += "Height ";
+
+				loot_writer += fb->item_height_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->item_height);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SYNTHESISED))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_SYNTHESISED))
+				{
+					loot_writer += '\t';
+					loot_writer += "SynthesisedItem True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "SynthesisedItem False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ENCHANTMENT))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ANY_ENCHANTMENT))
+				{
+					loot_writer += '\t';
+					loot_writer += "AnyEnchantment True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "AnyEnchantment False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_QUALITY))
+			{
+				loot_writer += '\t';
+				loot_writer += "Quality ";
+
+				loot_writer += fb->item_quality_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->item_quality);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP))
+			{
+				loot_writer += '\t';
+				loot_writer += "SocketGroup ";
+
+				for (int i = 0; i < fb->red_sockets; i++)		{ loot_writer += "R"; }
+				for (int i = 0; i < fb->green_sockets; i++)		{ loot_writer += "G"; }
+				for (int i = 0; i < fb->blue_sockets; i++)		{ loot_writer += "B"; }
+				for (int i = 0; i < fb->white_sockets; i++)		{ loot_writer += "W"; }
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_GEM_LEVEL))
+			{
+				loot_writer += '\t';
+				loot_writer += "GemLevel ";
+
+				loot_writer += fb->gem_level_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->gem_level);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_MAP))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_MAP))
+				{
+					loot_writer += '\t';
+					loot_writer += "ElderMap True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "ElderMap False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_MAP))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_MAP))
+				{
+					loot_writer += '\t';
+					loot_writer += "ShapedMap True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "ShapedMap False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MAP_TIER))
+			{
+				loot_writer += '\t';
+				loot_writer += "MapTier ";
+
+				loot_writer += fb->map_tier_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->map_tier);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->is_prophecy_active)
+			{
+				loot_writer += '\t';
+				loot_writer += "Prophecy";
+
+				for (EButton* b : fb->prophecy_list)
+				{
+					loot_writer += " ";
+					loot_writer += '"';
+					loot_writer += b->data_string;
+					loot_writer += '"';
+				}
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_STACK_SIZE))
+			{
+				loot_writer += '\t';
+				loot_writer += "StackSize ";
+
+				loot_writer += fb->item_stack_size_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->item_stack_size);
+
+				loot_writer += '\n';
+			}
+
+		}
+
+		myfile << loot_writer;
+		myfile.close();
+
+
 	}

@@ -44,3 +44,6 @@ EGabarite* DefaultGabarite::gabarite_visual_editor_bg =NULL;
 
 EGabarite* DefaultGabarite::gabarite_minimap_icon[6];
 
+EGabarite* DefaultGabarite::gabarite_button_load = NULL;
+EGabarite* DefaultGabarite::gabarite_button_save = NULL;
+

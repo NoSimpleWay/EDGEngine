@@ -45,5 +45,10 @@ public:
 
 	static EGabarite* gabarite_minimap_icon[6];
 
+	static EGabarite* gabarite_button_load;
+	static EGabarite* gabarite_button_save;
+
+
+
 
 };

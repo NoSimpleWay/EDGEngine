@@ -66,12 +66,19 @@ public:
 
 	static std::vector<std::string> loot_filter_name_list;
 	static std::vector<std::string> loot_filter_path_list;
+
+	static std::string opened_loot_filter_name;
+	static std::string opened_loot_filter_path;
+
+	static std::string game_color_name[6];
+	static std::string icon_shape_name[6];
 };
 
 class EFile
 {
 public:
 	static void parse_loot_filter_data(std::string _path);
+	static void save_filter(std::string _path);
 };
 
 

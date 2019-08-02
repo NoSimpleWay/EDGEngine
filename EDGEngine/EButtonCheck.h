@@ -12,7 +12,7 @@ public:
 	EButtonCheck(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type);
 	virtual void click_event();
 	bool is_checked=true;
-
+	virtual void incoming_data(FilterBlock* _filter);
 	void change_state(bool _b);
 
 

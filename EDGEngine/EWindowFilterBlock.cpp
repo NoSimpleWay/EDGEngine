@@ -36,7 +36,7 @@ public:
 		//std::cout << "<>" << std::endl;
 		int block_index = 0;
 
-		float yy = 30;
+		float yy = 60;
 		for (int i = 0; i < 9; i++)
 		{
 			block_index = i + EControl::block_scroll;

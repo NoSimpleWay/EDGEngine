@@ -55,6 +55,8 @@ void EButtonAddNewBaseData::click_event()
 {
 	StaticData::window_add_new_base_data->is_active = false;
 	master_block->base_filter_data_active.at(data_id) = true;
+
+	master_block->base_filter_data_bool.at(data_id) = true;
 }
 
 

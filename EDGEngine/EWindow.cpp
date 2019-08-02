@@ -48,6 +48,7 @@ void EWindow::default_update(float _d)
 
 	if (align_y == Enums::PositionMode::MID) { pos_y = relative_y + (EWindow::SCR_HEIGHT - window_size_y) / 2.0f; }
 	if (align_y == Enums::PositionMode::DOWN) { pos_y = relative_y; }
+	if (align_y == Enums::PositionMode::UP) { pos_y = relative_y + EWindow::SCR_HEIGHT - window_size_y; }
 
 	for (EButton* b : button_list)
 	{

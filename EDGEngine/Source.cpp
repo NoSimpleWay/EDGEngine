@@ -1877,6 +1877,10 @@ int main()
 	put_texture_to_atlas("data/icon_star.png");				DefaultGabarite::gabarite_minimap_icon[4] = just_created_gabarite;
 	put_texture_to_atlas("data/icon_circle.png");			DefaultGabarite::gabarite_minimap_icon[5] = just_created_gabarite;
 
+
+	put_texture_to_atlas("data/button_load.png");			DefaultGabarite::gabarite_button_load = just_created_gabarite;
+	put_texture_to_atlas("data/button_save.png");			DefaultGabarite::gabarite_button_save = just_created_gabarite;
+
 	
 
 	StaticData::window_filter_block = new EWindowFilterBlock(0);
@@ -1907,6 +1911,10 @@ int main()
 	StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
 	StaticData::window_find_item->is_active = true;
 	StaticData::window_find_item->manual_event();
+
+	StaticData::window_main = new EWindowMain(5);
+	StaticData::window_main->name = "Main window";
+	window_list.push_back(StaticData::window_main);
 
 		load_texture("data/white_pixel.png", 0);
 		batch->reset();

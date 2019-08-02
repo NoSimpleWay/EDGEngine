@@ -1,6 +1,7 @@
 #pragma once
 #include "EButtonItemSearch.h"
 #include "StaticData.h"
+#include "EUtils.h"
 
 
 EButtonItemSearch::EButtonItemSearch(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type) : EButton(_x, _y, _sx, _sy)
@@ -32,6 +33,8 @@ void EButtonItemSearch::click_event()
 		StaticData::window_find_item->is_active = false;
 		StaticData::window_find_item->target_button->description_text = description_text;
 		StaticData::window_find_item->target_button->gabarite = gabarite;
+
+		StaticData::window_find_item->target_button->data_string = data_string;
 
 		//StaticData::window_find_item->input_button->text = "";
 	}
@@ -66,6 +69,8 @@ void EButtonItemSearch::click_event()
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS)
 	{
 		StaticData::window_find_item->target_button->text = text;
+		StaticData::window_find_item->target_button->data_string = data_string;
+
 		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::font_arial, text) + 5.0f;
 
 		StaticData::window_find_item->is_active = false;
@@ -74,6 +79,7 @@ void EButtonItemSearch::click_event()
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
 	{
 		StaticData::window_find_item->target_button->text = text;
+		StaticData::window_find_item->target_button->data_string = data_string;
 		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::font_arial, text ) + 5.0f;
 
 		StaticData::window_find_item->is_active = false;
@@ -106,6 +112,8 @@ void EButtonItemSearch::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_LOOT_FILTER)
 	{
+		EString::opened_loot_filter_path = EString::loot_filter_path_list.at(data_id);
+
 		EFile::parse_loot_filter_data(EString::loot_filter_path_list.at(data_id));
 		StaticData::window_find_item->is_active = false;
 	}

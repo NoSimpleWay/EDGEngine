@@ -146,4 +146,6 @@ public:
 	void deactivate();
 
 	bool dynamic_input_width = false;
+
+	std::string data_string;
 };

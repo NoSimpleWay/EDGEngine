@@ -163,6 +163,8 @@ public:
 						button_list.at(search_count)->gabarite = item->gabarite;
 						button_list.at(search_count)->description_text = item->item_name + " (" + item->item_name_ru + ")";
 
+						button_list.at(search_count)->data_string = item->item_name;
+
 						search_count++;
 					}
 
@@ -306,6 +308,7 @@ public:
 			{
 				button_list.at(0)->is_active = true;
 				button_list.at(0)->text = input_button->text;
+				button_list.at(0)->data_string = input_button->text;
 
 				button_list.at(0)->button_size_x = EFont::get_width(EFont::font_arial, button_list.at(0)->text) + 7.0f;
 			}
@@ -516,7 +519,11 @@ public:
 					b->have_icon = false;
 
 					if (data_index >= 1)
-					{b->text = EString::base_class_list.at(data_index-1)->base_name;}
+					{
+						b->text = EString::base_class_list.at(data_index-1)->base_name;
+
+						b->data_string = EString::base_class_list.at(data_index - 1)->base_name;
+					}
 					else
 					{b->text = "?";}
 
@@ -555,6 +562,7 @@ public:
 					if (data_index >= 1)
 					{
 						b->text = EString::prophecy_list.at(data_index - 1)->base_name;
+						b->data_string = EString::prophecy_list.at(data_index - 1)->base_name;
 
 						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::TRASH) { b->bg_color->set(0.6f, 0.6f, 0.6f, 0.5f); }
 						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::LOW_COST) { b->bg_color->set(0.4f, 0.8f, 0.4f, 0.6f); }

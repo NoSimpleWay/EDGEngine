@@ -50,7 +50,7 @@ public:
 	int item_width = 0;			bool is_item_width_active = false;		std::string item_width_condition = "=";
 	int item_height = 0;		bool is_item_height_active = false;		std::string item_height_condition = "=";
 
-	int item_quality = 0;		bool is_item_qualityt_active = false;	std::string item_quality_condition = "=";
+	int item_quality = 0;		bool is_item_quality_active = false;	std::string item_quality_condition = "=";
 	int item_stack_size = 0;	bool is_stack_size_active = false;		std::string item_stack_size_condition = "=";
 	int gem_level = 0;			bool is_gem_level_active = false;		std::string gem_level_condition = "=";
 
@@ -119,7 +119,7 @@ public:
 
 	string alert_sound_name = "";
 	Enums::DefaultAlertSound alert_sound_id = Enums::DefaultAlertSound::SOUND_01;
-	int alert_sound_volume = 100;
+	int alert_sound_volume = 300;
 
 	string custom_alert_sound_name = "";
 
@@ -193,8 +193,10 @@ public:
 	std::vector<string> base_filter_data_name;
 	std::vector<EButtonDropCondition*> base_filter_condition_list;
 	std::vector<EButton*> base_filter_buttons;
+
 	std::vector<bool> base_filter_separator;
 	std::vector<bool> base_filter_data_active;
+	std::vector<bool> base_filter_data_bool;
 
 	std::vector<EButton*> base_filter_data_remove_buttons;
 
