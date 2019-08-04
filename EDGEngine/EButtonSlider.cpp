@@ -38,6 +38,11 @@ EButtonSlider::EButtonSlider(float _x, float _y, float _sx, float _sy, Enums::Bu
 		)
 	{gabarite = DefaultGabarite::gabarite_slider_alpha;}
 
+	if (button_type == Enums::ButtonType::BUTTON_SLIDER_FONT_SIZE)
+	{
+		gabarite = DefaultGabarite::gabarite_slider_value;
+	}
+
 	is_slider = true;
 	//is_holdable = true;
 
@@ -69,6 +74,11 @@ void EButtonSlider::click_event()
 	 if (button_type == Enums::ButtonType::BUTTON_RAMA_S) { master_block->rama_saturation = slider_value; }
 	 if (button_type == Enums::ButtonType::BUTTON_RAMA_V) { master_block->rama_value = slider_value*255.0; }
 	 if (button_type == Enums::ButtonType::BUTTON_RAMA_ALPHA) { master_block->rama_alpha = slider_value*255.0; }
+
+
+	 if (button_type == Enums::ButtonType::BUTTON_SLIDER_FONT_SIZE) { master_block->font_size = round(18.0+slider_value*27.0f); }
+
+
 
 	 FilterBlock::change_color_extract(master_block);
 

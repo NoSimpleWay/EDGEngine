@@ -127,6 +127,14 @@ void EButtonService::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
 	{
-		EFile::save_filter(EString::opened_loot_filter_path+"!");
+		EFile::save_filter(EString::opened_loot_filter_path);
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_SELECT_RAY_COLOR)&&(master_block->is_ray))
+	{
+		master_block->ray_color = Enums::GameColors(data_id);
+
+		StaticData::window_filter_visual_editor->update_ray_button();
+
 	}
 }

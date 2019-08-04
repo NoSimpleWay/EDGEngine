@@ -14,10 +14,14 @@ namespace Helper {
 
 	int get_id_from_game_color_text(std::string _text)
 	{
-		for (int i = 0; i < game_color_names->length(); i++)
-		{
-			if (game_color_names[i] == _text) { return i; }
-		}
+
+		if (_text == "Red") { return 0; }
+		if (_text == "Green") { return 1; }
+		if (_text == "Blue") { return 2; }
+		if (_text == "Brown") { return 3; }
+		if (_text == "White") { return 4; }
+		if (_text == "Yellow") { return 5; }
+
 		return -1;
 	}
 

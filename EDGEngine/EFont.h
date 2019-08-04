@@ -45,5 +45,7 @@ public:
 	bool align_only_once = false;
 	Enums::PositionMode align_prev= Enums::PositionMode::LEFT;
 
+	float scale = 1.0f;
+
 };
 

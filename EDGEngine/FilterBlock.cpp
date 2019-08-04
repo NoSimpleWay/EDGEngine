@@ -447,20 +447,57 @@
 			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
 		}
 
-		_batch->setcolor_255(rama_red, rama_green, rama_blue, rama_alpha / 2.55f);
-		_batch->draw_rect_with_uv(x + size_x - 102, y + 3, 104, 29, DefaultGabarite::gabarite_white);
 
-		_batch->setcolor_255(bg_red, bg_green, bg_blue, bg_alpha/2.55f);
-		_batch->draw_rect_with_uv(x+size_x-100, y+5, 100, 25, DefaultGabarite::gabarite_white);
+				EFont::font_arial->scale = font_size / 32.0f;
 
-		if (ray_color == Enums::GameColors::RED) { _batch->setcolor_255(255, 0, 0, 100); }
-		if (ray_color == Enums::GameColors::GREEN) { _batch->setcolor_255(0, 255, 0, 100); }
-		if (ray_color == Enums::GameColors::BLUE) { _batch->setcolor_255(0, 0, 255, 100); }
-		if (ray_color == Enums::GameColors::BROWN) { _batch->setcolor_255(255, 128, 64, 100); }
-		if (ray_color == Enums::GameColors::WHITE) { _batch->setcolor_255(255, 255, 255, 100); }
-		if (ray_color == Enums::GameColors::YELLOW) { _batch->setcolor_255(255, 255, 0, 100); }
+				float text_w = EFont::get_width(EFont::font_arial, "Just a Text");
+				float text_h = 12.0f * EFont::font_arial->scale;
 
-		_batch->draw_rect_with_uv(x + size_x - 120, y + 5, 5, 50, DefaultGabarite::gabarite_white);
+				float rx = text_w + 10.0f;
+				float ry = text_h + 10.0f;
+
+				_batch->setcolor(EColorCollection::WHITE);
+				_batch->draw_rect_with_uv(x + size_x - 145.0f + (145.0 - rx) / 2.0f, y + 5.0f, rx, ry, DefaultGabarite::gabarite_bg_noise);
+
+				_batch->setcolor_255(bg_red, bg_green, bg_blue, bg_alpha / 2.55f);
+				_batch->draw_rect_with_uv(x + size_x - 145.0f + (145.0 - rx) / 2.0f, y + 5.0f, rx, ry, DefaultGabarite::gabarite_white);
+
+				_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
+				//_font->x_adding = 0;
+		
+				EFont::font_arial->set_align_once(Enums::PositionMode::LEFT);
+				EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 140.0f + (145.0 - rx) / 2.0f, y + 10.0f);
+				EFont::font_arial->scale = 1.0f;
+
+
+
+		_batch->setcolor_255(rama_red, rama_green, rama_blue, rama_alpha/2.55f);
+		_batch->draw_rama(x + size_x - 145.0f + (145.0 - rx) / 2.0f, y + 5.0f, rx, ry, 3.0f, DefaultGabarite::gabarite_white);
+
+
+		//ray color
+		if (is_ray)
+		{
+			if (ray_color == Enums::GameColors::RED) { _batch->setcolor_255(255, 0, 0, 100); }
+			if (ray_color == Enums::GameColors::GREEN) { _batch->setcolor_255(0, 255, 0, 100); }
+			if (ray_color == Enums::GameColors::BLUE) { _batch->setcolor_255(0, 0, 255, 100); }
+			if (ray_color == Enums::GameColors::BROWN) { _batch->setcolor_255(255, 128, 64, 100); }
+			if (ray_color == Enums::GameColors::WHITE) { _batch->setcolor_255(255, 255, 255, 100); }
+			if (ray_color == Enums::GameColors::YELLOW) { _batch->setcolor_255(255, 255, 0, 100); }
+
+
+			//draw ray
+			_batch->draw_rect_with_uv(x + size_x - 170, y + 5, 5, 50, DefaultGabarite::gabarite_white);
+		}
+		//minimap icon
+		if (is_minimap_icon)
+		{
+			float siz = 1.0 / (minimap_icon_size * 0.5f + 1.0);
+
+			_batch->setcolor(EColorCollection::MINIMAP_ICON_COLOR[minimap_icon_color]);
+
+			_batch->draw_rect_with_uv(x + size_x - 210.0f, y, 35.0f * siz, 35.0f * siz, DefaultGabarite::gabarite_minimap_icon[minimap_icon_shape]);
+		}
 
 		float temp_pos_x = 310;
 		float temp_pos_y = 10;
@@ -747,19 +784,9 @@
 			EFont::font_arial->add_draw(_batch, *prophecy_list.at(i) + "   ", debug_text_x + 250, y + 70);
 		}
 		*/
-		_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
 		
-		//_font->x_adding = 0;
-		EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 97, y + 10);
 
-		if (is_minimap_icon)
-		{
-			float siz = 1.0 / (minimap_icon_size*0.5f + 1.0);
 
-			_batch->setcolor(EColorCollection::MINIMAP_ICON_COLOR[minimap_icon_color]);
-
-			_batch->draw_rect_with_uv(x+size_x-160.0f,y,35.0f*siz,35.0f*siz,DefaultGabarite::gabarite_minimap_icon[minimap_icon_shape]);
-		}
 
 		/*
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)

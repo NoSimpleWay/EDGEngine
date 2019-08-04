@@ -11,6 +11,7 @@ class EMath
 {
 public:
 	static float clamp_value_float(float _v, float _min, float _max);
+	static float clamp_value_int(int _v, int _min, int _max);
 
 	static struct rgb {
 		double r;       // a fraction between 0 and 1

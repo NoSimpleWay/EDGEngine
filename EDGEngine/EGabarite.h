@@ -48,6 +48,11 @@ public:
 	static EGabarite* gabarite_button_load;
 	static EGabarite* gabarite_button_save;
 
+	static EGabarite* gabarite_bg_noise;
+	static EGabarite* gabarite_ray_icon;
+
+
+
 
 
 

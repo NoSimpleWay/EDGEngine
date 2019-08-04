@@ -26,7 +26,7 @@ string name[512];
 bool comma_is_open = true;
 int font_array_id = 32;
 
-float x_addind = 0;
+
 
 bool show_console_info = false;
 
@@ -103,11 +103,11 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 
 		_batcher->draw_rect_with_uv
 		(
-			round(_x + x_adding - offset_x[target_symbol]),
-			round(_y - offset_y[target_symbol]),
+			round(_x + x_adding - offset_x[target_symbol] * scale),
+			round(_y - offset_y[target_symbol] * scale),
 
-			real_size_x[target_symbol],
-			real_size_y[target_symbol],
+			real_size_x[target_symbol] * scale,
+			real_size_y[target_symbol] * scale,
 
 			x[target_symbol],
 			y[target_symbol] - size_y[target_symbol],
@@ -116,7 +116,7 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 			y[target_symbol]
 		);
 
-		x_adding += real_size_x[target_symbol] - offset_x[target_symbol];
+		x_adding += (real_size_x[target_symbol] - offset_x[target_symbol]) * scale;
 	}
 
 	if (align_only_once)
@@ -287,7 +287,7 @@ float EFont::get_width(EFont* _font, string _text)
 		int target_symbol = (int)_text.at(sym);
 		if (target_symbol < 0) { target_symbol += 256; }
 
-		temp_w += _font->real_size_x[target_symbol] - _font->offset_x[target_symbol];
+		temp_w += (_font->real_size_x[target_symbol] - _font->offset_x[target_symbol]) * _font->scale;
 	}
 
 	return temp_w;

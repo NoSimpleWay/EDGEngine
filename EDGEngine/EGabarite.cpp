@@ -47,3 +47,6 @@ EGabarite* DefaultGabarite::gabarite_minimap_icon[6];
 EGabarite* DefaultGabarite::gabarite_button_load = NULL;
 EGabarite* DefaultGabarite::gabarite_button_save = NULL;
 
+EGabarite* DefaultGabarite::gabarite_bg_noise = NULL;
+EGabarite* DefaultGabarite::gabarite_ray_icon = NULL;
+

@@ -1881,6 +1881,11 @@ int main()
 	put_texture_to_atlas("data/button_load.png");			DefaultGabarite::gabarite_button_load = just_created_gabarite;
 	put_texture_to_atlas("data/button_save.png");			DefaultGabarite::gabarite_button_save = just_created_gabarite;
 
+	put_texture_to_atlas("data/bg_noise.png");				DefaultGabarite::gabarite_bg_noise = just_created_gabarite;
+	put_texture_to_atlas("data/ray_icon.png");				DefaultGabarite::gabarite_ray_icon = just_created_gabarite;
+
+
+
 	
 
 	StaticData::window_filter_block = new EWindowFilterBlock(0);

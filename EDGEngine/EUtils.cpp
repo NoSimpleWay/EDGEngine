@@ -20,6 +20,13 @@ float EMath::clamp_value_float(float _v, float _min, float _max)
 	
 }
 
+float EMath::clamp_value_int(int _v, int _min, int _max)
+{
+	if (_v < _min) { return _min; }
+	if (_v > _max) { return _max; }
+	return _v;
+}
+
 EMath::hsv EMath::rgb2hsv(EMath::rgb in)
 {
 	EMath::hsv         out;
@@ -596,7 +603,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (data_order > 0)
 								{
 									if (show_info_to_console) { cout << "set font size <" << subdata << ">" << endl; }
-									just_created_block->font_size = std::stoi(subdata);
+									just_created_block->font_size = EMath::clamp_value_int(std::stoi(subdata),18,45);
 								}
 							}
 
@@ -714,7 +721,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate ray property" << endl; } }
 
-								if (data_order == 1) { if (show_info_to_console) { cout << "set ray color <" << subdata << ">" << endl; } just_created_block->ray_color = Enums::GameColors(Helper::get_id_from_game_color_text(subdata)); }
+								if (data_order == 1)
+								{
+									if (show_info_to_console) { cout << "set ray color <" << subdata << ">" << endl; }
+								
+									std::cout << "subdata: " << subdata << "   ray id: " << Helper::get_id_from_game_color_text(subdata) << std::endl;
+									just_created_block->ray_color = Enums::GameColors(Helper::get_id_from_game_color_text(subdata));
+								}
 								//if (data_order == 2) { cout << "set alert sound volume <" << subdata << ">" << endl; just_created_block->alert_sound_volume = std::stoi(subdata); }
 							}
 
@@ -1152,16 +1165,23 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	void EFile::save_filter(std::string _path)
 	{
+
+		//std::experimental::filesystem::copy(_path, _path); // copy file
+
 		ofstream myfile;
-		myfile.open(_path);
+		myfile.open(_path+"!");
 
 		std::string loot_writer;
 		loot_writer = "#Created due to DaD Editor (by NoSimpleWay)";
+		loot_writer += '\n';
+		loot_writer += '\n';
 		loot_writer += '\n';
 
 	
 		for (FilterBlock* fb:StaticData::window_filter_block->filter_block_list)
 		{
+			loot_writer += '\n';
+			loot_writer += '\n';
 			if (fb->is_show)
 			{
 				loot_writer += "Show";
@@ -1309,7 +1329,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\t';
 				loot_writer += "CustomAlertSound ";
 
+				loot_writer += '"';
 				loot_writer += fb->custom_alert_sound_name;
+				loot_writer += '"';
 
 				loot_writer += '\n';
 			}
@@ -1317,7 +1339,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			if (fb->is_ray)
 			{
 				loot_writer += '\t';
-				loot_writer += "PlayAlertSound ";
+				loot_writer += "PlayEffect ";
+
+				
 				loot_writer += EString::game_color_name[fb->ray_color];
 
 				loot_writer += '\n';
@@ -1529,7 +1553,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				}
 			}
 
-			if (fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_QUALITY))
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_QUALITY))
 			{
 				loot_writer += '\t';
 				loot_writer += "Quality ";

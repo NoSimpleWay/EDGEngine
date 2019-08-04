@@ -20,7 +20,7 @@ public:
 	float default_positiox_x=15.0;
 	float default_positiox_y=315.0;
 	
-	float distance_between_x=350.0;
+	float distance_between_x=250.0;
 	float distance_between_y=20.0f;
 
 	float button_size_x = 150.0f;
@@ -34,7 +34,11 @@ public:
 	std::vector<EButton*> link_to_icon_color;
 	std::vector<EButton*> link_to_icon_size;
 
+	std::vector<EButton*> link_to_ray_color;
+	std::vector<EButton*> link_to_ray_type;
+
 	EButton* link_to_icon_checker;
+	EButton* link_to_ray_checker;
 	
 
 
@@ -82,12 +86,14 @@ public:
 		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 2.0f, default_positiox_y + distance_between_y * 1.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_V));
 		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 2.0f, default_positiox_y + distance_between_y * 0.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_ALPHA));
 
-		EButton* but = new EButtonText(60, 50, 220, 40, Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW);
+		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 3.0f, default_positiox_y + distance_between_y * 3.0f, button_size_x, 17.0f, Enums::BUTTON_SLIDER_FONT_SIZE));
+
+		EButton* but = new EButtonText(5, 50, 220, 40, Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW);
 		but->master_window = this;
 		but->master_block = master_block;
 		button_list.push_back(but);
 
-		but = new EButtonText(60, 5, 220, 40, Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW);
+		but = new EButtonText(5, 5, 220, 40, Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW);
 		but->master_window = this;
 		but->master_block = master_block;
 		button_list.push_back(but);
@@ -104,7 +110,7 @@ public:
 
 		std::cout << "H: " << changed_color.h << " S: " << changed_color.s << " V: " << changed_color.v << std::endl;
 
-		bg_color->set(0.1f, 0.2f, 0.3f, 0.95f);
+		bg_color->set(0.60f, 0.7f, 0.75f, 0.80f);
 
 
 		for (int i = 0; i < 6; i++)
@@ -134,7 +140,7 @@ public:
 
 		for (int i = 0; i < 3; i++)
 		{
-			but = new EButtonText(icon_button_base_x + 110.0f * i, icon_button_base_y + 60.0 * 0.0f, 90.0f, 45.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE);
+			but = new EButtonText(icon_button_base_x + 110.0f * i, icon_button_base_y + 60.0 * 0.0f, 105.0f, 45.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE);
 			
 			but->data_id = i;
 
@@ -149,7 +155,7 @@ public:
 		link_to_icon_size.at(1)->text = "Medium";
 		link_to_icon_size.at(2)->text = "Small";
 
-		but =new EButtonCheck(icon_button_base_x + 110.0f, icon_button_base_y + 60.0 * 3.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON);
+		but =new EButtonCheck(icon_button_base_x + 110.0f * 0.0f, icon_button_base_y + 60.0 * 3.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON);
 		but->master_block = master_block;
 		but->master_window = this;
 		but->master_position = Enums::PositionMaster::WINDOW;
@@ -159,6 +165,59 @@ public:
 
 		link_to_icon_checker = but;
 		button_list.push_back(but);
+
+		for (int i = 0; i < 6; i++)
+		{
+			but = new EButtonService(235.0f + i*60.0f, icon_button_base_y + 60.0f * 1.0f, 30.0f, 60.0f, Enums::ButtonType::BUTTON_SELECT_RAY_COLOR);
+
+			but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
+			but->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i]);
+			but->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+			but->data_id = i;
+
+			but->gabarite = DefaultGabarite::gabarite_ray_icon;
+
+			but->master_block = master_block;
+			but->master_window = this;
+
+			but->master_position = Enums::PositionMaster::WINDOW;
+			but->position_mode_x = Enums::PositionMode::LEFT;
+			but->position_mode_y = Enums::PositionMode::DOWN;
+
+			link_to_ray_color.push_back(but);
+			button_list.push_back(but);
+		}
+		
+	}
+
+	void update_ray_button()
+	{
+		if (master_block->is_ray)
+		{
+			for (int i = 0; i < 6; i++)
+			{
+				link_to_ray_color.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+				link_to_ray_color.at(i)->bg_color->set(0.4f, 0.3f, 0.2f, 0.4f);
+				link_to_ray_color.at(i)->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i]);
+				link_to_ray_color.at(i)->rama_thikness = 3.0f;
+
+				if (master_block->ray_color == i)
+				{
+					link_to_ray_color.at(i)->rama_color->set_alpha(EColorCollection::YELLOW, 0.90f);
+				}
+			}
+		}
+		else
+		{
+			for (int i = 0; i < 6; i++)
+			{
+				link_to_ray_color.at(i)->rama_thikness = 1.0f;
+				link_to_ray_color.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.5f);
+				link_to_ray_color.at(i)->bg_color->set_alpha(EColorCollection::GRAY, 0.35f);
+				link_to_ray_color.at(i)->icon_color->set_alpha(EColorCollection::GRAY, 0.50f);
+			}
+		}
 	}
 
 	void update_minimap_button()
@@ -247,18 +306,57 @@ public:
 
 	virtual void draw(Batcher* _batch, float _delta)
 	{
+		EFont::font_arial->scale = master_block->font_size / 32.0f;
+
+		float text_w = EFont::get_width(EFont::font_arial, "Sample text");
+		float text_h = 20.0f * master_block->font_size / 32.0f;
+
+		float rx = text_w + 10.0f;
+		float ry = text_h + 6.0F;
+
 		EFont::font_arial->align_x = Enums::PositionMode::LEFT;
 		_batch->setcolor(EColorCollection::WHITE);
 		_batch->draw_rect_with_uv(pos_x + default_positiox_x + distance_between_x * 1.0f + (button_size_x - 320.0f) / 2.0f, default_positiox_y+pos_y + distance_between_y * 4.0f + 100.0f + (25.0f - 150.0f) / 2.0f, 320, 150, DefaultGabarite::gabarite_visual_editor_bg);
 
 		_batch->setcolor_255(master_block->bg_red, master_block->bg_green, master_block->bg_blue, master_block->bg_alpha / 2.55f);
-		_batch->draw_rect_with_uv(pos_x+default_positiox_x + distance_between_x * 1.0f, default_positiox_y + pos_y + distance_between_y * 4.0f+100.0f, button_size_x, 25.0f, DefaultGabarite::gabarite_white);
+		_batch->draw_rect_with_uv
+		(
+			pos_x+default_positiox_x + distance_between_x * 1.0f + (button_size_x - rx)/2.0f,
+			default_positiox_y + pos_y + distance_between_y * 4.0f+100.0f,
+
+			rx,
+			ry,
+
+			DefaultGabarite::gabarite_white
+		);
+
+		
 
 		_batch->setcolor_255(master_block->text_color_red, master_block->text_color_green, master_block->text_color_blue, master_block->text_color_alpha / 2.55f);
-		EFont::font_arial->draw(_batch,"Sample text", round(pos_x + default_positiox_x + distance_between_x * 1.0f+(button_size_x -EFont::get_width(EFont::font_arial,"Sample text"))/2.0f), default_positiox_y + pos_y + distance_between_y * 4.0f+100.0f+10.0f);
+		EFont::font_arial->draw
+		(
+			_batch,
+			"Sample text",
+
+			round(pos_x + default_positiox_x + distance_between_x * 1.0f+(button_size_x -EFont::get_width(EFont::font_arial,"Sample text"))/2.0f),
+			default_positiox_y + pos_y + distance_between_y * 4.0f+100.0f+7.0f
+		);
 
 		_batch->setcolor_255(master_block->rama_red, master_block->rama_green, master_block->rama_blue, master_block->rama_alpha / 2.55f);
-		_batch->draw_rama(pos_x + default_positiox_x + distance_between_x * 1.0f, default_positiox_y + pos_y + distance_between_y * 4.0f+100.0f, button_size_x, 25.0f, 3, DefaultGabarite::gabarite_white);
+		_batch->draw_rama
+		(
+			pos_x + default_positiox_x + distance_between_x * 1.0f + (button_size_x - rx) / 2.0f,
+			default_positiox_y + pos_y + distance_between_y * 4.0f + 100.0f,
+
+			rx,
+			ry,
+
+			3,
+
+			DefaultGabarite::gabarite_white
+		);
+
+		EFont::font_arial->scale = 1.0f;
 	}
 
 	virtual void text_pass(Batcher* _batch)
@@ -290,17 +388,17 @@ public:
 		}
 
 		link_to_sliders.at(0)->slider_value = master_block->bg_hue / 360.0f;
-		link_to_sliders.at(1)->slider_value = EMath::clamp_value_float(master_block->bg_saturation / 1.0f,0.01f,0.99f);
+		link_to_sliders.at(1)->slider_value = EMath::clamp_value_float(master_block->bg_saturation / 1.0f,0.00f,1.00f);
 		link_to_sliders.at(2)->slider_value = master_block->bg_value / 255.0f;
 		link_to_sliders.at(3)->slider_value = master_block->bg_alpha/255.0f;
 		
 		link_to_sliders.at(4)->slider_value = master_block->text_color_hue / 360.0f;
-		link_to_sliders.at(5)->slider_value = EMath::clamp_value_float(master_block->text_color_saturation / 1.0f, 0.01f, 0.99f);
+		link_to_sliders.at(5)->slider_value = EMath::clamp_value_float(master_block->text_color_saturation / 1.0f, 0.00f, 1.0f);
 		link_to_sliders.at(6)->slider_value = master_block->text_color_value / 255.0f;
 		link_to_sliders.at(7)->slider_value = master_block->text_color_alpha/255.0f;		
 
 		link_to_sliders.at(8)->slider_value = master_block->rama_hue / 360.0f;
-		link_to_sliders.at(9)->slider_value = EMath::clamp_value_float(master_block->rama_saturation / 1.0f, 0.01f, 0.99f);
+		link_to_sliders.at(9)->slider_value = EMath::clamp_value_float(master_block->rama_saturation / 1.0f, 0.00f, 1.00f);
 		link_to_sliders.at(10)->slider_value = master_block->rama_value / 255.0f;
 		link_to_sliders.at(11)->slider_value = master_block->rama_alpha/255.0f;
 
