@@ -13,7 +13,7 @@ EButtonClose::EButtonClose(float _x, float _y, float _sx, float _sy): EButton(_x
 	gabarite = DefaultGabarite::gabarite_close;
 
 	have_bg = false;
-	description_text = "Close window";
+	description_text = "Закрыть окно";
 	icon_adaptation = false;
 }
 

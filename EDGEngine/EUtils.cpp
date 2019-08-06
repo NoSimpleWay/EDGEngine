@@ -136,6 +136,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	std::vector<irrklang::ISoundSource*> ESound::custom_drop_sound;
 
 	std::vector < std::string > ESound::default_drop_sound_name;
+	std::vector < std::string > ESound::default_drop_sound_original_name;
+
 	std::vector < std::string > ESound::custom_drop_sound_name;
 
 
@@ -1169,7 +1171,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		//std::experimental::filesystem::copy(_path, _path); // copy file
 
 		ofstream myfile;
-		myfile.open(_path+"!");
+		myfile.open(_path);
 
 		std::string loot_writer;
 		loot_writer = "#Created due to DaD Editor (by NoSimpleWay)";
@@ -1356,7 +1358,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				loot_writer += EString::game_color_name[fb->minimap_icon_color];
 				loot_writer += " ";
-				loot_writer += EString::icon_shape_name[fb->minimap_icon_color];
+				loot_writer += EString::icon_shape_name[fb->minimap_icon_shape];
 
 				loot_writer += '\n';
 			}

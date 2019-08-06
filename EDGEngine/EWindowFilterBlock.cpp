@@ -26,7 +26,18 @@ public:
 
 	}
 
+	int get_id_of_filter_block(FilterBlock* _fb)
+	{
+		for (int i = 0; i < filter_block_list.size(); i++)
+		{
+			if (filter_block_list.at(i) == _fb)
+			{
+				return i;
+			}
+		}
 
+		return 0;
+	}
 	
 	virtual void draw(Batcher* _batch, float _delta)
 	{

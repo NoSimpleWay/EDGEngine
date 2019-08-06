@@ -51,6 +51,15 @@ public:
 	static EGabarite* gabarite_bg_noise;
 	static EGabarite* gabarite_ray_icon;
 
+	static EGabarite* gabarite_plus_gray;
+	static EGabarite* gabarite_up_gray;
+	static EGabarite* gabarite_down_gray;
+
+	static EGabarite* gabarite_remove_block;
+
+	static EGabarite* gabarite_gray_eye;
+
+
 
 
 

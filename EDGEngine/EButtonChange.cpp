@@ -7,12 +7,12 @@ EButtonChange::EButtonChange(float _x, float _y, float _sx, float _sy, Enums::Bu
 	if (_inc)
 	{
 		gabarite = DefaultGabarite::gabarite_increase;
-		description_text = "Increase value";
+		description_text = "Увеличить значение";
 	}
 	else
 	{
 		gabarite = DefaultGabarite::gabarite_decrease;
-		description_text = "Decrease value";
+		description_text = "Уменьшить значение";
 	}
 
 	is_increase = _inc;

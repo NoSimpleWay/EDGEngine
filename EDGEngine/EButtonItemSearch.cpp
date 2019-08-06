@@ -47,7 +47,8 @@ void EButtonItemSearch::click_event()
 		if (data_id >= 1)
 		{
 			StaticData::window_find_item->master_block->alert_sound_id = Enums::DefaultAlertSound(data_id);
-			StaticData::window_find_item->master_block->alert_sound_name = text;
+			StaticData::window_find_item->master_block->alert_sound_name = data_string;
+
 			StaticData::window_find_item->master_block->is_alert_sound = true;
 
 			master_block->sound_button_link->activate();

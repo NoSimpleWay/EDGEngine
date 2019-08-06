@@ -9,7 +9,7 @@ EButtonCheck::EButtonCheck(float _x, float _y, float _sx, float _sy, Enums::Butt
 
 	master_position = Enums::PositionMaster::FILTER_BLOCK;
 
-	description_text = "Click to change";
+	description_text = "Кликни для изменения";
 
 	button_type = _type;
 

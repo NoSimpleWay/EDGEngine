@@ -109,7 +109,7 @@ public:
 				EButton* but = new EButtonText(0, 0, 200, 17, Enums::ButtonType::BUTTON_ADD_EXPLICIT_GROUP);
 
 				but->master_window = this;
-				but->text = "Add new explicit list";
+				//but->text = "Add new explicit list";
 				but->data_id = data_id;
 				but->button_x = 0;
 

@@ -489,71 +489,72 @@ void parse_item_data()
 	//cout << EMath::rgb::r << endl;
 	
 
-	while ((getline(myfile, line))&&(line_id<1000))
+	while ((getline(myfile, line)) && (line_id < 10000))
 	{
-		just_created_item = new DADItem();
-
-		data_order = 0;
-		subdata = "";
-		for (int i = 0; i < line.length(); i++)
+		if (line.length()>=5)
 		{
-			
+			just_created_item = new DADItem();
 
-			if (line.at(i) != '\t')
-			{ subdata += line.at(i); }
-
-			if ((line.at(i)=='\t')||(i+1>=line.length()))
+			data_order = 0;
+			subdata = "";
+			for (int i = 0; i < line.length(); i++)
 			{
-				subdata_array[data_order] = subdata;
-				subdata = "";
-				data_order++;
+
+
+				if (line.at(i) != '\t')
+				{
+					subdata += line.at(i);
+				}
+
+				if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+				{
+					subdata_array[data_order] = subdata;
+					subdata = "";
+					data_order++;
+				}
+
 			}
+
+			for (int i = 0; i < 40; i++)
+			{
+
+				if (subdata_array[i * 2] == "item EN name")
+				{
+					just_created_item->item_name = subdata_array[i * 2 + 1];
+				}
+
+				if (subdata_array[i * 2] == "icon path") { just_created_item->icon_path = subdata_array[i * 2 + 1]; }
+
+				if (subdata_array[i * 2] == "item RU name")
+				{
+					char sInvalid[1024];
+					strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
+					//комментарии
+
+					int size = strlen(sInvalid) + 1;
+					wchar_t* wsValid = new wchar_t[size];
+					char* sValid = new char[size];
+
+					MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
+					WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
+
+					//cout << "A: " << wsValid << " B: " << sValid << endl;
+
+					just_created_item->item_name_ru = sValid;
+				}
+
+				if (subdata_array[i * 2] == "base class") { just_created_item->base_class = subdata_array[i * 2 + 1]; }
+				if (subdata_array[i * 2] == "folder") { just_created_item->folder = subdata_array[i * 2 + 1]; }
+
+				if (subdata_array[i * 2] == "item category") {}
+				if (subdata_array[i * 2] == "item sub category") {}
+			}
+
+			ItemList::item_list.push_back(just_created_item);
+
+			line_id++;
 
 		}
-		
-		for (int i = 0; i < 40; i++)
-		{
-			
-			if (subdata_array[i * 2] == "item EN name")
-			{
-				just_created_item->item_name = subdata_array[i * 2 + 1];
-			}
-
-			if (subdata_array[i * 2] == "icon path")			{ just_created_item->icon_path = subdata_array[i * 2 + 1];}
-
-			if (subdata_array[i * 2] == "item RU name")
-			{
-				char sInvalid[1024];
-				strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
-				 //комментарии
-
-				int size = strlen(sInvalid) + 1;
-				wchar_t* wsValid = new wchar_t[size];
-				char* sValid = new char[size];
-
-				MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
-				WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
-
-				//cout << "A: " << wsValid << " B: " << sValid << endl;
-
-				just_created_item->item_name_ru = sValid;
-			}
-
-			if (subdata_array[i * 2] == "base class")			{ just_created_item->base_class = subdata_array[i * 2 + 1];}
-			if (subdata_array[i * 2] == "folder")				{ just_created_item->folder = subdata_array[i * 2 + 1];}
-			
-			if (subdata_array[i * 2] == "item category")		{}
-			if (subdata_array[i * 2] == "item sub category")	{}
-		}
-
-		ItemList::item_list.push_back(just_created_item);
-		//cout << "item data: " << line << endl << endl;
-
-		
-
-		line_id++;
-		
-		//myfile_open << line<<endl;
 	}
 
 	
@@ -1407,6 +1408,37 @@ int main()
 	ESound::default_drop_sound_name.push_back("SHRegal");
 	ESound::default_drop_sound_name.push_back("SHVaal");
 
+
+
+	ESound::default_drop_sound_original_name.push_back("NONE");
+	ESound::default_drop_sound_original_name.push_back("01");
+	ESound::default_drop_sound_original_name.push_back("02");
+	ESound::default_drop_sound_original_name.push_back("03");
+	ESound::default_drop_sound_original_name.push_back("04");
+	ESound::default_drop_sound_original_name.push_back("05");
+	ESound::default_drop_sound_original_name.push_back("06");
+	ESound::default_drop_sound_original_name.push_back("07");
+	ESound::default_drop_sound_original_name.push_back("08");
+	ESound::default_drop_sound_original_name.push_back("09");
+	ESound::default_drop_sound_original_name.push_back("10");
+	ESound::default_drop_sound_original_name.push_back("11");
+	ESound::default_drop_sound_original_name.push_back("12");
+	ESound::default_drop_sound_original_name.push_back("13");
+	ESound::default_drop_sound_original_name.push_back("14");
+	ESound::default_drop_sound_original_name.push_back("15");
+	ESound::default_drop_sound_original_name.push_back("16");
+
+	ESound::default_drop_sound_original_name.push_back("SHAlchemy");
+	ESound::default_drop_sound_original_name.push_back("SHBlessed");
+	ESound::default_drop_sound_original_name.push_back("SHChaos");
+	ESound::default_drop_sound_original_name.push_back("SHDivine");
+	ESound::default_drop_sound_original_name.push_back("SHExalted");
+	ESound::default_drop_sound_original_name.push_back("SHFusing");
+	ESound::default_drop_sound_original_name.push_back("SHGeneral");
+	ESound::default_drop_sound_original_name.push_back("SHMirror");
+	ESound::default_drop_sound_original_name.push_back("SHRegal");
+	ESound::default_drop_sound_original_name.push_back("SHVaal");
+
 	int sound_order = 0;
 	for (string s : ESound::default_drop_sound_name)
 	{
@@ -1883,6 +1915,15 @@ int main()
 
 	put_texture_to_atlas("data/bg_noise.png");				DefaultGabarite::gabarite_bg_noise = just_created_gabarite;
 	put_texture_to_atlas("data/ray_icon.png");				DefaultGabarite::gabarite_ray_icon = just_created_gabarite;
+
+	put_texture_to_atlas("data/plus_gray.png");				DefaultGabarite::gabarite_plus_gray = just_created_gabarite;
+	put_texture_to_atlas("data/up_gray.png");				DefaultGabarite::gabarite_up_gray = just_created_gabarite;
+	put_texture_to_atlas("data/down_gray.png");				DefaultGabarite::gabarite_down_gray = just_created_gabarite;
+
+	put_texture_to_atlas("data/remove_block.png");			DefaultGabarite::gabarite_remove_block = just_created_gabarite;
+
+	put_texture_to_atlas("data/gray_eye.png");				DefaultGabarite::gabarite_gray_eye = just_created_gabarite;
+
 
 
 

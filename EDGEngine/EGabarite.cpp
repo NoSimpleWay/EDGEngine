@@ -50,3 +50,11 @@ EGabarite* DefaultGabarite::gabarite_button_save = NULL;
 EGabarite* DefaultGabarite::gabarite_bg_noise = NULL;
 EGabarite* DefaultGabarite::gabarite_ray_icon = NULL;
 
+EGabarite* DefaultGabarite::gabarite_plus_gray = NULL;
+EGabarite* DefaultGabarite::gabarite_up_gray = NULL;
+EGabarite* DefaultGabarite::gabarite_down_gray = NULL;
+
+EGabarite* DefaultGabarite::gabarite_remove_block = NULL;
+
+EGabarite* DefaultGabarite::gabarite_gray_eye = NULL;
+

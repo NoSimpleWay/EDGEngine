@@ -876,3 +876,287 @@ item EN name	Serrated Fossil	icon path	Serrated_Fossil_inventory_icon	item RU na
 item EN name	Shuddering Fossil	icon path	Shuddering_Fossil_inventory_icon	item RU name	Дрожащее ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
 item EN name	Tangled Fossil	icon path	Tangled_Fossil_inventory_icon	item RU name	Замысловатое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
 item EN name	Pristine Fossil	icon path	Pristine_Fossil_inventory_icon	item RU name	Чистое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL				
+																	
+item EN name	Timeless Karui Splinter	icon path	Timeless_Karui_Splinter_inventory_icon	item RU name	Вневременной знак Каруи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Timeless Vaal Splinter	icon path	Timeless_Vaal_Splinter_inventory_icon	item RU name	Вневременной знак Ваал	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Timeless Eternal Empire Splinter	icon path	Timeless_Eternal_Empire_Splinter_inventory_icon	item RU name	Вневременной знак Вечной Империи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Timeless Templar Splinter	icon path	Timeless_Templar_Splinter_inventory_icon	item RU name	Вневременной знак Храмовиков	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Timeless Maraketh Splinter	icon path	Timeless_Maraketh_Splinter_inventory_icon	item RU name	Вневременной знак Маракетов	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+																	
+item EN name	Timeless Karui Emblem	icon path	Timeless_Karui_Emblem_inventory_icon	item RU name	Вневременной знак Каруи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Timeless Vaal Emblem	icon path	Timeless_Vaal_Emblem_inventory_icon	item RU name	Вневременной знак Ваал	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Timeless Eternal Empire Emblem	icon path	Timeless_Eternal_Empire_Emblem_inventory_icon	item RU name	Вневременной знак Вечной Империи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Timeless Templar Emblem	icon path	Timeless_Templar_Emblem_inventory_icon	item RU name	Вневременной знак Храмовиков	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Timeless Maraketh Emblem	icon path	Timeless_Maraketh_Emblem_inventory_icon	item RU name	Вневременной знак Маракетов	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+																	
+item EN name	Glorius Vanity	icon path	Glorious_Vanity_inventory_icon	item RU name	Блистательное Тщеславие	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Lethal Pride	icon path	Lethal_Pride_inventory_icon	item RU name	Смертельная Гордость	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Elegant Hubris	icon path	Elegant_Hubris_inventory_icon	item RU name	Изящный Эготизм	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Militant Faith	icon path	Militant_Faith_inventory_icon	item RU name	Воинственная Вера	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Brutal Restraint	icon path	Brutal_Restraint_inventory_icon	item RU name	Жестокая Сдержанность	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+																	
+item EN name	Prime	icon path	Prime	item RU name	Превосходный	base class	Delve Socketable Currency	folder	resonator	item category	CURRENCY	item sub category	RESONATOR				
+item EN name	Powerful	icon path	Powerful	item RU name	Мощный	base class	Delve Socketable Currency	folder	resonator	item category	CURRENCY	item sub category	RESONATOR				
+item EN name	Potent	icon path	Potent	item RU name	Мощный	base class	Delve Socketable Currency	folder	resonator	item category	CURRENCY	item sub category	RESONATOR				
+item EN name	Primitive	icon path	Primitive	item RU name	Простейший	base class	Delve Socketable Currency	folder	resonator	item category	CURRENCY	item sub category	RESONATOR				
+																	
+item EN name	House of Mirrors	icon path	Card	item RU name	Зеркальный лабиринт	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Doctor	icon path	Card	item RU name	Доктор	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Fiend	icon path	Card	item RU name	Враг	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Beauty Through Death	icon path	Card	item RU name	Посмертная красота	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Pride of the First Ones	icon path	Card	item RU name	Гордость Первых	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Immortal	icon path	Card	item RU name	Бессмертный	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Nurse	icon path	Card	item RU name	Медсестра	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Alluring Bounty	icon path	Card	item RU name	Соблазнительная награда	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Iron Bard	icon path	Card	item RU name	Железный бард	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Spark and the Flame	icon path	Card	item RU name	Искра и пламя	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Wolven King's Bite	icon path	Card	item RU name	Укус Волчьего короля	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Samurai's Eye	icon path	Card	item RU name	Око самурая	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Seven Years Bad Luck	icon path	Card	item RU name	Семь лет неудач	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Hunter's Reward	icon path	Card	item RU name	Трофей охотника	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Immortal Resolve	icon path	Card	item RU name	Бессмертная решимость	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Abandoned Wealth	icon path	Card	item RU name	Забытое богатство	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Life Thief	icon path	Card	item RU name	Похититель жизни	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The World Eater	icon path	Card	item RU name	Пожиратель миров	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Celestial Stone	icon path	Card	item RU name	Небесный камень	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Queen	icon path	Card	item RU name	Царица	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Wealth and Power	icon path	Card	item RU name	Богатство и власть	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Dragon's Heart	icon path	Card	item RU name	Сердце дракона	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Undaunted	icon path	Card	item RU name	Неустрашимый	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Valkyrie	icon path	Card	item RU name	Валькирия	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Saint's Treasure	icon path	Card	item RU name	Сокровище святоши	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Mawr Blaidd	icon path	Card	item RU name	Mawr Blaidd	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Artist	icon path	Card	item RU name	Художник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Mayor	icon path	Card	item RU name	Правитель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Professor	icon path	Card	item RU name	Профессор	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Risk	icon path	Card	item RU name	Риск	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Sephirot	icon path	Card	item RU name	Сефирот	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Burning Blood	icon path	Card	item RU name	Горящая кровь	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Pride Before the Fall	icon path	Card	item RU name	Гордыня	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Celestial Justicar	icon path	Card	item RU name	Небесный судья	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Wolf	icon path	Card	item RU name	Волк	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Boon of the First Ones	icon path	Card	item RU name	Дар Первых	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Hoarder	icon path	Card	item RU name	Скопидом	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Landing	icon path	Card	item RU name	Приземление	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Wretched	icon path	Card	item RU name	Горемыка	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Last One Standing	icon path	Card	item RU name	Последний воин	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Buried Treasure	icon path	Card	item RU name	Спрятанное сокровище	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Enlightened	icon path	Card	item RU name	Просветлённый	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Undisputed	icon path	Card	item RU name	Неоспоримый	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Lucky Deck	icon path	Card	item RU name	Счастливая колода	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Perfection	icon path	Card	item RU name	Идеал	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The King's Heart	icon path	Card	item RU name	Сердце вождя	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Seeker	icon path	Card	item RU name	Искатель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Vast	icon path	Card	item RU name	Простор	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Chaotic Disposition	icon path	Card	item RU name	Баламут	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Dark Dreams	icon path	Card	item RU name	Тёмные мечты	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Heterochromia	icon path	Card	item RU name	Heterochromia	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Sacrifice	icon path	Card	item RU name	Жертвоприношение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Void	icon path	Card	item RU name	Ничто	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Rebirth	icon path	Card	item RU name	Перерождение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Bowyer's Dream	icon path	Card	item RU name	Мечта лучника	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Dapper Prodigy	icon path	Card	item RU name	Одарённый франт	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Gladiator	icon path	Card	item RU name	Гладиатор	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Hale Heart	icon path	Card	item RU name	Крепкое сердце	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Master	icon path	Card	item RU name	Хозяин	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Porcupine	icon path	Card	item RU name	Дикобраз	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Warlord	icon path	Card	item RU name	Воевода	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Time-Lost Relic	icon path	Card	item RU name	Утерянная реликвия	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Throne	icon path	Card	item RU name	Престол	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Arrogance of the Vaal	icon path	Card	item RU name	Высокомерие ваал	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Demigod's Wager	icon path	Card	item RU name	Пари полубога	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Humility	icon path	Card	item RU name	Смирение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Dark Mage	icon path	Card	item RU name	Тёмный маг	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Dreamer	icon path	Card	item RU name	Сновидец	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Ethereal	icon path	Card	item RU name	Эфемерность	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Journey	icon path	Card	item RU name	Путешествие	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Wind	icon path	Card	item RU name	Ветер	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Cartographer	icon path	Card	item RU name	Картограф	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Vanity	icon path	Card	item RU name	Vanity	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Alone in the Darkness	icon path	Card	item RU name	Один в темноте	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Blessing of God	icon path	Card	item RU name	Благословение Господа	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Emperor of Purity	icon path	Card	item RU name	Император Чистоты	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Glimmer of Hope	icon path	Card	item RU name	Проблеск надежды	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Hope	icon path	Card	item RU name	Надежда	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Last Hope	icon path	Card	item RU name	Последняя надежда	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Left to Fate	icon path	Card	item RU name	На произвол судьбы	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Monochrome	icon path	Card	item RU name	Монохромность	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Sambodhi's Vow	icon path	Card	item RU name	Клятва Самбодхи	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Endless Darkness	icon path	Card	item RU name	Бесконечная тьма	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Hunger	icon path	Card	item RU name	Голод	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Innocent	icon path	Card	item RU name	Невинный	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Jeweller's Boon	icon path	Card	item RU name	Благо ювелира	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Scavenger	icon path	Card	item RU name	Падальщик	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Valley of Steel Boxes	icon path	Card	item RU name	Долина стальных ларей	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Chains that Bind	icon path	Card	item RU name	Оковы	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	A Dab of Ink	icon path	Card	item RU name	Капля чернил	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Atziri's Arsenal	icon path	Card	item RU name	Арсенал Атзири	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Audacity	icon path	Card	item RU name	Наглость	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Blind Venture	icon path	Card	item RU name	Сделка вслепую	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Boundless Realms	icon path	Card	item RU name	Бескрайние владения	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Call to the First Ones	icon path	Card	item RU name	Призыв Первых	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Dialla's Subjugation	icon path	Card	item RU name	Подчинение Диаллы	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Earth Drinker	icon path	Card	item RU name	Пьющий землю	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Echoes of Love	icon path	Card	item RU name	Отголоски любви	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Emperor's Luck	icon path	Card	item RU name	Удача императора	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Forbidden Power	icon path	Card	item RU name	Запретная сила	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Gemcutter's Promise	icon path	Card	item RU name	Клятва камнерезчика	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Grave Knowledge	icon path	Card	item RU name	Загробное знание	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Harmony of Souls	icon path	Card	item RU name	Гармония душ	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Imperial Legacy	icon path	Card	item RU name	Имперское наследие	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Jack in the Box	icon path	Card	item RU name	Сюрприз	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Light and Truth	icon path	Card	item RU name	Свет и правда	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Lingering Remnants	icon path	Card	item RU name	Пережитки прошлого	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Lost Worlds	icon path	Card	item RU name	Затерянные миры	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Loyalty	icon path	Card	item RU name	Верность	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Lucky Connections	icon path	Card	item RU name	Удачная сделка	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Merciless Armament	icon path	Card	item RU name	Merciless Armament	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	No Traces	icon path	Card	item RU name	Без следа	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Prosperity	icon path	Card	item RU name	Богатство	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Rain Tempter	icon path	Card	item RU name	Дождь-искуситель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Rain of Chaos	icon path	Card	item RU name	Пришествие хаоса	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Rats	icon path	Card	item RU name	Крысы	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Scholar of the Seas	icon path	Card	item RU name	Scholar of the Seas	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Admirer	icon path	Card	item RU name	Поклонник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Aesthete	icon path	Card	item RU name	Эстет	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Archmage's Right Hand	icon path	Card	item RU name	Правая рука Архимага	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Arena Champion	icon path	Card	item RU name	Чемпион Арены	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Avenger	icon path	Card	item RU name	Мститель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Battle Born	icon path	Card	item RU name	Воитель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Beast	icon path	Card	item RU name	Зверь	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Betrayal	icon path	Card	item RU name	Предательство	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Body	icon path	Card	item RU name	Тело	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Breach	icon path	Card	item RU name	Разлом	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Brittle Emperor	icon path	Card	item RU name	Хрупкий император	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Cacophony	icon path	Card	item RU name	Какофония	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Calling	icon path	Card	item RU name	Призыватель бури	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Cataclysm	icon path	Card	item RU name	Катаклизм	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Catalyst	icon path	Card	item RU name	Катализатор	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Cursed King	icon path	Card	item RU name	Проклятый монарх	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Darkest Dream	icon path	Card	item RU name	Темнейший сон	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Deceiver	icon path	Card	item RU name	Обманщик	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Deep Ones	icon path	Card	item RU name	Глубокие	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Demoness	icon path	Card	item RU name	Демоница	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Dreamland	icon path	Card	item RU name	Страна грёз	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Drunken Aristocrat	icon path	Card	item RU name	Пьяный патриций	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Encroaching Darkness	icon path	Card	item RU name	Вездесущая тьма	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Explorer	icon path	Card	item RU name	Исследователь	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Eye of the Dragon	icon path	Card	item RU name	Глаз дракона	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Fathomless Depths	icon path	Card	item RU name	Бездонные глубины	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Feast	icon path	Card	item RU name	Пир	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Fletcher	icon path	Card	item RU name	Пронзатель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Formless Sea	icon path	Card	item RU name	Бесформенное море	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Forsaken	icon path	Card	item RU name	Забытые	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Fox	icon path	Card	item RU name	Лиса	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Garish Power	icon path	Card	item RU name	Крикливая мощь	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Gemcutter	icon path	Card	item RU name	Камнерезчик	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Golden Era	icon path	Card	item RU name	Золотой век	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Harvester	icon path	Card	item RU name	Жнец	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Inoculated	icon path	Card	item RU name	Инокулированный	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Insatiable	icon path	Card	item RU name	Ненасытный	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Inventor	icon path	Card	item RU name	Изобретатель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Jester	icon path	Card	item RU name	Шут	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Lich	icon path	Card	item RU name	Лич	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Lion	icon path	Card	item RU name	Лев	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Lord in Black	icon path	Card	item RU name	Господин в чёрном	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Lord of Celebration	icon path	Card	item RU name	Владыка триумфа	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Mad King	icon path	Card	item RU name	Безумный царь	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Master Artisan	icon path	Card	item RU name	Мастер-ремесленник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Mercenary	icon path	Card	item RU name	Наёмник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Messenger	icon path	Card	item RU name	Посланник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Oath	icon path	Card	item RU name	Клятва	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Obscured	icon path	Card	item RU name	Скрытный	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Offering	icon path	Card	item RU name	Подношение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The One With All	icon path	Card	item RU name	Единство	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Pact	icon path	Card	item RU name	Договор	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Penitent	icon path	Card	item RU name	Кающийся	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Polymath	icon path	Card	item RU name	Полимат	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Price of Protection	icon path	Card	item RU name	Цена защиты	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Primordial	icon path	Card	item RU name	Первородный	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Puzzle	icon path	Card	item RU name	Головоломка	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Realm	icon path	Card	item RU name	Царство	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Rite of Elements	icon path	Card	item RU name	Ритуал стихий	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Road to Power	icon path	Card	item RU name	Путь к власти	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Ruthless Ceinture	icon path	Card	item RU name	Беспощадный ремень	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Scholar	icon path	Card	item RU name	Учёный	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Sigil	icon path	Card	item RU name	Печать	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Siren	icon path	Card	item RU name	Сирена	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Soul	icon path	Card	item RU name	Душа	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Spoiled Prince	icon path	Card	item RU name	Баловень	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Standoff	icon path	Card	item RU name	Противоборство	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Stormcaller	icon path	Card	item RU name	Призыватель бури	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Sun	icon path	Card	item RU name	Солнце	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Surveyor	icon path	Card	item RU name	Топограф	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Survivalist	icon path	Card	item RU name	Выживший	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Thaumaturgist	icon path	Card	item RU name	Чудотворец	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Tower	icon path	Card	item RU name	Башня	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Traitor	icon path	Card	item RU name	Предатель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Trial	icon path	Card	item RU name	Испытание	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Twilight Moon	icon path	Card	item RU name	Луна в сумерках	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Twins	icon path	Card	item RU name	Близнецы	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Tyrant	icon path	Card	item RU name	Тиран	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Union	icon path	Card	item RU name	Союз	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Visionary	icon path	Card	item RU name	Провидец	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Wilted Rose	icon path	Card	item RU name	Увядшая роза	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Wolf's Shadow	icon path	Card	item RU name	Тень Волка	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Wolverine	icon path	Card	item RU name	Росомаха	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Wrath	icon path	Card	item RU name	Гнев	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Three Faces in the Dark	icon path	Card	item RU name	Три лика в темноте	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Three Voices	icon path	Card	item RU name	Три голоса	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Tranquillity	icon path	Card	item RU name	Спокойствие	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Treasure Hunter	icon path	Card	item RU name	Охотник за сокровищами	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Vinia's Token	icon path	Card	item RU name	Знак Винии	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Gift of the Gemling Queen	icon path	Card	item RU name	Дары царицы каменитов	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Gambler	icon path	Card	item RU name	Игрок	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Might is Right	icon path	Card	item RU name	Правда в силе	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Doppelganger	icon path	Card	item RU name	The Doppelganger	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Warden	icon path	Card	item RU name	Смотритель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Poet	icon path	Card	item RU name	Поэт	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Lysah's Respite	icon path	Card	item RU name	Передышка Лисы	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Conduit	icon path	Card	item RU name	Проводник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Hermit	icon path	Card	item RU name	Отшельник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Anarchy's Price	icon path	Card	item RU name	Цена анархии	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Hubris	icon path	Card	item RU name	Высокомерие	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Assassin's Favour	icon path	Card	item RU name	Услуга душегуба	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Coveted Possession	icon path	Card	item RU name	Упоение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Pack Leader	icon path	Card	item RU name	Вожак стаи	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Watcher	icon path	Card	item RU name	Наблюдатель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Death	icon path	Card	item RU name	Смерть	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Endurance	icon path	Card	item RU name	Выносливость	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Metalsmith's Gift	icon path	Card	item RU name	Дар кузнеца	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Sword King's Salute	icon path	Card	item RU name	Дань Венценосца мечей	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Web	icon path	Card	item RU name	Паутина	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Incantation	icon path	Card	item RU name	Песнопение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Volatile Power	icon path	Card	item RU name	Изменчивая сила	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Her Mask	icon path	Card	item RU name	Её маска	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Fool	icon path	Card	item RU name	Дурак	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Dragon	icon path	Card	item RU name	Дракон	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Thunderous Skies	icon path	Card	item RU name	Небесный гром	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Destined to Crumble	icon path	Card	item RU name	Неизбежный крах	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Gentleman	icon path	Card	item RU name	Джентльмен	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Thirst for Knowledge	icon path	Card	item RU name	Жажда знаний	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Boon of Justice	icon path	Card	item RU name	Дар правосудия	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	A Mother's Parting Gift	icon path	Card	item RU name	Прощальный дар матери	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Cartographer's Delight	icon path	Card	item RU name	Восторг картографа	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Dark Temptation	icon path	Card	item RU name	Тёмное искушение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Doedre's Madness	icon path	Card	item RU name	Безумие Доэдре	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Hunter's Resolve	icon path	Card	item RU name	Решение охотника	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Lantador's Lost Love	icon path	Card	item RU name	Утраченная любовь Лантадора	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Mitts	icon path	Card	item RU name	Рукавички	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Shard of Fate	icon path	Card	item RU name	Осколок рока	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Struck by Lightning	icon path	Card	item RU name	Удар молнии	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Army of Blood	icon path	Card	item RU name	Армия крови	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Blazing Fire	icon path	Card	item RU name	Пылающий огонь	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Carrion Crow	icon path	Card	item RU name	Чёрный ворон	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Coming Storm	icon path	Card	item RU name	Канун бури	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Flora's Gift	icon path	Card	item RU name	Сила природы	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The King's Blade	icon path	Card	item RU name	Клинок Венценосца	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Lover	icon path	Card	item RU name	Любовник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Lunaris Priestess	icon path	Card	item RU name	Жрица Лунарис	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Opulent	icon path	Card	item RU name	Толстосум	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Rabid Rhoa	icon path	Card	item RU name	Бешеный Роа	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Scarred Meadow	icon path	Card	item RU name	Выгоревший луг	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Summoner	icon path	Card	item RU name	Призыватель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Surgeon	icon path	Card	item RU name	Хирург	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	The Witch	icon path	Card	item RU name	Ведьма	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Turn the Other Cheek	icon path	Card	item RU name	Подставь другую щёку	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				

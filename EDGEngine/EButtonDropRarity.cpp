@@ -23,7 +23,7 @@ EButtonDropRarity::EButtonDropRarity(float _x, float _y, float _sx, float _sy, E
 
 	drop_elements = 4;
 
-	drop_text.push_back("Normal");
+	drop_text.push_back("Norma;");
 	drop_text.push_back("Magic");
 	drop_text.push_back("Rare");
 	drop_text.push_back("Unique");
@@ -58,6 +58,11 @@ void EButtonDropRarity::drop_list_select_event()
 	if (button_type == Enums::ButtonType::BUTTON_RARITY)
 	{
 		master_block->item_rarity = text;
+
+		if (text == "Normal") { bg_color->set(EColorCollection::DAD_NORMAL); }
+		if (text == "Magic") { bg_color->set(EColorCollection::DAD_MAGIC); }
+		if (text == "Rare") { bg_color->set(EColorCollection::DAD_RARE); }
+		if (text == "Unique") { bg_color->set(EColorCollection::DAD_UNIQUE); }
 	}
 }
 

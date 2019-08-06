@@ -17,7 +17,8 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW)
 	{
 		text_align_x = Enums::PositionMode::MID;
-		text = "Select default drop sound";
+		text = "Выбрать стандартный звук";
+		description_text = "Открыть список звуков, встроенных в игру";
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}
@@ -25,7 +26,8 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW)
 	{
 		text_align_x = Enums::PositionMode::MID;
-		text = "Select custom drop sound";
+		text = "Выбрать пользовательский звук";
+		description_text = "Открыть список пользовательских звуков из папки Path of Exile";
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}
@@ -36,7 +38,8 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_x = Enums::PositionMode::MID;
 		position_mode_y = Enums::PositionMode::UP;
 
-		text = "Add explicit group list";
+		text = "Добавить аффикс";
+		description_text = "Добавить название определенного суффикса/префикса";
 
 		master_position = Enums::PositionMaster::WINDOW;
 
@@ -49,7 +52,8 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_x = Enums::PositionMode::MID;
 		position_mode_y = Enums::PositionMode::UP;
 
-		text = "Active base class list";
+		text = "Добавить класс";
+		description_text = "Добавить класс предмета (сапоги, перчатки, валюта, и т.д.)";
 
 		master_position = Enums::PositionMaster::WINDOW;
 
@@ -62,7 +66,8 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_x = Enums::PositionMode::MID;
 		position_mode_y = Enums::PositionMode::UP;
 
-		text = "Active prophecy list";
+		text = "Добавить пророчество";
+		description_text = "Добавить пророчество по названию";
 
 		master_position = Enums::PositionMaster::WINDOW;
 
@@ -75,7 +80,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_x = Enums::PositionMode::LEFT;
 		position_mode_y = Enums::PositionMode::UP;
 
-		text = "Add explicit group list";
+		text = "Добавить аффикс";
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}

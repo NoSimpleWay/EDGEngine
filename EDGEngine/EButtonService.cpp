@@ -30,6 +30,9 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 	if (button_type == Enums::ButtonType::BUTTON_SYS_PLAY_SOUND)
 	{
 		gabarite = DefaultGabarite::gabarite_play_sound;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::DOWN;
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SHAPE)
@@ -67,6 +70,72 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		gabarite = DefaultGabarite::gabarite_button_save;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		gabarite = DefaultGabarite::gabarite_plus_gray;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		gabarite = DefaultGabarite::gabarite_up_gray;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		gabarite = DefaultGabarite::gabarite_down_gray;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_BLOCK)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		gabarite = DefaultGabarite::gabarite_remove_block;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::RED, 0.75f);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SHOW_HIDE)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		gabarite = DefaultGabarite::gabarite_gray_eye;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+	}
+
 }
 
 void EButtonService::click_event()
@@ -104,6 +173,8 @@ void EButtonService::click_event()
 		{
 			std::cout << "Custom sound disabled" << std::endl;
 		}
+		std::cout << "id of this block = " << StaticData::window_filter_block->get_id_of_filter_block(master_block) << std::endl;
+		//StaticData::window_filter_block->filter_block_list.
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SHAPE) && (master_block->is_minimap_icon))
@@ -136,5 +207,61 @@ void EButtonService::click_event()
 
 		StaticData::window_filter_visual_editor->update_ray_button();
 
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK))
+	{
+		FilterBlock* fb = new FilterBlock();
+		fb->data_change();
+		fb->highlight_time = 0.5f;
+
+		StaticData::window_filter_block->filter_block_list.emplace
+		(
+			StaticData::window_filter_block->filter_block_list.begin() + StaticData::window_filter_block->get_id_of_filter_block(master_block),
+			fb
+		);
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP))
+	{
+		
+		int position_id = StaticData::window_filter_block->get_id_of_filter_block(master_block);
+		
+		if (position_id > 0)
+		{
+			FilterBlock* swap = StaticData::window_filter_block->filter_block_list.at(position_id - 1);
+			StaticData::window_filter_block->filter_block_list.at(position_id - 1) = StaticData::window_filter_block->filter_block_list.at(position_id);
+			StaticData::window_filter_block->filter_block_list.at(position_id) = swap;
+
+			master_block->highlight_time = 0.5f;
+		}
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN))
+	{
+
+		int position_id = StaticData::window_filter_block->get_id_of_filter_block(master_block);
+
+		if (position_id < StaticData::window_filter_block->filter_block_list.size() - 1)
+		{
+			FilterBlock* swap = StaticData::window_filter_block->filter_block_list.at(position_id + 1);
+			StaticData::window_filter_block->filter_block_list.at(position_id + 1) = StaticData::window_filter_block->filter_block_list.at(position_id);
+			StaticData::window_filter_block->filter_block_list.at(position_id) = swap;
+
+			master_block->highlight_time = 0.5f;
+		}
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_REMOVE_BLOCK))
+	{
+		StaticData::window_filter_block->filter_block_list.erase
+		(
+			StaticData::window_filter_block->filter_block_list.begin() + StaticData::window_filter_block->get_id_of_filter_block(master_block)
+		);
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_SHOW_HIDE))
+	{
+		master_block->is_show = !master_block->is_show;
 	}
 }

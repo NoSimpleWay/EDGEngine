@@ -227,5 +227,7 @@ public:
 
 	bool is_base_class_active=false;
 	
-	
+	float highlight_time = 0.0f;
+
+	float right_side_buttons_offset = 25.0f;
 };

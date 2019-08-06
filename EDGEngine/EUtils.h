@@ -36,6 +36,8 @@ public:
 	static std::vector<irrklang::ISoundSource*> custom_drop_sound;
 
 	static std::vector<std::string> default_drop_sound_name;
+	static std::vector<std::string> default_drop_sound_original_name;
+
 	static std::vector<std::string> custom_drop_sound_name;
 
 	static irrklang::ISoundEngine* engine;

@@ -150,7 +150,7 @@
 
 		button_plus->master_position = Enums::FILTER_BLOCK;
 		button_plus->is_plus = true;
-		button_plus->description_text = "Add new item";
+		button_plus->description_text = "Добавить новый предмет";
 
 		button_list.push_back(button_plus);
 
@@ -162,16 +162,18 @@
 		button_service->gabarite = DefaultGabarite::gabarite_undefined;*/
 
 		EButton*
-		but = new EButtonService(-5,-5,30,30,Enums::ButtonType::BUTTON_SYS_VISUAL_MODE);
+		but = new EButtonService(-35,-5,30,30,Enums::ButtonType::BUTTON_SYS_VISUAL_MODE);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
+		but->description_text = "Настроить цвет, звуки, размер шрифта";
 
-		but = new EButtonService(-40, -5, 30, 30, Enums::ButtonType::BUTTON_SYS_PLAY_SOUND);
+		but = new EButtonService(-155.0f - right_side_buttons_offset, 9.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SYS_PLAY_SOUND);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		sound_button_link = but;
 		button_list.push_back(but);
+		but->description_text = "Проиграть звук дропа";
 
 
 		button_add_new_base_data = new EButtonPlusWide(0, 0, 17, 17,Enums::ButtonType::BUTTON_OPEN_BASE_DATA_WINDOW);
@@ -180,6 +182,7 @@
 		button_add_new_base_data->master_window = StaticData::window_filter_block;
 
 		button_list.push_back(button_add_new_base_data);
+		button_add_new_base_data->description_text = "Добавить новое свойство блока (редкость, гнёзда, уровень и т.д.)";
 
 
 
@@ -188,34 +191,35 @@
 		button_add_new_EPC->master_block = this;
 		button_add_new_EPC->master_window = StaticData::window_filter_block;
 		button_list.push_back(button_add_new_EPC);
+		button_add_new_base_data->description_text = "Добавить новое свойство блока (класс, аффиксы, пророчества, название предмета)";
 
 
 		
-		add_base_buttons("Rarity",				Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false,	Enums::BoolData::BOOL_RARITY);//0
-		add_base_buttons("Item level",			Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL,		Enums::ButtonType::BUTTON_ITEM_LEVEL,		false,	Enums::BoolData::BOOL_ITEM_LEVEL);//1
-		add_base_buttons("Req. level",			Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL,		Enums::ButtonType::BUTTON_DROP_LEVEL,		false,	Enums::BoolData::BOOL_DROP_LEVEL);//2
-		add_base_buttons("Sockets",				Enums::ButtonType::BUTTON_CONDITION_SOCKETS,		Enums::ButtonType::BUTTON_SOCKETS,			false,	Enums::BoolData::BOOL_SOCKETS);//3
-		add_base_buttons("Links",				Enums::ButtonType::BUTTON_CONDITION_LINKS,			Enums::ButtonType::BUTTON_LINKS,			false,	Enums::BoolData::BOOL_LINKS);//4
-		add_base_buttons("Socket color",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SOCKET_GROUP,		false,	Enums::BoolData::BOOL_SOCKET_GROUP);//5
+		add_base_buttons("Редкость",			Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false,	Enums::BoolData::BOOL_RARITY);//0
+		add_base_buttons("Уровень",				Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL,		Enums::ButtonType::BUTTON_ITEM_LEVEL,		false,	Enums::BoolData::BOOL_ITEM_LEVEL);//1
+		add_base_buttons("Треб. уровень",		Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL,		Enums::ButtonType::BUTTON_DROP_LEVEL,		false,	Enums::BoolData::BOOL_DROP_LEVEL);//2
+		add_base_buttons("Сокеты",				Enums::ButtonType::BUTTON_CONDITION_SOCKETS,		Enums::ButtonType::BUTTON_SOCKETS,			false,	Enums::BoolData::BOOL_SOCKETS);//3
+		add_base_buttons("Связи",				Enums::ButtonType::BUTTON_CONDITION_LINKS,			Enums::ButtonType::BUTTON_LINKS,			false,	Enums::BoolData::BOOL_LINKS);//4
+		add_base_buttons("Цвета гнёзд",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SOCKET_GROUP,		false,	Enums::BoolData::BOOL_SOCKET_GROUP);//5
 																																						
-		add_base_buttons("Quality",				Enums::ButtonType::BUTTON_CONDITION_QUALITY,		Enums::ButtonType::BUTTON_QUALITY,			true,	Enums::BoolData::BOOL_QUALITY);//6
-		add_base_buttons("Gem level",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,		false,	Enums::BoolData::BOOL_GEM_LEVEL);//7
+		add_base_buttons("Качество",			Enums::ButtonType::BUTTON_CONDITION_QUALITY,		Enums::ButtonType::BUTTON_QUALITY,			true,	Enums::BoolData::BOOL_QUALITY);//6
+		add_base_buttons("Ур. камня",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,		false,	Enums::BoolData::BOOL_GEM_LEVEL);//7
 																																						
-		add_base_buttons("Map tier",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,			true,	Enums::BoolData::BOOL_MAP_TIER);//8
-		add_base_buttons("Shaped map?",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,		true,	Enums::BoolData::BOOL_SHAPER_MAP);//9
-		add_base_buttons("Elder map?",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,		true,	Enums::BoolData::BOOL_ELDER_MAP);//10
+		add_base_buttons("Тир карты",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,			true,	Enums::BoolData::BOOL_MAP_TIER);//8
+		add_base_buttons("Шейпер карта?",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,		true,	Enums::BoolData::BOOL_SHAPER_MAP);//9
+		add_base_buttons("Карта древнего?",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,		true,	Enums::BoolData::BOOL_ELDER_MAP);//10
 																																						
-		add_base_buttons("Width",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,			true,	Enums::BoolData::BOOL_WIDTH);//11
-		add_base_buttons("Height",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,			false,	Enums::BoolData::BOOL_HEIGHT);//12
-		add_base_buttons("Stack size",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,		false,	Enums::BoolData::BOOL_STACK_SIZE);//13
+		add_base_buttons("Ширина",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,			true,	Enums::BoolData::BOOL_WIDTH);//11
+		add_base_buttons("Высота",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,			false,	Enums::BoolData::BOOL_HEIGHT);//12
+		add_base_buttons("Количество",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,		false,	Enums::BoolData::BOOL_STACK_SIZE);//13
 																																						
-		add_base_buttons("Corrupted?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,		true,	Enums::BoolData::BOOL_CORRUPTION);//14
-		add_base_buttons("Shaper item?",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,		false,	Enums::BoolData::BOOL_SHAPER_ITEM);//15
-		add_base_buttons("Elder item?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,		false,	Enums::BoolData::BOOL_ELDER_ITEM);//16
-		add_base_buttons("Synthesised?",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false,	Enums::BoolData::BOOL_SYNTHESISED);//17
-		add_base_buttons("Fractured?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	Enums::BoolData::BOOL_FRACTURED);//18
-		add_base_buttons("Any enchantment?",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//19
-		add_base_buttons("Identified?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	Enums::BoolData::BOOL_IDENTIFIED);//20
+		add_base_buttons("Копчёный?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,		true,	Enums::BoolData::BOOL_CORRUPTION);//14
+		add_base_buttons("Предмет шейпера?",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,		false,	Enums::BoolData::BOOL_SHAPER_ITEM);//15
+		add_base_buttons("Предмет древнего?",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,		false,	Enums::BoolData::BOOL_ELDER_ITEM);//16
+		add_base_buttons("Синтез?",				Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false,	Enums::BoolData::BOOL_SYNTHESISED);//17
+		add_base_buttons("Разбитый?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	Enums::BoolData::BOOL_FRACTURED);//18
+		add_base_buttons("Зачарование?",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//19
+		add_base_buttons("Опознанный?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	Enums::BoolData::BOOL_IDENTIFIED);//20
 
 		
 		for (int i = 0; i < 6; i++)
@@ -299,6 +303,30 @@
 
 		button_list.push_back(remove_prophecy_button);
 
+		but = new EButtonService(-5.0f, -5.0f - 20.0f * 0.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_SHOW_HIDE);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		button_list.push_back(but);
+
+		but = new EButtonService(-5.0f, -5.0f - 20.0f * 2.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		button_list.push_back(but);
+
+		but = new EButtonService(-5.0f, -5.0f - 20.0f * 3.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		button_list.push_back(but);
+
+		but = new EButtonService(-5.0f, -5.0f - 20.0f * 4.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		button_list.push_back(but);
+
+		but = new EButtonService(-5.0f, -5.0f - 20.0f * 6.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		button_list.push_back(but);
 	}
 
 	FilterBlock::~FilterBlock()
@@ -424,13 +452,13 @@
 			button_add_new_base_data->button_y = size_y - data_y;
 
 			//button_add_new_base_data->update(_d);
-
+			if (highlight_time > 0) { highlight_time -= _d; }
 
 	}
 
 	void FilterBlock::draw(Batcher* _batch)
 	{
-		max_h = 00.0f;
+		max_h = 110.0f;
 
 		
 		
@@ -441,13 +469,19 @@
 		else
 		{_batch->setcolor_255(64, 32, 16, 25);}
 
+		
+
 
 		if (DefaultGabarite::gabarite_white != NULL)
 		{
 			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
 		}
 
-
+		if (highlight_time > 0)
+		{
+			_batch->setcolor_alpha(EColorCollection::GREEN, highlight_time / 0.5f);
+			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
+		}
 				EFont::font_arial->scale = font_size / 32.0f;
 
 				float text_w = EFont::get_width(EFont::font_arial, "Just a Text");
@@ -457,22 +491,22 @@
 				float ry = text_h + 10.0f;
 
 				_batch->setcolor(EColorCollection::WHITE);
-				_batch->draw_rect_with_uv(x + size_x - 145.0f + (145.0 - rx) / 2.0f, y + 5.0f, rx, ry, DefaultGabarite::gabarite_bg_noise);
+				_batch->draw_rect_with_uv(x + size_x - 145.0f - right_side_buttons_offset, y + 7.0f, 145.0f, 28.0f, DefaultGabarite::gabarite_bg_noise);
 
 				_batch->setcolor_255(bg_red, bg_green, bg_blue, bg_alpha / 2.55f);
-				_batch->draw_rect_with_uv(x + size_x - 145.0f + (145.0 - rx) / 2.0f, y + 5.0f, rx, ry, DefaultGabarite::gabarite_white);
+				_batch->draw_rect_with_uv(x + size_x - 145.0f + (145.0 - rx) / 2.0f - right_side_buttons_offset, y + 10.0f, rx, ry, DefaultGabarite::gabarite_white);
 
 				_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
 				//_font->x_adding = 0;
 		
 				EFont::font_arial->set_align_once(Enums::PositionMode::LEFT);
-				EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 140.0f + (145.0 - rx) / 2.0f, y + 10.0f);
+				EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 140.0f + (145.0 - rx) / 2.0f - right_side_buttons_offset, y + 15.0f);
 				EFont::font_arial->scale = 1.0f;
 
 
 
 		_batch->setcolor_255(rama_red, rama_green, rama_blue, rama_alpha/2.55f);
-		_batch->draw_rama(x + size_x - 145.0f + (145.0 - rx) / 2.0f, y + 5.0f, rx, ry, 3.0f, DefaultGabarite::gabarite_white);
+		_batch->draw_rama(x + size_x - 145.0f + (145.0 - rx) / 2.0f - right_side_buttons_offset, y + 10.0f, rx, ry, 3.0f, DefaultGabarite::gabarite_white);
 
 
 		//ray color
@@ -487,7 +521,7 @@
 
 
 			//draw ray
-			_batch->draw_rect_with_uv(x + size_x - 170, y + 5, 5, 50, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(x + size_x - 213.0f - right_side_buttons_offset, y + 5.0f, 30, 60, DefaultGabarite::gabarite_ray_icon);
 		}
 		//minimap icon
 		if (is_minimap_icon)
@@ -496,7 +530,7 @@
 
 			_batch->setcolor(EColorCollection::MINIMAP_ICON_COLOR[minimap_icon_color]);
 
-			_batch->draw_rect_with_uv(x + size_x - 210.0f, y, 35.0f * siz, 35.0f * siz, DefaultGabarite::gabarite_minimap_icon[minimap_icon_shape]);
+			_batch->draw_rect_with_uv(x + size_x - 240.0f - right_side_buttons_offset, y + 10.0f, 35.0f * siz, 35.0f * siz, DefaultGabarite::gabarite_minimap_icon[minimap_icon_shape]);
 		}
 
 		float temp_pos_x = 310;
@@ -505,7 +539,7 @@
 		
 		button_h_max = 0.0f;
 
-		max_h = 60.0f;//size of plus button (always indicate)
+
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
 		{
 			filter_block_items_button_list.at(i)->button_x = temp_pos_x;

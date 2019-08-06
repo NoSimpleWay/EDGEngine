@@ -439,7 +439,10 @@ public:
 					b->have_icon = false;
 
 					if (data_index>=0)
-					{b->text = ESound::default_drop_sound_name.at(data_index);}
+					{
+						b->text = ESound::default_drop_sound_name.at(data_index);
+						b->data_string = ESound::default_drop_sound_original_name.at(data_index);
+					}
 					else
 					{b->text="?";}
 
