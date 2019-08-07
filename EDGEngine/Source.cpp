@@ -179,6 +179,7 @@ EWindowAddNewBaseData* StaticData::window_add_new_base_data = NULL;
 EWindowSocketGroup* StaticData::window_socket_group = NULL;
 EWindowFilterVisualEditor* StaticData::window_filter_visual_editor = NULL;
 EWindowMain* StaticData::window_main=NULL;
+EWindowFilterBlockSearch* StaticData::window_filter_block_search=NULL;
 
 
 //0		-	1
@@ -1929,7 +1930,7 @@ int main()
 
 	
 
-	StaticData::window_filter_block = new EWindowFilterBlock(0);
+	StaticData::window_filter_block = new EWindowFilterBlock(0, false);
 	StaticData::window_filter_block->name = "Filter block";
 	window_list.push_back(StaticData::window_filter_block);
 
@@ -1938,19 +1939,19 @@ int main()
 	//std::string path = "/path/to/directory";
 
 
-	StaticData::window_add_new_base_data = new EWindowAddNewBaseData(1);
+	StaticData::window_add_new_base_data = new EWindowAddNewBaseData(1, true);
 	StaticData::window_add_new_base_data->name = "Add new base data to filter block";
 	window_list.push_back(StaticData::window_add_new_base_data);
 
-	StaticData::window_socket_group = new EWindowSocketGroup(2);
+	StaticData::window_socket_group = new EWindowSocketGroup(2, true);
 	StaticData::window_socket_group->name = "Change socket colors";
 	window_list.push_back(StaticData::window_socket_group);
 
-	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(3);
+	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(3, true);
 	StaticData::window_filter_visual_editor->name = "Change colors and sounds";
 	window_list.push_back(StaticData::window_filter_visual_editor);
 
-	StaticData::window_find_item = new EWindowFindItem(4);
+	StaticData::window_find_item = new EWindowFindItem(4, true);
 	StaticData::window_find_item->name = "Search item";
 	window_list.push_back(StaticData::window_find_item);
 
@@ -1958,7 +1959,11 @@ int main()
 	StaticData::window_find_item->is_active = true;
 	StaticData::window_find_item->manual_event();
 
-	StaticData::window_main = new EWindowMain(5);
+	StaticData::window_filter_block_search = new EWindowFilterBlockSearch(5, false);
+	StaticData::window_filter_block_search->name = "Search filter blocks";
+	window_list.push_back(StaticData::window_filter_block_search);
+
+	StaticData::window_main = new EWindowMain(6, false);
 	StaticData::window_main->name = "Main window";
 	window_list.push_back(StaticData::window_main);
 

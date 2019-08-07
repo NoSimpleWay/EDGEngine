@@ -5,7 +5,7 @@
 class EWindowMain : public EWindow
 {
 public:
-	EWindowMain(int _id) :EWindow(_id)
+	EWindowMain(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 		EButton* but = new EButtonService(5,-5,30,30,Enums::ButtonType::BUTTON_OPEN_LOOT_FILTER);
 		but->master_window = this;
@@ -20,6 +20,8 @@ public:
 
 		align_x = Enums::PositionMode::LEFT;
 		align_y = Enums::PositionMode::UP;
+
+		bg_color->set(0.8f, 0.9f, 1.0f, 0.8f);
 
 	}
 

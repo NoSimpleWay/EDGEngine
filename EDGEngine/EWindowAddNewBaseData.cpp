@@ -1,8 +1,8 @@
+#pragma once
 #include "EWindow.h"
 #include "EControl.h"
 #include "Enums.h"
 #include "EButtonAddNewBaseData.h"
-#include "StaticData.h"
 #include "ExplicitGroup.h"
 #include "EButtonText.h"
 
@@ -12,7 +12,7 @@ public:
 	//std::vector<FilterBlock*> filter_block_list;
 	Enums::WindowSearchMode window_searchs_mode = Enums::WindowSearchMode::ITEM;
 
-	EWindowAddNewBaseData(int _id) :EWindow(_id)
+	EWindowAddNewBaseData(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 		pos_x = 0;
 		pos_y = 0;
@@ -28,7 +28,7 @@ public:
 		is_active = false;
 
 
-
+		//StaticData::window_add_new_base_data->is_active = true;
 	}
 
 

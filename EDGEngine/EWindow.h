@@ -30,6 +30,7 @@ public:
 	int id;
 
 	EWindow(int _id);
+	EWindow(int _id, bool _can_be_closed);
 	~EWindow();
 
 	virtual void update(float _d);

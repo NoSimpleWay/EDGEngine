@@ -1,52 +1,89 @@
 Base name	Life Flasks	RU name	Флаконы жизни
 Base name	Mana Flasks	RU name	Флаконы маны
 Base name	Hybrid Flasks	RU name	Флаконы равновесия
+Base name	Life Flask	RU name	Флакон жизни
+Base name	Mana Flask	RU name	Флакон маны
+Base name	Hybrid Flask	RU name	Флакон равновесия
 Base name	Currency	RU name	Валюта
 Base name	Amulets	RU name	Амулеты
+Base name	Amulet	RU name	Амулет
 Base name	Rings	RU name	Кольца
+Base name	Ring	RU name	Кольцо
 Base name	Claws	RU name	Когти
+Base name	Claw	RU name	Когти
 Base name	Daggers	RU name	Кинжалы
+Base name	Dagger	RU name	Кинжал
 Base name	Wands	RU name	Жезлы
+Base name	Wand	RU name	Жезл
 Base name	One Hand	RU name	Одноручные
 Base name	One Hand Swords	RU name	Одноручные мечи
+Base name	One Hand Sword	RU name	Одноручный меч
 Base name	Thrusting One Hand Swords	RU name	Шпаги
+Base name	Thrusting One Hand Sword	RU name	Шпага
 Base name	One Hand Axes	RU name	Одноручные топоры
+Base name	One Hand Axe	RU name	Одноручный топор
 Base name	One Hand Maces	RU name	Одноручные булавы
+Base name	One Hand Mace	RU name	Одноручная булава
 Base name	Bows	RU name	Луки
+Base name	Bow	RU name	Лук
 Base name	Staves	RU name	Посохи
+Base name	Stave	RU name	Посох
 Base name	Two Hand	RU name	Двуручные
 Base name	Two Hand Swords	RU name	Двуручные мечи
+Base name	Two Hand Sword	RU name	Двуручный меч
 Base name	Two Hand Axes	RU name	Двуручные топоры
+Base name	Two Hand Axe	RU name	Двуручный топор
 Base name	Two Hand Maces	RU name	Двуручные булавы
+Base name	Two Hand Mace	RU name	Двуручная булава
 Base name	Active Skill Gems	RU name	Камни умений
+Base name	Active Skill Gem	RU name	Камень умения
 Base name	Support Skill Gems	RU name	Камни поддержки
+Base name	Support Skill Gem	RU name	Камень поддержки
 Base name	Quivers	RU name	Колчаны
+Base name	Quiver	RU name	Колчан
 Base name	Belts	RU name	Пояса
+Base name	Belt	RU name	Пояс
 Base name	Gloves	RU name	Перчатки
 Base name	Boots	RU name	Обувь
 Base name	Body Armours	RU name	Нательные доспехи
+Base name	Body Armour	RU name	Нательный доспех
 Base name	Helmets	RU name	Шлемы
+Base name	Helmet	RU name	Шлем
 Base name	Shields	RU name	Щиты
+Base name	Shield	RU name	Щит
 Base name	Stackable Currency	RU name	Складываемая валюта
 Base name	Quest Items	RU name	Вещи для заданий
+Base name	Quest Item	RU name	Вещь для задания
 Base name	Sceptres	RU name	Скипетры
+Base name	Sceptre	RU name	Скипетр
 Base name	Utility Flasks	RU name	Особые флаконы
+Base name	Utility Flask	RU name	Особый флакон
 Base name	Critical Utility Flasks	RU name	Важные особые флаконы
+Base name	Critical Utility Flask	RU name	Важный особый флакон
 Base name	Maps	RU name	Карты
+Base name	Map	RU name	Карта
 Base name	Unarmed	RU name	Без оружия
 Base name	Fishing Rods	RU name	Удочки
+Base name	Fishing Rod	RU name	Удочка
 Base name	Map Fragments	RU name	Обрывки карт
+Base name	Map Fragment	RU name	Обрывок карты
 Base name	Hideout Doodads	RU name	Предметы убежища
+Base name	Hideout Doodad	RU name	Предмет убежища
 Base name	Microtransactions	RU name	Микротранзакции
+Base name	Microtransaction	RU name	Микротранзакция
 Base name	Jewel	RU name	Самоцветы
-Base name	Divination Card	RU name	Гадальные карты
+Base name	Divination Card	RU name	Гадальная карта
+Base name	Divination Cards	RU name	Гадальные карты
 Base name	Labyrinth Item	RU name	Предмет лабиринта
 Base name	Labyrinth Trinket	RU name	Брелок лабиринта
 Base name	Labyrinth Map Item	RU name	Предмет карты лабиринта
 Base name	Leaguestones	RU name	Камни лиги
+Base name	Leaguestone	RU name	Камень лиги
 Base name	Pantheon Soul	RU name	Душа Пантеона
 Base name	Piece	RU name	Часть
 Base name	Abyss Jewel	RU name	Самоцвет Бездны
 Base name	Incursion Item	RU name	Предмет Вмешательства
 Base name	Delve Socketable Currency	RU name	Валюта Спуска
 Base name	Incubator	RU name	Инкубатор
+Base name	Divination	RU name	Гадальные
+Base name	Misc Map Item	RU name	Прочий предмет карты

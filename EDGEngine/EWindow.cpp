@@ -2,11 +2,11 @@
 #include "EControl.h"
 #include "EButtonClose.h"
 
-EWindow::EWindow(int _id)
+EWindow::EWindow(int _id, bool _can_be_closed)
 {
 	id = _id;
 
-	if (can_be_closed)
+	if (_can_be_closed)
 	{
 		EButton* but = new EButtonClose(0, 0, 24, 24);
 		but->master_window = this;

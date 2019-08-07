@@ -8,7 +8,7 @@ public:
 	std::vector<FilterBlock*> filter_block_list;
 
 
-	EWindowFilterBlock(int _id):EWindow(_id)
+	EWindowFilterBlock(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 		pos_x = 0;
 		pos_y = 0;
@@ -48,23 +48,50 @@ public:
 		int block_index = 0;
 
 		float yy = 60;
-		for (int i = 0; i < 9; i++)
+		int blocks_count = 0;
+		int blocks_order = 0;
+
+		int additional_scroll = 0;
+
+		for (int i = EControl::block_scroll; i < filter_block_list.size(); i++)
 		{
-			block_index = i + EControl::block_scroll;
+			block_index = i;
+		
 
-			if (block_index < filter_block_list.size())
+
+
+			if
+			(
+				(i < filter_block_list.size())
+				&&
+				(!filter_block_list.at(block_index)->is_deactivated)
+				&&
+				(blocks_order >= EControl::block_scroll)
+				&&
+				(blocks_count<8)
+			)
 			{
-				
-				filter_block_list.at(block_index)->x = 15;
-				filter_block_list.at(block_index)->y = EWindow::SCR_HEIGHT - filter_block_list.at(block_index)->size_y - yy;
+					blocks_count++;
 
-				yy += filter_block_list.at(block_index)->size_y + 15;
+					filter_block_list.at(block_index)->x = 15;
+					filter_block_list.at(block_index)->y = EWindow::SCR_HEIGHT - filter_block_list.at(block_index)->size_y - yy;
 
-				filter_block_list.at(block_index)->size_x = SCR_WIDTH - 30;
+					filter_block_list.at(block_index)->size_x = SCR_WIDTH - 30;
 
-				filter_block_list.at(block_index)->update(_delta);
-				filter_block_list.at(block_index)->draw(_batch);
+					yy += filter_block_list.at(block_index)->size_y + 15;
+
+					filter_block_list.at(block_index)->update(_delta);
+					filter_block_list.at(block_index)->draw(_batch);
 			}
+
+			if
+			(
+				(i < filter_block_list.size())
+				&&
+				(!filter_block_list.at(block_index)->is_deactivated)
+			)
+			{blocks_order++;}
+
 		}
 
 
@@ -73,14 +100,46 @@ public:
 	virtual void text_pass(Batcher* _batch)
 	{
 		int block_index = 0;
-		for (int i = 0; i < 9; i++)
-		{
-			block_index = i + EControl::block_scroll;
 
-			if (block_index < filter_block_list.size())
+		float yy = 60;
+		int blocks_count = 0;
+		int blocks_order = 0;
+
+		int additional_scroll = 0;
+
+		for (int i = EControl::block_scroll; i < filter_block_list.size(); i++)
+		{
+			block_index = i;
+
+
+
+
+			if
+				(
+				(i < filter_block_list.size())
+					&&
+					(!filter_block_list.at(block_index)->is_deactivated)
+					&&
+					(blocks_order >= EControl::block_scroll)
+					&&
+					(blocks_count < 8)
+					)
 			{
+				blocks_count++;
+
 				filter_block_list.at(block_index)->text_pass(_batch);
 			}
+
+			if
+				(
+				(i < filter_block_list.size())
+					&&
+					(!filter_block_list.at(block_index)->is_deactivated)
+					)
+			{
+				blocks_order++;
+			}
+
 		}
 	}
 

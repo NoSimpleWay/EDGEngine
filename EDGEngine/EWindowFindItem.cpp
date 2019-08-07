@@ -26,7 +26,7 @@ public:
 
 	bool have_undefined_input = true;
 
-	EWindowFindItem(int _id) :EWindow(_id)
+	EWindowFindItem(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 		is_active = false;
 		window_size_x = 1000;
@@ -50,7 +50,7 @@ public:
 			button_list.push_back(but);
 		}
 
-		input_button = new EButtonInputSearchItem(0, -70, 300, 30);
+		input_button = new EButtonInputSearchItem(0, -70, 300, 30, Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_ITEM);
 		input_button->master_window = this;
 	}
 
@@ -62,7 +62,7 @@ public:
 
 	virtual void draw(Batcher* _batch, float _delta)
 	{
-		float bx = 5;
+		float bx = 10;
 		float by = -120;
 
 		int x_offset = 0;
@@ -72,7 +72,8 @@ public:
 
 		for (EButton* b : button_list)
 		{
-			if (b->is_active)
+
+			if ((b->is_active) && (-by < window_size_y - 30.0f))
 			{
 				b->button_x = bx;
 				b->button_y = by;
@@ -238,7 +239,7 @@ public:
 						(order > 0)
 						)
 				{
-					if (search_count < ESound::custom_drop_sound_name.size())
+					if ((search_count < ESound::custom_drop_sound_name.size()) && (search_count < 50))
 					{
 						b->is_active = true;
 
@@ -258,6 +259,7 @@ public:
 			{
 				button_list.at(0)->is_active = true;
 				button_list.at(0)->text=input_button->text;
+				button_list.at(0)->data_string = input_button->text;
 
 				button_list.at(0)->button_size_x = EFont::get_width(EFont::font_arial, button_list.at(0)->text)+7.0f;
 			}
@@ -282,12 +284,18 @@ public:
 					(
 						(
 							(EString::to_lower(b->text, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+							||
+							(
+								(b->data_id >= 0)
+								&&
+								(EString::to_lower(EString::base_class_list.at(b->data_id)->ru_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+							)
 						)
 						&&
 						(order > 0)
 					)
 				{
-					if (search_count < EString::base_class_list.size())
+					if ((search_count < EString::base_class_list.size()) && (search_count < 50))
 					{
 						b->is_active = true;
 
@@ -410,6 +418,7 @@ public:
 		if (window_searchs_mode == Enums::WindowSearchMode::ITEM)
 		{
 			have_undefined_input = true;
+			int temp_id = -1;
 
 			for (EButton* b : button_list)
 			{
@@ -418,11 +427,18 @@ public:
 				b->have_text		= false;
 				b->have_icon		= true;
 
+				b->data_id = temp_id;
+
 				//b->gabarite = DefaultGabarite::gabarite_undefined;
 				b->button_type = Enums::ButtonType::BUTTON_SEARCH_ITEM;
 
-				
+				b->bg_color->set(0.2f, 0.15f, 0.05f, 0.5f);
+
+				temp_id++;
 			}
+
+			input_button->is_input_mode_active = true;
+			input_button->input_hint = "¬ведите название предмета";
 		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::DEFAULT_DROP_SOUND)
@@ -467,6 +483,9 @@ public:
 					b->is_active = false;
 				}
 			}
+
+			input_button->is_input_mode_active = true;
+			input_button->input_hint = "¬ведите название звука";
 		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::CUSTOM_DROP_SOUND)
@@ -505,6 +524,9 @@ public:
 					b->is_active = false;
 				}
 			}
+
+			input_button->is_input_mode_active = true;
+			input_button->input_hint = "¬ведите название звука";
 		}
 		
 		if (window_searchs_mode == Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST)
@@ -528,12 +550,14 @@ public:
 						b->data_string = EString::base_class_list.at(data_index - 1)->base_name;
 					}
 					else
-					{b->text = "?";}
+					{
+						b->text = "?";
+					}
 
 					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
 					b->is_active = true;
 					b->button_type = Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS;
-					b->data_id = data_index;
+					b->data_id = data_index - 1;
 
 					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
 
@@ -542,8 +566,12 @@ public:
 				else
 				{
 					b->is_active = false;
+					b->data_id = -1;
 				}
 			}
+
+			input_button->is_input_mode_active = true;
+			input_button->input_hint = "¬ведите класс предмета";
 		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST)
@@ -566,6 +594,7 @@ public:
 					{
 						b->text = EString::prophecy_list.at(data_index - 1)->base_name;
 						b->data_string = EString::prophecy_list.at(data_index - 1)->base_name;
+						b->data_id = data_index - 1;
 
 						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::TRASH) { b->bg_color->set(0.6f, 0.6f, 0.6f, 0.5f); }
 						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::LOW_COST) { b->bg_color->set(0.4f, 0.8f, 0.4f, 0.6f); }
@@ -576,6 +605,7 @@ public:
 					else
 					{
 						b->text = "?";
+						b->data_id = -1;
 					}
 
 					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
@@ -596,7 +626,12 @@ public:
 					b->is_active = false;
 				}
 			}
+
+			input_button->is_input_mode_active = true;
+			input_button->input_hint = "¬ведите название пророчества";
 		}
+
+		fill_search_array(_b);
 	}
 
 	virtual void text_pass(Batcher* _batch)
@@ -672,6 +707,9 @@ public:
 					b->is_active = false;
 				}
 			}
+
+			input_button->is_input_mode_active = true;
+			input_button->input_hint = "¬ведите название лутфильтра";
 		}
 
 	}

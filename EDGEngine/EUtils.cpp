@@ -588,14 +588,26 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									class_button->master_block = just_created_block;
 									class_button->master_window = StaticData::window_filter_block;
-									class_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
+									
 
 									just_created_block->button_list.push_back(class_button);
 									just_created_block->base_class_list.push_back(class_button);
 
+									class_button->data_id = -1;
 
+									for (int i = 0; i < EString::base_class_list.size(); i++)
+									{
+										if ((EString::to_lower(subdata, false) == EString::to_lower(EString::base_class_list.at(i)->base_name, false)) && (class_button->data_id == -1))
+										{
+											class_button->data_id = i;
 
+											class_button->text = EString::base_class_list.at(i)->ru_name;
+										}
+									}
 
+									//class_button->text += " (" + std::to_string(class_button->data_id) + ")";
+
+									class_button->button_size_x = EFont::get_width(EFont::font_arial, class_button->text) + 5.0f;
 								}
 							}
 
@@ -760,6 +772,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										just_created_button->data_string = ItemList::item_list.at(item_id)->item_name;
 
 										if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
+
+										just_created_button->data_id = item_id;
 									}
 									else
 									{
@@ -770,6 +784,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										just_created_button->data_string = subdata;
 
 										if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
+
+										just_created_button->data_id = -1;
 									}
 
 									//just_created_button->
@@ -1116,6 +1132,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										if (EString::prophecy_list.at(sr)->base_name == subdata)
 										{
 											prophecy_button->data_id = sr;
+
+											prophecy_button->text = EString::prophecy_list.at(sr)->ru_name;
 										}
 									}
 

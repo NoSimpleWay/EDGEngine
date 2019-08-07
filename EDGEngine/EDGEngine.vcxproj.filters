@@ -153,6 +153,9 @@
     <ClCompile Include="ProphecyList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EWindowFilterBlockSearch.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -283,6 +286,9 @@
     </ClInclude>
     <ClInclude Include="EWindowMain.cpp">
       <Filter>Source Files\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="EWindowFilterBlockSearch.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

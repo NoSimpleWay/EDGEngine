@@ -8,7 +8,7 @@ public:
 	std::vector<FilterBlock*> filter_block_list;
 	Enums::WindowSearchMode window_searchs_mode=Enums::WindowSearchMode::DEFAULT_DROP_SOUND;
 
-	EWindowTextSearch(int _id) :EWindow(_id)
+	EWindowTextSearch(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 		pos_x = 0;
 		pos_y = 0;

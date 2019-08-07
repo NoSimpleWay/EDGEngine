@@ -4,7 +4,6 @@
 #include "Enums.h"
 #include "EButtonChange.h"
 #include "EButtonText.h"
-#include "StaticData.h"
 class EWindowSocketGroup : public EWindow
 {
 public:
@@ -25,7 +24,7 @@ public:
 	}
 
 
-	EWindowSocketGroup(int _id) :EWindow(_id)
+	EWindowSocketGroup(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 
 

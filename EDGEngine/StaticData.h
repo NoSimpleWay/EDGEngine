@@ -1,4 +1,7 @@
 #pragma once
+#include "EWindow.h"
+
+#include "EWindowFilterBlockSearch.h"
 #include "EWindowFilterBlock.cpp"
 #include "EWindowFindItem.cpp"
 #include "EWindowAddNewBaseData.cpp"
@@ -7,7 +10,8 @@
 #include "EWindowMain.cpp"
 
 
-#include "EWindow.h"
+
+
 
 class StaticData
 {
@@ -18,4 +22,6 @@ public:
 	static EWindowSocketGroup* window_socket_group;
 	static EWindowFilterVisualEditor* window_filter_visual_editor;
 	static EWindowMain* window_main;
+	static EWindowFilterBlockSearch* window_filter_block_search;
+
 };

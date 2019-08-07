@@ -169,6 +169,7 @@
     <ClCompile Include="EUtils.cpp" />
     <ClCompile Include="EWindow.cpp" />
     <ClCompile Include="EWindowFilterBlock.cpp" />
+    <ClCompile Include="EWindowFilterBlockSearch.cpp" />
     <ClCompile Include="EWindowFilterVisualEditor.cpp" />
     <ClCompile Include="EWindowFindItem.cpp" />
     <ClCompile Include="EWindowTextSearch.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="EUtils.h" />
     <ClInclude Include="EWindowAddNewBaseData.cpp" />
     <ClInclude Include="EWindow.h" />
+    <ClInclude Include="EWindowFilterBlockSearch.h" />
     <ClInclude Include="EWindowMain.cpp" />
     <ClInclude Include="EWindowSocketGroup.cpp" />
     <ClInclude Include="ExplicitGroup.h" />

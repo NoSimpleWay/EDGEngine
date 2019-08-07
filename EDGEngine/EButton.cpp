@@ -107,6 +107,13 @@
 		return false;
 	}
 
+	bool EButton::is_outclick()
+	{
+		if ((EControl::mouse_pressed) && (!EControl::button_pressed) && (!is_overlap())) { return true; }
+
+		return false;
+	}
+
 	bool EButton::is_right_click()
 	{
 		if ((EControl::mouse_right_pressed) && (!EControl::button_right_pressed) && (is_overlap())) { EControl::button_right_pressed = true; return true; }
@@ -117,6 +124,19 @@
 	void EButton::update(float _d)
 	{
 
+		if (is_outclick())
+		{
+			if ((is_expanded) && (is_drop_list))
+			{
+				is_expanded = false;
+			}
+
+			if ((have_input_mode) && (is_input_mode_active))
+			{
+				is_input_mode_active = false;
+				input_finish_event();
+			}
+		}
 		//cout << main_window << endl;
 		if (master_position == Enums::PositionMaster::FILTER_BLOCK)
 		{
@@ -190,8 +210,11 @@
 				is_input_mode_active = true;
 			}
 
-			
+
+
 			if (is_slider) { slider_activate = true; }
+
+			
 			click_event();
 		}
 
@@ -419,7 +442,7 @@
 			for (int i = 0; i < drop_elements; i++)
 			{
 				if (catched_element==i)
-				{ _batch->setcolor(0.5f, 1.0f, 0.6f, 1.0f);}
+				{ _batch->setcolor(0.05f, 0.10f, 0.06f, 1.0f);}
 				else
 				{
 					if (have_list_color)
@@ -435,6 +458,14 @@
 				_batch->setcolor(0.0f,0.1f,0.2f,0.9f);
 				_batch->draw_rama(master_position_x, master_position_y - i * 22 - 20, button_size_x, 20, rama_thikness, DefaultGabarite::gabarite_white);
 
+				if (catched_element == i)
+				{
+					_batch->setcolor(0.95f, 0.90f, 0.94f, 1.0f);
+				}
+				else
+				{
+					_batch->setcolor(EColorCollection::BLACK);
+				}
 				EFont::font_arial->set_align_once(Enums::PositionMode::MID);
 				EFont::font_arial->draw(_batch, drop_text.at(i), master_position_x+button_size_x/2.0f, master_position_y - i * 22 - 20+3);
 			}
@@ -448,20 +479,20 @@
 		{
 
 			float x_description= EControl::mouse_x + 13;
-			if (x_description + EFont::get_width(EFont::font_arial, description_text) + 3>EWindow::SCR_WIDTH)
+			if (x_description + EFont::get_width(EFont::font_arial, description_text + "(" + std::to_string(data_id) + ")") + 3>EWindow::SCR_WIDTH)
 			{
-				x_description += EWindow::SCR_WIDTH - (x_description + EFont::get_width(EFont::font_arial, description_text) + 3.0f);
+				x_description += EWindow::SCR_WIDTH - (x_description + EFont::get_width(EFont::font_arial, description_text + "(" + std::to_string(data_id) + ")") + 3.0f);
 			}
 
 			EFont::font_arial->align_x=Enums::PositionMode::LEFT;
 
 			_batch->setcolor(EColorCollection::WHITE);
-			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 38.0f, EFont::get_width(EFont::font_arial,description_text)+3, 20, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 38.0f, EFont::get_width(EFont::font_arial,description_text + "(" + std::to_string(data_id) + ")")+3, 20, DefaultGabarite::gabarite_white);
 
 			_batch->setcolor(EColorCollection::BLACK);
-			EFont::font_arial->draw(_batch, description_text, x_description, EControl::mouse_y - 34.0f);
+			EFont::font_arial->draw(_batch, description_text+"("+std::to_string(data_id)+")", x_description, EControl::mouse_y - 34.0f);
 
-			_batch->draw_rama(x_description, EControl::mouse_y - 38.0f, EFont::get_width(EFont::font_arial, description_text)+3, 20, 2, DefaultGabarite::gabarite_white);
+			_batch->draw_rama(x_description, EControl::mouse_y - 38.0f, EFont::get_width(EFont::font_arial, description_text + "(" + std::to_string(data_id) + ")")+3, 20, 2, DefaultGabarite::gabarite_white);
 		}
 	}
 

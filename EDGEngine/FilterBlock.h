@@ -230,4 +230,6 @@ public:
 	float highlight_time = 0.0f;
 
 	float right_side_buttons_offset = 25.0f;
+
+	bool is_deactivated = false;
 };

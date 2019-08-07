@@ -34,6 +34,7 @@ void EButtonItemSearch::click_event()
 		StaticData::window_find_item->target_button->description_text = description_text;
 		StaticData::window_find_item->target_button->gabarite = gabarite;
 
+		StaticData::window_find_item->target_button->data_id = data_id;
 		StaticData::window_find_item->target_button->data_string = data_string;
 
 		//StaticData::window_find_item->input_button->text = "";
@@ -71,6 +72,8 @@ void EButtonItemSearch::click_event()
 	{
 		StaticData::window_find_item->target_button->text = text;
 		StaticData::window_find_item->target_button->data_string = data_string;
+		StaticData::window_find_item->target_button->data_id = data_id;
+
 
 		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::font_arial, text) + 5.0f;
 
@@ -81,6 +84,9 @@ void EButtonItemSearch::click_event()
 	{
 		StaticData::window_find_item->target_button->text = text;
 		StaticData::window_find_item->target_button->data_string = data_string;
+		StaticData::window_find_item->target_button->data_id = data_id;
+
+
 		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::font_arial, text ) + 5.0f;
 
 		StaticData::window_find_item->is_active = false;

@@ -458,18 +458,22 @@
 
 	void FilterBlock::draw(Batcher* _batch)
 	{
-		max_h = 110.0f;
+		max_h = 145.0f;
 
-		
-		
-		
+
+
+
 
 		if (is_show)
-		{_batch->setcolor_255(210,200,190,25);}
+		{
+			_batch->setcolor_255(210, 200, 190, 25);
+		}
 		else
-		{_batch->setcolor_255(64, 32, 16, 25);}
+		{
+			_batch->setcolor_255(64, 32, 16, 25);
+		}
 
-		
+
 
 
 		if (DefaultGabarite::gabarite_white != NULL)
@@ -482,30 +486,30 @@
 			_batch->setcolor_alpha(EColorCollection::GREEN, highlight_time / 0.5f);
 			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
 		}
-				EFont::font_arial->scale = font_size / 32.0f;
+		EFont::font_arial->scale = font_size / 32.0f;
 
-				float text_w = EFont::get_width(EFont::font_arial, "Just a Text");
-				float text_h = 12.0f * EFont::font_arial->scale;
+		float text_w = EFont::get_width(EFont::font_arial, "Just a Text");
+		float text_h = 12.0f * EFont::font_arial->scale;
 
-				float rx = text_w + 10.0f;
-				float ry = text_h + 10.0f;
+		float rx = text_w + 10.0f;
+		float ry = text_h + 10.0f;
 
-				_batch->setcolor(EColorCollection::WHITE);
-				_batch->draw_rect_with_uv(x + size_x - 145.0f - right_side_buttons_offset, y + 7.0f, 145.0f, 28.0f, DefaultGabarite::gabarite_bg_noise);
+		_batch->setcolor(EColorCollection::WHITE);
+		_batch->draw_rect_with_uv(x + size_x - 145.0f - right_side_buttons_offset, y + 7.0f, 145.0f, 28.0f, DefaultGabarite::gabarite_bg_noise);
 
-				_batch->setcolor_255(bg_red, bg_green, bg_blue, bg_alpha / 2.55f);
-				_batch->draw_rect_with_uv(x + size_x - 145.0f + (145.0 - rx) / 2.0f - right_side_buttons_offset, y + 10.0f, rx, ry, DefaultGabarite::gabarite_white);
+		_batch->setcolor_255(bg_red, bg_green, bg_blue, bg_alpha / 2.55f);
+		_batch->draw_rect_with_uv(x + size_x - 145.0f + (145.0 - rx) / 2.0f - right_side_buttons_offset, y + 10.0f, rx, ry, DefaultGabarite::gabarite_white);
 
-				_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
-				//_font->x_adding = 0;
-		
-				EFont::font_arial->set_align_once(Enums::PositionMode::LEFT);
-				EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 140.0f + (145.0 - rx) / 2.0f - right_side_buttons_offset, y + 15.0f);
-				EFont::font_arial->scale = 1.0f;
+		_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
+		//_font->x_adding = 0;
+
+		EFont::font_arial->set_align_once(Enums::PositionMode::LEFT);
+		EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 140.0f + (145.0 - rx) / 2.0f - right_side_buttons_offset, y + 15.0f);
+		EFont::font_arial->scale = 1.0f;
 
 
 
-		_batch->setcolor_255(rama_red, rama_green, rama_blue, rama_alpha/2.55f);
+		_batch->setcolor_255(rama_red, rama_green, rama_blue, rama_alpha / 2.55f);
 		_batch->draw_rama(x + size_x - 145.0f + (145.0 - rx) / 2.0f - right_side_buttons_offset, y + 10.0f, rx, ry, 3.0f, DefaultGabarite::gabarite_white);
 
 
@@ -536,7 +540,7 @@
 		float temp_pos_x = 310;
 		float temp_pos_y = 10;
 
-		
+
 		button_h_max = 0.0f;
 
 
@@ -558,7 +562,7 @@
 					temp_pos_x = 310;
 					temp_pos_y += 50;
 
-					if (temp_pos_y + 50 > max_h) { max_h = temp_pos_y + 50; button_h_max = max_h; }
+					if (temp_pos_y + 105 > max_h) { max_h = temp_pos_y + 105; button_h_max = max_h; }
 				}
 			}
 		}
@@ -571,7 +575,7 @@
 		float ex_x = 310;
 		float ex_y = -10;
 
-		int close_button_id=0;
+		int close_button_id = 0;
 
 		for (ExplicitGroup* ex : explicit_list)
 		{
@@ -579,12 +583,12 @@
 
 			if (ex->is_active)
 			{
-				
 
-				ex->button_close->button_x=ex_x;
-				ex->button_close->button_y=ex_y;
 
-				
+				ex->button_close->button_x = ex_x;
+				ex->button_close->button_y = ex_y;
+
+
 
 				ex_x += 20;
 
@@ -593,7 +597,7 @@
 					b->button_x = ex_x;
 					b->button_y = ex_y;
 
-					ex_x += b->button_size_x+5;
+					ex_x += b->button_size_x + 5;
 					if (b->button_x + b->button_size_x > size_x - 200.0f)
 					{
 						ex_x = 310.0f;
@@ -610,7 +614,7 @@
 			}
 		}
 
-		
+
 
 		ex_x = 310;
 
@@ -672,8 +676,10 @@
 
 		button_add_new_EPC->button_x = 310;
 		button_add_new_EPC->button_y = ex_y;
-
-		max_h+= (-ex_y) + 25.0f;
+		if (-ex_y > 40)
+		{
+			max_h += (-ex_y) - 40.0f;
+		}
 
 
 

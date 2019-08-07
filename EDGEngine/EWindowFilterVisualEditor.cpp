@@ -57,7 +57,7 @@ public:
 		align_y = Enums::PositionMode::MID;
 	}
 
-	EWindowFilterVisualEditor(int _id) :EWindow(_id)
+	EWindowFilterVisualEditor(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 		pos_x = 0;
 		pos_y = 0;

@@ -23,7 +23,7 @@ EButtonDropRarity::EButtonDropRarity(float _x, float _y, float _sx, float _sy, E
 
 	drop_elements = 4;
 
-	drop_text.push_back("Norma;");
+	drop_text.push_back("Normal");
 	drop_text.push_back("Magic");
 	drop_text.push_back("Rare");
 	drop_text.push_back("Unique");
