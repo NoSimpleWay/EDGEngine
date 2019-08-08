@@ -151,6 +151,7 @@
 		button_plus->master_position = Enums::FILTER_BLOCK;
 		button_plus->is_plus = true;
 		button_plus->description_text = "Добавить новый предмет";
+		button_plus->can_be_removed = false;
 
 		button_list.push_back(button_plus);
 
@@ -191,7 +192,7 @@
 		button_add_new_EPC->master_block = this;
 		button_add_new_EPC->master_window = StaticData::window_filter_block;
 		button_list.push_back(button_add_new_EPC);
-		button_add_new_base_data->description_text = "Добавить новое свойство блока (класс, аффиксы, пророчества, название предмета)";
+		button_add_new_EPC->description_text = "Добавить новое свойство блока (класс, аффиксы, пророчества, название предмета)";
 
 
 		
@@ -307,26 +308,31 @@
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
+		but->description_text = "Показать/спрятать блок";
 
 		but = new EButtonService(-5.0f, -5.0f - 20.0f * 2.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
+		but->description_text = "Поднять блок выше";
 
 		but = new EButtonService(-5.0f, -5.0f - 20.0f * 3.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
+		but->description_text = "Добавить новый блок";
 
 		but = new EButtonService(-5.0f, -5.0f - 20.0f * 4.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
+		but->description_text = "Поднять блок ниже";
 
 		but = new EButtonService(-5.0f, -5.0f - 20.0f * 6.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
+		but->description_text = "УДАЛИТЬ блок";
 	}
 
 	FilterBlock::~FilterBlock()

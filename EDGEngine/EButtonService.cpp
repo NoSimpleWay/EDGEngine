@@ -254,10 +254,18 @@ void EButtonService::click_event()
 
 	if ((button_type == Enums::ButtonType::BUTTON_REMOVE_BLOCK))
 	{
-		StaticData::window_filter_block->filter_block_list.erase
-		(
-			StaticData::window_filter_block->filter_block_list.begin() + StaticData::window_filter_block->get_id_of_filter_block(master_block)
-		);
+		if (StaticData::window_filter_block->get_id_of_filter_block(master_block) == StaticData::window_filter_block->filter_block_list.size() - 1)
+		{
+			StaticData::window_filter_block->need_remove_last_element = true;
+			//StaticData::window_filter_block->filter_block_list.resize(StaticData::window_filter_block->filter_block_list.size() - 1);
+		}
+		else
+		{
+			StaticData::window_filter_block->filter_block_list.erase
+			(
+				StaticData::window_filter_block->filter_block_list.begin() + StaticData::window_filter_block->get_id_of_filter_block(master_block)
+			);
+		}
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_SHOW_HIDE))

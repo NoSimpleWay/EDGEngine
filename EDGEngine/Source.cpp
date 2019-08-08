@@ -1860,16 +1860,41 @@ int main()
 	for (int z = 0; z < ItemList::item_list.size(); z++)
 	{
 
-		int select = rand() % 3;
+		//int select = rand() % 3;
 		
+		bool duplicate_detected = false;
+
+		for (int f = 0; f < z; f++)
+		{
+			if
+			(
+				(f != z)
+				&&
+				(ItemList::item_list.at(z)->folder == ItemList::item_list.at(f)->folder)
+				&&
+				(ItemList::item_list.at(z)->icon_path == ItemList::item_list.at(f)->icon_path)
+			)
+			{
+				duplicate_detected = true;
+
+				ItemList::item_list.at(z)->gabarite = ItemList::item_list.at(f)->gabarite;
+				std:cout << "Duplicate detected! Name: " << ItemList::item_list.at(z)->folder << "/" << ItemList::item_list.at(z)->icon_path << std::endl;
+
+				break;
+			}
+
+			if (duplicate_detected) { break; }
+		}
 
 
+		if (!duplicate_detected)
+		{
+			string aaa = "data/icon/" + (ItemList::item_list.at(z)->folder) + "/" + ItemList::item_list.at(z)->icon_path + ".png";
+			put_texture_to_atlas(aaa.c_str());
+			ItemList::item_list.at(z)->gabarite = just_created_gabarite;
+		}
 
-		string aaa="data/icon/"+(ItemList::item_list.at(z)->folder) + "/" + ItemList::item_list.at(z)->icon_path + ".png";
-		put_texture_to_atlas(aaa.c_str());
-		ItemList::item_list.at(z)->gabarite=just_created_gabarite;
-
-		cout << "Collision pass:" << green<< z << white << endl;
+		if (z % 10 == 0) { cout << "Collision pass:" << green << z << white << endl; }
 	}
 
 	put_texture_to_atlas("data/white_pixel.png");
@@ -2262,6 +2287,16 @@ int main()
 		glfwPollEvents();
 
 		processInput(window);
+
+		if (StaticData::window_filter_block->need_remove_last_element)
+		{
+			StaticData::window_filter_block->filter_block_list.erase
+			(
+				StaticData::window_filter_block->filter_block_list.end() - 1
+			);
+
+			StaticData::window_filter_block->need_remove_last_element = false;
+		}
 	}
 
 	// optional: de-allocate all resources once they've outlived their purpose:

@@ -885,7 +885,7 @@ item EN name	Timeless Maraketh Splinter	icon path	Timeless_Maraketh_Splinter_inv
 																	
 item EN name	Timeless Karui Emblem	icon path	Timeless_Karui_Emblem_inventory_icon	item RU name	Вневременной знак Каруи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
 item EN name	Timeless Vaal Emblem	icon path	Timeless_Vaal_Emblem_inventory_icon	item RU name	Вневременной знак Ваал	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
-item EN name	Timeless Eternal Empire Emblem	icon path	Timeless_Eternal_Empire_Emblem_inventory_icon	item RU name	Вневременной знак Вечной Империи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
+item EN name	Timeless Eternal Emblem	icon path	Timeless_Eternal_Empire_Emblem_inventory_icon	item RU name	Вневременной знак Вечной Империи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
 item EN name	Timeless Templar Emblem	icon path	Timeless_Templar_Emblem_inventory_icon	item RU name	Вневременной знак Храмовиков	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
 item EN name	Timeless Maraketh Emblem	icon path	Timeless_Maraketh_Emblem_inventory_icon	item RU name	Вневременной знак Маракетов	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM				
 																	
@@ -1160,3 +1160,19 @@ item EN name	The Summoner	icon path	Card	item RU name	Призыватель	bas
 item EN name	The Surgeon	icon path	Card	item RU name	Хирург	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
 item EN name	The Witch	icon path	Card	item RU name	Ведьма	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
 item EN name	Turn the Other Cheek	icon path	Card	item RU name	Подставь другую щёку	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	RESONATOR				
+item EN name	Diamond Ring	icon path	Diamond_Ring_inventory_icon	item RU name	Кольцо с бриллиантом	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Agate Amulet	icon path	Agate_Amulet_inventory_icon	item RU name	Амулет с агатом	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Paua Amulet	icon path	Paua_Amulet_inventory_icon	item RU name	Амулет с ракушкой	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Talisman	icon path	Talisman	item RU name	Талисман	base class	Amulets	folder	equip	item category	EQUIP	item sub category	AMULETS				
+item EN name	Flask	icon path	Flask	item RU name	Флакон	base class	Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Divine Life Flask	icon path	Divine_Life_Flask_inventory_icon	item RU name	Божественный флакон жизни	base class	Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Eternal Life Flask	icon path	Eternal_Life_Flask_inventory_icon	item RU name	Вечный флакон жизни	base class	Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Divine Mana Flask	icon path	Divine_Mana_Flask_inventory_icon	item RU name	Божественный флакон маны	base class	Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Eternal Mana Flask	icon path	Eternal_Mana_Flask_inventory_icon	item RU name	Вечный флакон маны	base class	Flasks	folder	flask	item category	FLASK	item sub category	ALL				
+item EN name	Moonstone Ring	icon path	Moonstone_Ring_inventory_icon	item RU name	Кольцо с лунным камнем	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Gold Ring	icon path	Gold_Ring_inventory_icon	item RU name	Золотое кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Two-Stone	icon path	Two_stone	item RU name	с двумя камнями	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Amethyst Ring	icon path	Amethyst_Ring_inventory_icon	item RU name	Кольцо с аметистом	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING				
+item EN name	Empower	icon path	Empower_Support_inventory_icon	item RU name	Усилитель	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL				
+item EN name	Enhance	icon path	Eternal_Mana_Flask_inventory_icon	item RU name	Улучшитель	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL				
+item EN name	Enlighten	icon path	Enlighten_Support_inventory_icon	item RU name	Наставник	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL				

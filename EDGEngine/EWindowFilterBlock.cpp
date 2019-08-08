@@ -7,6 +7,8 @@ class EWindowFilterBlock: public EWindow
 public:
 	std::vector<FilterBlock*> filter_block_list;
 
+	bool need_remove_last_element = false;
+
 
 	EWindowFilterBlock(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{

@@ -17,7 +17,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW)
 	{
 		text_align_x = Enums::PositionMode::MID;
-		text = "Выбрать стандартный звук";
+		text = "Стандартный звук";
 		description_text = "Открыть список звуков, встроенных в игру";
 
 		master_position = Enums::PositionMaster::WINDOW;
@@ -26,7 +26,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW)
 	{
 		text_align_x = Enums::PositionMode::MID;
-		text = "Выбрать пользовательский звук";
+		text = "Пользовательский звук";
 		description_text = "Открыть список пользовательских звуков из папки Path of Exile";
 
 		master_position = Enums::PositionMaster::WINDOW;
@@ -53,7 +53,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_y = Enums::PositionMode::UP;
 
 		text = "Добавить класс";
-		description_text = "Добавить класс предмета (сапоги, перчатки, валюта, и т.д.)";
+		description_text = "Добавить список классов предмета (сапоги, перчатки, валюта, и т.д.)";
 
 		master_position = Enums::PositionMaster::WINDOW;
 
@@ -67,7 +67,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_y = Enums::PositionMode::UP;
 
 		text = "Добавить пророчество";
-		description_text = "Добавить пророчество по названию";
+		description_text = "Добавить список пророчеств по названию";
 
 		master_position = Enums::PositionMaster::WINDOW;
 

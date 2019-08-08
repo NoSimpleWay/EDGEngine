@@ -421,7 +421,7 @@
 
 		if (is_overlap())
 		{
-			_batch->setcolor_alpha(EColorCollection::GREEN, 0.55f);
+			_batch->setcolor_alpha(EColorCollection::GREEN, 0.25f);
 			_batch->draw_rect_with_uv(master_position_x - 3.0f, master_position_y - 3.0f, button_size_x + 6.0f, button_size_y + 6.0f, DefaultGabarite::gabarite_white);
 		}
 

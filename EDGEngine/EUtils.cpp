@@ -1123,7 +1123,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									prophecy_button->master_block = just_created_block;
 									prophecy_button->master_window = StaticData::window_filter_block;
-									prophecy_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
+								
 
 									prophecy_button->data_id = -1;
 
@@ -1136,6 +1136,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 											prophecy_button->text = EString::prophecy_list.at(sr)->ru_name;
 										}
 									}
+
+									prophecy_button->button_size_x = EFont::get_width(EFont::font_arial, prophecy_button->text) + 5.0f;
 
 									just_created_block->button_list.push_back(prophecy_button);
 									just_created_block->prophecy_list.push_back(prophecy_button);

@@ -23,6 +23,8 @@ public:
 
 		bg_color->set(0.8f, 0.9f, 1.0f, 0.8f);
 
+		but = new EButtonSlider(-5, -5, 250, 20, Enums::ButtonType::BUTTON_GLOBAL_DROP_SOUND_VOLUME);
+
 	}
 
 	virtual void update(float _d)
