@@ -514,30 +514,43 @@
 			(base_filter_data_active.at(Enums::BoolData::BOOL_SHAPER_ITEM))
 		)
 		{
-			if (is_show)
-			{
-				_batch->setcolor_255(255, 255, 255, 200);
-			}
-			else
-			{
-				_batch->setcolor_255(64, 32, 16, 150);
-			}
+			if (is_show) { _batch->setcolor_255(255, 255, 255, 200); } else { _batch->setcolor_255(64, 32, 16, 150); }
 
 			_batch->draw_rect_gabarite_custom_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_shaper_bg, x / 2.0f, y / 2.0f, (x + size_x) / 2.0f, (y + size_y) / 2.0f);
 
 			
 		}
 		else
+		if
+		(
+			(base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_ITEM))
+			&&
+			(base_filter_data_active.at(Enums::BoolData::BOOL_ELDER_ITEM))
+		)
+		{
+			if (is_show) {_batch->setcolor_255(255, 255, 255, 200);} else {_batch->setcolor_255(64, 32, 16, 150);}
+
+			float move_x = (1000.0f - size_x) / 2.0f;
+			if (move_x < 0) { move_x = 0; }
+
+			float move_y = (300.0f - size_y) / 2.0f;
+			if (move_y < 0) { move_y = 0; }
+
+			float orig_size_x = size_x;
+			if (orig_size_x > 1000.0f) { orig_size_x = 1000.0f; }
+
+			float orig_size_y = size_y;
+			if (orig_size_y > 300.0f) { orig_size_y = 300.0f; }
+
+			float offset_x = (size_x - orig_size_x) / 2.0f;
+			float offset_y = (size_y - orig_size_y) / 2.0f;
+
+			_batch->draw_rect_gabarite_custom_uv(x + offset_x, y + offset_y, orig_size_x, orig_size_y, DefaultGabarite::gabarite_elder_bg, move_x, move_y, 1000.0f - move_x, 300.0f - move_y);
+		}
+		else
 		{
 
-			if (is_show)
-			{
-				_batch->setcolor_255(210, 200, 190, 25);
-			}
-			else
-			{
-				_batch->setcolor_255(64, 32, 16, 25);
-			}
+			if (is_show){_batch->setcolor_255(210, 200, 190, 25);} else {_batch->setcolor_255(64, 32, 16, 25);}
 
 			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
 		}

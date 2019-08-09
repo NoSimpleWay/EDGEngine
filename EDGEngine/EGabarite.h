@@ -61,6 +61,7 @@ public:
 	static EGabarite* gabarite_ray_icon_remove;
 
 	static EGabarite* gabarite_shaper_bg;
+	static EGabarite* gabarite_elder_bg;
 
 
 

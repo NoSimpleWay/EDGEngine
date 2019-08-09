@@ -164,6 +164,8 @@ void EButtonService::click_event()
 
 	if ((button_type == Enums::ButtonType::BUTTON_SYS_PLAY_SOUND))
 	{
+		
+
 		std::cout << "Alert sound name: " << master_block->alert_sound_name << std::endl;
 
 		if ((master_block->is_alert_sound) && (master_block->alert_sound_name != ""))

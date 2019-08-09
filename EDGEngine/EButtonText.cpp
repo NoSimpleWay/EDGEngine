@@ -137,6 +137,8 @@ void EButtonText::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW)
 	{
+		ESound::load_custom_sound();
+
 		StaticData::window_find_item->is_active = true;
 		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::CUSTOM_DROP_SOUND;
 

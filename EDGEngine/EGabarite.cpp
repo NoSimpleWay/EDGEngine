@@ -60,4 +60,5 @@ EGabarite* DefaultGabarite::gabarite_gray_eye = NULL;
 EGabarite* DefaultGabarite::gabarite_ray_icon_remove = NULL;
 
 EGabarite* DefaultGabarite::gabarite_shaper_bg = NULL;
+EGabarite* DefaultGabarite::gabarite_elder_bg = NULL;
 

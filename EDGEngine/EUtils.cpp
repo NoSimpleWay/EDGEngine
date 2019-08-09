@@ -238,6 +238,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	void ESound::load_custom_sound()
 	{
+		for (irrklang::ISoundSource* sound : ESound::custom_drop_sound)
+		{
+			ESound::engine->removeSoundSource(sound);
+		}
+
 		ESound::custom_drop_sound		.clear();
 		ESound::custom_drop_sound_name	.clear();
 		//s 17:41:35 31.07.2019
