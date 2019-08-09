@@ -20,4 +20,6 @@ EButtonClose::EButtonClose(float _x, float _y, float _sx, float _sy): EButton(_x
 void EButtonClose::click_event()
 {
 	master_window->is_active = false;
+
+	master_window->close_action();
 }

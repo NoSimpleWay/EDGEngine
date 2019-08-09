@@ -60,6 +60,8 @@ public:
 	static EGabarite* gabarite_gray_eye;
 	static EGabarite* gabarite_ray_icon_remove;
 
+	static EGabarite* gabarite_shaper_bg;
+
 
 
 

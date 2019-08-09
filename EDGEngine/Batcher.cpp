@@ -493,3 +493,75 @@ void Batcher::draw_rama(float _x, float _y, float _sx, float _sy, float _t, EGab
 	draw_rect_with_uv(_x - _t,		_y +_sy,		_sx+_t*2.0f,	_t,				_g);//up
 	draw_rect_with_uv(_x - _t,		_y -_t,		_sx+_t*2.0f,		_t,				_g);//up
 }
+
+void Batcher::draw_rect_gabarite_custom_uv(float _x, float _y, float _w, float _h, EGabarite* _g, float _sx, float _sy, float _ex, float _ey)
+{
+	//.#
+	//..
+	vertices[id + 0] = (_x + _w);
+	vertices[id + 1] = (_y + _h);
+	//vertices[id + 2] = 0;
+
+	vertices[id + 2] = batch_color_r;
+	vertices[id + 3] = batch_color_g;
+	vertices[id + 4] = batch_color_b;
+	vertices[id + 5] = batch_color_a;
+
+	vertices[id + 6] = _g->x + _ex/4096.0f;
+	vertices[id + 7] = _g->y + _ey/4096.0f;
+
+
+
+
+
+	//..
+	//.#
+	vertices[id + 8] = (_x + _w);
+	vertices[id + 9] = _y;
+	//vertices[id + 10] = 0;
+
+	vertices[id + 10] = batch_color_r;
+	vertices[id + 11] = batch_color_g;
+	vertices[id + 12] = batch_color_b;
+	vertices[id + 13] = batch_color_a;
+
+	vertices[id + 14] = _g->x + _ex/4096.0f;
+	vertices[id + 15] = _g->y + _sy/4096.0f;
+
+
+
+
+	//..
+	//#.
+	vertices[id + 16] = _x;
+	vertices[id + 17] = _y;
+	//vertices[id + 18] = 0;
+
+	vertices[id + 18] = batch_color_r;
+	vertices[id + 19] = batch_color_g;
+	vertices[id + 20] = batch_color_b;
+	vertices[id + 21] = batch_color_a;
+
+	vertices[id + 22] = _g->x + _sx / 4096.0f;
+	vertices[id + 23] = _g->y + _sy / 4096.0f;
+
+
+
+
+
+	//#.
+	//..
+	vertices[id + 24] = _x;
+	vertices[id + 25] = (_y + _h);
+	//vertices[id + 26] = 0;
+
+	vertices[id + 26] = batch_color_r;
+	vertices[id + 27] = batch_color_g;
+	vertices[id + 28] = batch_color_b;
+	vertices[id + 29] = batch_color_a;
+
+	vertices[id + 30] = _g->x + _sx / 4096.0f;
+	vertices[id + 31] = _g->y + _ey / 4096.0f;
+
+	id += 32;
+}

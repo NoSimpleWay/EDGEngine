@@ -507,23 +507,48 @@
 
 
 
-
-		if (is_show)
+		if
+		(
+			(base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_ITEM))
+			&&
+			(base_filter_data_active.at(Enums::BoolData::BOOL_SHAPER_ITEM))
+		)
 		{
-			_batch->setcolor_255(210, 200, 190, 25);
+			if (is_show)
+			{
+				_batch->setcolor_255(255, 255, 255, 200);
+			}
+			else
+			{
+				_batch->setcolor_255(64, 32, 16, 150);
+			}
+
+			_batch->draw_rect_gabarite_custom_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_shaper_bg, x / 2.0f, y / 2.0f, (x + size_x) / 2.0f, (y + size_y) / 2.0f);
+
+			
 		}
 		else
 		{
-			_batch->setcolor_255(64, 32, 16, 25);
-		}
 
+			if (is_show)
+			{
+				_batch->setcolor_255(210, 200, 190, 25);
+			}
+			else
+			{
+				_batch->setcolor_255(64, 32, 16, 25);
+			}
 
-
-
-		if (DefaultGabarite::gabarite_white != NULL)
-		{
 			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
 		}
+
+
+
+
+
+		
+			//shaper bg (moved to up)
+	
 
 		if (highlight_time > 0)
 		{

@@ -720,4 +720,12 @@ public:
 
 	}
 
+	virtual void close_action()
+	{
+		if ((target_button != NULL) && (target_button->can_be_removed))
+		{
+			target_button->need_remove = true;
+		}
+	}
+
 };

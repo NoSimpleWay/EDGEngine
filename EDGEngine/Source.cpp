@@ -1952,6 +1952,9 @@ int main()
 
 	put_texture_to_atlas("data/ray_icon_remove.png");		DefaultGabarite::gabarite_ray_icon_remove = just_created_gabarite;
 
+	put_texture_to_atlas("data/shaper_bg.png");				DefaultGabarite::gabarite_shaper_bg = just_created_gabarite;
+
+
 
 
 
