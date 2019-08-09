@@ -207,20 +207,20 @@
 		add_base_buttons("Ур. камня",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,		false,	Enums::BoolData::BOOL_GEM_LEVEL);//7
 																																						
 		add_base_buttons("Тир карты",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,			true,	Enums::BoolData::BOOL_MAP_TIER);//8
-		add_base_buttons("Шейпер карта?",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,		true,	Enums::BoolData::BOOL_SHAPER_MAP);//9
-		add_base_buttons("Карта древнего?",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,		true,	Enums::BoolData::BOOL_ELDER_MAP);//10
+		add_base_buttons("Шейпер карта?",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,		false,	Enums::BoolData::BOOL_SHAPER_MAP);//9
+		add_base_buttons("Карта древнего?",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,		false,	Enums::BoolData::BOOL_ELDER_MAP);//10
 																																						
 		add_base_buttons("Ширина",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,			true,	Enums::BoolData::BOOL_WIDTH);//11
 		add_base_buttons("Высота",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,			false,	Enums::BoolData::BOOL_HEIGHT);//12
 		add_base_buttons("Количество",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,		false,	Enums::BoolData::BOOL_STACK_SIZE);//13
 																																						
-		add_base_buttons("Копчёный?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,		true,	Enums::BoolData::BOOL_CORRUPTION);//14
-		add_base_buttons("Предмет шейпера?",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,		false,	Enums::BoolData::BOOL_SHAPER_ITEM);//15
-		add_base_buttons("Предмет древнего?",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,		false,	Enums::BoolData::BOOL_ELDER_ITEM);//16
-		add_base_buttons("Синтез?",				Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false,	Enums::BoolData::BOOL_SYNTHESISED);//17
-		add_base_buttons("Разбитый?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	Enums::BoolData::BOOL_FRACTURED);//18
-		add_base_buttons("Зачарование?",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//19
-		add_base_buttons("Опознанный?",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	Enums::BoolData::BOOL_IDENTIFIED);//20
+		add_base_buttons("Осквернённый",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,		true,	Enums::BoolData::BOOL_CORRUPTION);//14
+		add_base_buttons("Предмет шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,		false,	Enums::BoolData::BOOL_SHAPER_ITEM);//15
+		add_base_buttons("Предмет древнего",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,		false,	Enums::BoolData::BOOL_ELDER_ITEM);//16
+		add_base_buttons("Синтезированный",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false,	Enums::BoolData::BOOL_SYNTHESISED);//17
+		add_base_buttons("Разбитый",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	Enums::BoolData::BOOL_FRACTURED);//18
+		add_base_buttons("Зачарование",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//19
+		add_base_buttons("Опознанный",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	Enums::BoolData::BOOL_IDENTIFIED);//20
 
 		
 		for (int i = 0; i < 6; i++)
@@ -333,6 +333,14 @@
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 		but->description_text = "УДАЛИТЬ блок";
+
+		but = new EButtonText(0.0f, 0.0f, 400.0f, 60.0f, Enums::ButtonType::BUTTON_CANCEL_REMOVE_FILTER_BLOCK);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		but->is_active = false;
+		link_to_cancel_remove_button = but;
+		//button_list.push_back(but);
+		but->bg_color = EColorCollection::GREEN;
 	}
 
 	FilterBlock::~FilterBlock()
@@ -353,12 +361,26 @@
 
 	void FilterBlock::update(float _d)
 	{
+		if (remove_timer > 0)
+		{
+			remove_timer -= _d;
+
+			if (remove_timer <= 0)
+			{
+				need_remove = true;
+			}
+		}
+
+		if (remove_timer < 0)
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
 		{
 			filter_block_items_button_list.at(i)->update(_d);
 		}
 
-		for (EButton* b : button_list) { if (b->is_active) { b->update(_d); } }
+		if (remove_timer < 0)
+		{
+			for (EButton* b : button_list) { if (b->is_active) { b->update(_d); } }
+		}
 
 
 		//button_plus->update(_d);
@@ -367,7 +389,7 @@
 		//remove_button_from_list(filter_block_items_button_list);
 		//remove_button_from_list(filter_block_items_button_list);
 		//remove_button_from_list(button_list);
-		
+		if (remove_timer < 0)
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
 		{
 			if (filter_block_items_button_list.at(i)->need_remove)
@@ -377,6 +399,7 @@
 			}
 		}
 
+		if (remove_timer < 0)
 		for (int i = 0; i < button_list.size(); i++)
 		{
 			if (button_list.at(i)->need_remove)
@@ -386,7 +409,7 @@
 			}
 		}
 
-
+		if (remove_timer < 0)
 		for (int i = 0; i < base_class_list.size(); i++)
 		{
 			if (base_class_list.at(i)->need_remove)
@@ -395,7 +418,7 @@
 				i--;
 			}
 		}
-
+		if (remove_timer < 0)
 		for (int i = 0; i < prophecy_list.size(); i++)
 		{
 			if (prophecy_list.at(i)->need_remove)
@@ -405,6 +428,7 @@
 			}
 		}
 
+		if (remove_timer < 0)
 		for (ExplicitGroup* ex : explicit_list)
 		{
 			for (int i = 0; i < ex->button_list.size(); i++)
@@ -417,41 +441,44 @@
 			}
 		}
 
-			float data_x = x + 155;
+			float data_x = x + 185;
 			float data_y = 25;
 
-			for (int i = 0; i < base_filter_data_active.size(); i++)
-			if (base_filter_data_active.at(i))
+			if (remove_timer < 0)
 			{
-				if (base_filter_condition_list.at(i) != NULL)
+				for (int i = 0; i < base_filter_data_active.size(); i++)
+				if (base_filter_data_active.at(i))
 				{
-					base_filter_condition_list.at(i)->button_x = data_x;
-					base_filter_condition_list.at(i)->button_y = size_y-data_y;
+					if (base_filter_condition_list.at(i) != NULL)
+					{
+						base_filter_condition_list.at(i)->button_x = data_x;
+						base_filter_condition_list.at(i)->button_y = size_y - data_y;
 
-					base_filter_condition_list.at(i)->update(_d);
+						base_filter_condition_list.at(i)->update(_d);
 
-					base_filter_buttons.at(i)->button_x = data_x + 35;
-					base_filter_buttons.at(i)->button_y = size_y - data_y;
+						base_filter_buttons.at(i)->button_x = data_x + 35;
+						base_filter_buttons.at(i)->button_y = size_y - data_y;
+					}
+					else
+					{
+						base_filter_buttons.at(i)->button_x = data_x;
+						base_filter_buttons.at(i)->button_y = size_y - data_y;
+					}
+
+
+
+					base_filter_data_remove_buttons.at(i)->button_x = x - 5;
+					base_filter_data_remove_buttons.at(i)->button_y = size_y - data_y;
+
+
+
+					base_filter_data_remove_buttons.at(i)->update(_d);
+
+
+					base_filter_buttons.at(i)->update(_d);
+
+					data_y += _data_y_offset;
 				}
-				else
-				{
-					base_filter_buttons.at(i)->button_x = data_x;
-					base_filter_buttons.at(i)->button_y = size_y - data_y;
-				}
-
-
-
-				base_filter_data_remove_buttons.at(i)->button_x = x-5;
-				base_filter_data_remove_buttons.at(i)->button_y = size_y - data_y;
-
-				
-				
-				base_filter_data_remove_buttons.at(i)->update(_d);
-
-
-				base_filter_buttons.at(i)->update(_d);
-
-				data_y += _data_y_offset;
 			}
 
 			button_add_new_base_data->button_x = x-5;
@@ -460,6 +487,17 @@
 			//button_add_new_base_data->update(_d);
 			if (highlight_time > 0) { highlight_time -= _d; }
 
+			 ray_cooldown -= _d;
+
+			 if (ray_cooldown <= 0)
+			 {
+				 ray_cooldown += 0.33f;
+
+				 ray_semitransarent = !ray_semitransarent;
+			 }
+
+			if (link_to_cancel_remove_button->is_active)
+			{link_to_cancel_remove_button->update(_d);}
 	}
 
 	void FilterBlock::draw(Batcher* _batch)
@@ -492,6 +530,9 @@
 			_batch->setcolor_alpha(EColorCollection::GREEN, highlight_time / 0.5f);
 			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
 		}
+
+
+
 		EFont::font_arial->scale = font_size / 32.0f;
 
 		float text_w = EFont::get_width(EFont::font_arial, "Just a Text");
@@ -522,12 +563,16 @@
 		//ray color
 		if (is_ray)
 		{
-			if (ray_color == Enums::GameColors::RED) { _batch->setcolor_255(255, 0, 0, 100); }
-			if (ray_color == Enums::GameColors::GREEN) { _batch->setcolor_255(0, 255, 0, 100); }
-			if (ray_color == Enums::GameColors::BLUE) { _batch->setcolor_255(0, 0, 255, 100); }
-			if (ray_color == Enums::GameColors::BROWN) { _batch->setcolor_255(255, 128, 64, 100); }
-			if (ray_color == Enums::GameColors::WHITE) { _batch->setcolor_255(255, 255, 255, 100); }
-			if (ray_color == Enums::GameColors::YELLOW) { _batch->setcolor_255(255, 255, 0, 100); }
+			int transparent = 100;
+
+			if ((ray_semitransarent) && (ray_is_temp)) { transparent = 33; }
+
+			if (ray_color == Enums::GameColors::RED) { _batch->setcolor_255(255, 0, 0, transparent); }
+			if (ray_color == Enums::GameColors::GREEN) { _batch->setcolor_255(0, 255, 0, transparent); }
+			if (ray_color == Enums::GameColors::BLUE) { _batch->setcolor_255(0, 0, 255, transparent); }
+			if (ray_color == Enums::GameColors::BROWN) { _batch->setcolor_255(255, 128, 64, transparent); }
+			if (ray_color == Enums::GameColors::WHITE) { _batch->setcolor_255(255, 255, 255, transparent); }
+			if (ray_color == Enums::GameColors::YELLOW) { _batch->setcolor_255(255, 255, 0, transparent); }
 
 
 			//draw ray
@@ -549,7 +594,7 @@
 
 		button_h_max = 0.0f;
 
-
+		if (remove_timer == -100)
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
 		{
 			filter_block_items_button_list.at(i)->button_x = temp_pos_x;
@@ -563,7 +608,7 @@
 			{
 				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 5;
 
-				if (temp_pos_x + 50 > size_x - 200)
+				if (temp_pos_x + 50 > size_x - 220)
 				{
 					temp_pos_x = 310;
 					temp_pos_y += 50;
@@ -583,6 +628,7 @@
 
 		int close_button_id = 0;
 
+		if (remove_timer < 0)
 		for (ExplicitGroup* ex : explicit_list)
 		{
 			ex_x = 310;
@@ -625,7 +671,7 @@
 		ex_x = 310;
 
 
-		if (is_base_class_active)
+		if ((is_base_class_active) && ((remove_timer < 0)))
 		{
 			remove_base_class_button->button_x = ex_x;
 			remove_base_class_button->button_y = ex_y;
@@ -654,7 +700,7 @@
 		ex_x = 310;
 
 
-		if (is_prophecy_active)
+		if ((is_prophecy_active) && (remove_timer < 0))
 		{
 			remove_prophecy_button->button_x = ex_x;
 			remove_prophecy_button->button_y = ex_y;
@@ -703,18 +749,18 @@
 		float data_x = x + 155;
 		float data_y = 25;
 
-		
+		if (remove_timer < 0)
 		for (int i = 0; i < base_filter_data_active.size(); i++)
 		{
 			if (base_filter_data_active.at(i))
 			{
 				_batch->setcolor_alpha(EColorCollection::WHITE, 0.17f);
-				_batch->draw_rect_with_uv(data_x - 150, y + size_y - data_y - 3, 155, 21, DefaultGabarite::gabarite_white);
+				_batch->draw_rect_with_uv(data_x - 150, y + size_y - data_y - 3, 185, 21, DefaultGabarite::gabarite_white);
 
 				EFont::font_arial->align_x = Enums::RIGHT;
 				_batch->setcolor(EColorCollection::BLACK);
 
-				EFont::font_arial->draw(_batch, base_filter_data_name.at(i), data_x, y + size_y - data_y);
+				EFont::font_arial->draw(_batch, base_filter_data_name.at(i), data_x + 30, y + size_y - data_y);
 				
 				if (base_filter_condition_list.at(i) != NULL)
 				{
@@ -734,13 +780,16 @@
 				base_filter_data_remove_buttons.at(i)->additional_draw(_batch);
 
 				_batch->setcolor_alpha(EColorCollection::BLACK, 0.17f);
-				_batch->draw_rama(data_x - 150, y + size_y - data_y - 3, 155, 21, 1, DefaultGabarite::gabarite_white);
+				_batch->draw_rama(x + 5, y + size_y - data_y - 3, 185, 21, 1, DefaultGabarite::gabarite_white);
 				
 				data_y += _data_y_offset;
 			}
 		}
 
-		for (EButton* b : button_list) { if (b->is_active) { b->default_draw(_batch);} }
+		if (remove_timer < 0)
+		{
+			for (EButton* b : button_list) { if (b->is_active) { b->default_draw(_batch); } }
+		}
 
 		EFont::font_arial->align_x = Enums::LEFT;
 
@@ -748,6 +797,15 @@
 
 		size_y = max_h;
 
+
+		if (remove_timer > 0)
+		{
+			_batch->setcolor_alpha(EColorCollection::RED, 0.9);
+			_batch->draw_rect_with_uv(x, y, size_x * (1.0f - remove_timer / 3.0f), size_y, DefaultGabarite::gabarite_white);
+		}
+
+		if (link_to_cancel_remove_button->is_active)
+		{link_to_cancel_remove_button->default_draw(_batch);}
 	}
 
 	void FilterBlock::add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)
@@ -774,7 +832,8 @@
 	{
 		_batch->setcolor(1, 1, 1, 1);
 
-		for (EButton* b : button_list) { if (b->is_active) { b->text_pass(_batch); } }
+		if (remove_timer < 0)
+		{for (EButton* b : button_list) { if (b->is_active) { b->text_pass(_batch); } }}
 
 
 
@@ -840,11 +899,13 @@
 			filter_block_items_button_list.at(i)->text_pass(_font,_batch);
 		}*/
 
+		if (remove_timer < 0)
 		for (int i = 0; i < filter_block_items_button_list.size(); i++)
 		{
 			filter_block_items_button_list.at(i)->text_pass(_batch);
 		}
 
+		if (remove_timer < 0)
 		for (int i = 0; i < base_filter_data_active.size(); i++)
 		{
 			if (base_filter_data_active.at(i))
@@ -859,6 +920,8 @@
 		//button_service->text_pass(_batch);
 		
 		//EFont::font_arial->draw(_batch, std::to_string(y), x, y);
+		if (link_to_cancel_remove_button->is_active)
+		{link_to_cancel_remove_button->text_pass(_batch);}
 	}
 
 	void FilterBlock::init()

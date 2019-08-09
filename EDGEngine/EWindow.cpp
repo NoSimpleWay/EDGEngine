@@ -146,3 +146,7 @@ void EWindow::manual_event()
 
 }
 
+void EWindow::close_action()
+{
+}
+

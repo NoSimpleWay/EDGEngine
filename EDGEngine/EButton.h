@@ -89,6 +89,7 @@ public:
 	bool is_right_click();
 	bool have_bg = true;
 	void update(float _d);
+	virtual void update_additional(float _d);
 
 	bool is_holdable = false;
 
@@ -149,4 +150,6 @@ public:
 	bool dynamic_input_width = false;
 
 	std::string data_string;
+
+	bool slider_is_horizontal = true;
 };

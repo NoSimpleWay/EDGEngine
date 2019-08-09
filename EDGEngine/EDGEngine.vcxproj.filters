@@ -290,5 +290,8 @@
     <ClInclude Include="EWindowFilterBlockSearch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EWindowFilterBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -95,6 +95,33 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY)
+	{
+		text_align_x = Enums::PositionMode::MID;
+		text = "Âðåìåííûé";
+
+		master_position = Enums::PositionMaster::WINDOW;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT)
+	{
+		text_align_x = Enums::PositionMode::MID;
+		text = "Ïîñòîÿííûé";
+
+		master_position = Enums::PositionMaster::WINDOW;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CANCEL_REMOVE_FILTER_BLOCK)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		position_mode_x = Enums::PositionMode::MID;
+		position_mode_y = Enums::PositionMode::MID;
+
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+		text = "ÎÒÌÅÍÈÒÜ";
+	}
 }
 
 void EButtonText::click_event()
@@ -152,5 +179,26 @@ void EButtonText::click_event()
 	{
 		master_block->minimap_icon_size = Enums::IconSize(data_id);
 		StaticData::window_filter_visual_editor->update_minimap_button();
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT))
+	{
+		master_block->ray_is_temp = false;
+
+		StaticData::window_filter_visual_editor->update_ray_button();
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY))
+	{
+		master_block->ray_is_temp = true;
+
+		StaticData::window_filter_visual_editor->update_ray_button();
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_CANCEL_REMOVE_FILTER_BLOCK))
+	{
+		master_block->remove_timer = -100;
+
+		is_active = false;
 	}
 }

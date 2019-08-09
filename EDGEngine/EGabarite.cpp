@@ -57,4 +57,5 @@ EGabarite* DefaultGabarite::gabarite_down_gray = NULL;
 EGabarite* DefaultGabarite::gabarite_remove_block = NULL;
 
 EGabarite* DefaultGabarite::gabarite_gray_eye = NULL;
+EGabarite* DefaultGabarite::gabarite_ray_icon_remove = NULL;
 

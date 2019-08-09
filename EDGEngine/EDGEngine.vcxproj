@@ -219,6 +219,7 @@
     <ClInclude Include="EUtils.h" />
     <ClInclude Include="EWindowAddNewBaseData.cpp" />
     <ClInclude Include="EWindow.h" />
+    <ClInclude Include="EWindowFilterBlock.h" />
     <ClInclude Include="EWindowFilterBlockSearch.h" />
     <ClInclude Include="EWindowMain.cpp" />
     <ClInclude Include="EWindowSocketGroup.cpp" />

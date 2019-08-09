@@ -58,6 +58,7 @@ public:
 	static EGabarite* gabarite_remove_block;
 
 	static EGabarite* gabarite_gray_eye;
+	static EGabarite* gabarite_ray_icon_remove;
 
 
 

@@ -13,5 +13,6 @@ public:
 
 	virtual void click_event();
 	virtual void slide_drag_event();
+	virtual void update_additional(float _d);
 
 };

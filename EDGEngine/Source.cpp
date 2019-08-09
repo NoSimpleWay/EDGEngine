@@ -1950,6 +1950,8 @@ int main()
 
 	put_texture_to_atlas("data/gray_eye.png");				DefaultGabarite::gabarite_gray_eye = just_created_gabarite;
 
+	put_texture_to_atlas("data/ray_icon_remove.png");		DefaultGabarite::gabarite_ray_icon_remove = just_created_gabarite;
+
 
 
 
@@ -2193,7 +2195,11 @@ int main()
 			}
 		}*/
 
-		
+		if (glfwGetKey(EWindow::main_window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS)
+		{
+			batch->setcolor(EColorCollection::WHITE);
+			batch->draw_rect_with_uv(0.0f, 0.0f, 4096.0f / 4.0f, 4096 / 4.0f, 0.0f, 0.0f, 1.0f, 1.0f);
+		}
 
 
 		glActiveTexture(GL_TEXTURE0);
@@ -2270,11 +2276,11 @@ int main()
 
 
 
-			batch->setcolor(1.0f, 1.0f, 1.0f, 1.0f);
+			batch->setcolor(1.0f, 1.0f, 1.0f, 0.9f);
 			batch->reset();
 
-			batch->draw_rect_with_uv(0, -3096, 4096/1.0f, 4096/1.0f, 0, 0, 1, 1);
-			batch->draw_rect_with_uv(500, 500, 100, 100, ItemList::item_list.at(0)->gabarite);
+			batch->draw_rect_with_uv(0, 4096.0f/4.0f, 4096.0f/4.0f, 4096/1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
+			//batch->draw_rect_with_uv(500, 500, 100, 100, ItemList::item_list.at(0)->gabarite);
 
 			batch->reinit();
 			batch->draw_call();
@@ -2392,7 +2398,7 @@ void load_texture(char const *_path, int _id)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// set texture filtering parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	// load image, create texture and generate mipmaps
 	stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
@@ -2491,6 +2497,22 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 
 	EControl::block_scroll -= yoffset;
 	if (EControl::block_scroll < 0) { EControl::block_scroll = 0; }
+	cout << "scroll (" << yoffset << ")" << endl;
+
+	int active_block_count = 0;
+	for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
+	{
+		if (!fb->is_deactivated) { active_block_count++; }
+	}
+
+	if (active_block_count > 0)
+	{
+		StaticData::window_filter_block->link_to_slider->slider_value = EControl::block_scroll / (active_block_count * 1.0f);
+	}
+	else
+	{
+		StaticData::window_filter_block->link_to_slider->slider_value = 0.0f;
+	}
 }
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
@@ -2501,7 +2523,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		//getting cursor position
 		glfwGetCursorPos(window, &xpos, &ypos);
 		EControl::mouse_pressed = true;
-		cout << "Cursor Position at (" << xpos << " : " << ypos << " button:" << button<<" action:" << action << endl;
+		//cout << "Cursor Position at (" << xpos << " : " << ypos << " button:" << button<<" action:" << action << endl;
 	}
 
 	if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
@@ -2510,7 +2532,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		//getting cursor position
 		glfwGetCursorPos(window, &xpos, &ypos);
 		EControl::mouse_right_pressed = true;
-		cout << "Cursor Position at (" << xpos << " : " << ypos << " button:" << button << " action:" << action << endl;
+		//cout << "Cursor Position at (" << xpos << " : " << ypos << " button:" << button << " action:" << action << endl;
 	}
 
 	if ((button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE))
@@ -2522,7 +2544,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		EControl::button_pressed = false;
 		EControl::mouse_pressed = false;
 
-		cout << "Cursor released at (" << xpos << " : " << ypos << " button:" << button << " action:" << action << endl;
+		//cout << "Cursor released at (" << xpos << " : " << ypos << " button:" << button << " action:" << action << endl;
 	}
 
 	if ((button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE))
@@ -2534,7 +2556,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		EControl::button_right_pressed = false;
 		EControl::mouse_right_pressed = false;
 
-		cout << "Cursor released at (" << xpos << " : " << ypos << " button:" << button << " action:" << action << endl;
+		//cout << "Cursor released at (" << xpos << " : " << ypos << " button:" << button << " action:" << action << endl;
 	}
 
 

@@ -139,6 +139,7 @@ void EButtonItemSearch::right_click_event()
 			(data_id < ESound::default_drop_sound_name.size())
 		)
 		{
+			ESound::default_drop_sound.at(data_id)->setDefaultVolume(StaticData::window_filter_block->sound_volume);
 			ESound::engine->play2D(ESound::default_drop_sound.at(data_id));
 		}
 	}
@@ -152,6 +153,7 @@ void EButtonItemSearch::right_click_event()
 			(data_id < ESound::custom_drop_sound_name.size())
 		)
 		{
+			ESound::custom_drop_sound.at(data_id)->setDefaultVolume(StaticData::window_filter_block->sound_volume);
 			ESound::engine->play2D(ESound::custom_drop_sound.at(data_id));
 		}
 	}

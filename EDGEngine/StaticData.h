@@ -2,7 +2,7 @@
 #include "EWindow.h"
 
 #include "EWindowFilterBlockSearch.h"
-#include "EWindowFilterBlock.cpp"
+#include "EWindowFilterBlock.h"
 #include "EWindowFindItem.cpp"
 #include "EWindowAddNewBaseData.cpp"
 #include "EWindowSocketGroup.cpp"

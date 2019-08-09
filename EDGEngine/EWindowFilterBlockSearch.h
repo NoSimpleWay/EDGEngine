@@ -18,6 +18,6 @@ public:
 	virtual void update(float _d);
 
 	virtual void input_event(EButton* _b);
-
+	virtual void draw(Batcher* _batch, float _delta);
 
 };

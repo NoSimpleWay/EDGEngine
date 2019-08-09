@@ -125,6 +125,7 @@ public:
 
 	bool is_ray = false;
 	Enums::GameColors ray_color = Enums::GameColors::WHITE;
+	bool ray_is_temp=false;
 
 	bool is_minimap_icon = false;
 	Enums::GameColors minimap_icon_color = Enums::GameColors::WHITE;
@@ -232,4 +233,15 @@ public:
 	float right_side_buttons_offset = 25.0f;
 
 	bool is_deactivated = false;
+
+	bool ray_semitransarent = false;
+
+	float ray_cooldown = 0.5f;
+
+	bool constant_highlight = false;
+
+	float remove_timer = -100.0f;
+	bool need_remove = false;
+
+	EButton* link_to_cancel_remove_button;
 };

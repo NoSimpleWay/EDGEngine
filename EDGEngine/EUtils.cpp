@@ -462,7 +462,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if (subdata == "PlayAlertSound") { parser_mode = Enums::ParserMode::ALERT_SOUND; just_created_block->is_alert_sound = true; }
 								if (subdata == "CustomAlertSound") { parser_mode = Enums::ParserMode::CUSTOM_ALERT_SOUND; just_created_block->is_custom_alert_sound = true; }
-								if (subdata == "PlayEffect") { parser_mode = Enums::ParserMode::RAY; just_created_block->is_ray = true; }
+								if (subdata == "PlayEffect") { parser_mode = Enums::ParserMode::RAY; just_created_block->is_ray = true; just_created_block->ray_is_temp = false; }
 								if (subdata == "MinimapIcon") { parser_mode = Enums::ParserMode::MINIMAP_ICON; just_created_block->is_minimap_icon = true; }
 
 								if (subdata == "BaseType") { parser_mode = Enums::ParserMode::BASETYPE; }
@@ -741,6 +741,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								
 									std::cout << "subdata: " << subdata << "   ray id: " << Helper::get_id_from_game_color_text(subdata) << std::endl;
 									just_created_block->ray_color = Enums::GameColors(Helper::get_id_from_game_color_text(subdata));
+								}
+
+								if (data_order == 2)
+								{
+									if (show_info_to_console) { cout << "ray additional parameter <" << subdata << ">" << endl; }
+
+									if (subdata == "Temp")
+									{
+										just_created_block->ray_is_temp = true;
+									}
 								}
 								//if (data_order == 2) { cout << "set alert sound volume <" << subdata << ">" << endl; just_created_block->alert_sound_volume = std::stoi(subdata); }
 							}

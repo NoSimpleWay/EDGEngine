@@ -89,8 +89,8 @@ bool compare_with_key(string _data, string _key)
 void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 {
 	
-	if (align_x == Enums::PositionMode::MID) { _x -= get_width(this, _s) / 2.0f; _x = round(_x); }
-	if (align_x == Enums::PositionMode::RIGHT) { _x -= get_width(this, _s); _x = round(_x); }
+	if (align_x == Enums::PositionMode::MID) { _x -= get_width(this, _s) / 2.0f; _x = _x; }
+	if (align_x == Enums::PositionMode::RIGHT) { _x -= get_width(this, _s); _x = _x; }
 
 	for (int sym = 0; sym < _s.length(); sym++)
 	{
@@ -103,8 +103,8 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 
 		_batcher->draw_rect_with_uv
 		(
-			round(_x + x_adding - offset_x[target_symbol] * scale),
-			round(_y - offset_y[target_symbol] * scale),
+			_x + x_adding - offset_x[target_symbol] * scale,
+			_y - offset_y[target_symbol] * scale,
 
 			real_size_x[target_symbol] * scale,
 			real_size_y[target_symbol] * scale,

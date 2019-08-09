@@ -17,10 +17,10 @@ public:
 	//std::vector<FilterBlock*> filter_block_list;
 	FilterBlock* master_block;
 
-	float default_positiox_x=15.0;
-	float default_positiox_y=315.0;
+	float default_position_x=15.0;
+	float default_position_y=315.0;
 	
-	float distance_between_x=250.0;
+	float distance_between_x=200.0;
 	float distance_between_y=20.0f;
 
 	float button_size_x = 150.0f;
@@ -39,6 +39,9 @@ public:
 
 	EButton* link_to_icon_checker;
 	EButton* link_to_ray_checker;
+
+	EButton* link_to_ray_constant;
+	EButton* link_to_ray_tempotary;
 	
 
 
@@ -71,22 +74,22 @@ public:
 		is_active = false;
 		have_bg = true;
 
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 0.0f, default_positiox_y + distance_between_y * 3.0f, button_size_x, 17.0f, Enums::BUTTON_BG_H));
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 0.0f, default_positiox_y + distance_between_y * 2.0f, button_size_x, 17.0f, Enums::BUTTON_BG_S));
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 0.0f, default_positiox_y + distance_between_y * 1.0f, button_size_x, 17.0f, Enums::BUTTON_BG_V));
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 0.0f, default_positiox_y + distance_between_y * 0.0f, button_size_x, 17.0f, Enums::BUTTON_BG_ALPHA));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 0.0f, default_position_y + distance_between_y * 3.0f, button_size_x, 17.0f, Enums::BUTTON_BG_H));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 0.0f, default_position_y + distance_between_y * 2.0f, button_size_x, 17.0f, Enums::BUTTON_BG_S));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 0.0f, default_position_y + distance_between_y * 1.0f, button_size_x, 17.0f, Enums::BUTTON_BG_V));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 0.0f, default_position_y + distance_between_y * 0.0f, button_size_x, 17.0f, Enums::BUTTON_BG_ALPHA));
 
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 1.0f, default_positiox_y + distance_between_y * 3.0f, button_size_x, 17.0f, Enums::BUTTON_TEXT_H));
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 1.0f, default_positiox_y + distance_between_y * 2.0f, button_size_x, 17.0f, Enums::BUTTON_TEXT_S));
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 1.0f, default_positiox_y + distance_between_y * 1.0f, button_size_x, 17.0f, Enums::BUTTON_TEXT_V));
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 1.0f, default_positiox_y + distance_between_y * 0.0f, button_size_x, 17.0f, Enums::BUTTON_TEXT_ALPHA));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 1.0f, default_position_y + distance_between_y * 3.0f, button_size_x, 17.0f, Enums::BUTTON_TEXT_H));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 1.0f, default_position_y + distance_between_y * 2.0f, button_size_x, 17.0f, Enums::BUTTON_TEXT_S));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 1.0f, default_position_y + distance_between_y * 1.0f, button_size_x, 17.0f, Enums::BUTTON_TEXT_V));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 1.0f, default_position_y + distance_between_y * 0.0f, button_size_x, 17.0f, Enums::BUTTON_TEXT_ALPHA));
 
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 2.0f, default_positiox_y + distance_between_y * 3.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_H));
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 2.0f, default_positiox_y + distance_between_y * 2.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_S));
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 2.0f, default_positiox_y + distance_between_y * 1.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_V));
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 2.0f, default_positiox_y + distance_between_y * 0.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_ALPHA));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 2.0f, default_position_y + distance_between_y * 3.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_H));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 2.0f, default_position_y + distance_between_y * 2.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_S));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 2.0f, default_position_y + distance_between_y * 1.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_V));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 2.0f, default_position_y + distance_between_y * 0.0f, button_size_x, 17.0f, Enums::BUTTON_RAMA_ALPHA));
 
-		set_button_data(new EButtonSlider(default_positiox_x + distance_between_x * 3.0f, default_positiox_y + distance_between_y * 3.0f, button_size_x, 17.0f, Enums::BUTTON_SLIDER_FONT_SIZE));
+		set_button_data(new EButtonSlider(default_position_x + distance_between_x * 3.0f, default_position_y + distance_between_y * 3.0f, button_size_x, 17.0f, Enums::BUTTON_SLIDER_FONT_SIZE));
 
 		EButton* but = new EButtonText(5, 50, 220, 40, Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW);
 		but->master_window = this;
@@ -166,17 +169,29 @@ public:
 		link_to_icon_checker = but;
 		button_list.push_back(but);
 
-		for (int i = 0; i < 6; i++)
+		for (int i = -1; i < 6; i++)
 		{
-			but = new EButtonService(235.0f + i*60.0f, icon_button_base_y + 60.0f * 1.0f, 30.0f, 60.0f, Enums::ButtonType::BUTTON_SELECT_RAY_COLOR);
+			but = new EButtonService(260.0f + (i+1)*40.0f, icon_button_base_y + 60.0f * 1.0f - 35.0f, 30.0f, 60.0f, Enums::ButtonType::BUTTON_SELECT_RAY_COLOR);
 
 			but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
-			but->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i]);
+
+			if (i >= 0)
+			{
+				but->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i]);
+
+				but->gabarite = DefaultGabarite::gabarite_ray_icon;
+			}
+			else
+			{
+				but->icon_color->set(EColorCollection::WHITE);
+				but->gabarite = DefaultGabarite::gabarite_ray_icon_remove;
+			}
+
 			but->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 
 			but->data_id = i;
 
-			but->gabarite = DefaultGabarite::gabarite_ray_icon;
+		
 
 			but->master_block = master_block;
 			but->master_window = this;
@@ -188,36 +203,93 @@ public:
 			link_to_ray_color.push_back(but);
 			button_list.push_back(but);
 		}
-		
+
+		but = new EButtonText(260.0f, icon_button_base_y + 60.0f * 0.0f, 130.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY);
+		but->master_window = this;
+		but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
+		but->master_block = master_block;
+		but->master_window = this;
+
+		but->master_position = Enums::PositionMaster::WINDOW;
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::DOWN;
+
+		button_list.push_back(but);
+		link_to_ray_tempotary = but;
+
+
+		but = new EButtonText(400.0f, icon_button_base_y + 60.0f * 0.0f, 130.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT);
+		but->master_window = this;
+		but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
+		but->master_block = master_block;
+		but->master_window = this;
+
+		but->master_position = Enums::PositionMaster::WINDOW;
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::DOWN;
+
+		button_list.push_back(but);
+		link_to_ray_constant = but;
 	}
 
 	void update_ray_button()
 	{
-		if (master_block->is_ray)
-		{
-			for (int i = 0; i < 6; i++)
+	
+			for (int i = 0; i < 7; i++)
 			{
 				link_to_ray_color.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 				link_to_ray_color.at(i)->bg_color->set(0.4f, 0.3f, 0.2f, 0.4f);
-				link_to_ray_color.at(i)->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i]);
-				link_to_ray_color.at(i)->rama_thikness = 3.0f;
 
-				if (master_block->ray_color == i)
+				if (i - 1 >= 0)
+				{
+					link_to_ray_color.at(i)->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i - 1]);
+				}
+				else
+				{
+					link_to_ray_color.at(i)->icon_color->set(EColorCollection::WHITE);
+					link_to_ray_color.at(i)->gabarite = DefaultGabarite::gabarite_ray_icon_remove;
+				}
+
+				link_to_ray_color.at(i)->rama_thikness = 2.0f;
+
+				if ((master_block->is_ray) && (master_block->ray_color == i - 1))
+				{
+					link_to_ray_color.at(i)->rama_color->set_alpha(EColorCollection::YELLOW, 0.90f);
+				}
+
+				if ((i == 0) && (!master_block->is_ray))
 				{
 					link_to_ray_color.at(i)->rama_color->set_alpha(EColorCollection::YELLOW, 0.90f);
 				}
 			}
-		}
-		else
+
+			if (master_block->ray_is_temp)
+			{
+				link_to_ray_constant->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+				link_to_ray_constant->bg_color->set(0.4f, 0.3f, 0.2f, 0.4f);
+
+				link_to_ray_tempotary->rama_color->set_alpha(EColorCollection::YELLOW, 0.90f);
+				link_to_ray_tempotary->bg_color->set(0.5f, 0.5f, 0.2f, 0.4f);
+			}
+			else
+			{
+				link_to_ray_constant->rama_color->set_alpha(EColorCollection::YELLOW, 0.90f);
+				link_to_ray_constant->bg_color->set(0.5f, 0.5f, 0.2f, 0.4f);
+
+				link_to_ray_tempotary->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+				link_to_ray_tempotary->bg_color->set(0.4f, 0.3f, 0.2f, 0.4f);
+			}
+		
+		/*
 		{
-			for (int i = 0; i < 6; i++)
+			for (int i = 0; i < 7; i++)
 			{
 				link_to_ray_color.at(i)->rama_thikness = 1.0f;
 				link_to_ray_color.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.5f);
 				link_to_ray_color.at(i)->bg_color->set_alpha(EColorCollection::GRAY, 0.35f);
 				link_to_ray_color.at(i)->icon_color->set_alpha(EColorCollection::GRAY, 0.50f);
 			}
-		}
+		}*/
 	}
 
 	void update_minimap_button()
@@ -316,13 +388,13 @@ public:
 
 		EFont::font_arial->align_x = Enums::PositionMode::LEFT;
 		_batch->setcolor(EColorCollection::WHITE);
-		_batch->draw_rect_with_uv(pos_x + default_positiox_x + distance_between_x * 1.0f + (button_size_x - 320.0f) / 2.0f, default_positiox_y+pos_y + distance_between_y * 4.0f + 100.0f + (25.0f - 150.0f) / 2.0f, 320, 150, DefaultGabarite::gabarite_visual_editor_bg);
+		_batch->draw_rect_with_uv(pos_x + default_position_x + distance_between_x * 1.0f + (button_size_x - 320.0f) / 2.0f, default_position_y+pos_y + distance_between_y * 4.0f + 100.0f + (25.0f - 150.0f) / 2.0f, 320, 150, DefaultGabarite::gabarite_visual_editor_bg);
 
 		_batch->setcolor_255(master_block->bg_red, master_block->bg_green, master_block->bg_blue, master_block->bg_alpha / 2.55f);
 		_batch->draw_rect_with_uv
 		(
-			pos_x+default_positiox_x + distance_between_x * 1.0f + (button_size_x - rx)/2.0f,
-			default_positiox_y + pos_y + distance_between_y * 4.0f+100.0f,
+			pos_x+default_position_x + distance_between_x * 1.0f + (button_size_x - rx)/2.0f,
+			default_position_y + pos_y + distance_between_y * 4.0f+100.0f,
 
 			rx,
 			ry,
@@ -338,15 +410,15 @@ public:
 			_batch,
 			"Sample text",
 
-			round(pos_x + default_positiox_x + distance_between_x * 1.0f+(button_size_x -EFont::get_width(EFont::font_arial,"Sample text"))/2.0f),
-			default_positiox_y + pos_y + distance_between_y * 4.0f+100.0f+7.0f
+			round(pos_x + default_position_x + distance_between_x * 1.0f+(button_size_x -EFont::get_width(EFont::font_arial,"Sample text"))/2.0f),
+			default_position_y + pos_y + distance_between_y * 4.0f+100.0f+7.0f
 		);
 
 		_batch->setcolor_255(master_block->rama_red, master_block->rama_green, master_block->rama_blue, master_block->rama_alpha / 2.55f);
 		_batch->draw_rama
 		(
-			pos_x + default_positiox_x + distance_between_x * 1.0f + (button_size_x - rx) / 2.0f,
-			default_positiox_y + pos_y + distance_between_y * 4.0f + 100.0f,
+			pos_x + default_position_x + distance_between_x * 1.0f + (button_size_x - rx) / 2.0f,
+			default_position_y + pos_y + distance_between_y * 4.0f + 100.0f,
 
 			rx,
 			ry,
@@ -356,7 +428,28 @@ public:
 			DefaultGabarite::gabarite_white
 		);
 
+		_batch->setcolor_alpha(EColorCollection::BLACK, 0.2f);
+		_batch->draw_rama(pos_x + default_position_x + distance_between_x * 0.0f - 5.0f, /**/ pos_y + default_position_y - 5.0f, /**/ button_size_x + 10.0f, /**/ distance_between_y * 4.0f + 22.0f, /**/ 2.0f, /**/ DefaultGabarite::gabarite_white);
+		_batch->draw_rama(pos_x + default_position_x + distance_between_x * 1.0f - 5.0f, /**/ pos_y + default_position_y - 5.0f, /**/ button_size_x + 10.0f, /**/ distance_between_y * 4.0f + 22.0f, /**/ 2.0f, /**/ DefaultGabarite::gabarite_white);
+		_batch->draw_rama(pos_x + default_position_x + distance_between_x * 2.0f - 5.0f, /**/ pos_y + default_position_y - 5.0f, /**/ button_size_x + 10.0f, /**/ distance_between_y * 4.0f + 22.0f, /**/ 2.0f, /**/ DefaultGabarite::gabarite_white);
+		_batch->draw_rama(pos_x + default_position_x + distance_between_x * 3.0f - 5.0f, /**/ pos_y + default_position_y - 5.0f, /**/ button_size_x + 10.0f, /**/ distance_between_y * 4.0f + 22.0f, /**/ 2.0f, /**/ DefaultGabarite::gabarite_white);
+
 		EFont::font_arial->scale = 1.0f;
+		_batch->setcolor(EColorCollection::BLACK);
+		EFont::font_arial->align_x = Enums::PositionMode::MID;
+
+		EFont::font_arial->draw(_batch, "Цвет фона",		pos_x + default_position_x + distance_between_x * 0.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::font_arial->draw(_batch, "Цвет текста",		pos_x + default_position_x + distance_between_x * 1.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::font_arial->draw(_batch, "Цвет рамки",		pos_x + default_position_x + distance_between_x * 2.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::font_arial->draw(_batch, "Размер текста",	pos_x + default_position_x + distance_between_x * 3.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+
+		float siz = 1.0 / (master_block->minimap_icon_size * 0.5f + 1.0);
+
+		_batch->setcolor(EColorCollection::MINIMAP_ICON_COLOR[master_block->minimap_icon_color]);
+		_batch->draw_rect_with_uv(pos_x + icon_button_base_x + 55.0f * 5.0f, pos_y + icon_button_base_y + 60.0 * 3.0f, 35.0f * siz, 35.0f * siz, DefaultGabarite::gabarite_minimap_icon[master_block->minimap_icon_shape]);
+		
+		_batch->setcolor_alpha(EColorCollection::BLACK, 0.5f);
+		_batch->draw_rama(pos_x + icon_button_base_x + 55.0f * 5.0f, pos_y + icon_button_base_y + 60.0 * 3.0f, 35.0f * siz, 35.0f * siz, 2.0f, DefaultGabarite::gabarite_white);
 	}
 
 	virtual void text_pass(Batcher* _batch)
@@ -366,6 +459,7 @@ public:
 
 	virtual void button_event(EButton* _b)
 	{
+		
 		master_block = _b->master_block;
 
 		if (master_block->is_minimap_icon)
@@ -402,8 +496,10 @@ public:
 		link_to_sliders.at(10)->slider_value = master_block->rama_value / 255.0f;
 		link_to_sliders.at(11)->slider_value = master_block->rama_alpha/255.0f;
 
-
+		link_to_sliders.at(12)->slider_value = (master_block->font_size - 18.0f) / 27.0f;
 		//std::cout << "standart window button event" << std::endl;
+
+		update_ray_button();
 	}
 
 };

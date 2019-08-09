@@ -165,14 +165,23 @@ void EButtonService::click_event()
 	if ((button_type == Enums::ButtonType::BUTTON_SYS_PLAY_SOUND))
 	{
 		std::cout << "Alert sound name: " << master_block->alert_sound_name << std::endl;
-		if ((master_block->is_alert_sound) && (master_block->alert_sound_name != "")) { ESound::engine->play2D(ESound::default_drop_sound.at(master_block->alert_sound_id)); }
+
+		if ((master_block->is_alert_sound) && (master_block->alert_sound_name != ""))
+		{
+			ESound::default_drop_sound.at(master_block->alert_sound_id)->setDefaultVolume (StaticData::window_filter_block->sound_volume);
+			ESound::engine->play2D(ESound::default_drop_sound.at(master_block->alert_sound_id));
+		}
 
 		if ((master_block->is_custom_alert_sound) && (master_block->custom_alert_sound_name != ""))
-		{ ESound::engine->play2D(ESound::get_sound_by_name(master_block->custom_alert_sound_name));}
+		{
+			ESound::get_sound_by_name(master_block->custom_alert_sound_name)->setDefaultVolume (StaticData::window_filter_block->sound_volume);
+			ESound::engine->play2D(ESound::get_sound_by_name(master_block->custom_alert_sound_name));
+		}
 		else
 		{
 			std::cout << "Custom sound disabled" << std::endl;
 		}
+
 		std::cout << "id of this block = " << StaticData::window_filter_block->get_id_of_filter_block(master_block) << std::endl;
 		//StaticData::window_filter_block->filter_block_list.
 	}
@@ -201,9 +210,17 @@ void EButtonService::click_event()
 		EFile::save_filter(EString::opened_loot_filter_path);
 	}
 
-	if ((button_type == Enums::ButtonType::BUTTON_SELECT_RAY_COLOR)&&(master_block->is_ray))
+	if ((button_type == Enums::ButtonType::BUTTON_SELECT_RAY_COLOR))
 	{
-		master_block->ray_color = Enums::GameColors(data_id);
+		if (data_id >= 0)
+		{
+			master_block->is_ray = true;
+			master_block->ray_color = Enums::GameColors(data_id);
+		}
+		else
+		{
+			master_block->is_ray = false;
+		}
 
 		StaticData::window_filter_visual_editor->update_ray_button();
 
@@ -254,17 +271,11 @@ void EButtonService::click_event()
 
 	if ((button_type == Enums::ButtonType::BUTTON_REMOVE_BLOCK))
 	{
-		if (StaticData::window_filter_block->get_id_of_filter_block(master_block) == StaticData::window_filter_block->filter_block_list.size() - 1)
+		if (master_block->remove_timer == -100)
 		{
-			StaticData::window_filter_block->need_remove_last_element = true;
-			//StaticData::window_filter_block->filter_block_list.resize(StaticData::window_filter_block->filter_block_list.size() - 1);
-		}
-		else
-		{
-			StaticData::window_filter_block->filter_block_list.erase
-			(
-				StaticData::window_filter_block->filter_block_list.begin() + StaticData::window_filter_block->get_id_of_filter_block(master_block)
-			);
+			master_block->remove_timer = 3.0f;
+
+			master_block->link_to_cancel_remove_button->is_active = true;
 		}
 	}
 

@@ -69,5 +69,7 @@ public:
 	bool can_be_closed = true;
 
 	virtual void manual_event();
+
+	virtual void close_action();
 };
 

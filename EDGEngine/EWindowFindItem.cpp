@@ -62,7 +62,7 @@ public:
 
 	virtual void draw(Batcher* _batch, float _delta)
 	{
-		float bx = 10;
+		float bx = 5;
 		float by = -120;
 
 		int x_offset = 0;
@@ -155,7 +155,7 @@ public:
 						(EString::to_lower(item->item_name_ru, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
 						)
 						&&
-						(order > 0)
+						(order >= 0)
 						)
 				{
 					if (search_count < 150)
@@ -432,6 +432,11 @@ public:
 				//b->gabarite = DefaultGabarite::gabarite_undefined;
 				b->button_type = Enums::ButtonType::BUTTON_SEARCH_ITEM;
 
+				if (temp_id >= 0)
+				{
+					b->description_text = ItemList::item_list.at(temp_id)->item_name;
+				}
+
 				b->bg_color->set(0.2f, 0.15f, 0.05f, 0.5f);
 
 				temp_id++;
@@ -631,7 +636,8 @@ public:
 			input_button->input_hint = "Введите название пророчества";
 		}
 
-		fill_search_array(_b);
+		input_button->text = "";
+		fill_search_array(input_button);
 	}
 
 	virtual void text_pass(Batcher* _batch)

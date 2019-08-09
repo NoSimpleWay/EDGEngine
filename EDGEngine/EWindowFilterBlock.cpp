@@ -1,16 +1,15 @@
 #include "EWindow.h"
+#include "EWindowFilterBlock.h"
 #include "EControl.h"
 #include "Enums.h"
-
-class EWindowFilterBlock: public EWindow
-{
-public:
-	std::vector<FilterBlock*> filter_block_list;
-
-	bool need_remove_last_element = false;
+#include "StaticData.h"
+#include "EButtonSlider.h"
 
 
-	EWindowFilterBlock(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
+
+
+
+	EWindowFilterBlock::EWindowFilterBlock(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 		pos_x = 0;
 		pos_y = 0;
@@ -26,9 +25,16 @@ public:
 
 		can_be_closed = false;
 
+		EButton* but = new EButtonSlider(-7, -40, 20, EWindow::SCR_HEIGHT - 80.0f, Enums::ButtonType::BUTTON_FILTER_BLOCK_SCROLL);
+		//but->master_block = this;
+		but->master_window = this;
+		button_list.push_back(but);
+		but->description_text = "Полоса прокрутки блоков";
+		link_to_slider = but;
+
 	}
 
-	int get_id_of_filter_block(FilterBlock* _fb)
+	int EWindowFilterBlock::get_id_of_filter_block(FilterBlock* _fb)
 	{
 		for (int i = 0; i < filter_block_list.size(); i++)
 		{
@@ -41,7 +47,7 @@ public:
 		return 0;
 	}
 	
-	virtual void draw(Batcher* _batch, float _delta)
+	void EWindowFilterBlock::draw(Batcher* _batch, float _delta)
 	{
 		window_size_x = EWindow::SCR_WIDTH;
 		window_size_y = EWindow::SCR_HEIGHT;
@@ -55,7 +61,15 @@ public:
 
 		int additional_scroll = 0;
 
-		for (int i = EControl::block_scroll; i < filter_block_list.size(); i++)
+		for (int i = 0; i < filter_block_list.size(); i++)
+		{
+			if (filter_block_list.at(i)->need_remove)
+			{
+				filter_block_list.erase(filter_block_list.begin() + i);
+			}
+		}
+
+		for (int i = 0; i < filter_block_list.size(); i++)
 		{
 			block_index = i;
 		
@@ -75,10 +89,10 @@ public:
 			{
 					blocks_count++;
 
-					filter_block_list.at(block_index)->x = 15;
+					filter_block_list.at(block_index)->x = 5;
 					filter_block_list.at(block_index)->y = EWindow::SCR_HEIGHT - filter_block_list.at(block_index)->size_y - yy;
 
-					filter_block_list.at(block_index)->size_x = SCR_WIDTH - 30;
+					filter_block_list.at(block_index)->size_x = SCR_WIDTH - 40;
 
 					yy += filter_block_list.at(block_index)->size_y + 15;
 
@@ -99,7 +113,7 @@ public:
 
 	}
 
-	virtual void text_pass(Batcher* _batch)
+	void EWindowFilterBlock::text_pass(Batcher* _batch)
 	{
 		int block_index = 0;
 
@@ -109,7 +123,7 @@ public:
 
 		int additional_scroll = 0;
 
-		for (int i = EControl::block_scroll; i < filter_block_list.size(); i++)
+		for (int i = 0; i < filter_block_list.size(); i++)
 		{
 			block_index = i;
 
@@ -134,7 +148,7 @@ public:
 
 			if
 				(
-				(i < filter_block_list.size())
+					(i < filter_block_list.size())
 					&&
 					(!filter_block_list.at(block_index)->is_deactivated)
 					)
@@ -145,4 +159,3 @@ public:
 		}
 	}
 
-};

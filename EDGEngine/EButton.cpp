@@ -142,10 +142,12 @@
 		{
 			if (position_mode_x == Enums::PositionMode::LEFT) { master_position_x = master_block->x + button_x; }
 			if (position_mode_x == Enums::PositionMode::RIGHT) { master_position_x = master_block->x + button_x-button_size_x+master_block->size_x;}
+			if (position_mode_x == Enums::PositionMode::MID) { master_position_x = master_block->x + (master_block->size_x - button_size_x) / 2.0f;}
 
 
 			if (position_mode_y == Enums::PositionMode::UP) { master_position_y = master_block->y + button_y+master_block->size_y-button_size_y; }
 			if (position_mode_y == Enums::PositionMode::DOWN) { master_position_y = master_block->y + button_y; }
+			if (position_mode_y == Enums::PositionMode::MID) { master_position_y = master_block->y + (master_block->size_y - button_size_y) / 2.0f; }
 
 
 		}
@@ -223,9 +225,17 @@
 			slider_activate = false;
 		}
 
-		if ((is_slider)&&(slider_activate))
+		if ((is_slider)&&(slider_activate)&&(slider_is_horizontal))
 		{
 			slider_value = (EControl::mouse_x - master_position_x) / button_size_x;
+			slider_value = EMath::clamp_value_float(slider_value, 0.0f, 1.0f);
+
+			slide_drag_event();
+		}
+
+		if ((is_slider) && (slider_activate) && (!slider_is_horizontal))
+		{
+			slider_value = 1.0f - (EControl::mouse_y - master_position_y) / button_size_y;
 			slider_value = EMath::clamp_value_float(slider_value, 0.0f, 1.0f);
 
 			slide_drag_event();
@@ -302,6 +312,12 @@
 			flash_line_active = !flash_line_active;
 		}
 
+		update_additional(_d);
+
+	}
+
+	void EButton::update_additional(float _d)
+	{
 	}
 
 	void EButton::default_draw(Batcher* _batch)
@@ -413,8 +429,24 @@
 
 		if (is_slider)
 		{
-			_batch->setcolor(EColorCollection::BLACK);
-			_batch->draw_rect_with_uv(master_position_x+(button_size_x-3.0f)*slider_value, master_position_y, 3, button_size_y,DefaultGabarite::gabarite_white);
+			if (slider_is_horizontal)
+			{
+				_batch->setcolor(EColorCollection::WHITE);
+				_batch->draw_rect_with_uv(master_position_x + (button_size_x - 3.0f) * slider_value - 1, master_position_y - 1, 5, button_size_y + 2, DefaultGabarite::gabarite_white);
+
+				_batch->setcolor(EColorCollection::BLACK);
+				_batch->draw_rect_with_uv(master_position_x + (button_size_x - 3.0f) * slider_value, master_position_y, 3, button_size_y, DefaultGabarite::gabarite_white);
+			}
+			else
+			{
+				_batch->setcolor(EColorCollection::WHITE);
+				_batch->draw_rect_with_uv(master_position_x - 1,	master_position_y - 31.0f + button_size_y - (button_size_y - 32.0f) * slider_value,	button_size_x + 2,		32.0f,		DefaultGabarite::gabarite_white);
+
+				_batch->setcolor(EColorCollection::BLACK);
+				_batch->draw_rect_with_uv(master_position_x,		master_position_y - 30.0f + button_size_y - (button_size_y - 32.0f) * slider_value,		button_size_x,		32.0f,		DefaultGabarite::gabarite_white);
+			}
+
+			
 		}
 
 		additional_draw(_batch);
@@ -540,5 +572,6 @@
 		rama_color->set(icon_color_deactivated);
 		bg_color->set(bg_color_deactivated);
 	}
+
 
 
