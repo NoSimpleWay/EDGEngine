@@ -67,6 +67,8 @@ bool EControl ::mouse_right_pressed = false;
 bool EControl ::button_backspace_released = false;
 char EControl::last_inputed_char=NULL;
 
+float EControl::delete_button_hold_time = 0.0f;
+
 EFont* EFont::font_arial = NULL;
 
 int EControl::block_scroll = 0;
@@ -180,6 +182,7 @@ EWindowSocketGroup* StaticData::window_socket_group = NULL;
 EWindowFilterVisualEditor* StaticData::window_filter_visual_editor = NULL;
 EWindowMain* StaticData::window_main=NULL;
 EWindowFilterBlockSearch* StaticData::window_filter_block_search=NULL;
+EWindowLoadingScreen* StaticData::window_loading_screen=NULL;
 
 
 //0		-	1
@@ -1523,7 +1526,7 @@ int main()
 
 	//SetConsoleCP(65001);
 
-	cout << "Эх, вот бы жить в 2019..." << endl;
+	//cout << "Эх, вот бы жить в 2019..." << endl;
 	//setlocale(LC_ALL, "ru-RU");
 	//setlocale(LC_CTYPE, "rus"); // вызов функции настройки локали
 
@@ -1559,73 +1562,7 @@ int main()
 	}
 	else cout << "Unable to open file";
 
-	//cout << "QQQ: " << "" << endl;
 
-
-	for (int i = 0; i < 100; i++)
-		for (int j = 0; j < 100; j++)
-		{
-			tilemap[j][i] = -1;
-		}
-
-	for (int i = 0; i < 100; i++)
-		for (int j = 0; j < 100; j++)
-		{
-			if (tilemap[j][i] == -1)
-			{
-				//refill available tile
-				for (int k = 0; k < 16; k++)
-				{
-					available_tile[k] = k;
-				}
-
-
-				//exclude potencial duplicate
-				for (int b = -1; b <= 1; b++)
-					for (int a = -1; a <= 1; a++)
-						if (
-							(
-							(a != 0) || (b != 0)
-								)
-							&& (j >= 0)
-							&& (j < 100)
-							&& (i >= 0)
-							&& (i < 100))
-						{
-							int target_tile = tilemap[j + b][i + a];
-
-							//if (target_tile >= 0) { available_tile[target_tile] = -1; }
-						}
-
-
-				tile_array_index = 0;
-				for (int k = 0; k < 16; k++)
-					if (available_tile[k] >= 0)
-					{
-						final_available_tile[tile_array_index] = available_tile[k];
-						tile_array_index++;
-					}
-
-				int selected_tile = final_available_tile[rand() % tile_array_index];
-
-				//available_tile._Make_iter;
-
-				//tilemap[j][i] = choosen_tile._Getcont;
-
-				if (rand() % 25 != 0) { selected_tile += 4; }
-				else { selected_tile = rand() % 4; }
-				tilemap[j][i] = selected_tile;
-
-
-				//std::cout << "tile: " << selected_tile << std::endl;
-			}
-		}
-
-
-	// glfw: initialize and configure
-	// ------------------------------
-
-	//EInit::GL_init();
 
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -1750,52 +1687,16 @@ int main()
 
 	camera->x = 0.0f;
 	camera->y = 0.0f;
-	//camera->zoom = 1;
-
-
-	/*
-	for (int i = 0; i < 30; i++)
-	for (int j = 0; j < 30; j++)
-	{
-		int tile_y = (int)(tilemap[j][i] / 4);
-		int tile_x = tilemap[j][i] - tile_y * 4;
-
-
-		batch->draw_rect(0.1f * j, 0.1f * i, 0.05f, 0.05f, tile_x, tile_y);
-		batch2->draw_rect(0.1f* j, 0.1f* i, 0.05f, 0.05f, tile_x, tile_y);
-	}*/
 
 	for (int i = 0; i < 100000; i++)
 	{
 		batch->fill_indices();
-		//batch2->fill_indices();
-
-	}
-
-	for (int i = 0; i < 100000; i++)
-	{
-		batch->fill_indices();
-		//batch2->fill_indices();
 
 	}
 
 
 	EFont::font_arial->load_font("!");
 
-
-
-	/*
-	string cyr = "АБВГДЕЁЗЖИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюя";
-
-	for (int c = 0; c < cyr.length(); c++)
-	{
-		cout << "why? " << cyr.at(c) << " " << (int)cyr.at(c)+256 << endl;
-	}
-	*/
-
-
-
-	//string control_text = "Ну наконец-то эта ";
 
 
 	batch->init();
@@ -1807,98 +1708,56 @@ int main()
 	batch->setcolor_255(0, 255, 0, 100); EFont::font_arial->draw(font_batch, "заработала!", 0, 0);
 	font_batch->init();
 
+
+
+
+
+	//##################################
+	//##################################
+	parse_item_data();
+	load_base_class();
+	load_prophecy_list();
+	//##################################
+	//##################################
+
+	
+
 	//--------------------------------texture atlas generator ------------------------------------------------
 	//--------------------------------------------------------------------------------------------------------
 	glViewport(0, 0, 4096, 4096);
-	cout << "Maxt texture size: " << GL_MAX_TEXTURE_SIZE << endl;
 	glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
 
-	glEnable(GL_BLEND);
-	//glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE_MINUS_DST_ALPHA, GL_ONE);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	glBlendEquation(GL_MAX);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-
-	//glEnable(GL_ALPHA_TEST);
-
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendEquation(GL_MAX);
 	camera->update();
 	matrix_transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
 
 	matrix_transform = glm::translate(matrix_transform, glm::vec3(camera->x - 1, camera->y - 1, 0.0f));
 	matrix_transform = glm::scale(matrix_transform, glm::vec3(camera->zoom / 4096.0f*2.0f, camera->zoom/ 4096.0f*2.0f, 1));
 
-
-
-
-	//transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
-
-	// get matrix's uniform location and set matrix
 	ourShader->use();
 	unsigned int transformLoc = glGetUniformLocation(ourShader->ID, "transform");
 	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(matrix_transform));
 
-	/////////////////
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
 	ourShader->setInt("texture1", 0);
 	batch->setcolor(EColorCollection::WHITE);
 
-	
-	//##################################
-//##################################
-	parse_item_data();
-	load_base_class();
-	load_prophecy_list();
-	//##################################
-	//##################################
 	put_texture_to_atlas("data/font_arial.png", 0, 4096 - 128);
 
+	put_texture_to_atlas("data/background.png");			DefaultGabarite::gabarite_background = just_created_gabarite;
+
 	put_texture_to_atlas("data/shaper_bg.png");				DefaultGabarite::gabarite_shaper_bg = just_created_gabarite;
+
 	put_texture_to_atlas("data/elder_bg.png");				DefaultGabarite::gabarite_elder_bg = just_created_gabarite;
 
 	cout << "item list size=" << ItemList::item_list.size() << endl;
-	for (int z = 0; z < ItemList::item_list.size(); z++)
-	{
-
-		//int select = rand() % 3;
-		
-		bool duplicate_detected = false;
-
-		for (int f = 0; f < z; f++)
-		{
-			if
-			(
-				(f != z)
-				&&
-				(ItemList::item_list.at(z)->folder == ItemList::item_list.at(f)->folder)
-				&&
-				(ItemList::item_list.at(z)->icon_path == ItemList::item_list.at(f)->icon_path)
-			)
-			{
-				duplicate_detected = true;
-
-				ItemList::item_list.at(z)->gabarite = ItemList::item_list.at(f)->gabarite;
-				std:cout << "Duplicate detected! Name: " << ItemList::item_list.at(z)->folder << "/" << ItemList::item_list.at(z)->icon_path << std::endl;
-
-				break;
-			}
-
-			if (duplicate_detected) { break; }
-		}
-
-
-		if (!duplicate_detected)
-		{
-			string aaa = "data/icon/" + (ItemList::item_list.at(z)->folder) + "/" + ItemList::item_list.at(z)->icon_path + ".png";
-			put_texture_to_atlas(aaa.c_str());
-			ItemList::item_list.at(z)->gabarite = just_created_gabarite;
-		}
-
-		if (z % 10 == 0) { cout << "Collision pass:" << green << z << white << endl; }
-	}
+	
 
 	put_texture_to_atlas("data/white_pixel.png");
 	just_created_gabarite->x += 1 / 4096.0f;
@@ -2002,41 +1861,12 @@ int main()
 	StaticData::window_main->name = "Main window";
 	window_list.push_back(StaticData::window_main);
 
-		load_texture("data/white_pixel.png", 0);
+	StaticData::window_loading_screen = new EWindowLoadingScreen(7, false);
+	StaticData::window_loading_screen->name = "Loading screen";
+	StaticData::window_loading_screen->item_count = ItemList::item_list.size();
+	window_list.push_back(StaticData::window_loading_screen);
+
 		batch->reset();
-
-		/*
-		for (int j = 0; j < 512; j++)
-		{
-
-
-			for (int i = 0; i < 512; i++)
-			{
-				if (collision_matrix[j][i][0])
-				{
-					batch->setcolor(1,0,0,0.25f);
-				}
-				else
-				{
-					batch->setcolor(1,1,1,0.8f);
-				}
-
-				batch->draw_rect(j, i, 2.0f, 2.0f);
-			}
-
-
-		}
-		batch->reinit();
-		batch->draw_call();
-		*/
-
-		/*
-		batch->setcolor_alpha(EColor::GREEN,0.5f);
-		batch->draw_rect(200, 150, 200, 300);
-
-		batch->setcolor(EColor::BLUE);
-		batch->draw_rect(300, 500, 200, 300);
-		*/
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glDisable(GL_DEPTH_TEST);
@@ -2045,14 +1875,96 @@ int main()
 	//--------------------------------------------------------------------------------------------------------
 
 	//cout << (int)01.35f << endl;
-
-	recalculate_correction();
 	glViewport(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT);
+	recalculate_correction();
+	
 
-	load_texture("data/background.png", 0);
+	//load_texture("data/background.png", 1);
 	while (!glfwWindowShouldClose(window))
 	{
-		
+		///////////////////////////////////////////////////////////////////////////////
+			glViewport(0, 0, 4096, 4096);
+			glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+
+
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			glBlendEquation(GL_MAX);
+
+			matrix_transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+
+			matrix_transform = glm::translate(matrix_transform, glm::vec3(camera->x - 1, camera->y - 1, 0.0f));
+			matrix_transform = glm::scale(matrix_transform, glm::vec3(camera->zoom / 4096.0f * 2.0f, camera->zoom / 4096.0f * 2.0f, 1));
+
+			ourShader->use();
+			unsigned int transformLoc = glGetUniformLocation(ourShader->ID, "transform");
+			glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(matrix_transform));
+
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
+			ourShader->setInt("texture1", 0);
+			batch->setcolor(EColorCollection::WHITE);
+
+			int last_index = StaticData::window_loading_screen->load_progress + 20;
+			if (last_index > ItemList::item_list.size()) { last_index = ItemList::item_list.size(); }
+
+			for (int z = StaticData::window_loading_screen->load_progress; z < last_index; z++)
+			{
+
+				//int select = rand() % 3;
+
+				bool duplicate_detected = false;
+
+				for (int f = 0; f < z; f++)
+				{
+					if
+						(
+						(f != z)
+							&&
+							(ItemList::item_list.at(z)->folder == ItemList::item_list.at(f)->folder)
+							&&
+							(ItemList::item_list.at(z)->icon_path == ItemList::item_list.at(f)->icon_path)
+							)
+					{
+						duplicate_detected = true;
+
+						ItemList::item_list.at(z)->gabarite = ItemList::item_list.at(f)->gabarite;
+					//std:cout << "Duplicate detected! Name: " << ItemList::item_list.at(z)->folder << "/" << ItemList::item_list.at(z)->icon_path << std::endl;
+
+						break;
+					}
+
+					if (duplicate_detected) { break; }
+				}
+
+
+				if (!duplicate_detected)
+				{
+					string aaa = "data/icon/" + (ItemList::item_list.at(z)->folder) + "/" + ItemList::item_list.at(z)->icon_path + ".png";
+					put_texture_to_atlas(aaa.c_str());
+					ItemList::item_list.at(z)->gabarite = just_created_gabarite;
+				}
+
+				//if (z % 5 == 0) { cout << "Collision pass:" << green << z << white << endl; }
+			}
+
+			StaticData::window_loading_screen->load_progress += 20;
+
+			if (StaticData::window_loading_screen->load_progress >= ItemList::item_list.size())
+			{
+				StaticData::window_loading_screen->is_active = false;
+			}
+		///////////////////////////////////////////////////////////////////////////////
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			glDisable(GL_DEPTH_TEST);
+			glBlendEquation(GL_FUNC_ADD);
+			//--------------------------------------------------------------------------------------------------------
+			//--------------------------------------------------------------------------------------------------------
+
+			//cout << (int)01.35f << endl;
+			glViewport(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT);
+			//recalculate_correction();
+		///////////////////////////////////////////////////////////////////////////////
 
 
 		EButton::top_window_id = -1;
@@ -2069,16 +1981,30 @@ int main()
 			}
 		}
 
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		
 		glDisable(GL_DEPTH_TEST);
 		//glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
 		glClearColor(0.8f, 0.81f, 0.82f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		if ((glfwGetKey(EWindow::main_window, GLFW_KEY_BACKSPACE) == GLFW_RELEASE))
+		if (!EControl::button_backspace_released)
+		{
+			EControl::delete_button_hold_time += delta_time;
+		}
+
+		if 
+		(
+			(glfwGetKey(EWindow::main_window, GLFW_KEY_BACKSPACE) == GLFW_RELEASE)
+			&&
+			(glfwGetKey(EWindow::main_window, GLFW_KEY_DELETE) == GLFW_RELEASE)
+		)
 		{
 			EControl::button_backspace_released = true;
+
+			EControl::delete_button_hold_time = 0;
+
 		}
+
 		if (0 == GLFW_PRESS)
 		{
 			EControl::button_pressed = false;
@@ -2104,76 +2030,16 @@ int main()
 
 		// get matrix's uniform location and set matrix
 		ourShader->use();
-		unsigned int transformLoc = glGetUniformLocation(ourShader->ID, "transform");
+		transformLoc = glGetUniformLocation(ourShader->ID, "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(matrix_transform));
 
-
-		glActiveTexture(GL_TEXTURE0);
-		ourShader->setInt("texture1", 0);
-		glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
-		
-		//batch->reset();
-		batch->setcolor(EColorCollection::WHITE);
 		batch->reset();
-			batch->draw_rect(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT);
-		batch->reinit();
-		batch->draw_call();
 
-		batch->reset();
+		batch->draw_rect_with_uv(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT, DefaultGabarite::gabarite_background);
+
+
+
 		
-		
-
-		/*
-		batch->setcolor(EColor::BLACK);
-		for (int i = 0; i < 30; i++)
-		for (int j = 0; j < 30; j++)
-		{
-			batch->draw_rect(j*32+1.0f, i*32+1.0f, 30.0f, 30.0f);
-		}
-		*/
-
-
-
-		/*
-		batch->setcolor_alpha(EColor::WHITE,0.5f);
-		batch->draw_rect(EControl::mouse_x, EControl::mouse_y, 100, 100);
-
-		batch->setcolor(EColor::BLUE);
-		batch->draw_rect_position
-		(
-			(int)(EControl::mouse_x / 8) * 8 + 8,
-			(int)(EControl::mouse_y / 8) * 8 + 8,
-			(int)((EControl::mouse_x + 100.0f) / 8) * 8,
-			(int)((EControl::mouse_y + 100.0f) / 8) * 8
-		);
-
-		batch->setcolor(EColor::GREEN);
-		batch->draw_rect_position
-		(
-			(int)(EControl::mouse_x / 16.0f) * 16.0f + 16.0f,
-			(int)(EControl::mouse_y / 16.0f) * 16.0f + 16.0f,
-			(int)((EControl::mouse_x + 100.0f) / 16.0f) * 16.0f,
-			(int)((EControl::mouse_y + 100.0f) / 16.0f) * 16.0f
-		);
-
-		batch->setcolor(EColor::RED);
-		batch->draw_rect_position
-		(
-			(int)(EControl::mouse_x / 32.0f) * 32.0f + 32.0f,
-			(int)(EControl::mouse_y / 32.0f) * 32.0f + 32.0f,
-			(int)((EControl::mouse_x + 100.0f) / 32.0f) * 32.0f,
-			(int)((EControl::mouse_y + 100.0f) / 32.0f) * 32.0f
-		);
-		*/
-
-
-		/*
-		button_list.at(0)->update(delta_time);
-		button_list.at(0)->draw(batch);
-		*/
-
-
-		//batch->setcolor_255(0, 0, 0, 100);
 		int block_index = 0;
 
 
@@ -2195,18 +2061,11 @@ int main()
 			}
 		}
 
-		/*for (EWindow* w : window_list)
-		{
-			if (w->is_active)
-			{
-				w->text_pass(batch);
-			}
-		}*/
-
 		if (glfwGetKey(EWindow::main_window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS)
 		{
 			batch->setcolor(EColorCollection::WHITE);
-			batch->draw_rect_with_uv(0.0f, 0.0f, 4096.0f / 4.0f, 4096 / 4.0f, 0.0f, 0.0f, 1.0f, 1.0f);
+			batch->draw_rect_with_uv(0.0f, 0.0f, 1000.0f, 1000.0f, DefaultGabarite::gabarite_white);
+			batch->draw_rect_with_uv(0.0f, 0.0f, 1000.0f, 1000.0f, 0.0f, 0.0f, 1.0f, 1.0f);
 		}
 
 
@@ -2216,55 +2075,6 @@ int main()
 
 		batch->reinit();
 		batch->draw_call();
-
-		/*
-		//main draw call
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
-		ourShader->setInt("texture1", 0);
-
-		batch->reinit();
-		batch->draw_call();
-
-		//text draw call
-		glActiveTexture(GL_TEXTURE2);
-		glBindTexture(GL_TEXTURE_2D, ETexture::texture[2]);
-		ourShader->setInt("texture1", 2);
-		*/
-		font_batch->reset();
-
-		font_batch->setcolor_255(255, 255, 255, 100);
-		/*
-		for (int i = 0; i < 9; i++)
-		{
-			block_index = i + EControl::block_scroll;
-
-			if (block_index < filter_block_list.size())
-			{
-				filter_block_list.at(block_index)->text_pass(font, font_batch);
-			}
-		}*/
-
-		//button_list.at(0)->text_pass(EFont::font, font_batch);
-
-
-
-
-		//font->draw(font_batch, "01!02!03!04" + work_text, 0, 100);
-
-		font_batch->reinit();
-		font_batch->draw_call();
-
-
-
-		//glBindVertexArray(0);
-
-		//glBindFramebuffer(GL_FRAMEBUFFER, 0);
-		//glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
-		// clear all relevant buffers
-
-
-
 
 
 		if (false)

@@ -253,6 +253,8 @@
 					||
 					(is_number(EControl::last_inputed_char))
 				)
+				&&
+				(text.length() * 10.0f + 10.0f < button_size_x)
 			)
 			{
 				text += EControl::last_inputed_char;
@@ -264,6 +266,11 @@
 			
 			//is_button_pressed
 			
+			if ((EControl::delete_button_hold_time > 0.5f) && (is_input_mode_active))
+			{
+				text = "";
+			}
+
 			if
 				(
 					(

@@ -71,5 +71,7 @@ public:
 	virtual void manual_event();
 
 	virtual void close_action();
+
+	std::string help_text = "";
 };
 

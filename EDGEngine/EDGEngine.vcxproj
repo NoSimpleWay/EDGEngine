@@ -172,6 +172,7 @@
     <ClCompile Include="EWindowFilterBlockSearch.cpp" />
     <ClCompile Include="EWindowFilterVisualEditor.cpp" />
     <ClCompile Include="EWindowFindItem.cpp" />
+    <ClCompile Include="EWindowLoadingScreen.cpp" />
     <ClCompile Include="EWindowTextSearch.cpp" />
     <ClCompile Include="ExolicitGroup.cpp" />
     <ClCompile Include="ExplicitGroup.cpp" />

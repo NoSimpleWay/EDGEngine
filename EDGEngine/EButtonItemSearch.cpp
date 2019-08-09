@@ -66,6 +66,9 @@ void EButtonItemSearch::click_event()
 			master_block->alert_sound_id = Enums::DefaultAlertSound(0);
 			master_block->alert_sound_name = "";
 		}
+
+		master_block->is_custom_alert_sound = false;
+		master_block->custom_alert_sound_name = "";
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS)
@@ -115,6 +118,10 @@ void EButtonItemSearch::click_event()
 
 			master_block->custom_alert_sound_name = "";
 		}
+
+		master_block->is_alert_sound = false;
+		master_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_NONE;
+		master_block->alert_sound_name = "";
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_LOOT_FILTER)

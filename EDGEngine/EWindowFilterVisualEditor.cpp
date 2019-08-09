@@ -154,9 +154,9 @@ public:
 			button_list.push_back(but);
 		}
 
-		link_to_icon_size.at(0)->text = "Big";
-		link_to_icon_size.at(1)->text = "Medium";
-		link_to_icon_size.at(2)->text = "Small";
+		link_to_icon_size.at(0)->text = "Большой";
+		link_to_icon_size.at(1)->text = "Средний";
+		link_to_icon_size.at(2)->text = "Маленький";
 
 		but =new EButtonCheck(icon_button_base_x + 110.0f * 0.0f, icon_button_base_y + 60.0 * 3.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON);
 		but->master_block = master_block;

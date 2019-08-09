@@ -156,6 +156,9 @@
     <ClCompile Include="EWindowFilterBlockSearch.cpp">
       <Filter>Source Files\windows</Filter>
     </ClCompile>
+    <ClCompile Include="EWindowLoadingScreen.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">

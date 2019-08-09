@@ -23,10 +23,15 @@ EButtonDropRarity::EButtonDropRarity(float _x, float _y, float _sx, float _sy, E
 
 	drop_elements = 4;
 
-	drop_text.push_back("Normal");
-	drop_text.push_back("Magic");
-	drop_text.push_back("Rare");
-	drop_text.push_back("Unique");
+	drop_text.push_back("Обычн.");
+	drop_text.push_back("Магич.");
+	drop_text.push_back("Редкий");
+	drop_text.push_back("Уник.");
+
+	drop_text_base.push_back("Normal");
+	drop_text_base.push_back("Magic");
+	drop_text_base.push_back("Rare");
+	drop_text_base.push_back("Unique");
 
 	have_list_color = true;
 	drop_list_color.push_back(EColorCollection::DAD_NORMAL);
@@ -44,12 +49,15 @@ void EButtonDropRarity::incoming_data(FilterBlock* _filter)
 {
 	if (button_type == Enums::ButtonType::BUTTON_RARITY)
 	{
-		text = _filter->item_rarity;
+		if (_filter->item_rarity == drop_text_base.at(0)) { text = drop_text.at(0); selected_element = 0; }
+		if (_filter->item_rarity == drop_text_base.at(1)) { text = drop_text.at(1); selected_element = 1; }
+		if (_filter->item_rarity == drop_text_base.at(2)) { text = drop_text.at(2); selected_element = 2; }
+		if (_filter->item_rarity == drop_text_base.at(3)) { text = drop_text.at(3); selected_element = 3; }
 
-		if (text == "Normal") { bg_color->set(EColorCollection::DAD_NORMAL); }
-		if (text == "Magic") { bg_color->set(EColorCollection::DAD_MAGIC); }
-		if (text == "Rare") { bg_color->set(EColorCollection::DAD_RARE); }
-		if (text == "Unique") { bg_color->set(EColorCollection::DAD_UNIQUE); }
+		if (text == drop_text.at(0)) { bg_color->set(EColorCollection::DAD_NORMAL); }
+		if (text == drop_text.at(1)) { bg_color->set(EColorCollection::DAD_MAGIC); }
+		if (text == drop_text.at(2)) { bg_color->set(EColorCollection::DAD_RARE); }
+		if (text == drop_text.at(3)) { bg_color->set(EColorCollection::DAD_UNIQUE); }
 	}
 }
 
@@ -57,12 +65,12 @@ void EButtonDropRarity::drop_list_select_event()
 {
 	if (button_type == Enums::ButtonType::BUTTON_RARITY)
 	{
-		master_block->item_rarity = text;
+		master_block->item_rarity = drop_text_base.at(selected_element);
 
-		if (text == "Normal") { bg_color->set(EColorCollection::DAD_NORMAL); }
-		if (text == "Magic") { bg_color->set(EColorCollection::DAD_MAGIC); }
-		if (text == "Rare") { bg_color->set(EColorCollection::DAD_RARE); }
-		if (text == "Unique") { bg_color->set(EColorCollection::DAD_UNIQUE); }
+		if (selected_element == 0) { bg_color->set(EColorCollection::DAD_NORMAL); }
+		if (selected_element == 1) { bg_color->set(EColorCollection::DAD_MAGIC); }
+		if (selected_element == 2) { bg_color->set(EColorCollection::DAD_RARE); }
+		if (selected_element == 3) { bg_color->set(EColorCollection::DAD_UNIQUE); }
 	}
 }
 

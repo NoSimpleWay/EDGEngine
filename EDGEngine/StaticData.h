@@ -8,6 +8,7 @@
 #include "EWindowSocketGroup.cpp"
 #include "EWindowFilterVisualEditor.cpp"
 #include "EWindowMain.cpp"
+#include "EWindowLoadingScreen.cpp"
 
 
 
@@ -23,5 +24,6 @@ public:
 	static EWindowFilterVisualEditor* window_filter_visual_editor;
 	static EWindowMain* window_main;
 	static EWindowFilterBlockSearch* window_filter_block_search;
+	static EWindowLoadingScreen* window_loading_screen;
 
 };

@@ -32,6 +32,12 @@ EButtonDropCondition::EButtonDropCondition(float _x, float _y, float _sx, float 
 	drop_text.push_back(">");
 	drop_text.push_back(">=");
 
+	drop_text_base.push_back("<=");
+	drop_text_base.push_back("<");
+	drop_text_base.push_back("=");
+	drop_text_base.push_back(">");
+	drop_text_base.push_back(">=");
+
 
 }
 

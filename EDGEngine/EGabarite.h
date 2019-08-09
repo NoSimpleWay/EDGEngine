@@ -63,6 +63,8 @@ public:
 	static EGabarite* gabarite_shaper_bg;
 	static EGabarite* gabarite_elder_bg;
 
+	static EGabarite* gabarite_background;
+
 
 
 

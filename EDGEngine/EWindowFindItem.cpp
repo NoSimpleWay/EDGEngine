@@ -449,6 +449,7 @@ public:
 		if (window_searchs_mode == Enums::WindowSearchMode::DEFAULT_DROP_SOUND)
 		{
 			have_undefined_input = true;
+			help_text = "Нажмите правую кнопку мыши на название звука, что бы воспроизвести его";
 
 			for (EButton* b : button_list)
 			{
@@ -496,6 +497,7 @@ public:
 		if (window_searchs_mode == Enums::WindowSearchMode::CUSTOM_DROP_SOUND)
 		{
 			have_undefined_input = true;
+			help_text = "Нажмите правую кнопку мыши на название звука, что бы воспроизвести его";
 
 			for (EButton* b : button_list)
 			{

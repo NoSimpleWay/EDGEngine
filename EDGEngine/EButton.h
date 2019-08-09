@@ -42,6 +42,7 @@ public:
 
 	int drop_elements = 0;
 	std::vector<string> drop_text;
+	std::vector<string> drop_text_base;
 	bool have_list_color=false;
 	std::vector<EColor*> drop_list_color;
 

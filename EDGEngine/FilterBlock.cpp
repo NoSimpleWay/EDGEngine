@@ -646,7 +646,7 @@
 			{
 				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 5;
 
-				if (temp_pos_x + 50 > size_x - 220)
+				if (temp_pos_x + 50.0f > size_x - 260.0f)
 				{
 					temp_pos_x = 310;
 					temp_pos_y += 50;
