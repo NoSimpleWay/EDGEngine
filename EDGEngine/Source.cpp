@@ -1856,6 +1856,9 @@ int main()
 	//##################################
 	put_texture_to_atlas("data/font_arial.png", 0, 4096 - 128);
 
+	put_texture_to_atlas("data/shaper_bg.png");				DefaultGabarite::gabarite_shaper_bg = just_created_gabarite;
+	put_texture_to_atlas("data/elder_bg.png");				DefaultGabarite::gabarite_elder_bg = just_created_gabarite;
+
 	cout << "item list size=" << ItemList::item_list.size() << endl;
 	for (int z = 0; z < ItemList::item_list.size(); z++)
 	{
@@ -1904,6 +1907,8 @@ int main()
 	just_created_gabarite->y2 -= 1 / 4096.0f;
 	DefaultGabarite::gabarite_white = just_created_gabarite;
 	
+
+
 	put_texture_to_atlas("data/undefined.png");				DefaultGabarite::gabarite_undefined = just_created_gabarite;
 	put_texture_to_atlas("data/plus.png");					DefaultGabarite::gabarite_plus = just_created_gabarite;
 
@@ -1952,8 +1957,7 @@ int main()
 
 	put_texture_to_atlas("data/ray_icon_remove.png");		DefaultGabarite::gabarite_ray_icon_remove = just_created_gabarite;
 
-	put_texture_to_atlas("data/shaper_bg.png");				DefaultGabarite::gabarite_shaper_bg = just_created_gabarite;
-	put_texture_to_atlas("data/elder_bg.png");				DefaultGabarite::gabarite_elder_bg = just_created_gabarite;
+
 
 
 
@@ -2360,8 +2364,8 @@ void put_texture_to_atlas(char const* _path)
 {
 	load_texture(_path, 0);
 
-	for (int j = 0; j < 4000; j+= last_texture_w)
-	for (int i = 0; i < 4000; i+= last_texture_h)
+	for (int j = 0; j < 4000; j+= last_texture_w / 2 + 1)
+	for (int i = 0; i < 4000; i+= last_texture_h / 2 + 1)
 		{
 			if (is_no_collision(j, i, last_texture_w, last_texture_h))
 			{
