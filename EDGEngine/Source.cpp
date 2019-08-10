@@ -2174,8 +2174,8 @@ void put_texture_to_atlas(char const* _path)
 {
 	load_texture(_path, 0);
 
-	for (int j = 0; j < 4000; j+= last_texture_w / 2 + 1)
-	for (int i = 0; i < 4000; i+= last_texture_h / 2 + 1)
+	for (int j = 0; j < 4000; j+= last_texture_w / 2 + 2)
+	for (int i = 0; i < 4000; i+= last_texture_h / 2 + 2)
 		{
 			if (is_no_collision(j, i, last_texture_w, last_texture_h))
 			{
