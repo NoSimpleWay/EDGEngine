@@ -517,21 +517,21 @@
 		if ((have_description) && (is_overlap()))
 		{
 
-			float x_description= EControl::mouse_x + 13;
-			if (x_description + EFont::get_width(EFont::font_arial, description_text + "(" + std::to_string(data_id) + ")") + 3>EWindow::SCR_WIDTH)
+			float x_description= EControl::mouse_x + 17.0f;
+			if (x_description + EFont::get_width(EFont::font_arial, description_text) + 3>EWindow::SCR_WIDTH)
 			{
-				x_description += EWindow::SCR_WIDTH - (x_description + EFont::get_width(EFont::font_arial, description_text + "(" + std::to_string(data_id) + ")") + 3.0f);
+				x_description += EWindow::SCR_WIDTH - (x_description + EFont::get_width(EFont::font_arial, description_text) + 3.0f);
 			}
 
 			EFont::font_arial->align_x=Enums::PositionMode::LEFT;
 
 			_batch->setcolor(EColorCollection::WHITE);
-			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 38.0f, EFont::get_width(EFont::font_arial,description_text + "(" + std::to_string(data_id) + ")")+3, 20, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 38.0f, EFont::get_width(EFont::font_arial,description_text)+3, 20, DefaultGabarite::gabarite_white);
 
 			_batch->setcolor(EColorCollection::BLACK);
-			EFont::font_arial->draw(_batch, description_text+"("+std::to_string(data_id)+")", x_description, EControl::mouse_y - 34.0f);
+			EFont::font_arial->draw(_batch, description_text, x_description, EControl::mouse_y - 34.0f);
 
-			_batch->draw_rama(x_description, EControl::mouse_y - 38.0f, EFont::get_width(EFont::font_arial, description_text + "(" + std::to_string(data_id) + ")")+3, 20, 2, DefaultGabarite::gabarite_white);
+			_batch->draw_rama(x_description, EControl::mouse_y - 38.0f, EFont::get_width(EFont::font_arial, description_text)+3, 20, 2, DefaultGabarite::gabarite_white);
 		}
 	}
 

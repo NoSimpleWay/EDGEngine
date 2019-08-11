@@ -64,3 +64,5 @@ EGabarite* DefaultGabarite::gabarite_elder_bg = NULL;
 
 EGabarite* DefaultGabarite::gabarite_background = NULL;
 
+EGabarite* DefaultGabarite::gabarite_button_new = NULL;
+

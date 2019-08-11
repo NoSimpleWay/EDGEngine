@@ -127,12 +127,13 @@ public:
 
 			link_to_icon_shape.push_back(but);
 			button_list.push_back(but);
-
+			but->description_text = "Выбрать форму";
 
 
 			but = new EButtonService(icon_button_base_x + 55.0f * i, icon_button_base_y + 60.0 * 1.0f, 45.0f, 45.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR);
 			but->gabarite = DefaultGabarite::gabarite_minimap_icon[i];
 			but->data_id = i;
+			but->description_text = "Выбрать цвет";
 
 			but->master_block = master_block;
 			but->master_window = this;
@@ -152,13 +153,14 @@ public:
 
 			link_to_icon_size.push_back(but);
 			button_list.push_back(but);
+			but->description_text = "Выбрать размер";
 		}
 
 		link_to_icon_size.at(0)->text = "Большой";
 		link_to_icon_size.at(1)->text = "Средний";
 		link_to_icon_size.at(2)->text = "Маленький";
 
-		but =new EButtonCheck(icon_button_base_x + 110.0f * 0.0f, icon_button_base_y + 60.0 * 3.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON);
+		but =new EButtonCheck(icon_button_base_x + 110.0f * 0.0f, icon_button_base_y + 60.0 * 3.0f, 25.0f, 25.0f, Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON);
 		but->master_block = master_block;
 		but->master_window = this;
 		but->master_position = Enums::PositionMaster::WINDOW;
@@ -180,16 +182,22 @@ public:
 				but->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i]);
 
 				but->gabarite = DefaultGabarite::gabarite_ray_icon;
+				but->description_text = "Выбрать цвет луча";
 			}
 			else
 			{
 				but->icon_color->set(EColorCollection::WHITE);
 				but->gabarite = DefaultGabarite::gabarite_ray_icon_remove;
+
+				but->description_text = "Отключить луч";
+				
 			}
 
 			but->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 
 			but->data_id = i;
+
+
 
 		
 
@@ -208,7 +216,6 @@ public:
 		but->master_window = this;
 		but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
 		but->master_block = master_block;
-		but->master_window = this;
 
 		but->master_position = Enums::PositionMaster::WINDOW;
 		but->position_mode_x = Enums::PositionMode::LEFT;
@@ -216,6 +223,7 @@ public:
 
 		button_list.push_back(but);
 		link_to_ray_tempotary = but;
+		but->description_text = "Сделать луч временным";
 
 
 		but = new EButtonText(400.0f, icon_button_base_y + 60.0f * 0.0f, 130.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT);
@@ -230,11 +238,11 @@ public:
 
 		button_list.push_back(but);
 		link_to_ray_constant = but;
+		but->description_text = "Сделать луч постоянным";
 	}
 
 	void update_ray_button()
 	{
-	
 			for (int i = 0; i < 7; i++)
 			{
 				link_to_ray_color.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
@@ -308,6 +316,7 @@ public:
 				link_to_icon_shape.at(i)->rama_color->set_alpha(EColorCollection::YELLOW, 0.90f);
 				link_to_icon_shape.at(i)->rama_thikness = 4;
 			}
+
 		}
 
 		for (int i = 0; i < 6; i++)

@@ -168,6 +168,7 @@
     <ClCompile Include="ETexture.cpp" />
     <ClCompile Include="EUtils.cpp" />
     <ClCompile Include="EWindow.cpp" />
+    <ClCompile Include="EWindowCreateNewLootFilter.cpp" />
     <ClCompile Include="EWindowFilterBlock.cpp" />
     <ClCompile Include="EWindowFilterBlockSearch.cpp" />
     <ClCompile Include="EWindowFilterVisualEditor.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="EUtils.h" />
     <ClInclude Include="EWindowAddNewBaseData.cpp" />
     <ClInclude Include="EWindow.h" />
+    <ClInclude Include="EWindowCreateNewLootFilter.h" />
     <ClInclude Include="EWindowFilterBlock.h" />
     <ClInclude Include="EWindowFilterBlockSearch.h" />
     <ClInclude Include="EWindowMain.cpp" />
@@ -230,7 +232,11 @@
     <ClInclude Include="Helper.h" />
     <ClInclude Include="ItemList.h" />
     <ClInclude Include="ProphecyList.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="StaticData.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EDGEngine.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -207,8 +207,8 @@
 		add_base_buttons("Ур. камня",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,		false,	Enums::BoolData::BOOL_GEM_LEVEL);//7
 																																						
 		add_base_buttons("Тир карты",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,			true,	Enums::BoolData::BOOL_MAP_TIER);//8
-		add_base_buttons("Шейпер карта?",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,		false,	Enums::BoolData::BOOL_SHAPER_MAP);//9
-		add_base_buttons("Карта древнего?",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,		false,	Enums::BoolData::BOOL_ELDER_MAP);//10
+		add_base_buttons("Шейпер карта",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,		false,	Enums::BoolData::BOOL_SHAPER_MAP);//9
+		add_base_buttons("Карта древнего",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,		false,	Enums::BoolData::BOOL_ELDER_MAP);//10
 																																						
 		add_base_buttons("Ширина",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,			true,	Enums::BoolData::BOOL_WIDTH);//11
 		add_base_buttons("Высота",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,			false,	Enums::BoolData::BOOL_HEIGHT);//12
@@ -234,6 +234,7 @@
 			but_close->master_window = StaticData::window_filter_block;
 			but_close->is_active = false;
 			but_close->data_id = i;
+			but_close->description_text = "Удалить группу названий суффиксов/префиксов";
 
 			ex->button_close=but_close;
 			button_list.push_back(but_close);
@@ -248,6 +249,8 @@
 			explicit_button->is_plus = true;
 			explicit_button->is_active = false;
 			explicit_button->data_id = i;
+			explicit_button->description_text = "Добавить новое название суффикса/префикса";
+
 
 			ex->button_add = explicit_button;
 			button_list.push_back(explicit_button);
@@ -267,6 +270,7 @@
 		plus_class_button_link->have_input_mode = false;
 		plus_class_button_link->is_plus = true;
 		plus_class_button_link->is_active = false;
+		plus_class_button_link->description_text = "Добавить новый класс";
 
 		button_list.push_back(plus_class_button_link);
 
@@ -281,6 +285,7 @@
 		plus_prophecy_button_link->have_input_mode = false;
 		plus_prophecy_button_link->is_plus = true;
 		plus_prophecy_button_link->is_active = false;
+		plus_prophecy_button_link->description_text = "Добавить новое пророчество";
 
 		button_list.push_back(plus_prophecy_button_link);
 
@@ -293,6 +298,7 @@
 		remove_base_class_button->master_block = this;
 		remove_base_class_button->master_window = StaticData::window_filter_block;
 		remove_base_class_button->is_active = false;
+		remove_base_class_button->description_text = "Удалисть список классов";
 
 		button_list.push_back(remove_base_class_button);
 
@@ -301,6 +307,7 @@
 		remove_prophecy_button->master_block = this;
 		remove_prophecy_button->master_window = StaticData::window_filter_block;
 		remove_prophecy_button->is_active = false;
+		remove_prophecy_button->description_text = "Удалить список пророчеств";
 
 		button_list.push_back(remove_prophecy_button);
 
@@ -505,7 +512,10 @@
 		max_h = 145.0f;
 
 
+		if (is_show) { _batch->setcolor_255(210, 200, 190, 35); }
+		else { _batch->setcolor_255(64, 32, 16, 25); }
 
+		_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
 
 		if
 		(
@@ -514,7 +524,7 @@
 			(base_filter_data_active.at(Enums::BoolData::BOOL_SHAPER_ITEM))
 		)
 		{
-			if (is_show) { _batch->setcolor_255(255, 255, 255, 200); } else { _batch->setcolor_255(64, 32, 16, 150); }
+			if (is_show) { _batch->setcolor_255(255, 255, 255, 200); } else { _batch->setcolor_255(200, 150, 100, 150); }
 
 			_batch->draw_rect_gabarite_custom_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_shaper_bg, x / 2.0f, y / 2.0f, (x + size_x) / 2.0f, (y + size_y) / 2.0f);
 
@@ -528,7 +538,7 @@
 			(base_filter_data_active.at(Enums::BoolData::BOOL_ELDER_ITEM))
 		)
 		{
-			if (is_show) {_batch->setcolor_255(255, 255, 255, 200);} else {_batch->setcolor_255(64, 32, 16, 150);}
+			if (is_show) {_batch->setcolor_255(255, 255, 255, 200);} else {_batch->setcolor_255(200, 150, 100, 150);}
 
 			float move_x = (1000.0f - size_x) / 2.0f;
 			if (move_x < 0) { move_x = 0; }
@@ -547,13 +557,11 @@
 
 			_batch->draw_rect_gabarite_custom_uv(x + offset_x, y + offset_y, orig_size_x, orig_size_y, DefaultGabarite::gabarite_elder_bg, move_x, move_y, 1000.0f - move_x, 300.0f - move_y);
 		}
-		else
-		{
 
-			if (is_show){_batch->setcolor_255(210, 200, 190, 25);} else {_batch->setcolor_255(64, 32, 16, 25);}
+		
+		
 
-			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
-		}
+		
 
 
 

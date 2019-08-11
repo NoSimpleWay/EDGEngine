@@ -183,6 +183,7 @@ EWindowFilterVisualEditor* StaticData::window_filter_visual_editor = NULL;
 EWindowMain* StaticData::window_main=NULL;
 EWindowFilterBlockSearch* StaticData::window_filter_block_search=NULL;
 EWindowLoadingScreen* StaticData::window_loading_screen=NULL;
+EWindowCreateNewLootFilter* StaticData::window_new_loot_filter=NULL;
 
 
 //0		-	1
@@ -495,7 +496,7 @@ void parse_item_data()
 
 	while ((getline(myfile, line)) && (line_id < 10000))
 	{
-		if (line.length()>=5)
+		if (line.length()>=4)
 		{
 			just_created_item = new DADItem();
 
@@ -1415,15 +1416,15 @@ int main()
 
 
 	ESound::default_drop_sound_original_name.push_back("NONE");
-	ESound::default_drop_sound_original_name.push_back("01");
-	ESound::default_drop_sound_original_name.push_back("02");
-	ESound::default_drop_sound_original_name.push_back("03");
-	ESound::default_drop_sound_original_name.push_back("04");
-	ESound::default_drop_sound_original_name.push_back("05");
-	ESound::default_drop_sound_original_name.push_back("06");
-	ESound::default_drop_sound_original_name.push_back("07");
-	ESound::default_drop_sound_original_name.push_back("08");
-	ESound::default_drop_sound_original_name.push_back("09");
+	ESound::default_drop_sound_original_name.push_back("1");
+	ESound::default_drop_sound_original_name.push_back("2");
+	ESound::default_drop_sound_original_name.push_back("3");
+	ESound::default_drop_sound_original_name.push_back("4");
+	ESound::default_drop_sound_original_name.push_back("5");
+	ESound::default_drop_sound_original_name.push_back("6");
+	ESound::default_drop_sound_original_name.push_back("7");
+	ESound::default_drop_sound_original_name.push_back("8");
+	ESound::default_drop_sound_original_name.push_back("9");
 	ESound::default_drop_sound_original_name.push_back("10");
 	ESound::default_drop_sound_original_name.push_back("11");
 	ESound::default_drop_sound_original_name.push_back("12");
@@ -1546,21 +1547,6 @@ int main()
 
 
 
-	string line;
-	char* ccc;
-	ifstream myfilez("data/rus_text.txt", ios::binary);
-	if (myfilez.is_open())
-	{
-
-		while (getline(myfilez, line))
-		{
-			//CharToOem("Ёпрст", ccc);
-
-		}
-
-		myfilez.close();
-	}
-	else cout << "Unable to open file";
 
 
 
@@ -1575,8 +1561,10 @@ int main()
 
 // glfw window creation
 // --------------------
-	window = glfwCreateWindow(EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+	window = glfwCreateWindow(EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT, "DaD Editor", NULL, NULL);
 	EWindow::main_window = window;
+
+
 	//main_window = window;
 
 	if (window == NULL)
@@ -1615,9 +1603,6 @@ int main()
 	// -------------------------
 	// texture 1
 	// ---------
-	load_texture("data/white_pixel.png", 0);
-	load_texture("data/tile_info.png", 1);
-	load_texture("data/font_arial.png", 2);
 	// texture 2
 	// ---------
 
@@ -1816,6 +1801,10 @@ int main()
 
 	put_texture_to_atlas("data/ray_icon_remove.png");		DefaultGabarite::gabarite_ray_icon_remove = just_created_gabarite;
 
+	put_texture_to_atlas("data/button_new.png");			DefaultGabarite::gabarite_button_new = just_created_gabarite;
+
+
+
 
 
 
@@ -1866,7 +1855,11 @@ int main()
 	StaticData::window_loading_screen->item_count = ItemList::item_list.size();
 	window_list.push_back(StaticData::window_loading_screen);
 
-		batch->reset();
+	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(8, true);
+	StaticData::window_new_loot_filter->name = "New loot-filter";
+	window_list.push_back(StaticData::window_new_loot_filter);
+
+	batch->reset();
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glDisable(GL_DEPTH_TEST);
@@ -1908,9 +1901,11 @@ int main()
 			int last_index = StaticData::window_loading_screen->load_progress + 20;
 			if (last_index > ItemList::item_list.size()) { last_index = ItemList::item_list.size(); }
 
+			if (true)
 			for (int z = StaticData::window_loading_screen->load_progress; z < last_index; z++)
 			{
 
+				//std::cout << "ITEM NAME: " << ItemList::item_list.at(z)->item_name << std::endl;
 				//int select = rand() % 3;
 
 				bool duplicate_detected = false;
@@ -2061,7 +2056,7 @@ int main()
 			}
 		}
 
-		if (glfwGetKey(EWindow::main_window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS)
+		if (glfwGetKey(EWindow::main_window, GLFW_KEY_END) == GLFW_PRESS)
 		{
 			batch->setcolor(EColorCollection::WHITE);
 			batch->draw_rect_with_uv(0.0f, 0.0f, 1000.0f, 1000.0f, DefaultGabarite::gabarite_white);
@@ -2237,7 +2232,7 @@ void load_texture(char const *_path, int _id)
 	}
 	else
 	{
-		cout << "Failed to load texture" << endl;
+		cout << red << "Failed to load texture " <<yellow << "(" << _path << ")" << green << endl;
 	}
 
 	stbi_image_free(data1);
@@ -2247,10 +2242,12 @@ void load_texture(char const *_path, int _id)
 // ---------------------------------------------------------------------------------------------------------
 void processInput(GLFWwindow* window)
 {
+	/*
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, true);
-	}	
+	}
+	*/
 
 	/*
 		if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)

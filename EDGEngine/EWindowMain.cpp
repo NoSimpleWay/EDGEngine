@@ -7,15 +7,16 @@ class EWindowMain : public EWindow
 public:
 	EWindowMain(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
-		EButton* but = new EButtonService(5,-5,30,30,Enums::ButtonType::BUTTON_OPEN_LOOT_FILTER);
+		EButton*	but = new EButtonService(5, -5, 30, 30, Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_WINDOW);
 		but->master_window = this;
-
 		button_list.push_back(but);
 
-
-		but = new EButtonService(45, -5, 30, 30, Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER);
+					but = new EButtonService(55,-5,30,30,Enums::ButtonType::BUTTON_OPEN_LOOT_FILTER);
 		but->master_window = this;
+		button_list.push_back(but);
 
+					but = new EButtonService(95, -5, 30, 30, Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER);
+		but->master_window = this;
 		button_list.push_back(but);
 
 		align_x = Enums::PositionMode::LEFT;

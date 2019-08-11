@@ -9,6 +9,7 @@
 #include "EWindowFilterVisualEditor.cpp"
 #include "EWindowMain.cpp"
 #include "EWindowLoadingScreen.cpp"
+#include "EWindowCreateNewLootFilter.h"
 
 
 
@@ -25,5 +26,6 @@ public:
 	static EWindowMain* window_main;
 	static EWindowFilterBlockSearch* window_filter_block_search;
 	static EWindowLoadingScreen* window_loading_screen;
+	static EWindowCreateNewLootFilter* window_new_loot_filter;
 
 };

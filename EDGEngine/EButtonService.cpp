@@ -59,6 +59,8 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		position_mode_y = Enums::PositionMode::UP;
 
 		gabarite = DefaultGabarite::gabarite_button_load;
+
+		description_text = "Открыть лут-фильтр";
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
@@ -69,6 +71,20 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		position_mode_y = Enums::PositionMode::UP;
 
 		gabarite = DefaultGabarite::gabarite_button_save;
+
+		description_text = "Сохранить лут-фильтр";
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_WINDOW)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		gabarite = DefaultGabarite::gabarite_button_new;
+
+		description_text = "Создать новый лут-фильтр";
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK)
@@ -209,7 +225,16 @@ void EButtonService::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
 	{
-		EFile::save_filter(EString::opened_loot_filter_path);
+		if (EString::opened_loot_filter_path != "")
+		{
+			EFile::save_filter(EString::opened_loot_filter_path);
+		}
+	}
+	
+	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_WINDOW)
+	{
+		StaticData::window_new_loot_filter->is_active = true;
+		StaticData::window_new_loot_filter->link_to_input_button->is_input_mode_active = true;
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_SELECT_RAY_COLOR))

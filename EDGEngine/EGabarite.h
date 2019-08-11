@@ -65,6 +65,8 @@ public:
 
 	static EGabarite* gabarite_background;
 
+	static EGabarite* gabarite_button_new;
+
 
 
 

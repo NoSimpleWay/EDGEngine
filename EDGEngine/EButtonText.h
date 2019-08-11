@@ -10,6 +10,7 @@ public:
 	EButtonText(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type);
 
 	virtual void click_event();
+	virtual void input_event();
 
 
 };

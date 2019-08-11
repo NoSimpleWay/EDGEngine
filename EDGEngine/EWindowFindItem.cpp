@@ -73,7 +73,7 @@ public:
 		for (EButton* b : button_list)
 		{
 
-			if ((b->is_active) && (-by < window_size_y - 30.0f))
+			if ((b->is_active) && (-by < window_size_y - 70.0f))
 			{
 				b->button_x = bx;
 				b->button_y = by;
@@ -175,6 +175,8 @@ public:
 
 
 			}
+
+			
 		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::DEFAULT_DROP_SOUND)
@@ -417,6 +419,8 @@ public:
 
 		if (window_searchs_mode == Enums::WindowSearchMode::ITEM)
 		{
+			help_text = "";
+
 			have_undefined_input = true;
 			int temp_id = -1;
 
@@ -444,13 +448,15 @@ public:
 
 			input_button->is_input_mode_active = true;
 			input_button->input_hint = "Введите название предмета";
+
+
 		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::DEFAULT_DROP_SOUND)
 		{
 			have_undefined_input = true;
 			help_text = "Нажмите правую кнопку мыши на название звука, что бы воспроизвести его";
-
+			
 			for (EButton* b : button_list)
 			{
 				if (data_index < ESound::default_drop_sound_name.size())
@@ -472,6 +478,7 @@ public:
 					b->is_active = true;
 					b->button_type = Enums::ButtonType::BUTTON_SEARCH_DEFAULT_SOUND;
 					b->data_id = data_index;
+					b->description_text = "";
 
 					if (data_index != master_block->alert_sound_id)
 					{
@@ -521,6 +528,7 @@ public:
 					b->is_active = true;
 					b->button_type = Enums::ButtonType::BUTTON_SEARCH_CUSTOM_SOUND;
 					b->data_id = data_index;
+					b->description_text = "";
 
 					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
 
@@ -538,6 +546,8 @@ public:
 		
 		if (window_searchs_mode == Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST)
 		{
+			help_text = "";
+
 			have_undefined_input = true;
 			data_index = 0;
 
@@ -552,7 +562,7 @@ public:
 
 					if (data_index >= 1)
 					{
-						b->text = EString::base_class_list.at(data_index-1)->base_name;
+						b->text = EString::base_class_list.at(data_index-1)->ru_name;
 
 						b->data_string = EString::base_class_list.at(data_index - 1)->base_name;
 					}
@@ -565,6 +575,7 @@ public:
 					b->is_active = true;
 					b->button_type = Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS;
 					b->data_id = data_index - 1;
+					b->description_text = "";
 
 					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
 
@@ -583,6 +594,8 @@ public:
 
 		if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST)
 		{
+			help_text = "";
+
 			have_undefined_input = true;
 			data_index = 0;
 
@@ -599,7 +612,7 @@ public:
 
 					if (data_index >= 1)
 					{
-						b->text = EString::prophecy_list.at(data_index - 1)->base_name;
+						b->text = EString::prophecy_list.at(data_index - 1)->ru_name;
 						b->data_string = EString::prophecy_list.at(data_index - 1)->base_name;
 						b->data_id = data_index - 1;
 
@@ -718,6 +731,9 @@ public:
 
 			input_button->is_input_mode_active = true;
 			input_button->input_hint = "Введите название лутфильтра";
+
+			help_text = "Список уже существующих лут-фильтров из папки 'my games/Path of Exile'";
+
 		}
 
 	}
@@ -726,7 +742,9 @@ public:
 	{
 		if ((target_button != NULL) && (target_button->can_be_removed))
 		{
-			target_button->need_remove = true;
+			if (window_searchs_mode == Enums::WindowSearchMode::ITEM) { target_button->need_remove = true; }
+			if (window_searchs_mode == Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST) { target_button->need_remove = true; }
+			if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST) { target_button->need_remove = true; }
 		}
 	}
 

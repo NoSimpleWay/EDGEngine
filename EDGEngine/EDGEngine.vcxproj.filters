@@ -159,6 +159,9 @@
     <ClCompile Include="EWindowLoadingScreen.cpp">
       <Filter>Source Files\windows</Filter>
     </ClCompile>
+    <ClCompile Include="EWindowCreateNewLootFilter.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -296,5 +299,16 @@
     <ClInclude Include="EWindowFilterBlock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EWindowCreateNewLootFilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="EDGEngine.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

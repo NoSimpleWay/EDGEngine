@@ -66,6 +66,13 @@
 			if (filter_block_list.at(i)->need_remove)
 			{
 				filter_block_list.erase(filter_block_list.begin() + i);
+
+				i--;
+
+				if (filter_block_list.size() <= 0)
+				{
+					filter_block_list.push_back(new FilterBlock());
+				}
 			}
 		}
 

@@ -9,6 +9,8 @@ EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums
 	if (button_type == Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST)
 	{
 		bg_color->set(0.4f, 0.5f, 1.0f, 0.8f);
+
+		description_text = "Название суффикса/префикса (нажмите, что бы изменить)";
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST)
@@ -16,6 +18,7 @@ EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums
 		have_input_mode = false;
 
 		bg_color->set(0.4f, 1.0f, 0.5f, 0.8f);
+		description_text = "Название класса (нажмите, что бы изменить)";
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST)
@@ -23,6 +26,7 @@ EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums
 		have_input_mode = false;
 
 		bg_color->set(1.0f, 0.4f, 0.5f, 0.5f);
+		description_text = "Название пророчества (нажмите, что бы изменить)";
 	}
 
 
@@ -48,7 +52,7 @@ void EButtonExplicit::click_event()
 			explicit_button->text = "=нажми меня=";
 			explicit_button->master_block = master_block;
 			explicit_button->master_window = StaticData::window_filter_block;
-			explicit_button->button_size_x = EFont::get_width(EFont::font_arial, "=click me=") + 5.0f;
+			explicit_button->button_size_x = EFont::get_width(EFont::font_arial, explicit_button->text) + 5.0f;
 			master_block->explicit_list.at(data_id)->button_list.push_back(explicit_button);
 
 			master_block->button_list.push_back(explicit_button);
@@ -65,17 +69,17 @@ void EButtonExplicit::click_event()
 
 		if (is_plus)
 		{
-			EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
-			explicit_button->text = "=нажми меня=";
-			explicit_button->have_input_mode = false;
-			explicit_button->master_block = master_block;
-			explicit_button->master_window = StaticData::window_filter_block;
-			explicit_button->button_size_x = EFont::get_width(EFont::font_arial, "=click me=") + 5.0f;
-			master_block->base_class_list.push_back(explicit_button);
+			EButtonExplicit* class_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
+			class_button->text = "=нажми меня=";
+			class_button->have_input_mode = false;
+			class_button->master_block = master_block;
+			class_button->master_window = StaticData::window_filter_block;
+			class_button->button_size_x = EFont::get_width(EFont::font_arial, class_button->text) + 5.0f;
+			master_block->base_class_list.push_back(class_button);
 
-			master_block->button_list.push_back(explicit_button);
+			master_block->button_list.push_back(class_button);
 
-			StaticData::window_find_item->target_button = explicit_button;
+			StaticData::window_find_item->target_button = class_button;
 		}
 	}
 
@@ -94,7 +98,7 @@ void EButtonExplicit::click_event()
 			prophecy_button->have_input_mode = false;
 			prophecy_button->master_block = master_block;
 			prophecy_button->master_window = StaticData::window_filter_block;
-			prophecy_button->button_size_x = EFont::get_width(EFont::font_arial, ">нажми меня<") + 5.0f;
+			prophecy_button->button_size_x = EFont::get_width(EFont::font_arial, prophecy_button->text) + 5.0f;
 			master_block->prophecy_list.push_back(prophecy_button);
 
 			master_block->button_list.push_back(prophecy_button);

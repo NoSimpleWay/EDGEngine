@@ -1268,7 +1268,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
-			if (fb->is_base_class_active)
+			if ((fb->is_base_class_active) && (fb->base_class_list.size() > 0))
 			{
 				loot_writer += '\t';
 				loot_writer += "Class";

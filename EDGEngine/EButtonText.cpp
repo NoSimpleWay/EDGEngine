@@ -27,7 +27,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 	{
 		text_align_x = Enums::PositionMode::MID;
 		text = "Пользовательский звук";
-		description_text = "Открыть список пользовательских звуков из папки Path of Exile";
+		description_text = "Открыть список пользовательских звуков из папки 'my games/Path of Exile'";
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}
@@ -39,7 +39,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_y = Enums::PositionMode::UP;
 
 		text = "Добавить аффикс";
-		description_text = "Добавить название определенного суффикса/префикса";
+		description_text = "Добавить группу суффикса/префикса";
 
 		master_position = Enums::PositionMaster::WINDOW;
 
@@ -122,6 +122,39 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		master_position = Enums::PositionMaster::FILTER_BLOCK;
 		text = "ОТМЕНИТЬ";
 	}
+	
+	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_NAME)
+	{
+		text_align_x = Enums::PositionMode::LEFT;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::MID;
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		description_text = "Название лут-фильтра";
+
+		have_text = true;
+		have_input_mode = true;
+		text = "";
+
+		input_hint = "Придумайте название";
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_OK)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::MID;
+
+		master_position = Enums::PositionMaster::WINDOW;
+		text = "OK";
+		description_text = "Подтвердить создание лут-фильтра";
+
+		have_text = true;
+		have_input_mode = false;
+	}
 }
 
 void EButtonText::click_event()
@@ -202,5 +235,33 @@ void EButtonText::click_event()
 		master_block->remove_timer = -100;
 
 		is_active = false;
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_OK))
+	{
+		if (StaticData::window_new_loot_filter->link_to_input_button->text != "")
+		{
+			EString::opened_loot_filter_path = EString::path_to_poe_folder + "/" + StaticData::window_new_loot_filter->link_to_input_button->text + ".filter";
+		}
+
+		StaticData::window_filter_block->filter_block_list.clear();
+		StaticData::window_filter_block->filter_block_list.push_back(new FilterBlock());
+
+		StaticData::window_new_loot_filter->is_active = false;
+	}
+}
+
+void EButtonText::input_event()
+{
+	if ((button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_NAME))
+	{
+		if (text == "")
+		{
+			StaticData::window_new_loot_filter->link_to_accept_button->bg_color->set_alpha(EColorCollection::GRAY, 1.00f);
+		}
+		else
+		{
+			StaticData::window_new_loot_filter->link_to_accept_button->bg_color->set_alpha(EColorCollection::GREEN, 0.5f);
+		}
 	}
 }

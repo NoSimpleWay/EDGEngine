@@ -42,7 +42,7 @@ public:
 	float size_y = 100;
 
 	int socket_count = 0;		bool is_socket_active = false;			std::string socket_condition = "=";
-	int links_count = 0;			bool is_links_active = false;			std::string links_condition = "=";
+	int links_count = 0;		bool is_links_active = false;			std::string links_condition = "=";
 
 	int item_level = 0;			bool is_item_level_active = false;		std::string item_level_condition = "=";
 	int required_level = 0;		bool is_required_level_active = false;	std::string required_level_condition = "=";
@@ -78,10 +78,10 @@ public:
 	bool		is_elder_map = false;				bool is_elder_map_active = false;
 	bool		is_shaper_map = false;				bool is_shaper_map_active = false;
 
-	bool is_font_size_active = false;
+	bool is_font_size_active = true;
 	int font_size = 30;
 
-	bool is_text_color_active = false;
+	bool is_text_color_active = true;
 	int text_color_red = 255;
 	int text_color_green = 255;
 	int text_color_blue = 255;
@@ -91,7 +91,7 @@ public:
 	double text_color_saturation = 1;
 	double text_color_value = 1;
 
-	bool is_bg_color_active = false;
+	bool is_bg_color_active = true;
 	int bg_red = 128;
 	int bg_green = 128;
 	int bg_blue = 128;
@@ -101,7 +101,7 @@ public:
 	double bg_saturation = 1;
 	double bg_value = 1;
 
-	bool is_rama_color_active = false;
+	bool is_rama_color_active = true;
 	int rama_red = 0;
 	int rama_green = 0;
 	int rama_blue = 0;
@@ -118,7 +118,7 @@ public:
 	bool is_custom_alert_sound = false;
 
 	string alert_sound_name = "";
-	Enums::DefaultAlertSound alert_sound_id = Enums::DefaultAlertSound::SOUND_01;
+	Enums::DefaultAlertSound alert_sound_id = Enums::DefaultAlertSound::SOUND_NONE;
 	int alert_sound_volume = 300;
 
 	string custom_alert_sound_name = "";
