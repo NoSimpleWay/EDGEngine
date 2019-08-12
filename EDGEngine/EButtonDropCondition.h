@@ -15,5 +15,5 @@ public:
 	virtual void incoming_data(FilterBlock* _filter);
 	virtual void drop_list_select_event();
 	
-
+	virtual void update_localisation();
 };

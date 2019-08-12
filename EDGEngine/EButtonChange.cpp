@@ -52,4 +52,16 @@ void EButtonChange::click_event()
 
 }
 
+void EButtonChange::update_localisation()
+{
+	if (is_increase)
+	{
+		description_text = EString::localize_it("button_text_increase_value");
+	}
+	else
+	{
+		description_text = EString::localize_it("button_text_decrease_value");
+	}
+}
+
 

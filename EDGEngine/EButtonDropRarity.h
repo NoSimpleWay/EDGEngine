@@ -16,7 +16,7 @@ public:
 	virtual void drop_list_select_event();
 
 
-
+	virtual void update_localisation();
 
 
 };

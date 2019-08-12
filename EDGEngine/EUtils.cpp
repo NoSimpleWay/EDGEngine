@@ -148,6 +148,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	std::string EString::path_to_poe_folder;
 
+	Enums::LocalisationList EString::active_localisation = Enums::LocalisationList::EN;
+
 	std::vector<BaseClass*> EString::base_class_list;
 	std::vector<ProphecyList*> EString::prophecy_list;
 
@@ -329,6 +331,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		}
 
 		return -1;
+	}
+
+	std::string EString::localize_it(std::string _text)
+	{
+		return _text;
 	}
 
 	void EFile::parse_loot_filter_data(std::string _path)
@@ -1198,6 +1205,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			cout << red << "Error count:" << yellow << error_counts << white << endl;;
 		}
 		myfile.close();
+
+		std::cout << "try update localisation" << std::endl;
+		StaticData::window_filter_block->update_localisation();
 	}
 
 	void EFile::save_filter(std::string _path)

@@ -21,3 +21,7 @@ void EButtonTextSearch::right_click_event()
 {
 
 }
+
+void EButtonTextSearch::update_localisation()
+{
+}

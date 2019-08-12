@@ -13,6 +13,6 @@ public:
 	virtual void click_event();
 	virtual void additional_draw(Batcher* _batch);
 
-
+	virtual void update_localisation();
 
 };

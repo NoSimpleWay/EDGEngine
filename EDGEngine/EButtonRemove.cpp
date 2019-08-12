@@ -94,3 +94,7 @@ void EButtonRemove::click_event()
 		is_active = false;
 	}
 }
+
+void EButtonRemove::update_localisation()
+{
+}

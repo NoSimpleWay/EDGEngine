@@ -36,7 +36,7 @@
 			EButtonFilterItem* but = new EButtonFilterItem(0, 0, 45, 45);
 
 			but->gabarite = DefaultGabarite::gabarite_undefined;
-			but->description_text = "LOL";
+			but->description_text = "?";
 			master_block->filter_block_items_button_list.push_back(but);
 
 			but->master_block	= master_block;
@@ -48,6 +48,11 @@
 			StaticData::window_find_item->is_active = true;
 			StaticData::window_find_item->target_button = but;
 		}
+	}
+
+	void EButtonFilterItem::update_localisation()
+	{
+		description_text = EString::localize_it("button_new_filter_item");
 	}
 
 

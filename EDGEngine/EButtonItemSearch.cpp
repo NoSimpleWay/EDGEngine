@@ -166,6 +166,10 @@ void EButtonItemSearch::right_click_event()
 	}
 }
 
+void EButtonItemSearch::update_localisation()
+{
+}
+
 	/*void EButton::click_event()
 	{
 		std::cout << "STANDART click event" << std::endl;

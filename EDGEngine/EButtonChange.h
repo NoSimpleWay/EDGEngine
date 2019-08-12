@@ -12,5 +12,5 @@ public:
 	virtual void click_event();
 	bool is_increase=false;
 
-
+	virtual void update_localisation();
 };

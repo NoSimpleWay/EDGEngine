@@ -1,0 +1,38 @@
+button_text_increase_value	Increase value
+button_text_decrease_value	Decrease value
+button_text_close_window	Close window
+rarity_name_normal	Normal
+rarity_name_magic	Magic
+rarity_name_rare	Rare
+rarity_name_unique	Unique
+name_of_suffix/prefix	Name of suffix/prefix (press to change)
+name_of_class	Name of class (press to change)
+name_of_prophecy	Name of prophecy (press to change)
+press_me	=Press me=
+open_loot_filter	Open loot filter
+save_loot_filter	Save loot filter
+create_new_loot_filter	Create new loot filter
+text_hue	Hue
+text_saturation	Saturation
+text_brightness	Brightness
+text_alpha	Alpha
+text_font_size	Font size
+text_sound_volume	Sound volume
+text_scroll	Scroll
+text_default_sound	Select default sound
+description_default_sound	Select default in-game sound
+text_custom_sound	Custom sound
+desciption_custom_sound	Select user sound from "my games/Path of Exile" folder
+button_add_explicit_group	New explicit group
+description_add_explicit_group	Add new list of suffix/prefix name
+button_activate_class	Enable class list
+description_activate_class	Enable list of base class (boot, currency, map, etc.)
+button_activate_prophecy	Enable prophecy list
+description_activate_prophecy	Enable list of prophecies names
+button_new_filter_item	Add new item
+description_button_visual_mode	Configue text size, colors, minimap icon, and sounds
+description_play_sound	Play drop sound
+description_new_base_data_vertical_list	Add new block parameter (class, prophecies, affixes)
+description_new_EPC	Add new explicits/classes/prophecies list
+base_data_text_rarity	Rarity
+base_data_text_level Level

@@ -14,4 +14,5 @@ public:
 	//}
 	//void click_event();
 	// конструктор класса SecondClass вызывает конструктор класса FirstClass
+	virtual void update_localisation();
 };

@@ -14,5 +14,6 @@ public:
 
 	bool is_plus = false;
 
+	virtual void update_localisation();
 
 };

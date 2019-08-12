@@ -75,6 +75,13 @@ public:
 
 	static std::string game_color_name[6];
 	static std::string icon_shape_name[6];
+
+	static std::vector<std::string> en_text;
+	static std::vector<std::string> ru_text;
+
+	static std::string localize_it(std::string _text);
+
+	static Enums::LocalisationList active_localisation;
 };
 
 class EFile

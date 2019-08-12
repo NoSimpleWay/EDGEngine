@@ -153,4 +153,6 @@ public:
 	std::string data_string;
 
 	bool slider_is_horizontal = true;
+
+	virtual void update_localisation();
 };

@@ -45,16 +45,6 @@ void EButtonInputBaseData::incoming_data(FilterBlock* _filter)
 	if (button_type == Enums::ButtonType::BUTTON_MAP_TIER)		{ text = std::to_string(_filter->map_tier); }
 	if (button_type == Enums::ButtonType::BUTTON_QUALITY)		{ text = std::to_string(_filter->item_quality); }
 
-	if (button_type == Enums::ButtonType::BUTTON_RARITY)
-	{
-		text = _filter->item_rarity;
-
-		if (text == "Normal") { bg_color->set(EColorCollection::DAD_NORMAL); }
-		if (text == "Magic") { bg_color->set(EColorCollection::DAD_MAGIC); }
-		if (text == "Rare") { bg_color->set(EColorCollection::DAD_RARE); }
-		if (text == "Unique") { bg_color->set(EColorCollection::DAD_UNIQUE); }
-	}
-
 	if (button_type == Enums::ButtonType::BUTTON_SOCKETS)		{ text = std::to_string(_filter->socket_count); }
 	if (button_type == Enums::ButtonType::BUTTON_STACK_SIZE)	{ text = std::to_string(_filter->item_stack_size); }
 	if (button_type == Enums::ButtonType::BUTTON_WIDTH)			{ text = std::to_string(_filter->item_width); }
@@ -75,4 +65,8 @@ void EButtonInputBaseData::input_finish_event()
 	if (button_type == Enums::ButtonType::BUTTON_WIDTH) { master_block->item_width=std::stoi(text); }
 
 
+}
+
+void EButtonInputBaseData::update_localisation()
+{
 }

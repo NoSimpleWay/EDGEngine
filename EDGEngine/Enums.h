@@ -270,5 +270,11 @@ public:
 		BOOL_IDENTIFIED,
 	};
 
+	enum LocalisationList
+	{
+		EN,
+		RU
+	};
+
 
 };

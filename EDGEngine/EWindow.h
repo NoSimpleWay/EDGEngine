@@ -73,5 +73,7 @@ public:
 	virtual void close_action();
 
 	std::string help_text = "";
+
+	virtual void update_localisation();
 };
 

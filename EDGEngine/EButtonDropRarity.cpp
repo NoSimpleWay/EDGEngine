@@ -23,10 +23,7 @@ EButtonDropRarity::EButtonDropRarity(float _x, float _y, float _sx, float _sy, E
 
 	drop_elements = 4;
 
-	drop_text.push_back("Обычн.");
-	drop_text.push_back("Магич.");
-	drop_text.push_back("Редкий");
-	drop_text.push_back("Уник.");
+
 
 	drop_text_base.push_back("Normal");
 	drop_text_base.push_back("Magic");
@@ -39,6 +36,7 @@ EButtonDropRarity::EButtonDropRarity(float _x, float _y, float _sx, float _sy, E
 	drop_list_color.push_back(EColorCollection::DAD_RARE);
 	drop_list_color.push_back(EColorCollection::DAD_UNIQUE);
 	
+	update_localisation();
 }
 
 void EButtonDropRarity::click_event()
@@ -72,5 +70,15 @@ void EButtonDropRarity::drop_list_select_event()
 		if (selected_element == 2) { bg_color->set(EColorCollection::DAD_RARE); }
 		if (selected_element == 3) { bg_color->set(EColorCollection::DAD_UNIQUE); }
 	}
+}
+
+void EButtonDropRarity::update_localisation()
+{
+	drop_text.clear();
+
+	drop_text.push_back(EString::localize_it("rarity_name_normal"));
+	drop_text.push_back(EString::localize_it("rarity_name_magic"));
+	drop_text.push_back(EString::localize_it("rarity_name_rare"));
+	drop_text.push_back(EString::localize_it("rarity_name_unique"));
 }
 

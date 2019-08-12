@@ -150,7 +150,7 @@
 
 		button_plus->master_position = Enums::FILTER_BLOCK;
 		button_plus->is_plus = true;
-		button_plus->description_text = "Добавить новый предмет";
+	
 		button_plus->can_be_removed = false;
 
 		button_list.push_back(button_plus);
@@ -167,14 +167,14 @@
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
-		but->description_text = "Настроить цвет, звуки, размер шрифта";
+		
 
 		but = new EButtonService(-155.0f - right_side_buttons_offset, 9.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SYS_PLAY_SOUND);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		sound_button_link = but;
 		button_list.push_back(but);
-		but->description_text = "Проиграть звук дропа";
+		
 
 
 		button_add_new_base_data = new EButtonPlusWide(0, 0, 17, 17,Enums::ButtonType::BUTTON_OPEN_BASE_DATA_WINDOW);
@@ -183,7 +183,7 @@
 		button_add_new_base_data->master_window = StaticData::window_filter_block;
 
 		button_list.push_back(button_add_new_base_data);
-		button_add_new_base_data->description_text = "Добавить новое свойство блока (редкость, гнёзда, уровень и т.д.)";
+		//button_add_new_base_data->description_text = "Добавить новое свойство блока (редкость, гнёзда, уровень и т.д.)";
 
 
 
@@ -192,7 +192,7 @@
 		button_add_new_EPC->master_block = this;
 		button_add_new_EPC->master_window = StaticData::window_filter_block;
 		button_list.push_back(button_add_new_EPC);
-		button_add_new_EPC->description_text = "Добавить новое свойство блока (класс, аффиксы, пророчества, название предмета)";
+		//button_add_new_EPC->description_text = "Добавить новое свойство блока (класс, аффиксы, пророчества, название предмета)";
 
 
 		
@@ -1060,5 +1060,34 @@
 		temp_hsv.h = _fb->rama_hue;							temp_hsv.s = _fb->rama_saturation;					temp_hsv.v = _fb->rama_value;
 		temp_rgb = EMath::hsv2rgb(temp_hsv);
 		_fb->rama_red = temp_rgb.r;							_fb->rama_green = temp_rgb.g;						_fb->rama_blue = temp_rgb.b;
+	}
+
+	void FilterBlock::update_localisation()
+	{
+		base_filter_data_name.at(0) = EString::localize_it("base_data_text_rarity");
+		base_filter_data_name.at(1) = EString::localize_it("base_data_text_level");//	"Уровень",
+		base_filter_data_name.at(2) = EString::localize_it("base_data_text_req_level");
+		base_filter_data_name.at(3) = EString::localize_it("base_data_text_sockets");
+		base_filter_data_name.at(4) = EString::localize_it("base_data_text_links");
+		base_filter_data_name.at(5) = EString::localize_it("base_data_text_sockets_colour");
+		
+		base_filter_data_name.at(6) = EString::localize_it("base_data_text_quality");
+		base_filter_data_name.at(7) = EString::localize_it("base_data_text_gem_level");
+		
+		base_filter_data_name.at(8) = EString::localize_it("base_data_text_map_tier");
+		base_filter_data_name.at(9) = EString::localize_it("base_data_text_shaper_map");
+		base_filter_data_name.at(10) = EString::localize_it("base_data_text_elder_map");
+		
+		base_filter_data_name.at(11) = EString::localize_it("base_data_text_height");
+		base_filter_data_name.at(12) = EString::localize_it("base_data_text_width");
+		base_filter_data_name.at(13) = EString::localize_it("base_data_text_quantity");
+		
+		base_filter_data_name.at(14) = EString::localize_it("base_data_text_corrupted");
+		base_filter_data_name.at(15) = EString::localize_it("base_data_text_shaper_item");
+		base_filter_data_name.at(16) = EString::localize_it("base_data_text_elder_item");
+		base_filter_data_name.at(17) = EString::localize_it("base_data_text_synthesis");
+		base_filter_data_name.at(18) = EString::localize_it("base_data_text_fractured");
+		base_filter_data_name.at(19) = EString::localize_it("base_data_text_enchanted");
+		base_filter_data_name.at(20) = EString::localize_it("base_data_text_identified");
 	}
 

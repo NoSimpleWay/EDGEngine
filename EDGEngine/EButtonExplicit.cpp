@@ -1,16 +1,18 @@
 #include "EButtonExplicit.h"
 #include "StaticData.h"
 
+std::string cached_text_press_me;
+
 EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type) : EButton(_x, _y, _sx, _sy)
 {
 	button_type = _type;
-	have_input_mode = true;
+	
 
 	if (button_type == Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST)
 	{
-		bg_color->set(0.4f, 0.5f, 1.0f, 0.8f);
+		have_input_mode = true;
 
-		description_text = "Название суффикса/префикса (нажмите, что бы изменить)";
+		bg_color->set(0.4f, 0.5f, 1.0f, 0.8f);
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST)
@@ -18,7 +20,7 @@ EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums
 		have_input_mode = false;
 
 		bg_color->set(0.4f, 1.0f, 0.5f, 0.8f);
-		description_text = "Название класса (нажмите, что бы изменить)";
+		
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST)
@@ -26,7 +28,7 @@ EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums
 		have_input_mode = false;
 
 		bg_color->set(1.0f, 0.4f, 0.5f, 0.5f);
-		description_text = "Название пророчества (нажмите, что бы изменить)";
+		
 	}
 
 
@@ -49,7 +51,7 @@ void EButtonExplicit::click_event()
 		if (is_plus)
 		{
 			EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST);
-			explicit_button->text = "=нажми меня=";
+			explicit_button->text = cached_text_press_me;
 			explicit_button->master_block = master_block;
 			explicit_button->master_window = StaticData::window_filter_block;
 			explicit_button->button_size_x = EFont::get_width(EFont::font_arial, explicit_button->text) + 5.0f;
@@ -70,7 +72,7 @@ void EButtonExplicit::click_event()
 		if (is_plus)
 		{
 			EButtonExplicit* class_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
-			class_button->text = "=нажми меня=";
+			class_button->text = cached_text_press_me;
 			class_button->have_input_mode = false;
 			class_button->master_block = master_block;
 			class_button->master_window = StaticData::window_filter_block;
@@ -94,7 +96,7 @@ void EButtonExplicit::click_event()
 		if (is_plus)
 		{
 			EButtonExplicit* prophecy_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST);
-			prophecy_button->text = ">нажми меня<";
+			prophecy_button->text = cached_text_press_me;
 			prophecy_button->have_input_mode = false;
 			prophecy_button->master_block = master_block;
 			prophecy_button->master_window = StaticData::window_filter_block;
@@ -109,4 +111,18 @@ void EButtonExplicit::click_event()
 
 
 	}
+}
+
+void EButtonExplicit::update_localisation()
+{
+	if (button_type == Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST)
+	{description_text = EString::localize_it("name_of_suffix/prefix");}
+
+	if (button_type == Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST)
+	{description_text = EString::localize_it("name_of_class");}
+
+	if (button_type == Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST)
+	{description_text = EString::localize_it("name_of_prophecy");}
+
+	cached_text_press_me = EString::localize_it("press_me");
 }

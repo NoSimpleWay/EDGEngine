@@ -18,4 +18,5 @@ public:
 	int get_id_of_filter_block(FilterBlock* _fb);
 	virtual void draw(Batcher* _batch, float _delta);
 	virtual void text_pass(Batcher* _batch);
+	void update_localisation();
 };

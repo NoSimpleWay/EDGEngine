@@ -12,5 +12,5 @@ public:
 	virtual void click_event();
 	virtual void input_event();
 
-
+	virtual void update_localisation();
 };

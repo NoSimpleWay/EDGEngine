@@ -64,3 +64,7 @@ void EButtonAddNewBaseData::click_event()
 void EButtonAddNewBaseData::input_finish_event()
 {
 }
+
+void EButtonAddNewBaseData::update_localisation()
+{
+}

@@ -15,4 +15,5 @@ public:
 	virtual void slide_drag_event();
 	virtual void update_additional(float _d);
 
+	virtual void update_localisation();
 };

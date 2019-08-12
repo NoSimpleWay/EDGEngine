@@ -75,6 +75,11 @@ void EButtonDropCondition::drop_list_select_event()
 	if (button_type == Enums::ButtonType::BUTTON_CONDITION_WIDTH)			{ master_block->item_width_condition=text; }
 }
 
+void EButtonDropCondition::update_localisation()
+{
+
+}
+
 
 
 

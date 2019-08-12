@@ -212,6 +212,8 @@ public:
 	static void change_color_consume(FilterBlock* _fb);
 	static void change_color_extract(FilterBlock* _fb);
 
+	void update_localisation();
+
 	EButton* sound_button_link;
 	EButton* custom_sound_button_link;
 

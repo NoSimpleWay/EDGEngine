@@ -12,4 +12,6 @@ public:
 
 	virtual void click_event();
 	virtual void right_click_event();
+
+	virtual void update_localisation();
 };

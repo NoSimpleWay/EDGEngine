@@ -19,7 +19,7 @@
 
 	EButton::EButton()
 	{
-
+		update_localisation();
 	}
 
 	EButton::EButton(float _x, float _y, float _sx, float _sy)
@@ -29,6 +29,8 @@
 
 		button_size_x = _sx;
 		button_size_y = _sy;
+
+		update_localisation();
 	}
 
 	EButton::EButton(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type)
@@ -40,6 +42,8 @@
 		button_size_y = _sy;
 
 		button_type = _type;
+
+		update_localisation();
 	}
 
 
@@ -578,6 +582,11 @@
 		icon_color->set(icon_color_deactivated);
 		rama_color->set(icon_color_deactivated);
 		bg_color->set(bg_color_deactivated);
+	}
+
+	void EButton::update_localisation()
+	{
+		std::cout << "DEFAULT LOCAL" << std::endl;
 	}
 
 

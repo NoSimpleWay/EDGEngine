@@ -17,8 +17,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW)
 	{
 		text_align_x = Enums::PositionMode::MID;
-		text = "Стандартный звук";
-		description_text = "Открыть список звуков, встроенных в игру";
+	
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}
@@ -26,8 +25,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW)
 	{
 		text_align_x = Enums::PositionMode::MID;
-		text = "Пользовательский звук";
-		description_text = "Открыть список пользовательских звуков из папки 'my games/Path of Exile'";
+		
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}
@@ -38,8 +36,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_x = Enums::PositionMode::MID;
 		position_mode_y = Enums::PositionMode::UP;
 
-		text = "Добавить аффикс";
-		description_text = "Добавить группу суффикса/префикса";
+		
 
 		master_position = Enums::PositionMaster::WINDOW;
 
@@ -52,8 +49,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_x = Enums::PositionMode::MID;
 		position_mode_y = Enums::PositionMode::UP;
 
-		text = "Добавить класс";
-		description_text = "Добавить список классов предмета (сапоги, перчатки, валюта, и т.д.)";
+		
 
 		master_position = Enums::PositionMaster::WINDOW;
 
@@ -66,8 +62,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_x = Enums::PositionMode::MID;
 		position_mode_y = Enums::PositionMode::UP;
 
-		text = "Добавить пророчество";
-		description_text = "Добавить список пророчеств по названию";
+		
 
 		master_position = Enums::PositionMaster::WINDOW;
 
@@ -80,7 +75,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_x = Enums::PositionMode::LEFT;
 		position_mode_y = Enums::PositionMode::UP;
 
-		text = "Добавить аффикс";
+		
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}
@@ -99,7 +94,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 	if (button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY)
 	{
 		text_align_x = Enums::PositionMode::MID;
-		text = "Временный";
+		
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}
@@ -107,7 +102,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 	if (button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT)
 	{
 		text_align_x = Enums::PositionMode::MID;
-		text = "Постоянный";
+		
 
 		master_position = Enums::PositionMaster::WINDOW;
 	}
@@ -120,7 +115,6 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_y = Enums::PositionMode::MID;
 
 		master_position = Enums::PositionMaster::FILTER_BLOCK;
-		text = "ОТМЕНИТЬ";
 	}
 	
 	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_NAME)
@@ -132,13 +126,13 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 		master_position = Enums::PositionMaster::WINDOW;
 
-		description_text = "Название лут-фильтра";
+		
 
 		have_text = true;
 		have_input_mode = true;
 		text = "";
 
-		input_hint = "Придумайте название";
+		
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_OK)
@@ -149,8 +143,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		position_mode_y = Enums::PositionMode::MID;
 
 		master_position = Enums::PositionMaster::WINDOW;
-		text = "OK";
-		description_text = "Подтвердить создание лут-фильтра";
+
 
 		have_text = true;
 		have_input_mode = false;
@@ -264,4 +257,59 @@ void EButtonText::input_event()
 			StaticData::window_new_loot_filter->link_to_accept_button->bg_color->set_alpha(EColorCollection::GREEN, 0.5f);
 		}
 	}
+}
+
+void EButtonText::update_localisation()
+{
+	std::cout << "LOCAL" << std::endl;
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW)
+	{
+		text = EString::localize_it("text_default_sound");
+		description_text = EString::localize_it("description_default_sound");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW)
+	{
+		text = EString::localize_it("text_custom_sound");
+		description_text = EString::localize_it("desciption_custom_sound");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ADD_EXPLICIT_GROUP)
+	{
+		text = EString::localize_it("button_add_explicit_group");
+		description_text = EString::localize_it("description_add_explicit_group");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_BASE_CLASS_LIST)
+	{
+		text = EString::localize_it("button_activate_class");
+		description_text = EString::localize_it("description_activate_class");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_PROPHECY_LIST)
+	{
+		text = EString::localize_it("button_activate_prophecy");
+		description_text = EString::localize_it("description_activate_prophecy");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY)
+	{
+
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ADD_EXPLICIT_ELEMENT)
+	{ }
+
+	if (button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT)
+	{ }
+
+	if (button_type == Enums::ButtonType::BUTTON_CANCEL_REMOVE_FILTER_BLOCK)
+	{ }
+
+	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_NAME)
+	{ }
+
+	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_OK)
+	{ }
 }

@@ -15,5 +15,6 @@ public:
 	virtual void incoming_data(FilterBlock* _filter);
 	void change_state(bool _b);
 
+	virtual void update_localisation();
 
 };

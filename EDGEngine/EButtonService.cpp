@@ -7,7 +7,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 	have_icon = true;
 	have_text = false;
 	have_description = true;
-	description_text = "Write filter block data to console";
+	//description_text = "Write filter block data to console";
 
 	have_rama = true;
 	rama_thikness = 2;
@@ -60,7 +60,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		gabarite = DefaultGabarite::gabarite_button_load;
 
-		description_text = "Открыть лут-фильтр";
+		
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
@@ -72,7 +72,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		gabarite = DefaultGabarite::gabarite_button_save;
 
-		description_text = "Сохранить лут-фильтр";
+		
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_WINDOW)
@@ -83,8 +83,6 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		position_mode_y = Enums::PositionMode::UP;
 
 		gabarite = DefaultGabarite::gabarite_button_new;
-
-		description_text = "Создать новый лут-фильтр";
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK)
@@ -182,7 +180,7 @@ void EButtonService::click_event()
 	{
 		
 
-		std::cout << "Alert sound name: " << master_block->alert_sound_name << std::endl;
+		//std::cout << "Alert sound name: " << master_block->alert_sound_name << std::endl;
 
 		if ((master_block->is_alert_sound) && (master_block->alert_sound_name != ""))
 		{
@@ -197,10 +195,10 @@ void EButtonService::click_event()
 		}
 		else
 		{
-			std::cout << "Custom sound disabled" << std::endl;
+			//std::cout << "Custom sound disabled" << std::endl;
 		}
 
-		std::cout << "id of this block = " << StaticData::window_filter_block->get_id_of_filter_block(master_block) << std::endl;
+		//std::cout << "id of this block = " << StaticData::window_filter_block->get_id_of_filter_block(master_block) << std::endl;
 		//StaticData::window_filter_block->filter_block_list.
 	}
 
@@ -310,4 +308,33 @@ void EButtonService::click_event()
 	{
 		master_block->is_show = !master_block->is_show;
 	}
+}
+
+void EButtonService::update_localisation()
+{
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_LOOT_FILTER)
+	{description_text = EString::localize_it("open_loot_filter");}
+
+	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
+	{description_text = EString::localize_it("save_loot_filter");}
+
+	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_WINDOW)
+	{description_text = EString::localize_it("create_new_loot_filter");}
+	
+	if (button_type == Enums::ButtonType::BUTTON_SYS_VISUAL_MODE)
+	{description_text = EString::localize_it("description_button_visual_mode");}
+
+	if (button_type == Enums::ButtonType::BUTTON_SYS_PLAY_SOUND)
+	{description_text = EString::localize_it("description_play_sound");}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_BASE_DATA_WINDOW)
+	{description_text = EString::localize_it("description_new_base_data_vertical_list");}
+	
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	{description_text = EString::localize_it("description_new_EPC");}
+
+
+
+
 }

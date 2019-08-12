@@ -60,3 +60,7 @@ void EButtonPlusWide::click_event()
 		StaticData::window_find_item->button_event(this);
 	}
 }
+
+void EButtonPlusWide::update_localisation()
+{
+}

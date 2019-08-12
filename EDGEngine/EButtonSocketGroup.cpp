@@ -10,7 +10,7 @@ EButtonSocketGroup::EButtonSocketGroup(float _x, float _y, float _sx, float _sy,
 	master_position = Enums::PositionMaster::FILTER_BLOCK;
 
 	bg_color->set(EColorCollection::BLACK);
-	description_text = "Click to change";
+	//description_text = "Click to change";
 }
 
 void EButtonSocketGroup::click_event()
@@ -58,4 +58,8 @@ void EButtonSocketGroup::additional_draw(Batcher* _batch)
 
 		xx += 15;
 	}
+}
+
+void EButtonSocketGroup::update_localisation()
+{
 }

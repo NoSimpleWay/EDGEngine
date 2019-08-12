@@ -157,3 +157,7 @@ void EWindow::close_action()
 {
 }
 
+void EWindow::update_localisation()
+{
+}
+

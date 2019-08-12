@@ -9,7 +9,7 @@ EButtonCheck::EButtonCheck(float _x, float _y, float _sx, float _sy, Enums::Butt
 
 	master_position = Enums::PositionMaster::FILTER_BLOCK;
 
-	description_text = "Кликни для изменения";
+	//description_text = "Кликни для изменения";
 
 	button_type = _type;
 
@@ -83,6 +83,10 @@ void EButtonCheck::change_state(bool _b)
 	{
 		gabarite = DefaultGabarite::gabarite_unchecked;
 	}
+}
+
+void EButtonCheck::update_localisation()
+{
 }
 
 void EButtonCheck::incoming_data(FilterBlock* _filter)
