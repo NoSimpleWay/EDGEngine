@@ -168,15 +168,15 @@
 
 	void EWindowFilterBlock::update_localisation()
 	{
-		std::cout << "try update localisation in window. blocks count: " << filter_block_list.size() << std::endl;
+		//std::cout << "try update localisation in window. blocks count: " << filter_block_list.size() << std::endl;
 		for (FilterBlock* fb: filter_block_list)
 		{
-			std::cout << "buttons count: " << fb->button_list.size() << std::endl;
+			//std::cout << "buttons count: " << fb->button_list.size() << std::endl;
 			fb->update_localisation();
 
 			for (EButton* b : fb->button_list)
 			{
-				std::cout << "button: " << b->text << std::endl;
+				//std::cout << "button: " << b->text << std::endl;
 				b->update_localisation();
 			}
 		}

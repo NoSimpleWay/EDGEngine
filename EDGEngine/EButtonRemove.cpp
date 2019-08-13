@@ -97,4 +97,18 @@ void EButtonRemove::click_event()
 
 void EButtonRemove::update_localisation()
 {
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_EXPLICIT_GROUP)
+	{
+		description_text = EString::localize_it("description_remove_explicit_group");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_BASE_CLASS)
+	{
+		description_text = EString::localize_it("description_remove_class");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_PROPHECY)
+	{
+		description_text = EString::localize_it("description_remove_prophecies");
+	}
 }

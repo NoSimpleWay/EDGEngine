@@ -159,6 +159,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	std::string EString::opened_loot_filter_name;
 	std::string EString::opened_loot_filter_path;
 
+	std::vector<std::string> EString::localisation_key;
+	std::vector<std::string> EString::localisation_text;
+
 	std::string EString::game_color_name[6]
 	=
 	{
@@ -335,6 +338,15 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	std::string EString::localize_it(std::string _text)
 	{
+		int vector_id = 0;
+
+		for (std::string s : localisation_key)
+		{
+			if (_text == s) { return localisation_text.at(vector_id); }
+
+			vector_id++;
+		}
+
 		return _text;
 	}
 

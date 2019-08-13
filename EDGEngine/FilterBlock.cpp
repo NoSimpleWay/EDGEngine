@@ -234,7 +234,6 @@
 			but_close->master_window = StaticData::window_filter_block;
 			but_close->is_active = false;
 			but_close->data_id = i;
-			but_close->description_text = "Удалить группу названий суффиксов/префиксов";
 
 			ex->button_close=but_close;
 			button_list.push_back(but_close);
@@ -249,7 +248,6 @@
 			explicit_button->is_plus = true;
 			explicit_button->is_active = false;
 			explicit_button->data_id = i;
-			explicit_button->description_text = "Добавить новое название суффикса/префикса";
 
 
 			ex->button_add = explicit_button;
@@ -270,7 +268,7 @@
 		plus_class_button_link->have_input_mode = false;
 		plus_class_button_link->is_plus = true;
 		plus_class_button_link->is_active = false;
-		plus_class_button_link->description_text = "Добавить новый класс";
+	
 
 		button_list.push_back(plus_class_button_link);
 
@@ -285,7 +283,6 @@
 		plus_prophecy_button_link->have_input_mode = false;
 		plus_prophecy_button_link->is_plus = true;
 		plus_prophecy_button_link->is_active = false;
-		plus_prophecy_button_link->description_text = "Добавить новое пророчество";
 
 		button_list.push_back(plus_prophecy_button_link);
 
@@ -298,7 +295,6 @@
 		remove_base_class_button->master_block = this;
 		remove_base_class_button->master_window = StaticData::window_filter_block;
 		remove_base_class_button->is_active = false;
-		remove_base_class_button->description_text = "Удалисть список классов";
 
 		button_list.push_back(remove_base_class_button);
 
@@ -307,7 +303,6 @@
 		remove_prophecy_button->master_block = this;
 		remove_prophecy_button->master_window = StaticData::window_filter_block;
 		remove_prophecy_button->is_active = false;
-		remove_prophecy_button->description_text = "Удалить список пророчеств";
 
 		button_list.push_back(remove_prophecy_button);
 
@@ -315,31 +310,26 @@
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
-		but->description_text = "Показать/спрятать блок";
 
 		but = new EButtonService(-5.0f, -5.0f - 20.0f * 2.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
-		but->description_text = "Поднять блок выше";
 
 		but = new EButtonService(-5.0f, -5.0f - 20.0f * 3.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
-		but->description_text = "Добавить новый блок";
 
 		but = new EButtonService(-5.0f, -5.0f - 20.0f * 4.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
-		but->description_text = "Поднять блок ниже";
 
 		but = new EButtonService(-5.0f, -5.0f - 20.0f * 6.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
-		but->description_text = "УДАЛИТЬ блок";
 
 		but = new EButtonText(0.0f, 0.0f, 400.0f, 60.0f, Enums::ButtonType::BUTTON_CANCEL_REMOVE_FILTER_BLOCK);
 		but->master_block = this;

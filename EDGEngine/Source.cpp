@@ -474,6 +474,69 @@ void load_base_class()
 	}
 }
 
+void load_localisation(string _text)
+{
+	EString::localisation_key.clear();
+	EString::localisation_text.clear();
+
+	//ofstream myfile_open;
+	//myfile_open.open("gemor.txt");
+
+	ifstream myfile;
+	myfile.open("data/localisation/"+_text+".txt");
+	string line;
+
+	string subdata;
+	string subdata_array[4];
+
+	int line_id = 0;
+	int data_order;
+
+
+	//cout << EMath::rgb::r << endl;
+
+
+	while ((getline(myfile, line)) && (line_id < 1000))
+	{
+
+		data_order = 0;
+		subdata = "";
+
+		for (int i = 0; i < line.length(); i++)
+		{
+
+
+			if (line.at(i) != '\t')
+			{
+				subdata += line.at(i);
+			}
+
+			if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+			{
+				subdata_array[data_order] = subdata;
+				subdata = "";
+				data_order++;
+			}
+
+		}
+
+
+			EString::localisation_key.push_back(subdata_array[0]);
+			EString::localisation_text.push_back(subdata_array[1]);
+
+			std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << subdata_array[1] << std::endl;
+		
+		line_id++;
+	}
+
+	int wtf = 0;
+	for (BaseClass* b : EString::base_class_list)
+	{
+		cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
+		wtf++;
+	}
+}
+
 void parse_item_data()
 {
 	//ofstream myfile_open;
@@ -1702,6 +1765,7 @@ int main()
 	parse_item_data();
 	load_base_class();
 	load_prophecy_list();
+	load_localisation("EN");
 	//##################################
 	//##################################
 

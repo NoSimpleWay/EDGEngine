@@ -586,7 +586,7 @@
 
 	void EButton::update_localisation()
 	{
-		std::cout << "DEFAULT LOCAL" << std::endl;
+		//std::cout << "DEFAULT LOCAL" << std::endl;
 	}
 
 

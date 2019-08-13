@@ -334,6 +334,22 @@ void EButtonService::update_localisation()
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW)
 	{description_text = EString::localize_it("description_new_EPC");}
 
+	if (button_type == Enums::ButtonType::BUTTON_SHOW_HIDE)
+	{description_text = EString::localize_it("description_show_hide_block");}
+
+	if (button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP)
+	{description_text = EString::localize_it("description_raise_block");}
+
+	if (button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN)
+	{description_text = EString::localize_it("description_lower_block");}
+
+	if (button_type == Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK)
+	{description_text = EString::localize_it("description_add_new_filter_block");}
+	
+
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_BLOCK)
+	{description_text = EString::localize_it("description_remove_block");}
+
 
 
 

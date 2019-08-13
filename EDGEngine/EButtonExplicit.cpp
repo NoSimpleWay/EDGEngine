@@ -124,5 +124,14 @@ void EButtonExplicit::update_localisation()
 	if (button_type == Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST)
 	{description_text = EString::localize_it("name_of_prophecy");}
 
+	if (button_type == Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST)
+	{description_text = EString::localize_it("description_add_new_explicit_group_list");}
+
+	if (button_type == Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST)
+	{description_text = EString::localize_it("description_add_new_class");}
+
+	if (button_type == Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST)
+	{description_text = EString::localize_it("description_add_new_prophecy");}
+
 	cached_text_press_me = EString::localize_it("press_me");
 }

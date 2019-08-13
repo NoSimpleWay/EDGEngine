@@ -35,4 +35,34 @@ description_play_sound	Play drop sound
 description_new_base_data_vertical_list	Add new block parameter (class, prophecies, affixes)
 description_new_EPC	Add new explicits/classes/prophecies list
 base_data_text_rarity	Rarity
-base_data_text_level Level
+base_data_text_level	Level
+base_data_text_req_level	Required level
+base_data_text_sockets	Sockets
+base_data_text_links	Links
+base_data_text_sockets_colour	Socket colour
+base_data_text_quality	Item quality
+base_data_text_gem_level	Gem level
+base_data_text_map_tier	Map tier
+base_data_text_shaper_map	Is shaper map
+base_data_text_elder_map	Is elder map
+base_data_text_height	Item height
+base_data_text_width	Item width
+base_data_text_quantity	Quantity
+base_data_text_corrupted	Is corrupted
+base_data_text_shaper_item	Is Shaper item
+base_data_text_elder_item	Is Elder item
+base_data_text_synthesis	Is synthesised
+base_data_text_fractured	Is fractured
+base_data_text_enchanted	Is enchanted
+base_data_text_identified	Is Identified
+description_remove_explicit_group	Remove explicit list
+description_add_new_explicit_group_list	Add new list of suffixes/affixes
+description_add_new_class	Add new list of item classes (gloves/currency/map/etc.)
+description_add_new_prophecy	Add new list of prophecies name
+description_remove_class	Remove list of item class
+description_remove_prophecies	Remove list of prophecies name
+description_show_hide_block	Show/hide filter block
+description_raise_block	Raise block up
+description_lower_block	Lower block down
+description_add_new_filter_block And new filter block
+description_remove_block	REMOVE block
