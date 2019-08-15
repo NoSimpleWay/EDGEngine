@@ -295,21 +295,61 @@ void EButtonText::update_localisation()
 
 	if (button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY)
 	{
-
+		text = EString::localize_it("button_set_ray_is_tempotary");
+		description_text = EString::localize_it("description_tempotary_ray");
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_ADD_EXPLICIT_ELEMENT)
-	{ }
+	{
+		text = EString::localize_it("button_add_explicit_group");
+		description_text = EString::localize_it("description_add_explicit_group");
+	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT)
-	{ }
+	{
+		text = EString::localize_it("button_set_ray_is_constant");
+		description_text = EString::localize_it("description_set_ray_is_constant");
+	}
 
 	if (button_type == Enums::ButtonType::BUTTON_CANCEL_REMOVE_FILTER_BLOCK)
-	{ }
+	{
+		text = EString::localize_it("button_cancel_remove_filter_block");
+		description_text = EString::localize_it("description_cancel_remove_filter_block");
+	}
 
 	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_NAME)
-	{ }
+	{
+		//text = EString::localize_it("button_new_loot_filter_name");
+		description_text = EString::localize_it("description_new_loot_filter_name");
+		input_hint = EString::localize_it("hint_new_loot_filter_name");
+	}
 
 	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_OK)
-	{ }
+	{
+		text = EString::localize_it("button_new_loot_filter_ok");
+		description_text = EString::localize_it("description_new_loot_filter_ok");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE)
+	{
+		if (data_id == 0)
+		{
+			text = EString::localize_it("text_minimap_icon_select_size_big");
+			description_text = EString::localize_it("description_minimap_icon_select_size_big");
+		}
+
+		if (data_id == 1)
+		{
+			text = EString::localize_it("text_minimap_icon_select_size_medium");
+			description_text = EString::localize_it("description_minimap_icon_select_size_medium");
+		}
+		if (data_id == 2)
+		{
+			text = EString::localize_it("text_minimap_icon_select_size_small");
+			description_text = EString::localize_it("description_minimap_icon_select_size_small");
+		}
+
+	}
+
+
 }

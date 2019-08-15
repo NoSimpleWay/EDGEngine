@@ -7,12 +7,10 @@ EButtonChange::EButtonChange(float _x, float _y, float _sx, float _sy, Enums::Bu
 	if (_inc)
 	{
 		gabarite = DefaultGabarite::gabarite_increase;
-		description_text = "Увеличить значение";
 	}
 	else
 	{
 		gabarite = DefaultGabarite::gabarite_decrease;
-		description_text = "Уменьшить значение";
 	}
 
 	is_increase = _inc;
@@ -56,11 +54,31 @@ void EButtonChange::update_localisation()
 {
 	if (is_increase)
 	{
-		description_text = EString::localize_it("button_text_increase_value");
+		if (button_type == Enums::ButtonType::BUTTON_SOCKET_RED)
+		{description_text = EString::localize_it("description_increase_red_socket");}
+
+		if (button_type == Enums::ButtonType::BUTTON_SOCKET_GREEN)
+		{description_text = EString::localize_it("description_increase_green_socket");}
+
+		if (button_type == Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK)
+		{description_text = EString::localize_it("description_increase_blue_socket");}
+
+		if (button_type == Enums::ButtonType::BUTTON_SOCKET_WHITE)
+		{description_text = EString::localize_it("description_increase_white_socket");}
 	}
 	else
 	{
-		description_text = EString::localize_it("button_text_decrease_value");
+		if (button_type == Enums::ButtonType::BUTTON_SOCKET_RED)
+		{description_text = EString::localize_it("description_decrease_red_socket");}
+
+		if (button_type == Enums::ButtonType::BUTTON_SOCKET_GREEN)
+		{description_text = EString::localize_it("description_decrease_green_socket");}
+
+		if (button_type == Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK)
+		{description_text = EString::localize_it("description_decrease_blue_socket");}
+
+		if (button_type == Enums::ButtonType::BUTTON_SOCKET_WHITE)
+		{description_text = EString::localize_it("description_decrease_white_socket");}
 	}
 }
 

@@ -125,13 +125,41 @@ void EButtonExplicit::update_localisation()
 	{description_text = EString::localize_it("name_of_prophecy");}
 
 	if (button_type == Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST)
-	{description_text = EString::localize_it("description_add_new_explicit_group_list");}
+	{
+		if (is_plus)
+		{
+			description_text = EString::localize_it("description_add_new_explicit_group_list");
+		}
+		else
+		{
+			description_text = EString::localize_it("description_click_to_edit");
+		}
+	}
 
 	if (button_type == Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST)
-	{description_text = EString::localize_it("description_add_new_class");}
+	{
+		
+			if (is_plus)
+			{
+				description_text = EString::localize_it("description_add_new_class");
+			}
+			else
+			{
+				description_text = EString::localize_it("description_click_to_edit");
+			}
+	}
 
 	if (button_type == Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST)
-	{description_text = EString::localize_it("description_add_new_prophecy");}
+	{
+			if (is_plus)
+			{
+				description_text = EString::localize_it("description_add_new_prophecy");
+			}
+			else
+			{
+				description_text = EString::localize_it("description_click_to_edit");
+			}
+	}
 
 	cached_text_press_me = EString::localize_it("press_me");
 }

@@ -43,4 +43,10 @@ public:
 
 		EFont::font_arial->draw(_batch, "Громкость звуков", window_size_x - 270, pos_y + window_size_y - 22.0f);
 	}
+
+	virtual void update_localisation()
+	{
+		for (EButton* b : button_list)
+		{b->update_localisation();}
+	}
 };

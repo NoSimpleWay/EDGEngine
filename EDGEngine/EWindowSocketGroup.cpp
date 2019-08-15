@@ -87,4 +87,12 @@ public:
 		block = _b->master_block;
 	}
 
+	virtual void update_localisation()
+	{
+		for (EButton* b : button_list)
+		{
+			b->update_localisation();
+		}
+	}
+
 };

@@ -11,6 +11,8 @@ public:
 	//void input_event();
 	void input_event();
 
+	virtual void update_localisation();
+
 
 	//void click_event();
 	// конструктор класса SecondClass вызывает конструктор класса FirstClass

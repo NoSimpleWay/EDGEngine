@@ -64,5 +64,51 @@ description_remove_prophecies	Remove list of prophecies name
 description_show_hide_block	Show/hide filter block
 description_raise_block	Raise block up
 description_lower_block	Lower block down
-description_add_new_filter_block And new filter block
+description_add_new_filter_block	And new filter block
 description_remove_block	REMOVE block
+description_click_to_edit	Click to edir
+description_new_base_data	Add new base filter block data (rarity, itemlevel, etc.)
+button_set_ray_is_tempotary	Tempotary ray
+description_tempotary_ray	Set loot ray is tempotary
+button_add_explicit_group	Add explicit group
+description_add_explicit_group	Add new group of suffixes/prefixes
+button_set_ray_is_constant	Constant ray
+description_set_ray_is_constant	Set ray is constant
+button_cancel_remove_filter_block	Cancel removing!
+description_cancel_remove_filter_block	Cancel remove block process
+description_new_loot_filter_name	Input name of loot filter
+hint_new_loot_filter_name	Loot filter name
+button_new_loot_filter_ok	OK
+description_new_loot_filter_ok	Create new loot filter
+description_minimap_icon_select_shape	Select minimap icon shape
+description_minimap_icon_select_color	Select minimap icon color
+description_minimap_icon_select_size	Select minimap icon size
+text_minimap_icon_select_size_big	Big
+description_minimap_icon_select_size_big	Set minimap icon size as big
+text_minimap_icon_select_size_medium	Medium
+description_minimap_icon_select_size_medium	Set minimap icon size as medium
+text_minimap_icon_select_size_small	Small
+description_minimap_icon_select_size_small	Set minimap icon size as small
+description_set_ray_color	Set ray color
+description_set_ray_deactivate	Deactivate loot ray
+text_border_color	Border color
+text_text_color	Font color
+text_bg_color	Background color
+text_text_size	Font size
+description_increase_red_socket	Increase ammount of red socket
+description_increase_green_socket	Increase ammount of green socket
+description_increase_blue_socket	Increase ammount of blue socket
+description_increase_white_socket	Increase ammount of white socket
+description_decrease_red_socket	Decrease ammount of red socket
+description_decrease_green_socket	Decrease ammount of green socket
+description_decrease_blue_socket	Decrease ammount of blue socket
+description_decrease_white_socket	Decrease ammount of white socket
+description_scroll	Scroll ammount
+hint_input_search_item	Input item name
+cached_text_search	Search
+hint_default_sound	Input default sound name
+hint_custom_sound	Input user sound name
+hint_input_base_class_name	Input base class name
+hint_input_prophecy_name	Input prophecy name
+help_right_click_play_sound	Press right mouse button on button to play sound
+help_open_loot_filter_window	List of lootfilter's from "my games/Path of Exile"

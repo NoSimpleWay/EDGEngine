@@ -266,4 +266,9 @@ void EButtonSlider::click_event()
 	 cached_text_font_size =		EString::localize_it("text_font_size");;
 	 cached_text_sound_volume =		EString::localize_it("text_sound_volume");;
 	 cached_text_scroll =			EString::localize_it("text_scroll");;
+
+	 if (button_type == Enums::ButtonType::BUTTON_FILTER_BLOCK_SCROLL)
+	 {
+		 description_text = EString::localize_it("description_scroll");;
+	 }
  }

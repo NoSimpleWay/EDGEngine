@@ -63,4 +63,9 @@ void EButtonPlusWide::click_event()
 
 void EButtonPlusWide::update_localisation()
 {
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	{description_text = EString::localize_it("description_new_EPC");}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_BASE_DATA_WINDOW)
+	{description_text = EString::localize_it("description_new_base_data");}
 }

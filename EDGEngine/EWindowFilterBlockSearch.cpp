@@ -10,6 +10,7 @@
 
 //#include "EButtonInputSearchItem.h"
 
+
 	EWindowFilterBlockSearch::EWindowFilterBlockSearch(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 		EButton* but = new EButtonInputSearchItem(0, -10, 30, 30, Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_FILTER_BLOCK);
@@ -18,7 +19,6 @@
 		input_button_link = but;
 		but->rama_color->set_alpha(EColorCollection::BLACK, 0.8f);
 		but->button_size_x = 400.0f;
-		but->input_hint = "Введите название предмета/класса";
 
 		align_x = Enums::PositionMode::MID;
 		align_y = Enums::PositionMode::DOWN;
@@ -115,8 +115,18 @@
 	{
 		_batch->setcolor_alpha(EColorCollection::BLACK, 0.8f);
 		EFont::font_arial->set_align_once(Enums::PositionMode::RIGHT);
-		EFont::font_arial->draw(_batch, "Поиск по тексту", pos_x + (window_size_x - input_button_link->button_size_x) / 2.0f - 10, pos_y + 5.0f);
+		EFont::font_arial->draw(_batch, cached_text_search, pos_x + (window_size_x - input_button_link->button_size_x) / 2.0f - 10, pos_y + 5.0f);
 
+	}
+
+	void EWindowFilterBlockSearch::update_localisation()
+	{
+		for (EButton* b : button_list)
+		{
+			b->update_localisation();
+		}
+
+		cached_text_search = EString::localize_it("cached_text_search");
 	}
 
 

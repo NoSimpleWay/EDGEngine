@@ -499,7 +499,7 @@
 
 	void FilterBlock::draw(Batcher* _batch)
 	{
-		max_h = 145.0f;
+		max_h = 75.0f;
 
 
 		if (is_show) { _batch->setcolor_255(210, 200, 190, 35); }
@@ -764,9 +764,9 @@
 
 		button_add_new_EPC->button_x = 310;
 		button_add_new_EPC->button_y = ex_y;
-		if (-ex_y > 40)
+		if (-ex_y > 0)
 		{
-			max_h += (-ex_y) - 40.0f;
+			max_h += (-ex_y);
 		}
 
 

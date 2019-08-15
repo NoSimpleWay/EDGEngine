@@ -409,6 +409,7 @@ public:
 
 	virtual void button_event(EButton* _b)
 	{
+
 		int data_index=0;
 		master_block = _b->master_block;
 
@@ -447,7 +448,6 @@ public:
 			}
 
 			input_button->is_input_mode_active = true;
-			input_button->input_hint = "Введите название предмета";
 
 
 		}
@@ -455,7 +455,6 @@ public:
 		if (window_searchs_mode == Enums::WindowSearchMode::DEFAULT_DROP_SOUND)
 		{
 			have_undefined_input = true;
-			help_text = "Нажмите правую кнопку мыши на название звука, что бы воспроизвести его";
 			
 			for (EButton* b : button_list)
 			{
@@ -498,13 +497,11 @@ public:
 			}
 
 			input_button->is_input_mode_active = true;
-			input_button->input_hint = "Введите название звука";
 		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::CUSTOM_DROP_SOUND)
 		{
 			have_undefined_input = true;
-			help_text = "Нажмите правую кнопку мыши на название звука, что бы воспроизвести его";
 
 			for (EButton* b : button_list)
 			{
@@ -541,7 +538,6 @@ public:
 			}
 
 			input_button->is_input_mode_active = true;
-			input_button->input_hint = "Введите название звука";
 		}
 		
 		if (window_searchs_mode == Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST)
@@ -589,7 +585,6 @@ public:
 			}
 
 			input_button->is_input_mode_active = true;
-			input_button->input_hint = "Введите класс предмета";
 		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST)
@@ -648,11 +643,12 @@ public:
 			}
 
 			input_button->is_input_mode_active = true;
-			input_button->input_hint = "Введите название пророчества";
 		}
 
 		input_button->text = "";
 		fill_search_array(input_button);
+
+		update_localisation();
 	}
 
 	virtual void text_pass(Batcher* _batch)
@@ -684,6 +680,7 @@ public:
 
 	virtual void manual_event()
 	{
+		
 		int data_index=0;
 
 		if (window_searchs_mode == Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST)
@@ -730,12 +727,10 @@ public:
 			}
 
 			input_button->is_input_mode_active = true;
-			input_button->input_hint = "Введите название лутфильтра";
-
-			help_text = "Список уже существующих лут-фильтров из папки 'my games/Path of Exile'";
 
 		}
 
+		update_localisation();
 	}
 
 	virtual void close_action()
@@ -747,5 +742,35 @@ public:
 			if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST) { target_button->need_remove = true; }
 		}
 	}
+
+	virtual void update_localisation()
+	{
+		for (EButton* b : button_list)
+		{
+			b->update_localisation();
+		}
+
+		help_text = ""; 
+
+		if
+		(
+			(window_searchs_mode == Enums::WindowSearchMode::CUSTOM_DROP_SOUND)
+			||
+			(window_searchs_mode == Enums::WindowSearchMode::DEFAULT_DROP_SOUND)
+		)
+		{help_text = EString::localize_it("help_right_click_play_sound");}
+
+		if
+		(
+			(window_searchs_mode == Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST)
+		)
+		{help_text = EString::localize_it("help_open_loot_filter_window");}
+
+
+	}
+
+	
+
+
 
 };

@@ -23,9 +23,7 @@ EButtonInputSearchItem::EButtonInputSearchItem(float _x, float _y, float _sx, fl
 
 
 	text = "";
-
-	description_text = "none";
-	input_hint = "Введите название предмета";
+	
 
 	have_rama = true;
 
@@ -47,5 +45,23 @@ void EButtonInputSearchItem::input_event()
 
 
 }
+
+	void EButtonInputSearchItem::update_localisation()
+	{
+		if (Enums::ButtonType::BUTTON_SEARCH_ITEM)
+		{input_hint = EString::localize_it("hint_input_search_item");}
+
+		if (Enums::ButtonType::BUTTON_SEARCH_DEFAULT_SOUND)
+		{input_hint = EString::localize_it("hint_default_sound");}
+
+		if (Enums::ButtonType::BUTTON_SEARCH_CUSTOM_SOUND)
+		{input_hint = EString::localize_it("hint_custom_sound");}
+
+		if (Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS)
+		{input_hint = EString::localize_it("hint_input_base_class_name");}
+
+		if (Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
+		{input_hint = EString::localize_it("hint_input_prophecy_name");}
+	}
 
 

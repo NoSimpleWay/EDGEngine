@@ -1923,6 +1923,11 @@ int main()
 	StaticData::window_new_loot_filter->name = "New loot-filter";
 	window_list.push_back(StaticData::window_new_loot_filter);
 
+	for (EWindow* w:window_list)
+	{
+		w->update_localisation();
+	}
+
 	batch->reset();
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);

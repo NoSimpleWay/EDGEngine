@@ -14,6 +14,11 @@
 class EWindowFilterVisualEditor: public EWindow
 {
 public:
+
+	std::string cached_text_border_color;
+	std::string cached_text_color;
+	std::string cached_text_bg_color;
+	std::string cached_text_size;
 	//std::vector<FilterBlock*> filter_block_list;
 	FilterBlock* master_block;
 
@@ -127,13 +132,12 @@ public:
 
 			link_to_icon_shape.push_back(but);
 			button_list.push_back(but);
-			but->description_text = "Выбрать форму";
+			
 
 
 			but = new EButtonService(icon_button_base_x + 55.0f * i, icon_button_base_y + 60.0 * 1.0f, 45.0f, 45.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR);
 			but->gabarite = DefaultGabarite::gabarite_minimap_icon[i];
 			but->data_id = i;
-			but->description_text = "Выбрать цвет";
 
 			but->master_block = master_block;
 			but->master_window = this;
@@ -153,12 +157,7 @@ public:
 
 			link_to_icon_size.push_back(but);
 			button_list.push_back(but);
-			but->description_text = "Выбрать размер";
 		}
-
-		link_to_icon_size.at(0)->text = "Большой";
-		link_to_icon_size.at(1)->text = "Средний";
-		link_to_icon_size.at(2)->text = "Маленький";
 
 		but =new EButtonCheck(icon_button_base_x + 110.0f * 0.0f, icon_button_base_y + 60.0 * 3.0f, 25.0f, 25.0f, Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON);
 		but->master_block = master_block;
@@ -182,24 +181,17 @@ public:
 				but->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i]);
 
 				but->gabarite = DefaultGabarite::gabarite_ray_icon;
-				but->description_text = "Выбрать цвет луча";
 			}
 			else
 			{
 				but->icon_color->set(EColorCollection::WHITE);
 				but->gabarite = DefaultGabarite::gabarite_ray_icon_remove;
-
-				but->description_text = "Отключить луч";
 				
 			}
 
 			but->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 
 			but->data_id = i;
-
-
-
-		
 
 			but->master_block = master_block;
 			but->master_window = this;
@@ -223,7 +215,6 @@ public:
 
 		button_list.push_back(but);
 		link_to_ray_tempotary = but;
-		but->description_text = "Сделать луч временным";
 
 
 		but = new EButtonText(400.0f, icon_button_base_y + 60.0f * 0.0f, 130.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT);
@@ -238,7 +229,6 @@ public:
 
 		button_list.push_back(but);
 		link_to_ray_constant = but;
-		but->description_text = "Сделать луч постоянным";
 	}
 
 	void update_ray_button()
@@ -447,10 +437,10 @@ public:
 		_batch->setcolor(EColorCollection::BLACK);
 		EFont::font_arial->align_x = Enums::PositionMode::MID;
 
-		EFont::font_arial->draw(_batch, "Цвет фона",		pos_x + default_position_x + distance_between_x * 0.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
-		EFont::font_arial->draw(_batch, "Цвет текста",		pos_x + default_position_x + distance_between_x * 1.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
-		EFont::font_arial->draw(_batch, "Цвет рамки",		pos_x + default_position_x + distance_between_x * 2.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
-		EFont::font_arial->draw(_batch, "Размер текста",	pos_x + default_position_x + distance_between_x * 3.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::font_arial->draw(_batch, cached_text_bg_color,		pos_x + default_position_x + distance_between_x * 0.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::font_arial->draw(_batch, cached_text_color,			pos_x + default_position_x + distance_between_x * 1.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::font_arial->draw(_batch, cached_text_border_color,	pos_x + default_position_x + distance_between_x * 2.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::font_arial->draw(_batch, cached_text_size,			pos_x + default_position_x + distance_between_x * 3.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
 
 		float siz = 1.0 / (master_block->minimap_icon_size * 0.5f + 1.0);
 
@@ -509,6 +499,24 @@ public:
 		//std::cout << "standart window button event" << std::endl;
 
 		update_ray_button();
+	}
+
+	virtual void update_localisation()
+	{
+		//std::cout << "try update localisation in window. blocks count: " << filter_block_list.size() << std::endl;
+
+		for (EButton* b : button_list)
+		{
+			//std::cout << "button: " << b->text << std::endl;
+			b->update_localisation();
+		}
+
+		cached_text_border_color	=	EString::localize_it("text_border_color");
+		cached_text_color			=	EString::localize_it("text_text_color");
+		cached_text_bg_color		=	EString::localize_it("text_bg_color");
+		cached_text_size			=	EString::localize_it("text_text_size");
+
+
 	}
 
 };

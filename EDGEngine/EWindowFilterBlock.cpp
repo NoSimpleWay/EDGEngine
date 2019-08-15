@@ -29,7 +29,6 @@
 		//but->master_block = this;
 		but->master_window = this;
 		button_list.push_back(but);
-		but->description_text = "Полоса прокрутки блоков";
 		link_to_slider = but;
 
 	}

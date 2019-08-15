@@ -350,6 +350,25 @@ void EButtonService::update_localisation()
 	if (button_type == Enums::ButtonType::BUTTON_REMOVE_BLOCK)
 	{description_text = EString::localize_it("description_remove_block");}
 
+	if (button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SHAPE)
+	{description_text = EString::localize_it("description_minimap_icon_select_shape");}
+
+	if (button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR)
+	{description_text = EString::localize_it("description_minimap_icon_select_color");}
+
+	if (button_type == Enums::ButtonType::BUTTON_SELECT_RAY_COLOR)
+	{
+		if (data_id >= 0)
+		{
+			description_text = EString::localize_it("description_set_ray_color");
+		}
+		else
+		{
+			description_text = EString::localize_it("description_set_ray_deactivate");
+		}
+	}
+
+
 
 
 
