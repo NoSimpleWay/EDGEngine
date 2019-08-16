@@ -162,6 +162,9 @@
     <ClCompile Include="EWindowCreateNewLootFilter.cpp">
       <Filter>Source Files\windows</Filter>
     </ClCompile>
+    <ClCompile Include="EWindowSelectLocalisation.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">

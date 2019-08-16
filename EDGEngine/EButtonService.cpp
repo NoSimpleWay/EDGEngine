@@ -12,7 +12,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 	have_rama = true;
 	rama_thikness = 2;
 
-	rama_color->set(EColorCollection::RED);
+	rama_color->set(EColorCollection::BLACK);
 	rama_color_default->set(EColorCollection::RED);
 
 	bg_color_default->set(bg_color);
@@ -25,6 +25,9 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 	if (button_type == Enums::ButtonType::BUTTON_SYS_VISUAL_MODE)
 	{
 		gabarite = DefaultGabarite::gabarite_visual_mode;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::DOWN;
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SYS_PLAY_SOUND)
@@ -90,7 +93,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		master_position = Enums::PositionMaster::FILTER_BLOCK;
 
 		position_mode_x = Enums::PositionMode::RIGHT;
-		position_mode_y = Enums::PositionMode::UP;
+		position_mode_y = Enums::PositionMode::DOWN;
 
 		gabarite = DefaultGabarite::gabarite_plus_gray;
 
@@ -103,7 +106,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		master_position = Enums::PositionMaster::FILTER_BLOCK;
 
 		position_mode_x = Enums::PositionMode::RIGHT;
-		position_mode_y = Enums::PositionMode::UP;
+		position_mode_y = Enums::PositionMode::DOWN;
 
 		gabarite = DefaultGabarite::gabarite_up_gray;
 
@@ -116,7 +119,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		master_position = Enums::PositionMaster::FILTER_BLOCK;
 
 		position_mode_x = Enums::PositionMode::RIGHT;
-		position_mode_y = Enums::PositionMode::UP;
+		position_mode_y = Enums::PositionMode::DOWN;
 
 		gabarite = DefaultGabarite::gabarite_down_gray;
 
@@ -129,7 +132,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		master_position = Enums::PositionMaster::FILTER_BLOCK;
 
 		position_mode_x = Enums::PositionMode::RIGHT;
-		position_mode_y = Enums::PositionMode::UP;
+		position_mode_y = Enums::PositionMode::DOWN;
 
 		gabarite = DefaultGabarite::gabarite_remove_block;
 
@@ -142,7 +145,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		master_position = Enums::PositionMaster::FILTER_BLOCK;
 
 		position_mode_x = Enums::PositionMode::RIGHT;
-		position_mode_y = Enums::PositionMode::UP;
+		position_mode_y = Enums::PositionMode::DOWN;
 
 		gabarite = DefaultGabarite::gabarite_gray_eye;
 
@@ -150,6 +153,15 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_LOCALISATION_EN)
+	{
+		gabarite = DefaultGabarite::gabarite_flag_EN;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_LOCALISATION_RU)
+	{
+		gabarite = DefaultGabarite::gabarite_flag_RU;
+	}
 }
 
 void EButtonService::click_event()
@@ -307,6 +319,34 @@ void EButtonService::click_event()
 	if ((button_type == Enums::ButtonType::BUTTON_SHOW_HIDE))
 	{
 		master_block->is_show = !master_block->is_show;
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_LOCALISATION_EN))
+	{
+		EString::active_localisation = Enums::LocalisationList::EN;
+
+		EString::load_localisation("EN");
+
+		for (EWindow* w : EControl::window_list)
+		{
+			w->update_localisation();
+		}
+
+		master_window->is_active = false;
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_LOCALISATION_RU))
+	{
+		EString::active_localisation = Enums::LocalisationList::RU;
+
+		EString::load_localisation("RU");
+
+		for (EWindow* w : EControl::window_list)
+		{
+			w->update_localisation();
+		}
+
+		master_window->is_active = false;
 	}
 }
 

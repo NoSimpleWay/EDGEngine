@@ -173,7 +173,7 @@ bool collision_matrix[4096][4096][10];
 
 EGabarite* just_created_gabarite = NULL;
 
-std::vector<EWindow*> window_list;
+std::vector<EWindow*> EControl::window_list;
 
 EWindowFilterBlock* StaticData::window_filter_block = NULL;
 EWindowFindItem* StaticData::window_find_item = NULL;
@@ -184,6 +184,7 @@ EWindowMain* StaticData::window_main=NULL;
 EWindowFilterBlockSearch* StaticData::window_filter_block_search=NULL;
 EWindowLoadingScreen* StaticData::window_loading_screen=NULL;
 EWindowCreateNewLootFilter* StaticData::window_new_loot_filter=NULL;
+EWindowSelectLocalisation* StaticData::window_select_localisation =NULL;
 
 
 //0		-	1
@@ -474,68 +475,7 @@ void load_base_class()
 	}
 }
 
-void load_localisation(string _text)
-{
-	EString::localisation_key.clear();
-	EString::localisation_text.clear();
 
-	//ofstream myfile_open;
-	//myfile_open.open("gemor.txt");
-
-	ifstream myfile;
-	myfile.open("data/localisation/"+_text+".txt");
-	string line;
-
-	string subdata;
-	string subdata_array[4];
-
-	int line_id = 0;
-	int data_order;
-
-
-	//cout << EMath::rgb::r << endl;
-
-
-	while ((getline(myfile, line)) && (line_id < 1000))
-	{
-
-		data_order = 0;
-		subdata = "";
-
-		for (int i = 0; i < line.length(); i++)
-		{
-
-
-			if (line.at(i) != '\t')
-			{
-				subdata += line.at(i);
-			}
-
-			if ((line.at(i) == '\t') || (i + 1 >= line.length()))
-			{
-				subdata_array[data_order] = subdata;
-				subdata = "";
-				data_order++;
-			}
-
-		}
-
-
-			EString::localisation_key.push_back(subdata_array[0]);
-			EString::localisation_text.push_back(subdata_array[1]);
-
-			std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << subdata_array[1] << std::endl;
-		
-		line_id++;
-	}
-
-	int wtf = 0;
-	for (BaseClass* b : EString::base_class_list)
-	{
-		cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
-		wtf++;
-	}
-}
 
 void parse_item_data()
 {
@@ -1765,7 +1705,7 @@ int main()
 	parse_item_data();
 	load_base_class();
 	load_prophecy_list();
-	load_localisation("EN");
+	EString::load_localisation("EN");
 	//##################################
 	//##################################
 
@@ -1867,6 +1807,14 @@ int main()
 
 	put_texture_to_atlas("data/button_new.png");			DefaultGabarite::gabarite_button_new = just_created_gabarite;
 
+	put_texture_to_atlas("data/plus_circle.png");			DefaultGabarite::gabarite_plus_circle = just_created_gabarite;
+	put_texture_to_atlas("data/remove_circle.png");			DefaultGabarite::gabarite_remove_circle = just_created_gabarite;
+
+	put_texture_to_atlas("data/flag_EN.png");				DefaultGabarite::gabarite_flag_EN = just_created_gabarite;
+	put_texture_to_atlas("data/flag_RU.png");				DefaultGabarite::gabarite_flag_RU = just_created_gabarite;
+
+
+
 
 
 
@@ -1879,7 +1827,7 @@ int main()
 
 	StaticData::window_filter_block = new EWindowFilterBlock(0, false);
 	StaticData::window_filter_block->name = "Filter block";
-	window_list.push_back(StaticData::window_filter_block);
+	EControl::window_list.push_back(StaticData::window_filter_block);
 
 	
 	EString::load_loot_filter_list();
@@ -1888,19 +1836,19 @@ int main()
 
 	StaticData::window_add_new_base_data = new EWindowAddNewBaseData(1, true);
 	StaticData::window_add_new_base_data->name = "Add new base data to filter block";
-	window_list.push_back(StaticData::window_add_new_base_data);
+	EControl::window_list.push_back(StaticData::window_add_new_base_data);
 
 	StaticData::window_socket_group = new EWindowSocketGroup(2, true);
 	StaticData::window_socket_group->name = "Change socket colors";
-	window_list.push_back(StaticData::window_socket_group);
+	EControl::window_list.push_back(StaticData::window_socket_group);
 
 	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(3, true);
 	StaticData::window_filter_visual_editor->name = "Change colors and sounds";
-	window_list.push_back(StaticData::window_filter_visual_editor);
+	EControl::window_list.push_back(StaticData::window_filter_visual_editor);
 
 	StaticData::window_find_item = new EWindowFindItem(4, true);
 	StaticData::window_find_item->name = "Search item";
-	window_list.push_back(StaticData::window_find_item);
+	EControl::window_list.push_back(StaticData::window_find_item);
 
 	StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
 	StaticData::window_find_item->is_active = true;
@@ -1908,22 +1856,27 @@ int main()
 
 	StaticData::window_filter_block_search = new EWindowFilterBlockSearch(5, false);
 	StaticData::window_filter_block_search->name = "Search filter blocks";
-	window_list.push_back(StaticData::window_filter_block_search);
+	EControl::window_list.push_back(StaticData::window_filter_block_search);
 
 	StaticData::window_main = new EWindowMain(6, false);
 	StaticData::window_main->name = "Main window";
-	window_list.push_back(StaticData::window_main);
+	EControl::window_list.push_back(StaticData::window_main);
 
 	StaticData::window_loading_screen = new EWindowLoadingScreen(7, false);
 	StaticData::window_loading_screen->name = "Loading screen";
 	StaticData::window_loading_screen->item_count = ItemList::item_list.size();
-	window_list.push_back(StaticData::window_loading_screen);
+	EControl::window_list.push_back(StaticData::window_loading_screen);
 
 	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(8, true);
 	StaticData::window_new_loot_filter->name = "New loot-filter";
-	window_list.push_back(StaticData::window_new_loot_filter);
+	EControl::window_list.push_back(StaticData::window_new_loot_filter);
 
-	for (EWindow* w:window_list)
+
+	StaticData::window_select_localisation = new EWindowSelectLocalisation(9, false);
+	StaticData::window_select_localisation->name = "Select language";
+	EControl::window_list.push_back(StaticData::window_select_localisation);
+
+	for (EWindow* w:EControl::window_list)
 	{
 		w->update_localisation();
 	}
@@ -2033,12 +1986,12 @@ int main()
 
 		EButton::top_window_id = -1;
 
-		for (int i = 0; i < window_list.size(); i++)
+		for (int i = 0; i < EControl::window_list.size(); i++)
 		{
 			if (
-				(window_list.at(i)->is_overlap())
+				(EControl::window_list.at(i)->is_overlap())
 				&&
-				(window_list.at(i)->is_active)
+				(EControl::window_list.at(i)->is_active)
 				)
 			{
 				EButton::top_window_id = i;
@@ -2107,7 +2060,7 @@ int main()
 		int block_index = 0;
 
 
-		for (EWindow* w : window_list) 
+		for (EWindow* w : EControl::window_list)
 		{
 			if (w->is_active)
 			{

@@ -174,6 +174,69 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	}
 	;
 
+	void EString::load_localisation(std::string _text)
+	{
+		EString::localisation_key.clear();
+		EString::localisation_text.clear();
+
+		//ofstream myfile_open;
+		//myfile_open.open("gemor.txt");
+
+		ifstream myfile;
+		myfile.open("data/localisation/" + _text + ".txt");
+		string line;
+
+		string subdata;
+		string subdata_array[4];
+
+		int line_id = 0;
+		int data_order;
+
+
+		//cout << EMath::rgb::r << endl;
+
+
+		while ((getline(myfile, line)) && (line_id < 1000))
+		{
+
+			data_order = 0;
+			subdata = "";
+
+			for (int i = 0; i < line.length(); i++)
+			{
+
+
+				if (line.at(i) != '\t')
+				{
+					subdata += line.at(i);
+				}
+
+				if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+				{
+					subdata_array[data_order] = subdata;
+					subdata = "";
+					data_order++;
+				}
+
+			}
+
+
+			localisation_key.push_back(subdata_array[0]);
+			localisation_text.push_back(subdata_array[1]);
+
+			std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << subdata_array[1] << std::endl;
+
+			line_id++;
+		}
+
+		int wtf = 0;
+		for (BaseClass* b : base_class_list)
+		{
+			cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
+			wtf++;
+		}
+	}
+
 	std::string EString::icon_shape_name[6]
 	=
 	{
@@ -625,7 +688,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										{
 											class_button->data_id = i;
 
-											class_button->text = EString::base_class_list.at(i)->ru_name;
+											if (EString::active_localisation == Enums::LocalisationList::EN)
+											{class_button->text = EString::base_class_list.at(i)->base_name;}
+
+											if (EString::active_localisation == Enums::LocalisationList::RU)
+											{class_button->text = EString::base_class_list.at(i)->ru_name;}
 										}
 									}
 
@@ -682,15 +749,15 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									just_created_block->alert_sound_name = subdata;
 
-									if (subdata == "1") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_01; }
-									if (subdata == "2") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_02; }
-									if (subdata == "3") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_03; }
-									if (subdata == "4") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_04; }
-									if (subdata == "5") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_05; }
-									if (subdata == "6") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_06; }
-									if (subdata == "7") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_07; }
-									if (subdata == "8") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_08; }
-									if (subdata == "9") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_09; }
+									if (subdata == "01") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_01; }
+									if (subdata == "02") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_02; }
+									if (subdata == "03") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_03; }
+									if (subdata == "04") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_04; }
+									if (subdata == "05") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_05; }
+									if (subdata == "06") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_06; }
+									if (subdata == "07") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_07; }
+									if (subdata == "08") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_08; }
+									if (subdata == "09") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_09; }
 									if (subdata == "10") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_10; }
 									if (subdata == "11") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_11; }
 									if (subdata == "12") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_12; }
@@ -802,7 +869,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										//just_created_button->button_size_x = ItemList::item_list.at(item_id)->gabarite->size_x / 2.0f;
 										//just_created_button->button_size_y = ItemList::item_list.at(item_id)->gabarite->size_y / 2.0f;
 
-										just_created_button->description_text = ItemList::item_list.at(item_id)->item_name + " (" + ItemList::item_list.at(item_id)->item_name_ru + ")";
+										if (EString::active_localisation == Enums::LocalisationList::EN)
+										{just_created_button->description_text = ItemList::item_list.at(item_id)->item_name;}
+
+										if (EString::active_localisation == Enums::LocalisationList::RU)
+										{just_created_button->description_text = ItemList::item_list.at(item_id)->item_name_ru + " (" + ItemList::item_list.at(item_id)->item_name + ")";}
+
 										just_created_button->data_string = ItemList::item_list.at(item_id)->item_name;
 
 										if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
@@ -1167,7 +1239,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										{
 											prophecy_button->data_id = sr;
 
-											prophecy_button->text = EString::prophecy_list.at(sr)->ru_name;
+											if (EString::active_localisation == Enums::LocalisationList::EN)
+											{prophecy_button->text = EString::prophecy_list.at(sr)->base_name;}
+
+											if (EString::active_localisation == Enums::LocalisationList::RU)
+											{prophecy_button->text = EString::prophecy_list.at(sr)->ru_name;}
 										}
 									}
 

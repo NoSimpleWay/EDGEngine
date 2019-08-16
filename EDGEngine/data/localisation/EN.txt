@@ -112,3 +112,4 @@ hint_input_base_class_name	Input base class name
 hint_input_prophecy_name	Input prophecy name
 help_right_click_play_sound	Press right mouse button on button to play sound
 help_open_loot_filter_window	List of lootfilter's from "my games/Path of Exile"
+hint_input_filter_block_search	Search text

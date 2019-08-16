@@ -162,7 +162,12 @@ public:
 					{
 						button_list.at(search_count)->is_active = true;
 						button_list.at(search_count)->gabarite = item->gabarite;
-						button_list.at(search_count)->description_text = item->item_name + " (" + item->item_name_ru + ")";
+
+						if (EString::active_localisation == Enums::LocalisationList::EN)
+						{button_list.at(search_count)->description_text = item->item_name;}
+
+						if (EString::active_localisation == Enums::LocalisationList::RU)
+						{button_list.at(search_count)->description_text = item->item_name_ru+" ("+item->item_name+")";}
 
 						button_list.at(search_count)->data_string = item->item_name;
 
@@ -283,19 +288,17 @@ public:
 
 
 				if
+				(
+					(b->data_id >= 0)
+					&&
 					(
-						(
-							(EString::to_lower(b->text, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+							(EString::to_lower(EString::base_class_list.at(b->data_id)->base_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
 							||
-							(
-								(b->data_id >= 0)
-								&&
-								(EString::to_lower(EString::base_class_list.at(b->data_id)->ru_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
-							)
-						)
-						&&
-						(order > 0)
+							(EString::to_lower(EString::base_class_list.at(b->data_id)->ru_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
 					)
+					&&
+					(order > 0)
+				)
 				{
 					if ((search_count < EString::base_class_list.size()) && (search_count < 50))
 					{
@@ -338,13 +341,14 @@ public:
 			{
 				//std::cout << "item_list_name |" << item->item_name << "| button description |" <<  _b->text << "|" << std::endl;
 
+				//if (order >= 0) { std::cout << "search prophecy (order " << order << ") (value en " << EString::prophecy_list.at(order)->base_name << ") (input " << _b->text << ")" << std::endl; }
 
 				if
 					(
 						(order >= 0)
 						&&
 						(
-							(EString::to_lower(b->text, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+							(EString::to_lower(EString::prophecy_list.at(order)->base_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
 							||
 							(EString::to_lower(EString::prophecy_list.at(order)->ru_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
 						)
@@ -448,7 +452,7 @@ public:
 			}
 
 			input_button->is_input_mode_active = true;
-
+			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_ITEM;
 
 		}
 
@@ -496,6 +500,7 @@ public:
 				}
 			}
 
+			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_DEFAULT_SOUND;
 			input_button->is_input_mode_active = true;
 		}
 
@@ -537,6 +542,7 @@ public:
 				}
 			}
 
+			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_CUSTOM_SOUND;
 			input_button->is_input_mode_active = true;
 		}
 		
@@ -558,7 +564,11 @@ public:
 
 					if (data_index >= 1)
 					{
-						b->text = EString::base_class_list.at(data_index-1)->ru_name;
+						if (EString::active_localisation == Enums::LocalisationList::EN)
+						{b->text = EString::base_class_list.at(data_index-1)->base_name;}
+
+						if (EString::active_localisation == Enums::LocalisationList::RU)
+						{b->text = EString::base_class_list.at(data_index-1)->ru_name;}
 
 						b->data_string = EString::base_class_list.at(data_index - 1)->base_name;
 					}
@@ -584,6 +594,7 @@ public:
 				}
 			}
 
+			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS;
 			input_button->is_input_mode_active = true;
 		}
 
@@ -642,6 +653,7 @@ public:
 				}
 			}
 
+			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_PROPHECY;
 			input_button->is_input_mode_active = true;
 		}
 
@@ -665,6 +677,8 @@ public:
 	virtual void input_event(EButton* _b)
 	{
 		//std::cout << "to lower: " << to_lower(_b->text,true)<<" normal:"<<_b->text << std::endl;
+
+		std::cout << "search!" << std::endl;
 		fill_search_array(_b);
 
 
@@ -727,7 +741,7 @@ public:
 			}
 
 			input_button->is_input_mode_active = true;
-
+			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_LOOT_FILTER;
 		}
 
 		update_localisation();
@@ -749,6 +763,8 @@ public:
 		{
 			b->update_localisation();
 		}
+
+		input_button->update_localisation();
 
 		help_text = ""; 
 

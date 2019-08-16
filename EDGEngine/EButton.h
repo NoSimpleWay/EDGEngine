@@ -155,4 +155,6 @@ public:
 	bool slider_is_horizontal = true;
 
 	virtual void update_localisation();
+
+	bool input_auto_clear_text = false;
 };

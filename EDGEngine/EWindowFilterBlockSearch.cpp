@@ -127,7 +127,11 @@
 		}
 
 		cached_text_search = EString::localize_it("cached_text_search");
+
+		//input_button_link->update_localisation();
 	}
+
+
 
 
 

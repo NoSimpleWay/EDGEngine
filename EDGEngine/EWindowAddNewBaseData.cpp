@@ -174,6 +174,16 @@ public:
 				window_size_y += 23;
 			}
 		}*/
+
+		update_localisation();
 	}
 
+	virtual void update_localisation()
+	{
+		std::cout << "try update localisation (ECP button)!" << std::endl;
+		for (EButton* b : button_list)
+		{
+			b->update_localisation();
+		}
+	}
 };

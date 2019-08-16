@@ -10,6 +10,7 @@
 #include "EWindowMain.cpp"
 #include "EWindowLoadingScreen.cpp"
 #include "EWindowCreateNewLootFilter.h"
+#include "EWindowSelectLocalisation.cpp"
 
 
 
@@ -27,5 +28,6 @@ public:
 	static EWindowFilterBlockSearch* window_filter_block_search;
 	static EWindowLoadingScreen* window_loading_screen;
 	static EWindowCreateNewLootFilter* window_new_loot_filter;
+	static EWindowSelectLocalisation* window_select_localisation;
 
 };

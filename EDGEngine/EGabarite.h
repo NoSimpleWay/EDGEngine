@@ -67,10 +67,10 @@ public:
 
 	static EGabarite* gabarite_button_new;
 
+	static EGabarite* gabarite_plus_circle;
+	static EGabarite* gabarite_remove_circle;
 
-
-
-
-
+	static EGabarite* gabarite_flag_EN;
+	static EGabarite* gabarite_flag_RU;
 
 };

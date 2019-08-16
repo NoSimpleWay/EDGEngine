@@ -128,7 +128,7 @@
 		base_filter_data_active.push_back(false);
 		base_filter_data_bool.push_back(true);
 
-		EButton* but_remove = new EButtonRemove(0, 0, 17, 17, Enums::ButtonType::BUTTON_REMOVE_BASE_DATA);
+		EButton* but_remove = new EButtonRemove(0, 0, 19, 19, Enums::ButtonType::BUTTON_REMOVE_BASE_DATA);
 		but_remove->master_window = StaticData::window_filter_block;
 		but_remove->master_block = this;
 		but_remove->data_id = _id;
@@ -163,7 +163,7 @@
 		button_service->gabarite = DefaultGabarite::gabarite_undefined;*/
 
 		EButton*
-		but = new EButtonService(-35,-5,30,30,Enums::ButtonType::BUTTON_SYS_VISUAL_MODE);
+		but = new EButtonService(-155.0f - right_side_buttons_offset ,50.0f,30.0f,30.0f,Enums::ButtonType::BUTTON_SYS_VISUAL_MODE);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
@@ -177,7 +177,7 @@
 		
 
 
-		button_add_new_base_data = new EButtonPlusWide(0, 0, 17, 17,Enums::ButtonType::BUTTON_OPEN_BASE_DATA_WINDOW);
+		button_add_new_base_data = new EButtonPlusWide(0, 0, 19, 19,Enums::ButtonType::BUTTON_OPEN_BASE_DATA_WINDOW);
 
 		button_add_new_base_data->master_block = this;
 		button_add_new_base_data->master_window = StaticData::window_filter_block;
@@ -188,7 +188,7 @@
 
 
 
-		button_add_new_EPC = new EButtonPlusWide(0, 0, 17, 17, Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW);
+		button_add_new_EPC = new EButtonPlusWide(0, 0, 19, 19, Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW);
 		button_add_new_EPC->master_block = this;
 		button_add_new_EPC->master_window = StaticData::window_filter_block;
 		button_list.push_back(button_add_new_EPC);
@@ -306,27 +306,31 @@
 
 		button_list.push_back(remove_prophecy_button);
 
-		but = new EButtonService(-5.0f, -5.0f - 20.0f * 0.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_SHOW_HIDE);
+		but = new EButtonService(-150.0f, 55.0f - 20.0f * 0.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_SHOW_HIDE);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 
-		but = new EButtonService(-5.0f, -5.0f - 20.0f * 2.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP);
+
+
+		but = new EButtonService(-5.0f, 45.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 
-		but = new EButtonService(-5.0f, -5.0f - 20.0f * 3.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK);
+		but = new EButtonService(-5.0f, 25.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_PLUS_NEW_FILTER_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 
-		but = new EButtonService(-5.0f, -5.0f - 20.0f * 4.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN);
+		but = new EButtonService(-5.0f, 5.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 
-		but = new EButtonService(-5.0f, -5.0f - 20.0f * 6.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
+
+
+		but = new EButtonService(-130.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
@@ -464,7 +468,7 @@
 
 
 
-					base_filter_data_remove_buttons.at(i)->button_x = x - 5;
+					base_filter_data_remove_buttons.at(i)->button_x = x;
 					base_filter_data_remove_buttons.at(i)->button_y = size_y - data_y;
 
 
@@ -478,7 +482,7 @@
 				}
 			}
 
-			button_add_new_base_data->button_x = x-5;
+			button_add_new_base_data->button_x = x;
 			button_add_new_base_data->button_y = size_y - data_y;
 
 			//button_add_new_base_data->update(_d);
@@ -547,6 +551,9 @@
 
 			_batch->draw_rect_gabarite_custom_uv(x + offset_x, y + offset_y, orig_size_x, orig_size_y, DefaultGabarite::gabarite_elder_bg, move_x, move_y, 1000.0f - move_x, 300.0f - move_y);
 		}
+
+		_batch->setcolor_alpha(EColorCollection::BLACK, 0.25f);
+		_batch->draw_rama(x + 5.0f, y + 5.0f, 295.0f, size_y - 10.0f, 3.0f, DefaultGabarite::gabarite_white);
 
 		
 		
@@ -642,22 +649,33 @@
 
 			if (filter_block_items_button_list.at(i)->gabarite != NULL)
 			{
-				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 5;
+				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 8;
 
-				if (temp_pos_x + 50.0f > size_x - 260.0f)
+				if (temp_pos_x + 53.0f > size_x - 260.0f)
 				{
-					temp_pos_x = 310;
-					temp_pos_y += 50;
+					temp_pos_x = 310.0f;
+					temp_pos_y += 53.0f;
 
 					if (temp_pos_y + 105 > max_h) { max_h = temp_pos_y + 105; button_h_max = max_h; }
 				}
 			}
 		}
 
+
 		//max_h += 35;
 
 		button_plus->button_x = temp_pos_x;
 		button_plus->button_y = temp_pos_y;
+		temp_pos_x += 53.0f;
+		
+		for (int i = 0; i < 25; i++)
+		if (temp_pos_x + 53.0f < size_x - 260.0f)
+		{
+			_batch->setcolor_alpha(EColorCollection::WHITE, 0.1f);
+			_batch->draw_rect_with_uv(x + temp_pos_x, y + temp_pos_y, 45.0f, 45.0f, DefaultGabarite::gabarite_white);
+
+			temp_pos_x += 53.0f;
+		}
 
 		float ex_x = 310;
 		float ex_y = -10;
@@ -686,7 +704,7 @@
 					b->button_y = ex_y;
 
 					ex_x += b->button_size_x + 5;
-					if (b->button_x + b->button_size_x > size_x - 200.0f)
+					if (b->button_x + b->button_size_x > size_x - 270.0f)
 					{
 						ex_x = 310.0f;
 						ex_y -= 22.0f;
@@ -696,6 +714,10 @@
 
 				ex->button_add->button_x = ex_x;
 				ex->button_add->button_y = ex_y;
+
+				_batch->setcolor_alpha(EColorCollection::CYAN, 0.125f);
+				_batch->draw_rect_with_uv(ex->button_add->master_position_x, ex->button_add->master_position_y, size_x - ex->button_add->master_position_x - 270.0f, 20.0f, DefaultGabarite::gabarite_white);
+
 
 				ex_y -= 30.0f;
 				close_button_id++;
@@ -720,7 +742,7 @@
 				b->button_y = ex_y;
 
 				ex_x += b->button_size_x + 5;
-				if (b->button_x + b->button_size_x > size_x - 200.0f)
+				if (b->button_x + b->button_size_x > size_x - 270.0f)
 				{
 					ex_x = 310.0f;
 					ex_y -= 22.0f;
@@ -729,6 +751,10 @@
 
 			plus_class_button_link->button_x = ex_x;
 			plus_class_button_link->button_y = ex_y;
+
+			_batch->setcolor_alpha		(EColorCollection::GREEN, 0.1f);
+			_batch->draw_rect_with_uv(plus_class_button_link->master_position_x, plus_class_button_link->master_position_y, size_x - plus_class_button_link->master_position_x - 270.0f, 20.0f, DefaultGabarite::gabarite_white);
+
 
 			ex_y -= 30.0f;
 		}
@@ -749,7 +775,7 @@
 				b->button_y = ex_y;
 
 				ex_x += b->button_size_x + 5;
-				if (b->button_x + b->button_size_x > size_x - 200.0f)
+				if (b->button_x + b->button_size_x > size_x - 270.0f)
 				{
 					ex_x = 310.0f;
 					ex_y -= 22.0f;
@@ -759,15 +785,24 @@
 			plus_prophecy_button_link->button_x = ex_x;
 			plus_prophecy_button_link->button_y = ex_y;
 
+			_batch->setcolor_alpha(EColorCollection::PINK, 0.15f);
+			_batch->draw_rect_with_uv(plus_prophecy_button_link->master_position_x, plus_prophecy_button_link->master_position_y, size_x - plus_prophecy_button_link->master_position_x - 270.0f, 20.0f, DefaultGabarite::gabarite_white);
+
 			ex_y -= 30.0f;
 		}
 
 		button_add_new_EPC->button_x = 310;
 		button_add_new_EPC->button_y = ex_y;
+		max_h += 5;
 		if (-ex_y > 0)
 		{
 			max_h += (-ex_y);
 		}
+
+		
+		_batch->setcolor_alpha(EColorCollection::WHITE, 0.1f);
+		_batch->draw_rect_with_uv(button_add_new_EPC->master_position_x, button_add_new_EPC->master_position_y, size_x - button_add_new_EPC->master_position_x -270.0f, 20.0f, DefaultGabarite::gabarite_white);
+
 
 
 
@@ -790,7 +825,7 @@
 		{
 			if (base_filter_data_active.at(i))
 			{
-				_batch->setcolor_alpha(EColorCollection::WHITE, 0.17f);
+				_batch->setcolor_alpha(EColorCollection::WHITE, 0.35f);
 				_batch->draw_rect_with_uv(data_x - 150, y + size_y - data_y - 3, 185, 21, DefaultGabarite::gabarite_white);
 
 				EFont::font_arial->align_x = Enums::RIGHT;
@@ -822,6 +857,8 @@
 			}
 		}
 
+
+
 		if (remove_timer < 0)
 		{
 			for (EButton* b : button_list) { if (b->is_active) { b->default_draw(_batch); } }
@@ -836,12 +873,15 @@
 
 		if (remove_timer > 0)
 		{
-			_batch->setcolor_alpha(EColorCollection::RED, 0.9);
+			_batch->setcolor_alpha(EColorCollection::RED, 0.8);
 			_batch->draw_rect_with_uv(x, y, size_x * (1.0f - remove_timer / 3.0f), size_y, DefaultGabarite::gabarite_white);
 		}
 
 		if (link_to_cancel_remove_button->is_active)
 		{link_to_cancel_remove_button->default_draw(_batch);}
+
+		_batch->setcolor_alpha(EColorCollection::WHITE, 0.5f);
+		_batch->draw_rama(x, y, size_x, size_y, 3.0f, DefaultGabarite::gabarite_white);
 	}
 
 	void FilterBlock::add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)
@@ -1079,5 +1119,7 @@
 		base_filter_data_name.at(18) = EString::localize_it("base_data_text_fractured");
 		base_filter_data_name.at(19) = EString::localize_it("base_data_text_enchanted");
 		base_filter_data_name.at(20) = EString::localize_it("base_data_text_identified");
+
+		link_to_cancel_remove_button->update_localisation();
 	}
 

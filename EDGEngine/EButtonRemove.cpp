@@ -31,11 +31,13 @@ EButtonRemove::EButtonRemove(float _x, float _y, float _sx, float _sy, Enums::Bu
 
 	have_text = false;
 	have_icon = true;
-	have_rama = true;
+	have_rama = false;
+	have_bg = false;
+
 	is_drop_list = false;
 	can_be_removed = false;
 
-	gabarite = DefaultGabarite::gabarite_remove;
+	gabarite = DefaultGabarite::gabarite_remove_circle;
 
 	rama_thikness = 1;
 

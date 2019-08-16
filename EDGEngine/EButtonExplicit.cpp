@@ -31,7 +31,7 @@ EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums
 		
 	}
 
-
+	input_auto_clear_text = true;
 
 	master_position = Enums::PositionMaster::FILTER_BLOCK;
 

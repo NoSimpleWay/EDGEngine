@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+#include "EWindow.h"
 class EControl
 {
 public:
@@ -20,4 +22,6 @@ public:
 	static char last_inputed_char;
 
 	static float delete_button_hold_time;
+
+	static std::vector<EWindow*> window_list;
 };

@@ -24,6 +24,8 @@ EButtonInputBaseData::EButtonInputBaseData(float _x, float _y, float _sx, float 
 
 	rama_color->set(0.2f,0.1f,0.05f,0.55f);
 
+
+
 }
 
 void EButtonInputBaseData::click_event()

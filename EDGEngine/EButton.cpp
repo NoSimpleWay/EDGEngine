@@ -151,7 +151,7 @@
 
 			if (position_mode_y == Enums::PositionMode::UP) { master_position_y = master_block->y + button_y+master_block->size_y-button_size_y; }
 			if (position_mode_y == Enums::PositionMode::DOWN) { master_position_y = master_block->y + button_y; }
-			if (position_mode_y == Enums::PositionMode::MID) { master_position_y = master_block->y + (master_block->size_y - button_size_y) / 2.0f; }
+			if (position_mode_y == Enums::PositionMode::MID) { master_position_y = master_block->y + (master_block->size_y - button_size_y) / 2.0f + button_y; }
 
 
 		}
@@ -213,6 +213,7 @@
 
 			if ((have_input_mode) && (!is_input_mode_active))
 			{
+				if (input_auto_clear_text) { text = ""; }
 				is_input_mode_active = true;
 			}
 
@@ -258,7 +259,11 @@
 					(is_number(EControl::last_inputed_char))
 				)
 				&&
-				(text.length() * 10.0f + 10.0f < button_size_x)
+				(
+					(text.length() * 10.0f + 10.0f < button_size_x)
+					||
+					(dynamic_input_width)
+				)
 			)
 			{
 				text += EControl::last_inputed_char;
@@ -410,13 +415,13 @@
 			if (text != "")
 			{
 				_batch->setcolor(0.0f, 0.0f, 0.0f, 0.75f);
-				EFont::font_arial->draw(_batch, text, master_position_x + 2+added_x, master_position_y + round((button_size_y-20.0f)/2.0f+3.0f));
+				EFont::font_arial->draw(_batch, text, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y-20.0f)/2.0f + 4.0f));
 			}
 
 			if ((text == "")&&(input_hint!=""))
 			{
 				_batch->setcolor(0.5f, 0.5f, 0.5f, 1.0f);
-				EFont::font_arial->draw(_batch, input_hint, master_position_x + 2+added_x, master_position_y + round((button_size_y - 20.0f) / 2.0f + 3.0f));
+				EFont::font_arial->draw(_batch, input_hint, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y - 20.0f) / 2.0f + 4.0f));
 			}
 
 			if (is_input_mode_active)
@@ -424,9 +429,7 @@
 				if (flash_line_active)
 				{
 					_batch->setcolor(EColorCollection::BLACK);
-					_batch->draw_rect_with_uv(master_position_x + 2 + EFont::get_width(EFont::font_arial,text)+added_x, master_position_y + (button_size_y - 20.0f) / 2.0f + 3.0f, 3, 17, DefaultGabarite::gabarite_white);
-
-
+					_batch->draw_rect_with_uv(master_position_x + 3.0f + EFont::get_width(EFont::font_arial,text)+added_x, master_position_y + (button_size_y - 20.0f) / 2.0f + 4.0f, 3.0f, 17, DefaultGabarite::gabarite_white);
 				}
 			}
 		}

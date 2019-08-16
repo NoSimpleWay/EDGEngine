@@ -10,14 +10,14 @@ EButtonPlusWide::EButtonPlusWide(float _x, float _y, float _sx, float _sy, Enums
 	text_align_x = Enums::PositionMode::MID;
 
 	
-
+	have_bg = false;
 	have_text = false;
 	have_icon = true;
-	have_rama = true;
+	have_rama = false;
 	is_drop_list = false;
 	can_be_removed = false;
 
-	gabarite = DefaultGabarite::gabarite_plus;
+	gabarite = DefaultGabarite::gabarite_plus_circle;
 
 	rama_thikness = 1;
 

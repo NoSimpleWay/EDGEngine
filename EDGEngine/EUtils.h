@@ -53,6 +53,8 @@ public:
 	static std::string upper_charset;
 	static std::string lower_charset;
 
+	static void load_localisation(std::string _text);
+
 	static std::string to_lower(std::string _s, bool _b);
 
 	static std::string path_to_poe_folder;

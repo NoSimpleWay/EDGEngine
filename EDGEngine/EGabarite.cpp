@@ -66,3 +66,11 @@ EGabarite* DefaultGabarite::gabarite_background = NULL;
 
 EGabarite* DefaultGabarite::gabarite_button_new = NULL;
 
+EGabarite* DefaultGabarite::gabarite_plus_circle = NULL;
+EGabarite* DefaultGabarite::gabarite_remove_circle = NULL;
+
+EGabarite* DefaultGabarite::gabarite_flag_EN = NULL;
+EGabarite* DefaultGabarite::gabarite_flag_RU = NULL;
+
+
+
