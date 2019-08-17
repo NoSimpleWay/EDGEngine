@@ -135,6 +135,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	std::vector<irrklang::ISoundSource*> ESound::default_drop_sound;
 	std::vector<irrklang::ISoundSource*> ESound::custom_drop_sound;
 
+	irrklang::ISoundSource* ESound::flip_sound;
+
 	std::vector < std::string > ESound::default_drop_sound_name;
 	std::vector < std::string > ESound::default_drop_sound_original_name;
 
@@ -222,7 +224,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 
 			localisation_key.push_back(subdata_array[0]);
-			localisation_text.push_back(subdata_array[1]);
+
+			localisation_text.push_back(to_cyrillic(subdata_array[1]));
 
 			std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << subdata_array[1] << std::endl;
 
@@ -234,6 +237,163 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		{
 			cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
 			wtf++;
+		}
+	}
+
+	void EString::load_loot_pattern(std::string _text)
+	{
+		StaticData::window_loot_simulator->pattern_item_list.clear();
+
+		LootPatternItem* just_created_pattern_item;
+
+		//ofstream myfile_open;
+		//myfile_open.open("gemor.txt");
+
+		ifstream myfile;
+		myfile.open("data/loot simulator/pattern/" + _text + ".txt");
+		string line;
+
+		string subdata;
+		string subdata_array[30];
+
+		int line_id = 0;
+		int data_order;
+
+
+		//cout << EMath::rgb::r << endl;
+
+
+		while ((getline(myfile, line)) && (line_id < 1000))
+		{
+			just_created_pattern_item = new LootPatternItem();
+			StaticData::window_loot_simulator->pattern_item_list.push_back(just_created_pattern_item);
+
+			std::cout << "LOOT pattern element push!" << std::endl;
+
+			data_order = 0;
+			subdata = "";
+
+			for (int i = 0; i < line.length(); i++)
+			{
+				if (line.at(i) != '\t')
+				{
+					subdata += line.at(i);
+				}
+
+				if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+				{
+					subdata_array[data_order] = subdata;
+					subdata = "";
+					data_order++;
+				}
+			}
+
+			for (int i = 0; i < 10; i++)
+			{
+				if (EString::to_lower(subdata_array[i * 2], false) == "item name")
+				{
+					just_created_pattern_item->item_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "class")
+				{
+					just_created_pattern_item->item_class = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "legacy")
+				{
+					just_created_pattern_item->is_legacy = true;
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "quality_min")
+				{
+					just_created_pattern_item->min_quality = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "quality_max")
+				{
+					just_created_pattern_item->max_quality = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "links_min")
+				{
+					just_created_pattern_item->min_links = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "links_max")
+				{
+					just_created_pattern_item->max_links = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "red_sockets_weight")
+				{
+					just_created_pattern_item->red_weight = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "green_sockets_weight")
+				{
+					just_created_pattern_item->green_weight = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "blue_sockets_weight")
+				{
+					just_created_pattern_item->blue_weight = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "white_sockets_weight")
+				{
+					just_created_pattern_item->white_weight = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "sockets_min")
+				{
+					just_created_pattern_item->min_sockets = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "sockets_max")
+				{
+					just_created_pattern_item->max_sockets = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "prophecy_name")
+				{
+					just_created_pattern_item->prophecy_name = subdata_array[i * 2 + 1];
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "rarity_min")
+				{
+					if (subdata_array[i * 2 + 1] == EString::to_lower("normal", false)) { just_created_pattern_item->min_rarity = 0; }
+					if (subdata_array[i * 2 + 1] == EString::to_lower("magic", false)) { just_created_pattern_item->min_rarity = 1; }
+					if (subdata_array[i * 2 + 1] == EString::to_lower("rare", false)) { just_created_pattern_item->min_rarity = 2; }
+					if (subdata_array[i * 2 + 1] == EString::to_lower("unique", false)) { just_created_pattern_item->min_rarity = 3; }
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "rarity_max")
+				{
+					if (subdata_array[i * 2 + 1] == EString::to_lower("normal", false)) { just_created_pattern_item->max_rarity = 0; }
+					if (subdata_array[i * 2 + 1] == EString::to_lower("magic", false)) { just_created_pattern_item->max_rarity = 1; }
+					if (subdata_array[i * 2 + 1] == EString::to_lower("rare", false)) { just_created_pattern_item->max_rarity = 2; }
+					if (subdata_array[i * 2 + 1] == EString::to_lower("unique", false)) { just_created_pattern_item->max_rarity = 3; }
+				}
+			}
+			
+
+			line_id++;
 		}
 	}
 
@@ -411,6 +571,22 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		}
 
 		return _text;
+	}
+
+	std::string EString::to_cyrillic(std::string _text)
+	{
+		char sInvalid[1024];
+		strcpy_s(sInvalid, _text.c_str());
+		//комментарии
+
+		int size = strlen(sInvalid) + 1;
+		wchar_t* wsValid = new wchar_t[size];
+		char* sValid = new char[size];
+
+		MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
+		WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
+
+		return sValid;
 	}
 
 	void EFile::parse_loot_filter_data(std::string _path)
@@ -749,15 +925,15 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									just_created_block->alert_sound_name = subdata;
 
-									if (subdata == "01") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_01; }
-									if (subdata == "02") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_02; }
-									if (subdata == "03") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_03; }
-									if (subdata == "04") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_04; }
-									if (subdata == "05") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_05; }
-									if (subdata == "06") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_06; }
-									if (subdata == "07") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_07; }
-									if (subdata == "08") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_08; }
-									if (subdata == "09") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_09; }
+									if ((subdata == "01") || (subdata == "1")) { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_01; }
+									if ((subdata == "02") || (subdata == "2")) { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_02; }
+									if ((subdata == "03") || (subdata == "3")) { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_03; }
+									if ((subdata == "04") || (subdata == "4")) { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_04; }
+									if ((subdata == "05") || (subdata == "5")) { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_05; }
+									if ((subdata == "06") || (subdata == "6")) { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_06; }
+									if ((subdata == "07") || (subdata == "7")) { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_07; }
+									if ((subdata == "08") || (subdata == "8")) { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_08; }
+									if ((subdata == "09") || (subdata == "9")) { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_09; }
 									if (subdata == "10") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_10; }
 									if (subdata == "11") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_11; }
 									if (subdata == "12") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_12; }
@@ -776,6 +952,14 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									if (subdata == "ShMirror") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_MIRROR; }
 									if (subdata == "ShRegal") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_REGAL; }
 									if (subdata == "ShVaal") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_VAAL; }
+
+									if (just_created_block->alert_sound_id == Enums::DefaultAlertSound::SOUND_NONE)
+									{
+										cout << red << "=================================================" << endl;
+										cout << red << "ERROR: undefined sound id: " << yellow << "" << subdata << endl;
+										cout << red << "=================================================" << endl << white;
+									}
+									error_counts++;
 								}
 
 								if (data_order == 2) { if (show_info_to_console) { cout << "set alert sound volume <" << subdata << ">" << endl; } just_created_block->alert_sound_volume = std::stoi(subdata); }
@@ -1296,6 +1480,14 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 		std::cout << "try update localisation" << std::endl;
 		StaticData::window_filter_block->update_localisation();
+
+		StaticData::window_loot_simulator->manual_event();
+		StaticData::window_loot_simulator->is_active = true;
+
+		for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
+		{
+			StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;
+		}
 	}
 
 	void EFile::save_filter(std::string _path)

@@ -16,13 +16,14 @@ public:
 
 		window_size_x = 700;
 		window_size_y = 400;
+		
 
-		EButton* but = new EButtonService(-373.0f, 0.0f, 333.0f, 333.0f, Enums::ButtonType::BUTTON_LOCALISATION_EN);
+		EButton* but = new EButtonService(-333.0f / 2.0f - 10.0f, 0.0f, 333.0f, 333.0f, Enums::ButtonType::BUTTON_LOCALISATION_EN);
 		but->master_window = this;
 		but->master_position = Enums::PositionMaster::WINDOW;
 		button_list.push_back(but);
 
-		but = new EButtonService(-20.0f, 0.0f, 333.0f, 333.0f, Enums::ButtonType::BUTTON_LOCALISATION_RU);
+		but = new EButtonService(333.0f / 2.0f + 10.0f, 0.0f, 333.0f, 333.0f, Enums::ButtonType::BUTTON_LOCALISATION_RU);
 		but->master_window = this;
 		but->master_position = Enums::PositionMaster::WINDOW;
 		button_list.push_back(but);

@@ -99,6 +99,8 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		rama_thikness = 1.0f;
 		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP)
@@ -155,11 +157,17 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 	if (button_type == Enums::ButtonType::BUTTON_LOCALISATION_EN)
 	{
+		position_mode_x = Enums::PositionMode::MID;
+		position_mode_y = Enums::PositionMode::MID;
+
 		gabarite = DefaultGabarite::gabarite_flag_EN;
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_LOCALISATION_RU)
 	{
+		position_mode_x = Enums::PositionMode::MID;
+		position_mode_y = Enums::PositionMode::MID;
+
 		gabarite = DefaultGabarite::gabarite_flag_RU;
 	}
 }
@@ -274,6 +282,9 @@ void EButtonService::click_event()
 			StaticData::window_filter_block->filter_block_list.begin() + StaticData::window_filter_block->get_id_of_filter_block(master_block),
 			fb
 		);
+
+		for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
+		{StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;}
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP))
@@ -289,6 +300,9 @@ void EButtonService::click_event()
 
 			master_block->highlight_time = 0.5f;
 		}
+
+		for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
+		{StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;}
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN))
@@ -304,6 +318,9 @@ void EButtonService::click_event()
 
 			master_block->highlight_time = 0.5f;
 		}
+
+		for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
+		{StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;}
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_REMOVE_BLOCK))

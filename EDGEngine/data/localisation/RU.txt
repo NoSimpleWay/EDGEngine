@@ -1,0 +1,115 @@
+button_text_increase_value	Увеличить значение
+button_text_decrease_value	Уменьшить значение
+button_text_close_window	Закрыть окно
+rarity_name_normal	Обычный
+rarity_name_magic	Магич.
+rarity_name_rare	Редкий
+rarity_name_unique	Уник.
+name_of_suffix/prefix	Название суффикса/префикса
+name_of_class	Название класса
+name_of_prophecy	Название пророчества
+press_me	=Нажми меня=
+open_loot_filter	Октрыть лут-фильтр
+save_loot_filter	Сохранить лут фильтр
+create_new_loot_filter	Создать новый лут-фильтр
+text_hue	Цветовой тон
+text_saturation	Насыщенность
+text_brightness	Яркость
+text_alpha	Прозрачность
+text_font_size	Оазмер шрифта
+text_sound_volume	Громкость звуков
+text_scroll	Прокрутка
+text_default_sound	Стандартный звук
+description_default_sound	Выбрать один звуков, поставляемых вместе с игрой
+text_custom_sound	Пользовательский звук
+desciption_custom_sound	Выбрать пользовательский звук из папки "my games/Path of Exile"
+button_add_explicit_group	Список суффиксов/префиксов
+description_add_explicit_group	Добавить новый список суффиксов/префиксов
+button_activate_class	Список классов
+description_activate_class	Добавить список классов предметов (сапоги, двуручное оружие, валюта и т.д.)
+button_activate_prophecy	Список пророчеств
+description_activate_prophecy	Добавить список названия пророчеств
+button_new_filter_item	Добавить новый предмет
+description_button_visual_mode	Настроить цвета, звуки, размер шрифта
+description_play_sound	Воспроизвести звук дропа
+description_new_base_data_vertical_list	Добавить параметр блока (редкость, уровень, количетсво связей и т.д.)
+description_new_EPC	Добавить новый суффикс/префикс, класс, или пророчество
+base_data_text_rarity	Редкость
+base_data_text_level	Уровень
+base_data_text_req_level	Требуемый уровень
+base_data_text_sockets	Гнёзда
+base_data_text_links	Связи
+base_data_text_sockets_colour	Цвета гнёзд
+base_data_text_quality	Качество
+base_data_text_gem_level	Уровень камня
+base_data_text_map_tier	Тир карты
+base_data_text_shaper_map	Карта Шейпера
+base_data_text_elder_map	Карта Древнего
+base_data_text_height	Высота предмета
+base_data_text_width	Ширина предмета
+base_data_text_quantity	Количество
+base_data_text_corrupted	Осквернённый
+base_data_text_shaper_item	Предмет Шейпера
+base_data_text_elder_item	Предмет Древнего
+base_data_text_synthesis	Синтезированный
+base_data_text_fractured	Расколотый
+base_data_text_enchanted	Имеет зачарование
+base_data_text_identified	Опознанный
+description_remove_explicit_group	Удалить список префиксов/суффиксов
+description_add_new_explicit_group_list	Добавить список суффиксов/префиксов
+description_add_new_class	Добавить класс в список (перчатки, карты, валюта и т.д.)
+description_add_new_prophecy	Добавить пророчество в список
+description_remove_class	Удалить список классов
+description_remove_prophecies	Удалить список пророчеств
+description_show_hide_block	Показать/скрыть
+description_raise_block	Поднять блок выше
+description_lower_block	Опустить блок ниже
+description_add_new_filter_block	Добавить новый блок
+description_remove_block	УДАЛИТЬ блок
+description_click_to_edit	Нажмите для редактирования
+description_new_base_data	Добавить параметр блока (редкость, уровень, количетсво связей и т.д.)
+button_set_ray_is_tempotary	Временный луч
+description_tempotary_ray	Сделать луч временным
+button_add_explicit_group	Добавить суффикс/префикс
+description_add_explicit_group	Добавить список суффиксов/префиксов
+button_set_ray_is_constant	Постоянный луч
+description_set_ray_is_constant	Сделать луч постоянным
+button_cancel_remove_filter_block	ОТМЕНИТЬ УДАЛЕНИЕ!
+description_cancel_remove_filter_block	Отменяет удаление
+description_new_loot_filter_name	Название нового лут-фильтра
+hint_new_loot_filter_name	Придумайте название
+button_new_loot_filter_ok	ОК
+description_new_loot_filter_ok	Создать новый лут-фильтр
+description_minimap_icon_select_shape	Выбрать форму иконки миникарты
+description_minimap_icon_select_color	Выбрать цвет иконки миникарты
+description_minimap_icon_select_size	Выбрать размер иконки миникарты
+text_minimap_icon_select_size_big	Большой
+description_minimap_icon_select_size_big	Большой размер иконки
+text_minimap_icon_select_size_medium	Средний
+description_minimap_icon_select_size_medium	Средний размер иконки
+text_minimap_icon_select_size_small	Маленький
+description_minimap_icon_select_size_small	Маленький размер иконки
+description_set_ray_color	Цвет луча
+description_set_ray_deactivate	Отключить луч
+text_border_color	Цвет рамки
+text_text_color	Цвет текста
+text_bg_color	Цвет фона
+text_text_size	Размер шрифта
+description_increase_red_socket	Увеличить число красных гнёзд
+description_increase_green_socket	Увеличить число зелёных гнёзд
+description_increase_blue_socket	Увеличить число синих гнёзд
+description_increase_white_socket	Увеличить число белых гнёзд
+description_decrease_red_socket	Увеличить число красных гнёзд
+description_decrease_green_socket	Уменьшить число зелёных гнёзд
+description_decrease_blue_socket	Уменьшить число синих гнёзд
+description_decrease_white_socket	Уменьшить число белых гнёзд
+description_scroll	Значение прокрутки
+hint_input_search_item	Введите название предмета
+cached_text_search	Поиск
+hint_default_sound	Введите название звука
+hint_custom_sound	Введите название звука
+hint_input_base_class_name	Введите название класса
+hint_input_prophecy_name	Введите название пророчества
+help_right_click_play_sound	Нажмите правую кнопку мыши для воспроизведения
+help_open_loot_filter_window	Список лут-фильтров из "my games/Path of Exile"
+hint_input_filter_block_search	Поиск по тексту

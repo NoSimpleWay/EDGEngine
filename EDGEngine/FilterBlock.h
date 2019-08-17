@@ -246,4 +246,6 @@ public:
 	bool need_remove = false;
 
 	EButton* link_to_cancel_remove_button;
+
+	int order_id;
 };

@@ -35,6 +35,8 @@ public:
 	static std::vector<irrklang::ISoundSource*> default_drop_sound;
 	static std::vector<irrklang::ISoundSource*> custom_drop_sound;
 
+	static irrklang::ISoundSource* flip_sound;
+
 	static std::vector<std::string> default_drop_sound_name;
 	static std::vector<std::string> default_drop_sound_original_name;
 
@@ -54,6 +56,7 @@ public:
 	static std::string lower_charset;
 
 	static void load_localisation(std::string _text);
+	static void load_loot_pattern(std::string _text);
 
 	static std::string to_lower(std::string _s, bool _b);
 
@@ -86,6 +89,8 @@ public:
 	static std::string localize_it(std::string _text);
 
 	static Enums::LocalisationList active_localisation;
+
+	static std::string to_cyrillic(std::string _text);
 };
 
 class EFile

@@ -11,6 +11,7 @@
 #include "EWindowLoadingScreen.cpp"
 #include "EWindowCreateNewLootFilter.h"
 #include "EWindowSelectLocalisation.cpp"
+#include "EWindowLootSimulator.h"
 
 
 
@@ -29,5 +30,6 @@ public:
 	static EWindowLoadingScreen* window_loading_screen;
 	static EWindowCreateNewLootFilter* window_new_loot_filter;
 	static EWindowSelectLocalisation* window_select_localisation;
+	static EWindowLootSimulator* window_loot_simulator;
 
 };

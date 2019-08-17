@@ -68,12 +68,12 @@ description_add_new_filter_block	And new filter block
 description_remove_block	REMOVE block
 description_click_to_edit	Click to edir
 description_new_base_data	Add new base filter block data (rarity, itemlevel, etc.)
-button_set_ray_is_tempotary	Tempotary ray
-description_tempotary_ray	Set loot ray is tempotary
+button_set_ray_is_tempotary	Temporary ray
+description_tempotary_ray	Make loot ray temporary
 button_add_explicit_group	Add explicit group
 description_add_explicit_group	Add new group of suffixes/prefixes
 button_set_ray_is_constant	Constant ray
-description_set_ray_is_constant	Set ray is constant
+description_set_ray_is_constant	Make ray constant
 button_cancel_remove_filter_block	Cancel removing!
 description_cancel_remove_filter_block	Cancel remove block process
 description_new_loot_filter_name	Input name of loot filter
@@ -84,11 +84,11 @@ description_minimap_icon_select_shape	Select minimap icon shape
 description_minimap_icon_select_color	Select minimap icon color
 description_minimap_icon_select_size	Select minimap icon size
 text_minimap_icon_select_size_big	Big
-description_minimap_icon_select_size_big	Set minimap icon size as big
+description_minimap_icon_select_size_big	Make minimap icon size big
 text_minimap_icon_select_size_medium	Medium
-description_minimap_icon_select_size_medium	Set minimap icon size as medium
+description_minimap_icon_select_size_medium	Make minimap icon size medium
 text_minimap_icon_select_size_small	Small
-description_minimap_icon_select_size_small	Set minimap icon size as small
+description_minimap_icon_select_size_small	Make minimap icon size small
 description_set_ray_color	Set ray color
 description_set_ray_deactivate	Deactivate loot ray
 text_border_color	Border color

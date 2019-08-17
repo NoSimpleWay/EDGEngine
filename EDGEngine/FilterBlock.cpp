@@ -882,6 +882,10 @@
 
 		_batch->setcolor_alpha(EColorCollection::WHITE, 0.5f);
 		_batch->draw_rama(x, y, size_x, size_y, 3.0f, DefaultGabarite::gabarite_white);
+
+		EFont::font_arial->set_align_once(Enums::PositionMode::RIGHT);
+		_batch->setcolor_alpha(EColorCollection::WHITE, 0.8f);
+		EFont::font_arial->draw(_batch, "#" + std::to_string(order_id), x + size_x -5.0f, y+size_y - 25.0f);
 	}
 
 	void FilterBlock::add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)

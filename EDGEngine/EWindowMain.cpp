@@ -5,6 +5,8 @@
 class EWindowMain : public EWindow
 {
 public:
+	std::string cached_text_sound_volume;
+
 	EWindowMain(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 		EButton*	but = new EButtonService(5, -5, 30, 30, Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_WINDOW);
@@ -41,12 +43,14 @@ public:
 		_batch->setcolor_alpha(EColorCollection::BLACK, 0.8f);
 		EFont::font_arial->set_align_once(Enums::PositionMode::RIGHT);
 
-		EFont::font_arial->draw(_batch, "Громкость звуков", window_size_x - 270, pos_y + window_size_y - 22.0f);
+		EFont::font_arial->draw(_batch, cached_text_sound_volume, window_size_x - 270, pos_y + window_size_y - 22.0f);
 	}
 
 	virtual void update_localisation()
 	{
 		for (EButton* b : button_list)
 		{b->update_localisation();}
+
+		cached_text_sound_volume = EString::localize_it("text_sound_volume");
 	}
 };

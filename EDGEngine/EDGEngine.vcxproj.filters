@@ -165,6 +165,12 @@
     <ClCompile Include="EWindowSelectLocalisation.cpp">
       <Filter>Source Files\windows</Filter>
     </ClCompile>
+    <ClCompile Include="EWindowLootSimulator.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="LootItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -306,6 +312,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LootItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EWindowLootSimulator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LootPatternItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

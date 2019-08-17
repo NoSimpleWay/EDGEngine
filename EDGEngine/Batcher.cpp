@@ -565,3 +565,8 @@ void Batcher::draw_rect_gabarite_custom_uv(float _x, float _y, float _w, float _
 
 	id += 32;
 }
+
+void Batcher::draw_simple_rect(float _x, float _y, float _size_x, float _size_y)
+{
+	draw_rect_with_uv(_x, _y, _size_x, _size_y, DefaultGabarite::gabarite_white);
+}

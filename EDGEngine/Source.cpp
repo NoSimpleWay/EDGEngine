@@ -185,6 +185,7 @@ EWindowFilterBlockSearch* StaticData::window_filter_block_search=NULL;
 EWindowLoadingScreen* StaticData::window_loading_screen=NULL;
 EWindowCreateNewLootFilter* StaticData::window_new_loot_filter=NULL;
 EWindowSelectLocalisation* StaticData::window_select_localisation =NULL;
+EWindowLootSimulator* StaticData::window_loot_simulator =NULL;
 
 
 //0		-	1
@@ -1462,6 +1463,8 @@ int main()
 		sound_order++;
 	}
 
+	ESound::flip_sound = ESound::engine->addSoundSourceFromFile("data/sound/flippy.wav");
+
 
 
 
@@ -1706,6 +1709,7 @@ int main()
 	load_base_class();
 	load_prophecy_list();
 	EString::load_localisation("EN");
+	
 	//##################################
 	//##################################
 
@@ -1842,11 +1846,23 @@ int main()
 	StaticData::window_socket_group->name = "Change socket colors";
 	EControl::window_list.push_back(StaticData::window_socket_group);
 
-	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(3, true);
+
+
+
+	StaticData::window_loot_simulator = new EWindowLootSimulator(3, true);
+	StaticData::window_loot_simulator->name = "Loot simulator";
+	EControl::window_list.push_back(StaticData::window_loot_simulator);
+
+
+	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(4, true);
 	StaticData::window_filter_visual_editor->name = "Change colors and sounds";
 	EControl::window_list.push_back(StaticData::window_filter_visual_editor);
 
-	StaticData::window_find_item = new EWindowFindItem(4, true);
+
+
+
+
+	StaticData::window_find_item = new EWindowFindItem(5, true);
 	StaticData::window_find_item->name = "Search item";
 	EControl::window_list.push_back(StaticData::window_find_item);
 
@@ -1854,32 +1870,35 @@ int main()
 	StaticData::window_find_item->is_active = true;
 	StaticData::window_find_item->manual_event();
 
-	StaticData::window_filter_block_search = new EWindowFilterBlockSearch(5, false);
+	StaticData::window_filter_block_search = new EWindowFilterBlockSearch(6, false);
 	StaticData::window_filter_block_search->name = "Search filter blocks";
 	EControl::window_list.push_back(StaticData::window_filter_block_search);
 
-	StaticData::window_main = new EWindowMain(6, false);
+	StaticData::window_main = new EWindowMain(7, false);
 	StaticData::window_main->name = "Main window";
 	EControl::window_list.push_back(StaticData::window_main);
 
-	StaticData::window_loading_screen = new EWindowLoadingScreen(7, false);
+	StaticData::window_loading_screen = new EWindowLoadingScreen(8, false);
 	StaticData::window_loading_screen->name = "Loading screen";
 	StaticData::window_loading_screen->item_count = ItemList::item_list.size();
 	EControl::window_list.push_back(StaticData::window_loading_screen);
 
-	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(8, true);
+	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(9, true);
 	StaticData::window_new_loot_filter->name = "New loot-filter";
 	EControl::window_list.push_back(StaticData::window_new_loot_filter);
 
 
-	StaticData::window_select_localisation = new EWindowSelectLocalisation(9, false);
+	StaticData::window_select_localisation = new EWindowSelectLocalisation(10, false);
 	StaticData::window_select_localisation->name = "Select language";
 	EControl::window_list.push_back(StaticData::window_select_localisation);
+
 
 	for (EWindow* w:EControl::window_list)
 	{
 		w->update_localisation();
 	}
+
+	EString::load_loot_pattern("important items");
 
 	batch->reset();
 

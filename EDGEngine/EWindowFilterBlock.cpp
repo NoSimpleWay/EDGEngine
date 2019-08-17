@@ -60,6 +60,7 @@
 
 		int additional_scroll = 0;
 
+		bool remove_action = false;
 		for (int i = 0; i < filter_block_list.size(); i++)
 		{
 			if (filter_block_list.at(i)->need_remove)
@@ -67,12 +68,24 @@
 				filter_block_list.erase(filter_block_list.begin() + i);
 
 				i--;
+				remove_action = true;
 
 				if (filter_block_list.size() <= 0)
 				{
 					filter_block_list.push_back(new FilterBlock());
 				}
 			}
+		}
+
+
+		if (remove_action)
+		{
+			for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
+			{
+				StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;
+			}
+
+			remove_action = false;
 		}
 
 		for (int i = 0; i < filter_block_list.size(); i++)
