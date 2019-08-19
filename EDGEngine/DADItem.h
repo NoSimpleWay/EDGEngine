@@ -16,6 +16,9 @@ public:
 	string category;
 	string subcategory;
 
+	int width = 1;
+	int height = 1;
+
 	EGabarite* gabarite;
 
 	DADItem()

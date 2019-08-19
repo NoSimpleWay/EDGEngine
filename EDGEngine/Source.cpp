@@ -555,8 +555,11 @@ void parse_item_data()
 				if (subdata_array[i * 2] == "base class") { just_created_item->base_class = subdata_array[i * 2 + 1]; }
 				if (subdata_array[i * 2] == "folder") { just_created_item->folder = subdata_array[i * 2 + 1]; }
 
-				if (subdata_array[i * 2] == "item category") {}
-				if (subdata_array[i * 2] == "item sub category") {}
+				if (subdata_array[i * 2] == "item category") { just_created_item->category = subdata_array[i * 2 + 1]; }
+				if (subdata_array[i * 2] == "item sub category") { just_created_item->subcategory = subdata_array[i * 2 + 1]; }
+
+				if (subdata_array[i * 2] == "width") { just_created_item->width = std::stoi(subdata_array[i * 2 + 1]); }
+				if (subdata_array[i * 2] == "height") { just_created_item->height = std::stoi(subdata_array[i * 2 + 1]); }
 			}
 
 			ItemList::item_list.push_back(just_created_item);

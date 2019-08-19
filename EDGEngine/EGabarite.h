@@ -3,14 +3,14 @@
 class EGabarite
 {
 public:
-	float x;
-	float y;
+	float x = 0;
+	float y = 0;
 
-	float x2;
-	float y2;
+	float x2 = 0;
+	float y2 = 0;
 
-	float size_x;
-	float size_y;
+	float size_x = 0;
+	float size_y = 0;
 
 
 

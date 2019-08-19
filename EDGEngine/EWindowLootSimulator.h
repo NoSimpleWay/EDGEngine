@@ -32,4 +32,6 @@ public:
 
 	int loot_vector_id = 0;
 
+	std::vector <LootPatternItem*> loot_pool;
+
 };
