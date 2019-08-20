@@ -298,7 +298,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "class")
 				{
-					just_created_pattern_item->item_class = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+					just_created_pattern_item->base_class = EString::to_cyrillic(subdata_array[i * 2 + 1]);
 				}
 
 
@@ -367,12 +367,35 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					just_created_pattern_item->max_sockets = std::stoi(subdata_array[i * 2 + 1]);
 				}
 
+				if (EString::to_lower(subdata_array[i * 2], false) == "count")
+				{
+					just_created_pattern_item->count = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "random_class")
+				{
+					just_created_pattern_item->random_class = subdata_array[i * 2 + 1];
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "random_subclass")
+				{
+					just_created_pattern_item->random_subclass = subdata_array[i * 2 + 1];
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "random_cost_group")
+				{
+					just_created_pattern_item->random_cost_group = subdata_array[i * 2 + 1];
+				}
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "prophecy_name")
 				{
 					just_created_pattern_item->prophecy_name = subdata_array[i * 2 + 1];
 				}
 
+				if (EString::to_lower(subdata_array[i * 2], false) == "base_class")
+				{
+					just_created_pattern_item->base_class = subdata_array[i * 2 + 1];
+				}
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "rarity_min")
 				{
@@ -408,6 +431,18 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		"Triangle"
 	}
 	;
+
+	/*
+	std::string EString::compare_strings(std::string _s1, std::string _s2)
+	{
+
+	}
+	*/
+
+	std::string EString::to_lower(std::string _s)
+	{
+		return to_lower(_s, false);
+	}
 
 	std::string EString::to_lower(std::string _s, bool _b)
 	{
@@ -1110,7 +1145,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									cout << "try allocate explicit list at <" << explicit_group_id << ">" << endl;
 									EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST);
+
 									explicit_button->text = subdata;
+									explicit_button->data_string = subdata;
+
 									explicit_button->master_block = just_created_block;
 									explicit_button->master_window = StaticData::window_filter_block;
 									explicit_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;

@@ -21,6 +21,8 @@ public:
 
 	EGabarite* gabarite;
 
+	std::string cost_group;
+
 	DADItem()
 	{
 

@@ -560,6 +560,8 @@ void parse_item_data()
 
 				if (subdata_array[i * 2] == "width") { just_created_item->width = std::stoi(subdata_array[i * 2 + 1]); }
 				if (subdata_array[i * 2] == "height") { just_created_item->height = std::stoi(subdata_array[i * 2 + 1]); }
+
+				if (subdata_array[i * 2] == "COST_GROUP") { just_created_item->cost_group = subdata_array[i * 2 + 1]; }
 			}
 
 			ItemList::item_list.push_back(just_created_item);

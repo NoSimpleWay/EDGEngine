@@ -10,6 +10,8 @@ public:
 	std::string data_name;
 	std::string name;
 
+	std::string base_class;
+
 	int id;
 
 	int quality;
@@ -23,7 +25,7 @@ public:
 	int red_socket;
 	int green_socket;
 	int blue_socket;
-	int alpha_socket;
+	int white_socket;
 
 	int gem_level;
 
@@ -37,20 +39,22 @@ public:
 
 	int quantity;
 
-	bool corrupted;
+	bool corrupted = false;
 
-	bool shaper_item;
-	bool elder_item;
+	bool shaper_item = false;
+	bool elder_item = false;
 
-	bool synthesised_item;
-	bool fractured_item;
-	bool any_enchantment;
-	bool identified;
+	bool synthesised_item = false;
+	bool fractured_item = false;
+	bool any_enchantment = false;
+	bool identified = false;
 
 
 	FilterBlock* filter_block_link;
 
 	float pos_x;
 	float pos_y;
+
+	std::vector <std::string> explicit_list;
 
 };

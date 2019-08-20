@@ -8,11 +8,13 @@
 class EWindowLootSimulator : public EWindow
 {
 public:
-	std::vector<LootItem*> loot_item_list;
+	std::vector<LootItem*> main_loot_item_list;
 
 	bool free_space[200][100];
 
 	EWindowLootSimulator(int _id, bool _can_be_closed);
+
+	void fill_random_pool(std::string _class, std::string _subclass, std::string _cost);
 
 	virtual void update(float _d);
 
@@ -20,6 +22,7 @@ public:
 	virtual void draw(Batcher* _batch, float _delta);
 
 	virtual void update_localisation();
+	bool check_condition(std::string _condition, int _num_a, int num_b);
 	void find_filter_block(LootItem* _l);
 	void place(LootItem* _l);
 	//void find_filter_block();
@@ -32,6 +35,9 @@ public:
 
 	int loot_vector_id = 0;
 
-	std::vector <LootPatternItem*> loot_pool;
+	std::vector <LootPatternItem*> prepared_pattern_list;
+
+
+	std::vector <DADItem*> random_loot_pool;
 
 };

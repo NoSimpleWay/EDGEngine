@@ -19,6 +19,28 @@
 		is_active = false;
 	}
 
+	void EWindowLootSimulator::fill_random_pool(std::string _class, std::string _subclass, std::string _cost)
+	{
+	
+
+		for (DADItem* item : ItemList::item_list)
+		{
+			if
+			(
+				((EString::to_lower(_class) == EString::to_lower(item->base_class)) || (_class == ""))
+				&&
+				((EString::to_lower(_subclass) == EString::to_lower(item->subcategory)) || (_subclass == ""))
+				&&
+				((EString::to_lower(_cost) == EString::to_lower(item->cost_group)) || (_cost == ""))
+			)
+			{
+				random_loot_pool.push_back(item);
+			}
+		}
+
+		
+	}
+
 	void EWindowLootSimulator::update(float _d)
 	{
 		drop_cooldown -= _d;
@@ -29,14 +51,24 @@
 
 			if (drop_count > 0)
 			{
-				int selected = rand() % StaticData::window_filter_block->filter_block_list.size();
+				int selected = rand() % prepared_pattern_list.size();
 
 				LootItem* loot = new LootItem();
 //				loot->name = ItemList::item_list.at(rand() % ItemList::item_list.size())->item_name;
 
-				loot->name = pattern_item_list.at(loot_vector_id)->item_name;
+				
+				//***************************ITEM NAME SECTION**************************************
+				//**********************************************************************************
+				loot->name = prepared_pattern_list.at(selected)->item_name;
+				loot->base_class = prepared_pattern_list.at(selected)->base_class;
 
-				loot_item_list.push_back(loot);
+				std::cout << "base class of item [" << loot->name << "] is <" << loot->base_class << ">" << std::endl;
+				//**********************************************************************************
+				//**********************************************************************************
+
+				prepared_pattern_list.erase(prepared_pattern_list.begin() + selected);
+
+				main_loot_item_list.push_back(loot);
 
 				find_filter_block(loot);
 				place(loot);
@@ -71,7 +103,7 @@
 		_batch->setcolor_alpha(EColorCollection::GRAY, 0.5f);
 		_batch->draw_simple_rect(pos_x, pos_y, 800.0f, 800.0f);
 
-		for (LootItem* loot:loot_item_list)
+		for (LootItem* loot:main_loot_item_list)
 		{
 			//loot->filter_block_link = StaticData::window_filter_block->filter_block_list.at(rand() % StaticData::window_filter_block->filter_block_list.size());
 
@@ -126,9 +158,25 @@
 	{
 	}
 
+	bool EWindowLootSimulator::check_condition(std::string _condition, int _num_a, int num_b)
+	{
+
+		std::cout << "condition symbol [" << _condition << "] num a [" << _num_a << "] num b [" << num_b << "]" << std::endl;
+
+		if ((_condition == "<") && (_num_a >= num_b)) { return false; }
+		if ((_condition == "<=") && (_num_a > num_b)) { return false; }
+		if ((_condition == "=") && (_num_a != num_b)) { return false; }
+		if ((_condition == ">=") && (_num_a < num_b)) { return false; }
+		if ((_condition == ">") && (_num_a <= num_b)) { return false; }
+
+		return true;
+	}
+
 	void EWindowLootSimulator::find_filter_block(LootItem* _l)
 	{
 		bool match_detect = false;
+
+		bool temp_match = false;
 
 		
 
@@ -137,20 +185,131 @@
 
 			for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
 			{
+				if (fb->filter_block_items_button_list.size() <= 0) { match_detect = true; }
 				for (EButton* b : fb->filter_block_items_button_list)
 				{
-					if (EString::to_lower(b->data_string, false).find(EString::to_lower(_l->name, false)) != std::string::npos)
+					if
+					(EString::to_lower(b->data_string, false).find(EString::to_lower(_l->name, false)) != std::string::npos)
 					{
 						match_detect = true;
 
-						_l->filter_block_link = fb;
 
-						_l->name += " " + std::to_string(fb_id);
 					}
+				}
+
+				if (match_detect)
+				{
+					temp_match = false;
+					if (!fb->is_base_class_active) { temp_match = true; }
+
+					for (EButton* b : fb->base_class_list)
+					{
+						if
+						(EString::to_lower(b->data_string, false).find(EString::to_lower(_l->base_class, false)) != std::string::npos)
+						{
+							temp_match = true;
+						}
+					}
+
+					match_detect = temp_match;
+				}
+
+
+				if ((fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SOCKETS)) && (!check_condition(fb->socket_condition, _l->sockets, fb->socket_count)))
+				{
+					match_detect = false;
+				}
+
+				if
+				(
+					(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP))
+					&&
+					(
+						(_l->red_socket < fb->red_sockets)
+						||
+						(_l->green_socket < fb->green_sockets)
+						||
+						(_l->blue_socket < fb->blue_sockets)
+						||
+						(_l->white_socket < fb->white_sockets)
+					)
+				)
+				{
+					match_detect = false;
+				}
+
+				//std::cout << "is active=" << std::to_string(fb->is_synthesised_item_active) << " is synthesised block=" << std::to_string(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SYNTHESISED)) << "is synthesised item=" << std::to_string(_l->synthesised_item) << std::endl;
+
+				if
+				(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SYNTHESISED))
+					&&
+					(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SYNTHESISED) != _l->synthesised_item)
+				)
+				{match_detect = false;}
+
+				if
+				(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_FRACTURED))
+					&&
+					(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_FRACTURED) != _l->fractured_item)
+				)
+				{match_detect = false;}
+
+
+				
+				for (ExplicitGroup* ex : fb->explicit_list)
+				if (match_detect)
+				{
+					if (ex->is_active)
+					{
+						temp_match = false;
+						for (EButton* b : ex->button_list)
+						{
+							for (std::string el : _l->explicit_list)
+							{
+								if (el == b->data_string)
+								{
+									temp_match = true;
+								}
+							}
+						}
+
+						match_detect = temp_match;
+					}
+				}
+
+				if
+				(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_ITEM))
+					&&
+					(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_ELDER_ITEM) != _l->elder_item)
+				)
+				{match_detect = false;}
+
+				if
+				(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM))
+					&&
+					(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM) != _l->shaper_item)
+				)
+				{match_detect = false;}
+
+
+
+				if (match_detect)
+				{
+					_l->filter_block_link = fb;
+
+					_l->name += " " + std::to_string(fb_id);
+
+					break;
 				}
 
 				fb_id++;
 			}
+
+			
 
 			if (!match_detect)
 			{
@@ -262,26 +421,53 @@
 		}
 
 
-		loot_item_list.clear();
-		for (int i = 0; i < pattern_item_list.size() * 0.0f; i++)
+		main_loot_item_list.clear();
+		prepared_pattern_list.clear();
+
+		for (int i = 0; i < pattern_item_list.size(); i++)
 		{
-			int selected = rand() % StaticData::window_filter_block->filter_block_list.size();
-
-			LootItem* loot = new LootItem();
-			//loot->filter_block_link = StaticData::window_filter_block->filter_block_list.at(selected);
-			loot->name = pattern_item_list.at(i)->item_name;
-
-			loot_item_list.push_back(loot);
-			find_filter_block(loot);
-
-			//if (loot->filter_block_link == NULL)
+			
+			//***************************ITEM NAME SECTION**************************************
+			//**********************************************************************************
+			
+			for (int k = 0; k < pattern_item_list.at(i)->count; k++)
 			{
-				place(loot);
+				LootPatternItem* pattern = new LootPatternItem();
+				//srand(time(NULL) + k * 25754);
+
+				random_loot_pool.clear();
+
+				pattern->item_name = pattern_item_list.at(i)->item_name;
+				pattern->base_class = pattern_item_list.at(i)->base_class;
+				if
+					(
+					(pattern_item_list.at(i)->random_class != "")
+					||
+					(pattern_item_list.at(i)->random_subclass != "")
+					||
+					(pattern_item_list.at(i)->random_cost_group != "")
+					)
+				{
+					fill_random_pool(pattern_item_list.at(i)->random_class, pattern_item_list.at(i)->random_subclass, pattern_item_list.at(i)->random_cost_group);
+				}
+
+
+				if (random_loot_pool.size() > 0)
+				{
+					int random_selected_item = rand() % random_loot_pool.size();
+
+					pattern->item_name = random_loot_pool.at(random_selected_item)->item_name;
+					pattern->base_class = random_loot_pool.at(random_selected_item)->base_class;
+				}
+
+				prepared_pattern_list.push_back(pattern);
 			}
+			//**********************************************************************************
+			//**********************************************************************************
 
 			
 		}
 
-		drop_count = pattern_item_list.size();
+		drop_count = prepared_pattern_list.size();
 		loot_vector_id = 0;
 	}

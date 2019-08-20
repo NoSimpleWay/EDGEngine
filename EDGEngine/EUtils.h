@@ -58,6 +58,8 @@ public:
 	static void load_localisation(std::string _text);
 	static void load_loot_pattern(std::string _text);
 
+	static std::string to_lower(std::string _s);
+
 	static std::string to_lower(std::string _s, bool _b);
 
 	static std::string path_to_poe_folder;

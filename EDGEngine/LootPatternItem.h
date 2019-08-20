@@ -6,7 +6,7 @@ class LootPatternItem
 {
 public:
 	std::string item_name;
-	std::string item_class;
+	//std::string item_class;
 	std::string prophecy_name;
 
 	int min_sockets;
@@ -27,4 +27,12 @@ public:
 	int green_weight;
 	int blue_weight;
 	int white_weight;
+
+	std::string base_class;
+
+	std::string random_class;
+	std::string random_subclass;
+	std::string random_cost_group;
+
+	int count = 1;
 };
