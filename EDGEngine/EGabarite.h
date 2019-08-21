@@ -73,4 +73,8 @@ public:
 	static EGabarite* gabarite_flag_EN;
 	static EGabarite* gabarite_flag_RU;
 
+	static EGabarite* gabarite_open_simulator;
+
+
+
 };

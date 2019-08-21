@@ -18,10 +18,12 @@ public:
 	int sockets;
 	int links;
 
-	std::string rarity;
+	int numeric_rarity;
+
+	std::string rarity = "normal";
 	int item_level;
 	int req_level;
-	
+
 	int red_socket;
 	int green_socket;
 	int blue_socket;
@@ -37,7 +39,7 @@ public:
 	int height;
 	int width;
 
-	int quantity;
+	int quantity = 1;
 
 	bool corrupted = false;
 

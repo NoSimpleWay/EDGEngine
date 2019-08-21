@@ -24,6 +24,8 @@ public:
 	float batch_color_b;
 	float batch_color_a;
 
+	int batch_force_draw_call = 16000;
+
 	void reinit();
 
 	unsigned int id = 0;

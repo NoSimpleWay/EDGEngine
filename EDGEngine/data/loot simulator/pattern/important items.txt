@@ -1,5 +1,23 @@
-random_subclass	NORMAL_CURRENCY	count	15
-random_subclass	GLOVES	count	3
-random_subclass	SHARD	count	8
-random_subclass	NORMAL_CURRENCY	random_cost_group	trash	count	15
-item name	Mirror of Kalandra	count	1	class	Stackable Currency
+random_subclass	NORMAL_CURRENCY	random_cost_group	trash	count	30														
+random_subclass	NORMAL_CURRENCY	random_cost_group	very low	count	5														
+random_subclass	NORMAL_CURRENCY	random_cost_group	low	count	3														
+random_subclass	NORMAL_CURRENCY	random_cost_group	mid	count	3														
+random_subclass	NORMAL_CURRENCY	random_cost_group	high	count	3														
+random_cost_group	top	count	3																
+random_cost_group	very high	count	5																
+random_cost_group	high	count	5																
+random_cost_group	mid	count	5																
+random_cost_group	low	5																	
+random_cost_group	very low	5																	
+random_cost_group	trash	5																	
+random_class	Gloves	count	3	quality_min	-10	quality_max	30	links_min	3	links_max	4	sockets_min	3	sockets_max	4	rarity_min	normal	rarity_max	unique
+random_class	Boots	count	3	quality_min	-10	quality_max	30	links_min	3	links_max	4	sockets_min	3	sockets_max	4	rarity_min	normal	rarity_max	unique
+random_class	Helmets	count	3	quality_min	-10	quality_max	30	links_min	3	links_max	4	sockets_min	3	sockets_max	4	rarity_min	normal	rarity_max	unique
+random_class	Body Armours	count 	3	quality_min	-10	quality_max	30	links_min	3	links_max	6	sockets_min	3	sockets_max	6	rarity_min	normal	rarity_max	unique
+random_class	Belts	count	3																
+random_class	Rings	count	3																
+random_class	Amulets	count	3																
+random_class	Support Skill Gems	count	3	quality_min	-10	quality_max	30	links_min	3	links_max	4	sockets_min	3	sockets_max	4	rarity_min	normal	rarity_max	unique
+random_cost_group	none	count	10																
+random_class	Body Armours	count 	1	quality_min	-10	quality_max	30	links_min	5	links_max	5	sockets_min	5	sockets_max	5	rarity_min	normal	rarity_max	unique
+random_class	Body Armours	count 	1	quality_min	-10	quality_max	30	links_min	6	links_max	6	sockets_min	6	sockets_max	6	rarity_min	normal	rarity_max	unique

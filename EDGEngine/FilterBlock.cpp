@@ -346,8 +346,15 @@
 
 	FilterBlock::~FilterBlock()
 	{
+		for (EButton* b : button_list)
+		{
+			b->text = "";
+			b->description_text = "";
 
+			delete b;
+		}
 	}
+
 	void FilterBlock::remove_button_from_list(std::vector<EButton*> _v)
 	{
 		for (int i = 0; i < _v.size(); i++)

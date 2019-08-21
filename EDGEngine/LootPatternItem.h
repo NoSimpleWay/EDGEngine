@@ -21,12 +21,17 @@ public:
 	int min_rarity;
 	int max_rarity;
 
+	int numeric_rarity = 0;
+
 	bool is_legacy;
 
 	int red_weight;
 	int green_weight;
 	int blue_weight;
 	int white_weight;
+
+	int height;
+	int width;
 
 	std::string base_class;
 
@@ -35,4 +40,6 @@ public:
 	std::string random_cost_group;
 
 	int count = 1;
+
+	int stack_size = 1;
 };

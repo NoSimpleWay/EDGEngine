@@ -7,8 +7,8 @@
 #include "EColor.h"
 #include "EGabarite.h"
 
-float vertices[250000];
-unsigned int indices[1000000];
+float vertices[80000];
+unsigned int indices[100000];
 
 unsigned int VBO, VAO, EBO;
 
@@ -213,7 +213,7 @@ void Batcher::draw_rect(float _x, float _y, float _w, float _h)
 
 	id += 32;
 
-	if (id > 32000)
+	if (id > batch_force_draw_call)
 	{
 		reinit();
 		draw_call();
@@ -343,6 +343,13 @@ void Batcher::draw_rect_with_uv(float _x, float _y, float _w, float _h, float _s
 	vertices[id + 31] =_end_y;
 
 	id += 32;
+
+	if (id > batch_force_draw_call)
+	{
+		reinit();
+		draw_call();
+		reset();
+	}
 }
 
 void Batcher::draw_rect_with_uv(float _x, float _y, float _w, float _h, EGabarite* _g)
@@ -417,6 +424,13 @@ void Batcher::draw_rect_with_uv(float _x, float _y, float _w, float _h, EGabarit
 	vertices[id + 31] = _g->y2;
 
 	id += 32;
+
+	if (id > batch_force_draw_call)
+	{
+		reinit();
+		draw_call();
+		reset();
+	}
 }
 
 void Batcher::fill_indices()
@@ -564,6 +578,13 @@ void Batcher::draw_rect_gabarite_custom_uv(float _x, float _y, float _w, float _
 	vertices[id + 31] = _g->y + _ey / 4096.0f;
 
 	id += 32;
+
+	if (id > batch_force_draw_call)
+	{
+		reinit();
+		draw_call();
+		reset();
+	}
 }
 
 void Batcher::draw_simple_rect(float _x, float _y, float _size_x, float _size_y)

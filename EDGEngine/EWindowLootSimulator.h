@@ -21,6 +21,8 @@ public:
 
 	virtual void draw(Batcher* _batch, float _delta);
 
+
+	int rarity_to_number(std::string _rarity);
 	virtual void update_localisation();
 	bool check_condition(std::string _condition, int _num_a, int num_b);
 	void find_filter_block(LootItem* _l);
@@ -28,7 +30,7 @@ public:
 	//void find_filter_block();
 	virtual void manual_event();
 
-	float drop_cooldown=1.0f;
+	float drop_cooldown = 1.0f;
 	int drop_count = 50;
 
 	std::vector <LootPatternItem*> pattern_item_list;
@@ -38,6 +40,6 @@ public:
 	std::vector <LootPatternItem*> prepared_pattern_list;
 
 
-	std::vector <DADItem*> random_loot_pool;
+	std::vector <DADItem*> random_item_pool;
 
 };

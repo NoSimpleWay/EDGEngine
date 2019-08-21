@@ -261,7 +261,7 @@ void EButtonText::input_event()
 
 void EButtonText::update_localisation()
 {
-	std::cout << "LOCAL" << std::endl;
+	//std::cout << "LOCAL" << std::endl;
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW)
 	{

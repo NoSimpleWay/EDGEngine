@@ -170,6 +170,18 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		gabarite = DefaultGabarite::gabarite_flag_RU;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		gabarite = DefaultGabarite::gabarite_open_simulator;
+
+
+	}
 }
 
 void EButtonService::click_event()
@@ -364,6 +376,13 @@ void EButtonService::click_event()
 		}
 
 		master_window->is_active = false;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
+	{
+		StaticData::window_loot_simulator->is_active;
+		StaticData::window_loot_simulator->manual_event();
+
 	}
 }
 

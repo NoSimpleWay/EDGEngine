@@ -227,7 +227,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 			localisation_text.push_back(to_cyrillic(subdata_array[1]));
 
-			std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << subdata_array[1] << std::endl;
+			//std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << subdata_array[1] << std::endl;
 
 			line_id++;
 		}
@@ -235,7 +235,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		int wtf = 0;
 		for (BaseClass* b : base_class_list)
 		{
-			cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
+			//cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
 			wtf++;
 		}
 	}
@@ -268,7 +268,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			just_created_pattern_item = new LootPatternItem();
 			StaticData::window_loot_simulator->pattern_item_list.push_back(just_created_pattern_item);
 
-			std::cout << "LOOT pattern element push!" << std::endl;
+			//std::cout << "LOOT pattern element push!" << std::endl;
 
 			data_order = 0;
 			subdata = "";
@@ -492,7 +492,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				EString::loot_filter_path_list.push_back(loot_filter_name);
 				EString::loot_filter_name_list.push_back(p.path().filename().u8string().substr(0, p.path().filename().u8string().length() - 7));
 
-				std::cout << "It filter! " << p.path().filename().u8string() << '\n' << '\n';
+				//std::cout << "It filter! " << p.path().filename().u8string() << '\n' << '\n';
 
 				//ESound::custom_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(custom_sound.c_str()));
 			}
@@ -514,7 +514,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 		for (auto& p : std::experimental::filesystem::directory_iterator(EString::path_to_poe_folder))
 		{
-			std::cout << p.path() << '\n';
+			//std::cout << p.path() << '\n';
 
 			std::string custom_sound = p.path().u8string();
 			//writer << custom_sound << endl;;
@@ -530,7 +530,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				//cout <<"It sound!" << '\n'<<'\n';
 
 				ESound::custom_drop_sound_name.push_back(p.path().filename().u8string());
-				std::cout << "It sound! " << p.path().filename().u8string() << '\n' << '\n';
+				//std::cout << "It sound! " << p.path().filename().u8string() << '\n' << '\n';
 
 				ESound::custom_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(custom_sound.c_str()));
 			}
@@ -627,6 +627,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	void EFile::parse_loot_filter_data(std::string _path)
 	{
 
+		for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
+		{
+			delete fb;
+		}
 
 		StaticData::window_filter_block->filter_block_list.clear();
 
@@ -744,7 +748,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (subdata == "Rarity") { parser_mode = Enums::ParserMode::RARITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_RARITY) = true; }
 								if (subdata == "Class")
 								{
-									std::cout << "Try get acess to remove button" << std::endl;
+									//std::cout << "Try get acess to remove button" << std::endl;
 
 									parser_mode = Enums::ParserMode::CLASS;
 									just_created_block->is_base_class_active = true;
@@ -1049,7 +1053,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								{
 									if (show_info_to_console) { cout << "set ray color <" << subdata << ">" << endl; }
 								
-									std::cout << "subdata: " << subdata << "   ray id: " << Helper::get_id_from_game_color_text(subdata) << std::endl;
+									//std::cout << "subdata: " << subdata << "   ray id: " << Helper::get_id_from_game_color_text(subdata) << std::endl;
 									just_created_block->ray_color = Enums::GameColors(Helper::get_id_from_game_color_text(subdata));
 								}
 
@@ -1516,11 +1520,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		}
 		myfile.close();
 
-		std::cout << "try update localisation" << std::endl;
+		//std::cout << "try update localisation" << std::endl;
 		StaticData::window_filter_block->update_localisation();
 
+		/*
 		StaticData::window_loot_simulator->manual_event();
 		StaticData::window_loot_simulator->is_active = true;
+		*/
 
 		for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
 		{

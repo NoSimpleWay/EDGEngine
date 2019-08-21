@@ -72,5 +72,7 @@ EGabarite* DefaultGabarite::gabarite_remove_circle = NULL;
 EGabarite* DefaultGabarite::gabarite_flag_EN = NULL;
 EGabarite* DefaultGabarite::gabarite_flag_RU = NULL;
 
+EGabarite* DefaultGabarite::gabarite_open_simulator = NULL;
+
 
 

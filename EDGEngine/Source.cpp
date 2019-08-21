@@ -105,8 +105,6 @@ glm::mat4 matrix_transform;
 Shader* ourShader;
 
 Batcher * batch;
-Batcher* batch2;
-Batcher* font_batch;
 
 
 
@@ -1673,8 +1671,6 @@ int main()
 	//--------------------------------------------------------------------------------------------
 
 	batch = new Batcher();
-	batch2 = new Batcher();
-	font_batch = new Batcher();
 
 
 	camera = new ECamera();
@@ -1696,13 +1692,7 @@ int main()
 
 
 	batch->init();
-	batch2->init();
 
-	font_batch->reset();
-	batch->setcolor_255(255, 255, 255, 100); EFont::font_arial->draw(font_batch, "Ну наконец то эта ", 0, 0);
-	batch->setcolor_255(255, 0, 0, 100); EFont::font_arial->draw(font_batch, "срань ", 0, 0);
-	batch->setcolor_255(0, 255, 0, 100); EFont::font_arial->draw(font_batch, "заработала!", 0, 0);
-	font_batch->init();
 
 
 
@@ -1821,6 +1811,8 @@ int main()
 
 	put_texture_to_atlas("data/flag_EN.png");				DefaultGabarite::gabarite_flag_EN = just_created_gabarite;
 	put_texture_to_atlas("data/flag_RU.png");				DefaultGabarite::gabarite_flag_RU = just_created_gabarite;
+
+	put_texture_to_atlas("data/button_simulator.png");		DefaultGabarite::gabarite_open_simulator = just_created_gabarite;
 
 
 
@@ -2074,15 +2066,14 @@ int main()
 		transformLoc = glGetUniformLocation(ourShader->ID, "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(matrix_transform));
 
-		batch->reset();
+		glActiveTexture(GL_TEXTURE0);
+		ourShader->setInt("texture1", 0);
+		glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
 
+		batch->reset();
 		batch->draw_rect_with_uv(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT, DefaultGabarite::gabarite_background);
 
-
-
-		
 		int block_index = 0;
-
 
 		for (EWindow* w : EControl::window_list)
 		{
@@ -2108,11 +2099,6 @@ int main()
 			batch->draw_rect_with_uv(0.0f, 0.0f, 1000.0f, 1000.0f, DefaultGabarite::gabarite_white);
 			batch->draw_rect_with_uv(0.0f, 0.0f, 1000.0f, 1000.0f, 0.0f, 0.0f, 1.0f, 1.0f);
 		}
-
-
-		glActiveTexture(GL_TEXTURE0);
-		ourShader->setInt("texture1", 0);
-		glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
 
 		batch->reinit();
 		batch->draw_call();
