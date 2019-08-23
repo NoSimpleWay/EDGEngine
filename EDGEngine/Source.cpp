@@ -383,7 +383,7 @@ void load_prophecy_list()
 	int wtf = 0;
 	for (BaseClass* b : EString::base_class_list)
 	{
-		cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
+	//	cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
 		wtf++;
 	}
 }
@@ -469,7 +469,7 @@ void load_base_class()
 	int wtf = 0;
 	for (BaseClass* b : EString::base_class_list)
 	{
-		cout << "["<<wtf<< "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
+		//cout << "["<<wtf<< "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
 		wtf++;
 	}
 }
@@ -608,7 +608,7 @@ void parse_loot_filter_data(string _path)
 	FilterBlock* just_created_block = new FilterBlock();
 
 	int error_counts = 0;
-	bool show_info_to_console = false;
+	bool show_info_to_console = true;
 
 	EButton* just_created_button=NULL;
 
@@ -1491,6 +1491,13 @@ int main()
 	}
 	else
 	{
+		/*
+		for (int i = 0; i < MAX_PATH; i++)
+		{
+			cout << "symbol at " << i << "is= " << my_documents[i] << endl;
+		}
+		*/
+
 		EString::path_to_poe_folder = (string)my_documents + "\\My Games\\Path of Exile\\";
 		std::cout << "Path: " << EString::path_to_poe_folder << "\n";
 
@@ -1504,7 +1511,7 @@ int main()
 	
 
 	//writer.close();
-	button_list.push_back(new EButton());
+	//button_list.push_back(new EButton());
 
 	//filter_block_list.push_back(new FilterBlock());
 	//cout << "vector [2]=" << v.at(2) << endl;
@@ -1518,7 +1525,7 @@ int main()
 
 	if (GetUserName(name, &size))
 	{
-		username = name;
+		username = EString::to_cyrillic(name);
 		cout << "Hello, " << username << "!\n";
 	}
 	else
@@ -1528,14 +1535,6 @@ int main()
 
 
 
-	ofstream myfile;
-	myfile.open("example.txt");
-
-	for (int i = 0; i < 256; i++)
-	{
-		myfile << (char)i;
-	}
-	myfile.close();
 
 	recalculate_correction();
 	//setlocale(LC_ALL, "Russian");
@@ -1553,14 +1552,6 @@ int main()
 
 
 	string s;
-
-	for (int i = 32; i < 300; i++)
-	{
-		char ch = i;  // Присвоили в ch число 1, символ, выводимый на экран будет иным
-		s += ch;
-
-		//cout <<'a' - 0 << endl;
-	}
 	//cout << "|" << s << "|\n";
 
 
@@ -1994,12 +1985,15 @@ int main()
 
 			StaticData::window_loading_screen->load_progress += 20;
 
+			/*
 			if (StaticData::window_loading_screen->load_progress >= ItemList::item_list.size())
 			{
 				StaticData::window_loading_screen->is_active = false;
 
 
-			}
+
+
+			}*/
 		///////////////////////////////////////////////////////////////////////////////
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glDisable(GL_DEPTH_TEST);
@@ -2106,7 +2100,27 @@ int main()
 			}
 		}
 
-		if (glfwGetKey(EWindow::main_window, GLFW_KEY_END) == GLFW_PRESS)
+
+		if ((StaticData::window_loading_screen->load_progress >= ItemList::item_list.size()) && (StaticData::window_loading_screen->is_active))
+		{
+
+			for (int i = 0; i < 4096; i++)
+			{
+				for (int j = 0; j < 4096; j++)
+				{
+					delete[] collision_matrix[i][j];
+				}
+
+				delete[] collision_matrix[i];
+			}
+
+			delete[] collision_matrix;
+
+			StaticData::window_loading_screen->is_active = false;
+
+		}
+
+		/*if (glfwGetKey(EWindow::main_window, GLFW_KEY_END) == GLFW_PRESS)
 		{
 			for (int i = 0; i < 4096; i++)
 			{
@@ -2119,7 +2133,7 @@ int main()
 			}
 
 			delete[] collision_matrix;
-		}
+		}*/
 
 		if (glfwGetKey(EWindow::main_window, GLFW_KEY_END) == GLFW_PRESS)
 		{
@@ -2372,7 +2386,7 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 
 	EControl::block_scroll -= yoffset;
 	if (EControl::block_scroll < 0) { EControl::block_scroll = 0; }
-	cout << "scroll (" << yoffset << ")" << endl;
+	//cout << "scroll (" << yoffset << ")" << endl;
 
 	int active_block_count = 0;
 	for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
@@ -2458,7 +2472,7 @@ void char_input_callback(GLFWwindow* window, unsigned int _char)
 	else
 	if (inputed_c > 255) { inputed_c -= 848; }
 
-	cout << "input character: " << inputed_c <<"|"<<(int)_char << "[  " << (char)inputed_c << " ]" << " ("<<work_text<<")" <<endl;
+	//cout << "input character: " << inputed_c <<"|"<<(int)_char << "[  " << (char)inputed_c << " ]" << " ("<<work_text<<")" <<endl;
 	EControl::last_inputed_char = (char)inputed_c;
 	//work_text += (char)inputed_c;
 }

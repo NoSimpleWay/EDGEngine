@@ -78,10 +78,10 @@ public:
 	bool		is_elder_map = false;				bool is_elder_map_active = false;
 	bool		is_shaper_map = false;				bool is_shaper_map_active = false;
 
-	bool is_font_size_active = true;
+	bool is_font_size_active = false;
 	int font_size = 30;
 
-	bool is_text_color_active = true;
+	bool is_text_color_active = false;
 	int text_color_red = 255;
 	int text_color_green = 255;
 	int text_color_blue = 255;
@@ -91,7 +91,7 @@ public:
 	double text_color_saturation = 1;
 	double text_color_value = 1;
 
-	bool is_bg_color_active = true;
+	bool is_bg_color_active = false;
 	int bg_red = 128;
 	int bg_green = 128;
 	int bg_blue = 128;
@@ -101,7 +101,7 @@ public:
 	double bg_saturation = 1;
 	double bg_value = 1;
 
-	bool is_rama_color_active = true;
+	bool is_rama_color_active = false;
 	int rama_red = 0;
 	int rama_green = 0;
 	int rama_blue = 0;

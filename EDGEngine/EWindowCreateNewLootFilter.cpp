@@ -33,3 +33,14 @@ void EWindowCreateNewLootFilter::input_event(EButton* _b)
 void EWindowCreateNewLootFilter::draw(Batcher* _batch, float _delta)
 {
 }
+
+void EWindowCreateNewLootFilter::update_localisation()
+{
+	//std::cout << "try update localisation in window. blocks count: " << filter_block_list.size() << std::endl;
+
+		for (EButton* b : button_list)
+		{
+			//std::cout << "button: " << b->text << std::endl;
+			b->update_localisation();
+		}
+}

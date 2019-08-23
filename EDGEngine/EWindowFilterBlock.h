@@ -19,5 +19,5 @@ public:
 	virtual void draw(Batcher* _batch, float _delta);
 	virtual void text_pass(Batcher* _batch);
 
-	void update_localisation();
+	virtual void update_localisation();
 };

@@ -223,13 +223,13 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 		EFont::font_arial->draw(_batch, loot->name, pos_x + loot->pos_x + w / 2.0f + 5.0f, pos_y + loot->pos_y + 3.0f);
 		//std::cout << "success"  << std::endl;
 
-		/*
+		
 		if (loot->filter_block_link != NULL)
 		{_batch->setcolor(loot->filter_block_link->rama_red / 255.0f, loot->filter_block_link->rama_green / 255.0f, loot->filter_block_link->rama_blue / 255.0f, loot->filter_block_link->rama_alpha / 255.0f);}
 		else
 		{_batch->setcolor_alpha (EColorCollection::WHITE, 0.7f);}
 		_batch->draw_rama(pos_x + loot->pos_x, pos_y + loot->pos_y, w + 13.0f, h, 3.0f, DefaultGabarite::gabarite_white);
-		*/
+		
 
 
 
@@ -319,6 +319,23 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l)
 
 			match_detect = temp_match;
 		}
+
+		if (match_detect)
+		{
+			temp_match = false;
+			if (!fb->is_prophecy_active) { temp_match = true; }
+			/*
+			for (EButton* b : fb->prophecy_list)
+			{
+				if
+					(EString::to_lower(_l->, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+				{
+					temp_match = true;
+				}
+			}*/
+
+			match_detect = temp_match;
+		}	
 
 		//std::cout << "data rarity is active =" << std::to_string(true) << std::endl;
 

@@ -21,6 +21,10 @@ public:
 		but->master_window = this;
 		button_list.push_back(but);
 
+					but = new EButtonService(145, -5, 30, 30, Enums::ButtonType::BUTTON_OPEN_SIMULATOR);
+		but->master_window = this;
+		button_list.push_back(but);
+
 		align_x = Enums::PositionMode::LEFT;
 		align_y = Enums::PositionMode::UP;
 

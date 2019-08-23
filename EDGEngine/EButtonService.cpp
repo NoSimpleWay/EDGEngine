@@ -61,7 +61,10 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		position_mode_x = Enums::PositionMode::LEFT;
 		position_mode_y = Enums::PositionMode::UP;
 
+		
 		gabarite = DefaultGabarite::gabarite_button_load;
+
+
 
 		
 	}
@@ -171,7 +174,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		gabarite = DefaultGabarite::gabarite_flag_RU;
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_SIMULATOR)
 	{
 		master_position = Enums::PositionMaster::WINDOW;
 
@@ -248,6 +251,7 @@ void EButtonService::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_LOOT_FILTER)
 	{
+		EString::load_loot_filter_list();
 		StaticData::window_find_item->is_active = true;
 		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
 		StaticData::window_find_item->manual_event();
@@ -378,9 +382,9 @@ void EButtonService::click_event()
 		master_window->is_active = false;
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_SIMULATOR)
 	{
-		StaticData::window_loot_simulator->is_active;
+		StaticData::window_loot_simulator->is_active = true;
 		StaticData::window_loot_simulator->manual_event();
 
 	}
@@ -442,6 +446,11 @@ void EButtonService::update_localisation()
 		{
 			description_text = EString::localize_it("description_set_ray_deactivate");
 		}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_SIMULATOR)
+	{
+		description_text = EString::localize_it("description_open_loot_simulator_window");
 	}
 
 

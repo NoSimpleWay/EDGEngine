@@ -14,10 +14,11 @@ random_class	Gloves	count	3	quality_min	-10	quality_max	30	links_min	3	links_max
 random_class	Boots	count	3	quality_min	-10	quality_max	30	links_min	3	links_max	4	sockets_min	3	sockets_max	4	rarity_min	normal	rarity_max	unique
 random_class	Helmets	count	3	quality_min	-10	quality_max	30	links_min	3	links_max	4	sockets_min	3	sockets_max	4	rarity_min	normal	rarity_max	unique
 random_class	Body Armours	count 	3	quality_min	-10	quality_max	30	links_min	3	links_max	6	sockets_min	3	sockets_max	6	rarity_min	normal	rarity_max	unique
-random_class	Belts	count	3																
-random_class	Rings	count	3																
-random_class	Amulets	count	3																
+random_class	Belts	count	3	rarity_min	normal	rarity_max	unique
+random_class	Rings	count	3	rarity_min	normal	rarity_max	unique
+random_class	Amulets	count	3	rarity_min	normal	rarity_max	unique
 random_class	Support Skill Gems	count	3	quality_min	-10	quality_max	30	links_min	3	links_max	4	sockets_min	3	sockets_max	4	rarity_min	normal	rarity_max	unique
 random_cost_group	none	count	10																
 random_class	Body Armours	count 	1	quality_min	-10	quality_max	30	links_min	5	links_max	5	sockets_min	5	sockets_max	5	rarity_min	normal	rarity_max	unique
 random_class	Body Armours	count 	1	quality_min	-10	quality_max	30	links_min	6	links_max	6	sockets_min	6	sockets_max	6	rarity_min	normal	rarity_max	unique
+random_class	Body Armours	count 	1	quality_min	-10	quality_max	30	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	unique	rarity_max	unique

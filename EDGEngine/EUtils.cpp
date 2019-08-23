@@ -474,6 +474,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	void EString::load_loot_filter_list()
 	{
+		EString::loot_filter_path_list.clear();
+		EString::loot_filter_name_list.clear();
 		for (auto& p : std::experimental::filesystem::directory_iterator(EString::path_to_poe_folder))
 		{
 			std::string loot_filter_name = p.path().u8string();
@@ -489,8 +491,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				//cout <<"It sound!" << '\n'<<'\n';
 
-				EString::loot_filter_path_list.push_back(loot_filter_name);
-				EString::loot_filter_name_list.push_back(p.path().filename().u8string().substr(0, p.path().filename().u8string().length() - 7));
+				EString::loot_filter_path_list.push_back(to_cyrillic(loot_filter_name));
+				EString::loot_filter_name_list.push_back(to_cyrillic(p.path().filename().u8string().substr(0, p.path().filename().u8string().length() - 7)));
 
 				//std::cout << "It filter! " << p.path().filename().u8string() << '\n' << '\n';
 
@@ -529,7 +531,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				//cout <<"It sound!" << '\n'<<'\n';
 
-				ESound::custom_drop_sound_name.push_back(p.path().filename().u8string());
+				ESound::custom_drop_sound_name.push_back(EString::to_cyrillic(p.path().filename().u8string()));
 				//std::cout << "It sound! " << p.path().filename().u8string() << '\n' << '\n';
 
 				ESound::custom_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(custom_sound.c_str()));
@@ -636,7 +638,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 		ifstream myfile;
 		myfile.open(_path);
-
+		cout << "open: " << _path << endl;
 
 
 
@@ -997,8 +999,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										cout << red << "=================================================" << endl;
 										cout << red << "ERROR: undefined sound id: " << yellow << "" << subdata << endl;
 										cout << red << "=================================================" << endl << white;
+
+										error_counts++;
 									}
-									error_counts++;
+								
 								}
 
 								if (data_order == 2) { if (show_info_to_console) { cout << "set alert sound volume <" << subdata << ">" << endl; } just_created_block->alert_sound_volume = std::stoi(subdata); }
@@ -1147,7 +1151,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									if (show_info_to_console) { cout << "add new explicit mod <" << subdata << ">" << endl; }
 									just_created_block->explicit_mod_list.push_back(new string(subdata));
 
-									cout << "try allocate explicit list at <" << explicit_group_id << ">" << endl;
+									//cout << "try allocate explicit list at <" << explicit_group_id << ">" << endl;
 									EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST);
 
 									explicit_button->text = subdata;

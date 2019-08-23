@@ -66,7 +66,7 @@ description_raise_block	Raise block up
 description_lower_block	Lower block down
 description_add_new_filter_block	And new filter block
 description_remove_block	REMOVE block
-description_click_to_edit	Click to edir
+description_click_to_edit	Click to edit
 description_new_base_data	Add new base filter block data (rarity, itemlevel, etc.)
 button_set_ray_is_tempotary	Temporary ray
 description_tempotary_ray	Make loot ray temporary
@@ -113,3 +113,4 @@ hint_input_prophecy_name	Input prophecy name
 help_right_click_play_sound	Press right mouse button on button to play sound
 help_open_loot_filter_window	List of lootfilter's from "my games/Path of Exile"
 hint_input_filter_block_search	Search text
+description_open_loot_simulator_window	Open loot simulator window
