@@ -167,7 +167,7 @@ unsigned int last_texture_w;
 unsigned int last_texture_h;
 
 
-bool collision_matrix[4096][4096][10];
+bool ***collision_matrix = new bool**[4096];
 
 EGabarite* just_created_gabarite = NULL;
 
@@ -1387,7 +1387,18 @@ void parse_loot_filter_data(string _path)
 int main()
 {
 	//engine->play2D("data/cool01.wav");
+	for (int i = 0; i < 4096; ++i) {
+		collision_matrix[i] = new bool* [4096];
+		for (int j = 0; j < 4096; ++j)
+			collision_matrix[i][j] = new bool[10];
+	}
 
+	for (int i=0; i<4096; i++)
+	for (int j=0; j<4096; j++)
+	for (int z = 0; z < 10; z++)
+	{
+		collision_matrix[j][i][z] = false;
+	}
 	
 	ESound::engine = irrklang::createIrrKlangDevice();
 
@@ -1680,7 +1691,7 @@ int main()
 	camera->x = 0.0f;
 	camera->y = 0.0f;
 
-	for (int i = 0; i < 100000; i++)
+	for (int i = 0; i < 15000; i++)
 	{
 		batch->fill_indices();
 
@@ -1986,6 +1997,8 @@ int main()
 			if (StaticData::window_loading_screen->load_progress >= ItemList::item_list.size())
 			{
 				StaticData::window_loading_screen->is_active = false;
+
+
 			}
 		///////////////////////////////////////////////////////////////////////////////
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -2091,6 +2104,21 @@ int main()
 				w->default_text_pass(batch);
 				w->text_pass(batch);
 			}
+		}
+
+		if (glfwGetKey(EWindow::main_window, GLFW_KEY_END) == GLFW_PRESS)
+		{
+			for (int i = 0; i < 4096; i++)
+			{
+				for (int j = 0; j < 4096; j++)
+				{
+					delete[] collision_matrix[i][j];
+				}
+
+				delete[] collision_matrix[i];
+			}
+
+			delete[] collision_matrix;
 		}
 
 		if (glfwGetKey(EWindow::main_window, GLFW_KEY_END) == GLFW_PRESS)
