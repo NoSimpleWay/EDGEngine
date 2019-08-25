@@ -12,6 +12,9 @@ public:
 	float size_x = 0;
 	float size_y = 0;
 
+	float uv_size_x = 0;
+	float uv_size_y = 0;
+
 
 
 	std::string name;

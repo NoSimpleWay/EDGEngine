@@ -20,6 +20,7 @@ public:
 	static int block_scroll;
 
 	static char last_inputed_char;
+	static int last_inputed_char_id;
 
 	static float delete_button_hold_time;
 

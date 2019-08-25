@@ -66,6 +66,7 @@ bool EControl ::mouse_right_pressed = false;
 
 bool EControl ::button_backspace_released = false;
 char EControl::last_inputed_char=NULL;
+int EControl::last_inputed_char_id = 0;
 
 float EControl::delete_button_hold_time = 0.0f;
 
@@ -218,9 +219,13 @@ bool check_can_put_here(int _x, int _y, int _size_x, int _size_y, int _value, in
 	for (int put_j = (int)(_x / _value) + 1; put_j < (int)((_x + _size_x) / _value); put_j++)
 	for (int put_i = (int)(_y / _value) + 1; put_i < (int)((_y + _size_y) / _value); put_i++)
 	{
+		//cout << "collision at dim:" << _dim << " x:" << _x << " y:" << _y << endl;
+
+		if ((put_j >= 4096) || (put_i >= 4096)) { return false; }
+
 		if (collision_matrix[put_j][put_i][_dim])
 		{
-			//cout << "collision at dim:" << _dim << " x:" << _x << " y:" << _y << endl;
+			
 			
 			put_j = 99999;
 			put_i = 99999;
@@ -256,14 +261,14 @@ bool is_no_collision(int _x, int _y, int _size_x, int _size_y)
 {
 	//return true;
 	//bool can_put=true;
-	if (!check_can_put_here(_x, _y, _size_x, _size_y, 256, 8)) { return false; }
-	if (!check_can_put_here(_x, _y, _size_x, _size_y, 128, 7)) { return false;  }
-	if (!check_can_put_here(_x,_y,_size_x,_size_y,64,6)) { return false; }
-	if (!check_can_put_here(_x,_y,_size_x,_size_y,32,5)) { return false; }
-	if (!check_can_put_here(_x,_y,_size_x,_size_y,16,4)) { return false; }
-	if (!check_can_put_here(_x,_y,_size_x,_size_y,8,3)) { return false; }
-	if (!check_can_put_here(_x,_y,_size_x,_size_y,4,2)) { return false; }
-	if (!check_can_put_here(_x,_y,_size_x,_size_y,2,1)) { return false; }
+	//if (!check_can_put_here(_x, _y, _size_x, _size_y, 256, 8)) { return false; }
+	//if (!check_can_put_here(_x, _y, _size_x, _size_y, 128, 7)) { return false;  }
+	if (!check_can_put_here(_x,_y,_size_x,_size_y,64,2)) { return false; }
+	//if (!check_can_put_here(_x,_y,_size_x,_size_y,32,5)) { return false; }
+	//if (!check_can_put_here(_x,_y,_size_x,_size_y,16,4)) { return false; }
+	if (!check_can_put_here(_x,_y,_size_x,_size_y,8,1)) { return false; }
+	//if (!check_can_put_here(_x,_y,_size_x,_size_y,4,2)) { return false; }
+	//if (!check_can_put_here(_x,_y,_size_x,_size_y,2,1)) { return false; }
 	if (!check_can_put_here(_x,_y,_size_x,_size_y,1,0)) { return false; }
 
 	return true;
@@ -1390,12 +1395,12 @@ int main()
 	for (int i = 0; i < 4096; ++i) {
 		collision_matrix[i] = new bool* [4096];
 		for (int j = 0; j < 4096; ++j)
-			collision_matrix[i][j] = new bool[10];
+			collision_matrix[i][j] = new bool[3];
 	}
 
 	for (int i=0; i<4096; i++)
 	for (int j=0; j<4096; j++)
-	for (int z = 0; z < 10; z++)
+	for (int z = 0; z < 3; z++)
 	{
 		collision_matrix[j][i][z] = false;
 	}
@@ -1689,7 +1694,7 @@ int main()
 	}
 
 
-	EFont::font_arial->load_font("!");
+	
 
 
 
@@ -1738,12 +1743,12 @@ int main()
 	ourShader->setInt("texture1", 0);
 	batch->setcolor(EColorCollection::WHITE);
 
-	put_texture_to_atlas("data/font_arial.png", 0, 4096 - 128);
+	put_texture_to_atlas("data/font/littera/x_0.png");
+	EFont::font_arial->gabarite = just_created_gabarite;
+	EFont::font_arial->load_font_littera("x");
 
 	put_texture_to_atlas("data/background.png");			DefaultGabarite::gabarite_background = just_created_gabarite;
-
 	put_texture_to_atlas("data/shaper_bg.png");				DefaultGabarite::gabarite_shaper_bg = just_created_gabarite;
-
 	put_texture_to_atlas("data/elder_bg.png");				DefaultGabarite::gabarite_elder_bg = just_created_gabarite;
 
 	cout << "item list size=" << ItemList::item_list.size() << endl;
@@ -1916,6 +1921,7 @@ int main()
 	while (!glfwWindowShouldClose(window))
 	{
 		///////////////////////////////////////////////////////////////////////////////
+
 			glViewport(0, 0, 4096, 4096);
 			glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
 
@@ -1942,46 +1948,46 @@ int main()
 			if (last_index > ItemList::item_list.size()) { last_index = ItemList::item_list.size(); }
 
 			if (true)
-			for (int z = StaticData::window_loading_screen->load_progress; z < last_index; z++)
-			{
-
-				//std::cout << "ITEM NAME: " << ItemList::item_list.at(z)->item_name << std::endl;
-				//int select = rand() % 3;
-
-				bool duplicate_detected = false;
-
-				for (int f = 0; f < z; f++)
+				for (int z = StaticData::window_loading_screen->load_progress; z < last_index; z++)
 				{
-					if
-						(
-						(f != z)
-							&&
-							(ItemList::item_list.at(z)->folder == ItemList::item_list.at(f)->folder)
-							&&
-							(ItemList::item_list.at(z)->icon_path == ItemList::item_list.at(f)->icon_path)
-							)
+
+					//std::cout << "ITEM NAME: " << ItemList::item_list.at(z)->item_name << std::endl;
+					//int select = rand() % 3;
+
+					bool duplicate_detected = false;
+
+					for (int f = 0; f < z; f++)
 					{
-						duplicate_detected = true;
+						if
+							(
+							(f != z)
+								&&
+								(ItemList::item_list.at(z)->folder == ItemList::item_list.at(f)->folder)
+								&&
+								(ItemList::item_list.at(z)->icon_path == ItemList::item_list.at(f)->icon_path)
+								)
+						{
+							duplicate_detected = true;
 
-						ItemList::item_list.at(z)->gabarite = ItemList::item_list.at(f)->gabarite;
-					//std:cout << "Duplicate detected! Name: " << ItemList::item_list.at(z)->folder << "/" << ItemList::item_list.at(z)->icon_path << std::endl;
+							ItemList::item_list.at(z)->gabarite = ItemList::item_list.at(f)->gabarite;
+							//std:cout << "Duplicate detected! Name: " << ItemList::item_list.at(z)->folder << "/" << ItemList::item_list.at(z)->icon_path << std::endl;
 
-						break;
+							break;
+						}
+
+						if (duplicate_detected) { break; }
 					}
 
-					if (duplicate_detected) { break; }
+
+					if (!duplicate_detected)
+					{
+						string aaa = "data/icon/" + (ItemList::item_list.at(z)->folder) + "/" + ItemList::item_list.at(z)->icon_path + ".png";
+						put_texture_to_atlas(aaa.c_str());
+						ItemList::item_list.at(z)->gabarite = just_created_gabarite;
+					}
+
+					//if (z % 5 == 0) { cout << "Collision pass:" << green << z << white << endl; }
 				}
-
-
-				if (!duplicate_detected)
-				{
-					string aaa = "data/icon/" + (ItemList::item_list.at(z)->folder) + "/" + ItemList::item_list.at(z)->icon_path + ".png";
-					put_texture_to_atlas(aaa.c_str());
-					ItemList::item_list.at(z)->gabarite = just_created_gabarite;
-				}
-
-				//if (z % 5 == 0) { cout << "Collision pass:" << green << z << white << endl; }
-			}
 
 			StaticData::window_loading_screen->load_progress += 20;
 
@@ -1994,7 +2000,7 @@ int main()
 
 
 			}*/
-		///////////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////////
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glDisable(GL_DEPTH_TEST);
 			glBlendEquation(GL_FUNC_ADD);
@@ -2004,6 +2010,7 @@ int main()
 			//cout << (int)01.35f << endl;
 			glViewport(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT);
 			//recalculate_correction();
+		
 		///////////////////////////////////////////////////////////////////////////////
 
 
@@ -2204,9 +2211,10 @@ int main()
 
 void fill_collision(int _x, int _y, int _size_x, int _size_y,int _siz, int _dim)
 {
-	for (int xx = (int)(_x / _siz); xx < (int)((_x + _size_x) / _siz); xx++)
-	for (int yy = (int)(_y / _siz); yy < (int)((_y + _size_y) / _siz); yy++)
+	for (int xx = (int)(_x / _siz); xx <= (int)((_x + _size_x) / _siz); xx++)
+	for (int yy = (int)(_y / _siz); yy <= (int)((_y + _size_y) / _siz); yy++)
 	{
+		if ((xx < 4096)&&(yy < 4096))
 		collision_matrix[xx][yy][_dim] = true;
 	}
 }
@@ -2216,14 +2224,14 @@ void put_texture_to_atlas(char const* _path, float _x, float _y)
 	load_texture(_path, 0);
 
 	fill_collision(_x, _y, last_texture_w, last_texture_h, 1, 0);
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 2, 1);
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 4, 2);
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 8, 3);
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 16, 4);
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 32, 5);
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 64, 6);
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 128, 7);
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 256, 8);
+	//fill_collision(_x, _y, last_texture_w, last_texture_h, 2, 1);
+	//fill_collision(_x, _y, last_texture_w, last_texture_h, 4, 2);
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 8, 1);
+	//fill_collision(_x, _y, last_texture_w, last_texture_h, 16, 4);
+	//fill_collision(_x, _y, last_texture_w, last_texture_h, 32, 5);
+	fill_collision(_x, _y, last_texture_w, last_texture_h, 64, 2);
+	//fill_collision(_x, _y, last_texture_w, last_texture_h, 128, 7);
+	//fill_collision(_x, _y, last_texture_w, last_texture_h, 256, 8);
 
 	batch->reset();
 	batch->draw_rect(_x, _y, last_texture_w, last_texture_h);
@@ -2243,20 +2251,22 @@ void put_texture_to_atlas(char const* _path)
 {
 	load_texture(_path, 0);
 
-	for (int j = 0; j < 4000; j+= last_texture_w / 2 + 2)
-	for (int i = 0; i < 4000; i+= last_texture_h / 2 + 2)
+	for (int j = 0; j < 4096; j+= last_texture_w / 8 + 1)
+	for (int i = 0; i < 4096; i+= last_texture_h / 8 + 1)
 		{
 			if (is_no_collision(j, i, last_texture_w, last_texture_h))
 			{
+				//cout << "Find place (" << _path << ")" << endl;
+
 				fill_collision(j,i,last_texture_w,last_texture_h,1,0);
-				fill_collision(j,i,last_texture_w,last_texture_h,2,1);
-				fill_collision(j,i,last_texture_w,last_texture_h,4,2);
-				fill_collision(j,i,last_texture_w,last_texture_h,8,3);
-				fill_collision(j,i,last_texture_w,last_texture_h,16,4);
-				fill_collision(j,i,last_texture_w,last_texture_h,32,5);
-				fill_collision(j,i,last_texture_w,last_texture_h,64,6);
-				fill_collision(j,i,last_texture_w,last_texture_h,128,7);
-				fill_collision(j,i,last_texture_w,last_texture_h,256,8);
+				//fill_collision(j,i,last_texture_w,last_texture_h,2,1);
+				//fill_collision(j,i,last_texture_w,last_texture_h,4,2);
+				fill_collision(j,i,last_texture_w,last_texture_h,8,1);
+				//fill_collision(j,i,last_texture_w,last_texture_h,16,4);
+				//fill_collision(j,i,last_texture_w,last_texture_h,32,5);
+				fill_collision(j,i,last_texture_w,last_texture_h,64,2);
+				//fill_collision(j,i,last_texture_w,last_texture_h,128,7);
+				//fill_collision(j,i,last_texture_w,last_texture_h,256,8);
 
 				batch->reset();
 				batch->draw_rect(j, i, last_texture_w, last_texture_h);
@@ -2466,6 +2476,7 @@ void char_input_callback(GLFWwindow* window, unsigned int _char)
 {
 	int inputed_c = (int)_char;
 
+
 	if (inputed_c == 1025) { inputed_c = 168; }
 	else
 	if (inputed_c == 1105) { inputed_c = 184; }
@@ -2473,7 +2484,9 @@ void char_input_callback(GLFWwindow* window, unsigned int _char)
 	if (inputed_c > 255) { inputed_c -= 848; }
 
 	//cout << "input character: " << inputed_c <<"|"<<(int)_char << "[  " << (char)inputed_c << " ]" << " ("<<work_text<<")" <<endl;
+
 	EControl::last_inputed_char = (char)inputed_c;
+
 	//work_text += (char)inputed_c;
 }
 

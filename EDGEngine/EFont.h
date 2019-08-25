@@ -2,6 +2,7 @@
 #include <string>
 #include "Batcher.h"
 #include "Enums.h"
+#include <vector>
 using namespace std;
 
 class EFont
@@ -24,11 +25,14 @@ public:
 
 	EFont();
 	~EFont();
-	float get_data_from_sub_data(string _s);
+	float get_float_from_sub_data(string _s);
+	int get_int_from_sub_data(string _s);
 	void final_draw(Batcher* _batcher, string _s, float _x, float _y);
 	void draw(Batcher* _batcher, string _s, float _x, float _y);
 	void add_draw(Batcher* _batcher, string _s, float _x, float _y);
 	void load_font(string _path);
+
+	void load_font_littera(string _path);
 
 	void draw(string _s, Batcher _batch);
 
@@ -46,6 +50,10 @@ public:
 	Enums::PositionMode align_prev= Enums::PositionMode::LEFT;
 
 	float scale = 1.0f;
+
+	EGabarite* gabarite = NULL;
+
+	static std::vector<EFont*> font_list;
 
 };
 
