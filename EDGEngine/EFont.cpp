@@ -23,7 +23,11 @@ EFont::EFont()
 {
 }
 
-
+EFont::EFont(string _name, EGabarite* _g)
+{
+	gabarite = _g;
+	load_font_littera(_name);
+}
 
 EFont::~EFont()
 {
@@ -111,6 +115,8 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 	if (align_x == Enums::PositionMode::MID) { _x -= get_width(this, _s) / 2.0f; _x = _x; }
 	if (align_x == Enums::PositionMode::RIGHT) { _x -= get_width(this, _s); _x = _x; }
 
+	_x = round(_x);
+
 	for (int sym = 0; sym < _s.length(); sym++)
 	{
 		float a = 0.5f;
@@ -128,7 +134,7 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 			_batcher->draw_rect_with_uv
 			(
 				_x + x_adding + offset_x[target_symbol] * scale,
-				_y - real_size_y[target_symbol] + 13.0f - offset_y[target_symbol],
+				_y - (real_size_y[target_symbol] - 15.0f + offset_y[target_symbol]) * scale,
 
 				real_size_x[target_symbol] * scale,
 				real_size_y[target_symbol] * scale,

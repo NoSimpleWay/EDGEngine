@@ -175,6 +175,7 @@
     <ClCompile Include="EWindowFindItem.cpp" />
     <ClCompile Include="EWindowLoadingScreen.cpp" />
     <ClCompile Include="EWindowLootSimulator.cpp" />
+    <ClCompile Include="EWindowSelectFont.cpp" />
     <ClCompile Include="EWindowSelectLocalisation.cpp" />
     <ClCompile Include="EWindowTextSearch.cpp" />
     <ClCompile Include="ExolicitGroup.cpp" />
@@ -229,6 +230,7 @@
     <ClInclude Include="EWindowFilterBlockSearch.h" />
     <ClInclude Include="EWindowLootSimulator.h" />
     <ClInclude Include="EWindowMain.cpp" />
+    <ClInclude Include="EWindowSelectFont.h" />
     <ClInclude Include="EWindowSocketGroup.cpp" />
     <ClInclude Include="ExplicitGroup.h" />
     <ClInclude Include="FilterBlock.h" />

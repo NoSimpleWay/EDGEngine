@@ -78,7 +78,7 @@ void EButtonItemSearch::click_event()
 		StaticData::window_find_item->target_button->data_id = data_id;
 
 
-		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::font_arial, text) + 5.0f;
+		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::active_font, text) + 5.0f;
 
 		StaticData::window_find_item->is_active = false;
 	}
@@ -90,7 +90,7 @@ void EButtonItemSearch::click_event()
 		StaticData::window_find_item->target_button->data_id = data_id;
 
 
-		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::font_arial, text ) + 5.0f;
+		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::active_font, text ) + 5.0f;
 
 		StaticData::window_find_item->is_active = false;
 	}

@@ -171,6 +171,9 @@
     <ClCompile Include="LootItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EWindowSelectFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -321,6 +324,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LootPatternItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EWindowSelectFont.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

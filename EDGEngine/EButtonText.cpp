@@ -148,6 +148,19 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		have_text = true;
 		have_input_mode = false;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SELECT_FONT)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		position_mode_x = Enums::PositionMode::MID;
+		position_mode_y = Enums::PositionMode::UP;
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		have_text = true;
+		have_input_mode = false;
+	}
 }
 
 void EButtonText::click_event()
@@ -246,6 +259,13 @@ void EButtonText::click_event()
 		{
 			EFile::save_filter(EString::opened_loot_filter_path);
 		}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SELECT_FONT)
+	{
+		StaticData::window_select_font->is_active = false;
+
+		EFont::active_font = EFont::font_list.at(data_id);
 	}
 }
 

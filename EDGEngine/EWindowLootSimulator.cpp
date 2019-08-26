@@ -182,19 +182,19 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 		//loot->filter_block_link = StaticData::window_filter_block->filter_block_list.at(rand() % StaticData::window_filter_block->filter_block_list.size());
 
 		//std::cout << "___" << std::endl;
-		EFont::font_arial->set_align_once(Enums::PositionMode::MID);
+		EFont::active_font->set_align_once(Enums::PositionMode::MID);
 
 		if (loot->filter_block_link != NULL)
 		{
-			EFont::font_arial->scale = loot->filter_block_link->font_size / 32.0f;
+			EFont::active_font->scale = loot->filter_block_link->font_size / 32.0f;
 		}
 		else
 		{
-			EFont::font_arial->scale = 20.0f / 32.0f;
+			EFont::active_font->scale = 20.0f / 32.0f;
 		}
 
-		float w = EFont::font_arial->get_width(EFont::font_arial, loot->name);
-		float h = 20.0f * EFont::font_arial->scale;
+		float w = EFont::active_font->get_width(EFont::active_font, loot->name);
+		float h = 20.0f * EFont::active_font->scale;
 
 
 		if (loot->filter_block_link != NULL)
@@ -220,7 +220,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 
 		//std::cout << "try draw font (text=" << loot->name << ")" << std::endl;
-		EFont::font_arial->draw(_batch, loot->name, pos_x + loot->pos_x + w / 2.0f + 5.0f, pos_y + loot->pos_y + 3.0f);
+		EFont::active_font->draw(_batch, loot->name, pos_x + loot->pos_x + w / 2.0f + 5.0f, pos_y + loot->pos_y + 3.0f);
 		//std::cout << "success"  << std::endl;
 
 		
@@ -235,7 +235,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 	}
 
-	EFont::font_arial->scale = 1.0f;
+	EFont::active_font->scale = 1.0f;
 	//_batch->setcolor_alpha(EColorCollection::RED, 0.15f);
 
 	/*for (int i=0; i<100; i++)
@@ -575,21 +575,21 @@ void EWindowLootSimulator::place(LootItem* _l)
 
 	if (_l->filter_block_link != NULL)
 	{
-		EFont::font_arial->scale = _l->filter_block_link->font_size / 32.0f;
+		EFont::active_font->scale = _l->filter_block_link->font_size / 32.0f;
 	}
 	else
 	{
-		EFont::font_arial->scale = 16.0f / 32.0f;
+		EFont::active_font->scale = 16.0f / 32.0f;
 	}
 
-	w = EFont::font_arial->get_width(EFont::font_arial, _l->name);
+	w = EFont::active_font->get_width(EFont::active_font, _l->name);
 
 	for (int i = 0; i < 100; i++)
 		for (int j = 0; j < 200; j++)
 		{
 			bool detect_block = false;
 
-			for (int sy = i; sy <= i + (int)(EFont::font_arial->scale * 22.0f / 8.0f); sy++)
+			for (int sy = i; sy <= i + (int)(EFont::active_font->scale * 22.0f / 8.0f); sy++)
 				for (int sx = j; sx <= j + (int)(w / 8.0f) + 1; sx++)
 				{
 					if ((sx >= 0) && (sy > 0) && (sx < 200) && (sy < 100) && (free_space[sx][sy]))
@@ -607,7 +607,7 @@ void EWindowLootSimulator::place(LootItem* _l)
 			if (!detect_block)
 			{
 				float xx = j - 100.0f + w / 16.0f;
-				float yy = i - 50.0f + EFont::font_arial->scale * 22.0f / 16.0f;
+				float yy = i - 50.0f + EFont::active_font->scale * 22.0f / 16.0f;
 
 
 				float dist = xx * xx + yy * yy;
@@ -630,8 +630,8 @@ void EWindowLootSimulator::place(LootItem* _l)
 	if ((good_pos_x >= 0) && (good_pos_y >= 0))
 	{
 
-		w = EFont::font_arial->get_width(EFont::font_arial, _l->name);
-		for (int sy = good_pos_y - 0.0f; sy <= good_pos_y + (int)(EFont::font_arial->scale * 22.0f / 8.0f) + 1; sy++)
+		w = EFont::active_font->get_width(EFont::active_font, _l->name);
+		for (int sy = good_pos_y - 0.0f; sy <= good_pos_y + (int)(EFont::active_font->scale * 22.0f / 8.0f) + 1; sy++)
 			for (int sx = good_pos_x - 3.0f; sx <= good_pos_x + (int)(w / 8.0f) + 3; sx++)
 			{
 				if ((sx < 200) && (sy < 100) && (sx >= 0) && (sy >= 0))

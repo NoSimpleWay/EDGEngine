@@ -242,7 +242,7 @@
 			explicit_button->text = "+";
 			explicit_button->master_block = this;
 			explicit_button->master_window = StaticData::window_filter_block;
-			explicit_button->button_size_x = EFont::get_width(EFont::font_arial, "+") + 5.0f;
+			explicit_button->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
 			explicit_button->can_be_removed = false;
 			explicit_button->have_input_mode = false;
 			explicit_button->is_plus = true;
@@ -263,7 +263,7 @@
 		plus_class_button_link->text = "+";
 		plus_class_button_link->master_block = this;
 		plus_class_button_link->master_window = StaticData::window_filter_block;
-		plus_class_button_link->button_size_x = EFont::get_width(EFont::font_arial, "+") + 5.0f;
+		plus_class_button_link->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
 		plus_class_button_link->can_be_removed = false;
 		plus_class_button_link->have_input_mode = false;
 		plus_class_button_link->is_plus = true;
@@ -278,7 +278,7 @@
 		plus_prophecy_button_link->text = "+";
 		plus_prophecy_button_link->master_block = this;
 		plus_prophecy_button_link->master_window = StaticData::window_filter_block;
-		plus_prophecy_button_link->button_size_x = EFont::get_width(EFont::font_arial, "+") + 5.0f;
+		plus_prophecy_button_link->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
 		plus_prophecy_button_link->can_be_removed = false;
 		plus_prophecy_button_link->have_input_mode = false;
 		plus_prophecy_button_link->is_plus = true;
@@ -583,10 +583,10 @@
 
 
 
-		EFont::font_arial->scale = font_size / 32.0f;
+		EFont::active_font->scale = font_size / 32.0f;
 
-		float text_w = EFont::get_width(EFont::font_arial, "Just a Text");
-		float text_h = 12.0f * EFont::font_arial->scale;
+		float text_w = EFont::get_width(EFont::active_font, "Just a Text");
+		float text_h = 12.0f * EFont::active_font->scale;
 
 		float rx = text_w + 10.0f;
 		float ry = text_h + 10.0f;
@@ -600,9 +600,9 @@
 		_batch->setcolor_255(text_color_red, text_color_green, text_color_blue, text_color_alpha);
 		//_font->x_adding = 0;
 
-		EFont::font_arial->set_align_once(Enums::PositionMode::LEFT);
-		EFont::font_arial->draw(_batch, "Just a Text", x + size_x - 140.0f + (145.0 - rx) / 2.0f - right_side_buttons_offset, y + 15.0f);
-		EFont::font_arial->scale = 1.0f;
+		EFont::active_font->set_align_once(Enums::PositionMode::LEFT);
+		EFont::active_font->draw(_batch, "Just a Text", x + size_x - 140.0f + (145.0 - rx) / 2.0f - right_side_buttons_offset, y + 15.0f);
+		EFont::active_font->scale = 1.0f;
 
 
 
@@ -835,10 +835,10 @@
 				_batch->setcolor_alpha(EColorCollection::WHITE, 0.35f);
 				_batch->draw_rect_with_uv(data_x - 150, y + size_y - data_y - 3, 185, 21, DefaultGabarite::gabarite_white);
 
-				EFont::font_arial->align_x = Enums::RIGHT;
+				EFont::active_font->align_x = Enums::RIGHT;
 				_batch->setcolor(EColorCollection::BLACK);
 
-				EFont::font_arial->draw(_batch, base_filter_data_name.at(i), data_x + 30, y + size_y - data_y);
+				EFont::active_font->draw(_batch, base_filter_data_name.at(i), data_x + 30, y + size_y - data_y);
 				
 				if (base_filter_condition_list.at(i) != NULL)
 				{
@@ -871,7 +871,7 @@
 			for (EButton* b : button_list) { if (b->is_active) { b->default_draw(_batch); } }
 		}
 
-		EFont::font_arial->align_x = Enums::LEFT;
+		EFont::active_font->align_x = Enums::LEFT;
 
 		if (data_y > max_h) { max_h = data_y; }
 
@@ -890,9 +890,9 @@
 		_batch->setcolor_alpha(EColorCollection::WHITE, 0.5f);
 		_batch->draw_rama(x, y, size_x, size_y, 3.0f, DefaultGabarite::gabarite_white);
 
-		EFont::font_arial->set_align_once(Enums::PositionMode::RIGHT);
+		EFont::active_font->set_align_once(Enums::PositionMode::RIGHT);
 		_batch->setcolor_alpha(EColorCollection::WHITE, 0.8f);
-		EFont::font_arial->draw(_batch, "#" + std::to_string(order_id), x + size_x -5.0f, y+size_y - 25.0f);
+		EFont::active_font->draw(_batch, "#" + std::to_string(order_id), x + size_x -5.0f, y+size_y - 25.0f);
 	}
 
 	void FilterBlock::add_debug(bool _if, string _text, EFont* _font, Batcher* _batch)

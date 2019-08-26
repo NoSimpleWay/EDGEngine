@@ -25,12 +25,12 @@ void EButtonSocketGroup::additional_draw(Batcher* _batch)
 	//std::cout << "!" << std::endl;
 	int xx = 2;
 	//_batch->draw_rect_with_uv(master_position_x, master_position_y,button_size_x);
-	EFont::font_arial->align_x = Enums::PositionMode::LEFT;
+	EFont::active_font->align_x = Enums::PositionMode::LEFT;
 
 	if (master_block->red_sockets > 0)
 	{
 		_batch->setcolor(EColorCollection::RED);
-		EFont::font_arial->draw(_batch, std::to_string(master_block->red_sockets),master_position_x+xx,master_position_y+2);
+		EFont::active_font->draw(_batch, std::to_string(master_block->red_sockets),master_position_x+xx,master_position_y+2);
 
 		xx += 15;
 	}
@@ -38,7 +38,7 @@ void EButtonSocketGroup::additional_draw(Batcher* _batch)
 	if (master_block->green_sockets > 0)
 	{
 		_batch->setcolor(EColorCollection::GREEN);
-		EFont::font_arial->draw(_batch, std::to_string(master_block->green_sockets), master_position_x + xx, master_position_y+2);
+		EFont::active_font->draw(_batch, std::to_string(master_block->green_sockets), master_position_x + xx, master_position_y+2);
 
 		xx += 15;
 	}
@@ -46,7 +46,7 @@ void EButtonSocketGroup::additional_draw(Batcher* _batch)
 	if (master_block->blue_sockets > 0)
 	{
 		_batch->setcolor(EColorCollection::BLUE);
-		EFont::font_arial->draw(_batch, std::to_string(master_block->blue_sockets), master_position_x + xx, master_position_y+2);
+		EFont::active_font->draw(_batch, std::to_string(master_block->blue_sockets), master_position_x + xx, master_position_y+2);
 
 		xx += 15;
 	}
@@ -54,7 +54,7 @@ void EButtonSocketGroup::additional_draw(Batcher* _batch)
 	if (master_block->white_sockets > 0)
 	{
 		_batch->setcolor(EColorCollection::WHITE);
-		EFont::font_arial->draw(_batch, std::to_string(master_block->white_sockets), master_position_x + xx, master_position_y+2);
+		EFont::active_font->draw(_batch, std::to_string(master_block->white_sockets), master_position_x + xx, master_position_y+2);
 
 		xx += 15;
 	}

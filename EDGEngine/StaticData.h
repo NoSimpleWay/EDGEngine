@@ -12,6 +12,7 @@
 #include "EWindowCreateNewLootFilter.h"
 #include "EWindowSelectLocalisation.cpp"
 #include "EWindowLootSimulator.h"
+#include "EWindowSelectFont.h"
 
 
 
@@ -31,5 +32,6 @@ public:
 	static EWindowCreateNewLootFilter* window_new_loot_filter;
 	static EWindowSelectLocalisation* window_select_localisation;
 	static EWindowLootSimulator* window_loot_simulator;
+	static EWindowSelectFont* window_select_font;
 
 };

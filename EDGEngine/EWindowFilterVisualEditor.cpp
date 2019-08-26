@@ -377,15 +377,15 @@ public:
 
 	virtual void draw(Batcher* _batch, float _delta)
 	{
-		EFont::font_arial->scale = master_block->font_size / 32.0f;
+		EFont::active_font->scale = master_block->font_size / 32.0f;
 
-		float text_w = EFont::get_width(EFont::font_arial, "Sample text");
+		float text_w = EFont::get_width(EFont::active_font, "Sample text");
 		float text_h = 20.0f * master_block->font_size / 32.0f;
 
 		float rx = text_w + 10.0f;
 		float ry = text_h + 6.0F;
 
-		EFont::font_arial->align_x = Enums::PositionMode::LEFT;
+		EFont::active_font->align_x = Enums::PositionMode::LEFT;
 		_batch->setcolor(EColorCollection::WHITE);
 		_batch->draw_rect_with_uv(pos_x + default_position_x + distance_between_x * 1.0f + (button_size_x - 320.0f) / 2.0f, default_position_y+pos_y + distance_between_y * 4.0f + 100.0f + (25.0f - 150.0f) / 2.0f, 320, 150, DefaultGabarite::gabarite_visual_editor_bg);
 
@@ -404,12 +404,12 @@ public:
 		
 
 		_batch->setcolor_255(master_block->text_color_red, master_block->text_color_green, master_block->text_color_blue, master_block->text_color_alpha / 2.55f);
-		EFont::font_arial->draw
+		EFont::active_font->draw
 		(
 			_batch,
 			"Sample text",
 
-			round(pos_x + default_position_x + distance_between_x * 1.0f+(button_size_x -EFont::get_width(EFont::font_arial,"Sample text"))/2.0f),
+			round(pos_x + default_position_x + distance_between_x * 1.0f+(button_size_x -EFont::get_width(EFont::active_font,"Sample text"))/2.0f),
 			default_position_y + pos_y + distance_between_y * 4.0f+100.0f+7.0f
 		);
 
@@ -433,14 +433,14 @@ public:
 		_batch->draw_rama(pos_x + default_position_x + distance_between_x * 2.0f - 5.0f, /**/ pos_y + default_position_y - 5.0f, /**/ button_size_x + 10.0f, /**/ distance_between_y * 4.0f + 22.0f, /**/ 2.0f, /**/ DefaultGabarite::gabarite_white);
 		_batch->draw_rama(pos_x + default_position_x + distance_between_x * 3.0f - 5.0f, /**/ pos_y + default_position_y - 5.0f, /**/ button_size_x + 10.0f, /**/ distance_between_y * 4.0f + 22.0f, /**/ 2.0f, /**/ DefaultGabarite::gabarite_white);
 
-		EFont::font_arial->scale = 1.0f;
+		EFont::active_font->scale = 1.0f;
 		_batch->setcolor(EColorCollection::BLACK);
-		EFont::font_arial->align_x = Enums::PositionMode::MID;
+		EFont::active_font->align_x = Enums::PositionMode::MID;
 
-		EFont::font_arial->draw(_batch, cached_text_bg_color,		pos_x + default_position_x + distance_between_x * 0.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
-		EFont::font_arial->draw(_batch, cached_text_color,			pos_x + default_position_x + distance_between_x * 1.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
-		EFont::font_arial->draw(_batch, cached_text_border_color,	pos_x + default_position_x + distance_between_x * 2.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
-		EFont::font_arial->draw(_batch, cached_text_size,			pos_x + default_position_x + distance_between_x * 3.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::active_font->draw(_batch, cached_text_bg_color,		pos_x + default_position_x + distance_between_x * 0.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::active_font->draw(_batch, cached_text_color,			pos_x + default_position_x + distance_between_x * 1.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::active_font->draw(_batch, cached_text_border_color,	pos_x + default_position_x + distance_between_x * 2.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
+		EFont::active_font->draw(_batch, cached_text_size,			pos_x + default_position_x + distance_between_x * 3.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);
 
 		float siz = 1.0 / (master_block->minimap_icon_size * 0.5f + 1.0);
 

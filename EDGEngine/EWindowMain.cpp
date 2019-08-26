@@ -45,9 +45,9 @@ public:
 	virtual void draw(Batcher* _batch, float _delta)
 	{
 		_batch->setcolor_alpha(EColorCollection::BLACK, 0.8f);
-		EFont::font_arial->set_align_once(Enums::PositionMode::RIGHT);
+		EFont::active_font->set_align_once(Enums::PositionMode::RIGHT);
 
-		EFont::font_arial->draw(_batch, cached_text_sound_volume, window_size_x - 270, pos_y + window_size_y - 22.0f);
+		EFont::active_font->draw(_batch, cached_text_sound_volume, window_size_x - 270, pos_y + window_size_y - 22.0f);
 	}
 
 	virtual void update_localisation()

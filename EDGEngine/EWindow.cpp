@@ -127,8 +127,8 @@ void EWindow::default_text_pass(Batcher* _batch)
 	if (help_text != "")
 	{
 		_batch->setcolor_alpha(EColorCollection::BLACK, 0.75f);
-		EFont::font_arial->set_align_once(Enums::PositionMode::MID);
-		EFont::font_arial->draw(_batch, help_text, pos_x + window_size_x / 2.0f, pos_y + 15.0f);
+		EFont::active_font->set_align_once(Enums::PositionMode::MID);
+		EFont::active_font->draw(_batch, help_text, pos_x + window_size_x / 2.0f, pos_y + 15.0f);
 	}
 }
 

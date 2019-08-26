@@ -308,7 +308,7 @@
 
 			if (dynamic_input_width)
 			{
-				button_size_x = EFont::get_width(EFont::font_arial, text)+7.0f;
+				button_size_x = EFont::get_width(EFont::active_font, text)+7.0f;
 			}
 
 			if (glfwGetKey(EWindow::main_window, GLFW_KEY_ENTER) == GLFW_PRESS)
@@ -406,22 +406,25 @@
 
 		if (have_text)
 		{
-			
+			EFont* target_font = EFont::active_font;
+
+			if (force_font != NULL) { target_font = force_font;}
+
 			float added_x = 0;
 
-			if (text_align_x == Enums::PositionMode::MID) { added_x = button_size_x / 2.0f; }
-			EFont::font_arial->align_x = text_align_x;
+			if (text_align_x == Enums::PositionMode::MID) { added_x = round(button_size_x / 2.0f); }
+			target_font->align_x = text_align_x;
 
 			if (text != "")
 			{
 				_batch->setcolor(0.0f, 0.0f, 0.0f, 0.75f);
-				EFont::font_arial->draw(_batch, text, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y-20.0f)/2.0f + 4.0f));
+				target_font->draw(_batch, text, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y-20.0f)/2.0f + 4.0f));
 			}
 
 			if ((text == "")&&(input_hint!=""))
 			{
 				_batch->setcolor(0.5f, 0.5f, 0.5f, 1.0f);
-				EFont::font_arial->draw(_batch, input_hint, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y - 20.0f) / 2.0f + 4.0f));
+				target_font->draw(_batch, input_hint, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y - 20.0f) / 2.0f + 4.0f));
 			}
 
 			if (is_input_mode_active)
@@ -429,7 +432,7 @@
 				if (flash_line_active)
 				{
 					_batch->setcolor(EColorCollection::BLACK);
-					_batch->draw_rect_with_uv(master_position_x + 3.0f + EFont::get_width(EFont::font_arial,text)+added_x, master_position_y + (button_size_y - 20.0f) / 2.0f + 4.0f, 3.0f, 17, DefaultGabarite::gabarite_white);
+					_batch->draw_rect_with_uv(master_position_x + 3.0f + EFont::get_width(target_font,text)+added_x, master_position_y + (button_size_y - 20.0f) / 2.0f + 4.0f, 3.0f, 17, DefaultGabarite::gabarite_white);
 				}
 			}
 		}
@@ -512,8 +515,8 @@
 				{
 					_batch->setcolor(EColorCollection::BLACK);
 				}
-				EFont::font_arial->set_align_once(Enums::PositionMode::MID);
-				EFont::font_arial->draw(_batch, drop_text.at(i), master_position_x+button_size_x/2.0f, master_position_y - i * 22 - 20+3);
+				EFont::active_font->set_align_once(Enums::PositionMode::MID);
+				EFont::active_font->draw(_batch, drop_text.at(i), master_position_x+button_size_x/2.0f, master_position_y - i * 22 - 20+3);
 			}
 		}
 		else
@@ -524,21 +527,28 @@
 		if ((have_description) && (is_overlap()))
 		{
 
-			float x_description= EControl::mouse_x + 17.0f;
-			if (x_description + EFont::get_width(EFont::font_arial, description_text) + 3>EWindow::SCR_WIDTH)
+			EFont* target_font = EFont::active_font;
+
+			if (force_font != NULL)
 			{
-				x_description += EWindow::SCR_WIDTH - (x_description + EFont::get_width(EFont::font_arial, description_text) + 3.0f);
+				target_font = force_font;
 			}
 
-			EFont::font_arial->align_x=Enums::PositionMode::LEFT;
+			float x_description= EControl::mouse_x + 17.0f;
+			if (x_description + EFont::get_width(target_font, description_text) + 3>EWindow::SCR_WIDTH)
+			{
+				x_description += EWindow::SCR_WIDTH - (x_description + EFont::get_width(target_font, description_text) + 3.0f);
+			}
+
+			target_font->align_x=Enums::PositionMode::LEFT;
 
 			_batch->setcolor(EColorCollection::WHITE);
-			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 38.0f, EFont::get_width(EFont::font_arial,description_text)+3, 20, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 38.0f, EFont::get_width(target_font,description_text)+3, 20, DefaultGabarite::gabarite_white);
 
 			_batch->setcolor(EColorCollection::BLACK);
-			EFont::font_arial->draw(_batch, description_text, x_description, EControl::mouse_y - 34.0f);
+			target_font->draw(_batch, description_text, x_description, EControl::mouse_y - 34.0f);
 
-			_batch->draw_rama(x_description, EControl::mouse_y - 38.0f, EFont::get_width(EFont::font_arial, description_text)+3, 20, 2, DefaultGabarite::gabarite_white);
+			_batch->draw_rama(x_description, EControl::mouse_y - 38.0f, EFont::get_width(target_font, description_text)+3, 20, 2, DefaultGabarite::gabarite_white);
 		}
 	}
 

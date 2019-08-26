@@ -70,7 +70,7 @@ int EControl::last_inputed_char_id = 0;
 
 float EControl::delete_button_hold_time = 0.0f;
 
-EFont* EFont::font_arial = NULL;
+EFont* EFont::active_font = NULL;
 
 int EControl::block_scroll = 0;
 
@@ -104,6 +104,9 @@ unsigned char* data2;
 glm::mat4 matrix_transform;
 
 Shader* ourShader;
+Shader* anisShader;
+
+Shader* currentShader;
 
 Batcher * batch;
 
@@ -185,6 +188,7 @@ EWindowLoadingScreen* StaticData::window_loading_screen=NULL;
 EWindowCreateNewLootFilter* StaticData::window_new_loot_filter=NULL;
 EWindowSelectLocalisation* StaticData::window_select_localisation =NULL;
 EWindowLootSimulator* StaticData::window_loot_simulator =NULL;
+EWindowSelectFont* StaticData::window_select_font =NULL;
 
 
 //0		-	1
@@ -849,7 +853,7 @@ void parse_loot_filter_data(string _path)
 								class_button->text = subdata;
 								class_button->master_block = just_created_block;
 								class_button->master_window = StaticData::window_filter_block;
-								class_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
+								class_button->button_size_x = EFont::get_width(EFont::active_font, subdata) + 5.0f;
 								
 								just_created_block->button_list.push_back(class_button);
 								just_created_block->base_class_list.push_back(class_button);
@@ -1028,7 +1032,7 @@ void parse_loot_filter_data(string _path)
 								explicit_button->text = subdata;
 								explicit_button->master_block = just_created_block;
 								explicit_button->master_window = StaticData::window_filter_block;
-								explicit_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
+								explicit_button->button_size_x = EFont::get_width(EFont::active_font, subdata) + 5.0f;
 								just_created_block->explicit_list.at(explicit_group_id)->button_list.push_back(explicit_button);
 								just_created_block->button_list.push_back(explicit_button);
 								just_created_block->explicit_list.at(explicit_group_id)->is_active = true;
@@ -1326,7 +1330,7 @@ void parse_loot_filter_data(string _path)
 								prophecy_button->text = subdata;
 								prophecy_button->master_block = just_created_block;
 								prophecy_button->master_window = StaticData::window_filter_block;
-								prophecy_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
+								prophecy_button->button_size_x = EFont::get_width(EFont::active_font, subdata) + 5.0f;
 
 								prophecy_button->data_id = -1;
 
@@ -1610,6 +1614,7 @@ int main()
 	// build and compile our shader zprogram
 	// ------------------------------------
 	ourShader = new Shader("data/5.1.transform.vs", "data/5.1.transform.fs");
+	anisShader = new Shader("data/5.1.transform.vs", "data/AF.fs");
 
 	// set up vertex data (and buffer(s)) and configure vertex attributes
 	// ------------------------------------------------------------------
@@ -1649,7 +1654,7 @@ int main()
 	glGenTextures(1, &textureColorbuffer);
 	glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 4096, 4096, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
 	// create a renderbuffer object for depth and stencil attachment (we won't be sampling these)
@@ -1682,7 +1687,7 @@ int main()
 
 	camera = new ECamera();
 
-	EFont::font_arial = new EFont();
+	EFont::active_font = new EFont();
 
 	camera->x = 0.0f;
 	camera->y = 0.0f;
@@ -1734,18 +1739,27 @@ int main()
 	matrix_transform = glm::translate(matrix_transform, glm::vec3(camera->x - 1, camera->y - 1, 0.0f));
 	matrix_transform = glm::scale(matrix_transform, glm::vec3(camera->zoom / 4096.0f*2.0f, camera->zoom/ 4096.0f*2.0f, 1));
 
-	ourShader->use();
-	unsigned int transformLoc = glGetUniformLocation(ourShader->ID, "transform");
+	anisShader->use();
+	unsigned int transformLoc = glGetUniformLocation(anisShader->ID, "transform");
 	glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(matrix_transform));
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
-	ourShader->setInt("texture1", 0);
+	anisShader->setInt("texture1", 0);
 	batch->setcolor(EColorCollection::WHITE);
 
-	put_texture_to_atlas("data/font/littera/x_0.png");
-	EFont::font_arial->gabarite = just_created_gabarite;
-	EFont::font_arial->load_font_littera("x");
+	EFont* new_font=NULL;
+
+	put_texture_to_atlas("data/font/littera/fontin_0.png");			new_font = new EFont("fontin", just_created_gabarite); 			EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/georgia_0.png");		new_font = new EFont("georgia", just_created_gabarite);			EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/verdana_0.png");		new_font = new EFont("verdana", just_created_gabarite); 		EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/franklin_0.png");		new_font = new EFont("franklin", just_created_gabarite);		EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/arial_0.png");			new_font = new EFont("arial", just_created_gabarite); 			EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/trebuchet_0.png");		new_font = new EFont("trebuchet", just_created_gabarite); 		EFont::font_list.push_back(new_font);
+
+	EFont::active_font = EFont::font_list.at(rand() % EFont::font_list.size());
+
+
 
 	put_texture_to_atlas("data/background.png");			DefaultGabarite::gabarite_background = just_created_gabarite;
 	put_texture_to_atlas("data/shaper_bg.png");				DefaultGabarite::gabarite_shaper_bg = just_created_gabarite;
@@ -1896,6 +1910,10 @@ int main()
 	StaticData::window_select_localisation->name = "Select language";
 	EControl::window_list.push_back(StaticData::window_select_localisation);
 
+	StaticData::window_select_font = new EWindowSelectFont(11, false);
+	StaticData::window_select_font->name = "Select font";
+	EControl::window_list.push_back(StaticData::window_select_font);
+
 
 	for (EWindow* w:EControl::window_list)
 	{
@@ -1935,13 +1953,13 @@ int main()
 			matrix_transform = glm::translate(matrix_transform, glm::vec3(camera->x - 1, camera->y - 1, 0.0f));
 			matrix_transform = glm::scale(matrix_transform, glm::vec3(camera->zoom / 4096.0f * 2.0f, camera->zoom / 4096.0f * 2.0f, 1));
 
-			ourShader->use();
-			unsigned int transformLoc = glGetUniformLocation(ourShader->ID, "transform");
+			anisShader->use();
+			unsigned int transformLoc = glGetUniformLocation(anisShader->ID, "transform");
 			glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(matrix_transform));
 
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
-			ourShader->setInt("texture1", 0);
+			anisShader->setInt("texture1", 0);
 			batch->setcolor(EColorCollection::WHITE);
 
 			int last_index = StaticData::window_loading_screen->load_progress + 20;
@@ -2076,12 +2094,14 @@ int main()
 		//transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
 
 		// get matrix's uniform location and set matrix
-		ourShader->use();
-		transformLoc = glGetUniformLocation(ourShader->ID, "transform");
+		if (glfwGetKey(window, GLFW_KEY_HOME) == GLFW_PRESS) { currentShader = anisShader; } else { currentShader = ourShader; } 
+
+		currentShader->use();
+		transformLoc = glGetUniformLocation(currentShader->ID, "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(matrix_transform));
 
 		glActiveTexture(GL_TEXTURE0);
-		ourShader->setInt("texture1", 0);
+		currentShader->setInt("texture1", 0);
 		glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
 
 		batch->reset();
@@ -2164,7 +2184,7 @@ int main()
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			glActiveTexture(GL_TEXTURE0);
-			ourShader->setInt("texture1", 0);
+			currentShader->setInt("texture1", 0);
 
 			glBindTexture(GL_TEXTURE_2D, textureColorbuffer);	// use the color attachment texture as the texture of the quad plane
 
@@ -2295,7 +2315,7 @@ void load_texture(char const *_path, int _id)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// set texture filtering parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	// load image, create texture and generate mipmaps
 	stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.

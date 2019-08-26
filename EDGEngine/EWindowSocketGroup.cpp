@@ -61,16 +61,16 @@ public:
 	void draw(Batcher* _batch, float _delta)
 	{
 		_batch->setcolor(EColorCollection::RED);
-		EFont::font_arial->draw(_batch, std::to_string(block->red_sockets), pos_x+10.0f + 25.0f, pos_y + 75.0f - 21.0f * 0.0f);
+		EFont::active_font->draw(_batch, std::to_string(block->red_sockets), pos_x+10.0f + 25.0f, pos_y + 75.0f - 21.0f * 0.0f);
 
 		_batch->setcolor(EColorCollection::GREEN);
-		EFont::font_arial->draw(_batch, std::to_string(block->green_sockets), pos_x + 10.0f + 25.0f, pos_y + 75.0f - 21.0f * 1.0f);
+		EFont::active_font->draw(_batch, std::to_string(block->green_sockets), pos_x + 10.0f + 25.0f, pos_y + 75.0f - 21.0f * 1.0f);
 
 		_batch->setcolor(EColorCollection::CYAN);
-		EFont::font_arial->draw(_batch, std::to_string(block->blue_sockets), pos_x + 10.0f + 25.0f, pos_y + 75.0f - 21.0f * 2.0f);
+		EFont::active_font->draw(_batch, std::to_string(block->blue_sockets), pos_x + 10.0f + 25.0f, pos_y + 75.0f - 21.0f * 2.0f);
 
 		_batch->setcolor(EColorCollection::WHITE);
-		EFont::font_arial->draw(_batch, std::to_string(block->white_sockets), pos_x + 10.0f + 25.0f, pos_y + 75.0f - 21.0f * 3.0f);
+		EFont::active_font->draw(_batch, std::to_string(block->white_sockets), pos_x + 10.0f + 25.0f, pos_y + 75.0f - 21.0f * 3.0f);
 	}
 
 

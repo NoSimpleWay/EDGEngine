@@ -24,6 +24,7 @@ public:
 	float real_size_y[512];
 
 	EFont();
+	EFont(string _name, EGabarite* _g);
 	~EFont();
 	float get_float_from_sub_data(string _s);
 	int get_int_from_sub_data(string _s);
@@ -42,7 +43,7 @@ public:
 
 	float x_adding=0;
 
-	static EFont* font_arial;
+	static EFont* active_font;
 
 	Enums::PositionMode align_x = Enums::PositionMode::LEFT;
 

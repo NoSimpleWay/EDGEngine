@@ -54,7 +54,7 @@ void EButtonExplicit::click_event()
 			explicit_button->text = cached_text_press_me;
 			explicit_button->master_block = master_block;
 			explicit_button->master_window = StaticData::window_filter_block;
-			explicit_button->button_size_x = EFont::get_width(EFont::font_arial, explicit_button->text) + 5.0f;
+			explicit_button->button_size_x = EFont::get_width(EFont::active_font, explicit_button->text) + 5.0f;
 			master_block->explicit_list.at(data_id)->button_list.push_back(explicit_button);
 
 			master_block->button_list.push_back(explicit_button);
@@ -76,7 +76,7 @@ void EButtonExplicit::click_event()
 			class_button->have_input_mode = false;
 			class_button->master_block = master_block;
 			class_button->master_window = StaticData::window_filter_block;
-			class_button->button_size_x = EFont::get_width(EFont::font_arial, class_button->text) + 5.0f;
+			class_button->button_size_x = EFont::get_width(EFont::active_font, class_button->text) + 5.0f;
 			master_block->base_class_list.push_back(class_button);
 
 			master_block->button_list.push_back(class_button);
@@ -100,7 +100,7 @@ void EButtonExplicit::click_event()
 			prophecy_button->have_input_mode = false;
 			prophecy_button->master_block = master_block;
 			prophecy_button->master_window = StaticData::window_filter_block;
-			prophecy_button->button_size_x = EFont::get_width(EFont::font_arial, prophecy_button->text) + 5.0f;
+			prophecy_button->button_size_x = EFont::get_width(EFont::active_font, prophecy_button->text) + 5.0f;
 			master_block->prophecy_list.push_back(prophecy_button);
 
 			master_block->button_list.push_back(prophecy_button);

@@ -915,7 +915,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									//class_button->text += " (" + std::to_string(class_button->data_id) + ")";
 
-									class_button->button_size_x = EFont::get_width(EFont::font_arial, class_button->text) + 5.0f;
+									class_button->button_size_x = EFont::get_width(EFont::active_font, class_button->text) + 5.0f;
 								}
 							}
 
@@ -1159,7 +1159,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									explicit_button->master_block = just_created_block;
 									explicit_button->master_window = StaticData::window_filter_block;
-									explicit_button->button_size_x = EFont::get_width(EFont::font_arial, subdata) + 5.0f;
+									explicit_button->button_size_x = EFont::get_width(EFont::active_font, subdata) + 5.0f;
 									just_created_block->explicit_list.at(explicit_group_id)->button_list.push_back(explicit_button);
 									just_created_block->button_list.push_back(explicit_button);
 									just_created_block->explicit_list.at(explicit_group_id)->is_active = true;
@@ -1477,7 +1477,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										}
 									}
 
-									prophecy_button->button_size_x = EFont::get_width(EFont::font_arial, prophecy_button->text) + 5.0f;
+									prophecy_button->button_size_x = EFont::get_width(EFont::active_font, prophecy_button->text) + 5.0f;
 
 									just_created_block->button_list.push_back(prophecy_button);
 									just_created_block->prophecy_list.push_back(prophecy_button);

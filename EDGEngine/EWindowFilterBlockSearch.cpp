@@ -114,8 +114,8 @@
 	void EWindowFilterBlockSearch::draw(Batcher* _batch, float _delta)
 	{
 		_batch->setcolor_alpha(EColorCollection::BLACK, 0.8f);
-		EFont::font_arial->set_align_once(Enums::PositionMode::RIGHT);
-		EFont::font_arial->draw(_batch, cached_text_search, pos_x + (window_size_x - input_button_link->button_size_x) / 2.0f - 10, pos_y + 5.0f);
+		EFont::active_font->set_align_once(Enums::PositionMode::RIGHT);
+		EFont::active_font->draw(_batch, cached_text_search, pos_x + (window_size_x - input_button_link->button_size_x) / 2.0f - 10, pos_y + 5.0f);
 
 	}
 

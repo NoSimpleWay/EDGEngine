@@ -268,7 +268,7 @@ public:
 				button_list.at(0)->text=input_button->text;
 				button_list.at(0)->data_string = input_button->text;
 
-				button_list.at(0)->button_size_x = EFont::get_width(EFont::font_arial, button_list.at(0)->text)+7.0f;
+				button_list.at(0)->button_size_x = EFont::get_width(EFont::active_font, button_list.at(0)->text)+7.0f;
 			}
 			else
 			{ 
@@ -323,7 +323,7 @@ public:
 				button_list.at(0)->text = input_button->text;
 				button_list.at(0)->data_string = input_button->text;
 
-				button_list.at(0)->button_size_x = EFont::get_width(EFont::font_arial, button_list.at(0)->text) + 7.0f;
+				button_list.at(0)->button_size_x = EFont::get_width(EFont::active_font, button_list.at(0)->text) + 7.0f;
 			}
 			else
 			{
@@ -477,7 +477,7 @@ public:
 					else
 					{b->text="?";}
 
-					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
+					b->button_size_x = EFont::get_width(EFont::active_font, b->text) + 5.0f;
 					b->is_active = true;
 					b->button_type = Enums::ButtonType::BUTTON_SEARCH_DEFAULT_SOUND;
 					b->data_id = data_index;
@@ -526,7 +526,7 @@ public:
 						b->text = "?";
 					}
 
-					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
+					b->button_size_x = EFont::get_width(EFont::active_font, b->text) + 5.0f;
 					b->is_active = true;
 					b->button_type = Enums::ButtonType::BUTTON_SEARCH_CUSTOM_SOUND;
 					b->data_id = data_index;
@@ -577,7 +577,7 @@ public:
 						b->text = "?";
 					}
 
-					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
+					b->button_size_x = EFont::get_width(EFont::active_font, b->text) + 5.0f;
 					b->is_active = true;
 					b->button_type = Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS;
 					b->data_id = data_index - 1;
@@ -634,7 +634,7 @@ public:
 						b->data_id = -1;
 					}
 
-					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
+					b->button_size_x = EFont::get_width(EFont::active_font, b->text) + 5.0f;
 
 					if (data_index<30)
 					{b->is_active = true;} else { b->is_active = false; }
@@ -722,7 +722,7 @@ public:
 						b->text = "?";
 					}
 
-					b->button_size_x = EFont::get_width(EFont::font_arial, b->text) + 5.0f;
+					b->button_size_x = EFont::get_width(EFont::active_font, b->text) + 5.0f;
 
 					if (data_index < 30)
 					{b->is_active = true;}
