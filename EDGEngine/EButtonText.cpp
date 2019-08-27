@@ -332,6 +332,8 @@ void EButtonText::click_event()
 		{
 			StaticData::window_loot_simulator->place(_l);
 		}
+
+		EFont::active_font->scale = 1.0f;
 	}
 }
 

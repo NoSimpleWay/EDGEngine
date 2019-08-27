@@ -2229,6 +2229,7 @@ int main()
 
 		int block_index = 0;
 
+
 		for (EWindow* w : EControl::window_list)
 		{
 			if (w->is_active)

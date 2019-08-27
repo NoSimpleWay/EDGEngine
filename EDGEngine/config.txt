@@ -1,2 +1,2 @@
-verdana
-RU
+palatino
+EN

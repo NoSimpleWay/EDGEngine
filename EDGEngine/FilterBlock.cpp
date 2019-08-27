@@ -865,6 +865,11 @@
 				{
 					ex_x = 310.0f;
 					ex_y -= 22.0f;
+
+					b->button_x = ex_x;
+					b->button_y = ex_y;
+
+					ex_x += b->button_size_x + 5;
 				}
 			}
 

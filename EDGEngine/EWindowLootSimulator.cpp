@@ -195,7 +195,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 {
 	//_batch->setcolor_alpha(EColorCollection::GRAY, 0.5f);
 	//_batch->draw_simple_rect(pos_x, pos_y, 800.0f, 800.0f);
-
+	
 
 	for (LootItem* loot : main_loot_item_list)
 	if
@@ -312,7 +312,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			if (yy + 600.0f > EWindow::SCR_HEIGHT) { yy = EWindow::SCR_HEIGHT - 600.0f; }
 
 			EFont::active_font->scale = 1.0f;
-			_batch->setcolor_alpha(EColorCollection::WHITE, 0.75f);
+			_batch->setcolor_alpha(EColorCollection::WHITE, 0.85f);
 			_batch->draw_simple_rect(xx, yy, 300, 300);
 			_batch->setcolor(EColorCollection::BLACK);
 
