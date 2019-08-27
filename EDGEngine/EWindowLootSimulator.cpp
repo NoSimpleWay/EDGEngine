@@ -309,25 +309,28 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			if (xx + 300.0f > EWindow::SCR_WIDTH) { xx = EWindow::SCR_WIDTH - 300.0f; }
 
 			float yy = EControl::mouse_y;
-			if (yy + 300.0f > EWindow::SCR_HEIGHT) { yy = EWindow::SCR_WIDTH - 300.0f; }
+			if (yy + 600.0f > EWindow::SCR_HEIGHT) { yy = EWindow::SCR_HEIGHT - 600.0f; }
 
 			EFont::active_font->scale = 1.0f;
-			_batch->setcolor_alpha(EColorCollection::WHITE, 0.5f);
+			_batch->setcolor_alpha(EColorCollection::WHITE, 0.75f);
 			_batch->draw_simple_rect(xx, yy, 300, 300);
 			_batch->setcolor(EColorCollection::BLACK);
 
-			yy += 290.0f;
+			yy += 280.0f;
+
+
+			EFont::active_font->draw(_batch, "Name: " + loot->name, xx + 5.0f, yy - 18.0 * 0);
 
 			if (loot->filter_block_link != NULL)
 			{
-				EFont::active_font->draw(_batch, "Block id: " + std::to_string(loot->filter_block_link->order_id), xx + 5.0f, yy - 18.0 * 0);
+				EFont::active_font->draw(_batch, "Block id: " + std::to_string(loot->filter_block_link->order_id), xx + 5.0f, yy - 18.0 * 1);
 			}
 			else
 			{
 				EFont::active_font->draw(_batch, "Block id: NONE", xx + 5.0f, yy - 18.0 * 0);
 			}
 
-			if (loot->item_level > 0) { EFont::active_font->draw(_batch, "item level: " + std::to_string(loot->item_level), xx + 5.0f, yy - 18.0 * 1); }
+			if (loot->item_level > 0) { EFont::active_font->draw(_batch, "item level: " + std::to_string(loot->item_level), xx + 5.0f, yy - 18.0 * 2); }
 
 		}
 	}
