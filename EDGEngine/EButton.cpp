@@ -30,6 +30,9 @@
 		button_size_x = _sx;
 		button_size_y = _sy;
 
+		button_min_size_x = _sx;
+		button_min_size_y = _sy;
+
 		update_localisation();
 	}
 
@@ -408,6 +411,16 @@
 		{
 			EFont* target_font = EFont::active_font;
 
+			//if (EFont::get_width(EFont::active_font, text) + 5.0f > button_size_x)
+			//{
+				button_size_x = EFont::get_width(EFont::active_font, text) + 10.0f;
+			//}
+
+				if (button_size_x < button_min_size_x)
+				{
+					button_size_x = button_min_size_x;
+				}
+
 			if (force_font != NULL) { target_font = force_font;}
 
 			float added_x = 0;
@@ -417,7 +430,7 @@
 
 			if (text != "")
 			{
-				_batch->setcolor(0.0f, 0.0f, 0.0f, 0.75f);
+				_batch->setcolor(text_color);
 				target_font->draw(_batch, text, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y-20.0f)/2.0f + 4.0f));
 			}
 
@@ -534,10 +547,10 @@
 				target_font = force_font;
 			}
 
-			float x_description= EControl::mouse_x + 17.0f;
-			if (x_description + EFont::get_width(target_font, description_text) + 3>EWindow::SCR_WIDTH)
+			float x_description= EControl::mouse_x + 20.0f;
+			if (x_description + EFont::get_width(target_font, description_text) + 5>EWindow::SCR_WIDTH)
 			{
-				x_description += EWindow::SCR_WIDTH - (x_description + EFont::get_width(target_font, description_text) + 3.0f);
+				x_description += EWindow::SCR_WIDTH - (x_description + EFont::get_width(target_font, description_text) + 5.0f);
 			}
 
 			target_font->align_x=Enums::PositionMode::LEFT;

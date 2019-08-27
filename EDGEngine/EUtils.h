@@ -3,6 +3,7 @@
 #include <irr/irrKlang.h>
 #include "BaseClass.h"
 #include "ProphecyList.h"
+#include "Enchantment.h"
 
 #include <string>
 
@@ -63,7 +64,10 @@ public:
 	static std::string to_lower(std::string _s, bool _b);
 
 	static std::string path_to_poe_folder;
+
+	static std::vector<Enchantment*> enchantment_list;
 	static std::vector<BaseClass*> base_class_list;
+
 	static std::vector<ProphecyList*> prophecy_list;
 
 	static void load_loot_filter_list();
@@ -93,6 +97,12 @@ public:
 	static Enums::LocalisationList active_localisation;
 
 	static std::string to_cyrillic(std::string _text);
+
+	static void save_config();
+	static void load_config();
+
+	static bool font_is_configued;
+	static bool localisation_is_configued;
 };
 
 class EFile

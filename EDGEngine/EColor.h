@@ -36,6 +36,9 @@ public:
 	static EColor* DAD_RARE;
 	static EColor* DAD_UNIQUE;
 
+	static EColor* LIGHT_GRAY;
+	static EColor* DARK_GRAY;
+
 	static EColor* MINIMAP_ICON_COLOR[6];
 
 

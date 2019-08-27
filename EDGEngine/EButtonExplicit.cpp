@@ -31,10 +31,19 @@ EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums
 		
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_ENCHANTMENT_FILTER_BLOCK_LIST)
+	{
+		have_input_mode = false;
+
+		bg_color->set(0.0f, 0.0f, 0.0f, 0.85f);
+		text_color->set(0.75f, 0.75f, 0.75f, 1.0f);
+		
+	}
 	input_auto_clear_text = true;
 
 	master_position = Enums::PositionMaster::FILTER_BLOCK;
 
+	position_mode_x = Enums::PositionMode::LEFT;
 	position_mode_y = Enums::PositionMode::UP;
 
 
@@ -107,6 +116,35 @@ void EButtonExplicit::click_event()
 
 			StaticData::window_find_item->target_button = prophecy_button;
 		}
+
+
+
+	}
+
+	
+	if (button_type == Enums::ButtonType::BUTTON_ENCHANTMENT_FILTER_BLOCK_LIST)
+	{
+		StaticData::window_find_item->is_active = true;
+		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::ENCHANTMENT_SEARCH_LIST;
+
+		StaticData::window_find_item->target_button = this;
+		StaticData::window_find_item->button_event(this);
+
+		if (is_plus)
+		{
+			EButtonExplicit* enchantment_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_ENCHANTMENT_FILTER_BLOCK_LIST);
+			enchantment_button->text = cached_text_press_me;
+			enchantment_button->have_input_mode = true;
+			enchantment_button->master_block = master_block;
+			enchantment_button->master_window = StaticData::window_filter_block;
+			enchantment_button->button_size_x = EFont::get_width(EFont::active_font, enchantment_button->text) + 5.0f;
+			master_block->enchantment_list.push_back(enchantment_button);
+
+			master_block->button_list.push_back(enchantment_button);
+
+			StaticData::window_find_item->target_button = enchantment_button;
+		}
+		
 
 
 

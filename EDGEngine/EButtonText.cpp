@@ -69,6 +69,19 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		bg_color->set(0.8f, 0.5f, 0.8f, 0.5f);
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_ENCHANTEMENT_LIST)
+	{
+		text_align_x = Enums::PositionMode::MID;
+		position_mode_x = Enums::PositionMode::MID;
+		position_mode_y = Enums::PositionMode::UP;
+
+		
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		bg_color->set(0.3f, 0.3f, 0.3f, 0.5f);
+	}
+
 	if (button_type == Enums::ButtonType::BUTTON_ADD_EXPLICIT_ELEMENT)
 	{
 		text_align_x = Enums::PositionMode::MID;
@@ -161,6 +174,20 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		have_text = true;
 		have_input_mode = false;
 	}
+
+
+	if (button_type == Enums::ButtonType::BUTTON_FILTER_BLOCK_TAB)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		have_text = true;
+		have_input_mode = false;
+	}
 }
 
 void EButtonText::click_event()
@@ -216,6 +243,14 @@ void EButtonText::click_event()
 		StaticData::window_add_new_base_data->is_active = false;
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_ENCHANTEMENT_LIST)
+	{
+		master_block->plus_enchantment_button_link->is_active = true;
+		master_block->remove_enchantment_button->is_active = true;
+		master_block->is_enchantment_active = true;
+
+		StaticData::window_add_new_base_data->is_active = false;
+	}
 	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE)&&(master_block->is_minimap_icon))
 	{
 		master_block->minimap_icon_size = Enums::IconSize(data_id);
@@ -263,9 +298,40 @@ void EButtonText::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_SELECT_FONT)
 	{
-		StaticData::window_select_font->is_active = false;
+		//StaticData::window_select_font->is_active = false;
+		if (!((button_type == Enums::ButtonType::BUTTON_SELECT_FONT) && (EFont::font_list.at(data_id)->is_not_cyrrilic) && (EString::active_localisation == Enums::LocalisationList::RU)))
+		{
+			EFont::active_font = EFont::font_list.at(data_id);
 
-		EFont::active_font = EFont::font_list.at(data_id);
+			EString::save_config();
+
+
+			if (!StaticData::window_filter_block->is_active) { StaticData::window_find_item->is_active = true; }
+		}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_FILTER_BLOCK_TAB)
+	{
+		StaticData::active_tab = data_id;
+
+		StaticData::window_filter_block = StaticData::filter_block_tab.at(data_id);
+		EControl::window_list.at(0) = StaticData::filter_block_tab.at(data_id);
+
+		for (int i = 0; i < 100; i++)
+		for (int j = 0; j < 200; j++)
+		{
+			StaticData::window_loot_simulator->free_space[j][i] = true;
+		}
+
+		for (LootItem* _l : StaticData::window_loot_simulator->main_loot_item_list)
+		{
+			StaticData::window_loot_simulator->find_filter_block(_l);
+		}
+
+		for (LootItem* _l : StaticData::window_loot_simulator->main_loot_item_list)
+		{
+			StaticData::window_loot_simulator->place(_l);
+		}
 	}
 }
 
@@ -377,5 +443,33 @@ void EButtonText::update_localisation()
 	}
 
 
+	if (button_type == Enums::ButtonType::BUTTON_SELECT_FONT)
+	{
+		if ((EFont::font_list.at(data_id)->is_not_cyrrilic) && (EString::active_localisation == Enums::LocalisationList::RU))
+		{
+			bg_color->set(EColorCollection::RED);
+			force_font = EFont::font_list.at(1);
 
+			description_text = "Кириллица не поддерживается!";
+		}
+		else
+		{
+			bg_color->set(EColorCollection::LIGHT_GRAY);
+			description_text = "The quick brown fox jumps over the lazy dog(1234567890)";
+		}
+	}
+
+
+
+}
+
+void EButtonText::update_additional(float _d)
+{
+	if (button_type == Enums::ButtonType::BUTTON_FILTER_BLOCK_TAB)
+	{
+		if (StaticData::active_tab == data_id)
+		{rama_color->set(EColorCollection::YELLOW);}
+		else
+		{rama_color->set(EColorCollection::GRAY);}
+	}
 }

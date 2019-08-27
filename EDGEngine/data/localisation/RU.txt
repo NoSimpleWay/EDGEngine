@@ -114,3 +114,5 @@ help_right_click_play_sound	Нажмите правую кнопку мыши д
 help_open_loot_filter_window	Список лут-фильтров из "my games/Path of Exile"
 hint_input_filter_block_search	Поиск по тексту
 description_open_loot_simulator_window	Открыть окно симулятора лута
+description_configue_font	Настроить шрифт
+description_configue_language	Настроить язык

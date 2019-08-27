@@ -242,7 +242,10 @@
 			explicit_button->text = "+";
 			explicit_button->master_block = this;
 			explicit_button->master_window = StaticData::window_filter_block;
+
 			explicit_button->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
+			explicit_button->button_min_size_x = explicit_button->button_size_x;
+
 			explicit_button->can_be_removed = false;
 			explicit_button->have_input_mode = false;
 			explicit_button->is_plus = true;
@@ -263,7 +266,11 @@
 		plus_class_button_link->text = "+";
 		plus_class_button_link->master_block = this;
 		plus_class_button_link->master_window = StaticData::window_filter_block;
+
 		plus_class_button_link->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
+		plus_class_button_link->button_min_size_x = plus_class_button_link->button_size_x;
+
+
 		plus_class_button_link->can_be_removed = false;
 		plus_class_button_link->have_input_mode = false;
 		plus_class_button_link->is_plus = true;
@@ -278,13 +285,33 @@
 		plus_prophecy_button_link->text = "+";
 		plus_prophecy_button_link->master_block = this;
 		plus_prophecy_button_link->master_window = StaticData::window_filter_block;
+
 		plus_prophecy_button_link->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
+		plus_prophecy_button_link->button_min_size_x = plus_prophecy_button_link->button_size_x;
+
 		plus_prophecy_button_link->can_be_removed = false;
 		plus_prophecy_button_link->have_input_mode = false;
 		plus_prophecy_button_link->is_plus = true;
 		plus_prophecy_button_link->is_active = false;
 
 		button_list.push_back(plus_prophecy_button_link);
+
+
+
+		plus_enchantment_button_link = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_ENCHANTMENT_FILTER_BLOCK_LIST);
+		plus_enchantment_button_link->text = "+";
+		plus_enchantment_button_link->master_block = this;
+		plus_enchantment_button_link->master_window = StaticData::window_filter_block;
+		
+		plus_enchantment_button_link->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
+		plus_enchantment_button_link->button_min_size_x = plus_prophecy_button_link->button_size_x;
+		
+		plus_enchantment_button_link->can_be_removed = false;
+		plus_enchantment_button_link->have_input_mode = false;
+		plus_enchantment_button_link->is_plus = true;
+		plus_enchantment_button_link->is_active = false;
+
+		button_list.push_back(plus_enchantment_button_link);
 
 
 
@@ -298,6 +325,8 @@
 
 		button_list.push_back(remove_base_class_button);
 
+
+
 		remove_prophecy_button = new EButtonRemove(0, 0, 17, 17, Enums::ButtonType::BUTTON_REMOVE_PROPHECY);
 
 		remove_prophecy_button->master_block = this;
@@ -305,6 +334,15 @@
 		remove_prophecy_button->is_active = false;
 
 		button_list.push_back(remove_prophecy_button);
+
+
+		remove_enchantment_button = new EButtonRemove(0, 0, 17, 17, Enums::ButtonType::BUTTON_REMOVE_ENCHANTEMENT);
+
+		remove_enchantment_button->master_block = this;
+		remove_enchantment_button->master_window = StaticData::window_filter_block;
+		remove_enchantment_button->is_active = false;
+
+		button_list.push_back(remove_enchantment_button);
 
 		but = new EButtonService(-150.0f, 55.0f - 20.0f * 0.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_SHOW_HIDE);
 		but->master_block = this;
@@ -426,6 +464,7 @@
 				i--;
 			}
 		}
+
 		if (remove_timer < 0)
 		for (int i = 0; i < prophecy_list.size(); i++)
 		{
@@ -435,6 +474,16 @@
 				i--;
 			}
 		}
+
+		if (remove_timer < 0)
+			for (int i = 0; i < enchantment_list.size(); i++)
+			{
+				if (enchantment_list.at(i)->need_remove)
+				{
+					enchantment_list.erase(enchantment_list.begin() + i);
+					i--;
+				}
+			}
 
 		if (remove_timer < 0)
 		for (ExplicitGroup* ex : explicit_list)
@@ -525,7 +574,7 @@
 			(base_filter_data_active.at(Enums::BoolData::BOOL_SHAPER_ITEM))
 		)
 		{
-			if (is_show) { _batch->setcolor_255(255, 255, 255, 200); } else { _batch->setcolor_255(200, 150, 100, 150); }
+			if (is_show) { _batch->setcolor_255(180, 180, 180, 180); } else { _batch->setcolor_255(150, 50, 25, 100); }
 
 			_batch->draw_rect_gabarite_custom_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_shaper_bg, x / 2.0f, y / 2.0f, (x + size_x) / 2.0f, (y + size_y) / 2.0f);
 
@@ -794,6 +843,36 @@
 
 			_batch->setcolor_alpha(EColorCollection::PINK, 0.15f);
 			_batch->draw_rect_with_uv(plus_prophecy_button_link->master_position_x, plus_prophecy_button_link->master_position_y, size_x - plus_prophecy_button_link->master_position_x - 270.0f, 20.0f, DefaultGabarite::gabarite_white);
+
+			ex_y -= 30.0f;
+		}
+
+		ex_x = 310;
+		if ((is_enchantment_active) && (remove_timer < 0))
+		{
+			remove_enchantment_button->button_x = ex_x;
+			remove_enchantment_button->button_y = ex_y;
+
+			ex_x += 20;
+
+			for (EButtonExplicit* b : enchantment_list)
+			{
+				b->button_x = ex_x;
+				b->button_y = ex_y;
+
+				ex_x += b->button_size_x + 5;
+				if (b->button_x + b->button_size_x > size_x - 270.0f)
+				{
+					ex_x = 310.0f;
+					ex_y -= 22.0f;
+				}
+			}
+
+			plus_enchantment_button_link->button_x = ex_x;
+			plus_enchantment_button_link->button_y = ex_y;
+
+			_batch->setcolor_alpha(EColorCollection::BLACK, 0.15f);
+			_batch->draw_rect_with_uv(plus_enchantment_button_link->master_position_x, plus_enchantment_button_link->master_position_y, size_x - plus_enchantment_button_link->master_position_x - 270.0f, 20.0f, DefaultGabarite::gabarite_white);
 
 			ex_y -= 30.0f;
 		}

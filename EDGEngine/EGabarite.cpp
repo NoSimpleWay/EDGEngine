@@ -73,6 +73,8 @@ EGabarite* DefaultGabarite::gabarite_flag_EN = NULL;
 EGabarite* DefaultGabarite::gabarite_flag_RU = NULL;
 
 EGabarite* DefaultGabarite::gabarite_open_simulator = NULL;
+EGabarite* DefaultGabarite::gabarite_configue_font = NULL;
+EGabarite* DefaultGabarite::gabarite_configue_language = NULL;
 
 
 

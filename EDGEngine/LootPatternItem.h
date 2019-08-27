@@ -18,6 +18,9 @@ public:
 	int min_quality;
 	int max_quality;
 
+	int min_item_level;
+	int max_item_level;
+
 	int min_rarity;
 	int max_rarity;
 

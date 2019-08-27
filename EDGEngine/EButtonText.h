@@ -13,4 +13,5 @@ public:
 	virtual void input_event();
 
 	virtual void update_localisation();
+	virtual void update_additional(float _d);
 };

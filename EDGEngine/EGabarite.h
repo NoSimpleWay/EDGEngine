@@ -77,6 +77,8 @@ public:
 	static EGabarite* gabarite_flag_RU;
 
 	static EGabarite* gabarite_open_simulator;
+	static EGabarite* gabarite_configue_font;
+	static EGabarite* gabarite_configue_language;
 
 
 

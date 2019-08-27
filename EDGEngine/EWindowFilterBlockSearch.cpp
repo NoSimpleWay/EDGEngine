@@ -13,12 +13,12 @@
 
 	EWindowFilterBlockSearch::EWindowFilterBlockSearch(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
-		EButton* but = new EButtonInputSearchItem(0, -10, 30, 30, Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_FILTER_BLOCK);
+		EButton* but = new EButtonInputSearchItem(0, -10, 400.0, 30, Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_FILTER_BLOCK);
 		but->master_window = this;
 		button_list.push_back (but);
 		input_button_link = but;
 		but->rama_color->set_alpha(EColorCollection::BLACK, 0.8f);
-		but->button_size_x = 400.0f;
+		//but->button_size_x = 400.0f;
 
 		align_x = Enums::PositionMode::MID;
 		align_y = Enums::PositionMode::DOWN;

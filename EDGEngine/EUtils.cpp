@@ -9,6 +9,7 @@
 #include "ConsoleColor.h"
 #include "StaticData.h"
 #include "EButtonFilterItem.h"
+
 using namespace std;
 
 float EMath::clamp_value_float(float _v, float _min, float _max)
@@ -153,6 +154,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	Enums::LocalisationList EString::active_localisation = Enums::LocalisationList::EN;
 
 	std::vector<BaseClass*> EString::base_class_list;
+	std::vector<Enchantment*> EString::enchantment_list;
 	std::vector<ProphecyList*> EString::prophecy_list;
 
 	std::vector<std::string> EString::loot_filter_name_list;
@@ -254,7 +256,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		string line;
 
 		string subdata;
-		string subdata_array[30];
+		string subdata_array[50];
 
 		int line_id = 0;
 		int data_order;
@@ -288,7 +290,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				}
 			}
 
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < 24; i++)
 			{
 				if (EString::to_lower(subdata_array[i * 2], false) == "item name")
 				{
@@ -317,6 +319,22 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				if (EString::to_lower(subdata_array[i * 2], false) == "quality_max")
 				{
 					just_created_pattern_item->max_quality = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "item_level_min")
+				{
+					
+					just_created_pattern_item->min_item_level = std::stoi(subdata_array[i * 2 + 1]);
+
+					//std::cout << "min item level=" << just_created_pattern_item->min_item_level << std::endl;
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "item_level_max")
+				{
+					just_created_pattern_item->max_item_level = std::stoi(subdata_array[i * 2 + 1]);
+
+					//std::cout << "max item level=" << just_created_pattern_item->max_item_level << std::endl;
 				}
 
 
@@ -419,6 +437,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			line_id++;
 		}
 	}
+
+	bool EString::font_is_configued = false;
+	bool EString::localisation_is_configued = false;
 
 	std::string EString::icon_shape_name[6]
 	=
@@ -626,6 +647,56 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		return sValid;
 	}
 
+	void EString::save_config()
+	{
+		ofstream writer;
+		writer.open("config.txt");
+
+		writer << EFont::active_font->name << std::endl;
+
+		if (EString::active_localisation == Enums::LocalisationList::EN)
+		{ writer << "EN" << std::endl; }
+		
+		if (EString::active_localisation == Enums::LocalisationList::RU)
+		{ writer << "RU" << std::endl; }
+
+		writer.close();
+		//button_list.push_back(new EButton());
+	}
+
+	void EString::load_config()
+	{
+		ifstream reader;
+		reader.open("config.txt");
+
+		if (reader.is_open())
+		{
+			string line;
+			getline(reader, line);
+
+			for (EFont* f : EFont::font_list)
+			{
+				if (f->name == line)
+				{
+					EFont::active_font = f;
+
+					font_is_configued = true;
+				}
+			}
+
+			getline(reader, line);
+			cout << "Reader localisation: " << line << endl;
+
+			if (line == "EN") {	EString::active_localisation = Enums::LocalisationList::EN;	localisation_is_configued = true; EString::load_localisation("EN"); }
+			if (line == "RU") {	EString::active_localisation = Enums::LocalisationList::RU;	localisation_is_configued = true; EString::load_localisation("RU"); }
+
+
+
+			reader.close();
+		}
+		//button_list.push_back(new EButton());
+	}
+
 	void EFile::parse_loot_filter_data(std::string _path)
 	{
 
@@ -758,6 +829,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_block->remove_base_class_button->is_active = true;
 								}
 
+								if (subdata == "HasEnchantment")
+								{
+									//std::cout << "Try get acess to remove button" << std::endl;
+
+									parser_mode = Enums::ParserMode::HAS_ENCHANTMENT;
+
+									just_created_block->is_enchantment_active = true;
+									just_created_block->plus_enchantment_button_link->is_active = true;
+									just_created_block->remove_enchantment_button->is_active = true;
+								}
 
 								if (subdata == "SetFontSize") { parser_mode = Enums::ParserMode::FONT_SIZE; just_created_block->is_font_size_active = true; }
 								if (subdata == "SetTextColor") { parser_mode = Enums::ParserMode::TEXT_COLOR; just_created_block->is_text_color_active = true; }
@@ -916,6 +997,54 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									//class_button->text += " (" + std::to_string(class_button->data_id) + ")";
 
 									class_button->button_size_x = EFont::get_width(EFont::active_font, class_button->text) + 5.0f;
+									class_button->button_min_size_x = 30.0f;
+								}
+							}
+
+							if (parser_mode == Enums::ParserMode::HAS_ENCHANTMENT)
+							{
+								//if (data_order == 0) { cout << "activate rarity property" << endl; }
+								if (data_order > 0)
+								{
+									if (show_info_to_console) { cout << "add new enchantment <" << subdata << ">" << endl; }
+									//just_created_block->class_list.push_back(new string(subdata));
+
+									EButtonExplicit* enchantment_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_ENCHANTMENT_FILTER_BLOCK_LIST);
+									enchantment_button->text = subdata;
+									enchantment_button->data_string = subdata;
+
+									enchantment_button->master_block = just_created_block;
+									enchantment_button->master_window = StaticData::window_filter_block;
+
+
+									just_created_block->button_list.push_back(enchantment_button);
+									just_created_block->enchantment_list.push_back(enchantment_button);
+
+									enchantment_button->data_id = -1;
+
+									
+									for (int i = 0; i < EString::enchantment_list.size(); i++)
+									{
+										if ((EString::to_lower(subdata, false) == EString::to_lower(EString::enchantment_list.at(i)->base_name, false)) && (enchantment_button->data_id == -1))
+										{
+											enchantment_button->data_id = i;
+
+											if (EString::active_localisation == Enums::LocalisationList::EN)
+											{
+												enchantment_button->text = EString::enchantment_list.at(i)->base_name;
+											}
+
+											if (EString::active_localisation == Enums::LocalisationList::RU)
+											{
+												enchantment_button->text = EString::enchantment_list.at(i)->ru_name;
+											}
+										}
+									}
+
+									//class_button->text += " (" + std::to_string(class_button->data_id) + ")";
+
+									enchantment_button->button_size_x = EFont::get_width(EFont::active_font, enchantment_button->text) + 5.0f;
+									enchantment_button->button_min_size_x = 30.0f;
 								}
 							}
 
@@ -1159,7 +1288,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									explicit_button->master_block = just_created_block;
 									explicit_button->master_window = StaticData::window_filter_block;
+
 									explicit_button->button_size_x = EFont::get_width(EFont::active_font, subdata) + 5.0f;
+									explicit_button->button_min_size_x = 30.0f;
+
 									just_created_block->explicit_list.at(explicit_group_id)->button_list.push_back(explicit_button);
 									just_created_block->button_list.push_back(explicit_button);
 									just_created_block->explicit_list.at(explicit_group_id)->is_active = true;
@@ -1478,6 +1610,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									}
 
 									prophecy_button->button_size_x = EFont::get_width(EFont::active_font, prophecy_button->text) + 5.0f;
+									prophecy_button->button_min_size_x = 30.0f;
 
 									just_created_block->button_list.push_back(prophecy_button);
 									just_created_block->prophecy_list.push_back(prophecy_button);
@@ -1612,6 +1745,22 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += "Class";
 
 				for (EButton* b : fb->base_class_list)
+				{
+					loot_writer += " ";
+					loot_writer += '"';
+					loot_writer += b->data_string;
+					loot_writer += '"';
+				}
+
+				loot_writer += '\n';
+			}
+
+			if ((fb->is_enchantment_active) && (fb->enchantment_list.size() > 0))
+			{
+				loot_writer += '\t';
+				loot_writer += "HasEnchantment";
+
+				for (EButton* b : fb->enchantment_list)
 				{
 					loot_writer += " ";
 					loot_writer += '"';

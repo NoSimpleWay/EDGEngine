@@ -185,6 +185,30 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 
 	}
+
+
+	if (button_type == Enums::ButtonType::BUTTON_CONFIGUE_FONT)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		gabarite = DefaultGabarite::gabarite_configue_font;
+
+
+	}
+
+
+	if (button_type == Enums::ButtonType::BUTTON_CONFIGUE_LANGUAGE)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		gabarite = DefaultGabarite::gabarite_configue_language;
+	}
 }
 
 void EButtonService::click_event()
@@ -366,6 +390,17 @@ void EButtonService::click_event()
 		}
 
 		master_window->is_active = false;
+
+		if (!EString::font_is_configued)
+		{
+			StaticData::window_select_font->is_active = true;
+		}
+		else
+		{
+			if (!StaticData::window_filter_block->is_active) { StaticData::window_find_item->is_active = true; }
+		}
+
+		EString::save_config();
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_LOCALISATION_RU))
@@ -380,6 +415,17 @@ void EButtonService::click_event()
 		}
 
 		master_window->is_active = false;
+
+		if (!EString::font_is_configued)
+		{
+			StaticData::window_select_font->is_active = true;
+		}
+		else
+		{
+			if (!StaticData::window_filter_block->is_active) { StaticData::window_find_item->is_active = true; }
+		}
+
+		EString::save_config();
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_SIMULATOR)
@@ -387,6 +433,16 @@ void EButtonService::click_event()
 		StaticData::window_loot_simulator->is_active = true;
 		StaticData::window_loot_simulator->manual_event();
 
+	}	
+	
+	if (button_type == Enums::ButtonType::BUTTON_CONFIGUE_FONT)
+	{
+		StaticData::window_select_font->is_active = true;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CONFIGUE_LANGUAGE)
+	{
+		StaticData::window_select_localisation->is_active = true;
 	}
 }
 
@@ -452,6 +508,12 @@ void EButtonService::update_localisation()
 	{
 		description_text = EString::localize_it("description_open_loot_simulator_window");
 	}
+
+		if (button_type == Enums::ButtonType::BUTTON_CONFIGUE_FONT)
+	{description_text = EString::localize_it("description_configue_font");}
+
+		if (button_type == Enums::ButtonType::BUTTON_CONFIGUE_LANGUAGE)
+	{description_text = EString::localize_it("description_configue_language");}
 
 
 

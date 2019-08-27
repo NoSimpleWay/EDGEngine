@@ -29,7 +29,7 @@ public:
 	EWindowFindItem(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 	{
 		is_active = false;
-		window_size_x = 1000;
+		window_size_x = 1100;
 		window_size_y = 500;
 		bg_color->set(0.2f, 0.36f, 0.3f, 0.95f);
 
@@ -84,7 +84,7 @@ public:
 				bx += b->button_size_x + 7.0f;
 				
 
-				if (bx+b->button_size_x > 930)
+				if (bx+b->button_size_x + 10.0f > 950.0f)
 				{
 					bx = 5;
 					by -= b->button_size_y + 7.0f;
@@ -310,6 +310,74 @@ public:
 				}
 
 
+
+				order++;
+			}
+		}
+
+		if (window_searchs_mode == Enums::WindowSearchMode::ENCHANTMENT_SEARCH_LIST)
+		{
+			if (input_button->text != "")
+			{
+				button_list.at(0)->is_active = true;
+				button_list.at(0)->text=input_button->text;
+				button_list.at(0)->data_string = input_button->text;
+
+				button_list.at(0)->button_size_x = EFont::get_width(EFont::active_font, button_list.at(0)->text)+7.0f;
+			}
+			else
+			{ 
+				button_list.at(0)->is_active = false;
+			}
+
+			for (int i = 1; i < button_list.size(); i++)
+			{
+				button_list.at(i)->is_active = false;
+			}
+
+			int search_count = 1;
+			int order = 0;
+			for (Enchantment* e : EString::enchantment_list)
+			{
+				//std::cout << "item_list_name |" << item->item_name << "| button description |" <<  _b->text << "|" << std::endl;
+
+
+				if
+				(
+					(
+						(EString::to_lower(e->base_name).find(EString::to_lower(_b->text)) != std::string::npos)
+						||
+						(EString::to_lower(e->ru_name).find(EString::to_lower(_b->text)) != std::string::npos)
+					)
+				)
+				{
+					if (search_count < 20)
+					{
+						button_list.at(search_count)->is_active = true;
+
+						if (EString::active_localisation == Enums::EN)
+						{
+							button_list.at(search_count)->text = e->base_name;
+							button_list.at(search_count)->description_text = e->base_name;
+							
+
+						
+						}
+
+						if (EString::active_localisation == Enums::RU)
+						{
+							button_list.at(search_count)->text = e->ru_name;
+							button_list.at(search_count)->description_text = e->ru_name;
+							
+						}
+
+						button_list.at(search_count)->data_string = e->base_name;
+
+						button_list.at(search_count)->data_id = search_count - 1;
+						search_count++;
+					}
+
+				}
 
 				order++;
 			}
@@ -595,6 +663,58 @@ public:
 			}
 
 			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS;
+			input_button->is_input_mode_active = true;
+		}
+
+		if (window_searchs_mode == Enums::WindowSearchMode::ENCHANTMENT_SEARCH_LIST)
+		{
+			help_text = "";
+
+			have_undefined_input = true;
+			data_index = 0;
+
+			for (EButton* b : button_list)
+			{
+				if (data_index < EString::enchantment_list.size())
+				{
+					b->button_size_y = 21;
+
+					b->have_text = true;
+					b->have_icon = false;
+
+					if (data_index >= 1)
+					{
+						if (EString::active_localisation == Enums::LocalisationList::EN)
+						{b->text = EString::enchantment_list.at(data_index-1)->base_name;}
+
+						if (EString::active_localisation == Enums::LocalisationList::RU)
+						{b->text = EString::enchantment_list.at(data_index-1)->ru_name;}
+
+						b->data_string = EString::enchantment_list.at(data_index - 1)->base_name;
+					}
+					else
+					{
+						b->text = "?";
+					}
+
+					b->button_size_x = EFont::get_width(EFont::active_font, b->text) + 5.0f;
+					b->is_active = true;
+					b->button_type = Enums::ButtonType::BUTTON_SEARCH_ENCHANTMENT;
+					b->data_id = data_index - 1;
+					b->description_text = "";
+
+					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+
+					data_index++;
+				}
+				else
+				{
+					b->is_active = false;
+					b->data_id = -1;
+				}
+			}
+
+			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_ENCHANTMENT;
 			input_button->is_input_mode_active = true;
 		}
 

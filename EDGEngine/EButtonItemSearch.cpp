@@ -83,6 +83,18 @@ void EButtonItemSearch::click_event()
 		StaticData::window_find_item->is_active = false;
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_SEARCH_ENCHANTMENT)
+	{
+		StaticData::window_find_item->target_button->text = text;
+		StaticData::window_find_item->target_button->data_string = data_string;
+		StaticData::window_find_item->target_button->data_id = data_id;
+
+
+		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::active_font, text) + 5.0f;
+
+		StaticData::window_find_item->is_active = false;
+	}
+
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
 	{
 		StaticData::window_find_item->target_button->text = text;
@@ -128,8 +140,12 @@ void EButtonItemSearch::click_event()
 	{
 		EString::opened_loot_filter_path = EString::loot_filter_path_list.at(data_id);
 
+		StaticData::window_main->tab_list.at(StaticData::active_tab)->text = text;
+		StaticData::window_main->tab_list.at(StaticData::active_tab)->button_min_size_x = 30;
+
 		EFile::parse_loot_filter_data(EString::loot_filter_path_list.at(data_id));
 		StaticData::window_find_item->is_active = false;
+		StaticData::window_filter_block->is_active = true;
 	}
 	//StaticData::window_find_item->fill_search_array();
 

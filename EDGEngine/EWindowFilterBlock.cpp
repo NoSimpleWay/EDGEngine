@@ -25,7 +25,7 @@
 
 		can_be_closed = false;
 
-		EButton* but = new EButtonSlider(-7, -40, 20, EWindow::SCR_HEIGHT - 80.0f, Enums::ButtonType::BUTTON_FILTER_BLOCK_SCROLL);
+		EButton* but = new EButtonSlider(-7, -70, 20, EWindow::SCR_HEIGHT - 80.0f, Enums::ButtonType::BUTTON_FILTER_BLOCK_SCROLL);
 		//but->master_block = this;
 		but->master_window = this;
 		button_list.push_back(but);
@@ -54,7 +54,7 @@
 		//std::cout << "<>" << std::endl;
 		int block_index = 0;
 
-		float yy = 60;
+		float yy = 90;
 		int blocks_count = 0;
 		int blocks_order = 0;
 
@@ -136,7 +136,7 @@
 	{
 		int block_index = 0;
 
-		float yy = 60;
+		float yy = 90;
 		int blocks_count = 0;
 		int blocks_order = 0;
 

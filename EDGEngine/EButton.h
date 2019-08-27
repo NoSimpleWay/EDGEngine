@@ -24,6 +24,9 @@ public:
 	float button_size_x = 100;
 	float button_size_y = 25;
 
+	float button_min_size_x = 100;
+	float button_min_size_y = 25;
+
 	std::string text = "!";
 
 	bool have_input_mode = false;
@@ -126,6 +129,7 @@ public:
 	int rama_thikness = 2;
 	EColor* rama_color = new EColor();
 	EColor* bg_color = new EColor(0.8f,0.8f,0.8f,0.75f);
+	EColor* text_color = new EColor(0.0f,0.0f,0.0f,1.0f);
 
 	int catched_element = 0;
 	int selected_element = 0;

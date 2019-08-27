@@ -10,7 +10,7 @@
 EWindowLootSimulator::EWindowLootSimulator(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 {
 	window_size_x = 1600.0;
-	window_size_y = 900.0f;
+	window_size_y = 800.0f;
 
 	align_x = Enums::PositionMode::LEFT;
 
@@ -110,6 +110,26 @@ void EWindowLootSimulator::update(float _d)
 				if (loot->links > loot->sockets) { loot->links = loot->sockets; }
 			}
 
+			//std::cout << "min_item_level=" << p->min_item_level << std::endl;
+			//std::cout << "max_item_level=" << p->max_item_level << std::endl;
+
+			if (p->max_item_level > 0)
+			{
+				if (p->max_item_level > p->min_item_level)
+				{
+					loot->item_level = p->min_item_level + (rand() % (p->max_item_level - p->min_item_level));
+				}
+				else
+				{
+					loot->item_level = p->max_item_level;
+				}
+
+				if (loot->item_level < 1) { loot->item_level = 1; }
+				//if (loot->item_level > loot->iteml) { loot->links = loot->sockets; }
+			}
+
+			//std::cout << "item_level=" << loot->item_level << std::endl;
+
 			if (p->max_rarity > 0)
 			{
 				if (p->max_rarity > p->min_rarity)
@@ -178,6 +198,18 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 
 	for (LootItem* loot : main_loot_item_list)
+	if
+	(
+		(
+			(loot->filter_block_link != NULL)
+			&&
+			(loot->filter_block_link->is_show)
+		)
+		||
+		(glfwGetKey(EWindow::main_window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS)
+		||
+		(loot->filter_block_link == NULL)
+	)
 	{
 		//loot->filter_block_link = StaticData::window_filter_block->filter_block_list.at(rand() % StaticData::window_filter_block->filter_block_list.size());
 
@@ -233,6 +265,71 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 
 
+	}
+
+
+	for (LootItem* loot : main_loot_item_list)
+	if
+	(
+		(
+			(loot->filter_block_link != NULL)
+			&&
+			(loot->filter_block_link->is_show)
+		)
+		||
+		(glfwGetKey(EWindow::main_window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS)
+		||
+		(loot->filter_block_link == NULL)
+	)
+	{
+		if (loot->filter_block_link != NULL)
+		{
+			EFont::active_font->scale = loot->filter_block_link->font_size / 32.0f;
+		}
+		else
+		{
+			EFont::active_font->scale = 20.0f / 32.0f;
+		}
+
+		float w = EFont::active_font->get_width(EFont::active_font, loot->name);
+		float h = 20.0f * EFont::active_font->scale;
+
+		if
+		(
+			(EControl::mouse_x >= loot->pos_x + pos_x)
+			&&
+			(EControl::mouse_x <= loot->pos_x + pos_x + w + 13.0f)
+			&&
+			(EControl::mouse_y >= loot->pos_y + pos_y)
+			&&
+			(EControl::mouse_y <= loot->pos_y + pos_y + h)
+		)
+		{
+			float xx = EControl::mouse_x;
+			if (xx + 300.0f > EWindow::SCR_WIDTH) { xx = EWindow::SCR_WIDTH - 300.0f; }
+
+			float yy = EControl::mouse_y;
+			if (yy + 300.0f > EWindow::SCR_HEIGHT) { yy = EWindow::SCR_WIDTH - 300.0f; }
+
+			EFont::active_font->scale = 1.0f;
+			_batch->setcolor_alpha(EColorCollection::WHITE, 0.5f);
+			_batch->draw_simple_rect(xx, yy, 300, 300);
+			_batch->setcolor(EColorCollection::BLACK);
+
+			yy += 290.0f;
+
+			if (loot->filter_block_link != NULL)
+			{
+				EFont::active_font->draw(_batch, "Block id: " + std::to_string(loot->filter_block_link->order_id), xx + 5.0f, yy - 18.0 * 0);
+			}
+			else
+			{
+				EFont::active_font->draw(_batch, "Block id: NONE", xx + 5.0f, yy - 18.0 * 0);
+			}
+
+			if (loot->item_level > 0) { EFont::active_font->draw(_batch, "item level: " + std::to_string(loot->item_level), xx + 5.0f, yy - 18.0 * 1); }
+
+		}
 	}
 
 	EFont::active_font->scale = 1.0f;
@@ -336,6 +433,23 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l)
 
 			match_detect = temp_match;
 		}	
+
+		if (match_detect)
+		{
+			temp_match = false;
+			if (!fb->is_enchantment_active) { temp_match = true; }
+			/*
+			for (EButton* b : fb->prophecy_list)
+			{
+				if
+					(EString::to_lower(_l->, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+				{
+					temp_match = true;
+				}
+			}*/
+
+			match_detect = temp_match;
+		}
 
 		//std::cout << "data rarity is active =" << std::to_string(true) << std::endl;
 
@@ -541,7 +655,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l)
 		{
 			_l->filter_block_link = fb;
 
-			_l->name += " " + std::to_string(fb_id);
+			//_l->name += " " + std::to_string(fb_id);
 
 			break;
 		}
@@ -554,7 +668,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l)
 	if (!match_detect)
 	{
 		_l->filter_block_link = NULL;
-		_l->name += " #";
+		//_l->name += " #";
 	}
 
 
@@ -721,6 +835,9 @@ void EWindowLootSimulator::manual_event()
 
 				pattern->min_links = pattern_item_list.at(i)->min_links;
 				pattern->max_links = pattern_item_list.at(i)->max_links;
+
+				pattern->min_item_level = pattern_item_list.at(i)->min_item_level;
+				pattern->max_item_level = pattern_item_list.at(i)->max_item_level;
 
 				pattern->min_rarity = pattern_item_list.at(i)->min_rarity;
 				pattern->max_rarity = pattern_item_list.at(i)->max_rarity;

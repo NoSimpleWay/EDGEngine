@@ -10,6 +10,10 @@ EWindowSelectFont::EWindowSelectFont(int _id, bool _can_be_closed):EWindow (_id,
 	create_font_button("Franklin", EFont::font_list.at(3), 3);
 	create_font_button("Arial", EFont::font_list.at(4), 4);
 	create_font_button("Trebuchet", EFont::font_list.at(5), 5);
+	create_font_button("Times new roman", EFont::font_list.at(6), 6);
+	create_font_button("Courier", EFont::font_list.at(7), 7);
+	create_font_button("Palatino", EFont::font_list.at(8), 8);
+	create_font_button("Impact", EFont::font_list.at(9), 9);
 
 
 }
@@ -44,4 +48,8 @@ void EWindowSelectFont::draw(Batcher* _batch, float _delta)
 
 void EWindowSelectFont::update_localisation()
 {
+	for (EButton* b : button_list)
+	{
+		b->update_localisation();
+	}
 }

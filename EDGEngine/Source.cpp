@@ -31,6 +31,7 @@
 #include "EButtonExplicit.h"
 #include "ExplicitGroup.h"
 
+
 #include "EWindow.h"
 #include "StaticData.h"
 
@@ -189,6 +190,9 @@ EWindowCreateNewLootFilter* StaticData::window_new_loot_filter=NULL;
 EWindowSelectLocalisation* StaticData::window_select_localisation =NULL;
 EWindowLootSimulator* StaticData::window_loot_simulator =NULL;
 EWindowSelectFont* StaticData::window_select_font =NULL;
+
+std::vector<EWindowFilterBlock*> StaticData::filter_block_tab;
+int StaticData::active_tab = 0;
 
 
 //0		-	1
@@ -389,12 +393,7 @@ void load_prophecy_list()
 
 	}
 
-	int wtf = 0;
-	for (BaseClass* b : EString::base_class_list)
-	{
-	//	cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
-		wtf++;
-	}
+
 }
 
 void load_base_class()
@@ -414,6 +413,8 @@ void load_base_class()
 
 	BaseClass* just_created_base_class = NULL;
 
+	//Enchantment* just_created_enchantment = new Enchantment();
+	//just_created_enchantment = ;
 	//cout << EMath::rgb::r << endl;
 
 
@@ -483,7 +484,92 @@ void load_base_class()
 	}
 }
 
+void load_enchantment()
+{
+	//ofstream myfile_open;
+	//myfile_open.open("gemor.txt");
 
+	ifstream myfile;
+	myfile.open("data/Enchantement.txt");
+	string line;
+
+	string subdata;
+	string subdata_array[100];
+
+	int line_id = 0;
+	int data_order;
+
+	Enchantment* just_created_enchantment = NULL;
+
+	//cout << EMath::rgb::r << endl;
+
+
+	while ((getline(myfile, line)) && (line_id < 2000))
+	{
+		just_created_enchantment = new Enchantment();
+
+		data_order = 0;
+		subdata = "";
+
+		for (int i = 0; i < line.length(); i++)
+		{
+
+
+			if (line.at(i) != '\t')
+			{
+				subdata += line.at(i);
+			}
+
+			if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+			{
+				subdata_array[data_order] = subdata;
+				subdata = "";
+				data_order++;
+			}
+
+		}
+
+		for (int i = 0; i < 40; i++)
+		{
+
+			if (subdata_array[i * 2] == "Base name")
+			{
+				just_created_enchantment->base_name = subdata_array[i * 2 + 1];
+			}
+
+			if (subdata_array[i * 2] == "RU name")
+			{
+				char sInvalid[1024];
+				strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
+				//комментарии
+
+				int size = strlen(sInvalid) + 1;
+				wchar_t* wsValid = new wchar_t[size];
+				char* sValid = new char[size];
+
+				MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
+				WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
+
+				//cout << "A: " << wsValid << " B: " << sValid << endl;
+
+				just_created_enchantment->ru_name = sValid;
+			}
+
+
+		}
+
+		EString::enchantment_list.push_back(just_created_enchantment);
+
+	}
+
+	/*cout << "Enchantement count: " << EString::enchantment_list.size() << endl;
+	int wtf = 0;
+	for (Enchantment * b : EString::enchantment_list)
+	{
+		cout << "["<<wtf<< "] enchantement name: " << b->base_name << " ru name: " << b->ru_name << endl;
+		wtf++;
+	}*/
+}
 
 void parse_item_data()
 {
@@ -1714,6 +1800,7 @@ int main()
 	//##################################
 	parse_item_data();
 	load_base_class();
+	load_enchantment();
 	load_prophecy_list();
 	EString::load_localisation("EN");
 	
@@ -1750,15 +1837,20 @@ int main()
 
 	EFont* new_font=NULL;
 
-	put_texture_to_atlas("data/font/littera/fontin_0.png");			new_font = new EFont("fontin", just_created_gabarite); 			EFont::font_list.push_back(new_font);
-	put_texture_to_atlas("data/font/littera/georgia_0.png");		new_font = new EFont("georgia", just_created_gabarite);			EFont::font_list.push_back(new_font);
-	put_texture_to_atlas("data/font/littera/verdana_0.png");		new_font = new EFont("verdana", just_created_gabarite); 		EFont::font_list.push_back(new_font);
-	put_texture_to_atlas("data/font/littera/franklin_0.png");		new_font = new EFont("franklin", just_created_gabarite);		EFont::font_list.push_back(new_font);
-	put_texture_to_atlas("data/font/littera/arial_0.png");			new_font = new EFont("arial", just_created_gabarite); 			EFont::font_list.push_back(new_font);
-	put_texture_to_atlas("data/font/littera/trebuchet_0.png");		new_font = new EFont("trebuchet", just_created_gabarite); 		EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/fontin_0.png");					new_font = new EFont("fontin", just_created_gabarite, true); 					EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/georgia_0.png");				new_font = new EFont("georgia", just_created_gabarite, false);					EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/verdana_0.png");				new_font = new EFont("verdana", just_created_gabarite, false); 					EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/franklin_0.png");				new_font = new EFont("franklin", just_created_gabarite, false);					EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/arial_0.png");					new_font = new EFont("arial", just_created_gabarite, false); 					EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/trebuchet_0.png");				new_font = new EFont("trebuchet", just_created_gabarite, false); 				EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/times_new_roman_0.png");		new_font = new EFont("times_new_roman", just_created_gabarite, false); 			EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/courier_0.png");				new_font = new EFont("courier", just_created_gabarite, false); 					EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/palatino_0.png");				new_font = new EFont("palatino", just_created_gabarite, false); 				EFont::font_list.push_back(new_font);
+	put_texture_to_atlas("data/font/littera/impact_0.png");					new_font = new EFont("impact", just_created_gabarite, false); 					EFont::font_list.push_back(new_font);
 
 	EFont::active_font = EFont::font_list.at(rand() % EFont::font_list.size());
 
+	
 
 
 	put_texture_to_atlas("data/background.png");			DefaultGabarite::gabarite_background = just_created_gabarite;
@@ -1781,59 +1873,61 @@ int main()
 	put_texture_to_atlas("data/plus.png");					DefaultGabarite::gabarite_plus = just_created_gabarite;
 
 	
-	put_texture_to_atlas("data/checked.png");				DefaultGabarite::gabarite_checked = just_created_gabarite;
-	put_texture_to_atlas("data/unchecked.png");				DefaultGabarite::gabarite_unchecked = just_created_gabarite;
-	put_texture_to_atlas("data/button_remove.png");			DefaultGabarite::gabarite_remove = just_created_gabarite;
-	put_texture_to_atlas("data/button_plus_wide.png");		DefaultGabarite::gabarite_plus_wide = just_created_gabarite;
+	put_texture_to_atlas("data/checked.png");					DefaultGabarite::gabarite_checked = just_created_gabarite;
+	put_texture_to_atlas("data/unchecked.png");					DefaultGabarite::gabarite_unchecked = just_created_gabarite;
+	put_texture_to_atlas("data/button_remove.png");				DefaultGabarite::gabarite_remove = just_created_gabarite;
+	put_texture_to_atlas("data/button_plus_wide.png");			DefaultGabarite::gabarite_plus_wide = just_created_gabarite;
 
-	put_texture_to_atlas("data/button_increase.png");		DefaultGabarite::gabarite_increase = just_created_gabarite;
-	put_texture_to_atlas("data/button_decrease.png");		DefaultGabarite::gabarite_decrease = just_created_gabarite;
+	put_texture_to_atlas("data/button_increase.png");			DefaultGabarite::gabarite_increase = just_created_gabarite;
+	put_texture_to_atlas("data/button_decrease.png");			DefaultGabarite::gabarite_decrease = just_created_gabarite;
 
-	put_texture_to_atlas("data/button_close.png");			DefaultGabarite::gabarite_close = just_created_gabarite;
-	put_texture_to_atlas("data/button_color_mode.png");		DefaultGabarite::gabarite_visual_mode = just_created_gabarite;
+	put_texture_to_atlas("data/button_close.png");				DefaultGabarite::gabarite_close = just_created_gabarite;
+	put_texture_to_atlas("data/button_color_mode.png");			DefaultGabarite::gabarite_visual_mode = just_created_gabarite;
 
-	put_texture_to_atlas("data/slider_hue.png");			DefaultGabarite::gabarite_slider_hue = just_created_gabarite;
-	put_texture_to_atlas("data/slider_saturation.png");		DefaultGabarite::gabarite_slider_saturation = just_created_gabarite;
-	put_texture_to_atlas("data/slider_value.png");			DefaultGabarite::gabarite_slider_value = just_created_gabarite;
-	put_texture_to_atlas("data/slider_alpha.png");			DefaultGabarite::gabarite_slider_alpha = just_created_gabarite;
+	put_texture_to_atlas("data/slider_hue.png");				DefaultGabarite::gabarite_slider_hue = just_created_gabarite;
+	put_texture_to_atlas("data/slider_saturation.png");			DefaultGabarite::gabarite_slider_saturation = just_created_gabarite;
+	put_texture_to_atlas("data/slider_value.png");				DefaultGabarite::gabarite_slider_value = just_created_gabarite;
+	put_texture_to_atlas("data/slider_alpha.png");				DefaultGabarite::gabarite_slider_alpha = just_created_gabarite;
 
-	put_texture_to_atlas("data/visual_editor_bg.png");		DefaultGabarite::gabarite_visual_editor_bg = just_created_gabarite;
+	put_texture_to_atlas("data/visual_editor_bg.png");			DefaultGabarite::gabarite_visual_editor_bg = just_created_gabarite;
 
-	put_texture_to_atlas("data/button_sound.png");			DefaultGabarite::gabarite_play_sound = just_created_gabarite;
+	put_texture_to_atlas("data/button_sound.png");				DefaultGabarite::gabarite_play_sound = just_created_gabarite;
 	
-	put_texture_to_atlas("data/icon_circle.png");			DefaultGabarite::gabarite_minimap_icon[0] = just_created_gabarite;
-	put_texture_to_atlas("data/icon_diamond.png");			DefaultGabarite::gabarite_minimap_icon[1] = just_created_gabarite;
-	put_texture_to_atlas("data/icon_hexagon.png");			DefaultGabarite::gabarite_minimap_icon[2] = just_created_gabarite;
-	put_texture_to_atlas("data/icon_square.png");			DefaultGabarite::gabarite_minimap_icon[3] = just_created_gabarite;
-	put_texture_to_atlas("data/icon_star.png");				DefaultGabarite::gabarite_minimap_icon[4] = just_created_gabarite;
-	put_texture_to_atlas("data/icon_circle.png");			DefaultGabarite::gabarite_minimap_icon[5] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_circle.png");				DefaultGabarite::gabarite_minimap_icon[0] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_diamond.png");				DefaultGabarite::gabarite_minimap_icon[1] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_hexagon.png");				DefaultGabarite::gabarite_minimap_icon[2] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_square.png");				DefaultGabarite::gabarite_minimap_icon[3] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_star.png");					DefaultGabarite::gabarite_minimap_icon[4] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_circle.png");				DefaultGabarite::gabarite_minimap_icon[5] = just_created_gabarite;
 
 
-	put_texture_to_atlas("data/button_load.png");			DefaultGabarite::gabarite_button_load = just_created_gabarite;
-	put_texture_to_atlas("data/button_save.png");			DefaultGabarite::gabarite_button_save = just_created_gabarite;
+	put_texture_to_atlas("data/button_load.png");				DefaultGabarite::gabarite_button_load = just_created_gabarite;
+	put_texture_to_atlas("data/button_save.png");				DefaultGabarite::gabarite_button_save = just_created_gabarite;
 
-	put_texture_to_atlas("data/bg_noise.png");				DefaultGabarite::gabarite_bg_noise = just_created_gabarite;
-	put_texture_to_atlas("data/ray_icon.png");				DefaultGabarite::gabarite_ray_icon = just_created_gabarite;
+	put_texture_to_atlas("data/bg_noise.png");					DefaultGabarite::gabarite_bg_noise = just_created_gabarite;
+	put_texture_to_atlas("data/ray_icon.png");					DefaultGabarite::gabarite_ray_icon = just_created_gabarite;
 
-	put_texture_to_atlas("data/plus_gray.png");				DefaultGabarite::gabarite_plus_gray = just_created_gabarite;
-	put_texture_to_atlas("data/up_gray.png");				DefaultGabarite::gabarite_up_gray = just_created_gabarite;
-	put_texture_to_atlas("data/down_gray.png");				DefaultGabarite::gabarite_down_gray = just_created_gabarite;
+	put_texture_to_atlas("data/plus_gray.png");					DefaultGabarite::gabarite_plus_gray = just_created_gabarite;
+	put_texture_to_atlas("data/up_gray.png");					DefaultGabarite::gabarite_up_gray = just_created_gabarite;
+	put_texture_to_atlas("data/down_gray.png");					DefaultGabarite::gabarite_down_gray = just_created_gabarite;
 
-	put_texture_to_atlas("data/remove_block.png");			DefaultGabarite::gabarite_remove_block = just_created_gabarite;
+	put_texture_to_atlas("data/remove_block.png");				DefaultGabarite::gabarite_remove_block = just_created_gabarite;
 
-	put_texture_to_atlas("data/gray_eye.png");				DefaultGabarite::gabarite_gray_eye = just_created_gabarite;
+	put_texture_to_atlas("data/gray_eye.png");					DefaultGabarite::gabarite_gray_eye = just_created_gabarite;
 
-	put_texture_to_atlas("data/ray_icon_remove.png");		DefaultGabarite::gabarite_ray_icon_remove = just_created_gabarite;
+	put_texture_to_atlas("data/ray_icon_remove.png");			DefaultGabarite::gabarite_ray_icon_remove = just_created_gabarite;
 
-	put_texture_to_atlas("data/button_new.png");			DefaultGabarite::gabarite_button_new = just_created_gabarite;
+	put_texture_to_atlas("data/button_new.png");				DefaultGabarite::gabarite_button_new = just_created_gabarite;
 
-	put_texture_to_atlas("data/plus_circle.png");			DefaultGabarite::gabarite_plus_circle = just_created_gabarite;
-	put_texture_to_atlas("data/remove_circle.png");			DefaultGabarite::gabarite_remove_circle = just_created_gabarite;
+	put_texture_to_atlas("data/plus_circle.png");				DefaultGabarite::gabarite_plus_circle = just_created_gabarite;
+	put_texture_to_atlas("data/remove_circle.png");				DefaultGabarite::gabarite_remove_circle = just_created_gabarite;
 
-	put_texture_to_atlas("data/flag_EN.png");				DefaultGabarite::gabarite_flag_EN = just_created_gabarite;
-	put_texture_to_atlas("data/flag_RU.png");				DefaultGabarite::gabarite_flag_RU = just_created_gabarite;
+	put_texture_to_atlas("data/flag_EN.png");					DefaultGabarite::gabarite_flag_EN = just_created_gabarite;
+	put_texture_to_atlas("data/flag_RU.png");					DefaultGabarite::gabarite_flag_RU = just_created_gabarite;
 
-	put_texture_to_atlas("data/button_simulator.png");		DefaultGabarite::gabarite_open_simulator = just_created_gabarite;
+	put_texture_to_atlas("data/button_simulator.png");			DefaultGabarite::gabarite_open_simulator = just_created_gabarite;
+	put_texture_to_atlas("data/button_configue_font.png");		DefaultGabarite::gabarite_configue_font = just_created_gabarite;
+	put_texture_to_atlas("data/button_configue_language.png");	DefaultGabarite::gabarite_configue_language = just_created_gabarite;
 
 
 
@@ -1850,7 +1944,15 @@ int main()
 	StaticData::window_filter_block = new EWindowFilterBlock(0, false);
 	StaticData::window_filter_block->name = "Filter block";
 	EControl::window_list.push_back(StaticData::window_filter_block);
+	StaticData::window_filter_block->is_active = false;
 
+	for (int i = 0; i < 5; i++)
+	{
+		StaticData::filter_block_tab.push_back(new EWindowFilterBlock(0, false));
+	}
+
+	StaticData::window_filter_block = StaticData::filter_block_tab.at(0);
+	EControl::window_list.at(0) = StaticData::filter_block_tab.at(0);
 	
 	EString::load_loot_filter_list();
 	//std::string path = "/path/to/directory";
@@ -1859,23 +1961,24 @@ int main()
 	StaticData::window_add_new_base_data = new EWindowAddNewBaseData(1, true);
 	StaticData::window_add_new_base_data->name = "Add new base data to filter block";
 	EControl::window_list.push_back(StaticData::window_add_new_base_data);
+	StaticData::window_add_new_base_data->is_active = false;
 
 	StaticData::window_socket_group = new EWindowSocketGroup(2, true);
 	StaticData::window_socket_group->name = "Change socket colors";
 	EControl::window_list.push_back(StaticData::window_socket_group);
-
+	StaticData::window_socket_group->is_active = false;
 
 
 
 	StaticData::window_loot_simulator = new EWindowLootSimulator(3, true);
 	StaticData::window_loot_simulator->name = "Loot simulator";
 	EControl::window_list.push_back(StaticData::window_loot_simulator);
-
+	StaticData::window_loot_simulator->is_active = false;
 
 	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(4, true);
 	StaticData::window_filter_visual_editor->name = "Change colors and sounds";
 	EControl::window_list.push_back(StaticData::window_filter_visual_editor);
-
+	StaticData::window_filter_visual_editor->is_active = false;
 
 
 
@@ -1883,42 +1986,51 @@ int main()
 	StaticData::window_find_item = new EWindowFindItem(5, true);
 	StaticData::window_find_item->name = "Search item";
 	EControl::window_list.push_back(StaticData::window_find_item);
-
 	StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
-	StaticData::window_find_item->is_active = true;
 	StaticData::window_find_item->manual_event();
+	StaticData::window_find_item->is_active = false;
 
 	StaticData::window_filter_block_search = new EWindowFilterBlockSearch(6, false);
 	StaticData::window_filter_block_search->name = "Search filter blocks";
 	EControl::window_list.push_back(StaticData::window_filter_block_search);
+	StaticData::window_filter_block_search->is_active = true;
 
 	StaticData::window_main = new EWindowMain(7, false);
 	StaticData::window_main->name = "Main window";
 	EControl::window_list.push_back(StaticData::window_main);
+	StaticData::window_main->is_active = true;
 
 	StaticData::window_loading_screen = new EWindowLoadingScreen(8, false);
 	StaticData::window_loading_screen->name = "Loading screen";
 	StaticData::window_loading_screen->item_count = ItemList::item_list.size();
 	EControl::window_list.push_back(StaticData::window_loading_screen);
+	StaticData::window_loading_screen->is_active = true;
 
 	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(9, true);
 	StaticData::window_new_loot_filter->name = "New loot-filter";
 	EControl::window_list.push_back(StaticData::window_new_loot_filter);
-
+	StaticData::window_new_loot_filter->is_active = false;
 
 	StaticData::window_select_localisation = new EWindowSelectLocalisation(10, false);
 	StaticData::window_select_localisation->name = "Select language";
 	EControl::window_list.push_back(StaticData::window_select_localisation);
+	StaticData::window_select_localisation->is_active = false;
 
-	StaticData::window_select_font = new EWindowSelectFont(11, false);
+
+	StaticData::window_select_font = new EWindowSelectFont(11, true);
 	StaticData::window_select_font->name = "Select font";
 	EControl::window_list.push_back(StaticData::window_select_font);
+	StaticData::window_select_font->is_active = false;
 
 
+
+	/*
 	for (EWindow* w:EControl::window_list)
 	{
 		w->update_localisation();
-	}
+	}*/
+
+
 
 	EString::load_loot_pattern("important items");
 
@@ -1936,6 +2048,14 @@ int main()
 	
 
 	//load_texture("data/background.png", 1);
+
+	EString::load_config();
+
+	for (EWindow* w : EControl::window_list)
+	{
+		w->update_localisation();
+	}
+
 	while (!glfwWindowShouldClose(window))
 	{
 		///////////////////////////////////////////////////////////////////////////////
@@ -2094,7 +2214,7 @@ int main()
 		//transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
 
 		// get matrix's uniform location and set matrix
-		if (glfwGetKey(window, GLFW_KEY_HOME) == GLFW_PRESS) { currentShader = anisShader; } else { currentShader = ourShader; } 
+		if ((glfwGetKey(window, GLFW_KEY_HOME) == GLFW_PRESS)||(StaticData::window_loot_simulator->is_active)) { currentShader = anisShader; } else { currentShader = ourShader; } 
 
 		currentShader->use();
 		transformLoc = glGetUniformLocation(currentShader->ID, "transform");
@@ -2144,6 +2264,22 @@ int main()
 			delete[] collision_matrix;
 
 			StaticData::window_loading_screen->is_active = false;
+
+			if (!EString::localisation_is_configued)
+			{
+				StaticData::window_select_localisation->is_active = true;
+			}
+			else
+			{
+				if (!EString::font_is_configued)
+				{
+					StaticData::window_select_font->is_active = true;
+				}
+				else
+				{
+					StaticData::window_find_item->is_active = true;
+				}
+			}
 
 		}
 

@@ -107,6 +107,8 @@ void EButtonSlider::click_event()
 {
 	 if (button_type == Enums::ButtonType::BUTTON_BG_H)
 	 {
+		 master_block->is_bg_color_active = true;
+
 		 master_block->bg_hue = slider_value * 360.0f;
 		 FilterBlock::change_color_extract(master_block);
 
@@ -115,6 +117,8 @@ void EButtonSlider::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_BG_S)
 	{
+		master_block->is_bg_color_active = true;
+
 		 master_block->bg_saturation = slider_value;
 		 FilterBlock::change_color_extract(master_block);
 
@@ -123,6 +127,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_BG_V)
 	 {
+		 master_block->is_bg_color_active = true;
+
 		 master_block->bg_value = slider_value*255.0;
 		FilterBlock::change_color_extract(master_block);
 
@@ -131,6 +137,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_BG_ALPHA)
 	 {
+		 master_block->is_bg_color_active = true;
+
 		 master_block->bg_alpha = slider_value*255.0;
 		 FilterBlock::change_color_extract(master_block);
 
@@ -141,6 +149,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_TEXT_H)
 	 {
+		 master_block->is_text_color_active = true;
+
 		 master_block->text_color_hue = slider_value * 360.0;
 		 FilterBlock::change_color_extract(master_block);
 
@@ -149,6 +159,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_TEXT_S)
 	 {
+		 master_block->is_text_color_active = true;
+
 		 master_block->text_color_saturation = slider_value;
 		 FilterBlock::change_color_extract(master_block);
 
@@ -157,6 +169,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_TEXT_V)
 	 {
+		 master_block->is_text_color_active = true;
+
 		 master_block->text_color_value = slider_value*255.0;
 		 FilterBlock::change_color_extract(master_block);
 
@@ -165,6 +179,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_TEXT_ALPHA)
 	 {
+		 master_block->is_text_color_active = true;
+
 		 master_block->text_color_alpha = slider_value*255.0;
 		 FilterBlock::change_color_extract(master_block);
 
@@ -175,6 +191,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_RAMA_H)
 	 {
+		 master_block->is_rama_color_active = true;
+
 		 master_block->rama_hue = slider_value * 360.0;
 		 FilterBlock::change_color_extract(master_block);
 
@@ -183,6 +201,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_RAMA_S)
 	 { 
+		master_block->is_rama_color_active = true; 
+
 		master_block->rama_saturation = slider_value;
 		FilterBlock::change_color_extract(master_block);
 		
@@ -191,6 +211,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_RAMA_V)
 	 {
+		master_block->is_rama_color_active = true;
+
 		master_block->rama_value = slider_value*255.0;
 		FilterBlock::change_color_extract(master_block);
 
@@ -200,6 +222,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_RAMA_ALPHA)
 	 {
+		master_block->is_rama_color_active = true;
+
 		 master_block->rama_alpha = slider_value*255.0;
 		FilterBlock::change_color_extract(master_block);
 
@@ -209,6 +233,8 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_SLIDER_FONT_SIZE)
 	 {
+		 master_block->is_font_size_active = true;
+
 		 master_block->font_size = round(18.0 + slider_value * 27.0f);
 
 		 description_text = cached_text_font_size + std::to_string(master_block->font_size);

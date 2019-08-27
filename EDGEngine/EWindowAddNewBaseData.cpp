@@ -153,6 +153,21 @@ public:
 
 				window_size_y += 23;
 			}
+
+			if (!_b->master_block->is_enchantment_active)
+			{
+				EButton* but = new EButtonText(0, 0, 200, 17, Enums::ButtonType::BUTTON_ACTIVE_ENCHANTEMENT_LIST);
+
+				but->master_window = this;
+				but->button_x = 0;
+
+				but->master_window = this;
+				but->master_block = _b->master_block;
+
+				button_list.push_back(but);
+
+				window_size_y += 23;
+			}
 		}
 		
 		/*

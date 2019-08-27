@@ -18,12 +18,15 @@ public:
 	float offset_y[512];
 
 	float advance[512];
-	string name[512];
+	//string name[512];
 
 	float real_size_x[512];
 	float real_size_y[512];
+	
+	string name;
 
 	EFont();
+	EFont(string _name, EGabarite* _g, bool _not_cyrrilic);
 	EFont(string _name, EGabarite* _g);
 	~EFont();
 	float get_float_from_sub_data(string _s);
@@ -55,6 +58,7 @@ public:
 	EGabarite* gabarite = NULL;
 
 	static std::vector<EFont*> font_list;
+	bool is_not_cyrrilic;
 
 };
 

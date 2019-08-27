@@ -9,6 +9,8 @@
 
 #include "EButton.h"
 #include "BaseClass.h"
+#include "Enchantment.h"
+
 #include "ProphecyList.h"
 //#include "ExplicitGroup.h"
 
@@ -63,6 +65,7 @@ public:
 	int blue_sockets = 0;
 	int white_sockets = 0;
 	bool is_prophecy_active = false;
+	bool is_enchantment_active = false;
 
 	std::string	item_rarity = "Rare";				bool is_item_rarity_active = false;	 std::string rarity_condition = "=";
 
@@ -220,11 +223,15 @@ public:
 	EButtonExplicit* plus_class_button_link;
 	EButton* remove_base_class_button;
 
+	EButtonExplicit* plus_enchantment_button_link;
+	EButton* remove_enchantment_button;
+
 	EButtonExplicit* plus_prophecy_button_link;
 	EButton* remove_prophecy_button;
 
 	vector <ExplicitGroup*> explicit_list;
 	vector <EButtonExplicit*> base_class_list;
+	vector <EButtonExplicit*> enchantment_list;
 
 
 
