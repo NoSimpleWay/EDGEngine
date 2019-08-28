@@ -876,30 +876,25 @@ item EN name	Serrated Fossil	icon path	Serrated_Fossil_inventory_icon	item RU na
 item EN name	Shuddering Fossil	icon path	Shuddering_Fossil_inventory_icon	item RU name	Дрожащее ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL					COST_GROUP	mid
 item EN name	Tangled Fossil	icon path	Tangled_Fossil_inventory_icon	item RU name	Замысловатое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL					COST_GROUP	mid
 item EN name	Pristine Fossil	icon path	Pristine_Fossil_inventory_icon	item RU name	Чистое ископаемое	base class	Stackable Currency	folder	fossil	item category	STACKABLE_CURRENCY	item sub category	FOSSIL					COST_GROUP	mid
-																		COST_GROUP	
 item EN name	Timeless Karui Splinter	icon path	Timeless_Karui_Splinter_inventory_icon	item RU name	Вневременной знак Каруи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	low
 item EN name	Timeless Vaal Splinter	icon path	Timeless_Vaal_Splinter_inventory_icon	item RU name	Вневременной знак Ваал	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	low
 item EN name	Timeless Eternal Empire Splinter	icon path	Timeless_Eternal_Empire_Splinter_inventory_icon	item RU name	Вневременной знак Вечной Империи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	low
 item EN name	Timeless Templar Splinter	icon path	Timeless_Templar_Splinter_inventory_icon	item RU name	Вневременной знак Храмовиков	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	low
 item EN name	Timeless Maraketh Splinter	icon path	Timeless_Maraketh_Splinter_inventory_icon	item RU name	Вневременной знак Маракетов	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	low
-																		COST_GROUP	
 item EN name	Timeless Karui Emblem	icon path	Timeless_Karui_Emblem_inventory_icon	item RU name	Вневременной знак Каруи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	mid
 item EN name	Timeless Vaal Emblem	icon path	Timeless_Vaal_Emblem_inventory_icon	item RU name	Вневременной знак Ваал	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	mid
 item EN name	Timeless Eternal Emblem	icon path	Timeless_Eternal_Emblem_inventory_icon	item RU name	Вневременной знак Вечной Империи	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	mid
 item EN name	Timeless Templar Emblem	icon path	Timeless_Templar_Emblem_inventory_icon	item RU name	Вневременной знак Храмовиков	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	high
 item EN name	Timeless Maraketh Emblem	icon path	Timeless_Maraketh_Emblem_inventory_icon	item RU name	Вневременной знак Маракетов	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	very high
-																		COST_GROUP	
 item EN name	Glorius Vanity	icon path	Glorious_Vanity_inventory_icon	item RU name	Блистательное Тщеславие	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	mid
 item EN name	Lethal Pride	icon path	Lethal_Pride_inventory_icon	item RU name	Смертельная Гордость	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	mid
 item EN name	Elegant Hubris	icon path	Elegant_Hubris_inventory_icon	item RU name	Изящный Эготизм	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	mid
 item EN name	Militant Faith	icon path	Militant_Faith_inventory_icon	item RU name	Воинственная Вера	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	mid
 item EN name	Brutal Restraint	icon path	Brutal_Restraint_inventory_icon	item RU name	Жестокая Сдержанность	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	LEGION_ITEM					COST_GROUP	high
-																		COST_GROUP	
 item EN name	Prime	icon path	Prime	item RU name	Превосходный	base class	Delve Socketable Currency	folder	resonator	item category	CURRENCY	item sub category	RESONATOR					COST_GROUP	mid
 item EN name	Powerful	icon path	Powerful	item RU name	Мощный	base class	Delve Socketable Currency	folder	resonator	item category	CURRENCY	item sub category	RESONATOR					COST_GROUP	very low
 item EN name	Potent	icon path	Potent	item RU name	Мощный	base class	Delve Socketable Currency	folder	resonator	item category	CURRENCY	item sub category	RESONATOR					COST_GROUP	low
 item EN name	Primitive	icon path	Primitive	item RU name	Простейший	base class	Delve Socketable Currency	folder	resonator	item category	CURRENCY	item sub category	RESONATOR					COST_GROUP	low
-																		COST_GROUP	
 item EN name	House of Mirrors	icon path	Card	item RU name	Зеркальный лабиринт	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	top
 item EN name	The Doctor	icon path	Card	item RU name	Доктор	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	top
 item EN name	The Fiend	icon path	Card	item RU name	Враг	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	top

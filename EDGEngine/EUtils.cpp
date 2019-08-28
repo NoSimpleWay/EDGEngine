@@ -275,6 +275,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			data_order = 0;
 			subdata = "";
 
+			for (int i=0; i<50; i++)
+			{
+				subdata_array[i] = "";
+			}
+
 			for (int i = 0; i < line.length(); i++)
 			{
 				if (line.at(i) != '\t')
@@ -292,7 +297,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 			for (int i = 0; i < 24; i++)
 			{
-				if (EString::to_lower(subdata_array[i * 2], false) == "item name")
+				if (EString::to_lower(subdata_array[i * 2], false) == "item_name")
 				{
 					just_created_pattern_item->item_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
 				}
@@ -383,6 +388,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				if (EString::to_lower(subdata_array[i * 2], false) == "sockets_max")
 				{
 					just_created_pattern_item->max_sockets = std::stoi(subdata_array[i * 2 + 1]);
+
+					cout << "max sockets [" << just_created_pattern_item->random_class << "] = " << just_created_pattern_item->max_sockets << " data (" << subdata_array[i * 2 + 1] << ")" << endl;
+					
 				}
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "count")

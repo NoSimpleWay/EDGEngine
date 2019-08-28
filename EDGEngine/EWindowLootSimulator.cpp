@@ -79,7 +79,8 @@ void EWindowLootSimulator::update(float _d)
 				if (loot->quality < 0) { loot->quality = 0; }
 			}
 
-
+			std::cout << "min sockets=" << p->min_sockets << std::endl;
+			std::cout << "max sockets=" << p->max_sockets << std::endl;
 			if (p->max_sockets > 0)
 			{
 				if (p->max_sockets > p->min_sockets)
@@ -108,6 +109,48 @@ void EWindowLootSimulator::update(float _d)
 
 				if (loot->links < 0) { loot->links = 0; }
 				if (loot->links > loot->sockets) { loot->links = loot->sockets; }
+			}
+
+			int random_red = 0;
+			int random_green = 0;
+			int random_blue = 0;
+			int random_white = 0;
+
+			float total_w = 0;
+			
+			std::vector <int> color_pool;
+			loot->red_socket = 0;
+			loot->green_socket = 0;
+			loot->blue_socket = 0;
+			loot->white_socket = 0;
+
+			//if (p->red_weight + p->green_weight + p->blue_weight + p->white_weight > 0)
+			{
+				for (int i=0; i < loot->sockets; i++)
+				{
+					int max = 0;
+					color_pool.clear();
+
+					if (p->red_weight > 0)		{ random_red = rand() % p->red_weight;			if (random_red > max){max = random_red;} }
+					if (p->green_weight > 0)	{ random_green = rand() % p->green_weight;		if (random_green > max){max = random_green;} }
+					if (p->blue_weight > 0)		{ random_blue = rand() % p->blue_weight;		if (random_blue > max){max = random_blue;} }
+					if (p->white_weight > 0)	{ random_white = rand() % p->white_weight;		if (random_white > max){max = random_white;} }
+
+					if (random_red == max) { color_pool.push_back(0); }
+					if (random_green == max) { color_pool.push_back(1); }
+					if (random_blue == max) { color_pool.push_back(2); }
+					if (random_white == max) { color_pool.push_back(3); }
+
+					int selected_color = -1;
+
+					if (color_pool.size() == 1) { selected_color = color_pool.at(0); }
+					if (color_pool.size() > 1) { selected_color = color_pool.at(rand() % color_pool.size()); }
+
+					if (selected_color == 0) { loot->red_socket++; }
+					if (selected_color == 1) { loot->green_socket++; }
+					if (selected_color == 2) { loot->blue_socket++; }
+					if (selected_color == 3) { loot->white_socket++; }
+				}
 			}
 
 			//std::cout << "min_item_level=" << p->min_item_level << std::endl;
@@ -305,32 +348,55 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			(EControl::mouse_y <= loot->pos_y + pos_y + h)
 		)
 		{
-			float xx = EControl::mouse_x;
+			float xx = EControl::mouse_x + 8.0f;
 			if (xx + 300.0f > EWindow::SCR_WIDTH) { xx = EWindow::SCR_WIDTH - 300.0f; }
 
 			float yy = EControl::mouse_y;
-			if (yy + 600.0f > EWindow::SCR_HEIGHT) { yy = EWindow::SCR_HEIGHT - 600.0f; }
+			if (yy + 380.0f > EWindow::SCR_HEIGHT) { yy = EWindow::SCR_HEIGHT - 380.0f; }
 
 			EFont::active_font->scale = 1.0f;
-			_batch->setcolor_alpha(EColorCollection::WHITE, 0.85f);
+			_batch->setcolor_alpha(EColorCollection::BLACK, 0.9f);
 			_batch->draw_simple_rect(xx, yy, 300, 300);
-			_batch->setcolor(EColorCollection::BLACK);
+			_batch->setcolor(EColorCollection::WHITE);
 
 			yy += 280.0f;
 
-
-			EFont::active_font->draw(_batch, "Name: " + loot->name, xx + 5.0f, yy - 18.0 * 0);
+			float dy = 20.0f;
+			EFont::active_font->draw(_batch, "Name: " + loot->name + " Class: " + loot->base_class, xx + 5.0f, yy - dy * 0);
 
 			if (loot->filter_block_link != NULL)
 			{
-				EFont::active_font->draw(_batch, "Block id: " + std::to_string(loot->filter_block_link->order_id), xx + 5.0f, yy - 18.0 * 1);
+				EFont::active_font->draw(_batch, "Block id: " + std::to_string(loot->filter_block_link->order_id), xx + 5.0f, yy - dy * 2);
 			}
 			else
 			{
-				EFont::active_font->draw(_batch, "Block id: NONE", xx + 5.0f, yy - 18.0 * 0);
+				EFont::active_font->draw(_batch, "Block id: NONE", xx + 5.0f, yy - 18.0 * 2);
 			}
 
-			if (loot->item_level > 0) { EFont::active_font->draw(_batch, "item level: " + std::to_string(loot->item_level), xx + 5.0f, yy - 18.0 * 2); }
+			if (loot->item_level > 0) { EFont::active_font->draw(_batch, "item level: " + std::to_string(loot->item_level), xx + 5.0f, yy - dy * 3); }
+
+			if (loot->sockets >= 6) { _batch->setcolor_lum(EColorCollection::GREEN, 0.90f); }
+			else { _batch->setcolor(EColorCollection::WHITE); }
+			if (loot->sockets > 0) { EFont::active_font->draw(_batch, "sockets: " + std::to_string(loot->sockets), xx + 5.0f, yy - dy * 4); }
+
+			if (loot->links == 5) { _batch->setcolor_lum(EColorCollection::GREEN, 0.90f); }
+			else { _batch->setcolor(EColorCollection::WHITE); }
+			if (loot->links >= 6) { _batch->setcolor_lum(EColorCollection::PINK, 0.90f); }
+			else { _batch->setcolor(EColorCollection::WHITE); }
+			if (loot->links > 0) { EFont::active_font->draw(_batch, "links: " + std::to_string(loot->sockets), xx + 5.0f, yy - dy * 5); }
+
+			_batch->setcolor(EColorCollection::RED);
+			EFont::active_font->draw(_batch, "RED: " + std::to_string(loot->red_socket), xx + 5.0f, yy - dy * 6);
+
+			_batch->setcolor(EColorCollection::GREEN);
+			EFont::active_font->draw(_batch, "GREEN: " + std::to_string(loot->green_socket), xx + 5.0f, yy - dy * 7);
+
+			_batch->setcolor(EColorCollection::CYAN);
+			EFont::active_font->draw(_batch, "BLUE: " + std::to_string(loot->blue_socket), xx + 5.0f, yy - dy * 8);
+
+			_batch->setcolor(EColorCollection::WHITE);
+			EFont::active_font->draw(_batch, "WHITE: " + std::to_string(loot->white_socket), xx + 5.0f, yy - dy * 9);
+
 
 		}
 	}
@@ -521,7 +587,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l)
 			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP))
 				&&
 				(
-				(_l->red_socket < fb->red_sockets)
+					(_l->red_socket < fb->red_sockets)
 					||
 					(_l->green_socket < fb->green_sockets)
 					||
@@ -809,7 +875,7 @@ void EWindowLootSimulator::manual_event()
 
 			if
 				(
-				(pattern_item_list.at(i)->random_class != "") || (EString::to_lower(pattern_item_list.at(i)->random_class) == "any")
+					(pattern_item_list.at(i)->random_class != "") || (EString::to_lower(pattern_item_list.at(i)->random_class) == "any")
 					||
 					(pattern_item_list.at(i)->random_subclass != "") || (EString::to_lower(pattern_item_list.at(i)->random_subclass) == "any")
 					||
@@ -830,23 +896,34 @@ void EWindowLootSimulator::manual_event()
 				pattern->height = random_item_pool.at(random_selected_item)->height;
 				pattern->width = random_item_pool.at(random_selected_item)->width;
 
-				pattern->min_quality = pattern_item_list.at(i)->min_quality;
-				pattern->max_quality = pattern_item_list.at(i)->max_quality;
-
-				pattern->min_sockets = pattern_item_list.at(i)->min_sockets;
-				pattern->max_sockets = pattern_item_list.at(i)->max_sockets;
-
-				pattern->min_links = pattern_item_list.at(i)->min_links;
-				pattern->max_links = pattern_item_list.at(i)->max_links;
-
-				pattern->min_item_level = pattern_item_list.at(i)->min_item_level;
-				pattern->max_item_level = pattern_item_list.at(i)->max_item_level;
-
-				pattern->min_rarity = pattern_item_list.at(i)->min_rarity;
-				pattern->max_rarity = pattern_item_list.at(i)->max_rarity;
+				
 			}
 
-			prepared_pattern_list.push_back(pattern);
+			pattern->min_quality = pattern_item_list.at(i)->min_quality;
+			pattern->max_quality = pattern_item_list.at(i)->max_quality;
+
+			pattern->min_sockets = pattern_item_list.at(i)->min_sockets;
+			pattern->max_sockets = pattern_item_list.at(i)->max_sockets;
+
+			pattern->min_links = pattern_item_list.at(i)->min_links;
+			pattern->max_links = pattern_item_list.at(i)->max_links;
+
+			pattern->red_weight = pattern_item_list.at(i)->red_weight;
+			pattern->green_weight = pattern_item_list.at(i)->green_weight;
+			pattern->blue_weight = pattern_item_list.at(i)->blue_weight;
+			pattern->white_weight = pattern_item_list.at(i)->white_weight;
+
+
+			pattern->min_item_level = pattern_item_list.at(i)->min_item_level;
+			pattern->max_item_level = pattern_item_list.at(i)->max_item_level;
+
+			pattern->min_rarity = pattern_item_list.at(i)->min_rarity;
+			pattern->max_rarity = pattern_item_list.at(i)->max_rarity;
+
+			if (pattern->item_name != "")
+			{
+				prepared_pattern_list.push_back(pattern);
+			}
 		}
 		//**********************************************************************************
 		//**********************************************************************************

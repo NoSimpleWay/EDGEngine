@@ -491,6 +491,14 @@ void Batcher::setcolor(EColor* _color)
 	batch_color_a = _color->color_alpha;
 }
 
+void Batcher::setcolor_lum(EColor* _color, float _lum)
+{
+	batch_color_r = _color->color_red * _lum;
+	batch_color_g = _color->color_green * _lum;
+	batch_color_b = _color->color_blue * _lum;
+	batch_color_a = _color->color_alpha;
+}
+
 void Batcher::setcolor_alpha(EColor* _color, float _a)
 {
 	batch_color_r = _color->color_red;

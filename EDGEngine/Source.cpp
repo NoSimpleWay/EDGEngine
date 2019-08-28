@@ -595,6 +595,11 @@ void parse_item_data()
 	{
 		if (line.length()>=4)
 		{
+			for (int i = 0; i < 100; i++)
+			{
+				subdata_array[i] = "";
+			}
+
 			just_created_item = new DADItem();
 
 			data_order = 0;
@@ -617,7 +622,7 @@ void parse_item_data()
 
 			}
 
-			for (int i = 0; i < 40; i++)
+			for (int i = 0; i < 49; i++)
 			{
 
 				if (subdata_array[i * 2] == "item EN name")

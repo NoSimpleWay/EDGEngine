@@ -9,14 +9,14 @@ public:
 	//std::string item_class;
 	std::string prophecy_name;
 
-	int min_sockets;
-	int max_sockets;
+	int min_sockets = 0;
+	int max_sockets = 0;
 
-	int min_links;
-	int max_links;
+	int min_links = 0;
+	int max_links = 0;
 
-	int min_quality;
-	int max_quality;
+	int min_quality = 0;
+	int max_quality = 0;
 
 	int min_item_level;
 	int max_item_level;
@@ -28,10 +28,10 @@ public:
 
 	bool is_legacy;
 
-	int red_weight;
-	int green_weight;
-	int blue_weight;
-	int white_weight;
+	int red_weight = 100;
+	int green_weight = 100;
+	int blue_weight = 100;
+	int white_weight = 0;
 
 	int height;
 	int width;

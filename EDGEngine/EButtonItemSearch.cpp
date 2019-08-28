@@ -146,6 +146,24 @@ void EButtonItemSearch::click_event()
 		EFile::parse_loot_filter_data(EString::loot_filter_path_list.at(data_id));
 		StaticData::window_find_item->is_active = false;
 		StaticData::window_filter_block->is_active = true;
+
+		for (int i = 0; i < 100; i++)
+		for (int j = 0; j < 200; j++)
+		{
+			StaticData::window_loot_simulator->free_space[j][i] = true;
+		}
+
+		for (LootItem* _l : StaticData::window_loot_simulator->main_loot_item_list)
+		{
+			StaticData::window_loot_simulator->find_filter_block(_l);
+		}
+
+		for (LootItem* _l : StaticData::window_loot_simulator->main_loot_item_list)
+		{
+			StaticData::window_loot_simulator->place(_l);
+		}
+
+		EFont::active_font->scale = 1.0f;
 	}
 	//StaticData::window_find_item->fill_search_array();
 
