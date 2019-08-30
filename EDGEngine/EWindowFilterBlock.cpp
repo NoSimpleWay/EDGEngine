@@ -88,6 +88,11 @@
 			remove_action = false;
 		}
 
+		//int real_top_window_id = EButton::top_window_id;
+
+		//if (moved_filter_block != NULL)
+		//{EControl::button_pressed = true;}
+
 		for (int i = 0; i < filter_block_list.size(); i++)
 		{
 			block_index = i;
@@ -106,17 +111,55 @@
 				(blocks_count<8)
 			)
 			{
+				FilterBlock* f = filter_block_list.at(block_index);
 					blocks_count++;
 
-					filter_block_list.at(block_index)->x = 5;
-					filter_block_list.at(block_index)->y = EWindow::SCR_HEIGHT - filter_block_list.at(block_index)->size_y - yy;
+					f->x = 5;
+					f->y = EWindow::SCR_HEIGHT - f->size_y - yy;
 
-					filter_block_list.at(block_index)->size_x = SCR_WIDTH - 40;
+					f->size_x = SCR_WIDTH - 40;
 
-					yy += filter_block_list.at(block_index)->size_y + 15;
 
-					filter_block_list.at(block_index)->update(_delta);
-					filter_block_list.at(block_index)->draw(_batch);
+
+					yy += f->size_y + 15;
+
+					f->update(_delta);
+					f->draw(_batch);
+
+					if
+					(
+						(moved_filter_block != NULL)
+						&&
+						(EControl::mouse_y >= f->y - 30.0f)
+						&&
+						(EControl::mouse_y <= f->y + f->size_y)
+					)
+					{
+						_batch->setcolor_alpha(EColorCollection::GREEN, 0.9f);
+						_batch->draw_simple_rect(f->x, f->y - 15.0f - 15.0f, moved_filter_block->size_x, 15.0f);
+
+						yy += 15.0f + 15.0f;
+
+						if ((EControl::mouse_pressed)&&(!EControl::button_pressed))
+						{
+							if (f->order_id + 1 >= filter_block_list.size())
+							{filter_block_list.push_back(moved_filter_block);}
+							else
+							{filter_block_list.emplace(filter_block_list.begin() + f->order_id + 1, moved_filter_block);}
+							
+							/*
+							if (f->order_id > moved_filter_block->order_id)
+							{filter_block_list.erase(filter_block_list.begin() + moved_filter_block->order_id);}
+							else
+							{filter_block_list.erase(filter_block_list.begin() + moved_filter_block->order_id + 1);}
+							*/
+
+							for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
+							{StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;}
+
+							moved_filter_block = NULL;
+						}
+					}
 			}
 
 			if

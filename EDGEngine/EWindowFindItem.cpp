@@ -337,7 +337,7 @@ public:
 
 			int search_count = 1;
 			int order = 0;
-			for (Enchantment* e : EString::enchantment_list)
+			for (LabEnchantment* e : EString::enchantment_list)
 			{
 				//std::cout << "item_list_name |" << item->item_name << "| button description |" <<  _b->text << "|" << std::endl;
 
@@ -463,6 +463,44 @@ public:
 				)
 				{
 					if (search_count < EString::loot_filter_name_list.size())
+					{
+						b->is_active = true;
+
+						search_count++;
+					}
+
+				}
+
+
+
+				order++;
+			}
+		}
+
+		if (window_searchs_mode == Enums::WindowSearchMode::LOOT_SIMULATOR_PATTERN)
+		{
+			for (int i = 0; i < button_list.size(); i++)
+			{
+				button_list.at(i)->is_active = false;
+			}
+
+			int search_count = 0;
+			int order = 0;
+
+			for (EButton* b : button_list)
+			{
+				if
+				(
+					(order >= 0)
+					&&
+					(
+						(EString::to_lower(b->text, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+					)
+					&&
+					(search_count < 30)
+				)
+				{
+					if (search_count < EString::loot_simulator_pattern_name_list.size())
 					{
 						b->is_active = true;
 
@@ -775,6 +813,57 @@ public:
 
 			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_PROPHECY;
 			input_button->is_input_mode_active = true;
+		}
+
+		if (window_searchs_mode == Enums::WindowSearchMode::LOOT_SIMULATOR_PATTERN)
+		{
+			have_undefined_input = false;
+			data_index = 0;
+
+			for (EButton* b : button_list)
+			{
+				if (data_index < EString::loot_simulator_pattern_name_list.size())
+				{
+					b->button_size_y = 21;
+
+					b->have_text = true;
+					b->have_icon = false;
+
+					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+
+					if (data_index >= 0)
+					{
+						b->text = EString::loot_simulator_pattern_name_list.at(data_index);
+					}
+					else
+					{
+						b->text = "?";
+					}
+
+					b->button_size_x = EFont::get_width(EFont::active_font, b->text) + 5.0f;
+
+					if (data_index < 30)
+					{
+						b->is_active = true;
+					}
+					else
+					{
+						b->is_active = false;
+					}
+
+					b->button_type = Enums::ButtonType::BUTTON_SEARCH_LOOT_SIMULATOR_PATTERN;
+					b->data_id = data_index;
+
+					data_index++;
+				}
+				else
+				{
+					b->is_active = false;
+				}
+			}
+
+			input_button->is_input_mode_active = true;
+			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_LOOT_SIMULATOR_PATTERN;
 		}
 
 		input_button->text = "";

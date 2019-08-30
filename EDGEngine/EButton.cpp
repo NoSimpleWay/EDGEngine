@@ -130,7 +130,7 @@
 
 	void EButton::update(float _d)
 	{
-
+		
 		if (is_outclick())
 		{
 			if ((is_expanded) && (is_drop_list))
@@ -342,7 +342,7 @@
 	void EButton::default_draw(Batcher* _batch)
 	{
 		//std::cout << "!" << std::endl;
-		
+		EFont::active_font->scale = 1.0f;
 		if (is_overlap())
 		{
 			_batch->setcolor_255(0, 200, 0, 100);

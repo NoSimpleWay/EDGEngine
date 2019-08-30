@@ -1,11 +1,11 @@
 #include <string>
 #pragma once
-class Enchantment
+class LabEnchantment
 {
 public:
 	std::string base_name;
 	std::string ru_name;
 
-	Enchantment();
-	~Enchantment();
+	LabEnchantment();
+	~LabEnchantment();
 };

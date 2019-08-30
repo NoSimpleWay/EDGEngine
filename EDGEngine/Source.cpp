@@ -191,6 +191,8 @@ EWindowSelectLocalisation* StaticData::window_select_localisation =NULL;
 EWindowLootSimulator* StaticData::window_loot_simulator =NULL;
 EWindowSelectFont* StaticData::window_select_font =NULL;
 
+EWindowFilterBlock* StaticData::default_filter_block =NULL;
+
 std::vector<EWindowFilterBlock*> StaticData::filter_block_tab;
 int StaticData::active_tab = 0;
 
@@ -499,14 +501,14 @@ void load_enchantment()
 	int line_id = 0;
 	int data_order;
 
-	Enchantment* just_created_enchantment = NULL;
+	LabEnchantment* just_created_enchantment = NULL;
 
 	//cout << EMath::rgb::r << endl;
 
 
 	while ((getline(myfile, line)) && (line_id < 2000))
 	{
-		just_created_enchantment = new Enchantment();
+		just_created_enchantment = new LabEnchantment();
 
 		data_order = 0;
 		subdata = "";
@@ -1745,8 +1747,9 @@ int main()
 	glGenTextures(1, &textureColorbuffer);
 	glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 4096, 4096, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
 	// create a renderbuffer object for depth and stencil attachment (we won't be sampling these)
 	unsigned int rbo;
@@ -1934,6 +1937,8 @@ int main()
 	put_texture_to_atlas("data/button_configue_font.png");		DefaultGabarite::gabarite_configue_font = just_created_gabarite;
 	put_texture_to_atlas("data/button_configue_language.png");	DefaultGabarite::gabarite_configue_language = just_created_gabarite;
 
+	put_texture_to_atlas("data/cut_gray.png");					DefaultGabarite::gabarite_cut_gray = just_created_gabarite;
+
 
 
 
@@ -1951,10 +1956,19 @@ int main()
 	EControl::window_list.push_back(StaticData::window_filter_block);
 	StaticData::window_filter_block->is_active = false;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 7; i++)
 	{
 		StaticData::filter_block_tab.push_back(new EWindowFilterBlock(0, false));
+		EString::path_list.push_back("");
 	}
+
+	StaticData::default_filter_block = new EWindowFilterBlock(0, false);
+	StaticData::default_filter_block->name = "Default filter block";
+	StaticData::default_filter_block->is_active = false;
+
+	StaticData::window_filter_block = StaticData::default_filter_block;
+
+	EFile::parse_loot_filter_data("data/default.filter");
 
 	StaticData::window_filter_block = StaticData::filter_block_tab.at(0);
 	EControl::window_list.at(0) = StaticData::filter_block_tab.at(0);
@@ -2458,7 +2472,7 @@ void load_texture(char const *_path, int _id)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// set texture filtering parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	// load image, create texture and generate mipmaps
 	stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
 

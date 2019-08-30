@@ -174,10 +174,10 @@
     <ClCompile Include="EWindowSelectFont.cpp">
       <Filter>Source Files\windows</Filter>
     </ClCompile>
-    <ClCompile Include="Enchantment.h">
+    <ClCompile Include="LabEnchantment.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Enchantment.cpp">
+    <ClCompile Include="LabEnchantment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

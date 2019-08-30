@@ -25,7 +25,9 @@ public:
 	int rarity_to_number(std::string _rarity);
 	virtual void update_localisation();
 	bool check_condition(std::string _condition, int _num_a, int num_b);
-	void find_filter_block(LootItem* _l);
+
+	void find_filter_block(LootItem* _l, EWindowFilterBlock* _w, bool _default);
+
 	void place(LootItem* _l);
 	//void find_filter_block();
 	virtual void manual_event();

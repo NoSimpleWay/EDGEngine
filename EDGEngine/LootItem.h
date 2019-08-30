@@ -53,6 +53,7 @@ public:
 
 
 	FilterBlock* filter_block_link;
+	FilterBlock* default_filter_block_link;
 
 	float pos_x;
 	float pos_y;

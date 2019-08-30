@@ -34,6 +34,8 @@ public:
 	static EWindowLootSimulator* window_loot_simulator;
 	static EWindowSelectFont* window_select_font;
 
+	static EWindowFilterBlock* default_filter_block;
+
 	static std::vector<EWindowFilterBlock*> filter_block_tab;
 	static int active_tab;
 

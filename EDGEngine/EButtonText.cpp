@@ -188,6 +188,19 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		have_text = true;
 		have_input_mode = false;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_PATTERN_WINDOW)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		have_text = true;
+		have_input_mode = false;
+	}
 }
 
 void EButtonText::click_event()
@@ -325,7 +338,7 @@ void EButtonText::click_event()
 
 		for (LootItem* _l : StaticData::window_loot_simulator->main_loot_item_list)
 		{
-			StaticData::window_loot_simulator->find_filter_block(_l);
+			StaticData::window_loot_simulator->find_filter_block(_l, StaticData::window_filter_block, false);
 		}
 
 		for (LootItem* _l : StaticData::window_loot_simulator->main_loot_item_list)
@@ -334,6 +347,18 @@ void EButtonText::click_event()
 		}
 
 		EFont::active_font->scale = 1.0f;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_PATTERN_WINDOW)
+	{
+		EString::load_loot_simulator_pattern_list();
+
+		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::LOOT_SIMULATOR_PATTERN;
+		StaticData::window_find_item->is_active = true;
+		StaticData::window_find_item->button_event(this);
+
+
+
 	}
 }
 
@@ -461,6 +486,11 @@ void EButtonText::update_localisation()
 		}
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_PATTERN_WINDOW)
+	{
+		text = EString::localize_it("text_open_loot_simulator_pattern_window");
+		description_text = EString::localize_it("description_open_loot_simulator_pattern_window");
+	}
 
 
 }

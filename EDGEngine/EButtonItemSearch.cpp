@@ -143,6 +143,8 @@ void EButtonItemSearch::click_event()
 		StaticData::window_main->tab_list.at(StaticData::active_tab)->text = text;
 		StaticData::window_main->tab_list.at(StaticData::active_tab)->button_min_size_x = 30;
 
+		EString::path_list.at(StaticData::active_tab) = EString::opened_loot_filter_path;
+
 		EFile::parse_loot_filter_data(EString::loot_filter_path_list.at(data_id));
 		StaticData::window_find_item->is_active = false;
 		StaticData::window_filter_block->is_active = true;
@@ -155,7 +157,7 @@ void EButtonItemSearch::click_event()
 
 		for (LootItem* _l : StaticData::window_loot_simulator->main_loot_item_list)
 		{
-			StaticData::window_loot_simulator->find_filter_block(_l);
+			StaticData::window_loot_simulator->find_filter_block(_l, StaticData::window_filter_block, false);
 		}
 
 		for (LootItem* _l : StaticData::window_loot_simulator->main_loot_item_list)
@@ -164,6 +166,16 @@ void EButtonItemSearch::click_event()
 		}
 
 		EFont::active_font->scale = 1.0f;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SEARCH_LOOT_SIMULATOR_PATTERN)
+	{
+		StaticData::window_find_item->is_active = false;
+
+		//std::cout << "try open loot pattern: " << 
+		EString::load_loot_pattern(EString::loot_simulator_pattern_name_list.at(data_id));
+
+		StaticData::window_loot_simulator->manual_event();
 	}
 	//StaticData::window_find_item->fill_search_array();
 

@@ -17,6 +17,11 @@ EWindowLootSimulator::EWindowLootSimulator(int _id, bool _can_be_closed) :EWindo
 	bg_color->set_alpha(EColorCollection::GRAY, 0.5f);
 
 	is_active = false;
+
+	EButton* but = new EButtonText(-15.0f, -150.0f, 128.0f, 20.0f, Enums::BUTTON_OPEN_PATTERN_WINDOW);
+	but->master_window = this;
+
+	button_list.push_back(but);
 }
 
 void EWindowLootSimulator::fill_random_pool(std::string _class, std::string _subclass, std::string _cost)
@@ -111,14 +116,30 @@ void EWindowLootSimulator::update(float _d)
 				if (loot->links > loot->sockets) { loot->links = loot->sockets; }
 			}
 
-			int random_red = 0;
-			int random_green = 0;
-			int random_blue = 0;
-			int random_white = 0;
+			if (p->max_map_tier > 0)
+			{
+				if (p->max_map_tier > p->min_map_tier)
+				{
+					loot->map_tier = p->min_map_tier + (rand() % (p->max_map_tier - p->min_map_tier));
+				}
+				else
+				{
+					loot->map_tier = p->max_map_tier;
+				}
+
+				if (loot->map_tier < 0) { loot->map_tier = 0; }
+				//if (loot->links > loot->sockets) { loot->links = loot->sockets; }
+			}
+
+			int random_red = -1;
+			int random_green = -1;
+			int random_blue = -1;
+			int random_white = -1;
 
 			float total_w = 0;
 			
 			std::vector <int> color_pool;
+
 			loot->red_socket = 0;
 			loot->green_socket = 0;
 			loot->blue_socket = 0;
@@ -204,7 +225,9 @@ void EWindowLootSimulator::update(float _d)
 
 			main_loot_item_list.push_back(loot);
 
-			find_filter_block(loot);
+			find_filter_block(loot, StaticData::window_filter_block, false);
+			find_filter_block(loot, StaticData::default_filter_block, true);
+
 			place(loot);
 
 			drop_count--;
@@ -239,6 +262,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 	//_batch->setcolor_alpha(EColorCollection::GRAY, 0.5f);
 	//_batch->draw_simple_rect(pos_x, pos_y, 800.0f, 800.0f);
 	
+	EFont::active_font->scale = 1.0f;
 
 	for (LootItem* loot : main_loot_item_list)
 	if
@@ -259,38 +283,47 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 		//std::cout << "___" << std::endl;
 		EFont::active_font->set_align_once(Enums::PositionMode::MID);
 
-		if (loot->filter_block_link != NULL)
+		if ((loot->filter_block_link != NULL) && (loot->filter_block_link->is_font_size_active))
 		{
 			EFont::active_font->scale = loot->filter_block_link->font_size / 32.0f;
 		}
 		else
 		{
-			EFont::active_font->scale = 20.0f / 32.0f;
+			if (loot->default_filter_block_link != NULL)
+			{EFont::active_font->scale = loot->default_filter_block_link->font_size / 32.0f;}
+			else
+			{EFont::active_font->scale = 20.0f / 32.0f;}
 		}
 
 		float w = EFont::active_font->get_width(EFont::active_font, loot->name);
 		float h = 20.0f * EFont::active_font->scale;
 
 
-		if (loot->filter_block_link != NULL)
+		if ((loot->filter_block_link != NULL) && (loot->filter_block_link->is_bg_color_active))
 		{
 			_batch->setcolor(loot->filter_block_link->bg_red / 255.0f, loot->filter_block_link->bg_green / 255.0f, loot->filter_block_link->bg_blue / 255.0f, loot->filter_block_link->bg_alpha / 255.0f);
 		}
 		else
 		{
-			_batch->setcolor_alpha(EColorCollection::GRAY, 0.8f);
+			if (loot->default_filter_block_link != NULL)
+			{_batch->setcolor(loot->default_filter_block_link->bg_red / 255.0f, loot->default_filter_block_link->bg_green / 255.0f, loot->default_filter_block_link->bg_blue / 255.0f, loot->default_filter_block_link->bg_alpha / 255.0f);}
+			else
+			{_batch->setcolor_alpha(EColorCollection::GRAY, 0.8f);}
 		}
 		_batch->draw_rect_with_uv(pos_x + loot->pos_x, pos_y + loot->pos_y, w + 13.0f, h, DefaultGabarite::gabarite_white);
 
 
 		//std::cout << "try set color" << std::endl;
-		if (loot->filter_block_link != NULL)
+		if ((loot->filter_block_link != NULL) && (loot->filter_block_link->is_text_color_active))
 		{
 			_batch->setcolor(loot->filter_block_link->text_color_red / 255.0f, loot->filter_block_link->text_color_green / 255.0f, loot->filter_block_link->text_color_blue / 255.0f, loot->filter_block_link->text_color_alpha / 255.0f);
 		}
 		else
 		{
-			_batch->setcolor(EColorCollection::WHITE);
+			if (loot->default_filter_block_link != NULL)
+			{_batch->setcolor(loot->default_filter_block_link->text_color_red / 255.0f, loot->default_filter_block_link->text_color_green / 255.0f, loot->default_filter_block_link->text_color_blue / 255.0f, loot->default_filter_block_link->text_color_alpha / 255.0f);}
+			else
+			{_batch->setcolor(EColorCollection::WHITE);}
 		}
 
 
@@ -299,13 +332,28 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 		//std::cout << "success"  << std::endl;
 
 		
-		if (loot->filter_block_link != NULL)
+		if ((loot->filter_block_link != NULL) && (loot->filter_block_link->is_rama_color_active))
 		{_batch->setcolor(loot->filter_block_link->rama_red / 255.0f, loot->filter_block_link->rama_green / 255.0f, loot->filter_block_link->rama_blue / 255.0f, loot->filter_block_link->rama_alpha / 255.0f);}
 		else
-		{_batch->setcolor_alpha (EColorCollection::WHITE, 0.7f);}
-		_batch->draw_rama(pos_x + loot->pos_x, pos_y + loot->pos_y, w + 13.0f, h, 3.0f, DefaultGabarite::gabarite_white);
-		
+		{
+			if (loot->default_filter_block_link != NULL)
+			{_batch->setcolor(loot->default_filter_block_link->rama_red / 255.0f, loot->default_filter_block_link->rama_green / 255.0f, loot->default_filter_block_link->rama_blue / 255.0f, loot->default_filter_block_link->rama_alpha / 255.0f);}
+			else
+			{_batch->setcolor_alpha (EColorCollection::WHITE, 0.7f);}
+		}
 
+
+
+		_batch->draw_rama(pos_x + loot->pos_x, pos_y + loot->pos_y, w + 13.0f, h, 2.0f, DefaultGabarite::gabarite_white);
+		
+		
+		if ((loot->filter_block_link != NULL) && (loot->filter_block_link->is_minimap_icon))
+		{
+			_batch->setcolor(EColorCollection::MINIMAP_ICON_COLOR[loot->filter_block_link->minimap_icon_shape]);
+			float siz = 1.0f / (1.0f + loot->filter_block_link->minimap_icon_size / 2.0f) * 30.0f;
+
+			_batch->draw_rect_with_uv(pos_x + loot->pos_x - siz / 2.0f, pos_y + loot->pos_y + siz /2.0f, siz, siz, DefaultGabarite::gabarite_minimap_icon[loot->filter_block_link->minimap_icon_shape]);
+		}
 
 
 	}
@@ -348,6 +396,8 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			(EControl::mouse_y <= loot->pos_y + pos_y + h)
 		)
 		{
+			EFont::active_font->align_x = Enums::PositionMode::LEFT;
+
 			float xx = EControl::mouse_x + 8.0f;
 			if (xx + 300.0f > EWindow::SCR_WIDTH) { xx = EWindow::SCR_WIDTH - 300.0f; }
 
@@ -362,46 +412,67 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			yy += 280.0f;
 
 			float dy = 20.0f;
-			EFont::active_font->draw(_batch, "Name: " + loot->name + " Class: " + loot->base_class, xx + 5.0f, yy - dy * 0);
+			float move_y = 0.0f;
+
+			
 
 			if (loot->filter_block_link != NULL)
 			{
-				EFont::active_font->draw(_batch, "Block id: " + std::to_string(loot->filter_block_link->order_id), xx + 5.0f, yy - dy * 2);
+				EFont::active_font->draw(_batch, "Block id: " + std::to_string(loot->filter_block_link->order_id), xx + 5.0f, yy - dy * move_y); move_y++;
 			}
 			else
 			{
-				EFont::active_font->draw(_batch, "Block id: NONE", xx + 5.0f, yy - 18.0 * 2);
+				EFont::active_font->draw(_batch, "Block id: NONE", xx + 5.0f, yy - 18.0 * 2); move_y++;
 			}
 
-			if (loot->item_level > 0) { EFont::active_font->draw(_batch, "item level: " + std::to_string(loot->item_level), xx + 5.0f, yy - dy * 3); }
+			EFont::active_font->draw(_batch, "Name: " + loot->name, xx + 5.0f, yy - dy * move_y); move_y++;
+			EFont::active_font->draw(_batch, "Class: " + loot->base_class, xx + 5.0f, yy - dy * move_y); move_y++;
+
+			if (loot->rarity == "Normal")	{ _batch->setcolor(EColorCollection::DAD_NORMAL); }
+			if (loot->rarity == "Magic")	{ _batch->setcolor(EColorCollection::DAD_MAGIC); }
+			if (loot->rarity == "Rare")		{ _batch->setcolor(EColorCollection::DAD_RARE); }
+			if (loot->rarity == "Unique")	{ _batch->setcolor(EColorCollection::DAD_UNIQUE); }
+
+			EFont::active_font->draw(_batch, loot->rarity, xx + 5.0f, yy - dy * move_y); move_y++;
+
+			_batch->setcolor(EColorCollection::WHITE);
+			if (loot->item_level > 0) { EFont::active_font->draw(_batch, "item level: " + std::to_string(loot->item_level), xx + 5.0f, yy - dy * move_y); move_y++;}
+
 
 			if (loot->sockets >= 6) { _batch->setcolor_lum(EColorCollection::GREEN, 0.90f); }
 			else { _batch->setcolor(EColorCollection::WHITE); }
-			if (loot->sockets > 0) { EFont::active_font->draw(_batch, "sockets: " + std::to_string(loot->sockets), xx + 5.0f, yy - dy * 4); }
+			if (loot->sockets > 0) { EFont::active_font->draw(_batch, "sockets: " + std::to_string(loot->sockets), xx + 5.0f, yy - dy * move_y); move_y++;}
 
 			if (loot->links == 5) { _batch->setcolor_lum(EColorCollection::GREEN, 0.90f); }
 			else { _batch->setcolor(EColorCollection::WHITE); }
 			if (loot->links >= 6) { _batch->setcolor_lum(EColorCollection::PINK, 0.90f); }
 			else { _batch->setcolor(EColorCollection::WHITE); }
-			if (loot->links > 0) { EFont::active_font->draw(_batch, "links: " + std::to_string(loot->sockets), xx + 5.0f, yy - dy * 5); }
+			if (loot->links > 0) { EFont::active_font->draw(_batch, "links: " + std::to_string(loot->links), xx + 5.0f, yy - dy * move_y); move_y++;}
+
+			if (loot->map_tier < 6) { _batch->setcolor_lum(EColorCollection::WHITE, 0.90f); }
+			else { _batch->setcolor(EColorCollection::WHITE); }
+			if (loot->map_tier < 11) { _batch->setcolor_lum(EColorCollection::YELLOW, 0.90f); }
+			else { _batch->setcolor(EColorCollection::RED); }
+			if (loot->map_tier > 0) { EFont::active_font->draw(_batch, "Map tier: " + std::to_string(loot->map_tier), xx + 5.0f, yy - dy * move_y); move_y++; }
 
 			_batch->setcolor(EColorCollection::RED);
-			EFont::active_font->draw(_batch, "RED: " + std::to_string(loot->red_socket), xx + 5.0f, yy - dy * 6);
+			EFont::active_font->draw(_batch, "RED: " + std::to_string(loot->red_socket), xx + 5.0f, yy - dy * move_y); move_y++;
 
 			_batch->setcolor(EColorCollection::GREEN);
-			EFont::active_font->draw(_batch, "GREEN: " + std::to_string(loot->green_socket), xx + 5.0f, yy - dy * 7);
+			EFont::active_font->draw(_batch, "GREEN: " + std::to_string(loot->green_socket), xx + 5.0f, yy - dy * move_y); move_y++;
 
 			_batch->setcolor(EColorCollection::CYAN);
-			EFont::active_font->draw(_batch, "BLUE: " + std::to_string(loot->blue_socket), xx + 5.0f, yy - dy * 8);
+			EFont::active_font->draw(_batch, "BLUE: " + std::to_string(loot->blue_socket), xx + 5.0f, yy - dy * move_y); move_y++;
 
 			_batch->setcolor(EColorCollection::WHITE);
-			EFont::active_font->draw(_batch, "WHITE: " + std::to_string(loot->white_socket), xx + 5.0f, yy - dy * 9);
+			EFont::active_font->draw(_batch, "WHITE: " + std::to_string(loot->white_socket), xx + 5.0f, yy - dy * move_y); move_y++;
 
 
 		}
 	}
 
 	EFont::active_font->scale = 1.0f;
+	EFont::active_font->align_x = Enums::PositionMode::LEFT;
 	//_batch->setcolor_alpha(EColorCollection::RED, 0.15f);
 
 	/*for (int i=0; i<100; i++)
@@ -418,6 +489,8 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 void EWindowLootSimulator::update_localisation()
 {
+	for (EButton* b : button_list)
+	{b->update_localisation();}
 }
 
 bool EWindowLootSimulator::check_condition(std::string _condition, int _num_a, int num_b)
@@ -444,7 +517,7 @@ int EWindowLootSimulator::rarity_to_number(std::string _rarity)
 	return -1;
 }
 
-void EWindowLootSimulator::find_filter_block(LootItem* _l)
+void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _w, bool _default)
 {
 	bool match_detect = false;
 
@@ -455,17 +528,18 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l)
 
 	int fb_id = 0;
 
-	for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
+	for (FilterBlock* fb : _w->filter_block_list)
 	{
 		if (fb->filter_block_items_button_list.size() <= 0) { match_detect = true; }
+
 		for (EButton* b : fb->filter_block_items_button_list)
 		{
 			if
-				(EString::to_lower(b->data_string, false).find(EString::to_lower(_l->name, false)) != std::string::npos)
+			(
+				(EString::to_lower(_l->name, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+			)
 			{
 				match_detect = true;
-
-
 			}
 		}
 
@@ -722,7 +796,10 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l)
 
 		if (match_detect)
 		{
-			_l->filter_block_link = fb;
+			if (_default)
+			{_l->default_filter_block_link = fb;}
+			else
+			{_l->filter_block_link = fb;}
 
 			//_l->name += " " + std::to_string(fb_id);
 
@@ -814,8 +891,8 @@ void EWindowLootSimulator::place(LootItem* _l)
 	{
 
 		w = EFont::active_font->get_width(EFont::active_font, _l->name);
-		for (int sy = good_pos_y - 0.0f; sy <= good_pos_y + (int)(EFont::active_font->scale * 22.0f / 8.0f) + 1; sy++)
-			for (int sx = good_pos_x - 3.0f; sx <= good_pos_x + (int)(w / 8.0f) + 3; sx++)
+		for (int sy = good_pos_y - 1.0f; sy <= good_pos_y + (int)(EFont::active_font->scale * 22.0f / 8.0f) + 1; sy++)
+			for (int sx = good_pos_x - 2.0f; sx <= good_pos_x + (int)(w / 8.0f) + 2; sx++)
 			{
 				if ((sx < 200) && (sy < 100) && (sx >= 0) && (sy >= 0))
 				{
@@ -861,6 +938,7 @@ void EWindowLootSimulator::manual_event()
 			random_item_pool.clear();
 
 			pattern->item_name = pattern_item_list.at(i)->item_name;
+			pattern->base_class = pattern_item_list.at(i)->base_class;
 
 			for (int l = 0; l < ItemList::item_list.size(); l++)
 			{
@@ -907,6 +985,9 @@ void EWindowLootSimulator::manual_event()
 
 			pattern->min_links = pattern_item_list.at(i)->min_links;
 			pattern->max_links = pattern_item_list.at(i)->max_links;
+
+			pattern->min_map_tier = pattern_item_list.at(i)->min_map_tier;
+			pattern->max_map_tier = pattern_item_list.at(i)->max_map_tier;
 
 			pattern->red_weight = pattern_item_list.at(i)->red_weight;
 			pattern->green_weight = pattern_item_list.at(i)->green_weight;

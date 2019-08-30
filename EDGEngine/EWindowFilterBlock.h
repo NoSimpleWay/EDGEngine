@@ -20,4 +20,6 @@ public:
 	virtual void text_pass(Batcher* _batch);
 
 	virtual void update_localisation();
+
+	FilterBlock* moved_filter_block;
 };

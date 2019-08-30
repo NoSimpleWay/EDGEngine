@@ -3,7 +3,7 @@
 #include <irr/irrKlang.h>
 #include "BaseClass.h"
 #include "ProphecyList.h"
-#include "Enchantment.h"
+#include "LabEnchantment.h"
 
 #include <string>
 
@@ -63,9 +63,11 @@ public:
 
 	static std::string to_lower(std::string _s, bool _b);
 
+	static void load_loot_simulator_pattern_list();
+
 	static std::string path_to_poe_folder;
 
-	static std::vector<Enchantment*> enchantment_list;
+	static std::vector<LabEnchantment*> enchantment_list;
 	static std::vector<BaseClass*> base_class_list;
 
 	static std::vector<ProphecyList*> prophecy_list;
@@ -78,8 +80,14 @@ public:
 
 	static int find_item_by_full_name(std::string _name);
 
+	static std::vector<std::string> loot_simulator_pattern_name_list;
+	static std::vector<std::string> loot_simulator_pattern_path_list;
+
+
 	static std::vector<std::string> loot_filter_name_list;
 	static std::vector<std::string> loot_filter_path_list;
+
+	static std::vector <std::string> path_list;
 
 	static std::string opened_loot_filter_name;
 	static std::string opened_loot_filter_path;

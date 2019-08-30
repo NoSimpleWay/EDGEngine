@@ -9,7 +9,7 @@
 
 #include "EButton.h"
 #include "BaseClass.h"
-#include "Enchantment.h"
+#include "LabEnchantment.h"
 
 #include "ProphecyList.h"
 //#include "ExplicitGroup.h"

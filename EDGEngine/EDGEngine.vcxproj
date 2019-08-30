@@ -165,8 +165,8 @@
     <ClCompile Include="EColor.cpp" />
     <ClCompile Include="EGabarite.cpp" />
     <ClCompile Include="EInit.cpp" />
-    <ClCompile Include="Enchantment.cpp" />
-    <ClCompile Include="Enchantment.h" />
+    <ClCompile Include="LabEnchantment.cpp" />
+    <ClCompile Include="LabEnchantment.h" />
     <ClCompile Include="ETexture.cpp" />
     <ClCompile Include="EUtils.cpp" />
     <ClCompile Include="EWindow.cpp" />

@@ -35,6 +35,9 @@ public:
 
 	int height;
 	int width;
+	
+	int min_map_tier;
+	int max_map_tier;
 
 	std::string base_class;
 

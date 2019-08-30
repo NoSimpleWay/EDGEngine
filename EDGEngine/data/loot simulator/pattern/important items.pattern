@@ -17,12 +17,12 @@ random_subclass	FOSSIL	random_cost_group	very_high	count	1
 random_subclass	FOSSIL	random_cost_group	hight	count	1
 random_subclass	FOSSIL	count	3
 random_class	Divination	random_cost_group	top	count	1
-random_class	Divination	random_cost_group	very_hight	coun1	1
-random_class	Divination	random_cost_group	hight	coun1	1
-random_class	Divination	random_cost_group	mid	coun1	1
-random_class	Divination	random_cost_group	low	coun1	3
-random_class	Divination	random_cost_group	very_low	coun1	3
-random_class	Divination	random_cost_group	trash	coun1	3
+random_class	Divination	random_cost_group	very_hight	count	1
+random_class	Divination	random_cost_group	hight	count	1
+random_class	Divination	random_cost_group	mid	count	1
+random_class	Divination	random_cost_group	low	count	3
+random_class	Divination	random_cost_group	very_low	count	3
+random_class	Divination	random_cost_group	trash	count	3
 random_class	Gloves	count	1	quality_min	-10	quality_max	30	links_min	3	links_max	4	sockets_min	3	sockets_max	4	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	100
 random_class	Boots	count	1	quality_min	-10	quality_max	30	links_min	3	links_max	4	sockets_min	3	sockets_max	4	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	100
 random_class	Helmets	count	1	quality_min	-10	quality_max	30	links_min	3	links_max	4	sockets_min	3	sockets_max	4	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	100

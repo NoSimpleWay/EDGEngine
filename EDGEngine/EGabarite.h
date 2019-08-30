@@ -80,6 +80,8 @@ public:
 	static EGabarite* gabarite_configue_font;
 	static EGabarite* gabarite_configue_language;
 
+	static EGabarite* gabarite_cut_gray;
+
 
 
 };

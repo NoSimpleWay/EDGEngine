@@ -209,6 +209,19 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		gabarite = DefaultGabarite::gabarite_configue_language;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CUT_FILTER_BLOCK)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		gabarite = DefaultGabarite::gabarite_cut_gray;
+	}
 }
 
 void EButtonService::click_event()
@@ -283,9 +296,9 @@ void EButtonService::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
 	{
-		if (EString::opened_loot_filter_path != "")
+		if (EString::path_list.at(StaticData::active_tab) != "")
 		{
-			EFile::save_filter(EString::opened_loot_filter_path);
+			EFile::save_filter(EString::path_list.at(StaticData::active_tab));
 		}
 	}
 	
@@ -443,6 +456,20 @@ void EButtonService::click_event()
 	if (button_type == Enums::ButtonType::BUTTON_CONFIGUE_LANGUAGE)
 	{
 		StaticData::window_select_localisation->is_active = true;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CUT_FILTER_BLOCK)
+	{
+		if (StaticData::window_filter_block->moved_filter_block == NULL)
+		{
+			StaticData::window_filter_block->moved_filter_block = master_block;
+			StaticData::window_filter_block->filter_block_list.erase(StaticData::window_filter_block->filter_block_list.begin() + master_block->order_id);
+
+			for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
+			{
+				StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;
+			}
+		}
 	}
 }
 

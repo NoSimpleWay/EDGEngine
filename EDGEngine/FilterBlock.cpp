@@ -367,8 +367,12 @@
 		button_list.push_back(but);
 
 
+		but = new EButtonService(-130.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_CUT_FILTER_BLOCK);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		button_list.push_back(but);
 
-		but = new EButtonService(-130.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
+		but = new EButtonService(-100.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);

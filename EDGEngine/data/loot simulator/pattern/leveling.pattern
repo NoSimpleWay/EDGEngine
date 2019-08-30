@@ -1,0 +1,25 @@
+random_class	Body Armours	count	3	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Gloves	count	3	links_min	1	links_max	4	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Boots	count	3	links_min	1	links_max	4	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Helmets	count	3	links_min	1	links_max	4	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Amulets	count	3	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Rings	count	3	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Belts	count	3	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	One Hand	count	3	links_min	1	links_max	3	sockets_min	1	sockets_max	3	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Two Hand	count	3	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Bow	count	3	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Wand	count	3	links_min	1	links_max	3	sockets_min	1	sockets_max	3	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Shield	count	3	links_min	1	links_max	3	sockets_min	1	sockets_max	3	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Staff	count	3	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Sceptre	count	3	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+commentary	TABULA RASA	item_name	Simple Robe	count	1	quality_min	-10	quality_max	30	links_min	6	links_max	6	sockets_min	6	sockets_max	6	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	red_sockets_weight	0	green_sockets_weight	0	blue_sockets_weight	0	white_sockets_weight	10000
+commentary	KAOM HEART	item_name	Glorious Plate	count	1	quality_min	-10	quality_max	30	links_min	0	links_max	0	sockets_min	0	sockets_max	0	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100
+item_name	Chaos Orb
+item_name	Orb of Alchemy
+item_name	Scroll of Wisdom	count	5
+item_name	Portal Scroll	count	3
+item_name	Blacksmith's Whetstone
+item_name	Armourer's Scrap
+random_subclass	NORMAL_CURRENCY	random_cost_group	low
+random_subclass	NORMAL_CURRENCY	random_cost_group	mid
+random_subclass	NORMAL_CURRENCY	random_cost_group	high

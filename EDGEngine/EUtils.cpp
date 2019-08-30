@@ -154,11 +154,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	Enums::LocalisationList EString::active_localisation = Enums::LocalisationList::EN;
 
 	std::vector<BaseClass*> EString::base_class_list;
-	std::vector<Enchantment*> EString::enchantment_list;
+	std::vector<LabEnchantment*> EString::enchantment_list;
 	std::vector<ProphecyList*> EString::prophecy_list;
 
 	std::vector<std::string> EString::loot_filter_name_list;
+	std::vector<std::string> EString::loot_simulator_pattern_name_list;
+
 	std::vector<std::string> EString::loot_filter_path_list;
+	std::vector<std::string> EString::loot_simulator_pattern_path_list;
+
+	std::vector <std::string> EString::path_list;
 
 	std::string EString::opened_loot_filter_name;
 	std::string EString::opened_loot_filter_path;
@@ -244,6 +249,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	void EString::load_loot_pattern(std::string _text)
 	{
+		//StaticData::window_loot_simulator->pattern_item_list
 		StaticData::window_loot_simulator->pattern_item_list.clear();
 
 		LootPatternItem* just_created_pattern_item;
@@ -252,7 +258,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		//myfile_open.open("gemor.txt");
 
 		ifstream myfile;
-		myfile.open("data/loot simulator/pattern/" + _text + ".txt");
+		myfile.open("data/loot simulator/pattern/" + _text + ".pattern");
 		string line;
 
 		string subdata;
@@ -352,6 +358,17 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				if (EString::to_lower(subdata_array[i * 2], false) == "links_max")
 				{
 					just_created_pattern_item->max_links = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "map_tier_min")
+				{
+					just_created_pattern_item->min_map_tier = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "map_tier_max")
+				{
+					just_created_pattern_item->max_map_tier = std::stoi(subdata_array[i * 2 + 1]);
 				}
 
 
@@ -499,6 +516,38 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		}
 
 		return result;
+	}
+
+	void EString::load_loot_simulator_pattern_list()
+	{
+		EString::loot_simulator_pattern_name_list.clear();
+		EString::loot_simulator_pattern_path_list.clear();
+
+		for (auto& p : std::experimental::filesystem::directory_iterator("data/loot simulator/pattern/"))
+		{
+			std::string loot_filter_name = p.path().u8string();
+			//writer << custom_sound << endl;;
+
+			cout << "file: " << loot_filter_name << endl;
+
+			if
+			(
+				(loot_filter_name.length() >= 9)
+				&&
+				(EString::to_lower(loot_filter_name.substr(loot_filter_name.length() - 8, 8), false) == ".pattern")
+			)
+			{
+
+				//cout <<"It sound!" << '\n'<<'\n';
+
+				EString::loot_simulator_pattern_path_list.push_back(to_cyrillic(loot_filter_name));
+				EString::loot_simulator_pattern_name_list.push_back(to_cyrillic(p.path().filename().u8string().substr(0, p.path().filename().u8string().length() - 8)));
+
+				//std::cout << "It filter! " << p.path().filename().u8string() << '\n' << '\n';
+
+				//ESound::custom_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(custom_sound.c_str()));
+			}
+		}
 	}
 
 	void EString::load_loot_filter_list()
