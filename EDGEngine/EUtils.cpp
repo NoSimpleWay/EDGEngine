@@ -631,7 +631,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			sound_id++;
 		}
 
-		return custom_drop_sound.at(0);
+		return ESound::flip_sound;
+		//return custom_drop_sound.at(0);
 	}
 
 	bool EString::convert_text_to_bool(std::string _text)
@@ -902,7 +903,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (subdata == "SetBorderColor") { parser_mode = Enums::ParserMode::BORDER_COLOR; just_created_block->is_rama_color_active = true; }
 								if (subdata == "SetBackgroundColor") { parser_mode = Enums::ParserMode::BACKGROUND_COLOR; just_created_block->is_bg_color_active = true; }
 
-								if (subdata == "PlayAlertSound") { parser_mode = Enums::ParserMode::ALERT_SOUND; just_created_block->is_alert_sound = true; }
+								if (subdata == "PlayAlertSound") { parser_mode = Enums::ParserMode::ALERT_SOUND; just_created_block->is_alert_sound = true; just_created_block->is_positional_sound = false; }
+								if (subdata == "PlayAlertSoundPositional") { parser_mode = Enums::ParserMode::ALERT_SOUND; just_created_block->is_alert_sound = true;  just_created_block->is_positional_sound = true;}
+
 								if (subdata == "CustomAlertSound") { parser_mode = Enums::ParserMode::CUSTOM_ALERT_SOUND; just_created_block->is_custom_alert_sound = true; }
 								if (subdata == "PlayEffect") { parser_mode = Enums::ParserMode::RAY; just_created_block->is_ray = true; just_created_block->ray_is_temp = false; }
 								if (subdata == "MinimapIcon") { parser_mode = Enums::ParserMode::MINIMAP_ICON; just_created_block->is_minimap_icon = true; }
@@ -1895,7 +1898,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			if (fb->is_alert_sound)
 			{
 				loot_writer += '\t';
-				loot_writer += "PlayAlertSound ";
+				if (fb->is_positional_sound)
+				{loot_writer += "PlayAlertSound ";}
+				else
+				{loot_writer += "PlayAlertSoundPositional ";}
 
 				loot_writer += fb->alert_sound_name;
 				loot_writer += " ";
@@ -2246,6 +2252,15 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		}
 
 		myfile << loot_writer;
+		myfile.close();
+
+		
+		myfile.open("D:\\c++\\EDGEngine\\x64\\Debug\\EDGEngine.exe");
+		if (myfile.is_open())
+		{
+			std::cout << "OPENED EDGEengine" << std::endl;
+		}
+			myfile << "OLOLO";
 		myfile.close();
 
 

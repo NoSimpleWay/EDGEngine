@@ -70,7 +70,7 @@ public:
 		pos_x = 0;
 		pos_y = 0;
 
-		window_size_x = 1000;
+		window_size_x = 970;
 		window_size_y = 600;
 
 		align_x = Enums::PositionMode::LEFT;
@@ -517,6 +517,11 @@ public:
 		cached_text_size			=	EString::localize_it("text_text_size");
 
 
+	}
+
+	virtual void close_action()
+	{
+		//StaticData::loot_s
 	}
 
 };

@@ -1,2 +1,2 @@
-palatino
-EN
+courier
+RU

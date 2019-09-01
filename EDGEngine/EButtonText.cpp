@@ -193,7 +193,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 	{
 		text_align_x = Enums::PositionMode::MID;
 
-		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_x = Enums::PositionMode::LEFT;
 		position_mode_y = Enums::PositionMode::UP;
 
 		master_position = Enums::PositionMaster::WINDOW;
@@ -330,8 +330,8 @@ void EButtonText::click_event()
 		StaticData::window_filter_block = StaticData::filter_block_tab.at(data_id);
 		EControl::window_list.at(0) = StaticData::filter_block_tab.at(data_id);
 
-		for (int i = 0; i < 100; i++)
-		for (int j = 0; j < 200; j++)
+		for (int i = 0; i < 87; i++)
+		for (int j = 0; j < 125; j++)
 		{
 			StaticData::window_loot_simulator->free_space[j][i] = true;
 		}

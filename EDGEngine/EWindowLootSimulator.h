@@ -10,7 +10,7 @@ class EWindowLootSimulator : public EWindow
 public:
 	std::vector<LootItem*> main_loot_item_list;
 
-	bool free_space[200][100];
+	bool free_space[125][87];
 
 	EWindowLootSimulator(int _id, bool _can_be_closed);
 
@@ -43,5 +43,7 @@ public:
 
 
 	std::vector <DADItem*> random_item_pool;
+
+	bool is_bright_bg = true;
 
 };

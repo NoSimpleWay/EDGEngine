@@ -1,5 +1,6 @@
 #include "EButtonService.h"
 #include "StaticData.h"
+#include "EButtonFilterItem.h"
 
 EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type) : EButton(_x, _y, _sx, _sy)
 {
@@ -222,6 +223,60 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		gabarite = DefaultGabarite::gabarite_cut_gray;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_REFRESH_LOOT_SIMULATOR)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		gabarite = DefaultGabarite::gabarite_button_refresh;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHANGE_BG_BRIGHT)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		gabarite = DefaultGabarite::gabarite_button_bright_bg;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHANGE_BG_DARK)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		gabarite = DefaultGabarite::gabarite_button_dark_bg;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CLONE_FILTER_BLOCK)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		gabarite = DefaultGabarite::gabarite_button_clone;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+
+	}
 }
 
 void EButtonService::click_event()
@@ -246,6 +301,17 @@ void EButtonService::click_event()
 	{
 		StaticData::window_filter_visual_editor->is_active = true;
 		StaticData::window_filter_visual_editor->button_event(this);
+
+		if (StaticData::window_loot_simulator->is_active)
+		{
+			StaticData::window_filter_visual_editor->align_x = Enums::PositionMode::RIGHT;
+			StaticData::window_loot_simulator->align_x = Enums::PositionMode::LEFT;
+		}
+		else
+		{
+			StaticData::window_filter_visual_editor->align_x = Enums::PositionMode::MID;
+			StaticData::window_loot_simulator->align_x = Enums::PositionMode::MID;
+		}
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_SYS_PLAY_SOUND))
@@ -446,6 +512,17 @@ void EButtonService::click_event()
 		StaticData::window_loot_simulator->is_active = true;
 		StaticData::window_loot_simulator->manual_event();
 
+		if (StaticData::window_filter_visual_editor->is_active)
+		{
+			StaticData::window_filter_visual_editor->align_x = Enums::PositionMode::RIGHT;
+			StaticData::window_loot_simulator->align_x = Enums::PositionMode::LEFT;
+		}
+		else
+		{
+			StaticData::window_filter_visual_editor->align_x = Enums::PositionMode::MID;
+			StaticData::window_loot_simulator->align_x = Enums::PositionMode::MID;
+		}
+
 	}	
 	
 	if (button_type == Enums::ButtonType::BUTTON_CONFIGUE_FONT)
@@ -470,6 +547,212 @@ void EButtonService::click_event()
 				StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;
 			}
 		}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_REFRESH_LOOT_SIMULATOR)
+	{
+		StaticData::window_loot_simulator->manual_event();
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHANGE_BG_BRIGHT)
+	{
+		StaticData::window_loot_simulator->is_bright_bg = true;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHANGE_BG_DARK)
+	{
+		StaticData::window_loot_simulator->is_bright_bg = false;
+	}
+
+	if ((button_type == Enums::ButtonType::BUTTON_CLONE_FILTER_BLOCK))
+	{
+		FilterBlock* fb = new FilterBlock();
+		fb->data_change();
+		fb->highlight_time = 0.5f;
+
+		StaticData::window_filter_block->filter_block_list.emplace
+		(
+			StaticData::window_filter_block->filter_block_list.begin() + StaticData::window_filter_block->get_id_of_filter_block(master_block),
+			fb
+		);
+
+		for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
+		{
+			StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;
+		}
+
+		fb->is_bg_color_active = master_block->is_bg_color_active;
+		fb->bg_alpha = master_block->bg_alpha;
+		fb->bg_blue = master_block->bg_blue;
+		fb->bg_green = master_block->bg_green;
+		fb->bg_hue = master_block->bg_hue;
+		fb->bg_red = master_block->bg_red;
+		fb->bg_saturation = master_block->bg_saturation;
+		fb->bg_value = master_block->bg_value;
+
+		fb->is_font_size_active = master_block->is_font_size_active;
+		fb->font_size = master_block->font_size;
+
+		fb->is_text_color_active = master_block->is_text_color_active;
+		fb->text_color_alpha = master_block->text_color_alpha;
+		fb->text_color_blue = master_block->text_color_blue;
+		fb->text_color_green = master_block->text_color_green;
+		fb->text_color_hue = master_block->text_color_hue;
+		fb->text_color_red = master_block->text_color_red;
+		fb->text_color_saturation = master_block->text_color_saturation;
+		fb->text_color_value = master_block->text_color_value;
+
+		fb->is_rama_color_active = master_block->is_rama_color_active;
+		fb->rama_alpha = master_block->rama_alpha;
+		fb->rama_blue = master_block->rama_blue;
+		fb->rama_green = master_block->rama_green;
+		fb->rama_hue = master_block->rama_hue;
+		fb->rama_red = master_block->rama_red;
+		fb->rama_saturation = master_block->rama_saturation;
+		fb->rama_value = master_block->rama_value;
+
+		for (int i=0; i<fb->base_filter_data_name.size(); i++)
+		{
+			fb->base_filter_data_active.at(i) = master_block->base_filter_data_active.at(i);
+			fb->base_filter_data_bool.at(i) = master_block->base_filter_data_bool.at(i);
+		}
+
+		fb->rarity_condition = master_block->rarity_condition;
+		fb->item_rarity = master_block->item_rarity;
+
+		fb->item_level_condition = master_block->item_level_condition;
+		fb->item_level = master_block->item_level;
+
+		fb->required_level_condition = master_block->required_level_condition;
+		fb->required_level = master_block->required_level;
+
+		fb->socket_condition = master_block->socket_condition;
+		fb->socket_count = master_block->socket_count;
+
+		fb->links_condition = master_block->links_condition;
+		fb->links_count = master_block->links_count;
+
+		fb->red_sockets = master_block->red_sockets;
+		fb->green_sockets = master_block->green_sockets;
+		fb->blue_sockets = master_block->blue_sockets;
+		fb->white_sockets = master_block->white_sockets;
+
+		fb->item_quality_condition = master_block->item_quality_condition;
+		fb->item_quality = master_block->item_quality;
+
+		fb->gem_level_condition = master_block->gem_level_condition;
+		fb->gem_level = master_block->gem_level;
+
+		fb->map_tier_condition = master_block->map_tier_condition;
+		fb->map_tier = master_block->map_tier;
+
+		fb->is_shaper_map = master_block->is_shaper_map;
+		fb->is_elder_map = master_block->is_elder_map;
+
+
+		fb->item_height_condition = master_block->item_height_condition;
+		fb->item_height = master_block->item_height;
+
+		fb->item_width_condition = master_block->item_width_condition;
+		fb->item_width = master_block->item_width;
+
+		fb->item_quality_condition = master_block->item_quality_condition;
+		fb->item_quality = master_block->item_quality;
+
+		fb->is_corrupted = master_block->is_corrupted;
+		fb->is_shaper_item = master_block->is_shaper_item;
+		fb->is_elder_item = master_block->is_elder_item;
+		fb->is_synthesised_item = master_block->is_synthesised_item;
+		fb->is_fractured_item = master_block->is_fractured_item;
+		fb->is_identified = master_block->is_identified;
+
+		
+		for (EButton* b : master_block->filter_block_items_button_list)
+		{
+			EButton* but = new EButtonFilterItem(0,0,45.0f, 45.0f);
+			but->text = b->text;
+			but->description_text = b->description_text;
+			but->data_id = b->data_id;
+			but->data_string = b->data_string;
+			but->gabarite = b->gabarite;
+			
+
+			but->master_block = fb;
+			but->master_window = StaticData::window_filter_block;
+
+			fb->filter_block_items_button_list.push_back(but);
+
+			but->update_localisation();
+		}
+
+
+		fb->is_base_class_active = master_block->is_base_class_active;
+		fb->remove_base_class_button->is_active = master_block->remove_base_class_button->is_active;
+		fb->plus_class_button_link->is_active = master_block->plus_class_button_link->is_active;
+		for (EButton* b : master_block->base_class_list)
+		{
+			EButtonExplicit* but = new EButtonExplicit(0, 0, 45.0f, 45.0f,Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
+			but->text = b->text;
+			but->description_text = b->description_text;
+			but->data_id = b->data_id;
+			but->data_string = b->data_string;
+			but->gabarite = b->gabarite;
+			but->button_size_x = b->button_size_x;
+			but->button_size_y = b->button_size_y;
+			but->button_min_size_x = b->button_min_size_x;
+
+			but->master_block = fb;
+			but->master_window = StaticData::window_filter_block;
+
+			fb->base_class_list.push_back(but);
+			fb->button_list.push_back(but);
+
+			but->update_localisation();
+		}
+
+		fb->is_prophecy_active = master_block->is_prophecy_active;
+		fb->remove_prophecy_button->is_active = master_block->remove_prophecy_button->is_active;
+		fb->plus_prophecy_button_link->is_active = master_block->plus_prophecy_button_link->is_active;
+		for (EButton* b : master_block->prophecy_list)
+		{
+			EButtonExplicit* but = new EButtonExplicit(0, 0, 45.0f, 45.0f, Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST);
+			but->text = b->text;
+			but->description_text = b->description_text;
+			but->data_id = b->data_id;
+			but->data_string = b->data_string;
+			but->gabarite = b->gabarite;
+			but->button_size_x = b->button_size_x;
+			but->button_size_y = b->button_size_y;
+			but->button_min_size_x = b->button_min_size_x;
+
+			but->master_block = fb;
+			but->master_window = StaticData::window_filter_block;
+
+			fb->prophecy_list.push_back(but);
+			fb->button_list.push_back(but);
+
+			but->update_localisation();
+		}
+
+		fb->is_alert_sound = master_block->is_alert_sound;
+		fb->alert_sound_id = master_block->alert_sound_id;
+		fb->alert_sound_name = master_block->alert_sound_name;
+		fb->is_positional_sound = master_block->is_positional_sound;
+
+		fb->is_custom_alert_sound = master_block->is_custom_alert_sound;
+		fb->custom_alert_sound_name = master_block->custom_alert_sound_name;
+		fb->custom_sound_button_link = master_block->custom_sound_button_link;
+
+		fb->is_ray = master_block->is_ray;
+		fb->ray_color = master_block->ray_color;
+		fb->ray_is_temp = master_block->ray_is_temp;
+
+		fb->is_minimap_icon = master_block->is_minimap_icon;
+		fb->minimap_icon_color = master_block->minimap_icon_color;
+		fb->minimap_icon_shape = master_block->minimap_icon_shape;
+		fb->minimap_icon_size = master_block->minimap_icon_size;
+
+		fb->data_change();
 	}
 }
 

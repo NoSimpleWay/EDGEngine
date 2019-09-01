@@ -23,3 +23,9 @@ item_name	Armourer's Scrap
 random_subclass	NORMAL_CURRENCY	random_cost_group	low
 random_subclass	NORMAL_CURRENCY	random_cost_group	mid
 random_subclass	NORMAL_CURRENCY	random_cost_group	high
+random_class	Flasks	count	5	rarity_min	normal	rarity_max	magic	quality_min	-10	quality_max	30	item_level_min	1	item_level_max	68
+random_class	Utility Flasks	count	3	rarity_min	normal	rarity_max	magic	quality_min	-10	quality_max	30	item_level_min	1	item_level_max	68
+item_name	Quicksilver Flask	rarity_min	normal	rarity_max	magic	quality_min	-10	quality_max	30	item_level_min	1	item_level_max	68
+item_name	Iron Ring	rarity_min	normal	rarity_max	normal	item_level_min	1	item_level_max	20
+item_name	Iron Ring	rarity_min	magic	rarity_max	magic	item_level_min	1	item_level_max	20
+item_name	Iron Ring	rarity_min	rare	rarity_max	rare	item_level_min	1	item_level_max	20

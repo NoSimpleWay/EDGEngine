@@ -117,4 +117,4 @@ description_open_loot_simulator_window	Open loot simulator window
 description_configue_font	Configue font
 description_configue_language	Configue language
 text_open_loot_simulator_pattern_window	Select loot pattern
-description_open_loot_simulator_pattern_window	Load pattern config from disc
+description_open_loot_simulator_pattern_window	Load pattern config from disk

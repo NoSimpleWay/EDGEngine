@@ -239,6 +239,20 @@ void EButtonSlider::click_event()
 
 		 description_text = cached_text_font_size + std::to_string(master_block->font_size);
 
+		 if (StaticData::window_loot_simulator->is_active)
+		 {
+			for (int i = 0; i < 87; i++)
+			for (int j = 0; j < 125; j++)
+			{
+				 StaticData::window_loot_simulator->free_space[j][i] = true;
+			}
+
+			for (LootItem* _l : StaticData::window_loot_simulator->main_loot_item_list)
+			{
+				StaticData::window_loot_simulator->place(_l);
+			}
+		 }
+
 	 }
 
 	 if (button_type == Enums::ButtonType::BUTTON_GLOBAL_DROP_SOUND_VOLUME)

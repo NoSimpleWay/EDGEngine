@@ -78,5 +78,15 @@ EGabarite* DefaultGabarite::gabarite_configue_language = NULL;
 
 EGabarite* DefaultGabarite::gabarite_cut_gray = NULL;
 
+EGabarite* DefaultGabarite::gabarite_bg_bright = NULL;
+EGabarite* DefaultGabarite::gabarite_bg_dark = NULL;
+
+EGabarite* DefaultGabarite::gabarite_button_refresh = NULL;
+
+EGabarite* DefaultGabarite::gabarite_button_bright_bg = NULL;
+EGabarite* DefaultGabarite::gabarite_button_dark_bg = NULL;
+
+EGabarite* DefaultGabarite::gabarite_button_clone = NULL;
+
 
 

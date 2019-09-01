@@ -82,6 +82,16 @@ public:
 
 	static EGabarite* gabarite_cut_gray;
 
+	static EGabarite* gabarite_bg_bright;
+	static EGabarite* gabarite_bg_dark;
+
+	static EGabarite* gabarite_button_refresh;
+
+	static EGabarite* gabarite_button_bright_bg;
+	static EGabarite* gabarite_button_dark_bg;
+
+	static EGabarite* gabarite_button_clone;
+
 
 
 };

@@ -1939,17 +1939,15 @@ int main()
 
 	put_texture_to_atlas("data/cut_gray.png");					DefaultGabarite::gabarite_cut_gray = just_created_gabarite;
 
+	put_texture_to_atlas("data/bg_bright.png");					DefaultGabarite::gabarite_bg_bright = just_created_gabarite;
+	put_texture_to_atlas("data/bg_dark.png");					DefaultGabarite::gabarite_bg_dark = just_created_gabarite;
 
+	put_texture_to_atlas("data/button_refresh.png");			DefaultGabarite::gabarite_button_refresh = just_created_gabarite;
 
+	put_texture_to_atlas("data/button_bright_bg.png");			DefaultGabarite::gabarite_button_bright_bg = just_created_gabarite;
+	put_texture_to_atlas("data/button_dark_bg.png");			DefaultGabarite::gabarite_button_dark_bg = just_created_gabarite;
 
-
-
-
-
-
-
-
-	
+	put_texture_to_atlas("data/button_clone.png");				DefaultGabarite::gabarite_button_clone = just_created_gabarite;
 
 	StaticData::window_filter_block = new EWindowFilterBlock(0, false);
 	StaticData::window_filter_block->name = "Filter block";
@@ -2233,7 +2231,7 @@ int main()
 		//transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
 
 		// get matrix's uniform location and set matrix
-		if ((glfwGetKey(window, GLFW_KEY_HOME) == GLFW_PRESS)||(StaticData::window_loot_simulator->is_active)) { currentShader = anisShader; } else { currentShader = ourShader; } 
+		if ((glfwGetKey(window, GLFW_KEY_HOME) == GLFW_PRESS)) { currentShader = anisShader; } else { currentShader = ourShader; } 
 
 		currentShader->use();
 		transformLoc = glGetUniformLocation(currentShader->ID, "transform");
@@ -2390,7 +2388,7 @@ void fill_collision(int _x, int _y, int _size_x, int _size_y,int _siz, int _dim)
 	for (int xx = (int)(_x / _siz); xx <= (int)((_x + _size_x) / _siz); xx++)
 	for (int yy = (int)(_y / _siz); yy <= (int)((_y + _size_y) / _siz); yy++)
 	{
-		if ((xx < 4096)&&(yy < 4096))
+		if ((xx >= 0)&&(yy >=0)&&(xx < 4096)&&(yy < 4096))
 		collision_matrix[xx][yy][_dim] = true;
 	}
 }
@@ -2434,7 +2432,7 @@ void put_texture_to_atlas(char const* _path)
 			{
 				//cout << "Find place (" << _path << ")" << endl;
 
-				fill_collision(j,i,last_texture_w,last_texture_h,1,0);
+				fill_collision(j - 1,i - 1,last_texture_w + 1,last_texture_h + 1,1,0);
 				//fill_collision(j,i,last_texture_w,last_texture_h,2,1);
 				//fill_collision(j,i,last_texture_w,last_texture_h,4,2);
 				fill_collision(j,i,last_texture_w,last_texture_h,8,1);

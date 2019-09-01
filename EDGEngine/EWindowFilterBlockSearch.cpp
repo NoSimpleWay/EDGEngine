@@ -43,72 +43,81 @@
 		
 		EControl::block_scroll = 0;
 
-		for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
+		if (_b->text != "")
 		{
-			fb->is_deactivated = true;
-
-			bool detection = false;
-
-			for (EButton* b : fb->filter_block_items_button_list)
+			for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
 			{
-				if
-				(
-					(b->data_id >= 0)
-					&&
-					(
-						(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-						||
-						(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name_ru, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-					)
-				)
+				fb->is_deactivated = true;
+
+				bool detection = false;
+
+				for (EButton* b : fb->filter_block_items_button_list)
 				{
-					detection = true;
+					if
+						(
+						(b->data_id >= 0)
+							&&
+							(
+							(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+								||
+								(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name_ru, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+								)
+							)
+					{
+						detection = true;
+					}
+
+					if
+						(
+						(b->data_id < 0)
+							&&
+							(EString::to_lower(b->data_string, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+							)
+					{
+						detection = true;
+					}
 				}
 
-				if
-				(
-					(b->data_id < 0)
-					&&
-					(EString::to_lower(b->data_string, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-				)
+
+
+				for (EButton* b : fb->base_class_list)
 				{
-					detection = true;
+					if
+						(
+						(b->data_id >= 0)
+							&&
+							(
+							(EString::to_lower(EString::base_class_list.at(b->data_id)->base_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+								||
+								(EString::to_lower(EString::base_class_list.at(b->data_id)->ru_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+								)
+							)
+					{
+						detection = true;
+					}
+
+					if
+						(
+						(b->data_id < 0)
+							&&
+							(
+							(EString::to_lower(b->data_string, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+								)
+							)
+					{
+						detection = true;
+					}
 				}
+
+				fb->is_deactivated = !detection;
 			}
-
-
-
-			for (EButton* b : fb->base_class_list)
-			{
-				if
-				(
-					(b->data_id >= 0)
-					&&
-					(
-					(EString::to_lower(EString::base_class_list.at(b->data_id)->base_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-					||
-					(EString::to_lower(EString::base_class_list.at(b->data_id)->ru_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-					)
-				)
-				{
-					detection = true;
-				}
-
-				if
-				(
-					(b->data_id < 0)
-					&&
-					(
-						(EString::to_lower(b->data_string, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-					)
-				)
-				{
-					detection = true;
-				}
-			}
-
-			fb->is_deactivated = !detection;
 		}
+		else
+		{
+			for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
+			{fb->is_deactivated = false;}
+		}
+
 	}
 
 	void EWindowFilterBlockSearch::draw(Batcher* _batch, float _delta)

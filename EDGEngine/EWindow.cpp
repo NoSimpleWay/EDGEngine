@@ -45,6 +45,7 @@ void EWindow::default_update(float _d)
 {
 	if (align_x == Enums::PositionMode::MID) { pos_x = relative_x + (EWindow::SCR_WIDTH - window_size_x) / 2.0f; }
 	if (align_x == Enums::PositionMode::LEFT) { pos_x = relative_x; }
+	if (align_x == Enums::PositionMode::RIGHT) { pos_x = EWindow::SCR_WIDTH - relative_x - window_size_x; }
 
 	if (align_y == Enums::PositionMode::MID) { pos_y = relative_y + (EWindow::SCR_HEIGHT - window_size_y) / 2.0f; }
 	if (align_y == Enums::PositionMode::DOWN) { pos_y = relative_y; }

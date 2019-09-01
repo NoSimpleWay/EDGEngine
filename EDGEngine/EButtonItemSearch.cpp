@@ -149,8 +149,8 @@ void EButtonItemSearch::click_event()
 		StaticData::window_find_item->is_active = false;
 		StaticData::window_filter_block->is_active = true;
 
-		for (int i = 0; i < 100; i++)
-		for (int j = 0; j < 200; j++)
+		for (int i = 0; i < 87; i++)
+		for (int j = 0; j < 125; j++)
 		{
 			StaticData::window_loot_simulator->free_space[j][i] = true;
 		}
