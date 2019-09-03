@@ -180,6 +180,9 @@
     <ClCompile Include="LabEnchantment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EWindowAC.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -333,6 +336,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BaseClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EWindowFilterVisualEditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EWindowAC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

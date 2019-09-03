@@ -354,10 +354,20 @@ void EButtonService::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_LOOT_FILTER)
 	{
-		EString::load_loot_filter_list();
-		StaticData::window_find_item->is_active = true;
-		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
-		StaticData::window_find_item->manual_event();
+		if (StaticData::window_filter_block->unsave_change)
+		{ 
+			StaticData::window_accept_cancel->window_mode = Enums::WindowAcceptCancelMode::AC_unsave_open;
+			StaticData::window_accept_cancel->is_active = true;
+		}
+		else
+		{
+			EString::load_loot_filter_list();
+
+			StaticData::window_find_item->is_active = true;
+			StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
+		
+			StaticData::window_find_item->manual_event();
+		}
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
@@ -365,6 +375,7 @@ void EButtonService::click_event()
 		if (EString::path_list.at(StaticData::active_tab) != "")
 		{
 			EFile::save_filter(EString::path_list.at(StaticData::active_tab));
+			StaticData::filter_block_tab.at(StaticData::active_tab)->unsave_change = false;
 		}
 	}
 	
@@ -825,7 +836,14 @@ void EButtonService::update_localisation()
 		if (button_type == Enums::ButtonType::BUTTON_CONFIGUE_LANGUAGE)
 	{description_text = EString::localize_it("description_configue_language");}
 
+		if (button_type == Enums::ButtonType::BUTTON_CHANGE_BG_BRIGHT)
+	{description_text = EString::localize_it("description_bright_bg");}
 
+		if (button_type == Enums::ButtonType::BUTTON_CHANGE_BG_DARK)
+	{description_text = EString::localize_it("description_dark_bg");}
+
+		if (button_type == Enums::ButtonType::BUTTON_REFRESH_LOOT_SIMULATOR)
+	{description_text = EString::localize_it("description_refresh_loot_simulator");}
 
 
 

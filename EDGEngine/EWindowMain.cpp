@@ -1,6 +1,8 @@
 #include "EWindow.h"
 #include "EControl.h"
 #include "Enums.h"
+#include "EButtonService.h"
+#include "EButtonSlider.h"
 
 class EWindowMain : public EWindow
 {

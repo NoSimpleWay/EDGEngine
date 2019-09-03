@@ -118,3 +118,9 @@ description_configue_font	Configue font
 description_configue_language	Configue language
 text_open_loot_simulator_pattern_window	Select loot pattern
 description_open_loot_simulator_pattern_window	Load pattern config from disk
+description_bright_bg	Set bright background
+description_dark_bg	Set dark background
+description_refresh_loot_simulator	Regenerate loot
+text_accept	Accept
+text_cancel	Cancel
+window_text_unsaved_changes	WARNING! Unsaved changes! if you continue, all unsaved data lost.

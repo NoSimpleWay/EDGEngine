@@ -6,13 +6,15 @@
 #include "EWindowFindItem.cpp"
 #include "EWindowAddNewBaseData.cpp"
 #include "EWindowSocketGroup.cpp"
-#include "EWindowFilterVisualEditor.cpp"
+#include "EWindowFilterVisualEditor.h"
 #include "EWindowMain.cpp"
 #include "EWindowLoadingScreen.cpp"
 #include "EWindowCreateNewLootFilter.h"
 #include "EWindowSelectLocalisation.cpp"
 #include "EWindowLootSimulator.h"
 #include "EWindowSelectFont.h"
+#include "EWindowAC.h"
+//#include "EWindowAcceptCancel.h"
 
 
 
@@ -33,11 +35,15 @@ public:
 	static EWindowSelectLocalisation* window_select_localisation;
 	static EWindowLootSimulator* window_loot_simulator;
 	static EWindowSelectFont* window_select_font;
+	static EWindowAC* window_accept_cancel;
+	//static EWindowAcceptCancel* window_accept_cancel;
 
 	static EWindowFilterBlock* default_filter_block;
 
 	static std::vector<EWindowFilterBlock*> filter_block_tab;
 	static int active_tab;
+
+	static bool need_exit;
 
 
 };

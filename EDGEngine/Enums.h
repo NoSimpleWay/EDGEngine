@@ -182,7 +182,9 @@ public:
 
 		BUTTON_REFRESH_LOOT_SIMULATOR,
 		BUTTON_CHANGE_BG_BRIGHT,
-		BUTTON_CHANGE_BG_DARK
+		BUTTON_CHANGE_BG_DARK,
+		BUTTON_ACCEPT,
+		BUTTON_CANCEL
 	};
 
 	enum BaseDataOrder
@@ -253,6 +255,12 @@ public:
 		ENCHANTMENT_SEARCH_LIST,
 		OPEN_LOOT_FILTER_SEARCH_LIST,
 		LOOT_SIMULATOR_PATTERN
+	};
+
+	enum WindowAcceptCancelMode
+	{
+		AC_unsave_open,
+		AC_exit_program
 	};
 
 	enum CostList

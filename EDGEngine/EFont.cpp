@@ -340,7 +340,7 @@ void EFont::load_font_littera(string _path)
 			cout << "id:" << i << "   sym:" << (char)i << endl;
 		}*/
 
-		cout << "symbol a=" << (int)'a' << endl;
+		//cout << "symbol a=" << (int)'a' << endl;
 
 		while ((getline(myfilez, line)))
 		{

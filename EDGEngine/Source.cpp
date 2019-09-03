@@ -190,11 +190,14 @@ EWindowCreateNewLootFilter* StaticData::window_new_loot_filter=NULL;
 EWindowSelectLocalisation* StaticData::window_select_localisation =NULL;
 EWindowLootSimulator* StaticData::window_loot_simulator =NULL;
 EWindowSelectFont* StaticData::window_select_font =NULL;
+EWindowAC* StaticData::window_accept_cancel;
+//EWindowAcceptCancel* StaticData::window_accept_cancel =NULL;
 
 EWindowFilterBlock* StaticData::default_filter_block =NULL;
 
 std::vector<EWindowFilterBlock*> StaticData::filter_block_tab;
 int StaticData::active_tab = 0;
+bool StaticData::need_exit = false;
 
 
 //0		-	1
@@ -2039,6 +2042,11 @@ int main()
 	EControl::window_list.push_back(StaticData::window_select_font);
 	StaticData::window_select_font->is_active = false;
 
+	StaticData::window_accept_cancel = new EWindowAC(12, true);
+	StaticData::window_accept_cancel->name = "Accept/cancel";
+	EControl::window_list.push_back(StaticData::window_accept_cancel);
+	StaticData::window_accept_cancel->is_active = false;
+
 
 
 	/*
@@ -2073,7 +2081,7 @@ int main()
 		w->update_localisation();
 	}
 
-	while (!glfwWindowShouldClose(window))
+	while (!StaticData::need_exit)
 	{
 		///////////////////////////////////////////////////////////////////////////////
 
@@ -2246,6 +2254,29 @@ int main()
 
 		int block_index = 0;
 
+		if (glfwWindowShouldClose(window))
+		{
+
+			bool have_unsaved = false;
+
+			for (EWindowFilterBlock* wfb : StaticData::filter_block_tab)
+			{
+				if (wfb->unsave_change) { have_unsaved = true; }
+			}
+
+			if (have_unsaved)
+			{
+				glfwSetWindowShouldClose(window, 0);
+
+				StaticData::window_accept_cancel->is_active = true;
+				StaticData::window_accept_cancel->window_mode = Enums::WindowAcceptCancelMode::AC_exit_program;
+			}
+			else
+			{StaticData::need_exit = true; }
+			//StaticData::window_accept_cancel->manual_event();
+
+			cout << "try close" << endl;
+		}
 
 		for (EWindow* w : EControl::window_list)
 		{

@@ -81,6 +81,8 @@ void EWindowLootSimulator::update(float _d)
 							//***************************ITEM NAME SECTION**************************************
 							//**********************************************************************************
 			loot->name = p->item_name;
+			loot->data_name = p->item_base_name;
+
 			loot->base_class = p->base_class;
 
 			if (p->max_quality > 0)
@@ -567,7 +569,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		{
 			if
 			(
-				(EString::to_lower(_l->name, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+				(EString::to_lower(_l->data_name, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
 			)
 			{
 				match_detect = true;
@@ -1001,6 +1003,8 @@ void EWindowLootSimulator::manual_event()
 			random_item_pool.clear();
 
 			pattern->item_name = pattern_item_list.at(i)->item_name;
+			pattern->item_base_name = pattern_item_list.at(i)->item_name;
+
 			pattern->base_class = pattern_item_list.at(i)->base_class;
 
 			for (int l = 0; l < ItemList::item_list.size(); l++)
@@ -1008,6 +1012,12 @@ void EWindowLootSimulator::manual_event()
 				if (EString::to_lower(ItemList::item_list.at(l)->item_name) == EString::to_lower(pattern->item_name))
 				{
 					pattern->base_class = ItemList::item_list.at(l)->base_class;
+
+					if (EString::active_localisation == Enums::LocalisationList::RU)
+					{pattern->item_name = ItemList::item_list.at(l)->item_name_ru;}
+
+					if (EString::active_localisation == Enums::LocalisationList::EN)
+					{pattern->item_name = ItemList::item_list.at(l)->item_name;}
 
 					pattern->height = ItemList::item_list.at(l)->height;
 					pattern->width = ItemList::item_list.at(l)->width;
@@ -1031,13 +1041,18 @@ void EWindowLootSimulator::manual_event()
 			{
 				int random_selected_item = rand() % random_item_pool.size();
 
-				pattern->item_name = random_item_pool.at(random_selected_item)->item_name;
+				if (EString::active_localisation == Enums::LocalisationList::RU)
+				{pattern->item_name = random_item_pool.at(random_selected_item)->item_name_ru;}
+
+				if (EString::active_localisation == Enums::LocalisationList::EN)
+				{pattern->item_name = random_item_pool.at(random_selected_item)->item_name;}
+
+				pattern->item_base_name = random_item_pool.at(random_selected_item)->item_name;
+
 				pattern->base_class = random_item_pool.at(random_selected_item)->base_class;
 
 				pattern->height = random_item_pool.at(random_selected_item)->height;
 				pattern->width = random_item_pool.at(random_selected_item)->width;
-
-				
 			}
 
 			pattern->min_quality = pattern_item_list.at(i)->min_quality;
@@ -1077,4 +1092,10 @@ void EWindowLootSimulator::manual_event()
 
 	drop_count = prepared_pattern_list.size();
 	loot_vector_id = 0;
+}
+
+void EWindowLootSimulator::close_action()
+{
+	StaticData::window_loot_simulator->align_x = Enums::PositionMode::MID;
+	StaticData::window_filter_visual_editor->align_x = Enums::PositionMode::MID;
 }

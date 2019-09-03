@@ -1,5 +1,6 @@
 #pragma once
 #include "EButtonService.h"
+#include "EWindowFilterVisualEditor.h"
 
 #include "EWindow.h"
 #include "EControl.h"
@@ -9,48 +10,15 @@
 #include "EButtonText.h"
 #include "EUtils.h"
 #include "EButtonCheck.h"
+#include "StaticData.h"
 
 
-class EWindowFilterVisualEditor: public EWindow
-{
-public:
 
-	std::string cached_text_border_color;
-	std::string cached_text_color;
-	std::string cached_text_bg_color;
-	std::string cached_text_size;
-	//std::vector<FilterBlock*> filter_block_list;
-	FilterBlock* master_block;
 
-	float default_position_x=15.0;
-	float default_position_y=315.0;
-	
-	float distance_between_x=200.0;
-	float distance_between_y=20.0f;
-
-	float button_size_x = 150.0f;
-
-	float icon_button_base_x = 625.0f;
-	float icon_button_base_y = 5.0f;
-
-	std::vector<EButton*> link_to_sliders;
-
-	std::vector<EButton*> link_to_icon_shape;
-	std::vector<EButton*> link_to_icon_color;
-	std::vector<EButton*> link_to_icon_size;
-
-	std::vector<EButton*> link_to_ray_color;
-	std::vector<EButton*> link_to_ray_type;
-
-	EButton* link_to_icon_checker;
-	EButton* link_to_ray_checker;
-
-	EButton* link_to_ray_constant;
-	EButton* link_to_ray_tempotary;
 	
 
 
-	void set_button_data(EButton* _b)
+	void EWindowFilterVisualEditor::set_button_data(EButton* _b)
 	{
 		_b->master_window = this;
 		_b->master_block = master_block;
@@ -65,7 +33,7 @@ public:
 		align_y = Enums::PositionMode::MID;
 	}
 
-	EWindowFilterVisualEditor(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
+	EWindowFilterVisualEditor::EWindowFilterVisualEditor(int _id, bool _can_be_closed):EWindow(_id, _can_be_closed)
 	{
 		pos_x = 0;
 		pos_y = 0;
@@ -231,7 +199,7 @@ public:
 		link_to_ray_constant = but;
 	}
 
-	void update_ray_button()
+	void EWindowFilterVisualEditor::update_ray_button()
 	{
 			for (int i = 0; i < 7; i++)
 			{
@@ -290,7 +258,7 @@ public:
 		}*/
 	}
 
-	void update_minimap_button()
+	void EWindowFilterVisualEditor::update_minimap_button()
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -340,7 +308,7 @@ public:
 		}
 	}
 
-	void deactivate_minimap_button()
+	void EWindowFilterVisualEditor::deactivate_minimap_button()
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -375,7 +343,7 @@ public:
 		}
 	}
 
-	virtual void draw(Batcher* _batch, float _delta)
+	void EWindowFilterVisualEditor::draw(Batcher* _batch, float _delta)
 	{
 		EFont::active_font->scale = master_block->font_size / 32.0f;
 
@@ -451,12 +419,12 @@ public:
 		_batch->draw_rama(pos_x + icon_button_base_x + 55.0f * 5.0f, pos_y + icon_button_base_y + 60.0 * 3.0f, 35.0f * siz, 35.0f * siz, 2.0f, DefaultGabarite::gabarite_white);
 	}
 
-	virtual void text_pass(Batcher* _batch)
+	void EWindowFilterVisualEditor::text_pass(Batcher* _batch)
 	{
 		
 	}
 
-	virtual void button_event(EButton* _b)
+	void EWindowFilterVisualEditor::button_event(EButton* _b)
 	{
 		
 		master_block = _b->master_block;
@@ -501,7 +469,7 @@ public:
 		update_ray_button();
 	}
 
-	virtual void update_localisation()
+	void EWindowFilterVisualEditor::update_localisation()
 	{
 		//std::cout << "try update localisation in window. blocks count: " << filter_block_list.size() << std::endl;
 
@@ -519,9 +487,8 @@ public:
 
 	}
 
-	virtual void close_action()
+	void EWindowFilterVisualEditor::close_action()
 	{
-		//StaticData::loot_s
+		StaticData::window_loot_simulator->align_x = Enums::PositionMode::MID;
+		StaticData::window_filter_visual_editor ->align_x = Enums::PositionMode::MID;
 	}
-
-};

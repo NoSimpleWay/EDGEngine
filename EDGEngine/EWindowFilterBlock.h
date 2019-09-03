@@ -22,4 +22,6 @@ public:
 	virtual void update_localisation();
 
 	FilterBlock* moved_filter_block;
+
+	bool unsave_change = false;
 };

@@ -758,6 +758,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	void EFile::parse_loot_filter_data(std::string _path)
 	{
 
+		StaticData::window_filter_block->unsave_change = false;
+
 		for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
 		{
 			delete fb;
@@ -1733,7 +1735,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	void EFile::save_filter(std::string _path)
 	{
-
+		StaticData::window_filter_block->unsave_change = false;
 		//std::experimental::filesystem::copy(_path, _path); // copy file
 
 		ofstream myfile;
@@ -2254,7 +2256,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		myfile << loot_writer;
 		myfile.close();
 
-		
+		/*
 		myfile.open("D:\\c++\\EDGEngine\\x64\\Debug\\EDGEngine.exe");
 		if (myfile.is_open())
 		{
@@ -2262,6 +2264,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		}
 			myfile << "OLOLO";
 		myfile.close();
+		*/
 
 
 	}

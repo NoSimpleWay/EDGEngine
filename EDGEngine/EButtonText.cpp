@@ -201,6 +201,33 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		have_text = true;
 		have_input_mode = false;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ACCEPT)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		position_mode_x = Enums::PositionMode::MID;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		have_text = true;
+		have_input_mode = false;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CANCEL)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		position_mode_x = Enums::PositionMode::MID;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		have_text = true;
+		have_input_mode = false;
+	}
+	
 }
 
 void EButtonText::click_event()
@@ -356,9 +383,12 @@ void EButtonText::click_event()
 		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::LOOT_SIMULATOR_PATTERN;
 		StaticData::window_find_item->is_active = true;
 		StaticData::window_find_item->button_event(this);
+	}
 
 
-
+	if ((button_type == Enums::ButtonType::BUTTON_ACCEPT)||(button_type == Enums::ButtonType::BUTTON_CANCEL))
+	{
+		master_window->button_event(this);
 	}
 }
 
@@ -492,6 +522,18 @@ void EButtonText::update_localisation()
 		description_text = EString::localize_it("description_open_loot_simulator_pattern_window");
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_ACCEPT)
+	{
+		text = EString::localize_it("text_accept");
+		description_text = "";
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CANCEL)
+	{
+		text = EString::localize_it("text_cancel");
+		description_text = "";
+	}
+
 
 }
 
@@ -503,5 +545,10 @@ void EButtonText::update_additional(float _d)
 		{rama_color->set(EColorCollection::YELLOW);}
 		else
 		{rama_color->set(EColorCollection::GRAY);}
+
+		if (StaticData::filter_block_tab.at(data_id)->unsave_change)
+		{text_color->set(EColorCollection::RED);}
+		else
+		{text_color->set(EColorCollection::BLACK);}
 	}
 }

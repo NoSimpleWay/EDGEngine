@@ -118,3 +118,9 @@ description_configue_font	Настроить шрифт
 description_configue_language	Настроить язык
 text_open_loot_simulator_pattern_window	Выбрать шаблон
 description_open_loot_simulator_pattern_window	Выбрать шаблон лута из списка
+description_bright_bg	Установить яркий фон
+description_dark_bg	Установить тёмный фон
+description_refresh_loot_simulator	Пересоздать лут
+text_accept	Принять
+text_cancel	Отменить
+window_text_unsaved_changes	ВНИМАНИЕ! Несохранённые данные! Если вы продолжите, вы потеряете их!

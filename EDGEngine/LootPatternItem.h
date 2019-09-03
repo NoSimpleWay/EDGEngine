@@ -6,6 +6,7 @@ class LootPatternItem
 {
 public:
 	std::string item_name;
+	std::string item_base_name;
 	//std::string item_class;
 	std::string prophecy_name;
 

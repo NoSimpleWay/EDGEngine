@@ -165,6 +165,7 @@
     <ClCompile Include="EColor.cpp" />
     <ClCompile Include="EGabarite.cpp" />
     <ClCompile Include="EInit.cpp" />
+    <ClCompile Include="EWindowAC.cpp" />
     <ClCompile Include="LabEnchantment.cpp" />
     <ClCompile Include="LabEnchantment.h" />
     <ClCompile Include="ETexture.cpp" />
@@ -225,11 +226,13 @@
     <ClInclude Include="Enums.h" />
     <ClInclude Include="ETexture.h" />
     <ClInclude Include="EUtils.h" />
+    <ClInclude Include="EWindowAC.h" />
     <ClInclude Include="EWindowAddNewBaseData.cpp" />
     <ClInclude Include="EWindow.h" />
     <ClInclude Include="EWindowCreateNewLootFilter.h" />
     <ClInclude Include="EWindowFilterBlock.h" />
     <ClInclude Include="EWindowFilterBlockSearch.h" />
+    <ClInclude Include="EWindowFilterVisualEditor.h" />
     <ClInclude Include="EWindowLootSimulator.h" />
     <ClInclude Include="EWindowMain.cpp" />
     <ClInclude Include="EWindowSelectFont.h" />

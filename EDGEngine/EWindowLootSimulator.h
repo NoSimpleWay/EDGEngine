@@ -46,4 +46,6 @@ public:
 
 	bool is_bright_bg = true;
 
+	virtual void close_action();
+
 };

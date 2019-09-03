@@ -33,6 +33,10 @@
 
 	}
 
+	EWindowFilterBlock::~EWindowFilterBlock()
+	{
+	}
+
 	int EWindowFilterBlock::get_id_of_filter_block(FilterBlock* _fb)
 	{
 		for (int i = 0; i < filter_block_list.size(); i++)

@@ -12,6 +12,7 @@
 #include "FilterBlock.h"
 
 #include "EUtils.h"
+#include "StaticData.h"
 
 
 
@@ -186,12 +187,15 @@
 			{
 				std::cout << "TRY REMOVE" << std::endl;
 				need_remove = true;
+
+				if (master_block != NULL) {StaticData::window_filter_block->unsave_change = true;}
 			}
 		}
 
 		if (is_click())
 		{
 			
+			if (master_block != NULL) {StaticData::window_filter_block->unsave_change = true;}
 
 			if (!is_holdable) { EControl::button_pressed = true; }
 			std::cout << "Button pressed" << std::endl;
@@ -239,6 +243,7 @@
 			slider_value = EMath::clamp_value_float(slider_value, 0.0f, 1.0f);
 
 			slide_drag_event();
+			if (master_block != NULL) { StaticData::window_filter_block->unsave_change = true; }
 		}
 
 		if ((is_slider) && (slider_activate) && (!slider_is_horizontal))
@@ -247,6 +252,7 @@
 			slider_value = EMath::clamp_value_float(slider_value, 0.0f, 1.0f);
 
 			slide_drag_event();
+			if (master_block != NULL) { StaticData::window_filter_block->unsave_change = true; }
 		}
 
 		if (is_input_mode_active)
@@ -272,6 +278,7 @@
 				text += EControl::last_inputed_char;
 				EControl::last_inputed_char = NULL;
 
+				if (master_block != NULL) { StaticData::window_filter_block->unsave_change = true; }
 				input_event();
 			}
 
@@ -306,6 +313,7 @@
 				{
 					text = "";
 					input_event();
+					if (master_block != NULL) { StaticData::window_filter_block->unsave_change = true; }
 				}
 			}
 
@@ -537,7 +545,7 @@
 			bound_size_down = 0;
 		}
 
-		if ((have_description) && (is_overlap()))
+		if ((have_description) && (is_overlap())&&(description_text != ""))
 		{
 
 			EFont* target_font = EFont::active_font;
