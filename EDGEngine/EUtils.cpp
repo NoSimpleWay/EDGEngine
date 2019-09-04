@@ -758,7 +758,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	void EFile::parse_loot_filter_data(std::string _path)
 	{
 
-		StaticData::window_filter_block->unsave_change = false;
+		//StaticData::window_filter_block->unsave_change = false;
 
 		for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
 		{
@@ -766,6 +766,14 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		}
 
 		StaticData::window_filter_block->filter_block_list.clear();
+
+		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
+		{
+			sep->link_to_caption_text->need_remove = true;
+			sep->link_to_collapse->need_remove = true;
+			sep->link_to_remove->need_remove = true;
+		}
+		StaticData::window_filter_block->separator_list.clear();
 
 		ifstream myfile;
 		myfile.open(_path);
@@ -783,6 +791,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		cout << endl << endl << endl;
 
 		FilterBlock* just_created_block = new FilterBlock();
+		FilterBlockSeparator* just_created_separator = NULL;
 
 		int error_counts = 0;
 		bool show_info_to_console = false;
@@ -819,8 +828,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				if (line.at(i) == '#')
 				{
 					comment_mode = true;
-					if (show_info_to_console) cout << "comment mode activate, now i dont parse data by normal way" << endl;
+					cout << "comment mode activate, now i dont parse data by normal way" << endl;
 					parser_mode = Enums::ParserMode::NOTHING;
+
+					subdata = "";
 				}
 
 				if (((line.at(i) != ' ') || (space_is_not_separator)) && (line.at(i) != '\t') && (line.at(i) != '"'))
@@ -830,10 +841,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				if
 					(
-					(
 						((line.at(i) == ' ') && (!space_is_not_separator)) || (line.at(i) == '\t') || (i + 1 >= line.length())
-						)
-						)
+					)
 				{
 
 					if (subdata.length() > 0)
@@ -949,9 +958,45 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								}
 
 							}
+							else
+							{
+								//cout << "comment data: " << subdata << endl;
+								if (subdata == "#separator")
+								{
+									parser_mode = Enums::ParserMode::C_SEPARATOR;
+
+									just_created_separator = new FilterBlockSeparator();
+									StaticData::window_filter_block->separator_list.push_back(just_created_separator);
+
+
+								}
+							}
 						}
 						else
 						{
+
+							if (parser_mode == Enums::ParserMode::C_SEPARATOR)
+							{
+								cout << "order: " << to_string(data_order) << " subdata: " << subdata << endl;
+								if (data_order == 0) {  }
+								if (data_order == 1) { just_created_separator->separator_start = std::stoi(subdata); }
+								if (data_order == 2) { just_created_separator->separator_end = std::stoi(subdata); }
+								if (data_order == 3)
+								{
+									if (subdata == "true")
+									{just_created_separator->is_collapsed = true;}
+									else
+									{just_created_separator->is_collapsed = false;}
+
+								}
+								if (data_order == 4)
+								{
+									just_created_separator->link_to_caption_text->text = subdata;
+									just_created_separator->name = subdata;
+								}
+
+							}
+
 							if (parser_mode == Enums::ParserMode::IS_CORRUPTED)
 							{
 								if (data_order == 0)
@@ -1712,6 +1757,15 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			f->data_change();
 		}
 
+		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
+		{
+			
+				for (int i = sep->separator_start; i <= sep->separator_end; i++)
+				{
+					StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator = sep->is_collapsed;
+				}
+		}
+
 		if (error_counts <= 0) { cout << green << "Error count:0" << endl;; }
 		else
 		{
@@ -1721,7 +1775,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 		//std::cout << "try update localisation" << std::endl;
 		StaticData::window_filter_block->update_localisation();
-
+		StaticData::window_filter_block->unsave_change = false;
 		/*
 		StaticData::window_loot_simulator->manual_event();
 		StaticData::window_loot_simulator->is_active = true;
@@ -1731,6 +1785,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		{
 			StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;
 		}
+
+		StaticData::window_filter_block->recalculate_filter_block_separator();
 	}
 
 	void EFile::save_filter(std::string _path)
@@ -1747,7 +1803,27 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		loot_writer += '\n';
 		loot_writer += '\n';
 
-	
+		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
+		{
+			loot_writer += "#separator ";
+			loot_writer +=std::to_string(sep->separator_start);
+			loot_writer += " ";
+			loot_writer += std::to_string(sep->separator_end);
+			
+
+			if (sep->is_collapsed)
+			{loot_writer +=" true";}
+			else
+			{loot_writer +=" false";}
+
+			loot_writer += " ";
+			loot_writer += '"';
+			loot_writer += sep->link_to_caption_text->text;
+			loot_writer += '"';
+
+			loot_writer += '\n';
+		}
+
 		for (FilterBlock* fb:StaticData::window_filter_block->filter_block_list)
 		{
 			loot_writer += '\n';

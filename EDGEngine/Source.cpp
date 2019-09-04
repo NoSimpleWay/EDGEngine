@@ -1951,6 +1951,8 @@ int main()
 	put_texture_to_atlas("data/button_dark_bg.png");			DefaultGabarite::gabarite_button_dark_bg = just_created_gabarite;
 
 	put_texture_to_atlas("data/button_clone.png");				DefaultGabarite::gabarite_button_clone = just_created_gabarite;
+	put_texture_to_atlas("data/gray_separator.png");			DefaultGabarite::gabarite_button_separator = just_created_gabarite;
+	put_texture_to_atlas("data/gray_collapse.png");				DefaultGabarite::gabarite_button_collapse = just_created_gabarite;
 
 	StaticData::window_filter_block = new EWindowFilterBlock(0, false);
 	StaticData::window_filter_block->name = "Filter block";
@@ -2388,6 +2390,7 @@ int main()
 			
 		}
 
+		EControl::last_inputed_char = NULL;
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
@@ -2402,6 +2405,8 @@ int main()
 
 			StaticData::window_filter_block->need_remove_last_element = false;
 		}
+
+		
 	}
 
 	// optional: de-allocate all resources once they've outlived their purpose:

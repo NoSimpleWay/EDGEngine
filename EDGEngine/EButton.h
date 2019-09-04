@@ -15,6 +15,8 @@
 
 class FilterBlock;
 class EWindow;
+class FilterBlockSeparator;
+
 class EButton
 {
 public:
@@ -152,7 +154,7 @@ public:
 	void activate();
 	void deactivate();
 
-	bool dynamic_input_width = false;
+	bool dynamic_input_width = true;
 
 	std::string data_string;
 
@@ -163,4 +165,6 @@ public:
 	bool input_auto_clear_text = false;
 
 	EFont* force_font;
+
+	FilterBlockSeparator* master_separator;
 };

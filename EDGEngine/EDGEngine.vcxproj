@@ -166,6 +166,7 @@
     <ClCompile Include="EGabarite.cpp" />
     <ClCompile Include="EInit.cpp" />
     <ClCompile Include="EWindowAC.cpp" />
+    <ClCompile Include="FilterBlockSeparator.cpp" />
     <ClCompile Include="LabEnchantment.cpp" />
     <ClCompile Include="LabEnchantment.h" />
     <ClCompile Include="ETexture.cpp" />
@@ -239,6 +240,7 @@
     <ClInclude Include="EWindowSocketGroup.cpp" />
     <ClInclude Include="ExplicitGroup.h" />
     <ClInclude Include="FilterBlock.h" />
+    <ClInclude Include="FilterBlockSeparator.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="Helper.h" />
     <ClInclude Include="ItemList.h" />

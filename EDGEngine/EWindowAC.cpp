@@ -48,6 +48,39 @@ void EWindowAC::button_event(EButton* _b)
 
 		is_active = false;
 	}
+
+	if (window_mode == Enums::WindowAcceptCancelMode::AC_new_loot_filter)
+	{
+		if (_b->button_type == Enums::ButtonType::BUTTON_ACCEPT)
+		{
+			StaticData::window_new_loot_filter->is_active = true;
+			StaticData::window_new_loot_filter->link_to_input_button->is_input_mode_active = true;
+		}
+
+		is_active = false;
+	}
+
+	if (window_mode == Enums::WindowAcceptCancelMode::AC_remove_separator)
+	{
+		if (_b->button_type == Enums::ButtonType::BUTTON_ACCEPT)
+		{
+			int sep_id = -1;
+			for (int i=0; i < StaticData::window_filter_block->separator_list.size(); i++)
+			{
+				if (StaticData::window_filter_block->separator_list.at(i) == master_separator) { sep_id = i;}
+			}
+
+			if (sep_id >= 0)
+			{StaticData::window_filter_block->separator_list.erase(StaticData::window_filter_block->separator_list.begin() + sep_id); 	}
+
+			master_separator->link_to_collapse->need_remove = true;
+			master_separator->link_to_remove->need_remove = true;
+			master_separator->link_to_caption_text->need_remove = true;
+		}
+
+		is_active = false;
+	}
+	
 }
 
 void EWindowAC::update_localisation()
@@ -60,11 +93,9 @@ void EWindowAC::update_localisation()
 
 void EWindowAC::text_pass(Batcher* _batch)
 {
-	if (window_mode == Enums::WindowAcceptCancelMode::AC_unsave_open)
-	{_batch->setcolor(EColorCollection::RED);}
+	_batch->setcolor(EColorCollection::RED);
 
-	if (window_mode == Enums::WindowAcceptCancelMode::AC_exit_program)
-	{_batch->setcolor(EColorCollection::RED);}
+
 
 	EFont::active_font->draw(_batch, window_text, pos_x + window_size_x / 2.0f, pos_y + window_size_y - 20.0f);
 	

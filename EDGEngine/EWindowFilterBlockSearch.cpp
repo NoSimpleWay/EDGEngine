@@ -29,6 +29,8 @@
 		is_active = true;
 
 		bg_color->set(0.8f, 0.9f, 1.0f, 0.8f);
+
+
 	}
 
 	void EWindowFilterBlockSearch::update(float _d)

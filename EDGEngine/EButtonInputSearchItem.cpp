@@ -12,6 +12,7 @@ EButtonInputSearchItem::EButtonInputSearchItem(float _x, float _y, float _sx, fl
 	have_text = true;
 	have_description = true;
 	have_input_mode = true;
+	dynamic_input_width = false;
 	//is_input_mode_active = true;
 
 	master_position = Enums::PositionMaster::WINDOW;

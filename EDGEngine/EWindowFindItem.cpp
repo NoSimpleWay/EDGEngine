@@ -128,6 +128,7 @@ public:
 			if (input_button->text != "")
 			{
 				button_list.at(0)->description_text = input_button->text;
+				button_list.at(0)->data_string = input_button->text;
 				button_list.at(0)->is_active = true;
 			}
 			else

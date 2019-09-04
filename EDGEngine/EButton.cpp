@@ -15,7 +15,6 @@
 #include "StaticData.h"
 
 
-
 	int EButton::top_window_id=-1;
 
 	EButton::EButton()
@@ -156,9 +155,9 @@
 			if (position_mode_y == Enums::PositionMode::UP) { master_position_y = master_block->y + button_y+master_block->size_y-button_size_y; }
 			if (position_mode_y == Enums::PositionMode::DOWN) { master_position_y = master_block->y + button_y; }
 			if (position_mode_y == Enums::PositionMode::MID) { master_position_y = master_block->y + (master_block->size_y - button_size_y) / 2.0f + button_y; }
-
-
 		}
+
+
 
 		if (master_position == Enums::PositionMaster::WINDOW)
 		{
@@ -177,7 +176,17 @@
 			if (position_mode_y == Enums::PositionMode::DOWN) { master_position_y = button_y; }
 		}
 
+		if (master_position == Enums::PositionMaster::SEPARATOR)
+		{
+			if (position_mode_x == Enums::PositionMode::LEFT) { master_position_x = master_separator->x + button_x; }
+			if (position_mode_x == Enums::PositionMode::RIGHT) { master_position_x = master_separator->x + button_x - button_size_x + master_separator->size_x; }
+			if (position_mode_x == Enums::PositionMode::MID) { master_position_x = master_separator->x + (master_separator->size_x - button_size_x) / 2.0f; }
 
+
+			if (position_mode_y == Enums::PositionMode::UP) { master_position_y = master_separator->y + button_y + master_separator->size_y - button_size_y; }
+			if (position_mode_y == Enums::PositionMode::DOWN) { master_position_y = master_separator->y + button_y; }
+			if (position_mode_y == Enums::PositionMode::MID) { master_position_y = master_separator->y + (master_separator->size_y - button_size_y) / 2.0f + button_y; }
+		}
 
 		if (is_right_click())
 		{
@@ -269,7 +278,7 @@
 				)
 				&&
 				(
-					(text.length() * 10.0f + 10.0f < button_size_x)
+					(EFont::active_font->get_width(EFont::active_font, text + EControl::last_inputed_char) < button_size_x)
 					||
 					(dynamic_input_width)
 				)
@@ -315,16 +324,21 @@
 					input_event();
 					if (master_block != NULL) { StaticData::window_filter_block->unsave_change = true; }
 				}
+
+				
 			}
 
-			if (dynamic_input_width)
-			{
-				button_size_x = EFont::get_width(EFont::active_font, text)+7.0f;
-			}
+
 
 			if (glfwGetKey(EWindow::main_window, GLFW_KEY_ENTER) == GLFW_PRESS)
 			{
 				is_input_mode_active = false;
+
+				if ((input_only_numbers) && (text == ""))
+				{
+					text = "0";
+				}
+
 				input_finish_event();
 			}
 			
@@ -421,7 +435,10 @@
 
 			//if (EFont::get_width(EFont::active_font, text) + 5.0f > button_size_x)
 			//{
+			if (dynamic_input_width)
+			{
 				button_size_x = EFont::get_width(EFont::active_font, text) + 10.0f;
+			}
 			//}
 
 				if (button_size_x < button_min_size_x)

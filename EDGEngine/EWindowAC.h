@@ -17,4 +17,6 @@ public:
 	std::string window_text;
 	virtual void text_pass(Batcher* _batch);
 	virtual void manual_event();
+
+	FilterBlockSeparator* master_separator = NULL;
 };

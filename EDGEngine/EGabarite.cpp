@@ -87,6 +87,8 @@ EGabarite* DefaultGabarite::gabarite_button_bright_bg = NULL;
 EGabarite* DefaultGabarite::gabarite_button_dark_bg = NULL;
 
 EGabarite* DefaultGabarite::gabarite_button_clone = NULL;
+EGabarite* DefaultGabarite::gabarite_button_separator = NULL;
+EGabarite* DefaultGabarite::gabarite_button_collapse = NULL;
 
 
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "EWindow.h"
 #include "Enums.h"
+#include "FilterBlockSeparator.h"
 
 class EWindowFilterBlock : public EWindow
 {
@@ -24,4 +25,12 @@ public:
 	FilterBlock* moved_filter_block;
 
 	bool unsave_change = false;
+
+	std::vector <FilterBlockSeparator*> separator_list;
+
+	FilterBlockSeparator* drag_start_separator;
+	FilterBlockSeparator* drag_end_separator;
+
+	void recalculate_filter_block_separator();
+
 };

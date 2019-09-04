@@ -277,10 +277,61 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ADD_SEPARATOR_TO_FILTER_BLOCK)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		gabarite = DefaultGabarite::gabarite_button_separator;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SEPARATOR_COLLAPSE)
+	{
+		master_position = Enums::PositionMaster::SEPARATOR;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		gabarite = DefaultGabarite::gabarite_button_collapse;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		StaticData::window_filter_block->unsave_change = true;
+
+
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_SEPARATOR)
+	{
+		master_position = Enums::PositionMaster::SEPARATOR;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		gabarite = DefaultGabarite::gabarite_remove_block;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		StaticData::window_filter_block->unsave_change = true;
+
+	}
 }
 
 void EButtonService::click_event()
 {
+
+	//description_text = std::to_string(button_type);
+
 	if (button_type == Enums::ButtonType::BUTTON_FILTER_BLOCK_TO_CONSOLE)
 	{
 		std::cout << "=================================================" << std::endl;
@@ -368,6 +419,8 @@ void EButtonService::click_event()
 		
 			StaticData::window_find_item->manual_event();
 		}
+
+		StaticData::window_filter_block->unsave_change = false;
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
@@ -381,8 +434,16 @@ void EButtonService::click_event()
 	
 	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_WINDOW)
 	{
-		StaticData::window_new_loot_filter->is_active = true;
-		StaticData::window_new_loot_filter->link_to_input_button->is_input_mode_active = true;
+		if (StaticData::window_filter_block->unsave_change)
+		{
+			StaticData::window_accept_cancel->window_mode = Enums::WindowAcceptCancelMode::AC_new_loot_filter;
+			StaticData::window_accept_cancel->is_active = true;
+		}
+		else
+		{
+			StaticData::window_new_loot_filter->is_active = true;
+			StaticData::window_new_loot_filter->link_to_input_button->is_input_mode_active = true;
+		}
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_SELECT_RAY_COLOR))
@@ -415,6 +476,21 @@ void EButtonService::click_event()
 
 		for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
 		{StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;}
+
+		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
+		{
+			if (sep->separator_start > master_block->order_id - 1)
+			{
+				sep->separator_start++;
+			}
+
+			if (sep->separator_end >= master_block->order_id - 1)
+			{
+				sep->separator_end++;
+			}
+		}
+
+		StaticData::window_filter_block->recalculate_filter_block_separator();
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP))
@@ -550,6 +626,7 @@ void EButtonService::click_event()
 	{
 		if (StaticData::window_filter_block->moved_filter_block == NULL)
 		{
+
 			StaticData::window_filter_block->moved_filter_block = master_block;
 			StaticData::window_filter_block->filter_block_list.erase(StaticData::window_filter_block->filter_block_list.begin() + master_block->order_id);
 
@@ -558,6 +635,21 @@ void EButtonService::click_event()
 				StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;
 			}
 		}
+
+		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
+		{
+			if (sep->separator_start > master_block->order_id)
+			{
+				sep->separator_start--;
+			}
+
+			if (sep->separator_end >= master_block->order_id)
+			{
+				sep->separator_end--;
+			}
+		}
+
+		StaticData::window_filter_block->recalculate_filter_block_separator();
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_REFRESH_LOOT_SIMULATOR)
@@ -764,6 +856,36 @@ void EButtonService::click_event()
 		fb->minimap_icon_size = master_block->minimap_icon_size;
 
 		fb->data_change();
+		fb->update_localisation();
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ADD_SEPARATOR_TO_FILTER_BLOCK)
+	{
+			FilterBlockSeparator* sep = new FilterBlockSeparator();
+			sep->separator_start = master_block->order_id;
+			sep->separator_end = master_block->order_id;
+
+
+			StaticData::window_filter_block->separator_list.push_back(sep);
+			StaticData::window_filter_block->recalculate_filter_block_separator();
+			//std::cout << "separator created" << std::endl;
+	}
+	
+	if (button_type == Enums::ButtonType::BUTTON_SEPARATOR_COLLAPSE)
+	{
+			for (int i = master_separator->separator_start; i <= master_separator->separator_end; i++)
+			{
+				StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator = !StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator;
+			}
+
+			master_separator->is_collapsed = !master_separator->is_collapsed;
+	}	
+
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_SEPARATOR)
+	{
+		StaticData::window_accept_cancel->window_mode = Enums::WindowAcceptCancelMode::AC_remove_separator;
+		StaticData::window_accept_cancel->master_separator = master_separator;
+		StaticData::window_accept_cancel->is_active = true;
 	}
 }
 

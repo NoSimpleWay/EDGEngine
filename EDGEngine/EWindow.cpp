@@ -51,14 +51,24 @@ void EWindow::default_update(float _d)
 	if (align_y == Enums::PositionMode::DOWN) { pos_y = relative_y; }
 	if (align_y == Enums::PositionMode::UP) { pos_y = relative_y + EWindow::SCR_HEIGHT - window_size_y; }
 
+	for (int i = 0; i < button_list.size(); i++)
+	{
+		if (button_list.at(i)->need_remove)
+		{
+			button_list.erase(button_list.begin() + i);
+		}
+	}
+
 	for (EButton* b : button_list)
 	{
-		b->update(_d);
+		if (b->is_active)
+		{b->update(_d);}
 	}
 
 	for (EButton* b : default_button_list)
 	{
-		b->update(_d);
+		if (b->is_active)
+		{b->update(_d);}
 	}
 }
 
@@ -84,12 +94,14 @@ void EWindow::defaul_draw(Batcher* _batch)
 
 	for (EButton* b : button_list)
 	{
-		b->default_draw(_batch);
+		if (b->is_active)
+		{b->default_draw(_batch); }
 	}
 
 	for (EButton* b : default_button_list)
 	{
-		b->default_draw(_batch);
+		if (b->is_active)
+		{b->default_draw(_batch);}
 	}
 
 	if (have_rama)
@@ -117,12 +129,14 @@ void EWindow::default_text_pass(Batcher* _batch)
 {
 	for (EButton* b : button_list)
 	{
-		b->text_pass(_batch);
+		if (b->is_active)
+		{b->text_pass(_batch);}
 	}
 
 	for (EButton* b : default_button_list)
 	{
-		b->text_pass(_batch);
+		if (b->is_active)
+		{b->text_pass(_batch);}
 	}
 
 	if (help_text != "")

@@ -1,4 +1,6 @@
 #include "EButtonInputBaseData.h"
+#include "FilterBlockSeparator.h"
+#include "StaticData.h"
 
 EButtonInputBaseData::EButtonInputBaseData(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type) : EButton(_x, _y, _sx, _sy)
 {
@@ -19,10 +21,17 @@ EButtonInputBaseData::EButtonInputBaseData(float _x, float _y, float _sx, float 
 	have_input_mode = true;
 	have_rama = true;
 	input_only_numbers = true;
+	dynamic_input_width = false;
 
 	input_hint = "";
 
 	rama_color->set(0.2f,0.1f,0.05f,0.55f);
+
+	if (button_type == Enums::ButtonType::BUTTON_SEPARATOR_CAPTION_TEXT)
+	{
+		master_position = Enums::PositionMaster::SEPARATOR;
+		input_only_numbers = false;
+	}
 
 
 
@@ -65,6 +74,14 @@ void EButtonInputBaseData::input_finish_event()
 	if (button_type == Enums::ButtonType::BUTTON_SOCKETS) { master_block->socket_count=std::stoi(text); }
 	if (button_type == Enums::ButtonType::BUTTON_STACK_SIZE) { master_block->item_stack_size=std::stoi(text); }
 	if (button_type == Enums::ButtonType::BUTTON_WIDTH) { master_block->item_width=std::stoi(text); }
+
+	if (button_type == Enums::ButtonType::BUTTON_SEPARATOR_CAPTION_TEXT)
+	{
+		master_separator->name = text;
+
+		StaticData::window_filter_block->unsave_change = true;
+	}
+
 
 
 }

@@ -12,12 +12,14 @@
 #include "LabEnchantment.h"
 
 #include "ProphecyList.h"
+
 //#include "ExplicitGroup.h"
 
 
 
 
 //#include "EButton.cpp"
+//class FilterBLockSeparator;
 
 class ExplicitGroup;
 class EButton;
@@ -257,4 +259,9 @@ public:
 	int order_id;
 
 	bool is_positional_sound = false;
+
+	//FilterBlockSeparator* separator_link = NULL;
+
+	bool have_separator = false;
+	bool hided_by_separator = false;
 };

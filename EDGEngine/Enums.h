@@ -45,7 +45,8 @@ public:
 		DISABLE_DROP_SOUND,
 		PROPHECY,
 		CUSTOM_ALERT_SOUND,
-		HAS_ENCHANTMENT
+		HAS_ENCHANTMENT,
+		C_SEPARATOR
 	};
 	enum GameColors {RED, GREEN, BLUE, BROWN, WHITE, YELLOW};
 	enum IconShape {CIRCLE, DIAMOND, HEXAGON, SQUARE, STAR, TRIANGLE};
@@ -53,7 +54,7 @@ public:
 
 	enum ConditionSymbols {LEQUAL, LESS, EQUAL, BIGGER, BEQUAL};
 
-	enum PositionMaster {WINDOW, FILTER_BLOCK, SCREEN};
+	enum PositionMaster {WINDOW, FILTER_BLOCK, SCREEN, SEPARATOR};
 	enum PositionMode {LEFT, MID, RIGHT, UP, DOWN};
 
 	enum ButtonType
@@ -157,6 +158,7 @@ public:
 		BUTTON_MOVE_FILTER_BLOCK_DOWN,
 		BUTTON_CUT_FILTER_BLOCK,
 		BUTTON_CLONE_FILTER_BLOCK,
+		BUTTON_ADD_SEPARATOR_TO_FILTER_BLOCK,
 
 		BUTTON_REMOVE_BLOCK,
 		BUTTON_SHOW_HIDE,
@@ -184,7 +186,10 @@ public:
 		BUTTON_CHANGE_BG_BRIGHT,
 		BUTTON_CHANGE_BG_DARK,
 		BUTTON_ACCEPT,
-		BUTTON_CANCEL
+		BUTTON_CANCEL,
+		BUTTON_SEPARATOR_COLLAPSE,
+		BUTTON_REMOVE_SEPARATOR,
+		BUTTON_SEPARATOR_CAPTION_TEXT
 	};
 
 	enum BaseDataOrder
@@ -260,7 +265,9 @@ public:
 	enum WindowAcceptCancelMode
 	{
 		AC_unsave_open,
-		AC_exit_program
+		AC_exit_program,
+		AC_new_loot_filter,
+		AC_remove_separator,
 	};
 
 	enum CostList

@@ -322,18 +322,24 @@ void EButtonText::click_event()
 	{
 		if (StaticData::window_new_loot_filter->link_to_input_button->text != "")
 		{
-			EString::opened_loot_filter_path =EString::path_to_poe_folder + "/" + StaticData::window_new_loot_filter->link_to_input_button->text + ".filter";
+			EString::path_list.at(StaticData::active_tab) = EString::path_to_poe_folder + "/" + StaticData::window_new_loot_filter->link_to_input_button->text + ".filter";
+			EString::opened_loot_filter_path = EString::path_to_poe_folder + "/" + StaticData::window_new_loot_filter->link_to_input_button->text + ".filter";
+
+			StaticData::window_filter_block->filter_block_list.clear();
+			StaticData::window_filter_block->filter_block_list.push_back(new FilterBlock());
+
+			StaticData::window_new_loot_filter->is_active = false;
+
+			StaticData::window_main->tab_list.at(StaticData::active_tab)->text = StaticData::window_new_loot_filter->link_to_input_button->text;
+
+
+			if (EString::opened_loot_filter_path != "")
+			{
+				EFile::save_filter(EString::path_list.at(StaticData::active_tab));
+			}
 		}
 
-		StaticData::window_filter_block->filter_block_list.clear();
-		StaticData::window_filter_block->filter_block_list.push_back(new FilterBlock());
 
-		StaticData::window_new_loot_filter->is_active = false;
-
-		if (EString::opened_loot_filter_path != "")
-		{
-			EFile::save_filter(EString::opened_loot_filter_path);
-		}
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SELECT_FONT)

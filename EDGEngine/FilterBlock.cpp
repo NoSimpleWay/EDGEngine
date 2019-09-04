@@ -23,6 +23,7 @@
 
 #include "ExplicitGroup.h"
 #include "BaseClass.h"
+#include "FilterBlockSeparator.h"
 //#include "EButton.cpp"
 
 
@@ -377,7 +378,14 @@
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 
-		but = new EButtonService(-80.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
+		but = new EButtonService(-90.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_ADD_SEPARATOR_TO_FILTER_BLOCK);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		button_list.push_back(but);
+
+
+
+		but = new EButtonService(-60.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);

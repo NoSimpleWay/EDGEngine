@@ -91,6 +91,8 @@ public:
 	static EGabarite* gabarite_button_dark_bg;
 
 	static EGabarite* gabarite_button_clone;
+	static EGabarite* gabarite_button_separator;
+	static EGabarite* gabarite_button_collapse;
 
 
 
