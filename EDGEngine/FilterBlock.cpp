@@ -98,7 +98,8 @@
 					(_button_type == Enums::ButtonType::BUTTON_FRACTURED) ||
 					(_button_type == Enums::ButtonType::BUTTON_SYNTHESISED) ||
 					(_button_type == Enums::ButtonType::BUTTON_IDENTIFIED) ||
-					(_button_type == Enums::ButtonType::BUTTON_ANY_ENCHANTMENT)
+					(_button_type == Enums::ButtonType::BUTTON_ANY_ENCHANTMENT)||
+					(_button_type == Enums::ButtonType::BUTTON_BLIGHTED)
 				)
 				{
 					
@@ -222,6 +223,7 @@
 		add_base_buttons("Разбитый",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	Enums::BoolData::BOOL_FRACTURED);//18
 		add_base_buttons("Зачарование",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//19
 		add_base_buttons("Опознанный",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	Enums::BoolData::BOOL_IDENTIFIED);//20
+		add_base_buttons("Зараж. карта",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_BLIGHTED,			false,	Enums::BoolData::BOOL_BLIGHTED);//21
 
 		
 		for (int i = 0; i < 6; i++)
@@ -1235,6 +1237,7 @@
 		base_filter_data_name.at(18) = EString::localize_it("base_data_text_fractured");
 		base_filter_data_name.at(19) = EString::localize_it("base_data_text_enchanted");
 		base_filter_data_name.at(20) = EString::localize_it("base_data_text_identified");
+		base_filter_data_name.at(21) = EString::localize_it("base_data_text_blighted");
 
 		link_to_cancel_remove_button->update_localisation();
 	}

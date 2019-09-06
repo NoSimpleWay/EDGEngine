@@ -122,6 +122,8 @@
 
 		for (int i = 0; i < filter_block_list.size(); i++)
 		{
+			bool first_separator = false;
+
 			block_index = i;
 
 			if
@@ -159,16 +161,52 @@
 
 						if (sep != NULL)
 						{
+							//if (sep->separator_start == f->order_id)
+							first_separator = true;
 							sep->x = f->x;
 							sep->y = EWindow::SCR_HEIGHT - yy - 20.0f;
 
 							sep->size_x = f->size_x;
 							sep->size_y = 16.0f;
 
-							_batch->setcolor_alpha(EColorCollection::CYAN, 0.5f);
-							_batch->draw_simple_rect(f->x+635.0f, EWindow::SCR_HEIGHT - yy - 20.0f, f->size_x-635.0f, 16.0f);
+							/*
+							if (f->highlight_time > 0)
+							{
+								_batch->setcolor_alpha(EColorCollection::CYAN, f->highlight_time * 2.0f);
+								_batch->draw_simple_rect(f->x, EWindow::SCR_HEIGHT - yy - 20.0f, f->size_x - 635.0f, 20.0f);
+							}
+							*/
 
 							yy += 27.0f;
+						}
+
+						if
+						(
+							(EControl::mouse_pressed)
+							&&
+							(!EControl::button_pressed)
+							&&
+							(drag_start_separator == NULL)
+							&&
+							(EControl::mouse_y <= f->y + f->size_y + 40.0f)
+							&&
+							(EControl::mouse_y >= f->y + f->size_y)
+							&&
+							(!f->hided_by_separator)
+							&&
+							(EButton::top_window_id == id)
+							&&
+							(f->have_separator)
+							&&
+							(moved_filter_block == NULL)
+							&&
+							(f->contain_start_separator)
+						)
+						{
+							drag_start_separator = sep;
+							EControl::button_pressed = true;
+
+							std::cout << "drag start separator" << std::endl;
 						}
 					
 
@@ -192,6 +230,7 @@
 						//std::cout << "this window id: " << id << " top window id: " << EWindow::top_layer_id << std::endl;
 						sep = NULL;
 
+						if ((f->contain_end_separator)&&(!f->hided_by_separator))
 						for (FilterBlockSeparator* sep_list : separator_list)
 						{
 							if (sep_list->separator_end == f->order_id) { sep = sep_list; }
@@ -199,12 +238,14 @@
 
 						if (sep != NULL)
 						{
-							_batch->setcolor_alpha(EColorCollection::DARK_GRAY, 0.9f);
-							_batch->draw_simple_rect(f->x, EWindow::SCR_HEIGHT - yy - 15.0f, f->size_x, 20.0f);
-							_batch->setcolor(EColorCollection::WHITE);
-							EFont::active_font->draw(_batch, "End of '" + sep->name + "' separator   (you can drag me!)", f->x + 16.0f, EWindow::SCR_HEIGHT - yy - 9.0f);
+							first_separator = true;
 
-							yy += 23.0f;
+							_batch->setcolor_alpha(EColorCollection::DARK_GRAY, 0.9f);
+							_batch->draw_simple_rect(f->x, EWindow::SCR_HEIGHT - yy - 25.0f, f->size_x, 20.0f);
+							_batch->setcolor(EColorCollection::WHITE);
+							EFont::active_font->draw(_batch, "End of '" + sep->name + "' separator   (you can drag me!)", f->x + 16.0f, EWindow::SCR_HEIGHT - yy - 19.0f);
+
+							yy += 63.0f;
 						}
 
 						if
@@ -215,7 +256,7 @@
 							&&
 							(drag_end_separator == NULL)
 							&&
-							(EControl::mouse_y >= f->y - 50.0f)
+							(EControl::mouse_y >= f->y - 20.0f)
 							&&
 							(EControl::mouse_y <= f->y + f->size_y)
 							&&
@@ -226,16 +267,19 @@
 							(f->have_separator)
 							&&
 							(moved_filter_block == NULL)
+							&&
+							(f->contain_end_separator)
 						)
 						{
 							drag_end_separator = sep;
 							EControl::button_pressed = true;
+
+							std::cout << "drag end separator" << std::endl;
 						}
 
+						
+
 					
-
-
-
 					if
 					(
 						(drag_end_separator != NULL)
@@ -245,28 +289,64 @@
 						(EControl::mouse_y <= f->y + f->size_y)
 						&&
 						(f->order_id >= drag_end_separator->separator_start)
+						&&
+						(!f->hided_by_separator)
 					)
 					{
-						_batch->setcolor_alpha(EColorCollection::GREEN, 0.9f);
-						_batch->draw_simple_rect(f->x, f->y - 15.0f - 15.0f, f->size_x, 15.0f);
-						yy += 15.0f + 15.0f;
+						_batch->setcolor_alpha(EColorCollection::GREEN, 0.75f);
+						_batch->draw_simple_rect(f->x, f->y - 15.0f, f->size_x, 15.0f);
+						//yy += 15.0f;
 
 						if (!EControl::mouse_pressed)
 						{
-							//for (int i = drag_end_separator->separator_start; i <= drag_end_separator->separator_end; i++)
-							//{filter_block_list.at(i)->have_separator = false;}
+							recalculate_filter_block_separator();
 
-							drag_end_separator->separator_end = f->order_id;
+							for (int i = drag_end_separator->separator_start; i <= drag_end_separator->separator_end; i++) {filter_block_list.at(i)->have_separator = false;}
 
-							//for (int i = drag_end_separator->separator_start; i <= drag_end_separator->separator_end; i++)
-							//{filter_block_list.at(i)->have_separator = true;}
+							bool have_collision = false;
+
+							for (int i = drag_end_separator->separator_start; i <= f->order_id; i++) {if (filter_block_list.at(i)->have_separator) { have_collision = true; }}
+
+							if (!have_collision) {drag_end_separator->separator_end = f->order_id;}
 
 							drag_end_separator = NULL;
-
 							recalculate_filter_block_separator();
 						}
 					}
 
+					if
+					(
+						(drag_start_separator != NULL)
+						&&
+						(EControl::mouse_y <= f->y + f->size_y +20.0f)
+						&&
+						(EControl::mouse_y >= f->y + +f->size_y)
+						&&
+						(f->order_id <= drag_start_separator->separator_end)
+						&&
+						(!f->hided_by_separator)
+					)
+					{
+						_batch->setcolor_alpha(EColorCollection::GREEN, 0.75f);
+						_batch->draw_simple_rect(f->x, f->y + f->size_y, f->size_x, 15.0f);
+						//yy += 15.0f;
+
+						if (!EControl::mouse_pressed)
+						{
+							recalculate_filter_block_separator();
+
+							for (int i = drag_start_separator->separator_start; i <= drag_start_separator->separator_end; i++) { filter_block_list.at(i)->have_separator = false; }
+
+							bool have_collision = false;
+
+							for (int i = f->order_id; i <= drag_start_separator->separator_end; i++) { if (filter_block_list.at(i)->have_separator) { have_collision = true; } }
+
+							if (!have_collision) { drag_start_separator->separator_start = f->order_id; }
+
+							drag_start_separator = NULL;
+							recalculate_filter_block_separator();
+						}
+					}
 					
 
 					if
@@ -332,7 +412,11 @@
 				&&
 				(!filter_block_list.at(block_index)->is_deactivated)
 				&&
-				(!filter_block_list.at(block_index)->hided_by_separator)
+				(
+					(!filter_block_list.at(block_index)->hided_by_separator)
+					||
+					(filter_block_list.at(block_index)->contain_start_separator)
+				)
 			)
 			{blocks_order++;}
 
@@ -382,7 +466,11 @@
 					&&
 					(!filter_block_list.at(block_index)->is_deactivated)
 					&&
-					(!filter_block_list.at(block_index)->hided_by_separator)
+					(
+						(!filter_block_list.at(block_index)->hided_by_separator)
+						||
+						(filter_block_list.at(block_index)->contain_start_separator)
+					)
 				)
 			{
 				blocks_order++;
@@ -412,13 +500,21 @@
 		for (FilterBlock* fb : filter_block_list)
 		{
 			fb->have_separator = false;
+
+			fb->contain_start_separator = false;
+			fb->contain_end_separator = false;
 		}
+
 		for (FilterBlockSeparator* sep_list : separator_list)
 		{
 			for (int i = sep_list->separator_start; i <= sep_list->separator_end; i++)
 			{
 				filter_block_list.at(i)->have_separator = true;
 			}
+
+			filter_block_list.at(sep_list->separator_start)->contain_start_separator = true;
+			filter_block_list.at(sep_list->separator_end)->contain_end_separator = true;
+
 		}
 	}
 

@@ -24,10 +24,10 @@ void EColor::set(float _r, float _g, float _b, float _a)
 
 void EColor::set(EColor* _c)
 {
-		color_red = _c->color_red;
-		color_green = _c->color_green;
-		color_blue = _c->color_blue;
-		color_alpha = _c->color_alpha;
+	color_red = _c->color_red;
+	color_green = _c->color_green;
+	color_blue = _c->color_blue;
+	color_alpha = _c->color_alpha;
 }
 
 void EColor::set_alpha(EColor* _c, float _a)
@@ -37,6 +37,14 @@ void EColor::set_alpha(EColor* _c, float _a)
 	color_blue = _c->color_blue;
 
 	color_alpha = _a;
+}
+
+void EColor::set_bright(EColor* _c, float _bright)
+{
+	color_red = _c->color_red * _bright;
+	color_green = _c->color_green * _bright;
+	color_blue = _c->color_blue * _bright;
+	color_alpha = _c->color_alpha;
 }
 
 EColor::~EColor()

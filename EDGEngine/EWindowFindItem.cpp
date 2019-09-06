@@ -129,6 +129,7 @@ public:
 			{
 				button_list.at(0)->description_text = input_button->text;
 				button_list.at(0)->data_string = input_button->text;
+
 				button_list.at(0)->is_active = true;
 			}
 			else
@@ -888,10 +889,10 @@ public:
 	{
 		//std::cout << "to lower: " << to_lower(_b->text,true)<<" normal:"<<_b->text << std::endl;
 
-		std::cout << "search!" << std::endl;
+		//std::cout << "search!" << std::endl;
 		fill_search_array(_b);
 
-
+		/*
 		if (_b->master_window != NULL)
 		{
 			std::cout << "Button name: " + _b->text << std::endl;
@@ -899,7 +900,7 @@ public:
 		else
 		{
 			std::cout << "windows of button is NULL" << endl;
-		}
+		}*/
 	}
 
 	virtual void manual_event()

@@ -124,3 +124,5 @@ description_refresh_loot_simulator	Пересоздать лут
 text_accept	Принять
 text_cancel	Отменить
 window_text_unsaved_changes	ВНИМАНИЕ! Несохранённые данные! Если вы продолжите, вы потеряете их!
+base_data_text_blighted	Зараж. карта
+window_text_remove_separator	Вы уверены, что хотите удалить разделитель?

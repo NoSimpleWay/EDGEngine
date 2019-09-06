@@ -90,5 +90,7 @@ EGabarite* DefaultGabarite::gabarite_button_clone = NULL;
 EGabarite* DefaultGabarite::gabarite_button_separator = NULL;
 EGabarite* DefaultGabarite::gabarite_button_collapse = NULL;
 
+EGabarite* DefaultGabarite::gabarite_error = NULL;
+
 
 

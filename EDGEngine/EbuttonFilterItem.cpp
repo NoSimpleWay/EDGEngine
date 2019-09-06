@@ -28,8 +28,6 @@
 			StaticData::window_find_item->is_active = true;
 			StaticData::window_find_item->button_event(this);
 			StaticData::window_find_item->target_button = this;
-
-			
 		}
 		else
 		{

@@ -828,7 +828,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				if (line.at(i) == '#')
 				{
 					comment_mode = true;
-					cout << "comment mode activate, now i dont parse data by normal way" << endl;
+					//cout << "comment mode activate, now i dont parse data by normal way" << endl;
 					parser_mode = Enums::ParserMode::NOTHING;
 
 					subdata = "";
@@ -957,6 +957,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_block->remove_prophecy_button->is_active = true;
 								}
 
+								if (subdata == "BlightedMap") { parser_mode = Enums::ParserMode::IS_BLIGHTED_MAP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_BLIGHTED) = true; }
+
 							}
 							else
 							{
@@ -977,7 +979,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 							if (parser_mode == Enums::ParserMode::C_SEPARATOR)
 							{
-								cout << "order: " << to_string(data_order) << " subdata: " << subdata << endl;
+								//cout << "order: " << to_string(data_order) << " subdata: " << subdata << endl;
 								if (data_order == 0) {  }
 								if (data_order == 1) { just_created_separator->separator_start = std::stoi(subdata); }
 								if (data_order == 2) { just_created_separator->separator_end = std::stoi(subdata); }
@@ -1526,6 +1528,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate synthesised item property" << endl; } }
 								if (data_order == 1) { if (show_info_to_console) { cout << "set synthesised item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SYNTHESISED) = EString::convert_text_to_bool(subdata); }
+							}
+
+							if (parser_mode == Enums::ParserMode::IS_BLIGHTED_MAP)
+							{
+								if (data_order == 0) { if (show_info_to_console) { cout << "activate blighted map property" << endl; } }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set blighted item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_BLIGHTED) = EString::convert_text_to_bool(subdata); }
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_ANY_ENCHANTMENT)
@@ -2198,6 +2206,22 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				{
 					loot_writer += '\t';
 					loot_writer += "SynthesisedItem False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_BLIGHTED))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_BLIGHTED))
+				{
+					loot_writer += '\t';
+					loot_writer += "BlightedMap True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "BlightedMap False";
 					loot_writer += '\n';
 				}
 			}

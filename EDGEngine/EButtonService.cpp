@@ -305,7 +305,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		rama_thikness = 1.0f;
 		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 
-		StaticData::window_filter_block->unsave_change = true;
+		
 
 
 	}
@@ -322,7 +322,8 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		rama_thikness = 1.0f;
 		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 
-		StaticData::window_filter_block->unsave_change = true;
+		
+	
 
 	}
 }
@@ -857,6 +858,21 @@ void EButtonService::click_event()
 
 		fb->data_change();
 		fb->update_localisation();
+
+		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
+		{
+			if (sep->separator_start > fb->order_id - 1)
+			{
+				sep->separator_start++;
+			}
+
+			if (sep->separator_end >= fb->order_id - 1)
+			{
+				sep->separator_end++;
+			}
+		}
+
+		StaticData::window_filter_block->recalculate_filter_block_separator();
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_ADD_SEPARATOR_TO_FILTER_BLOCK)
@@ -873,12 +889,16 @@ void EButtonService::click_event()
 	
 	if (button_type == Enums::ButtonType::BUTTON_SEPARATOR_COLLAPSE)
 	{
-			for (int i = master_separator->separator_start; i <= master_separator->separator_end; i++)
-			{
-				StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator = !StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator;
-			}
+		master_separator->is_collapsed = !master_separator->is_collapsed;
 
-			master_separator->is_collapsed = !master_separator->is_collapsed;
+		for (int i = master_separator->separator_start; i <= master_separator->separator_end; i++)
+		{
+			StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator = master_separator->is_collapsed;
+		}
+
+		
+		StaticData::window_filter_block->unsave_change = true;
+
 	}	
 
 	if (button_type == Enums::ButtonType::BUTTON_REMOVE_SEPARATOR)
@@ -886,6 +906,9 @@ void EButtonService::click_event()
 		StaticData::window_accept_cancel->window_mode = Enums::WindowAcceptCancelMode::AC_remove_separator;
 		StaticData::window_accept_cancel->master_separator = master_separator;
 		StaticData::window_accept_cancel->is_active = true;
+		StaticData::window_accept_cancel->update_localisation();
+
+		StaticData::window_filter_block->unsave_change = true;
 	}
 }
 

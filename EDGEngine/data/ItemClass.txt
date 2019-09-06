@@ -87,3 +87,6 @@ Base name	Delve Socketable Currency	RU name	Валюта Спуска
 Base name	Incubator	RU name	Инкубатор
 Base name	Divination	RU name	Гадальные
 Base name	Misc Map Item	RU name	Прочий предмет карты
+Base name	Rune Dagger	RU name	Рунический кинжал
+Base name	Warstaff	RU name	Воинский посох
+Base name	Delve Stackable Socketable Currency	RU name	Складываемая валюта спуска

@@ -94,6 +94,8 @@ public:
 	static EGabarite* gabarite_button_separator;
 	static EGabarite* gabarite_button_collapse;
 
+	static EGabarite* gabarite_error;
+
 
 
 };

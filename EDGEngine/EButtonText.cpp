@@ -213,6 +213,10 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 		have_text = true;
 		have_input_mode = false;
+
+		text_color->set(EColorCollection::RED);
+		rama_color->set(EColorCollection::RED);
+		bg_color->set_bright(EColorCollection::RED, 0.33333f);
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_CANCEL)

@@ -264,4 +264,7 @@ public:
 
 	bool have_separator = false;
 	bool hided_by_separator = false;
+
+	bool contain_start_separator = false;
+	bool contain_end_separator = false;
 };

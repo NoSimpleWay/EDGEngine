@@ -76,6 +76,8 @@ void EWindowAC::button_event(EButton* _b)
 			master_separator->link_to_collapse->need_remove = true;
 			master_separator->link_to_remove->need_remove = true;
 			master_separator->link_to_caption_text->need_remove = true;
+
+			StaticData::window_filter_block->recalculate_filter_block_separator();
 		}
 
 		is_active = false;
@@ -87,8 +89,23 @@ void EWindowAC::update_localisation()
 {
 	for (EButton* b : button_list) {b->update_localisation();}
 
-	if ((window_mode == Enums::WindowAcceptCancelMode::AC_unsave_open)||(window_mode == Enums::WindowAcceptCancelMode::AC_exit_program))
+	if 
+	(
+		(window_mode == Enums::WindowAcceptCancelMode::AC_unsave_open)
+		||
+		(window_mode == Enums::WindowAcceptCancelMode::AC_exit_program)
+		||
+		(window_mode == Enums::WindowAcceptCancelMode::AC_new_loot_filter)
+	)
 	{window_text = EString::localize_it("window_text_unsaved_changes"); }
+
+	if
+	(
+		(window_mode == Enums::WindowAcceptCancelMode::AC_remove_separator)
+	)
+	{
+		window_text = EString::localize_it("window_text_remove_separator");
+	}
 }
 
 void EWindowAC::text_pass(Batcher* _batch)
@@ -97,7 +114,7 @@ void EWindowAC::text_pass(Batcher* _batch)
 
 
 
-	EFont::active_font->draw(_batch, window_text, pos_x + window_size_x / 2.0f, pos_y + window_size_y - 20.0f);
+	EFont::active_font->draw(_batch, window_text, round(pos_x + window_size_x / 2.0f), round(pos_y + window_size_y) - 20.0f);
 	
 }
 

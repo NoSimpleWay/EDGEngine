@@ -23,4 +23,6 @@ public:
 	EButton* link_to_collapse;
 	EButton* link_to_remove;
 	EButton* link_to_caption_text;
+
+	float hightlight_time;
 };

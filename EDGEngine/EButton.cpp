@@ -581,7 +581,7 @@
 			target_font->align_x=Enums::PositionMode::LEFT;
 
 			_batch->setcolor(EColorCollection::WHITE);
-			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 38.0f, EFont::get_width(target_font,description_text)+3, 20, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 38.0f, EFont::get_width(target_font, description_text)+3, 20, DefaultGabarite::gabarite_white);
 
 			_batch->setcolor(EColorCollection::BLACK);
 			target_font->draw(_batch, description_text, x_description, EControl::mouse_y - 34.0f);

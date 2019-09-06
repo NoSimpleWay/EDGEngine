@@ -176,6 +176,8 @@ bool ***collision_matrix = new bool**[4096];
 
 EGabarite* just_created_gabarite = NULL;
 
+bool texture_error = false;
+
 std::vector<EWindow*> EControl::window_list;
 
 EWindowFilterBlock* StaticData::window_filter_block = NULL;
@@ -1848,6 +1850,15 @@ int main()
 
 	EFont* new_font=NULL;
 
+	put_texture_to_atlas("data/white_pixel.png");
+	just_created_gabarite->x += 1 / 4096.0f;
+	just_created_gabarite->y += 1 / 4096.0f;
+	just_created_gabarite->x2 -= 1 / 4096.0f;
+	just_created_gabarite->y2 -= 1 / 4096.0f;
+	DefaultGabarite::gabarite_white = just_created_gabarite;
+
+	put_texture_to_atlas("data/error.png");									DefaultGabarite::gabarite_error = just_created_gabarite;
+
 	put_texture_to_atlas("data/font/littera/fontin_0.png");					new_font = new EFont("fontin", just_created_gabarite, true); 					EFont::font_list.push_back(new_font);
 	put_texture_to_atlas("data/font/littera/georgia_0.png");				new_font = new EFont("georgia", just_created_gabarite, false);					EFont::font_list.push_back(new_font);
 	put_texture_to_atlas("data/font/littera/verdana_0.png");				new_font = new EFont("verdana", just_created_gabarite, false); 					EFont::font_list.push_back(new_font);
@@ -1871,12 +1882,7 @@ int main()
 	cout << "item list size=" << ItemList::item_list.size() << endl;
 	
 
-	put_texture_to_atlas("data/white_pixel.png");
-	just_created_gabarite->x += 1 / 4096.0f;
-	just_created_gabarite->y += 1 / 4096.0f;
-	just_created_gabarite->x2 -= 1 / 4096.0f;
-	just_created_gabarite->y2 -= 1 / 4096.0f;
-	DefaultGabarite::gabarite_white = just_created_gabarite;
+
 	
 
 
@@ -1953,6 +1959,8 @@ int main()
 	put_texture_to_atlas("data/button_clone.png");				DefaultGabarite::gabarite_button_clone = just_created_gabarite;
 	put_texture_to_atlas("data/gray_separator.png");			DefaultGabarite::gabarite_button_separator = just_created_gabarite;
 	put_texture_to_atlas("data/gray_collapse.png");				DefaultGabarite::gabarite_button_collapse = just_created_gabarite;
+
+	
 
 	StaticData::window_filter_block = new EWindowFilterBlock(0, false);
 	StaticData::window_filter_block->name = "Filter block";
@@ -2272,6 +2280,8 @@ int main()
 
 				StaticData::window_accept_cancel->is_active = true;
 				StaticData::window_accept_cancel->window_mode = Enums::WindowAcceptCancelMode::AC_exit_program;
+
+				StaticData::window_accept_cancel->update_localisation();
 			}
 			else
 			{StaticData::need_exit = true; }
@@ -2483,8 +2493,11 @@ void put_texture_to_atlas(char const* _path)
 				batch->reinit();
 				batch->draw_call();
 
-				just_created_gabarite = new EGabarite(_path,j/4096.0f,i/4096.0f,last_texture_w/4096.0f,last_texture_h/4096.0f);
-
+				if (texture_error)
+				{just_created_gabarite = DefaultGabarite::gabarite_error;}
+				else
+				{just_created_gabarite = new EGabarite(_path, j / 4096.0f, i / 4096.0f, last_texture_w / 4096.0f, last_texture_h / 4096.0f); }
+				
 				//cout<<yellow << "end of search!"<<white << endl;
 
 				j = 99999;
@@ -2521,12 +2534,20 @@ void load_texture(char const *_path, int _id)
 		last_texture_h = height;
 		last_texture_w = width;
 
+		texture_error = false;
 		/*texture_w[_id] = width;
 		texture_h[_id] = height;*/
 	}
 	else
 	{
 		cout << red << "Failed to load texture " <<yellow << "(" << _path << ")" << green << endl;
+
+		last_texture_h = 21;
+		last_texture_w = 21;
+
+		texture_error = true;
+
+		just_created_gabarite = DefaultGabarite::gabarite_error;
 	}
 
 	stbi_image_free(data1);

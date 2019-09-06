@@ -13,6 +13,7 @@ public:
 	void set(float _r, float _g, float _b, float _a);
 	void set(EColor* _c);
 	void set_alpha(EColor* _c, float _a);
+	void set_bright(EColor* _c, float _bright);
 
 };
 

@@ -419,9 +419,19 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 		{
 			if ((EControl::mouse_pressed)&&(loot->filter_block_link != NULL))
 			{
-				EControl::block_scroll = loot->filter_block_link->order_id;
+				int temp_scroll = -1;
 
-				loot->filter_block_link->highlight_time = 0.5f;
+				for (int i=0; i <= loot->filter_block_link->order_id; i++)
+				{
+					if ((!StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator) || (StaticData::window_filter_block->filter_block_list.at(i)->contain_start_separator))
+					{
+						temp_scroll++;
+					}
+				}
+
+				EControl::block_scroll = temp_scroll;
+
+				if (!loot->filter_block_link->hided_by_separator) { loot->filter_block_link->highlight_time = 0.5f; }
 			}
 
 			EFont::active_font->align_x = Enums::PositionMode::LEFT;
@@ -483,18 +493,29 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			else { _batch->setcolor(EColorCollection::RED); }
 			if (loot->map_tier > 0) { EFont::active_font->draw(_batch, "Map tier: " + std::to_string(loot->map_tier), xx + 5.0f, yy - dy * move_y); move_y++; }
 
-			_batch->setcolor(EColorCollection::RED);
-			EFont::active_font->draw(_batch, "RED: " + std::to_string(loot->red_socket), xx + 5.0f, yy - dy * move_y); move_y++;
+			if (loot->red_socket > 0)
+			{
+				_batch->setcolor(EColorCollection::RED);
+				EFont::active_font->draw(_batch, "RED: " + std::to_string(loot->red_socket), xx + 5.0f, yy - dy * move_y); move_y++;
+			}
 
-			_batch->setcolor(EColorCollection::GREEN);
-			EFont::active_font->draw(_batch, "GREEN: " + std::to_string(loot->green_socket), xx + 5.0f, yy - dy * move_y); move_y++;
+			if (loot->green_socket > 0)
+			{
+				_batch->setcolor(EColorCollection::GREEN);
+				EFont::active_font->draw(_batch, "GREEN: " + std::to_string(loot->green_socket), xx + 5.0f, yy - dy * move_y); move_y++;
+			}
 
-			_batch->setcolor(EColorCollection::CYAN);
-			EFont::active_font->draw(_batch, "BLUE: " + std::to_string(loot->blue_socket), xx + 5.0f, yy - dy * move_y); move_y++;
+			if (loot->blue_socket > 0)
+			{
+				_batch->setcolor(EColorCollection::CYAN);
+				EFont::active_font->draw(_batch, "BLUE: " + std::to_string(loot->blue_socket), xx + 5.0f, yy - dy * move_y); move_y++;
+			}
 
-			_batch->setcolor(EColorCollection::WHITE);
-			EFont::active_font->draw(_batch, "WHITE: " + std::to_string(loot->white_socket), xx + 5.0f, yy - dy * move_y); move_y++;
-
+			if (loot->white_socket > 0)
+			{
+				_batch->setcolor(EColorCollection::WHITE);
+				EFont::active_font->draw(_batch, "WHITE: " + std::to_string(loot->white_socket), xx + 5.0f, yy - dy * move_y); move_y++;
+			}
 
 		}
 	}
@@ -778,14 +799,25 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		}
 
 		if
-			(
+		(
 			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM))
-				&&
-				(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM) != _l->shaper_item)
-				)
+			&&
+			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM) != _l->shaper_item)
+		)
 		{
 			match_detect = false;
 			if (!_default) { rejection("shaper item", _l); }
+		}
+
+		if
+		(
+			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_BLIGHTED))
+			&&
+			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_BLIGHTED) != _l->shaper_item)
+		)
+		{
+			match_detect = false;
+			if (!_default) { rejection("blight item", _l); }
 		}
 
 		if

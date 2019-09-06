@@ -124,3 +124,5 @@ description_refresh_loot_simulator	Regenerate loot
 text_accept	Accept
 text_cancel	Cancel
 window_text_unsaved_changes	WARNING! Unsaved changes! if you continue, all unsaved data lost.
+base_data_text_blighted	Blighted map
+window_text_remove_separator	You sure want delete separator?

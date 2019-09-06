@@ -1,7 +1,14 @@
 #pragma once
+
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "EButtonItemSearch.h"
 #include "StaticData.h"
 #include "EUtils.h"
+#include <fstream>
+#include <direct.h>
+#include <ctime>
+
 
 
 EButtonItemSearch::EButtonItemSearch(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type) : EButton(_x, _y, _sx, _sy)
@@ -168,6 +175,61 @@ void EButtonItemSearch::click_event()
 		}
 
 		EFont::active_font->scale = 1.0f;
+
+		std::string sss = "1234567890";
+
+		/*
+		ofstream copier;
+		copier.open(EString::path_to_poe_folder + "copy\\S.filter");
+		copier << sss;
+		copier.close();*/
+
+		time_t now = time(0);
+		tm* ltm = localtime(&now);
+		//_CRT_SECURE_NO_WARNINGS;
+		std::string path_to_copy = EString::path_to_poe_folder + "copies";
+		_mkdir(path_to_copy.c_str());
+
+		std::ifstream src(EString::loot_filter_path_list.at(data_id), std::ios::binary);
+		std::ofstream dst
+		(
+			EString::path_to_poe_folder
+			+
+			"copies\\"
+			+
+			text
+			+
+			" "
+			+
+			std::to_string(ltm->tm_mday)
+			+
+			"-"
+			+
+			std::to_string(ltm->tm_mon + 1)
+			+
+			"-"
+			+
+			std::to_string(1900 + ltm->tm_year)
+			+
+			" "
+			+
+			std::to_string(ltm->tm_hour)
+			+
+			"="
+			+
+			std::to_string(ltm->tm_min)
+			+
+			"="
+			+
+			std::to_string(ltm->tm_sec)
+			+
+			".filter"
+			, std::ios::binary
+		);
+
+		dst << src.rdbuf();
+
+	//	EFile::save_filter(EString::path_to_poe_folder + "/reserve_copy/" + text + "_copy.filter");
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_LOOT_SIMULATOR_PATTERN)
