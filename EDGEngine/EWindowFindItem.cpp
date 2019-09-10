@@ -663,7 +663,7 @@ public:
 
 			for (EButton* b : button_list)
 			{
-				if (data_index < EString::base_class_list.size())
+				if (data_index <= EString::base_class_list.size())
 				{
 					b->button_size_y = 21;
 
@@ -679,6 +679,8 @@ public:
 						{b->text = EString::base_class_list.at(data_index-1)->ru_name;}
 
 						b->data_string = EString::base_class_list.at(data_index - 1)->base_name;
+
+						std::cout << "fill button: " << EString::base_class_list.at(data_index - 1)->base_name << std::endl;
 					}
 					else
 					{

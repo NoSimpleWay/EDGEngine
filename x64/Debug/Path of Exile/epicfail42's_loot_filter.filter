@@ -1,0 +1,669 @@
+# Item filter downloaded at FilterBLAST - for updates visit:
+# https://filterblast.xyz/EpicFail42/1u7vdm8
+
+#EpicFail42's loot filter v31
+#This filter has a home at https://www.pathofexile.com/forum/view-thread/1296898
+#Weird-looking comments are extra features to support FilterBlast (http://filterblast.oversoul.xyz/EpicFail42/)
+#If you don't use it - just ignore everything that starts with "# //", no functionality will be lost
+
+# Sounds currently available for use in loot filters:
+# 1 - good, short, loud,
+# 2 - good, similar to 1, but a bit less "wow",
+# 3 - good, similar to 2 (almost the same), even less "wow",
+# 4 - ok, weird enough to notice, maybe a bit too sharp,
+# 5 - ok, like 4, but even more sharp,
+# 6 - bad, another "like 4", but with unpleasand high freqs
+# 7 - ok, a bit too long and too soft,
+# 8 - good, weird enough to notice, but too long,
+# 9 - bad, very much like 8, but very subtle.
+# ItemFilterAlert10 - reasonable
+# ItemFilterAlert11 - reasonable, mid-freq, can be missed
+# ItemFilterAlert12 - nice, low freqs
+# ItemFilterAlert13 - nice, low and high freqs
+# ItemFilterAlert14 - quiet, series of low and high freqs
+# ItemFilterAlert15 - weird, "engine sound"
+# ItemFilterAlert16 - quiet, low freqs
+# ShAlchemy - quiet
+# ShBlessed - quiet
+# ShChaos - normal
+# ShDivine - normal, "Divine orb" and a long text
+# ShExalted - normal, "Exalted orb" and a long text
+# ShFusing - normal
+# ShGeneral - a bit quiet, "an orb of immense power"
+# ShMirror - loud, "A Mirror of Kalandra" and some text
+# ShRegal - quiet
+# ShVaal - quiet
+# I use 1 for best items, 2 for good ones, 5 for ok-ish ones, 7 for prophecy items, ItemFilterAlert10 for low currency, 9 for league items, etc
+# If something else would be needed, 3 and 4 are also OK
+
+# //! SetOption $Welcome info [It's made to be as simple and stable as possible. I've tried to make it so you don't have to update it for each new league - it will show everything you need by default, even new stuff. The colours are as close to the original ones as possible, and the size and sound are proportional to the value of the item.]  # This is the EpicFail42's loot filter.
+
+# //! SetOption $Info_Link link [https://www.pathofexile.com/forum/view-thread/1296898] [https://www.pathofexile.com/forum/view-thread/1296898]  # The forum thread, home of the filter.
+
+# //! SetOption $Smallest_Font_Size input [18] #Smallest font size you'd like to see (all font sizes will be interpolated to fit between smallest and largest, PoE limits sizes to [18 to 45])
+# //! SetOption $Largest_Font_Size input [45] #Largest font size you'd like to see
+# //! SetGlobalFontSizeRange $Smallest_Font_Size $Largest_Font_Size resize
+
+# //! SetSound $Tier1Sound 1 300 # Best items, such as 5-links and Divine Orbs, and better
+# //! SetSound $Tier2Sound 2 300 # Good items, such as 6-sockets and Chance Orbs
+# //! SetSound $Tier3Sound 5 300 # Useful and rare items, such as quality gems
+# //! SetSound $Tier4Sound ItemFilterAlert10 300 # Normal items, such as Transmutation Orbs
+# //! SetSound $LeagueSound 7 300 # League-specific items, such as Silver Coins or Leaguestones
+# //! SetSound $ChancingSound 9 300 # Chancing items, such as Sorcerer Boots
+
+# //! SetOption $Popular_Chancing_Bases textarea ["Sorcerer Boots" "Occultist's Vestment" "Leather Belt"] # Bases that most people try to chance, you can add ones such as Agate Amulet, etc. You may disable them below.
+# //! SetOption $Map_Specific_Chancing_Bases checkbox ["Stygian Vise"] ["Steel Ring"] ["Opal Ring"] ["Blue Pearl Amulet"] ["Marble Amulet"] ["Vanguard Belt"] ["Crystal Belt"] ["Bone Helmet"] ["Two-Toned Boots"] ["Spiked Gloves"] ["Gripped Gloves"] ["Fingerless Silk Gloves"] # Select the new map-specific crafting bases you want to see
+# //! SetOption $Personal_Chancing_Bases textarea ["Elegant Sword" "Glorious Plate" "Sapphire Flask" "Gold Ring" "Ruby Ring" "Judgement Staff" "Gavel" "Paua Ring" "Occultist's Vestment" "Prophecy Wand" "Imperial Bow"] # Want to chance some uniques for league challenges or want to get some specific unique by chancing it? Enable Personal Chancing Bases below and list their bases here
+
+# Section: currency
+#rare currency and fishing rod
+Show
+	BaseType "Exalted Orb" "Divine Orb" "Mirror of Kalandra" "Eternal Orb" "Albino Rhoa Feather" "Fishing Rod" "Mirror Shard" "Exalted Shard"
+	SetFontSize 45
+	SetTextColor 240 200 150 255
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 0 Yellow Star
+	PlayEffect Yellow
+	PlayAlertSound 1 300 
+# //$ $Tier1Sound
+
+#notable mid-tier currency
+Show
+	BaseType "Blessed Orb" "Regal Orb" "Chaos Orb" "Orb of Fusing" "Vaal Orb" "Gemcutter's Prism" "Orb of Regret" "Cartographer's Chisel" "Orb of Alchemy" "Orb of Scouring"
+	SetFontSize 45
+	SetTextColor 240 200 150 255
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 1 Yellow Star
+	PlayEffect Yellow
+	PlayAlertSound 2 300 
+# //$ $Tier2Sound
+
+#new currency from Harbinger league (except mirror and exalted shards mentioned above)
+Show
+	Class "Currency"
+	BaseType "Regal Shard" "Chaos Shard" "Ancient Shard" "Engineer's Shard" "Harbinger's Shard" "Horizon Shard" "Binding Shard" "Annulment Shard" "Orb of Annulment" "Orb of Binding" "Orb of Horizons" "Harbinger's Orb" "Engineer's Orb" "Ancient Orb"
+	SetFontSize 45
+	SetTextColor 240 200 150 255
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 1 Yellow Star
+	PlayEffect Yellow
+	PlayAlertSound 2 300 
+# //$ $Tier2Sound
+
+Show
+	Class "Leaguestone" "Pantheon Soul" "Incursion" "Incubator"
+	SetFontSize 45
+	SetTextColor 240 200 150 255
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 0 Blue Circle
+	PlayEffect Blue
+	PlayAlertSound 7 300 
+# //$ $LeagueSound
+
+Show
+	Class "Currency"
+	BaseType "Silver Coin" "Prophecy" "Splinter" "Blessing" "Bestiary" "Net" "Vial of" "Fossil" "Resonator" "Timeless"
+	SetFontSize 45
+	SetTextColor 240 200 150 255
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 0 Blue Circle
+	PlayEffect Blue
+	PlayAlertSound 7 300 
+# //$ $LeagueSound
+
+Show
+	ElderItem True
+	SetFontSize 45
+	SetTextColor 240 200 150 255
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 0 Blue Circle
+	PlayEffect Blue
+	PlayAlertSound 7 300 
+# //$ $LeagueSound
+
+Show
+	ShaperItem True
+	SetFontSize 45
+	SetTextColor 240 200 150 255
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 0 Blue Circle
+	PlayEffect Blue
+	PlayAlertSound 7 300 
+# //$ $LeagueSound
+
+Show
+	HasExplicitMod "Veil"
+	SetFontSize 45
+	SetTextColor 240 200 150 255
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 0 Blue Circle
+	PlayEffect Blue
+	PlayAlertSound 7 300 
+# //$ $LeagueSound
+
+#scrolls and smallest currency
+Show
+	BaseType "Scroll of Wisdom" "Portal Scroll" "Transmu" "Augment" "Armourer" "Blacksmith"
+	SetFontSize 33
+	SetTextColor 195 175 140 255
+	SetBorderColor 0 0 0 255
+
+#all other currency
+Show
+	Class "Currency"
+	SetFontSize 40
+	SetTextColor 210 185 145 255
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 80 60 40 255
+	MinimapIcon 2 Yellow Star
+	PlayAlertSound 10 300 
+# //$ $Tier4Sound
+
+# Section: gems
+Show
+	Quality > 0
+	Class "Gem"
+	SetFontSize 40
+	SetBackgroundColor 0 30 20 255
+	SetBorderColor 0 50 160
+	MinimapIcon 0 Green Diamond
+	PlayEffect Green
+	PlayAlertSound 5 300 
+# //$ $Tier3Sound
+
+#Good gems - white, drop-only, often used act4 rewards
+Show
+	Class "Gem"
+	BaseType "Empower" "Enhance" "Enlighten" "Portal" "Detonate Mines" "Spell Echo" "Multistrike" "Greater Multiple Projectiles" "Added Chaos"
+	SetFontSize 40
+	SetBackgroundColor 0 30 20 255
+	SetBorderColor 0 50 160
+	MinimapIcon 0 Green Diamond
+	PlayEffect Green
+	PlayAlertSound 5 300 
+# //$ $Tier3Sound
+
+Show
+	Class "Gem"
+	GemLevel >= 19
+	SetFontSize 40
+	SetBackgroundColor 0 30 20 255
+	SetBorderColor 0 50 160
+	MinimapIcon 0 Green Diamond
+	PlayEffect Green
+	PlayAlertSound 5 300 
+# //$ $Tier3Sound
+
+Show  # Normal (not "good", not quality, and not drop-only) gems
+	Class "Gem"
+	SetFontSize 33
+
+# Section: chisel hammers
+#Normal Chisel Hammers
+Show
+	BaseType "Gavel" "Stone Hammer" "Rock Breaker"
+	Rarity = Normal
+	SetFontSize 33
+	SetTextColor 190 190 190
+
+#Magic Chisel Hammers need quality
+Show
+	Quality >= 14
+	BaseType "Gavel" "Stone Hammer" "Rock Breaker"
+	Rarity = Magic
+	SetFontSize 33
+	SetTextColor 120 120 230
+
+# Section: 5 and 6 links
+Show
+	LinkedSockets >= 5
+	SetFontSize 45
+	SetTextColor 255 255 255
+	SetBackgroundColor 20 20 20 255
+	SetBorderColor 180 180 180
+	MinimapIcon 0 White Hexagon
+	PlayEffect White
+	PlayAlertSound 1 300 
+# //$ $Tier1Sound
+
+# Section: 6 socket and white sockets
+Show
+	SocketGroup W
+	Rarity < Unique
+	SetFontSize 33
+	SetTextColor 255 255 255
+	SetBorderColor 255 255 255
+	MinimapIcon 1 White Hexagon
+	PlayEffect White
+
+Show
+	Sockets = 6
+	SetFontSize 40
+	SetTextColor 255 255 255
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 40 40 40 255
+	MinimapIcon 1 White Hexagon
+	PlayEffect White
+	PlayAlertSound 2 300 
+# //$ $Tier2Sound
+
+# Section: Misc items of very high interest
+#Misc good stuff
+Show
+	Class "Card" "Jewel" "Map Fragment" "Quest" "Hideout" "Micro" "Labyrinth Item" "Misc Map Items"
+	SetFontSize 45
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 0 Brown Star
+	PlayEffect Brown
+	PlayAlertSound 2 300 
+# //$ $Tier2Sound
+
+#Subtly change map borders, also allows commenting out sounds for lower maps as needed
+Show
+	Class "Map"
+	MapTier <= 5
+	SetFontSize 45
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	MinimapIcon 0 Brown Star
+	PlayEffect Brown
+	PlayAlertSound 2 300 
+# //$ $Tier2Sound
+
+Show
+	Class "Map"
+	MapTier <= 10
+	SetFontSize 45
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 255 200 0 255
+	MinimapIcon 0 Brown Star
+	PlayEffect Brown
+	PlayAlertSound 2 300 
+# //$ $Tier2Sound
+
+Show
+	Class "Map"
+	SetFontSize 45
+	SetBackgroundColor 0 0 0 255
+	SetBorderColor 210 0 0 255
+	MinimapIcon 0 Brown Star
+	PlayEffect Brown
+	PlayAlertSound 2 300 
+# //$ $Tier2Sound
+
+# Section: Talismans
+Show
+	BaseType "Talisman"
+	SetFontSize 33
+	SetBorderColor 255 255 255 255
+
+# Section: rarities
+Show
+	Rarity = Unique
+	SetFontSize 45
+	MinimapIcon 0 Yellow Triangle
+	PlayEffect Yellow
+	PlayAlertSound 1 300 
+# //$ $Tier1Sound
+
+#rare jewelry (while keeping recipe borders)
+Show
+	Class "Ring" "Amulet" "Belt"
+	Rarity = Rare
+	ItemLevel >= 75
+	SetFontSize 45
+	SetBorderColor 0 255 255 130
+	MinimapIcon 1 Yellow Triangle
+	PlayEffect Yellow
+	PlayAlertSound 2 300 
+# //$ $Tier2Sound
+
+Show
+	Class "Ring" "Amulet" "Belt"
+	Rarity = Rare
+	ItemLevel >= 60
+	SetFontSize 45
+	SetBorderColor 255 255 0 130
+	MinimapIcon 1 Yellow Triangle
+	PlayEffect Yellow
+	PlayAlertSound 2 300 
+# //$ $Tier2Sound
+
+# high itemlevel crafting bases
+Show
+	ItemLevel > 85
+	SetFontSize 18
+	SetBorderColor 255 0 255 255
+
+# identified rares 
+Show
+	Identified True
+	Rarity = Rare
+	SetFontSize 33
+
+#regal recipe rares
+Show
+	Rarity = Rare
+	ItemLevel >= 75
+	SetFontSize 33
+	SetBorderColor 0 255 255 130
+
+#chaos recipe rares
+Show
+	Rarity = Rare
+	ItemLevel >= 60
+	SetFontSize 33
+	SetBorderColor 255 255 0 130
+
+#all other rares
+Show
+	Rarity = Rare
+	SetFontSize 33
+
+# Section: RGB
+Show
+	SocketGroup RGB
+	SetFontSize 33
+	SetBorderColor 255 255 255 255
+
+# Section: Quality
+#perfect quality
+Show
+	Quality = 20
+	Rarity = Normal
+	SetFontSize 33
+	SetTextColor 255 255 255
+	SetBorderColor 255 255 255 255
+
+#Flasks - quality
+Show
+	Quality >= 1
+	Class "Flask"
+	SetFontSize 33
+
+# Section: Chance items
+
+# To show various items (for chancing, vendor recipes, or whatever), add
+# them to the following blocks.
+# One space between each item and use quotation marks as shown.
+
+#Any kind of Sacrificial Garb
+Show
+	BaseType "Sacrificial Garb"
+	SetFontSize 33
+
+#An example of High-level Harbinger bow base for crafting, any rarity (you can add your own bases for crafting)
+Show
+	BaseType "Hubris Circlet"
+	ItemLevel > 83
+	SetFontSize 45
+#    BaseType "Harbinger"
+
+#Show # My own one-off bases
+#    BaseType "Close Helmet"
+#    SetFontSize 49
+#    SetBorderColor 80 60 40 255
+
+#Skyforth and some other very popular chancing bases, uncomment PlayAlertSound line if you need to
+Show  # Popular chancing bases
+	BaseType "Sorcerer Boots" "Occultist's Vestment" "Leather Belt" 
+# //$ $Popular_Chancing_Bases
+	Rarity = Normal
+	SetFontSize 40
+	SetBorderColor 80 60 40 255
+#    PlayAlertSound 9 300
+# # //$ $ChancingSound
+
+#New item bases that drop only in certain maps and pretty rarely, uncomment PlayAlertSound line if you need to
+Show
+	BaseType "Stygian Vise" "Steel Ring" "Opal Ring" "Blue Pearl Amulet" "Marble Amulet" "Vanguard Belt" "Crystal Belt" "Bone Helmet" "Two-Toned Boots" "Spiked Gloves" "Gripped Gloves" "Fingerless Silk Gloves" 
+# //$ $Map_Specific_Chancing_Bases
+	SetFontSize 40
+	SetBorderColor 150 60 40 255
+#    PlayAlertSound 9 300
+# # //$ $ChancingSound
+
+# Want to chance some uniques for league challenges or want to get some specific unique by chancing it? Uncomment and list their bases here
+#Disabled Block Start
+
+#Show  # Personal Chancing Bases | Disabled
+#	BaseType "Elegant Sword" "Glorious Plate" "Sapphire Flask" "Gold Ring" "Ruby Ring" "Judgement Staff" "Gavel" "Paua Ring" "Occultist's Vestment" "Prophecy Wand" "Imperial Bow" 
+# //$ $Personal_Chancing_Bases
+#	Rarity = Normal
+#	SetFontSize 33
+#	SetBorderColor 0 0 255 255
+#	PlayAlertSound 9 300 
+# //$ $ChancingSound
+#Disabled Block End
+
+#Flasks - utility
+Show
+	Class "Utility Flask"
+	SetFontSize 33
+
+#Any small items (jewelry, anything small not listed somewhere else)
+Show
+	Height = 1
+	Width = 1
+	SetFontSize 33
+
+# Section: Small magic items for transmutes very early
+Show
+	Height < 3
+	Rarity = Magic
+	ItemLevel < 20
+	SetFontSize 33
+
+Show
+	Width < 2
+	Rarity = Magic
+	ItemLevel < 20
+	SetFontSize 33
+
+# Section: Quartz Sceptres while leveling to craft +1 to an element
+Show
+	BaseType "Quartz Sceptre" "Crystal Sceptre"
+	ItemLevel < 25
+	SetFontSize 33
+
+Show
+	LinkedSockets = 3
+	BaseType "Quartz Sceptre" "Crystal Sceptre"
+	ItemLevel < 45
+	SetFontSize 40
+	SetBorderColor 80 60 40 255
+
+# Section: hide obsolete flasks
+Hide
+	DropLevel <= 6
+	Class "Life Flask" "Mana Flask" "Hybrid Flask"
+	ItemLevel > 12
+	SetFontSize 33
+
+Hide
+	DropLevel <= 12
+	Class "Life Flask" "Mana Flask" "Hybrid Flask"
+	ItemLevel > 18
+	SetFontSize 33
+
+Hide
+	DropLevel <= 18
+	Class "Life Flask" "Mana Flask" "Hybrid Flask"
+	ItemLevel > 24
+	SetFontSize 33
+
+Hide
+	DropLevel <= 24
+	Class "Life Flask" "Mana Flask" "Hybrid Flask"
+	ItemLevel > 30
+	SetFontSize 33
+
+Hide
+	DropLevel <= 40
+	Class "Life Flask" "Mana Flask" "Hybrid Flask"
+	ItemLevel > 45
+	SetFontSize 33
+
+Hide
+	DropLevel < 45
+	Class "Life Flask" "Mana Flask" "Hybrid Flask"
+	ItemLevel > 50
+	SetFontSize 33
+
+Hide
+	DropLevel < 60
+	Class "Life Flask" "Mana Flask" "Hybrid Flask"
+	ItemLevel > 65
+	SetFontSize 33
+
+#only first level of maps shows normal flasks
+Hide
+	Class "Life Flask" "Mana Flask" "Hybrid Flask"
+	ItemLevel > 68
+	SetFontSize 33
+
+#show all flasks if not hidden above (at the very start of the game)
+Show
+	Class "Life Flask" "Mana Flask" "Hybrid Flask"
+	SetFontSize 33
+
+# Section: Exceptions to ItemLevel filtering for Linked Sockets
+Show
+	LinkedSockets = 4
+	DropLevel > 40
+	ItemLevel < 65
+	ItemLevel >= 50
+	SetFontSize 33
+
+Show
+	LinkedSockets = 4
+	DropLevel > 27
+	ItemLevel < 50
+	ItemLevel >= 40
+	SetFontSize 33
+
+Show
+	LinkedSockets = 4
+	DropLevel > 15
+	ItemLevel < 40
+	ItemLevel >= 30
+	SetFontSize 33
+
+Show
+	LinkedSockets = 4
+	ItemLevel < 30
+	ItemLevel >= 20
+	SetFontSize 33
+
+Show
+	LinkedSockets >= 3
+	ItemLevel < 20
+	SetFontSize 33
+
+#very early leveling - show everything
+Show
+	ItemLevel < 6
+	SetFontSize 33
+
+#Secion: support for Animated Weapons
+#Disabled Block Start
+
+#Show  # Animated Weapons - Magic Weapons - highlight 1x3 (small, for carrying) | Disabled
+#	Identified True
+#	Height = 3
+#	Width = 1
+#	Class "Claw" "Dagger" "Sword" "Axe" "Mace"
+#	Rarity = Magic
+#	SetFontSize 19
+#	SetTextColor 0 0 0 255
+#	SetBackgroundColor 255 255 255 255
+#	SetBorderColor 255 255 255 255
+#Disabled Block End
+
+#Disabled Block Start
+
+#Show  # Animated Weapons - Magic Weapons - highlight 2x2 (small, for carrying)| Disabled
+#	Identified True
+#	Height = 2
+#	Width = 2
+#	Class "Claw" "Dagger" "Sword" "Axe" "Mace"
+#	Rarity = Magic
+#	SetFontSize 19
+#	SetTextColor 0 0 0 255
+#	SetBackgroundColor 255 255 255 255
+#	SetBorderColor 255 255 255 255
+#Disabled Block End
+
+#Disabled Block Start
+
+#Show  # Animated Weapons - Magic Weapons - show all | Disabled
+#	Identified True
+#	Class "Claw" "Dagger" "Sword" "Axe" "Mace" "Staves" "Sceptres"
+#	Rarity = Magic
+#	SetFontSize 19
+#	SetBackgroundColor 255 255 255 255
+#	SetBorderColor 255 255 255 255
+#Disabled Block End
+
+#Warbands now drop their signature items identified, so they need to be shown
+Show
+	Identified True
+	Rarity >= Magic
+	SetFontSize 19
+
+#Disabled Block Start
+
+#Show  # Animated Weapons - Normal Weapons - highlight 1x3 (small, for carrying) | Disabled
+#	Height = 3
+#	Width = 1
+#	Class "Claw" "Dagger" "Sword" "Axe" "Mace"
+#	Rarity = Normal
+#	SetFontSize 19
+#	SetTextColor 0 0 0 255
+#	SetBackgroundColor 255 255 255 255
+#	SetBorderColor 255 255 255 255
+#Disabled Block End
+
+#Disabled Block Start
+
+#Show  #  Animated Weapons - Normal Weapons - highlight 2x2 (small, for carrying) | Disabled
+#	Height = 2
+#	Width = 2
+#	Class "Claw" "Dagger" "Sword" "Axe" "Mace"
+#	Rarity = Normal
+#	SetFontSize 19
+#	SetTextColor 0 0 0 255
+#	SetBackgroundColor 255 255 255 255
+#	SetBorderColor 255 255 255 255
+#Disabled Block End
+
+#Disabled Block Start
+
+#Show  #  Animated Weapons - Normal Weapons - show all | Disabled
+#	Class "Claw" "Dagger" "Sword" "Axe" "Mace" "Staves" "Sceptres"
+#	Rarity = Normal
+#	SetFontSize 19
+#	SetBackgroundColor 255 255 255 255
+#	SetBorderColor 255 255 255 255
+#Disabled Block End
+
+# Section: Removing all the rest (exceptions above are enough)
+Hide
+	Class "Claw" "Dagger" "Wand" "Sword" "Axe" "Mace" "Bow" "Staves" "Quivers" "Belt" "Gloves" "Boots" "Armours" "Helmets" "Shields" "Sceptres"
+	Rarity <= Magic
+	SetFontSize 33
+
+# Section: default - show as "error" (I missed something, or GGG added something new)
+Show
+	SetFontSize 45
+	SetBackgroundColor 255 0 0 255
+	SetBorderColor 0 0 255 255

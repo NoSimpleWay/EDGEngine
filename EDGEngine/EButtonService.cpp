@@ -909,6 +909,7 @@ void EButtonService::click_event()
 		StaticData::window_accept_cancel->update_localisation();
 
 		StaticData::window_filter_block->unsave_change = true;
+		
 	}
 }
 
@@ -989,6 +990,15 @@ void EButtonService::update_localisation()
 
 		if (button_type == Enums::ButtonType::BUTTON_REFRESH_LOOT_SIMULATOR)
 	{description_text = EString::localize_it("description_refresh_loot_simulator");}
+
+		if (button_type == Enums::ButtonType::BUTTON_CLONE_FILTER_BLOCK)
+	{description_text = EString::localize_it("description_clone_filter_block");}
+
+		if (button_type == Enums::ButtonType::BUTTON_ADD_SEPARATOR_TO_FILTER_BLOCK)
+	{description_text = EString::localize_it("description_add_separator");}
+
+		if (button_type == Enums::ButtonType::BUTTON_CUT_FILTER_BLOCK)
+	{description_text = EString::localize_it("description_cut_filter_block");}
 
 
 

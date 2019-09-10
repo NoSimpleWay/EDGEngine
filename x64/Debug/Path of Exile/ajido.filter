@@ -1,0 +1,1972 @@
+#Created due to DaD Editor (by NoSimpleWay)
+
+
+
+
+Show
+	Class "Hideout Doodads" "Microtransactions"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Red
+	BaseType "Simple Robe"
+	SocketGroup WWWWWW
+
+
+Show
+	LinkedSockets >= 5
+	SetFontSize 36
+	SetBorderColor 216 58 58 255
+	SetBackgroundColor 216 58 58 90
+	PlayAlertSoundPositional 1 175
+	PlayEffect Red
+
+
+Show
+	SetFontSize 45
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+	PlayAlertSoundPositional ShMirror 300
+	PlayEffect Brown
+	BaseType "Mirror of Kalandra"
+
+
+Show
+	SetFontSize 45
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+	PlayAlertSoundPositional ShExalted 300
+	PlayEffect Brown
+	BaseType "Exalted Orb"
+
+
+Show
+	SetFontSize 45
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	BaseType "Eternal Orb" "Albino Rhoa Feather" "Ancient Reliquary Key" "Mirror Shard" "Timeworn Reliquary Key"
+
+
+Show
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	BaseType "Divine Orb" "Exalted Shard"
+
+
+Show
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+	PlayAlertSoundPositional 1 175
+	BaseType "Karui Splinter" "Maraketh Splinter" "Eternal Empire Splinter" "Templar Splinter" "Vaal Splinter" "Karui Emblem" "Maraketh Emblem" "Templar Emblem" "Eternal Emblem" "Vaal Emblem" "Incubator"
+
+
+Show
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+	PlayAlertSoundPositional 1 175
+	BaseType "Chaos Orb" "Regal Orb" "Vaal Orb" "Orb of Regret" "Gemcutter's Prism" "Journeyman Cartographer's Sextant" "Master Cartographer's Sextant" "Apprentice Cartographer's Sextant" "Orb of Annulment"
+
+
+Show
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+	PlayAlertSoundPositional 1 175
+	BaseType "Vial of Dominance" "Vial of Summoning" "Vial of Awakening" "Vial of the Ritual" "Vial of Fate" "Vial of Consequence" "Vial of the Ghost" "Vial of Transcendence" "Vial of Sacrifice"
+
+
+Show
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+	PlayAlertSoundPositional 3 100
+	BaseType "Bestiary Orb" "Imprinted Bestiary Orb" "Thaumaturgical Net" "Strong Steel Net" "Reinforced Steel Net" "Simple Steel Net" "Strong Iron Net" "Reinforced Iron Net" "Simple Iron Net" "Strong Rope Net" "Reinforced Rope Net" "Simple Rope Net"
+
+
+Show
+	Class "Piece"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Class "Fishing"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 99 234 106 200
+	PlayAlertSoundPositional 1 200
+	PlayEffect Green
+
+
+Show
+	Rarity = Normal
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Sacrificial Garb"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Sacrificial Garb"
+
+
+Show
+	Class "Map Fragments"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 99 234 106 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Green
+	BaseType "Divine Vessel"
+
+
+Show
+	Class "Map Fragments"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	PlayAlertSoundPositional 1 175
+	PlayEffect White
+	BaseType "Scarab"
+
+
+Show
+	Rarity = Normal
+	Class "Map"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 255 255 255 190
+
+
+Show
+	Class "Map Fragments"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 255 255 255 190
+
+
+Show
+	Class "Misc Map Items"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 255 255 255 190
+
+
+Show
+	Class "Labyrinth Map Item"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 255 255 255 190
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Class "Labyrinth Item"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 255 255 255 190
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Class "Labyrinth Trinket"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 255 255 255 190
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Rarity = Magic
+	Class "Abyss Jewel"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 135 135 254 220
+
+
+Show
+	Rarity = Magic
+	Class "Map"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 135 135 254 220
+
+
+Show
+	Rarity = Rare
+	Class "Abyss Jewel"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Rarity = Rare
+	Class "Map" "Jewel"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Rarity = Unique
+	Class "Abyss Jewel"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Rarity = Unique
+	Class "Map" "Jewel"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Rarity = Normal
+	Class "Leaguestone"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 255 255 255 190
+
+
+Show
+	Rarity = Magic
+	Class "Leaguestone"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 135 135 254 220
+
+
+Show
+	Rarity = Rare
+	Class "Leaguestone"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Rarity = Unique
+	Class "Leaguestone"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 210 0 220 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Class "Gem"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 210 0 220 170
+
+
+Hide
+	BaseType "Scroll Fragment" "Alteration Shard" "Transmutation Shard" "The Scholar" "The Carrion Crow" "Thunderous Skies"
+
+
+Show
+	Class "Currency"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+
+
+Show
+	Class "Divination Card"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 99 234 106 200
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 99 234 106 200
+	PlayAlertSoundPositional 1 175
+	BaseType "Stone of Passage"
+
+
+Show
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 99 234 106 200
+	BaseType "Flashpowder Keg"
+
+
+Show
+	Class "Quest"
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 99 234 106 200
+
+
+Show
+	Class "Pantheon Soul"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 99 234 106 200
+
+
+Show
+	Rarity = Unique
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	BaseType "Talisman"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	BaseType "Talisman"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	BaseType "Talisman"
+
+
+Show
+	Rarity = Normal
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	PlayAlertSoundPositional 1 175
+	BaseType "Talisman"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	FracturedItem True
+
+
+Show
+	Rarity = Unique
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	SynthesisedItem True
+
+
+Show
+	Rarity = Rare
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	FracturedItem True
+
+
+Show
+	Rarity = Rare
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	SynthesisedItem True
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	FracturedItem True
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	SynthesisedItem True
+
+
+Show
+	Rarity = Normal
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	PlayAlertSoundPositional 1 175
+	FracturedItem True
+
+
+Show
+	Rarity = Normal
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	PlayAlertSoundPositional 1 175
+	SynthesisedItem True
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	ElderItem True
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	ShaperItem True
+
+
+Show
+	Rarity = Magic
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	ElderItem True
+
+
+Show
+	Rarity = Magic
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	ShaperItem True
+
+
+Show
+	Rarity = Normal
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	PlayAlertSoundPositional 1 175
+	ElderItem True
+
+
+Show
+	Rarity = Normal
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	PlayAlertSoundPositional 1 175
+	ShaperItem True
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Catarina's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Vorici's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Tora's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Guff's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Gravicius' Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Rin's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "of Janus' Veil"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "of Jorgin's Veil"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "of Aisling's Veil"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Leo's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Elreon's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Haku's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Vagan's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "It That Fled's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "Korell's Veiled"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "of the Veil"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "of Hillock's Veil"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "of Cameria's Veil"
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+	PlayEffect Brown
+	HasExplicitMod "of Riker's Veil"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Catarina's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Vorici's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Tora's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Guff's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Gravicius' Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Rin's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "of Janus' Veil"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "of Jorgin's Veil"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "of Aisling's Veil"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Leo's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Elreon's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Haku's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Vagan's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "It That Fled's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "Korell's Veiled"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "of the Veil"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "of Hillock's Veil"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "of Cameria's Veil"
+
+
+Show
+	Rarity = Rare
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	PlayEffect Yellow
+	HasExplicitMod "of Riker's Veil"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Catarina's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Vorici's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Tora's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Guff's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Gravicius' Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Rin's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "of Janus' Veil"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "of Jorgin's Veil"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "of Aisling's Veil"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Leo's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Elreon's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Haku's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Vagan's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "It That Fled's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "Korell's Veiled"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "of the Veil"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "of Hillock's Veil"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "of Cameria's Veil"
+
+
+Show
+	Rarity = Magic
+	SetFontSize 38
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	PlayEffect Blue
+	HasExplicitMod "of Riker's Veil"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Tacati's"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Citaqualotl's"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Matatl's"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Topotante's"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Xopec's"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Guatelitzi's"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "of Tacati"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "of Citaqualotl"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "of Matatl"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "of Puhuarte"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "of Guatelitzi"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Tacati's"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Citaqualotl's"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Matatl's"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Topotante's"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Xopec's"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "Guatelitzi's"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "of Tacati"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "of Citaqualotl"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "of Matatl"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "of Puhuarte"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	PlayAlertSoundPositional 1 175
+	HasExplicitMod "of Guatelitzi"
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+	PlayAlertSoundPositional 1 175
+	Sockets = 6
+
+
+Hide
+	Rarity = Rare
+	Class "Boots"
+	ItemLevel > 63
+	DropLevel < 44
+
+
+Hide
+	Rarity = Rare
+	Class "Gloves"
+	ItemLevel > 63
+	DropLevel < 57
+
+
+Hide
+	Rarity = Rare
+	Class "Claw" "Sword" "Axe" "Mace" "Shield" "Body Armour" "Bows" "Daggers" "Wands" "Helmet"
+	ItemLevel > 63
+	DropLevel < 62
+
+
+Hide
+	Rarity = Rare
+	Class "Claw" "Sword" "Axe" "Mace" "Shield" "Body Armour" "Bows" "Daggers" "Wands" "Quiver" "Staves" "Sceptre" "Helmet"
+	ItemLevel > 63
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 240
+	ItemLevel >= 75
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+	ItemLevel >= 60
+
+
+Show
+	Rarity = Unique
+	SetFontSize 36
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 175 95 28 200
+	PlayAlertSoundPositional 1 175
+
+
+Show
+	Rarity = Rare
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 254 254 118 180
+
+
+Show
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 170 158 129 255
+	PlayAlertSoundPositional 1 175
+	Sockets = 6
+
+
+Show
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 102 178 255 220
+	ItemLevel <= 67
+	Width = 2
+	Height = 2
+	SocketGroup RGB
+
+
+Show
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 102 178 255 220
+	ItemLevel <= 67
+	Width = 1
+	Height = 3
+	SocketGroup RGB
+
+
+Show
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 102 178 255 220
+	ItemLevel <= 67
+	SocketGroup RGB
+
+
+Show
+	LinkedSockets >= 3
+	Rarity <= Magic
+	Class "Armour" "Helm" "Glove" "Boot"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 134 89 145 190
+	ItemLevel <= 20
+
+
+Show
+	LinkedSockets = 4
+	Rarity <= Magic
+	Class "Armour" "Helm" "Glove" "Boot"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 134 89 145 190
+	ItemLevel <= 40
+	DropLevel >= 21
+
+
+Show
+	LinkedSockets = 4
+	Rarity <= Magic
+	Class "Armour" "Helm" "Glove" "Boot"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 134 89 145 190
+	ItemLevel <= 50
+	DropLevel >= 38
+
+
+Show
+	LinkedSockets = 4
+	Rarity <= Magic
+	Class "Armour" "Helm" "Glove" "Boot"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 134 89 145 190
+	ItemLevel <= 62
+	DropLevel >= 48
+
+
+Show
+	Rarity = Normal
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Blue Pearl Amulet"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Blue Pearl Amulet"
+
+
+Show
+	Rarity = Normal
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Crystal Belt"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Crystal Belt"
+
+
+Show
+	Rarity = Normal
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Marble Amulet"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Marble Amulet"
+
+
+Show
+	Rarity = Normal
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Opal Ring"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Opal Ring"
+
+
+Show
+	Rarity = Normal
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Steel Ring"
+
+
+Show
+	Rarity = Magic
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Steel Ring"
+
+
+Show
+	Rarity = Normal
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Medium"
+	ItemLevel < 9
+
+
+Show
+	Rarity = Magic
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Medium"
+	ItemLevel < 9
+
+
+Show
+	Rarity = Normal
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Large"
+	ItemLevel < 15
+
+
+Show
+	Rarity = Magic
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Large"
+	ItemLevel < 15
+
+
+Show
+	Rarity = Normal
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Greater"
+	ItemLevel < 18
+
+
+Show
+	Rarity = Magic
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Greater"
+	ItemLevel < 18
+
+
+Show
+	Rarity = Normal
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Grand"
+	ItemLevel < 24
+
+
+Show
+	Rarity = Magic
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Grand"
+	ItemLevel < 24
+
+
+Show
+	Rarity = Normal
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Giant"
+	ItemLevel < 30
+
+
+Show
+	Rarity = Magic
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Giant"
+	ItemLevel < 30
+
+
+Show
+	Rarity = Normal
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Colossal"
+	ItemLevel < 36
+
+
+Show
+	Rarity = Magic
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Colossal"
+	ItemLevel < 36
+
+
+Show
+	Rarity = Normal
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Sacred"
+	ItemLevel < 42
+
+
+Show
+	Rarity = Magic
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Sacred"
+	ItemLevel < 42
+
+
+Show
+	Rarity = Normal
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Hallowed"
+	ItemLevel < 55
+
+
+Show
+	Rarity = Magic
+	Class "Flasks"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Hallowed"
+	ItemLevel < 55
+
+
+Hide
+	BaseType "Sanctified Mana Flask" "Divine Mana Flask" "Eternal Mana Flask"
+
+
+Show
+	Rarity = Normal
+	Class "Flask"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Sanctified"
+	ItemLevel < 65
+
+
+Show
+	Rarity = Magic
+	Class "Flask"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Sanctified"
+	ItemLevel < 65
+
+
+Show
+	Rarity = Normal
+	Class "Flask"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	BaseType "Divine" "Eternal"
+	ItemLevel < 68
+
+
+Show
+	Rarity = Magic
+	Class "Flask"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	BaseType "Divine" "Eternal"
+	ItemLevel < 68
+
+
+Show
+	Rarity = Normal
+	Class "Utility"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	ItemLevel < 99
+
+
+Show
+	Rarity = Magic
+	Class "Utility"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	ItemLevel < 99
+
+
+Show
+	Rarity = Normal
+	Class "Armour" "Shield" "Helm" "Glove" "Boot" "Quiver"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	ItemLevel < 8
+	DropLevel < 8
+
+
+Show
+	Rarity = Magic
+	Class "Armour" "Shield" "Helm" "Glove" "Boot" "Quiver"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	ItemLevel < 20
+	DropLevel < 20
+
+
+Show
+	Rarity = Normal
+	Class "Wand" "Dagger" "Sceptre" "Stave"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	ItemLevel < 8
+	DropLevel < 8
+
+
+Show
+	Rarity = Magic
+	Class "Wand" "Dagger" "Sceptre" "Stave"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	ItemLevel < 20
+	DropLevel < 20
+
+
+Show
+	Rarity = Normal
+	Class "Claw" "Sword" "Axe" "Mace" "Bow"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+	ItemLevel < 8
+	DropLevel < 8
+
+
+Show
+	Rarity = Magic
+	Class "Claw" "Sword" "Axe" "Mace" "Bow"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+	ItemLevel < 20
+	DropLevel < 20
+
+
+Show
+	Rarity = Magic
+	Class "Rings" "Amulets" "Belts"
+	SetTextColor 1 1 1 255
+	SetBorderColor 99 234 106 255
+	SetBackgroundColor 135 135 254 220
+	ItemLevel >= 84
+
+
+Show
+	Rarity = Normal
+	Class "Rings" "Amulets" "Belts"
+	SetTextColor 1 1 1 255
+	SetBorderColor 99 234 106 255
+	SetBackgroundColor 255 255 255 190
+	ItemLevel >= 84
+
+
+Hide
+	Rarity <= Magic
+	BaseType "Turquoise Amulet" "Citrine Amulet" "Jade Amulet" "Amber Amulet" "Coral Amulet" "Gold Amulet" "Paua Amulet" "Agate Amulet" "Onyx Amulet" "Lapis Amulet"
+	ItemLevel >= 40
+
+
+Hide
+	Rarity <= Magic
+	BaseType "Amethyst Ring" "Coral Ring" "Diamond Ring" "Topaz Ring" "Sapphire Ring" "Ruby Ring" "Gold Ring" "Two-Stone Ring" "Iron Ring" "Unset Ring" "Moonstone Ring" "Paua Ring"
+	ItemLevel >= 40
+
+
+Hide
+	Rarity <= Magic
+	BaseType "Rustic Sash" "Cloth Belt" "Studded Belt" "Chain Belt" "Heavy Belt" "Leather Belt"
+
+
+Hide
+	Rarity = Magic
+	Class "Rings" "Amulets" "Belts"
+	ItemLevel >= 40
+
+
+Show
+	Rarity = Normal
+	Class "Rings" "Amulets" "Belts"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 255 255 255 190
+
+
+Show
+	Rarity = Magic
+	Class "Rings" "Amulets" "Belts"
+	SetTextColor 1 1 1 255
+	SetBorderColor 1 1 1 255
+	SetBackgroundColor 135 135 254 220
+
+
+Hide

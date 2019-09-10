@@ -1267,3 +1267,4 @@ item EN name	The Wolf's Legacy	icon path	Card	item RU name	Волчье насл
 item EN name	The Mountain	icon path	Card	item RU name	Гора	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	Oil	icon path	Oil	item RU name	Масло	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OIL					COST_GROUP	none
 item EN name	Paua Ring	icon path	Paua_Ring_inventory_icon	item RU name	Кольцо с ракушкой	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING					COST_GROUP	none
+item EN name	Convoking Wand	icon path	Convoking_Wand_inventory_icon	item RU name	Жезл призыва	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND					COST_GROUP	none

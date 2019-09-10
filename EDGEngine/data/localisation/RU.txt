@@ -126,3 +126,8 @@ text_cancel	Отменить
 window_text_unsaved_changes	ВНИМАНИЕ! Несохранённые данные! Если вы продолжите, вы потеряете их!
 base_data_text_blighted	Зараж. карта
 window_text_remove_separator	Вы уверены, что хотите удалить разделитель?
+description_clone_filter_block	Копировать блок
+description_add_separator	Добавить новый разделитель
+description_cut_filter_block	Переместить блок в новое место
+button_add_enchantment_list	Добавить зачарование
+description_add_enchantment_list	Добавить список зачарований

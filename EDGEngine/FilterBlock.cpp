@@ -1240,5 +1240,10 @@
 		base_filter_data_name.at(21) = EString::localize_it("base_data_text_blighted");
 
 		link_to_cancel_remove_button->update_localisation();
+
+		for (EButton* but : button_list)
+		{
+			but->update_localisation();
+		}
 	}
 

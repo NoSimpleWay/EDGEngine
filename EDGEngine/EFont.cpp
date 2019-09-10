@@ -479,6 +479,7 @@ float EFont::get_width(EFont* _font, string _text)
 		int target_symbol = (int)_text.at(sym);
 		if (target_symbol < 0) { target_symbol += 256; }
 
+		/*
 		if (_text.at(sym) == ' ')
 		{
 			temp_w += _font->advance[target_symbol];
@@ -490,6 +491,9 @@ float EFont::get_width(EFont* _font, string _text)
 			else
 			{temp_w += (_font->real_size_x[target_symbol]) * _font->scale;}
 		}
+		*/
+
+		temp_w += (_font->advance[target_symbol]) * _font->scale;
 	}
 
 	return temp_w;

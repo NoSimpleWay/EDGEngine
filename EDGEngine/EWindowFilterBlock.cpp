@@ -68,8 +68,6 @@
 		{
 			if (filter_block_list.at(i)->need_remove)
 			{
-				filter_block_list.erase(filter_block_list.begin() + i);
-
 				for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
 				{
 					if (sep->separator_start > filter_block_list.at(i)->order_id)
@@ -83,6 +81,7 @@
 					}
 				}
 
+				filter_block_list.erase(filter_block_list.begin() + i);
 				StaticData::window_filter_block->recalculate_filter_block_separator();
 
 				i--;
@@ -241,9 +240,9 @@
 							first_separator = true;
 
 							_batch->setcolor_alpha(EColorCollection::DARK_GRAY, 0.9f);
-							_batch->draw_simple_rect(f->x, EWindow::SCR_HEIGHT - yy - 25.0f, f->size_x, 20.0f);
+							_batch->draw_simple_rect(f->x, EWindow::SCR_HEIGHT - yy - 15.0f, f->size_x, 20.0f);
 							_batch->setcolor(EColorCollection::WHITE);
-							EFont::active_font->draw(_batch, "End of '" + sep->name + "' separator   (you can drag me!)", f->x + 16.0f, EWindow::SCR_HEIGHT - yy - 19.0f);
+							EFont::active_font->draw(_batch, "End of '" + sep->name + "' separator   (you can drag me!)", f->x + 16.0f, EWindow::SCR_HEIGHT - yy - 9.0f);
 
 							yy += 63.0f;
 						}
@@ -258,7 +257,7 @@
 							&&
 							(EControl::mouse_y >= f->y - 20.0f)
 							&&
-							(EControl::mouse_y <= f->y + f->size_y)
+							(EControl::mouse_y <= f->y + 3.0f)
 							&&
 							(!f->hided_by_separator)
 							&&
@@ -510,6 +509,8 @@
 			for (int i = sep_list->separator_start; i <= sep_list->separator_end; i++)
 			{
 				filter_block_list.at(i)->have_separator = true;
+				filter_block_list.at(i)->hided_by_separator = sep_list->is_collapsed;
+
 			}
 
 			filter_block_list.at(sep_list->separator_start)->contain_start_separator = true;

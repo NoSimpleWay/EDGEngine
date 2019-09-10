@@ -71,7 +71,13 @@ void EWindowAC::button_event(EButton* _b)
 			}
 
 			if (sep_id >= 0)
-			{StaticData::window_filter_block->separator_list.erase(StaticData::window_filter_block->separator_list.begin() + sep_id); 	}
+			{
+				StaticData::window_filter_block->separator_list.at(sep_id)->is_collapsed = false;
+
+				StaticData::window_filter_block->recalculate_filter_block_separator();
+
+				StaticData::window_filter_block->separator_list.erase(StaticData::window_filter_block->separator_list.begin() + sep_id);
+			}
 
 			master_separator->link_to_collapse->need_remove = true;
 			master_separator->link_to_remove->need_remove = true;

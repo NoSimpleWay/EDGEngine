@@ -126,3 +126,8 @@ text_cancel	Cancel
 window_text_unsaved_changes	WARNING! Unsaved changes! if you continue, all unsaved data lost.
 base_data_text_blighted	Blighted map
 window_text_remove_separator	You sure want delete separator?
+description_clone_filter_block	Clone filter block
+description_add_separator	Add new separator to filter block
+description_cut_filter_block	Move filter block to another place
+button_add_enchantment_list	Add enchantment list
+description_add_enchantment_list	Add new list of enchantments

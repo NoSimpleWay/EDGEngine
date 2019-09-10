@@ -439,6 +439,12 @@ void EButtonText::update_localisation()
 		description_text = EString::localize_it("description_add_explicit_group");
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_ENCHANTEMENT_LIST)
+	{
+		text = EString::localize_it("button_add_enchantment_list");
+		description_text = EString::localize_it("description_add_enchantment_list");
+	}
+
 	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_BASE_CLASS_LIST)
 	{
 		text = EString::localize_it("button_activate_class");
