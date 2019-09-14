@@ -567,6 +567,8 @@
 
 			EFont* target_font = EFont::active_font;
 
+			float th = EFont::get_height(target_font, description_text) + 5.0f;
+
 			if (force_font != NULL)
 			{
 				target_font = force_font;
@@ -581,12 +583,12 @@
 			target_font->align_x=Enums::PositionMode::LEFT;
 
 			_batch->setcolor(EColorCollection::WHITE);
-			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 38.0f, EFont::get_width(target_font, description_text)+3, 20, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 20.0f - th, EFont::get_width(target_font, description_text)+3, th, DefaultGabarite::gabarite_white);
 
 			_batch->setcolor(EColorCollection::BLACK);
 			target_font->draw(_batch, description_text, x_description, EControl::mouse_y - 34.0f);
 
-			_batch->draw_rama(x_description, EControl::mouse_y - 38.0f, EFont::get_width(target_font, description_text)+3, 20, 2, DefaultGabarite::gabarite_white);
+			_batch->draw_rama(x_description, EControl::mouse_y - 20.0f - th, EFont::get_width(target_font, description_text)+3, th, 2, DefaultGabarite::gabarite_white);
 		}
 	}
 

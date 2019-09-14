@@ -171,6 +171,14 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	std::vector<std::string> EString::localisation_key;
 	std::vector<std::string> EString::localisation_text;
 
+	std::vector <std::string> EString::notable_passives_name;
+	std::vector <std::string> EString::notable_passives_description;
+
+	std::vector <std::string> EString::notable_passives_ru_name;
+	std::vector <std::string> EString::notable_passives_ru_description;
+
+	std::vector <NotablePassive*> EString::notable_list;
+
 	std::string EString::game_color_name[6]
 	=
 	{

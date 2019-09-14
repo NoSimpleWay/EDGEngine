@@ -123,22 +123,24 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 
 	for (int sym = 0; sym < _s.length(); sym++)
 	{
+
 		float a = 0.5f;
 		int target_symbol = (int)_s.at(sym);
-		//target_symbol = 99;
-
 		if (target_symbol < 0) { target_symbol += 256; }
 
-		/*if (_s.at(sym) == ' ')
+		if ((target_symbol == '\\') && (sym + 2 < _s.length()) && ((int)_s.at(sym + 1) == 'n'))
 		{
-			x_adding += 11.0f * scale;
+			x_adding = 0.0f;
+			y_adding += 17.0f;
+
+			sym+=1;
 		}
-		else*/
+		else
 		{
 			_batcher->draw_rect_with_uv
 			(
 				_x + x_adding + offset_x[target_symbol] * scale,
-				_y - (real_size_y[target_symbol] - 15.0f + offset_y[target_symbol]) * scale,
+				_y - (real_size_y[target_symbol] - 15.0f + offset_y[target_symbol]) * scale - y_adding,
 
 				real_size_x[target_symbol] * scale,
 				real_size_y[target_symbol] * scale,
@@ -151,6 +153,7 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 			);
 
 			x_adding += (advance[target_symbol]) * scale;
+			//y_adding += 17.0 * scale;
 		}
 
 		
@@ -165,6 +168,7 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 void EFont::draw(Batcher* _batcher, string _s, float _x, float _y)
 {
 	x_adding = 0.0f;
+	y_adding = 0.0f;
 	final_draw(_batcher, _s, _x, _y);
 }
 
@@ -474,6 +478,7 @@ void EFont::draw(string _s, Batcher _batch)
 float EFont::get_width(EFont* _font, string _text)
 {
 	float temp_w = 0;
+	float max_w = 0;
 	for (int sym = 0; sym < _text.length(); sym++)
 	{
 		int target_symbol = (int)_text.at(sym);
@@ -492,11 +497,41 @@ float EFont::get_width(EFont* _font, string _text)
 			{temp_w += (_font->real_size_x[target_symbol]) * _font->scale;}
 		}
 		*/
-
 		temp_w += (_font->advance[target_symbol]) * _font->scale;
+		if ((target_symbol == '\\') && (sym + 2 < _text.length()) && ((int)_text.at(sym + 1) == 'n'))
+		{
+			if (temp_w > max_w)
+			{
+				max_w = temp_w;
+				temp_w = 0;
+			}
+		}
 	}
 
-	return temp_w;
+	if (temp_w > max_w)
+	{
+		max_w = temp_w;
+	}
+
+	return max_w;
+}
+
+float EFont::get_height(EFont* _font, string _text)
+{
+	float temp_h = 17.0f;
+	for (int sym = 0; sym < _text.length(); sym++)
+	{
+		int target_symbol = (int)_text.at(sym);
+		if (target_symbol < 0) { target_symbol += 256; }
+
+
+		if ((target_symbol == '\\') && (sym + 2 < _text.length()) && ((int)_text.at(sym + 1) == 'n'))
+		{
+			temp_h += 17.0f;
+		}
+	}
+
+	return temp_h;
 }
 
 void EFont::set_align_once(Enums::PositionMode _al)

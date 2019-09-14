@@ -41,10 +41,12 @@ public:
 	void draw(string _s, Batcher _batch);
 
 	static float get_width(EFont* _font, string _text);
+	static float get_height(EFont* _font, string _text);
 
 	void set_align_once(Enums::PositionMode _al);
 
 	float x_adding=0;
+	float y_adding=0;
 
 	static EFont* active_font;
 

@@ -4,6 +4,7 @@
 #include "BaseClass.h"
 #include "ProphecyList.h"
 #include "LabEnchantment.h"
+#include "NotablePassive.h"
 
 #include <string>
 
@@ -111,6 +112,14 @@ public:
 
 	static bool font_is_configued;
 	static bool localisation_is_configued;
+
+	static std::vector <std::string> notable_passives_name;
+	static std::vector <std::string> notable_passives_description;
+
+	static std::vector <std::string> notable_passives_ru_name;
+	static std::vector <std::string> notable_passives_ru_description;
+
+	static std::vector <NotablePassive*> notable_list;
 };
 
 class EFile

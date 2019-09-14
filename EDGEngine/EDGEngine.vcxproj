@@ -166,6 +166,7 @@
     <ClCompile Include="EGabarite.cpp" />
     <ClCompile Include="EInit.cpp" />
     <ClCompile Include="EWindowAC.cpp" />
+    <ClCompile Include="EWindowOil.cpp" />
     <ClCompile Include="FilterBlockSeparator.cpp" />
     <ClCompile Include="LabEnchantment.cpp" />
     <ClCompile Include="LabEnchantment.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="Helper.cpp" />
     <ClCompile Include="ItemList.cpp" />
     <ClCompile Include="LootItem.cpp" />
+    <ClCompile Include="NotablePassive.cpp" />
     <ClCompile Include="ProphecyList.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="EFont.cpp" />
@@ -236,6 +238,7 @@
     <ClInclude Include="EWindowFilterVisualEditor.h" />
     <ClInclude Include="EWindowLootSimulator.h" />
     <ClInclude Include="EWindowMain.cpp" />
+    <ClInclude Include="EWindowOil.h" />
     <ClInclude Include="EWindowSelectFont.h" />
     <ClInclude Include="EWindowSocketGroup.cpp" />
     <ClInclude Include="ExplicitGroup.h" />
@@ -246,6 +249,7 @@
     <ClInclude Include="ItemList.h" />
     <ClInclude Include="LootItem.h" />
     <ClInclude Include="LootPatternItem.h" />
+    <ClInclude Include="NotablePassive.h" />
     <ClInclude Include="ProphecyList.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="StaticData.h" />

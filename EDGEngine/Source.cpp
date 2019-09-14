@@ -86,9 +86,11 @@ void char_input_callback(GLFWwindow* window, unsigned int _char);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void load_texture(const char* _path, int _id);
 
-void put_texture_to_atlas(char const* _path,float _x, float _y);
+//void put_texture_to_atlas(char const* _path,float _x, float _y);
 void put_texture_to_atlas(char const* _path);
+void put_texture_to_atlas(char const* _path, float _x, float _y);
 void put_texture_to_atlas(char const* _path, EGabarite* _g);
+
 
 // settings
 int EWindow::SCR_WIDTH = 1700;
@@ -148,13 +150,14 @@ static GLFWwindow* window;
 #include <shlobj.h>
 
 #include "ConsoleColor.h"
-
+#include "EUtils.h"
 #include <irr/irrKlang.h>
 
-#include "EUtils.h"
+
 
 
 #include <experimental/filesystem>
+
 
 
 
@@ -193,6 +196,7 @@ EWindowSelectLocalisation* StaticData::window_select_localisation =NULL;
 EWindowLootSimulator* StaticData::window_loot_simulator =NULL;
 EWindowSelectFont* StaticData::window_select_font =NULL;
 EWindowAC* StaticData::window_accept_cancel;
+EWindowOil* StaticData::window_oil;
 //EWindowAcceptCancel* StaticData::window_accept_cancel =NULL;
 
 EWindowFilterBlock* StaticData::default_filter_block =NULL;
@@ -398,6 +402,161 @@ void load_prophecy_list()
 
 		EString::prophecy_list.push_back(just_created_prophecy);
 
+	}
+
+
+}
+
+void load_notable_passives()
+{
+	//ofstream myfile_open;
+	//myfile_open.open("gemor.txt");
+
+	ifstream myfile;
+	myfile.open("data/NotablePassivesList.txt");
+	string line;
+
+	string subdata;
+	string subdata_array[6];
+
+	int line_id = 0;
+	int data_order;
+
+	//cout << EMath::rgb::r << endl;
+
+
+	while ((getline(myfile, line)) && (line_id < 1000))
+	{
+
+		data_order = 0;
+		subdata = "";
+
+		for (int i = 0; i < line.length(); i++)
+		{
+
+
+			if (line.at(i) != '\t')
+			{
+				subdata += line.at(i);
+			}
+
+			if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+			{
+				subdata_array[data_order] = subdata;
+				subdata = "";
+				data_order++;
+			}
+
+		}
+
+		for (int i = 0; i < 2; i++)
+		{
+
+			if (subdata_array[i * 2] == "name")
+			{
+				EString::notable_passives_name.push_back(subdata_array[i * 2 + 1]);
+			}
+
+			if (subdata_array[i * 2] == "description")
+			{
+				EString::notable_passives_description.push_back(subdata_array[i * 2 + 1]);
+			}
+		}
+
+		line_id++;
+	}
+
+
+}
+
+void load_anointing()
+{
+	//ofstream myfile_open;
+	//myfile_open.open("gemor.txt");
+
+	ifstream myfile;
+	myfile.open("data/AnointingList.txt");
+	string line;
+
+	string subdata;
+	string subdata_array[20];
+
+	int line_id = 0;
+	int data_order;
+
+	//cout << EMath::rgb::r << endl;
+
+
+	while ((getline(myfile, line)) && (line_id < 1000))
+	{
+		NotablePassive* just_created_passive = new NotablePassive();
+
+		data_order = 0;
+		subdata = "";
+
+		for (int i = 0; i < line.length(); i++)
+		{
+
+
+			if (line.at(i) != '\t')
+			{
+				subdata += line.at(i);
+			}
+
+			if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+			{
+				subdata_array[data_order] = subdata;
+				subdata = "";
+				data_order++;
+			}
+
+		}
+
+		for (int i = 0; i < 9; i++)
+		{
+
+			if (subdata_array[i * 2] == "oil")
+			{
+				if (subdata_array[i * 2 + 1] == "Verdant Oil")		{ just_created_passive->need_verdant_oil++; }
+				if (subdata_array[i * 2 + 1] == "Sepia Oil")		{ just_created_passive->need_sepia_oil++; }
+				if (subdata_array[i * 2 + 1] == "Clear Oil")		{ just_created_passive->need_clear_oil++; }
+				if (subdata_array[i * 2 + 1] == "Amber Oil")		{ just_created_passive->need_amber_oil++; }
+				if (subdata_array[i * 2 + 1] == "Teal Oil")			{ just_created_passive->need_teal_oil++; }
+				if (subdata_array[i * 2 + 1] == "Azure Oil")		{ just_created_passive->need_azure_oil++; }
+				if (subdata_array[i * 2 + 1] == "Violet Oil")		{ just_created_passive->need_violet_oil++; }
+				if (subdata_array[i * 2 + 1] == "Crimson Oil")		{ just_created_passive->need_crimson_oil++; }
+				if (subdata_array[i * 2 + 1] == "Black Oil")		{ just_created_passive->need_black_oil++; }
+				if (subdata_array[i * 2 + 1] == "Opacelent Oil")	{ just_created_passive->need_opacelent_oil++; }
+				if (subdata_array[i * 2 + 1] == "Silver Oil")		{ just_created_passive->need_silver_oil++; }
+				if (subdata_array[i * 2 + 1] == "Golden Oil")		{ just_created_passive->need_golden_oil++; }
+			}
+
+			if (subdata_array[i * 2] == "name")
+			{
+				just_created_passive->passive_name = subdata_array[i * 2 + 1];
+				//name
+				for (int j = 0; j < EString::notable_passives_name.size(); j++)
+				{
+					if (EString::notable_passives_name.at(j) == subdata_array[i * 2 + 1])
+					{
+						just_created_passive->passive_description = EString::notable_passives_description.at(j);
+					}
+				}
+			}
+
+			if (subdata_array[i * 2] == "icon")
+			{
+				string aaa = "data/icon/passives/" + subdata_array[i * 2 + 1] + ".png";
+				put_texture_to_atlas(aaa.c_str(), 32, 32);
+
+				just_created_passive->gabarite = just_created_gabarite;
+			}
+
+
+		}
+
+		EString::notable_list.push_back(just_created_passive);
+		line_id++;
 	}
 
 
@@ -1815,6 +1974,8 @@ int main()
 	load_base_class();
 	load_enchantment();
 	load_prophecy_list();
+	load_notable_passives();
+
 	EString::load_localisation("EN");
 	
 	//##################################
@@ -1915,7 +2076,7 @@ int main()
 	put_texture_to_atlas("data/icon_hexagon.png");				DefaultGabarite::gabarite_minimap_icon[2] = just_created_gabarite;
 	put_texture_to_atlas("data/icon_square.png");				DefaultGabarite::gabarite_minimap_icon[3] = just_created_gabarite;
 	put_texture_to_atlas("data/icon_star.png");					DefaultGabarite::gabarite_minimap_icon[4] = just_created_gabarite;
-	put_texture_to_atlas("data/icon_circle.png");				DefaultGabarite::gabarite_minimap_icon[5] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_triangle.png");				DefaultGabarite::gabarite_minimap_icon[5] = just_created_gabarite;
 
 
 	put_texture_to_atlas("data/button_load.png");				DefaultGabarite::gabarite_button_load = just_created_gabarite;
@@ -1960,7 +2121,7 @@ int main()
 	put_texture_to_atlas("data/gray_separator.png");			DefaultGabarite::gabarite_button_separator = just_created_gabarite;
 	put_texture_to_atlas("data/gray_collapse.png");				DefaultGabarite::gabarite_button_collapse = just_created_gabarite;
 
-	
+	load_anointing();
 
 	StaticData::window_filter_block = new EWindowFilterBlock(0, false);
 	StaticData::window_filter_block->name = "Filter block";
@@ -2025,34 +2186,39 @@ int main()
 	EControl::window_list.push_back(StaticData::window_filter_block_search);
 	StaticData::window_filter_block_search->is_active = true;
 
-	StaticData::window_main = new EWindowMain(7, false);
+	StaticData::window_oil = new EWindowOil(7, true);
+	StaticData::window_oil->name = "Oils";
+	EControl::window_list.push_back(StaticData::window_oil);
+	StaticData::window_oil->is_active = true;
+
+	StaticData::window_main = new EWindowMain(8, false);
 	StaticData::window_main->name = "Main window";
 	EControl::window_list.push_back(StaticData::window_main);
 	StaticData::window_main->is_active = true;
 
-	StaticData::window_loading_screen = new EWindowLoadingScreen(8, false);
+	StaticData::window_loading_screen = new EWindowLoadingScreen(9, false);
 	StaticData::window_loading_screen->name = "Loading screen";
 	StaticData::window_loading_screen->item_count = ItemList::item_list.size();
 	EControl::window_list.push_back(StaticData::window_loading_screen);
 	StaticData::window_loading_screen->is_active = true;
 
-	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(9, true);
+	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(10, true);
 	StaticData::window_new_loot_filter->name = "New loot-filter";
 	EControl::window_list.push_back(StaticData::window_new_loot_filter);
 	StaticData::window_new_loot_filter->is_active = false;
 
-	StaticData::window_select_localisation = new EWindowSelectLocalisation(10, false);
+	StaticData::window_select_localisation = new EWindowSelectLocalisation(11, false);
 	StaticData::window_select_localisation->name = "Select language";
 	EControl::window_list.push_back(StaticData::window_select_localisation);
 	StaticData::window_select_localisation->is_active = false;
 
 
-	StaticData::window_select_font = new EWindowSelectFont(11, true);
+	StaticData::window_select_font = new EWindowSelectFont(12, true);
 	StaticData::window_select_font->name = "Select font";
 	EControl::window_list.push_back(StaticData::window_select_font);
 	StaticData::window_select_font->is_active = false;
 
-	StaticData::window_accept_cancel = new EWindowAC(12, true);
+	StaticData::window_accept_cancel = new EWindowAC(13, true);
 	StaticData::window_accept_cancel->name = "Accept/cancel";
 	EControl::window_list.push_back(StaticData::window_accept_cancel);
 	StaticData::window_accept_cancel->is_active = false;
@@ -2439,37 +2605,29 @@ void fill_collision(int _x, int _y, int _size_x, int _size_y,int _siz, int _dim)
 	}
 }
 
-void put_texture_to_atlas(char const* _path, float _x, float _y)
+void put_resized_texture_to_atlas(char const* _path, float _x, float _y)
 {
-	load_texture(_path, 0);
 
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 1, 0);
-	//fill_collision(_x, _y, last_texture_w, last_texture_h, 2, 1);
-	//fill_collision(_x, _y, last_texture_w, last_texture_h, 4, 2);
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 8, 1);
-	//fill_collision(_x, _y, last_texture_w, last_texture_h, 16, 4);
-	//fill_collision(_x, _y, last_texture_w, last_texture_h, 32, 5);
-	fill_collision(_x, _y, last_texture_w, last_texture_h, 64, 2);
-	//fill_collision(_x, _y, last_texture_w, last_texture_h, 128, 7);
-	//fill_collision(_x, _y, last_texture_w, last_texture_h, 256, 8);
-
-	batch->reset();
-	batch->draw_rect(_x, _y, last_texture_w, last_texture_h);
-	batch->reinit();
-	batch->draw_call();
-
-	just_created_gabarite = new EGabarite(_path, _x / 4096.0f, _y / 4096.0f, last_texture_w / 4096.0f, last_texture_h / 4096.0f);
 }
+
 void put_texture_to_atlas(char const* _path, EGabarite* _g)
 {
-	put_texture_to_atlas("data/button_sound.png");
+	put_texture_to_atlas("data/button_sound.png", 0, 0);
 	
 	_g = just_created_gabarite;
 }
 
 void put_texture_to_atlas(char const* _path)
 {
+	put_texture_to_atlas(_path, 0, 0);
+}
+
+void put_texture_to_atlas(char const* _path, float _x, float _y)
+{
 	load_texture(_path, 0);
+
+	if (_x > 0) { last_texture_w = _x; }
+	if (_y > 0) { last_texture_h = _y; }
 
 	for (int j = 0; j < 4096; j+= last_texture_w / 8 + 1)
 	for (int i = 0; i < 4096; i+= last_texture_h / 8 + 1)

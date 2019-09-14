@@ -29,8 +29,6 @@
 		is_active = true;
 
 		bg_color->set(0.8f, 0.9f, 1.0f, 0.8f);
-
-
 	}
 
 	void EWindowFilterBlockSearch::update(float _d)
@@ -43,6 +41,8 @@
 	{
 		//StaticData::window_filter_block->is_active = false;
 		
+		StaticData::window_filter_block->recalculate_filter_block_separator();
+
 		EControl::block_scroll = 0;
 
 		if (_b->text != "")
@@ -56,25 +56,25 @@
 				for (EButton* b : fb->filter_block_items_button_list)
 				{
 					if
-						(
+					(
 						(b->data_id >= 0)
-							&&
-							(
-							(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-								||
-								(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name_ru, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-								)
-							)
+						&&
+						(
+						(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+						||
+						(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name_ru, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+						)
+					)
 					{
 						detection = true;
 					}
 
 					if
-						(
+					(
 						(b->data_id < 0)
-							&&
-							(EString::to_lower(b->data_string, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-							)
+						&&
+						(EString::to_lower(b->data_string, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+					)
 					{
 						detection = true;
 					}
@@ -111,7 +111,82 @@
 					}
 				}
 
+				if
+					(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_LINKS))
+						&&
+						(
+						(EString::to_lower("6l").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+							||
+							(EString::to_lower("sixlink").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+							||
+							(EString::to_lower("6л").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+							||
+							(EString::to_lower("шестилинк").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+							)
+						&&
+						(
+						((fb->links_condition == "=") && (fb->links_count == 6))
+							||
+							((fb->links_condition == ">") && (fb->links_count < 6))
+							||
+							((fb->links_condition == ">=") && (fb->links_count <= 6))
+							||
+							((fb->links_condition == "<") && (fb->links_count > 7))
+							||
+							((fb->links_condition == "<=") && (fb->links_count >= 6))
+							)
+						)
+				{
+					detection = true;
+				}
+
+				if
+					(
+					(
+						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM))
+						||
+						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_MAP))
+						)
+						&&
+						(
+						(EString::to_lower("shaper").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+							||
+							(EString::to_lower("шейпер").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+							||
+							(EString::to_lower("создатель").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+							)
+						)
+				{
+					detection = true;
+				}
+
+				if
+					(
+					(
+						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_ITEM))
+						||
+						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_MAP))
+						)
+						&&
+						(
+						(EString::to_lower("elder").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+							||
+							(EString::to_lower("древний").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+							)
+						)
+				{
+					detection = true;
+				}
+
+
+
 				fb->is_deactivated = !detection;
+
+				if (detection)
+				{
+					fb->hided_by_separator = false;
+				}
 			}
 		}
 		else
@@ -119,6 +194,8 @@
 			for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
 			{fb->is_deactivated = false;}
 		}
+
+		
 
 	}
 

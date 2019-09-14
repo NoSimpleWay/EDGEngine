@@ -186,6 +186,12 @@
     <ClCompile Include="FilterBlockSeparator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NotablePassive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EWindowOil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -348,6 +354,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FilterBlockSeparator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NotablePassive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EWindowOil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -14,6 +14,7 @@
 #include "EWindowLootSimulator.h"
 #include "EWindowSelectFont.h"
 #include "EWindowAC.h"
+#include "EWindowOil.h"
 //#include "EWindowAcceptCancel.h"
 
 
@@ -36,6 +37,7 @@ public:
 	static EWindowLootSimulator* window_loot_simulator;
 	static EWindowSelectFont* window_select_font;
 	static EWindowAC* window_accept_cancel;
+	static EWindowOil* window_oil;
 	//static EWindowAcceptCancel* window_accept_cancel;
 
 	static EWindowFilterBlock* default_filter_block;

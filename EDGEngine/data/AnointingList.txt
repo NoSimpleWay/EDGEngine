@@ -1,444 +1,364 @@
-Clear Oil	Clear Oil	Clear Oil	Alacrity	Alacrity
-Clear Oil	Clear Oil	Sepia Oil	Beef	Beef
-Clear Oil	Sepia Oil	Sepia Oil	Agility	Alacrity
-Clear Oil	Clear Oil	Amber Oil	Wisdom of the Glade	Wisdom of the Glade
-Sepia Oil	Sepia Oil	Sepia Oil	Expertise	Alacrity
-Clear Oil	Sepia Oil	Amber Oil	Thief's Craft	Wisdom of the Glade
-Clear Oil	Clear Oil	Verdant Oil	Prowess	Beef
-Sepia Oil	Sepia Oil	Amber Oil	Proficiency	Alacrity
-Clear Oil	Sepia Oil	Verdant Oil	Ancestral Knowledge	Wisdom of the Glade
-Clear Oil	Amber Oil	Amber Oil	Might	Beef
-Sepia Oil	Sepia Oil	Verdant Oil	Fending	Fending
-Sepia Oil	Amber Oil	Amber Oil	Hard Knocks	Wisdom of the Glade
-Clear Oil	Clear Oil	Teal Oil	Physique	Beef
-Clear Oil	Amber Oil	Verdant Oil	Arcane Vision	Arcane Vision
-Clear Oil	Sepia Oil	Teal Oil	Diamond Skin	Soul of Steel
-Sepia Oil	Amber Oil	Verdant Oil	Path of the Savant	Path of the Savant
-Amber Oil	Amber Oil	Amber Oil	Path of the Warrior	Path of the Warrior
-Clear Oil	Verdant Oil	Verdant Oil	Path of the Hunter	Path of the Hunter
-Sepia Oil	Sepia Oil	Teal Oil	Righteous Decree	Righteous Decree
-Clear Oil	Amber Oil	Teal Oil	Ironwood	Ironwood
-Sepia Oil	Verdant Oil	Verdant Oil	Fusillade	Fusillade
-Amber Oil	Amber Oil	Verdant Oil	Quickstep	Quickstep
-Sepia Oil	Amber Oil	Teal Oil	Weathered Hunter	Weathered Hunter
-Clear Oil	Clear Oil	Azure Oil	Cloth and Chain	Cloth and Chain
-Clear Oil	Verdant Oil	Teal Oil	Solidity	Solidity
-Amber Oil	Verdant Oil	Verdant Oil	Aspect of the Eagle	Aspect of the Eagle
-Clear Oil	Sepia Oil	Azure Oil	Dynamo	Dynamo
-Sepia Oil	Verdant Oil	Teal Oil	Decay Ward	Decay Ward
-Amber Oil	Amber Oil	Teal Oil	Thrill Seeker	Thrill Seeker
-Sepia Oil	Sepia Oil	Azure Oil	Aspect of the Panther	Aspect of the Panther
-Verdant Oil	Verdant Oil	Verdant Oil	Spirit Void	Spirit Void
-Clear Oil	Amber Oil	Azure Oil	Poisonous Fangs	Poisonous Fangs
-Clear Oil	Teal Oil	Teal Oil	Saboteur	Saboteur
-Amber Oil	Verdant Oil	Teal Oil	Depth Perception	Depth Perception
-Sepia Oil	Amber Oil	Azure Oil	Elemental Focus	Elemental Focus
-Sepia Oil	Teal Oil	Teal Oil	Deep Wisdom	Deep Wisdom
-Clear Oil	Verdant Oil	Azure Oil	Martial Experience	Martial Experience
-Verdant Oil	Verdant Oil	Teal Oil	Fury Bolts	Fury Bolts
-Sepia Oil	Verdant Oil	Azure Oil	Battle Rouse	Battle Rouse
-Amber Oil	Amber Oil	Azure Oil	Hasty Reconstruction	Hasty Reconstruction
-Amber Oil	Teal Oil	Teal Oil	Sanctuary
-Clear Oil	Clear Oil	Violet Oil	Practical Application
-Clear Oil	Teal Oil	Azure Oil	Words of Glory
-Amber Oil	Verdant Oil	Azure Oil	Executioner
-Verdant Oil	Teal Oil	Teal Oil	Mind Drinker
-Clear Oil	Sepia Oil	Violet Oil	Freedom of Movement
-Sepia Oil	Teal Oil	Azure Oil	Dreamer
-Sepia Oil	Sepia Oil	Violet Oil	Aligned Spirits
-Verdant Oil	Verdant Oil	Azure Oil	Arsonist
-Clear Oil	Amber Oil	Violet Oil	Weapon Artistry
-Amber Oil	Teal Oil	Azure Oil	Unpredictable Offensive
-Teal Oil	Teal Oil	Teal Oil	Mystic Bulwark
-Sepia Oil	Amber Oil	Violet Oil	Shamanistic Fury
-Clear Oil	Verdant Oil	Violet Oil	Deep Thoughts
-Clear Oil	Azure Oil	Azure Oil	Prodigal Perfection
-Verdant Oil	Teal Oil	Azure Oil	Sentinel
-Sepia Oil	Verdant Oil	Violet Oil	Heavy Draw
-Sepia Oil	Azure Oil	Azure Oil	Claws of the Magpie
-Amber Oil	Amber Oil	Violet Oil	Harvester of Foes
-Clear Oil	Teal Oil	Violet Oil	Splitting Strikes
-Amber Oil	Verdant Oil	Violet Oil	Silent Steps
-Amber Oil	Azure Oil	Azure Oil	Explosive Runes
-Teal Oil	Teal Oil	Azure Oil	Steelwood Stance
-Sepia Oil	Teal Oil	Violet Oil	Efficient Explosives
-Verdant Oil	Verdant Oil	Violet Oil	Totemic Zeal
-Verdant Oil	Azure Oil	Azure Oil	Bone Breaker
-Amber Oil	Teal Oil	Violet Oil	Gemini
-Clear Oil	Azure Oil	Violet Oil	Expeditious Munitions
-Verdant Oil	Teal Oil	Violet Oil	Razor's Edge
-Teal Oil	Azure Oil	Azure Oil	Red Storm
-Sepia Oil	Azure Oil	Violet Oil	Honed Edge
-Amber Oil	Azure Oil	Violet Oil	Kinetic Impacts
-Teal Oil	Teal Oil	Violet Oil	Elder Power
-Clear Oil	Clear Oil	Crimson Oil	Successive Detonations
-Verdant Oil	Azure Oil	Violet Oil	Forceful Skewering
-Azure Oil	Azure Oil	Azure Oil	Slaughter
-Clear Oil	Sepia Oil	Crimson Oil	Galvanic Hammer
-Sepia Oil	Sepia Oil	Crimson Oil	Magmatic Strikes
-Clear Oil	Amber Oil	Crimson Oil	Toxic Strikes
-Clear Oil	Violet Oil	Violet Oil	Pain Forger
-Teal Oil	Azure Oil	Violet Oil	Sacrifice
-Sepia Oil	Amber Oil	Crimson Oil	Entropy
-Sepia Oil	Violet Oil	Violet Oil	Grave Intentions
-Clear Oil	Verdant Oil	Crimson Oil	Blast Waves
-Sepia Oil	Verdant Oil	Crimson Oil	Master Fletcher
-Amber Oil	Amber Oil	Crimson Oil	Bladedancer
-Amber Oil	Violet Oil	Violet Oil	Claws of the Pride
-Clear Oil	Teal Oil	Crimson Oil	Ophidian Aim
-Amber Oil	Verdant Oil	Crimson Oil	Primal Manifestation
-Verdant Oil	Violet Oil	Violet Oil	Spinecruncher
-Azure Oil	Azure Oil	Violet Oil	Smashing Strikes
-Sepia Oil	Teal Oil	Crimson Oil	Utmost Swiftness
-Verdant Oil	Verdant Oil	Crimson Oil	Farsight
-Amber Oil	Teal Oil	Crimson Oil	Whirling Barrier
-Teal Oil	Violet Oil	Violet Oil	Unstable Munitions
-Clear Oil	Azure Oil	Crimson Oil	From the Shadows
-Verdant Oil	Teal Oil	Crimson Oil	Hatchet Master
-Sepia Oil	Azure Oil	Crimson Oil	Clever Construction
-Amber Oil	Azure Oil	Crimson Oil	Utmost Might
-Teal Oil	Teal Oil	Crimson Oil	Wandslinger
-Azure Oil	Violet Oil	Violet Oil	Bludgeon Blitz
-Verdant Oil	Azure Oil	Crimson Oil	Flash Freeze
-Clear Oil	Violet Oil	Crimson Oil	Flaying
-Teal Oil	Azure Oil	Crimson Oil	Fearsome Force
-Sepia Oil	Violet Oil	Crimson Oil	Redemption
-Amber Oil	Violet Oil	Crimson Oil	Utmost Intellect
-Violet Oil	Violet Oil	Violet Oil	Enigmatic Defence
-Verdant Oil	Violet Oil	Crimson Oil	Butchery
-Azure Oil	Azure Oil	Crimson Oil	Holy Dominion
-Teal Oil	Violet Oil	Crimson Oil	Static Blows
-Azure Oil	Violet Oil	Crimson Oil	Light Eater
-Clear Oil	Crimson Oil	Crimson Oil	Shaper
-Clear Oil	Clear Oil	Black Oil	Annihilation
-Sepia Oil	Crimson Oil	Crimson Oil	Ash, Frost and Storm
-Clear Oil	Sepia Oil	Black Oil	Testudo
-Sepia Oil	Sepia Oil	Black Oil	Lightning Walker
-Amber Oil	Crimson Oil	Crimson Oil	Nimbleness
-Violet Oil	Violet Oil	Crimson Oil	Aspect of the Lynx
-Clear Oil	Amber Oil	Black Oil	Exceptional Performance
-Sepia Oil	Amber Oil	Black Oil	Cleaving
-Verdant Oil	Crimson Oil	Crimson Oil	Arcane Focus
-Clear Oil	Verdant Oil	Black Oil	Combat Stamina
-Sepia Oil	Verdant Oil	Black Oil	Will of Blades
-Amber Oil	Amber Oil	Black Oil	Divine Fury
-Teal Oil	Crimson Oil	Crimson Oil	Heartseeker
-Clear Oil	Teal Oil	Black Oil	Arcane Guarding
-Amber Oil	Verdant Oil	Black Oil	Reflexes
-Sepia Oil	Teal Oil	Black Oil	Divine Judgement
-Verdant Oil	Verdant Oil	Black Oil	Trickery
-Amber Oil	Teal Oil	Black Oil	Defiance
-Azure Oil	Crimson Oil	Crimson Oil	Harrier
-Clear Oil	Azure Oil	Black Oil	Twin Terrors
-Verdant Oil	Teal Oil	Black Oil	Enigmatic Reach
-Sepia Oil	Azure Oil	Black Oil	Snowforged
-Amber Oil	Azure Oil	Black Oil	Ambidexterity
-Teal Oil	Teal Oil	Black Oil	Warrior's Blood
-Verdant Oil	Azure Oil	Black Oil	Command of the Elements
-Violet Oil	Crimson Oil	Crimson Oil	Light of Divinity
-Clear Oil	Violet Oil	Black Oil	Acuity
-Teal Oil	Azure Oil	Black Oil	Finesse
-Sepia Oil	Violet Oil	Black Oil	Mental Rapidity
-Amber Oil	Violet Oil	Black Oil	Revelry
-Verdant Oil	Violet Oil	Black Oil	Aggressive Bastion
-Azure Oil	Azure Oil	Black Oil	Sanctity
-Teal Oil	Violet Oil	Black Oil	Essence Sap
-Azure Oil	Violet Oil	Black Oil	Adamant
-Crimson Oil	Crimson Oil	Crimson Oil	Coldhearted Calculation
-Clear Oil	Crimson Oil	Black Oil	Arcanist's Dominion
-Clear Oil	Clear Oil	Opalescent Oil	Eagle Eye
-Sepia Oil	Crimson Oil	Black Oil	Storm Weaver
-Clear Oil	Sepia Oil	Opalescent Oil	Berserking
-Sepia Oil	Sepia Oil	Opalescent Oil	Potency of Will
-Amber Oil	Crimson Oil	Black Oil	Coordination
-Violet Oil	Violet Oil	Black Oil	Graceful Assault
-Clear Oil	Amber Oil	Opalescent Oil	Brinkmanship
-Sepia Oil	Amber Oil	Opalescent Oil	Fleetfoot
-Verdant Oil	Crimson Oil	Black Oil	Precise Interception
-Clear Oil	Verdant Oil	Opalescent Oil	Blast Radius
-Sepia Oil	Verdant Oil	Opalescent Oil	Destroyer
-Amber Oil	Amber Oil	Opalescent Oil	Divine Wrath
-Teal Oil	Crimson Oil	Black Oil	True Strike
-Clear Oil	Teal Oil	Opalescent Oil	Wrecking Ball
-Amber Oil	Verdant Oil	Opalescent Oil	Titanic Impacts
-Sepia Oil	Teal Oil	Opalescent Oil	Deflection
-Verdant Oil	Verdant Oil	Opalescent Oil	Versatility
-Amber Oil	Teal Oil	Opalescent Oil	Juggernaut
-Azure Oil	Crimson Oil	Black Oil	Dervish
-Clear Oil	Azure Oil	Opalescent Oil	Strong Arm
-Verdant Oil	Teal Oil	Opalescent Oil	Sleight of Hand
-Sepia Oil	Azure Oil	Opalescent Oil	Battle Cry
-Amber Oil	Azure Oil	Opalescent Oil	Amplify
-Teal Oil	Teal Oil	Opalescent Oil	Dazzling Strikes
-Verdant Oil	Azure Oil	Opalescent Oil	Explosive Impact
-Violet Oil	Crimson Oil	Black Oil	Fire Walker
-Clear Oil	Violet Oil	Opalescent Oil	Blade Barrier
-Teal Oil	Azure Oil	Opalescent Oil	Dark Arts
-Sepia Oil	Violet Oil	Opalescent Oil	Melding
-Amber Oil	Violet Oil	Opalescent Oil	Throatseeker
-Verdant Oil	Violet Oil	Opalescent Oil	Frost Walker
-Azure Oil	Azure Oil	Opalescent Oil	Steadfast
-Teal Oil	Violet Oil	Opalescent Oil	Mysticism
-Azure Oil	Violet Oil	Opalescent Oil	Ballistic Mastery
-Crimson Oil	Crimson Oil	Black Oil	Essence Extraction
-Clear Oil	Crimson Oil	Opalescent Oil	Retribution
-Clear Oil	Black Oil	Black Oil	Lethal Assault
-Sepia Oil	Crimson Oil	Opalescent Oil	Soul Thief
-Sepia Oil	Black Oil	Black Oil	Sanctum of Thought
-Amber Oil	Crimson Oil	Opalescent Oil	Command of Steel
-Amber Oil	Black Oil	Black Oil	Precision
-Violet Oil	Violet Oil	Opalescent Oil	Hired Killer
-Verdant Oil	Crimson Oil	Opalescent Oil	Retaliation
-Verdant Oil	Black Oil	Black Oil	Righteous Army
-Teal Oil	Crimson Oil	Opalescent Oil	Longshot
-Teal Oil	Black Oil	Black Oil	Ribcage Crusher
-Azure Oil	Crimson Oil	Opalescent Oil	Dire Torment
-Azure Oil	Black Oil	Black Oil	Gravepact
-Clear Oil	Clear Oil	Silver Oil	Arcing Blows
-Violet Oil	Crimson Oil	Opalescent Oil	Disciple of the Unyielding
-Violet Oil	Black Oil	Black Oil	Disintegration
-Clear Oil	Sepia Oil	Silver Oil	Blade Master
-Sepia Oil	Sepia Oil	Silver Oil	Fangs of Frost
-Clear Oil	Amber Oil	Silver Oil	Counterweight
-Sepia Oil	Amber Oil	Silver Oil	Destructive Apparatus
-Clear Oil	Verdant Oil	Silver Oil	Hunter's Gambit
-Sepia Oil	Verdant Oil	Silver Oil	Soul Raker
-Amber Oil	Amber Oil	Silver Oil	Dirty Techniques
-Clear Oil	Teal Oil	Silver Oil	Backstabbing
-Amber Oil	Verdant Oil	Silver Oil	Tempest Blast
-Sepia Oil	Teal Oil	Silver Oil	Winter Spirit
-Verdant Oil	Verdant Oil	Silver Oil	High Explosives
-Amber Oil	Teal Oil	Silver Oil	Holy Fire
-Clear Oil	Azure Oil	Silver Oil	Shaman's Dominion
-Verdant Oil	Teal Oil	Silver Oil	Method to the Madness
-Sepia Oil	Azure Oil	Silver Oil	Blade of Cunning
-Amber Oil	Azure Oil	Silver Oil	Searing Heat
-Teal Oil	Teal Oil	Silver Oil	Devastating Devices
-Verdant Oil	Azure Oil	Silver Oil	Forces of Nature
-Crimson Oil	Crimson Oil	Opalescent Oil	Singular Focus
-Crimson Oil	Black Oil	Black Oil	Corruption
-Clear Oil	Black Oil	Opalescent Oil	Skull Cracking
-Sepia Oil	Black Oil	Opalescent Oil	Adder's Touch
-Clear Oil	Violet Oil	Silver Oil	Fatal Toxins
-Teal Oil	Azure Oil	Silver Oil	Gladiator's Perseverance
-Sepia Oil	Violet Oil	Silver Oil	Lethality
-Amber Oil	Black Oil	Opalescent Oil	Feller of Foes
-Amber Oil	Violet Oil	Silver Oil	Lucidity
-Verdant Oil	Black Oil	Opalescent Oil	Blacksmith's Clout
-Verdant Oil	Violet Oil	Silver Oil	King of the Hill
-Azure Oil	Azure Oil	Silver Oil	Bloodletting
-Teal Oil	Black Oil	Opalescent Oil	Master Sapper
-Teal Oil	Violet Oil	Silver Oil	Charging Offensive
-Azure Oil	Black Oil	Opalescent Oil	Serpent Stance
-Azure Oil	Violet Oil	Silver Oil	Primeval Force
-Clear Oil	Crimson Oil	Silver Oil	Death Attunement
-Sepia Oil	Crimson Oil	Silver Oil	Deadly Draw
-Violet Oil	Black Oil	Opalescent Oil	Claws of the Hawk
-Amber Oil	Crimson Oil	Silver Oil	Blast Cascade
-Violet Oil	Violet Oil	Silver Oil	Swift Skewering
-Verdant Oil	Crimson Oil	Silver Oil	Lord of the Dead
-Teal Oil	Crimson Oil	Silver Oil	Blunt Trauma
-Azure Oil	Crimson Oil	Silver Oil	Runesmith
-Crimson Oil	Black Oil	Opalescent Oil	Hex Master
-Black Oil	Black Oil	Black Oil	Disciple of the Forbidden
-Clear Oil	Opalescent Oil	Opalescent Oil	Avatar of the Hunt
-Sepia Oil	Opalescent Oil	Opalescent Oil	Prism Weave
-Violet Oil	Crimson Oil	Silver Oil	Indomitable Army
-Amber Oil	Opalescent Oil	Opalescent Oil	Fatal Blade
-Clear Oil	Clear Oil	Golden Oil	Lava Lash
-Clear Oil	Sepia Oil	Golden Oil	Atrophy
-Verdant Oil	Opalescent Oil	Opalescent Oil	Ravenous Horde
-Sepia Oil	Sepia Oil	Golden Oil	Spiritual Command
-Clear Oil	Amber Oil	Golden Oil	Swift Venoms
-Sepia Oil	Amber Oil	Golden Oil	Stun Mastery
-Teal Oil	Opalescent Oil	Opalescent Oil	One with the River
-Clear Oil	Verdant Oil	Golden Oil	Enduring Bond
-Sepia Oil	Verdant Oil	Golden Oil	Brutal Blade
-Amber Oil	Amber Oil	Golden Oil	Claws of the Falcon
-Clear Oil	Teal Oil	Golden Oil	Growth and Decay
-Amber Oil	Verdant Oil	Golden Oil	Disciple of the Slaughter
-Sepia Oil	Teal Oil	Golden Oil	Nightstalker
-Azure Oil	Opalescent Oil	Opalescent Oil	Volatile Mines
-Verdant Oil	Verdant Oil	Golden Oil	Insightfulness
-Amber Oil	Teal Oil	Golden Oil	Arcane Chemistry
-Clear Oil	Azure Oil	Golden Oil	Cleansed Thoughts
-Verdant Oil	Teal Oil	Golden Oil	Influence
-Sepia Oil	Azure Oil	Golden Oil	Heart of Thunder
-Crimson Oil	Crimson Oil	Silver Oil	Devotion
-Clear Oil	Black Oil	Silver Oil	Purity of Flesh
-Amber Oil	Azure Oil	Golden Oil	Doom Cast
-Teal Oil	Teal Oil	Golden Oil	Quick Recovery
-Sepia Oil	Black Oil	Silver Oil	Crystal Skin
-Violet Oil	Opalescent Oil	Opalescent Oil	Bravery
-Verdant Oil	Azure Oil	Golden Oil	Breath of Flames
-Amber Oil	Black Oil	Silver Oil	Fervour
-Clear Oil	Violet Oil	Golden Oil	Transcendence
-Verdant Oil	Black Oil	Silver Oil	Profane Chemistry
-Teal Oil	Azure Oil	Golden Oil	Heart of Flame
-Sepia Oil	Violet Oil	Golden Oil	Written in Blood
-Amber Oil	Violet Oil	Golden Oil	Aqueous Accelerant
-Teal Oil	Black Oil	Silver Oil	Cruel Preparation
-Verdant Oil	Violet Oil	Golden Oil	Disemboweling
-Azure Oil	Azure Oil	Golden Oil	Cursed Concoction
-Teal Oil	Violet Oil	Golden Oil	Soul Siphon
-Azure Oil	Black Oil	Silver Oil	Arcane Potency
-Azure Oil	Violet Oil	Golden Oil	Breath of Lightning
-Crimson Oil	Opalescent Oil	Opalescent Oil	Vigour
-Black Oil	Black Oil	Opalescent Oil	Master of Force
-Violet Oil	Black Oil	Silver Oil	Hematophagy
-Clear Oil	Crimson Oil	Golden Oil	Druidic Rite
-Sepia Oil	Crimson Oil	Golden Oil	Heart and Soul
-Amber Oil	Crimson Oil	Golden Oil	Bloodless
-Violet Oil	Violet Oil	Golden Oil	Born to Fight
-Verdant Oil	Crimson Oil	Golden Oil	Heart of Oak
-Teal Oil	Crimson Oil	Golden Oil	Champion of the Cause
-Azure Oil	Crimson Oil	Golden Oil	Survivalist
-Crimson Oil	Black Oil	Silver Oil	Overcharge
-Clear Oil	Opalescent Oil	Silver Oil	Overcharged
-Sepia Oil	Opalescent Oil	Silver Oil	Master of the Arena
-Amber Oil	Opalescent Oil	Silver Oil	Mystic Talents
-Violet Oil	Crimson Oil	Golden Oil	Fingers of Frost
-Verdant Oil	Opalescent Oil	Silver Oil	Divine Fervour
-Teal Oil	Opalescent Oil	Silver Oil	Herbalism
-Azure Oil	Opalescent Oil	Silver Oil	Blood Siphon
-Black Oil	Opalescent Oil	Opalescent Oil	Crackling Speed
-Violet Oil	Opalescent Oil	Silver Oil	Leadership
-Crimson Oil	Crimson Oil	Golden Oil	Arcane Expanse
-Clear Oil	Black Oil	Golden Oil	Endurance
-Sepia Oil	Black Oil	Golden Oil	Faith and Steel
-Amber Oil	Black Oil	Golden Oil	Way of the Warrior
-Verdant Oil	Black Oil	Golden Oil	Deadly Inclinations
-Teal Oil	Black Oil	Golden Oil	Hardened Scars
-Azure Oil	Black Oil	Golden Oil	Rampart
-Crimson Oil	Opalescent Oil	Silver Oil	Inexorable
-Black Oil	Black Oil	Silver Oil	Stamina
-Violet Oil	Black Oil	Golden Oil	Arcane Capacitor
-Opalescent Oil	Opalescent Oil	Opalescent Oil	Tireless
-Clear Oil	Silver Oil	Silver Oil	Arcane Swiftness
-Sepia Oil	Silver Oil	Silver Oil	Stabbing Thirst
-Crimson Oil	Black Oil	Golden Oil	Savagery
-Clear Oil	Opalescent Oil	Golden Oil	Mana Flows
-Amber Oil	Silver Oil	Silver Oil	Primal Spirit
-Sepia Oil	Opalescent Oil	Golden Oil	Art of the Gladiator
-Verdant Oil	Silver Oil	Silver Oil	Instability
-Amber Oil	Opalescent Oil	Golden Oil	Arcane Will
-Verdant Oil	Opalescent Oil	Golden Oil	Foresight
-Teal Oil	Silver Oil	Silver Oil	Breath of Rime
-Teal Oil	Opalescent Oil	Golden Oil	Lust for Carnage
-Azure Oil	Silver Oil	Silver Oil	Frenetic
-Azure Oil	Opalescent Oil	Golden Oil	Force Shaper
-Black Oil	Opalescent Oil	Silver Oil	Piercing Shots
-Violet Oil	Silver Oil	Silver Oil	Thick Skin
-Violet Oil	Opalescent Oil	Golden Oil	Dismembering
-Crimson Oil	Silver Oil	Silver Oil	Infused
-Crimson Oil	Opalescent Oil	Golden Oil	Heart of Ice
-Black Oil	Black Oil	Golden Oil	Swagger
-Opalescent Oil	Opalescent Oil	Silver Oil	Blood Drinker
-Clear Oil	Silver Oil	Golden Oil	Vitality Void
-Sepia Oil	Silver Oil	Golden Oil	Fangs of the Viper
-Amber Oil	Silver Oil	Golden Oil	Ethereal Feast
-Verdant Oil	Silver Oil	Golden Oil	Resourcefulness
-Teal Oil	Silver Oil	Golden Oil	Essence Surge
-Azure Oil	Silver Oil	Golden Oil	Golem Commander
-Black Oil	Silver Oil	Silver Oil	Discipline and Training
-Black Oil	Opalescent Oil	Golden Oil	Assassination
-Violet Oil	Silver Oil	Golden Oil	Heart of the Warrior
-Crimson Oil	Silver Oil	Golden Oil	Void Barrier
-Opalescent Oil	Silver Oil	Silver Oil	Skittering Runes
-Opalescent Oil	Opalescent Oil	Golden Oil	Barbarism
-Clear Oil	Golden Oil	Golden Oil	Crusader
-Sepia Oil	Golden Oil	Golden Oil	Thunderous Salvos
-Amber Oil	Golden Oil	Golden Oil	Vengeant Cascade
-Verdant Oil	Golden Oil	Golden Oil	Unnatural Calm
-Teal Oil	Golden Oil	Golden Oil	Golem's Blood
-Azure Oil	Golden Oil	Golden Oil	Tranquility
-Black Oil	Silver Oil	Golden Oil	Revenge of the Hunted
-Violet Oil	Golden Oil	Golden Oil	Aspect of Stone
-Crimson Oil	Golden Oil	Golden Oil	Tenacity
-Silver Oil	Silver Oil	Silver Oil	Sovereignty
-Opalescent Oil	Silver Oil	Golden Oil	Tribal Fury
-Black Oil	Golden Oil	Golden Oil	Whispers of Doom
-Silver Oil	Silver Oil	Golden Oil	Spiritual Aid
-Opalescent Oil	Golden Oil	Golden Oil	Charisma
-Silver Oil	Golden Oil	Golden Oil	Constitution
-Golden Oil	Golden Oil	Golden Oil	Soul of Steel
-
-Tower Enchantments available by Anointing Rings
-Clear Oil	Clear Oil	Chilling Tower Damage
-Clear Oil	Sepia Oil	Freezebolt Tower Damage
-Sepia Oil	Sepia Oil	Glacial Cage Tower Duration
-Clear Oil	Amber Oil	Fireball Tower Damage
-Sepia Oil	Amber Oil	Flamethrower Tower Damage
-Clear Oil	Verdant Oil	Meteor Tower Damage
-Sepia Oil	Verdant Oil	Summoning Tower Damage
-Amber Oil	Amber Oil	Scout Tower Damage
-Clear Oil	Teal Oil	Sentinel Tower Damage
-Amber Oil	Verdant Oil	Shock Nova Tower Damage
-Sepia Oil	Teal Oil	Lightning Storm Tower Damage
-Verdant Oil	Verdant Oil	Arc Tower Damage
-Amber Oil	Teal Oil	Seismic Tower Damage
-Clear Oil	Azure Oil	Temporal Tower Effect
-Verdant Oil	Teal Oil	Stone Gaze Tower Effect
-Sepia Oil	Azure Oil	Empowering Tower Effect
-Amber Oil	Azure Oil	Imbuing Tower Effect
-Teal Oil	Teal Oil	Smothering Tower Effect
-Verdant Oil	Azure Oil	Chilling Tower Range
-Clear Oil	Violet Oil	Freezebolt Tower Range
-Teal Oil	Azure Oil	Glacial Cage Tower Range
-Sepia Oil	Violet Oil	Fireball Tower Range
-Amber Oil	Violet Oil	Flamethrower Tower Range
-Verdant Oil	Violet Oil	Meteor Tower Range
-Azure Oil	Azure Oil	Summoning Tower Range
-Teal Oil	Violet Oil	Scout Tower Range
-Azure Oil	Violet Oil	Sentinel Tower Range
-Clear Oil	Crimson Oil	Shock Nova Tower Range
-Sepia Oil	Crimson Oil	Lightning Storm Tower Range
-Amber Oil	Crimson Oil	Arc Tower Range
-Violet Oil	Violet Oil	Chilling Tower Chill Effect
-Verdant Oil	Crimson Oil	Freezebolt Tower Full Damage
-Teal Oil	Crimson Oil	Glacial Cage Tower Cooldown
-Azure Oil	Crimson Oil	Fireball Tower Cast Speed
-Violet Oil	Crimson Oil	Flamethrower Tower Full Damage
-Crimson Oil	Crimson Oil	Meteor Tower Stun
-Clear Oil	Black Oil	Seismic Tower Range
-Sepia Oil	Black Oil	Temporal Tower Range
-Amber Oil	Black Oil	Stone Gaze Tower Range
-Verdant Oil	Black Oil	Empowering Tower Range
-Teal Oil	Black Oil	Imbuing Tower Range
-Azure Oil	Black Oil	Smothering Tower Range
-Violet Oil	Black Oil	Chilling Tower Duration
-Crimson Oil	Black Oil	Freezebolt Tower Additional Projectile
-Clear Oil	Opalescent Oil	Glacial Cage Tower Increased Damage
-Sepia Oil	Opalescent Oil	Fireball Tower Projectile
-Amber Oil	Opalescent Oil	Flamethrower Tower Cast Speed
-Verdant Oil	Opalescent Oil	Meteor Tower Additional Meteor
-Teal Oil	Opalescent Oil	Summoning Tower Speed
-Azure Oil	Opalescent Oil	Scout Tower Speed
-Violet Oil	Opalescent Oil	Sentinel Tower Speed
-Crimson Oil	Opalescent Oil	Shock Nova Tower Full Damage
-Black Oil	Black Oil	Lightning Storm Tower Delay
-Clear Oil	Silver Oil	Arc Tower Repeat
-Sepia Oil	Silver Oil	Seismic Tower Stun Duration
-Amber Oil	Silver Oil	Temporal Tower Reduced Tick Speed
-Verdant Oil	Silver Oil	Stone Gaze Tower Cooldown
-Teal Oil	Silver Oil	Summoning Tower Life
-Azure Oil	Silver Oil	Scout Tower Life
-Black Oil	Opalescent Oil	Sentinel Tower Life
-Violet Oil	Silver Oil	Empowering Tower Cast Speed
-Crimson Oil	Silver Oil	Imbuing Tower Critical
-Opalescent Oil	Opalescent Oil	Smothering Tower Reduced Speed
-Clear Oil	Golden Oil	Shock Nova Tower Shock Effect
-Sepia Oil	Golden Oil	Lightning Storm Tower Explosion Area
-Amber Oil	Golden Oil	Arc Tower Chain
-Verdant Oil	Golden Oil	Seismic Tower Additional Cascade
-Teal Oil	Golden Oil	Temporal Tower Duration
-Azure Oil	Golden Oil	Stone Gaze Tower Reduced Duration
-Black Oil	Silver Oil	Empowering Tower Damage
-Violet Oil	Golden Oil	Imbuing Tower Damage
-Crimson Oil	Golden Oil	Smothering Tower Reduced Damage
-Opalescent Oil	Silver Oil	Chilling Tower Freeze
-Black Oil	Golden Oil	Shock Nova Tower Repeating
-Silver Oil	Silver Oil	Summoning Tower Additional Minions
-Opalescent Oil	Golden Oil	Fireball Tower Nova
-Silver Oil	Golden Oil	Seismic Tower Cascade Reach
-Golden Oil	Golden Oil	Empowering Tower Double Damage
+oil	Clear Oil	oil	Clear Oil	oil	Clear Oil	name	Alacrity	icon	Alacrity	name ru	Живость
+oil	Clear Oil	oil	Clear Oil	oil	Sepia Oil	name	Beef	icon	Beef	name ru	Бык
+oil	Clear Oil	oil	Sepia Oil	oil	Sepia Oil	name	Agility	icon	Alacrity	name ru	Подвижность
+oil	Clear Oil	oil	Clear Oil	oil	Amber Oil	name	Wisdom of the Glade	icon	Wisdom of the Glade	name ru	Мудрость лет
+oil	Sepia Oil	oil	Sepia Oil	oil	Sepia Oil	name	Expertise	icon	Alacrity	name ru	Мастерство
+oil	Clear Oil	oil	Sepia Oil	oil	Amber Oil	name	Thief's Craft	icon	Wisdom of the Glade	name ru	Смекалка
+oil	Clear Oil	oil	Clear Oil	oil	Verdant Oil	name	Prowess	icon	Beef	name ru	Доблесть
+oil	Sepia Oil	oil	Sepia Oil	oil	Amber Oil	name	Proficiency	icon	Alacrity	name ru	Резвость
+oil	Clear Oil	oil	Sepia Oil	oil	Verdant Oil	name	Ancestral Knowledge	icon	Wisdom of the Glade	name ru	Знания предков
+oil	Clear Oil	oil	Amber Oil	oil	Amber Oil	name	Might	icon	Beef	name ru	Мощь
+oil	Sepia Oil	oil	Sepia Oil	oil	Verdant Oil	name	Fending	icon	Fending	name ru	Парирование
+oil	Sepia Oil	oil	Amber Oil	oil	Amber Oil	name	Hard Knocks	icon	Wisdom of the Glade	name ru	Горький опыт
+oil	Clear Oil	oil	Clear Oil	oil	Teal Oil	name	Physique	icon	Wisdom of the Glade	name ru	Телосложение
+oil	Clear Oil	oil	Amber Oil	oil	Verdant Oil	name	Arcane Vision	icon	Arcane Vision	name ru	Тайное видение
+oil	Clear Oil	oil	Sepia Oil	oil	Teal Oil	name	Diamond Skin	icon	Diamond Skin	name ru	Алмазная кожа
+oil	Sepia Oil	oil	Amber Oil	oil	Verdant Oil	name	Path of the Savant	icon	Path of the Savant	name ru	Путь ученого
+oil	Amber Oil	oil	Amber Oil	oil	Amber Oil	name	Path of the Warrior	icon	Path of the Warrior	name ru	Путь воина
+oil	Clear Oil	oil	Verdant Oil	oil	Verdant Oil	name	Path of the Hunter	icon	Path of the Hunter	name ru	Путь охотника
+oil	Sepia Oil	oil	Sepia Oil	oil	Teal Oil	name	Righteous Decree	icon	Righteous Decree	name ru	Праведный суд
+oil	Clear Oil	oil	Amber Oil	oil	Teal Oil	name	Ironwood	icon	Ironwood	name ru	Железное дерево
+oil	Sepia Oil	oil	Verdant Oil	oil	Verdant Oil	name	Fusillade	icon	Fusillade	name ru	Обстрел
+oil	Amber Oil	oil	Amber Oil	oil	Verdant Oil	name	Quickstep	icon	Quickstep	name ru	Легконогий
+oil	Sepia Oil	oil	Amber Oil	oil	Teal Oil	name	Weathered Hunter	icon	Weathered Hunter	name ru	Матёрый охотник
+oil	Clear Oil	oil	Clear Oil	oil	Azure Oil	name	Cloth and Chain	icon	Cloth and Chain	name ru	Мантия и кольчуга
+oil	Clear Oil	oil	Verdant Oil	oil	Teal Oil	name	Solidity	icon	Solidity	name ru	Прочность
+oil	Amber Oil	oil	Verdant Oil	oil	Verdant Oil	name	Aspect of the Eagle	icon	Aspect of the Eagle	name ru	Дух орла
+oil	Clear Oil	oil	Sepia Oil	oil	Azure Oil	name	Dynamo	icon	Dynamo	name ru	Внутренняя энергия
+oil	Sepia Oil	oil	Verdant Oil	oil	Teal Oil	name	Decay Ward	icon	Decay Ward	name ru	Страж разложения
+oil	Amber Oil	oil	Amber Oil	oil	Teal Oil	name	Thrill Seeker	icon	Thrill Seeker	name ru	Сорвиголова
+oil	Sepia Oil	oil	Sepia Oil	oil	Azure Oil	name	Aspect of the Panther	icon	Aspect of the Panther	name ru	Дух пантеры
+oil	Verdant Oil	oil	Verdant Oil	oil	Verdant Oil	name	Spirit Void	icon	Spirit Void	name ru	Душевная пустота
+oil	Clear Oil	oil	Amber Oil	oil	Azure Oil	name	Poisonous Fangs	icon	Poisonous Fangs	name ru	Ядовитые клыки
+oil	Clear Oil	oil	Teal Oil	oil	Teal Oil	name	Saboteur	icon	Saboteur	name ru	Диверсант
+oil	Amber Oil	oil	Verdant Oil	oil	Teal Oil	name	Depth Perception	icon	Depth Perception	name ru	Проницательность
+oil	Sepia Oil	oil	Amber Oil	oil	Azure Oil	name	Elemental Focus	icon	Elemental Focus	name ru	Концентрация стихий
+oil	Sepia Oil	oil	Teal Oil	oil	Teal Oil	name	Deep Wisdom	icon	Deep Wisdom	name ru	Накопленная мудрость
+oil	Clear Oil	oil	Verdant Oil	oil	Azure Oil	name	Martial Experience	icon	Martial Experience	name ru	Боевой опыт
+oil	Verdant Oil	oil	Verdant Oil	oil	Teal Oil	name	Fury Bolts	icon	Fury Bolts	name ru	Иглы гнева
+oil	Sepia Oil	oil	Verdant Oil	oil	Azure Oil	name	Battle Rouse	icon	Battle Rouse	name ru	Встряска
+oil	Amber Oil	oil	Amber Oil	oil	Azure Oil	name	Hasty Reconstruction	icon	Hasty Reconstruction	name ru	Быстрая сборка
+oil	Amber Oil	oil	Teal Oil	oil	Teal Oil	name	Sanctuary	icon	Sanctuary	name ru	Святилище
+oil	Clear Oil	oil	Clear Oil	oil	Violet Oil	name	Practical Application	icon	Practical Application	name ru	Боевой маг
+oil	Clear Oil	oil	Teal Oil	oil	Azure Oil	name	Words of Glory	icon	Words of Glory	name ru	Прославление
+oil	Amber Oil	oil	Verdant Oil	oil	Azure Oil	name	Executioner	icon	Executioner	name ru	Разрушитель
+oil	Verdant Oil	oil	Teal Oil	oil	Teal Oil	name	Mind Drinker	icon	Mind Drinker	name ru	Пьющий разум
+oil	Clear Oil	oil	Sepia Oil	oil	Violet Oil	name	Freedom of Movement	icon	Freedom of Movement	name ru	Свобода передвижения
+oil	Sepia Oil	oil	Teal Oil	oil	Azure Oil	name	Dreamer	icon	Dreamer	name ru	Мечтатель
+oil	Sepia Oil	oil	Sepia Oil	oil	Violet Oil	name	Aligned Spirits	icon	Aligned Spirits	name ru	Единение духа
+oil	Verdant Oil	oil	Verdant Oil	oil	Azure Oil	name	Arsonist	icon	Arsonist	name ru	Поджигатель
+oil	Clear Oil	oil	Amber Oil	oil	Violet Oil	name	Weapon Artistry	icon	Weapon Artistry	name ru	Искусство владения оружием
+oil	Amber Oil	oil	Teal Oil	oil	Azure Oil	name	Unpredictable Offensive	icon	Unpredictable Offensive	name ru	Непредсказуемое наступление
+oil	Teal Oil	oil	Teal Oil	oil	Teal Oil	name	Mystic Bulwark	icon	Mystic Bulwark	name ru	Мистический бастион
+oil	Sepia Oil	oil	Amber Oil	oil	Violet Oil	name	Shamanistic Fury	icon	Shamanistic Fury	name ru	Ярость шамана
+oil	Clear Oil	oil	Verdant Oil	oil	Violet Oil	name	Deep Thoughts	icon	Deep Thoughts	name ru	Глубокие мысли
+oil	Clear Oil	oil	Azure Oil	oil	Azure Oil	name	Prodigal Perfection	icon	Prodigal Perfection	name ru	Совершенство изобилия
+oil	Verdant Oil	oil	Teal Oil	oil	Azure Oil	name	Sentinel	icon	Sentinel	name ru	Страж
+oil	Sepia Oil	oil	Verdant Oil	oil	Violet Oil	name	Heavy Draw	icon	Heavy Draw	name ru	Тугой лук
+oil	Sepia Oil	oil	Azure Oil	oil	Azure Oil	name	Claws of the Magpie	icon	Claws of the Magpie	name ru	Когти сороки
+oil	Amber Oil	oil	Amber Oil	oil	Violet Oil	name	Harvester of Foes	icon	Harvester of Foes	name ru	Жнец врагов
+oil	Clear Oil	oil	Teal Oil	oil	Violet Oil	name	Splitting Strikes	icon	Splitting Strikes	name ru	Раскалывающие удары
+oil	Amber Oil	oil	Verdant Oil	oil	Violet Oil	name	Silent Steps	icon	Silent Steps	name ru	Тихие шаги
+oil	Amber Oil	oil	Azure Oil	oil	Azure Oil	name	Explosive Runes	icon	Explosive Runes	name ru	Взрывные руны
+oil	Teal Oil	oil	Teal Oil	oil	Azure Oil	name	Steelwood Stance	icon	Steelwood Stance	name ru	Железная стойка
+oil	Sepia Oil	oil	Teal Oil	oil	Violet Oil	name	Efficient Explosives	icon	Efficient Explosives	name ru	Эффективная взрывчатка
+oil	Verdant Oil	oil	Verdant Oil	oil	Violet Oil	name	Totemic Zeal	icon	Totemic Zeal	name ru	Идолопоклонничество
+oil	Verdant Oil	oil	Azure Oil	oil	Azure Oil	name	Bone Breaker	icon	Bone Breaker	name ru	Костолом
+oil	Amber Oil	oil	Teal Oil	oil	Violet Oil	name	Gemini	icon	Gemini	name ru	Близнецы
+oil	Clear Oil	oil	Azure Oil	oil	Violet Oil	name	Expeditious Munitions	icon	Expeditious Munitions	name ru	Быстрая установка
+oil	Verdant Oil	oil	Teal Oil	oil	Violet Oil	name	Razor's Edge	icon	Razor's Edge	name ru	Лезвие бритвы
+oil	Teal Oil	oil	Azure Oil	oil	Azure Oil	name	Red Storm	icon	Red Storm	name ru	Красный шторм
+oil	Sepia Oil	oil	Azure Oil	oil	Violet Oil	name	Honed Edge	icon	Honed Edge	name ru	Заточенный клинок
+oil	Amber Oil	oil	Azure Oil	oil	Violet Oil	name	Kinetic Impacts	icon	Kinetic Impacts	name ru	Кинетическое воздействие
+oil	Teal Oil	oil	Teal Oil	oil	Violet Oil	name	Elder Power	icon	Elder Power	name ru	Древняя сила
+oil	Clear Oil	oil	Clear Oil	oil	Crimson Oil	name	Successive Detonations	icon	Successive Detonations	name ru	Последовательный подрыв
+oil	Verdant Oil	oil	Azure Oil	oil	Violet Oil	name	Forceful Skewering	icon	Forceful Skewering	name ru	Мощное пронзание
+oil	Azure Oil	oil	Azure Oil	oil	Azure Oil	name	Slaughter	icon	Slaughter	name ru	Резня
+oil	Clear Oil	oil	Sepia Oil	oil	Crimson Oil	name	Galvanic Hammer	icon	Galvanic Hammer	name ru	Молот молний
+oil	Sepia Oil	oil	Sepia Oil	oil	Crimson Oil	name	Magmatic Strikes	icon	Magmatic Strikes	name ru	Магматические удары
+oil	Clear Oil	oil	Amber Oil	oil	Crimson Oil	name	Toxic Strikes	icon	Toxic Strikes	name ru	Токсичные атаки
+oil	Clear Oil	oil	Violet Oil	oil	Violet Oil	name	Pain Forger	icon	Pain Forger	name ru	Кузнец боли
+oil	Teal Oil	oil	Azure Oil	oil	Violet Oil	name	Sacrifice	icon	Sacrifice	name ru	Жертва
+oil	Sepia Oil	oil	Amber Oil	oil	Crimson Oil	name	Entropy	icon	Entropy	name ru	Энтропия
+oil	Sepia Oil	oil	Violet Oil	oil	Violet Oil	name	Grave Intentions	icon	Grave Intentions	name ru	Смертельный замысел
+oil	Clear Oil	oil	Verdant Oil	oil	Crimson Oil	name	Blast Waves	icon	Blast Waves	name ru	Взрывные волны
+oil	Sepia Oil	oil	Verdant Oil	oil	Crimson Oil	name	Master Fletcher	icon	Master Fletcher	name ru	Мастер лука
+oil	Amber Oil	oil	Amber Oil	oil	Crimson Oil	name	Bladedancer	icon	Bladedancer	name ru	Танцующий с клинками
+oil	Amber Oil	oil	Violet Oil	oil	Violet Oil	name	Claws of the Pride	icon	Claws of the Pride	name ru	Когти прайда
+oil	Clear Oil	oil	Teal Oil	oil	Crimson Oil	name	Ophidian Aim	icon	Ophidian Aim	name ru	Змеиная точность
+oil	Amber Oil	oil	Verdant Oil	oil	Crimson Oil	name	Primal Manifestation	icon	Primal Manifestation	name ru	Воплощение изначальных
+oil	Verdant Oil	oil	Violet Oil	oil	Violet Oil	name	Spinecruncher	icon	Spinecruncher	name ru	Хребтолом
+oil	Azure Oil	oil	Azure Oil	oil	Violet Oil	name	Smashing Strikes	icon	Smashing Strikes	name ru	Сокрушающие атаки
+oil	Sepia Oil	oil	Teal Oil	oil	Crimson Oil	name	Utmost Swiftness	icon	Utmost Swiftness	name ru	Предельная стремительность
+oil	Verdant Oil	oil	Verdant Oil	oil	Crimson Oil	name	Farsight	icon	Farsight	name ru	Дальнее зрение
+oil	Amber Oil	oil	Teal Oil	oil	Crimson Oil	name	Whirling Barrier	icon	Whirling Barrier	name ru	Вращающийся барьер
+oil	Teal Oil	oil	Violet Oil	oil	Violet Oil	name	Unstable Munitions	icon	Unstable Munitions	name ru	Нестабильные боеприпасы
+oil	Clear Oil	oil	Azure Oil	oil	Crimson Oil	name	From the Shadows	icon	From the Shadows	name ru	Удар из тени
+oil	Verdant Oil	oil	Teal Oil	oil	Crimson Oil	name	Hatchet Master	icon	Hatchet Master	name ru	Мастер топориков
+oil	Sepia Oil	oil	Azure Oil	oil	Crimson Oil	name	Clever Construction	icon	Clever Construction	name ru	Продуманная конструкция
+oil	Amber Oil	oil	Azure Oil	oil	Crimson Oil	name	Utmost Might	icon	Utmost Might	name ru	Предельная мощь
+oil	Teal Oil	oil	Teal Oil	oil	Crimson Oil	name	Wandslinger	icon	Wandslinger	name ru	Мастер жезлов
+oil	Azure Oil	oil	Violet Oil	oil	Violet Oil	name	Bludgeon Blitz	icon	Bludgeon Blitz	name ru	Быстрая дубинка
+oil	Verdant Oil	oil	Azure Oil	oil	Crimson Oil	name	Flash Freeze	icon	Flash Freeze	name ru	Мгновенная заморозка
+oil	Clear Oil	oil	Violet Oil	oil	Crimson Oil	name	Flaying	icon	Flaying	name ru	Свежевание
+oil	Teal Oil	oil	Azure Oil	oil	Crimson Oil	name	Fearsome Force	icon	Fearsome Force	name ru	Устрашающая сила
+oil	Sepia Oil	oil	Violet Oil	oil	Crimson Oil	name	Redemption	icon	Redemption	name ru	Искупление
+oil	Amber Oil	oil	Violet Oil	oil	Crimson Oil	name	Utmost Intellect	icon	Utmost Intellect	name ru	Предельный интеллект
+oil	Violet Oil	oil	Violet Oil	oil	Violet Oil	name	Enigmatic Defence	icon	Enigmatic Defence	name ru	Загадочная защита
+oil	Verdant Oil	oil	Violet Oil	oil	Crimson Oil	name	Butchery	icon	Butchery	name ru	Бойня
+oil	Azure Oil	oil	Azure Oil	oil	Crimson Oil	name	Holy Dominion	icon	Holy Dominion	name ru	Священная власть
+oil	Teal Oil	oil	Violet Oil	oil	Crimson Oil	name	Static Blows	icon	Static Blows	name ru	Громовые удары
+oil	Azure Oil	oil	Violet Oil	oil	Crimson Oil	name	Light Eater	icon	Light Eater	name ru	Пожиратель света
+oil	Clear Oil	oil	Crimson Oil	oil	Crimson Oil	name	Shaper	icon	Shaper	name ru	Кудесник
+oil	Clear Oil	oil	Clear Oil	oil	Black Oil	name	Annihilation	icon	Annihilation	name ru	Аннигиляция
+oil	Sepia Oil	oil	Crimson Oil	oil	Crimson Oil	name	Ash, Frost and Storm	icon	Ash, Frost and Storm	name ru	Пепел, мороз и буря
+oil	Clear Oil	oil	Sepia Oil	oil	Black Oil	name	Testudo	icon	Testudo	name ru	Панцирь
+oil	Sepia Oil	oil	Sepia Oil	oil	Black Oil	name	Lightning Walker	icon	Lightning Walker	name ru	Грозоход
+oil	Amber Oil	oil	Crimson Oil	oil	Crimson Oil	name	Nimbleness	icon	Nimbleness	name ru	Прыть
+oil	Violet Oil	oil	Violet Oil	oil	Crimson Oil	name	Aspect of the Lynx	icon	Aspect of the Lynx	name ru	Дух рыси
+oil	Clear Oil	oil	Amber Oil	oil	Black Oil	name	Exceptional Performance	icon	Exceptional Performance	name ru	Исключительный результат
+oil	Sepia Oil	oil	Amber Oil	oil	Black Oil	name	Cleaving	icon	Cleaving	name ru	Раскалывание
+oil	Verdant Oil	oil	Crimson Oil	oil	Crimson Oil	name	Arcane Focus	icon	Arcane Focus	name ru	Средоточие чар
+oil	Clear Oil	oil	Verdant Oil	oil	Black Oil	name	Combat Stamina	icon	Combat Stamina	name ru	Выносливость в бою
+oil	Sepia Oil	oil	Verdant Oil	oil	Black Oil	name	Will of Blades	icon	Will of Blades	name ru	Воля клинков
+oil	Amber Oil	oil	Amber Oil	oil	Black Oil	name	Divine Fury	icon	Divine Fury	name ru	Божественное неистовство
+oil	Teal Oil	oil	Crimson Oil	oil	Crimson Oil	name	Heartseeker	icon	Heartseeker	name ru	Удар в сердце
+oil	Clear Oil	oil	Teal Oil	oil	Black Oil	name	Arcane Guarding	icon	Arcane Guarding	name ru	Колдовская защита
+oil	Amber Oil	oil	Verdant Oil	oil	Black Oil	name	Reflexes	icon	Reflexes	name ru	Рефлексы
+oil	Sepia Oil	oil	Teal Oil	oil	Black Oil	name	Divine Judgement	icon	Divine Judgement	name ru	Божественное правосудие
+oil	Verdant Oil	oil	Verdant Oil	oil	Black Oil	name	Trickery	icon	Trickery	name ru	Коварство
+oil	Amber Oil	oil	Teal Oil	oil	Black Oil	name	Defiance	icon	Defiance	name ru	Вызов
+oil	Azure Oil	oil	Crimson Oil	oil	Crimson Oil	name	Harrier	icon	Harrier	name ru	Гончая
+oil	Clear Oil	oil	Azure Oil	oil	Black Oil	name	Twin Terrors	icon	Twin Terrors	name ru	Ужасная пара
+oil	Verdant Oil	oil	Teal Oil	oil	Black Oil	name	Enigmatic Reach	icon	Enigmatic Reach	name ru	Загадочный охват
+oil	Sepia Oil	oil	Azure Oil	oil	Black Oil	name	Snowforged	icon	Snowforged	name ru	Закалённый холодом
+oil	Amber Oil	oil	Azure Oil	oil	Black Oil	name	Ambidexterity	icon	Ambidexterity	name ru	Амбидекстрия
+oil	Teal Oil	oil	Teal Oil	oil	Black Oil	name	Warrior's Blood	icon	Warrior's Blood	name ru	Кровь воина
+oil	Verdant Oil	oil	Azure Oil	oil	Black Oil	name	Command of the Elements	icon	Command of the Elements	name ru	Командование стихиями
+oil	Violet Oil	oil	Crimson Oil	oil	Crimson Oil	name	Light of Divinity	icon	Light of Divinity	name ru	Божественный свет
+oil	Clear Oil	oil	Violet Oil	oil	Black Oil	name	Acuity	icon	Acuity	name ru	Сноровка
+oil	Teal Oil	oil	Azure Oil	oil	Black Oil	name	Finesse	icon	Finesse	name ru	Изящество
+oil	Sepia Oil	oil	Violet Oil	oil	Black Oil	name	Mental Rapidity	icon	Mental Rapidity	name ru	Сообразительность
+oil	Amber Oil	oil	Violet Oil	oil	Black Oil	name	Revelry	icon	Revelry	name ru	Пир духа
+oil	Verdant Oil	oil	Violet Oil	oil	Black Oil	name	Aggressive Bastion	icon	Aggressive Bastion	name ru	Воинственный оплот
+oil	Azure Oil	oil	Azure Oil	oil	Black Oil	name	Sanctity	icon	Sanctity	name ru	Святость
+oil	Teal Oil	oil	Violet Oil	oil	Black Oil	name	Essence Sap	icon	Essence Sap	name ru	Похищение сущности
+oil	Azure Oil	oil	Violet Oil	oil	Black Oil	name	Adamant	icon	Adamant	name ru	Непреклонный
+oil	Crimson Oil	oil	Crimson Oil	oil	Crimson Oil	name	Coldhearted Calculation	icon	Coldhearted Calculation	name ru	Холодный расчет
+oil	Clear Oil	oil	Crimson Oil	oil	Black Oil	name	Arcanist's Dominion	icon	Arcanist's Dominion	name ru	Владычество колдуна
+oil	Clear Oil	oil	Clear Oil	oil	Opalescent Oil	name	Eagle Eye	icon	Eagle Eye	name ru	Орлиный глаз
+oil	Sepia Oil	oil	Crimson Oil	oil	Black Oil	name	Storm Weaver	icon	Storm Weaver	name ru	Ткач бури
+oil	Clear Oil	oil	Sepia Oil	oil	Opalescent Oil	name	Berserking	icon	Berserking	name ru	Боевое безумие
+oil	Sepia Oil	oil	Sepia Oil	oil	Opalescent Oil	name	Potency of Will	icon	Potency of Will	name ru	Сила воли
+oil	Amber Oil	oil	Crimson Oil	oil	Black Oil	name	Coordination	icon	Coordination	name ru	Координация
+oil	Violet Oil	oil	Violet Oil	oil	Black Oil	name	Graceful Assault	icon	Graceful Assault	name ru	Изящное нападение
+oil	Clear Oil	oil	Amber Oil	oil	Opalescent Oil	name	Brinkmanship	icon	Brinkmanship	name ru	Балансирование на грани
+oil	Sepia Oil	oil	Amber Oil	oil	Opalescent Oil	name	Fleetfoot	icon	Fleetfoot	name ru	Быстроногий
+oil	Verdant Oil	oil	Crimson Oil	oil	Black Oil	name	Precise Interception	icon	Precise Interception	name ru	Точный перехват
+oil	Clear Oil	oil	Verdant Oil	oil	Opalescent Oil	name	Blast Radius	icon	Blast Radius	name ru	Радиус взрыва
+oil	Sepia Oil	oil	Verdant Oil	oil	Opalescent Oil	name	Destroyer	icon	Destroyer	name ru	Палач
+oil	Amber Oil	oil	Amber Oil	oil	Opalescent Oil	name	Divine Wrath	icon	Divine Wrath	name ru	Божественная ярость
+oil	Teal Oil	oil	Crimson Oil	oil	Black Oil	name	True Strike	icon	True Strike	name ru	Верный удар
+oil	Clear Oil	oil	Teal Oil	oil	Opalescent Oil	name	Wrecking Ball	icon	Wrecking Ball	name ru	Вес в удар
+oil	Amber Oil	oil	Verdant Oil	oil	Opalescent Oil	name	Titanic Impacts	icon	Titanic Impacts	name ru	Титаническое воздействие
+oil	Sepia Oil	oil	Teal Oil	oil	Opalescent Oil	name	Deflection	icon	Deflection	name ru	Отражение ударов
+oil	Verdant Oil	oil	Verdant Oil	oil	Opalescent Oil	name	Versatility	icon	Versatility	name ru	Мастер на все руки
+oil	Amber Oil	oil	Teal Oil	oil	Opalescent Oil	name	Juggernaut	icon	Juggernaut	name ru	Гигант
+oil	Azure Oil	oil	Crimson Oil	oil	Black Oil	name	Dervish	icon	Dervish	name ru	Дервиш
+oil	Clear Oil	oil	Azure Oil	oil	Opalescent Oil	name	Strong Arm	icon	Strong Arm	name ru	Сильная рука
+oil	Verdant Oil	oil	Teal Oil	oil	Opalescent Oil	name	Sleight of Hand	icon	Sleight of Hand	name ru	Уловки
+oil	Sepia Oil	oil	Azure Oil	oil	Opalescent Oil	name	Battle Cry	icon	Battle Cry	name ru	Воинственный клич
+oil	Amber Oil	oil	Azure Oil	oil	Opalescent Oil	name	Amplify	icon	Amplify	name ru	Усиление
+oil	Teal Oil	oil	Teal Oil	oil	Opalescent Oil	name	Dazzling Strikes	icon	Dazzling Strikes	name ru	Слепящие удары
+oil	Verdant Oil	oil	Azure Oil	oil	Opalescent Oil	name	Explosive Impact	icon	Explosive Impact	name ru	Взрывное попадание
+oil	Violet Oil	oil	Crimson Oil	oil	Black Oil	name	Fire Walker	icon	Fire Walker	name ru	Огнеход
+oil	Clear Oil	oil	Violet Oil	oil	Opalescent Oil	name	Blade Barrier	icon	Blade Barrier	name ru	Преграда клинков
+oil	Teal Oil	oil	Azure Oil	oil	Opalescent Oil	name	Dark Arts	icon	Dark Arts	name ru	Тёмные искусства
+oil	Sepia Oil	oil	Violet Oil	oil	Opalescent Oil	name	Melding	icon	Melding	name ru	Слияние
+oil	Amber Oil	oil	Violet Oil	oil	Opalescent Oil	name	Throatseeker	icon	Throatseeker	name ru	Горлодер
+oil	Verdant Oil	oil	Violet Oil	oil	Opalescent Oil	name	Frost Walker	icon	Frost Walker	name ru	Ледоход
+oil	Azure Oil	oil	Azure Oil	oil	Opalescent Oil	name	Steadfast	icon	Steadfast	name ru	Стойкий
+oil	Teal Oil	oil	Violet Oil	oil	Opalescent Oil	name	Mysticism	icon	Mysticism	name ru	Мистицизм
+oil	Azure Oil	oil	Violet Oil	oil	Opalescent Oil	name	Ballistic Mastery	icon	Ballistic Mastery	name ru	Знание баллистики
+oil	Crimson Oil	oil	Crimson Oil	oil	Black Oil	name	Essence Extraction	icon	Essence Extraction	name ru	Вытягивание сущности
+oil	Clear Oil	oil	Crimson Oil	oil	Opalescent Oil	name	Retribution	icon	Retribution	name ru	Воздаяние
+oil	Clear Oil	oil	Black Oil	oil	Black Oil	name	Lethal Assault	icon	Lethal Assault	name ru	Убийственное наступление
+oil	Sepia Oil	oil	Crimson Oil	oil	Opalescent Oil	name	Soul Thief	icon	Soul Thief	name ru	Крадущий душу
+oil	Sepia Oil	oil	Black Oil	oil	Black Oil	name	Sanctum of Thought	icon	Sanctum of Thought	name ru	Святилище мысли
+oil	Amber Oil	oil	Crimson Oil	oil	Opalescent Oil	name	Command of Steel	icon	Command of Steel	name ru	Время стали
+oil	Amber Oil	oil	Black Oil	oil	Black Oil	name	Precision	icon	Precision	name ru	Точность
+oil	Violet Oil	oil	Violet Oil	oil	Opalescent Oil	name	Hired Killer	icon	Hired Killer	name ru	Наемный убийца
+oil	Verdant Oil	oil	Crimson Oil	oil	Opalescent Oil	name	Retaliation	icon	Retaliation	name ru	Возмездие
+oil	Verdant Oil	oil	Black Oil	oil	Black Oil	name	Righteous Army	icon	Righteous Army	name ru	Праведная армия
+oil	Teal Oil	oil	Crimson Oil	oil	Opalescent Oil	name	Longshot	icon	Longshot	name ru	Запредельный выстрел
+oil	Teal Oil	oil	Black Oil	oil	Black Oil	name	Ribcage Crusher	icon	Ribcage Crusher	name ru	Дробитель рёбер
+oil	Azure Oil	oil	Crimson Oil	oil	Opalescent Oil	name	Dire Torment	icon	Dire Torment	name ru	Страшная пытка
+oil	Azure Oil	oil	Black Oil	oil	Black Oil	name	Gravepact	icon	Gravepact	name ru	Смертельный договор
+oil	Clear Oil	oil	Clear Oil	oil	Silver Oil	name	Arcing Blows	icon	Arcing Blows	name ru	Искристые удары
+oil	Violet Oil	oil	Crimson Oil	oil	Opalescent Oil	name	Disciple of the Unyielding	icon	Disciple of the Unyielding	name ru	Апостол упорства
+oil	Violet Oil	oil	Black Oil	oil	Black Oil	name	Disintegration	icon	Disintegration	name ru	Дезинтеграция
+oil	Clear Oil	oil	Sepia Oil	oil	Silver Oil	name	Blade Master	icon	Blade Master	name ru	Мастер клинка
+oil	Sepia Oil	oil	Sepia Oil	oil	Silver Oil	name	Fangs of Frost	icon	Fangs of Frost	name ru	Ледяные клыки
+oil	Clear Oil	oil	Amber Oil	oil	Silver Oil	name	Counterweight	icon	Counterweight	name ru	Противовес
+oil	Sepia Oil	oil	Amber Oil	oil	Silver Oil	name	Destructive Apparatus	icon	Destructive Apparatus	name ru	Разрушительные механизмы
+oil	Clear Oil	oil	Verdant Oil	oil	Silver Oil	name	Hunter's Gambit	icon	Hunter's Gambit	name ru	Охотничий гамбит
+oil	Sepia Oil	oil	Verdant Oil	oil	Silver Oil	name	Soul Raker	icon	Soul Raker	name ru	Собиратель душ
+oil	Amber Oil	oil	Amber Oil	oil	Silver Oil	name	Dirty Techniques	icon	Dirty Techniques	name ru	Запрещённый приём
+oil	Clear Oil	oil	Teal Oil	oil	Silver Oil	name	Backstabbing	icon	Backstabbing	name ru	Удар в спину
+oil	Amber Oil	oil	Verdant Oil	oil	Silver Oil	name	Tempest Blast	icon	Tempest Blast	name ru	Раскат грома
+oil	Sepia Oil	oil	Teal Oil	oil	Silver Oil	name	Winter Spirit	icon	Winter Spirit	name ru	Дух зимы
+oil	Verdant Oil	oil	Verdant Oil	oil	Silver Oil	name	High Explosives	icon	High Explosives	name ru	Мощный взрыв
+oil	Amber Oil	oil	Teal Oil	oil	Silver Oil	name	Holy Fire	icon	Holy Fire	name ru	Священный огонь
+oil	Clear Oil	oil	Azure Oil	oil	Silver Oil	name	Shaman's Dominion	icon	Shaman's Dominion	name ru	Сила шамана
+oil	Verdant Oil	oil	Teal Oil	oil	Silver Oil	name	Method to the Madness	icon	Method to the Madness	name ru	Путь к безумию
+oil	Sepia Oil	oil	Azure Oil	oil	Silver Oil	name	Blade of Cunning	icon	Blade of Cunning	name ru	Искусный клинок
+oil	Amber Oil	oil	Azure Oil	oil	Silver Oil	name	Searing Heat	icon	Searing Heat	name ru	Обжигающий жар
+oil	Teal Oil	oil	Teal Oil	oil	Silver Oil	name	Devastating Devices	icon	Devastating Devices	name ru	Разрушительные устройства
+oil	Verdant Oil	oil	Azure Oil	oil	Silver Oil	name	Forces of Nature	icon	Forces of Nature	name ru	Силы природы
+oil	Crimson Oil	oil	Crimson Oil	oil	Opalescent Oil	name	Singular Focus	icon	Singular Focus	name ru	Единая направленность
+oil	Crimson Oil	oil	Black Oil	oil	Black Oil	name	Corruption	icon	Corruption	name ru	Порча
+oil	Clear Oil	oil	Black Oil	oil	Opalescent Oil	name	Skull Cracking	icon	Skull Cracking	name ru	Крушитель черепов
+oil	Sepia Oil	oil	Black Oil	oil	Opalescent Oil	name	Adder's Touch	icon	Adder's Touch	name ru	Касание аспида
+oil	Clear Oil	oil	Violet Oil	oil	Silver Oil	name	Fatal Toxins	icon	Fatal Toxins	name ru	Смертельные токсины
+oil	Teal Oil	oil	Azure Oil	oil	Silver Oil	name	Gladiator's Perseverance	icon	Gladiator's Perseverance	name ru	Стойкость гладиатора
+oil	Sepia Oil	oil	Violet Oil	oil	Silver Oil	name	Lethality	icon	Lethality	name ru	Смертоносность
+oil	Amber Oil	oil	Black Oil	oil	Opalescent Oil	name	Feller of Foes	icon	Feller of Foes	name ru	Врагоруб
+oil	Amber Oil	oil	Violet Oil	oil	Silver Oil	name	Lucidity	icon	Lucidity	name ru	Прозрачность
+oil	Verdant Oil	oil	Black Oil	oil	Opalescent Oil	name	Blacksmith's Clout	icon	Blacksmith's Clout	name ru	Затрещина кузнеца
+oil	Verdant Oil	oil	Violet Oil	oil	Silver Oil	name	King of the Hill	icon	King of the Hill	name ru	Царь горы
+oil	Azure Oil	oil	Azure Oil	oil	Silver Oil	name	Bloodletting	icon	Bloodletting	name ru	Кровопускание
+oil	Teal Oil	oil	Black Oil	oil	Opalescent Oil	name	Master Sapper	icon	Master Sapper	name ru	Умелый капканщик
+oil	Teal Oil	oil	Violet Oil	oil	Silver Oil	name	Charging Offensive	icon	Charging Offensive	name ru	Заряженное наступление
+oil	Azure Oil	oil	Black Oil	oil	Opalescent Oil	name	Serpent Stance	icon	Serpent Stance	name ru	Стойка змеи
+oil	Azure Oil	oil	Violet Oil	oil	Silver Oil	name	Primeval Force	icon	Primeval Force	name ru	Первозданная сила
+oil	Clear Oil	oil	Crimson Oil	oil	Silver Oil	name	Death Attunement	icon	Death Attunement	name ru	В ладах со смертью
+oil	Sepia Oil	oil	Crimson Oil	oil	Silver Oil	name	Deadly Draw	icon	Deadly Draw	name ru	Роковой лук
+oil	Violet Oil	oil	Black Oil	oil	Opalescent Oil	name	Claws of the Hawk	icon	Claws of the Hawk	name ru	Когти ястреба
+oil	Amber Oil	oil	Crimson Oil	oil	Silver Oil	name	Blast Cascade	icon	Blast Cascade	name ru	Взрывная реакция
+oil	Violet Oil	oil	Violet Oil	oil	Silver Oil	name	Swift Skewering	icon	Swift Skewering	name ru	Быстрое пронзание
+oil	Verdant Oil	oil	Crimson Oil	oil	Silver Oil	name	Lord of the Dead	icon	Lord of the Dead	name ru	Владыка мертвых
+oil	Teal Oil	oil	Crimson Oil	oil	Silver Oil	name	Blunt Trauma	icon	Blunt Trauma	name ru	Травма
+oil	Azure Oil	oil	Crimson Oil	oil	Silver Oil	name	Runesmith	icon	Runesmith	name ru	Кователь рун
+oil	Crimson Oil	oil	Black Oil	oil	Opalescent Oil	name	Hex Master	icon	Hex Master	name ru	Чародей
+oil	Black Oil	oil	Black Oil	oil	Black Oil	name	Disciple of the Forbidden	icon	Disciple of the Forbidden	name ru	Адепт запрещенного
+oil	Clear Oil	oil	Opalescent Oil	oil	Opalescent Oil	name	Avatar of the Hunt	icon	Avatar of the Hunt	name ru	Воплощение охоты
+oil	Sepia Oil	oil	Opalescent Oil	oil	Opalescent Oil	name	Prism Weave	icon	Prism Weave	name ru	Радужный узор
+oil	Violet Oil	oil	Crimson Oil	oil	Silver Oil	name	Indomitable Army	icon	Indomitable Army	name ru	Неукротимое войско
+oil	Amber Oil	oil	Opalescent Oil	oil	Opalescent Oil	name	Fatal Blade	icon	Fatal Blade	name ru	Смертельный клинок
+oil	Clear Oil	oil	Clear Oil	oil	Golden Oil	name	Lava Lash	icon	Lava Lash	name ru	Всплеск лавы
+oil	Clear Oil	oil	Sepia Oil	oil	Golden Oil	name	Atrophy	icon	Atrophy	name ru	Атрофия
+oil	Verdant Oil	oil	Opalescent Oil	oil	Opalescent Oil	name	Ravenous Horde	icon	Ravenous Horde	name ru	Ненасытная орда
+oil	Sepia Oil	oil	Sepia Oil	oil	Golden Oil	name	Spiritual Command	icon	Spiritual Command	name ru	Духовный приказ
+oil	Clear Oil	oil	Amber Oil	oil	Golden Oil	name	Swift Venoms	icon	Swift Venoms	name ru	Быстрые яды
+oil	Sepia Oil	oil	Amber Oil	oil	Golden Oil	name	Stun Mastery	icon	Stun Mastery	name ru	Ловкое оглушение
+oil	Teal Oil	oil	Opalescent Oil	oil	Opalescent Oil	name	One with the River	icon	One with the River	name ru	Наедине с рекой
+oil	Clear Oil	oil	Verdant Oil	oil	Golden Oil	name	Enduring Bond	icon	Enduring Bond	name ru	Прочная связь
+oil	Sepia Oil	oil	Verdant Oil	oil	Golden Oil	name	Brutal Blade	icon	Brutal Blade	name ru	Жестокий клинок
+oil	Amber Oil	oil	Amber Oil	oil	Golden Oil	name	Claws of the Falcon	icon	Claws of the Falcon	name ru	Когти сокола
+oil	Clear Oil	oil	Teal Oil	oil	Golden Oil	name	Growth and Decay	icon	Growth and Decay	name ru	Рост и увядание
+oil	Amber Oil	oil	Verdant Oil	oil	Golden Oil	name	Disciple of the Slaughter	icon	Disciple of the Slaughter	name ru	Апостол резни
+oil	Sepia Oil	oil	Teal Oil	oil	Golden Oil	name	Nightstalker	icon	Nightstalker	name ru	Ночной преследователь
+oil	Azure Oil	oil	Opalescent Oil	oil	Opalescent Oil	name	Volatile Mines	icon	Volatile Mines	name ru	Нестабильные мины
+oil	Verdant Oil	oil	Verdant Oil	oil	Golden Oil	name	Insightfulness	icon	Insightfulness	name ru	Вдохновение
+oil	Amber Oil	oil	Teal Oil	oil	Golden Oil	name	Arcane Chemistry	icon	Arcane Chemistry	name ru	Алхимия
+oil	Clear Oil	oil	Azure Oil	oil	Golden Oil	name	Cleansed Thoughts	icon	Cleansed Thoughts	name ru	Чистые помыслы
+oil	Verdant Oil	oil	Teal Oil	oil	Golden Oil	name	Influence	icon	Influence	name ru	Влияние
+oil	Sepia Oil	oil	Azure Oil	oil	Golden Oil	name	Heart of Thunder	icon	Heart of Thunder	name ru	Громовое сердце
+oil	Crimson Oil	oil	Crimson Oil	oil	Silver Oil	name	Devotion	icon	Devotion	name ru	Упорство
+oil	Clear Oil	oil	Black Oil	oil	Silver Oil	name	Purity of Flesh	icon	Purity of Flesh	name ru	Чистота плоти
+oil	Amber Oil	oil	Azure Oil	oil	Golden Oil	name	Doom Cast	icon	Doom Cast	name ru	Гибельные чары
+oil	Teal Oil	oil	Teal Oil	oil	Golden Oil	name	Quick Recovery	icon	Quick Recovery	name ru	Быстрое восстановление
+oil	Sepia Oil	oil	Black Oil	oil	Silver Oil	name	Crystal Skin	icon	Crystal Skin	name ru	Кристальная кожа
+oil	Violet Oil	oil	Opalescent Oil	oil	Opalescent Oil	name	Bravery	icon	Bravery	name ru	Храбрость
+oil	Verdant Oil	oil	Azure Oil	oil	Golden Oil	name	Breath of Flames	icon	Breath of Flames	name ru	Дыхание пламени
+oil	Amber Oil	oil	Black Oil	oil	Silver Oil	name	Fervour	icon	Fervour	name ru	Рвение
+oil	Clear Oil	oil	Violet Oil	oil	Golden Oil	name	Transcendence	icon	Transcendence	name ru	Превосходство
+oil	Verdant Oil	oil	Black Oil	oil	Silver Oil	name	Profane Chemistry	icon	Profane Chemistry	name ru	Лекарства
+oil	Teal Oil	oil	Azure Oil	oil	Golden Oil	name	Heart of Flame	icon	Heart of Flame	name ru	Пылающее сердце
+oil	Sepia Oil	oil	Violet Oil	oil	Golden Oil	name	Written in Blood	icon	Written in Blood	name ru	Клятва на крови
+oil	Amber Oil	oil	Violet Oil	oil	Golden Oil	name	Aqueous Accelerant	icon	Aqueous Accelerant	name ru	Сжиженный катализатор
+oil	Teal Oil	oil	Black Oil	oil	Silver Oil	name	Cruel Preparation	icon	Cruel Preparation	name ru	Изматывающие тренировки
+oil	Verdant Oil	oil	Violet Oil	oil	Golden Oil	name	Disemboweling	icon	Disemboweling	name ru	Потрошение
+oil	Azure Oil	oil	Azure Oil	oil	Golden Oil	name	Cursed Concoction	icon	Cursed Concoction	name ru	Проклятое варево
+oil	Teal Oil	oil	Violet Oil	oil	Golden Oil	name	Soul Siphon	icon	Soul Siphon	name ru	Вытягивание душ
+oil	Azure Oil	oil	Black Oil	oil	Silver Oil	name	Arcane Potency	icon	Arcane Potency	name ru	Могущество чар
+oil	Azure Oil	oil	Violet Oil	oil	Golden Oil	name	Breath of Lightning	icon	Breath of Lightning	name ru	Дыхание грозы
+oil	Crimson Oil	oil	Opalescent Oil	oil	Opalescent Oil	name	Vigour	icon	Vigour	name ru	Напор
+oil	Black Oil	oil	Black Oil	oil	Opalescent Oil	name	Master of Force	icon	Master of Force	name ru	Мастер применения силы
+oil	Violet Oil	oil	Black Oil	oil	Silver Oil	name	Hematophagy	icon	Hematophagy	name ru	Вампиризм
+oil	Clear Oil	oil	Crimson Oil	oil	Golden Oil	name	Druidic Rite	icon	Druidic Rite	name ru	Обряд друидов
+oil	Sepia Oil	oil	Crimson Oil	oil	Golden Oil	name	Heart and Soul	icon	Heart and Soul	name ru	Сердце и душа
+oil	Amber Oil	oil	Crimson Oil	oil	Golden Oil	name	Bloodless	icon	Bloodless	name ru	Бескровный
+oil	Violet Oil	oil	Violet Oil	oil	Golden Oil	name	Born to Fight	icon	Born to Fight	name ru	Рожденный для битвы
+oil	Verdant Oil	oil	Crimson Oil	oil	Golden Oil	name	Heart of Oak	icon	Heart of Oak	name ru	Сердце дуба
+oil	Teal Oil	oil	Crimson Oil	oil	Golden Oil	name	Champion of the Cause	icon	Champion of the Cause	name ru	Идейный вдохновитель
+oil	Azure Oil	oil	Crimson Oil	oil	Golden Oil	name	Survivalist	icon	Survivalist	name ru	Остаться в живых
+oil	Crimson Oil	oil	Black Oil	oil	Silver Oil	name	Overcharge	icon	Overcharge	name ru	Полный заряд
+oil	Clear Oil	oil	Opalescent Oil	oil	Silver Oil	name	Overcharged	icon	Overcharged	name ru	Перегрузка
+oil	Sepia Oil	oil	Opalescent Oil	oil	Silver Oil	name	Master of the Arena	icon	Master of the Arena	name ru	Повелитель арены
+oil	Amber Oil	oil	Opalescent Oil	oil	Silver Oil	name	Mystic Talents	icon	Mystic Talents	name ru	Мистические таланты
+oil	Violet Oil	oil	Crimson Oil	oil	Golden Oil	name	Fingers of Frost	icon	Fingers of Frost	name ru	Ледяные пальцы
+oil	Verdant Oil	oil	Opalescent Oil	oil	Silver Oil	name	Divine Fervour	icon	Divine Fervour	name ru	Божественное рвение
+oil	Teal Oil	oil	Opalescent Oil	oil	Silver Oil	name	Herbalism	icon	Herbalism	name ru	Травничество
+oil	Azure Oil	oil	Opalescent Oil	oil	Silver Oil	name	Blood Siphon	icon	Blood Siphon	name ru	Переливание крови
+oil	Black Oil	oil	Opalescent Oil	oil	Opalescent Oil	name	Crackling Speed	icon	Crackling Speed	name ru	Скорость молнии
+oil	Violet Oil	oil	Opalescent Oil	oil	Silver Oil	name	Leadership	icon	Leadership	name ru	Лидерство
+oil	Crimson Oil	oil	Crimson Oil	oil	Golden Oil	name	Arcane Expanse	icon	Arcane Expanse	name ru	Колдовское расширение
+oil	Clear Oil	oil	Black Oil	oil	Golden Oil	name	Endurance	icon	Endurance	name ru	Выносливость
+oil	Sepia Oil	oil	Black Oil	oil	Golden Oil	name	Faith and Steel	icon	Faith and Steel	name ru	Вера и сталь
+oil	Amber Oil	oil	Black Oil	oil	Golden Oil	name	Way of the Warrior	icon	Way of the Warrior	name ru	Путь ратника
+oil	Verdant Oil	oil	Black Oil	oil	Golden Oil	name	Deadly Inclinations	icon	Deadly Inclinations	name ru	Смертельные наклонности
+oil	Teal Oil	oil	Black Oil	oil	Golden Oil	name	Hardened Scars	icon	Hardened Scars	name ru	Загрубевшие шрамы
+oil	Azure Oil	oil	Black Oil	oil	Golden Oil	name	Rampart	icon	Rampart	name ru	Оплот
+oil	Crimson Oil	oil	Opalescent Oil	oil	Silver Oil	name	Inexorable	icon	Inexorable	name ru	Безжалостный
+oil	Black Oil	oil	Black Oil	oil	Silver Oil	name	Stamina	icon	Stamina	name ru	Стойкость
+oil	Violet Oil	oil	Black Oil	oil	Golden Oil	name	Arcane Capacitor	icon	Arcane Capacitor	name ru	Конденсатор колдовства
+oil	Opalescent Oil	oil	Opalescent Oil	oil	Opalescent Oil	name	Tireless	icon	Tireless	name ru	Неутомимость
+oil	Clear Oil	oil	Silver Oil	oil	Silver Oil	name	Arcane Swiftness	icon	Arcane Swiftness	name ru	Колдовская скорость
+oil	Sepia Oil	oil	Silver Oil	oil	Silver Oil	name	Stabbing Thirst	icon	Stabbing Thirst	name ru	Терзающая жажда
+oil	Crimson Oil	oil	Black Oil	oil	Golden Oil	name	Savagery	icon	Savagery	name ru	Свирепость
+oil	Clear Oil	oil	Opalescent Oil	oil	Golden Oil	name	Mana Flows	icon	Mana Flows	name ru	Потоки маны
+oil	Amber Oil	oil	Silver Oil	oil	Silver Oil	name	Primal Spirit	icon	Primal Spirit	name ru	Первобытный дух
+oil	Sepia Oil	oil	Opalescent Oil	oil	Golden Oil	name	Art of the Gladiator	icon	Art of the Gladiator	name ru	Мастерство гладиатора
+oil	Verdant Oil	oil	Silver Oil	oil	Silver Oil	name	Instability	icon	Instability	name ru	Нестабильность
+oil	Amber Oil	oil	Opalescent Oil	oil	Golden Oil	name	Arcane Will	icon	Arcane Will	name ru	Колдовская воля
+oil	Verdant Oil	oil	Opalescent Oil	oil	Golden Oil	name	Foresight	icon	Foresight	name ru	Предвидение
+oil	Teal Oil	oil	Silver Oil	oil	Silver Oil	name	Breath of Rime	icon	Breath of Rime	name ru	Дыхание стужи
+oil	Teal Oil	oil	Opalescent Oil	oil	Golden Oil	name	Lust for Carnage	icon	Lust for Carnage	name ru	Жажда расправы
+oil	Azure Oil	oil	Silver Oil	oil	Silver Oil	name	Frenetic	icon	Frenetic	name ru	Неистовство
+oil	Azure Oil	oil	Opalescent Oil	oil	Golden Oil	name	Force Shaper	icon	Force Shaper	name ru	Повелитель силы
+oil	Black Oil	oil	Opalescent Oil	oil	Silver Oil	name	Piercing Shots	icon	Piercing Shots	name ru	Пронзающие стрелы
+oil	Violet Oil	oil	Silver Oil	oil	Silver Oil	name	Thick Skin	icon	Thick Skin	name ru	Толстая кожа
+oil	Violet Oil	oil	Opalescent Oil	oil	Golden Oil	name	Dismembering	icon	Dismembering	name ru	Расчленение
+oil	Crimson Oil	oil	Silver Oil	oil	Silver Oil	name	Infused	icon	Infused	name ru	Заряженный
+oil	Crimson Oil	oil	Opalescent Oil	oil	Golden Oil	name	Heart of Ice	icon	Heart of Ice	name ru	Ледяное сердце
+oil	Black Oil	oil	Black Oil	oil	Golden Oil	name	Swagger	icon	Swagger	name ru	Димахер
+oil	Opalescent Oil	oil	Opalescent Oil	oil	Silver Oil	name	Blood Drinker	icon	Blood Drinker	name ru	Кровопийца
+oil	Clear Oil	oil	Silver Oil	oil	Golden Oil	name	Vitality Void	icon	Vitality Void	name ru	Пустота тела
+oil	Sepia Oil	oil	Silver Oil	oil	Golden Oil	name	Fangs of the Viper	icon	Fangs of the Viper	name ru	Клыки гадюки
+oil	Amber Oil	oil	Silver Oil	oil	Golden Oil	name	Ethereal Feast	icon	Ethereal Feast	name ru	Бесплотный пир
+oil	Verdant Oil	oil	Silver Oil	oil	Golden Oil	name	Resourcefulness	icon	Resourcefulness	name ru	Изворотливость
+oil	Teal Oil	oil	Silver Oil	oil	Golden Oil	name	Essence Surge	icon	Essence Surge	name ru	Внутренние резервы
+oil	Azure Oil	oil	Silver Oil	oil	Golden Oil	name	Golem Commander	icon	Golem Commander	name ru	Повелитель големов
+oil	Black Oil	oil	Silver Oil	oil	Silver Oil	name	Discipline and Training	icon	Discipline and Training	name ru	Дисциплина и подготовка
+oil	Black Oil	oil	Opalescent Oil	oil	Golden Oil	name	Assassination	icon	Assassination	name ru	Ликвидация
+oil	Violet Oil	oil	Silver Oil	oil	Golden Oil	name	Heart of the Warrior	icon	Heart of the Warrior	name ru	Сердце воина
+oil	Crimson Oil	oil	Silver Oil	oil	Golden Oil	name	Void Barrier	icon	Void Barrier	name ru	Барьер пустоты
+oil	Opalescent Oil	oil	Silver Oil	oil	Silver Oil	name	Skittering Runes	icon	Skittering Runes	name ru	Сложные руны
+oil	Opalescent Oil	oil	Opalescent Oil	oil	Golden Oil	name	Barbarism	icon	Barbarism	name ru	Варварство
+oil	Clear Oil	oil	Golden Oil	oil	Golden Oil	name	Crusader	icon	Crusader	name ru	Крестоносец
+oil	Sepia Oil	oil	Golden Oil	oil	Golden Oil	name	Thunderous Salvos	icon	Thunderous Salvos	name ru	Громовой шквал
+oil	Amber Oil	oil	Golden Oil	oil	Golden Oil	name	Vengeant Cascade	icon	Vengeant Cascade	name ru	Каскад мести
+oil	Verdant Oil	oil	Golden Oil	oil	Golden Oil	name	Unnatural Calm	icon	Unnatural Calm	name ru	Неестественное спокойствие
+oil	Teal Oil	oil	Golden Oil	oil	Golden Oil	name	Golem's Blood	icon	Golem's Blood	name ru	Кровь голема
+oil	Azure Oil	oil	Golden Oil	oil	Golden Oil	name	Tranquility	icon	Tranquility	name ru	Безмятежность
+oil	Black Oil	oil	Silver Oil	oil	Golden Oil	name	Revenge of the Hunted	icon	Revenge of the Hunted	name ru	Месть жертвы
+oil	Violet Oil	oil	Golden Oil	oil	Golden Oil	name	Aspect of Stone	icon	Aspect of Stone	name ru	Дух камня
+oil	Crimson Oil	oil	Golden Oil	oil	Golden Oil	name	Tenacity	icon	Tenacity	name ru	Выдержка
+oil	Silver Oil	oil	Silver Oil	oil	Silver Oil	name	Sovereignty	icon	Sovereignty	name ru	Полновластие
+oil	Opalescent Oil	oil	Silver Oil	oil	Golden Oil	name	Tribal Fury	icon	Tribal Fury	name ru	Ярость племени
+oil	Black Oil	oil	Golden Oil	oil	Golden Oil	name	Whispers of Doom	icon	Whispers of Doom	name ru	Шепот рока
+oil	Silver Oil	oil	Silver Oil	oil	Golden Oil	name	Spiritual Aid	icon	Spiritual Aid	name ru	Духовная поддержка
+oil	Opalescent Oil	oil	Golden Oil	oil	Golden Oil	name	Charisma	icon	Charisma	name ru	Харизма
+oil	Silver Oil	oil	Golden Oil	oil	Golden Oil	name	Constitution	icon	Constitution	name ru	Здоровое тело
+oil	Golden Oil	oil	Golden Oil	oil	Golden Oil	name	Soul of Steel	icon	Soul of Steel	name ru	Стальной дух

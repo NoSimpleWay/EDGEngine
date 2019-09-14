@@ -118,6 +118,8 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		rama_thikness = 1.0f;
 		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN)
@@ -131,6 +133,8 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		rama_thikness = 1.0f;
 		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_REMOVE_BLOCK)
@@ -326,6 +330,16 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 	
 
 	}
+	
+	if (button_type == Enums::ButtonType::BUTTON_PASSIVE)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+	}
 }
 
 void EButtonService::click_event()
@@ -510,6 +524,8 @@ void EButtonService::click_event()
 
 		for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
 		{StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;}
+
+		StaticData::window_filter_block->recalculate_filter_block_separator();
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_DOWN))
@@ -528,6 +544,8 @@ void EButtonService::click_event()
 
 		for (int i = 0; i < StaticData::window_filter_block->filter_block_list.size(); i++)
 		{StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;}
+
+		StaticData::window_filter_block->recalculate_filter_block_separator();
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_REMOVE_BLOCK))
