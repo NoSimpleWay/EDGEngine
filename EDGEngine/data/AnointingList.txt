@@ -1,0 +1,444 @@
+Clear Oil	Clear Oil	Clear Oil	Alacrity	Alacrity
+Clear Oil	Clear Oil	Sepia Oil	Beef	Beef
+Clear Oil	Sepia Oil	Sepia Oil	Agility	Alacrity
+Clear Oil	Clear Oil	Amber Oil	Wisdom of the Glade	Wisdom of the Glade
+Sepia Oil	Sepia Oil	Sepia Oil	Expertise	Alacrity
+Clear Oil	Sepia Oil	Amber Oil	Thief's Craft	Wisdom of the Glade
+Clear Oil	Clear Oil	Verdant Oil	Prowess	Beef
+Sepia Oil	Sepia Oil	Amber Oil	Proficiency	Alacrity
+Clear Oil	Sepia Oil	Verdant Oil	Ancestral Knowledge	Wisdom of the Glade
+Clear Oil	Amber Oil	Amber Oil	Might	Beef
+Sepia Oil	Sepia Oil	Verdant Oil	Fending	Fending
+Sepia Oil	Amber Oil	Amber Oil	Hard Knocks	Wisdom of the Glade
+Clear Oil	Clear Oil	Teal Oil	Physique	Beef
+Clear Oil	Amber Oil	Verdant Oil	Arcane Vision	Arcane Vision
+Clear Oil	Sepia Oil	Teal Oil	Diamond Skin	Soul of Steel
+Sepia Oil	Amber Oil	Verdant Oil	Path of the Savant	Path of the Savant
+Amber Oil	Amber Oil	Amber Oil	Path of the Warrior	Path of the Warrior
+Clear Oil	Verdant Oil	Verdant Oil	Path of the Hunter	Path of the Hunter
+Sepia Oil	Sepia Oil	Teal Oil	Righteous Decree	Righteous Decree
+Clear Oil	Amber Oil	Teal Oil	Ironwood	Ironwood
+Sepia Oil	Verdant Oil	Verdant Oil	Fusillade	Fusillade
+Amber Oil	Amber Oil	Verdant Oil	Quickstep	Quickstep
+Sepia Oil	Amber Oil	Teal Oil	Weathered Hunter	Weathered Hunter
+Clear Oil	Clear Oil	Azure Oil	Cloth and Chain	Cloth and Chain
+Clear Oil	Verdant Oil	Teal Oil	Solidity	Solidity
+Amber Oil	Verdant Oil	Verdant Oil	Aspect of the Eagle	Aspect of the Eagle
+Clear Oil	Sepia Oil	Azure Oil	Dynamo	Dynamo
+Sepia Oil	Verdant Oil	Teal Oil	Decay Ward	Decay Ward
+Amber Oil	Amber Oil	Teal Oil	Thrill Seeker	Thrill Seeker
+Sepia Oil	Sepia Oil	Azure Oil	Aspect of the Panther	Aspect of the Panther
+Verdant Oil	Verdant Oil	Verdant Oil	Spirit Void	Spirit Void
+Clear Oil	Amber Oil	Azure Oil	Poisonous Fangs	Poisonous Fangs
+Clear Oil	Teal Oil	Teal Oil	Saboteur	Saboteur
+Amber Oil	Verdant Oil	Teal Oil	Depth Perception	Depth Perception
+Sepia Oil	Amber Oil	Azure Oil	Elemental Focus	Elemental Focus
+Sepia Oil	Teal Oil	Teal Oil	Deep Wisdom	Deep Wisdom
+Clear Oil	Verdant Oil	Azure Oil	Martial Experience	Martial Experience
+Verdant Oil	Verdant Oil	Teal Oil	Fury Bolts	Fury Bolts
+Sepia Oil	Verdant Oil	Azure Oil	Battle Rouse	Battle Rouse
+Amber Oil	Amber Oil	Azure Oil	Hasty Reconstruction	Hasty Reconstruction
+Amber Oil	Teal Oil	Teal Oil	Sanctuary
+Clear Oil	Clear Oil	Violet Oil	Practical Application
+Clear Oil	Teal Oil	Azure Oil	Words of Glory
+Amber Oil	Verdant Oil	Azure Oil	Executioner
+Verdant Oil	Teal Oil	Teal Oil	Mind Drinker
+Clear Oil	Sepia Oil	Violet Oil	Freedom of Movement
+Sepia Oil	Teal Oil	Azure Oil	Dreamer
+Sepia Oil	Sepia Oil	Violet Oil	Aligned Spirits
+Verdant Oil	Verdant Oil	Azure Oil	Arsonist
+Clear Oil	Amber Oil	Violet Oil	Weapon Artistry
+Amber Oil	Teal Oil	Azure Oil	Unpredictable Offensive
+Teal Oil	Teal Oil	Teal Oil	Mystic Bulwark
+Sepia Oil	Amber Oil	Violet Oil	Shamanistic Fury
+Clear Oil	Verdant Oil	Violet Oil	Deep Thoughts
+Clear Oil	Azure Oil	Azure Oil	Prodigal Perfection
+Verdant Oil	Teal Oil	Azure Oil	Sentinel
+Sepia Oil	Verdant Oil	Violet Oil	Heavy Draw
+Sepia Oil	Azure Oil	Azure Oil	Claws of the Magpie
+Amber Oil	Amber Oil	Violet Oil	Harvester of Foes
+Clear Oil	Teal Oil	Violet Oil	Splitting Strikes
+Amber Oil	Verdant Oil	Violet Oil	Silent Steps
+Amber Oil	Azure Oil	Azure Oil	Explosive Runes
+Teal Oil	Teal Oil	Azure Oil	Steelwood Stance
+Sepia Oil	Teal Oil	Violet Oil	Efficient Explosives
+Verdant Oil	Verdant Oil	Violet Oil	Totemic Zeal
+Verdant Oil	Azure Oil	Azure Oil	Bone Breaker
+Amber Oil	Teal Oil	Violet Oil	Gemini
+Clear Oil	Azure Oil	Violet Oil	Expeditious Munitions
+Verdant Oil	Teal Oil	Violet Oil	Razor's Edge
+Teal Oil	Azure Oil	Azure Oil	Red Storm
+Sepia Oil	Azure Oil	Violet Oil	Honed Edge
+Amber Oil	Azure Oil	Violet Oil	Kinetic Impacts
+Teal Oil	Teal Oil	Violet Oil	Elder Power
+Clear Oil	Clear Oil	Crimson Oil	Successive Detonations
+Verdant Oil	Azure Oil	Violet Oil	Forceful Skewering
+Azure Oil	Azure Oil	Azure Oil	Slaughter
+Clear Oil	Sepia Oil	Crimson Oil	Galvanic Hammer
+Sepia Oil	Sepia Oil	Crimson Oil	Magmatic Strikes
+Clear Oil	Amber Oil	Crimson Oil	Toxic Strikes
+Clear Oil	Violet Oil	Violet Oil	Pain Forger
+Teal Oil	Azure Oil	Violet Oil	Sacrifice
+Sepia Oil	Amber Oil	Crimson Oil	Entropy
+Sepia Oil	Violet Oil	Violet Oil	Grave Intentions
+Clear Oil	Verdant Oil	Crimson Oil	Blast Waves
+Sepia Oil	Verdant Oil	Crimson Oil	Master Fletcher
+Amber Oil	Amber Oil	Crimson Oil	Bladedancer
+Amber Oil	Violet Oil	Violet Oil	Claws of the Pride
+Clear Oil	Teal Oil	Crimson Oil	Ophidian Aim
+Amber Oil	Verdant Oil	Crimson Oil	Primal Manifestation
+Verdant Oil	Violet Oil	Violet Oil	Spinecruncher
+Azure Oil	Azure Oil	Violet Oil	Smashing Strikes
+Sepia Oil	Teal Oil	Crimson Oil	Utmost Swiftness
+Verdant Oil	Verdant Oil	Crimson Oil	Farsight
+Amber Oil	Teal Oil	Crimson Oil	Whirling Barrier
+Teal Oil	Violet Oil	Violet Oil	Unstable Munitions
+Clear Oil	Azure Oil	Crimson Oil	From the Shadows
+Verdant Oil	Teal Oil	Crimson Oil	Hatchet Master
+Sepia Oil	Azure Oil	Crimson Oil	Clever Construction
+Amber Oil	Azure Oil	Crimson Oil	Utmost Might
+Teal Oil	Teal Oil	Crimson Oil	Wandslinger
+Azure Oil	Violet Oil	Violet Oil	Bludgeon Blitz
+Verdant Oil	Azure Oil	Crimson Oil	Flash Freeze
+Clear Oil	Violet Oil	Crimson Oil	Flaying
+Teal Oil	Azure Oil	Crimson Oil	Fearsome Force
+Sepia Oil	Violet Oil	Crimson Oil	Redemption
+Amber Oil	Violet Oil	Crimson Oil	Utmost Intellect
+Violet Oil	Violet Oil	Violet Oil	Enigmatic Defence
+Verdant Oil	Violet Oil	Crimson Oil	Butchery
+Azure Oil	Azure Oil	Crimson Oil	Holy Dominion
+Teal Oil	Violet Oil	Crimson Oil	Static Blows
+Azure Oil	Violet Oil	Crimson Oil	Light Eater
+Clear Oil	Crimson Oil	Crimson Oil	Shaper
+Clear Oil	Clear Oil	Black Oil	Annihilation
+Sepia Oil	Crimson Oil	Crimson Oil	Ash, Frost and Storm
+Clear Oil	Sepia Oil	Black Oil	Testudo
+Sepia Oil	Sepia Oil	Black Oil	Lightning Walker
+Amber Oil	Crimson Oil	Crimson Oil	Nimbleness
+Violet Oil	Violet Oil	Crimson Oil	Aspect of the Lynx
+Clear Oil	Amber Oil	Black Oil	Exceptional Performance
+Sepia Oil	Amber Oil	Black Oil	Cleaving
+Verdant Oil	Crimson Oil	Crimson Oil	Arcane Focus
+Clear Oil	Verdant Oil	Black Oil	Combat Stamina
+Sepia Oil	Verdant Oil	Black Oil	Will of Blades
+Amber Oil	Amber Oil	Black Oil	Divine Fury
+Teal Oil	Crimson Oil	Crimson Oil	Heartseeker
+Clear Oil	Teal Oil	Black Oil	Arcane Guarding
+Amber Oil	Verdant Oil	Black Oil	Reflexes
+Sepia Oil	Teal Oil	Black Oil	Divine Judgement
+Verdant Oil	Verdant Oil	Black Oil	Trickery
+Amber Oil	Teal Oil	Black Oil	Defiance
+Azure Oil	Crimson Oil	Crimson Oil	Harrier
+Clear Oil	Azure Oil	Black Oil	Twin Terrors
+Verdant Oil	Teal Oil	Black Oil	Enigmatic Reach
+Sepia Oil	Azure Oil	Black Oil	Snowforged
+Amber Oil	Azure Oil	Black Oil	Ambidexterity
+Teal Oil	Teal Oil	Black Oil	Warrior's Blood
+Verdant Oil	Azure Oil	Black Oil	Command of the Elements
+Violet Oil	Crimson Oil	Crimson Oil	Light of Divinity
+Clear Oil	Violet Oil	Black Oil	Acuity
+Teal Oil	Azure Oil	Black Oil	Finesse
+Sepia Oil	Violet Oil	Black Oil	Mental Rapidity
+Amber Oil	Violet Oil	Black Oil	Revelry
+Verdant Oil	Violet Oil	Black Oil	Aggressive Bastion
+Azure Oil	Azure Oil	Black Oil	Sanctity
+Teal Oil	Violet Oil	Black Oil	Essence Sap
+Azure Oil	Violet Oil	Black Oil	Adamant
+Crimson Oil	Crimson Oil	Crimson Oil	Coldhearted Calculation
+Clear Oil	Crimson Oil	Black Oil	Arcanist's Dominion
+Clear Oil	Clear Oil	Opalescent Oil	Eagle Eye
+Sepia Oil	Crimson Oil	Black Oil	Storm Weaver
+Clear Oil	Sepia Oil	Opalescent Oil	Berserking
+Sepia Oil	Sepia Oil	Opalescent Oil	Potency of Will
+Amber Oil	Crimson Oil	Black Oil	Coordination
+Violet Oil	Violet Oil	Black Oil	Graceful Assault
+Clear Oil	Amber Oil	Opalescent Oil	Brinkmanship
+Sepia Oil	Amber Oil	Opalescent Oil	Fleetfoot
+Verdant Oil	Crimson Oil	Black Oil	Precise Interception
+Clear Oil	Verdant Oil	Opalescent Oil	Blast Radius
+Sepia Oil	Verdant Oil	Opalescent Oil	Destroyer
+Amber Oil	Amber Oil	Opalescent Oil	Divine Wrath
+Teal Oil	Crimson Oil	Black Oil	True Strike
+Clear Oil	Teal Oil	Opalescent Oil	Wrecking Ball
+Amber Oil	Verdant Oil	Opalescent Oil	Titanic Impacts
+Sepia Oil	Teal Oil	Opalescent Oil	Deflection
+Verdant Oil	Verdant Oil	Opalescent Oil	Versatility
+Amber Oil	Teal Oil	Opalescent Oil	Juggernaut
+Azure Oil	Crimson Oil	Black Oil	Dervish
+Clear Oil	Azure Oil	Opalescent Oil	Strong Arm
+Verdant Oil	Teal Oil	Opalescent Oil	Sleight of Hand
+Sepia Oil	Azure Oil	Opalescent Oil	Battle Cry
+Amber Oil	Azure Oil	Opalescent Oil	Amplify
+Teal Oil	Teal Oil	Opalescent Oil	Dazzling Strikes
+Verdant Oil	Azure Oil	Opalescent Oil	Explosive Impact
+Violet Oil	Crimson Oil	Black Oil	Fire Walker
+Clear Oil	Violet Oil	Opalescent Oil	Blade Barrier
+Teal Oil	Azure Oil	Opalescent Oil	Dark Arts
+Sepia Oil	Violet Oil	Opalescent Oil	Melding
+Amber Oil	Violet Oil	Opalescent Oil	Throatseeker
+Verdant Oil	Violet Oil	Opalescent Oil	Frost Walker
+Azure Oil	Azure Oil	Opalescent Oil	Steadfast
+Teal Oil	Violet Oil	Opalescent Oil	Mysticism
+Azure Oil	Violet Oil	Opalescent Oil	Ballistic Mastery
+Crimson Oil	Crimson Oil	Black Oil	Essence Extraction
+Clear Oil	Crimson Oil	Opalescent Oil	Retribution
+Clear Oil	Black Oil	Black Oil	Lethal Assault
+Sepia Oil	Crimson Oil	Opalescent Oil	Soul Thief
+Sepia Oil	Black Oil	Black Oil	Sanctum of Thought
+Amber Oil	Crimson Oil	Opalescent Oil	Command of Steel
+Amber Oil	Black Oil	Black Oil	Precision
+Violet Oil	Violet Oil	Opalescent Oil	Hired Killer
+Verdant Oil	Crimson Oil	Opalescent Oil	Retaliation
+Verdant Oil	Black Oil	Black Oil	Righteous Army
+Teal Oil	Crimson Oil	Opalescent Oil	Longshot
+Teal Oil	Black Oil	Black Oil	Ribcage Crusher
+Azure Oil	Crimson Oil	Opalescent Oil	Dire Torment
+Azure Oil	Black Oil	Black Oil	Gravepact
+Clear Oil	Clear Oil	Silver Oil	Arcing Blows
+Violet Oil	Crimson Oil	Opalescent Oil	Disciple of the Unyielding
+Violet Oil	Black Oil	Black Oil	Disintegration
+Clear Oil	Sepia Oil	Silver Oil	Blade Master
+Sepia Oil	Sepia Oil	Silver Oil	Fangs of Frost
+Clear Oil	Amber Oil	Silver Oil	Counterweight
+Sepia Oil	Amber Oil	Silver Oil	Destructive Apparatus
+Clear Oil	Verdant Oil	Silver Oil	Hunter's Gambit
+Sepia Oil	Verdant Oil	Silver Oil	Soul Raker
+Amber Oil	Amber Oil	Silver Oil	Dirty Techniques
+Clear Oil	Teal Oil	Silver Oil	Backstabbing
+Amber Oil	Verdant Oil	Silver Oil	Tempest Blast
+Sepia Oil	Teal Oil	Silver Oil	Winter Spirit
+Verdant Oil	Verdant Oil	Silver Oil	High Explosives
+Amber Oil	Teal Oil	Silver Oil	Holy Fire
+Clear Oil	Azure Oil	Silver Oil	Shaman's Dominion
+Verdant Oil	Teal Oil	Silver Oil	Method to the Madness
+Sepia Oil	Azure Oil	Silver Oil	Blade of Cunning
+Amber Oil	Azure Oil	Silver Oil	Searing Heat
+Teal Oil	Teal Oil	Silver Oil	Devastating Devices
+Verdant Oil	Azure Oil	Silver Oil	Forces of Nature
+Crimson Oil	Crimson Oil	Opalescent Oil	Singular Focus
+Crimson Oil	Black Oil	Black Oil	Corruption
+Clear Oil	Black Oil	Opalescent Oil	Skull Cracking
+Sepia Oil	Black Oil	Opalescent Oil	Adder's Touch
+Clear Oil	Violet Oil	Silver Oil	Fatal Toxins
+Teal Oil	Azure Oil	Silver Oil	Gladiator's Perseverance
+Sepia Oil	Violet Oil	Silver Oil	Lethality
+Amber Oil	Black Oil	Opalescent Oil	Feller of Foes
+Amber Oil	Violet Oil	Silver Oil	Lucidity
+Verdant Oil	Black Oil	Opalescent Oil	Blacksmith's Clout
+Verdant Oil	Violet Oil	Silver Oil	King of the Hill
+Azure Oil	Azure Oil	Silver Oil	Bloodletting
+Teal Oil	Black Oil	Opalescent Oil	Master Sapper
+Teal Oil	Violet Oil	Silver Oil	Charging Offensive
+Azure Oil	Black Oil	Opalescent Oil	Serpent Stance
+Azure Oil	Violet Oil	Silver Oil	Primeval Force
+Clear Oil	Crimson Oil	Silver Oil	Death Attunement
+Sepia Oil	Crimson Oil	Silver Oil	Deadly Draw
+Violet Oil	Black Oil	Opalescent Oil	Claws of the Hawk
+Amber Oil	Crimson Oil	Silver Oil	Blast Cascade
+Violet Oil	Violet Oil	Silver Oil	Swift Skewering
+Verdant Oil	Crimson Oil	Silver Oil	Lord of the Dead
+Teal Oil	Crimson Oil	Silver Oil	Blunt Trauma
+Azure Oil	Crimson Oil	Silver Oil	Runesmith
+Crimson Oil	Black Oil	Opalescent Oil	Hex Master
+Black Oil	Black Oil	Black Oil	Disciple of the Forbidden
+Clear Oil	Opalescent Oil	Opalescent Oil	Avatar of the Hunt
+Sepia Oil	Opalescent Oil	Opalescent Oil	Prism Weave
+Violet Oil	Crimson Oil	Silver Oil	Indomitable Army
+Amber Oil	Opalescent Oil	Opalescent Oil	Fatal Blade
+Clear Oil	Clear Oil	Golden Oil	Lava Lash
+Clear Oil	Sepia Oil	Golden Oil	Atrophy
+Verdant Oil	Opalescent Oil	Opalescent Oil	Ravenous Horde
+Sepia Oil	Sepia Oil	Golden Oil	Spiritual Command
+Clear Oil	Amber Oil	Golden Oil	Swift Venoms
+Sepia Oil	Amber Oil	Golden Oil	Stun Mastery
+Teal Oil	Opalescent Oil	Opalescent Oil	One with the River
+Clear Oil	Verdant Oil	Golden Oil	Enduring Bond
+Sepia Oil	Verdant Oil	Golden Oil	Brutal Blade
+Amber Oil	Amber Oil	Golden Oil	Claws of the Falcon
+Clear Oil	Teal Oil	Golden Oil	Growth and Decay
+Amber Oil	Verdant Oil	Golden Oil	Disciple of the Slaughter
+Sepia Oil	Teal Oil	Golden Oil	Nightstalker
+Azure Oil	Opalescent Oil	Opalescent Oil	Volatile Mines
+Verdant Oil	Verdant Oil	Golden Oil	Insightfulness
+Amber Oil	Teal Oil	Golden Oil	Arcane Chemistry
+Clear Oil	Azure Oil	Golden Oil	Cleansed Thoughts
+Verdant Oil	Teal Oil	Golden Oil	Influence
+Sepia Oil	Azure Oil	Golden Oil	Heart of Thunder
+Crimson Oil	Crimson Oil	Silver Oil	Devotion
+Clear Oil	Black Oil	Silver Oil	Purity of Flesh
+Amber Oil	Azure Oil	Golden Oil	Doom Cast
+Teal Oil	Teal Oil	Golden Oil	Quick Recovery
+Sepia Oil	Black Oil	Silver Oil	Crystal Skin
+Violet Oil	Opalescent Oil	Opalescent Oil	Bravery
+Verdant Oil	Azure Oil	Golden Oil	Breath of Flames
+Amber Oil	Black Oil	Silver Oil	Fervour
+Clear Oil	Violet Oil	Golden Oil	Transcendence
+Verdant Oil	Black Oil	Silver Oil	Profane Chemistry
+Teal Oil	Azure Oil	Golden Oil	Heart of Flame
+Sepia Oil	Violet Oil	Golden Oil	Written in Blood
+Amber Oil	Violet Oil	Golden Oil	Aqueous Accelerant
+Teal Oil	Black Oil	Silver Oil	Cruel Preparation
+Verdant Oil	Violet Oil	Golden Oil	Disemboweling
+Azure Oil	Azure Oil	Golden Oil	Cursed Concoction
+Teal Oil	Violet Oil	Golden Oil	Soul Siphon
+Azure Oil	Black Oil	Silver Oil	Arcane Potency
+Azure Oil	Violet Oil	Golden Oil	Breath of Lightning
+Crimson Oil	Opalescent Oil	Opalescent Oil	Vigour
+Black Oil	Black Oil	Opalescent Oil	Master of Force
+Violet Oil	Black Oil	Silver Oil	Hematophagy
+Clear Oil	Crimson Oil	Golden Oil	Druidic Rite
+Sepia Oil	Crimson Oil	Golden Oil	Heart and Soul
+Amber Oil	Crimson Oil	Golden Oil	Bloodless
+Violet Oil	Violet Oil	Golden Oil	Born to Fight
+Verdant Oil	Crimson Oil	Golden Oil	Heart of Oak
+Teal Oil	Crimson Oil	Golden Oil	Champion of the Cause
+Azure Oil	Crimson Oil	Golden Oil	Survivalist
+Crimson Oil	Black Oil	Silver Oil	Overcharge
+Clear Oil	Opalescent Oil	Silver Oil	Overcharged
+Sepia Oil	Opalescent Oil	Silver Oil	Master of the Arena
+Amber Oil	Opalescent Oil	Silver Oil	Mystic Talents
+Violet Oil	Crimson Oil	Golden Oil	Fingers of Frost
+Verdant Oil	Opalescent Oil	Silver Oil	Divine Fervour
+Teal Oil	Opalescent Oil	Silver Oil	Herbalism
+Azure Oil	Opalescent Oil	Silver Oil	Blood Siphon
+Black Oil	Opalescent Oil	Opalescent Oil	Crackling Speed
+Violet Oil	Opalescent Oil	Silver Oil	Leadership
+Crimson Oil	Crimson Oil	Golden Oil	Arcane Expanse
+Clear Oil	Black Oil	Golden Oil	Endurance
+Sepia Oil	Black Oil	Golden Oil	Faith and Steel
+Amber Oil	Black Oil	Golden Oil	Way of the Warrior
+Verdant Oil	Black Oil	Golden Oil	Deadly Inclinations
+Teal Oil	Black Oil	Golden Oil	Hardened Scars
+Azure Oil	Black Oil	Golden Oil	Rampart
+Crimson Oil	Opalescent Oil	Silver Oil	Inexorable
+Black Oil	Black Oil	Silver Oil	Stamina
+Violet Oil	Black Oil	Golden Oil	Arcane Capacitor
+Opalescent Oil	Opalescent Oil	Opalescent Oil	Tireless
+Clear Oil	Silver Oil	Silver Oil	Arcane Swiftness
+Sepia Oil	Silver Oil	Silver Oil	Stabbing Thirst
+Crimson Oil	Black Oil	Golden Oil	Savagery
+Clear Oil	Opalescent Oil	Golden Oil	Mana Flows
+Amber Oil	Silver Oil	Silver Oil	Primal Spirit
+Sepia Oil	Opalescent Oil	Golden Oil	Art of the Gladiator
+Verdant Oil	Silver Oil	Silver Oil	Instability
+Amber Oil	Opalescent Oil	Golden Oil	Arcane Will
+Verdant Oil	Opalescent Oil	Golden Oil	Foresight
+Teal Oil	Silver Oil	Silver Oil	Breath of Rime
+Teal Oil	Opalescent Oil	Golden Oil	Lust for Carnage
+Azure Oil	Silver Oil	Silver Oil	Frenetic
+Azure Oil	Opalescent Oil	Golden Oil	Force Shaper
+Black Oil	Opalescent Oil	Silver Oil	Piercing Shots
+Violet Oil	Silver Oil	Silver Oil	Thick Skin
+Violet Oil	Opalescent Oil	Golden Oil	Dismembering
+Crimson Oil	Silver Oil	Silver Oil	Infused
+Crimson Oil	Opalescent Oil	Golden Oil	Heart of Ice
+Black Oil	Black Oil	Golden Oil	Swagger
+Opalescent Oil	Opalescent Oil	Silver Oil	Blood Drinker
+Clear Oil	Silver Oil	Golden Oil	Vitality Void
+Sepia Oil	Silver Oil	Golden Oil	Fangs of the Viper
+Amber Oil	Silver Oil	Golden Oil	Ethereal Feast
+Verdant Oil	Silver Oil	Golden Oil	Resourcefulness
+Teal Oil	Silver Oil	Golden Oil	Essence Surge
+Azure Oil	Silver Oil	Golden Oil	Golem Commander
+Black Oil	Silver Oil	Silver Oil	Discipline and Training
+Black Oil	Opalescent Oil	Golden Oil	Assassination
+Violet Oil	Silver Oil	Golden Oil	Heart of the Warrior
+Crimson Oil	Silver Oil	Golden Oil	Void Barrier
+Opalescent Oil	Silver Oil	Silver Oil	Skittering Runes
+Opalescent Oil	Opalescent Oil	Golden Oil	Barbarism
+Clear Oil	Golden Oil	Golden Oil	Crusader
+Sepia Oil	Golden Oil	Golden Oil	Thunderous Salvos
+Amber Oil	Golden Oil	Golden Oil	Vengeant Cascade
+Verdant Oil	Golden Oil	Golden Oil	Unnatural Calm
+Teal Oil	Golden Oil	Golden Oil	Golem's Blood
+Azure Oil	Golden Oil	Golden Oil	Tranquility
+Black Oil	Silver Oil	Golden Oil	Revenge of the Hunted
+Violet Oil	Golden Oil	Golden Oil	Aspect of Stone
+Crimson Oil	Golden Oil	Golden Oil	Tenacity
+Silver Oil	Silver Oil	Silver Oil	Sovereignty
+Opalescent Oil	Silver Oil	Golden Oil	Tribal Fury
+Black Oil	Golden Oil	Golden Oil	Whispers of Doom
+Silver Oil	Silver Oil	Golden Oil	Spiritual Aid
+Opalescent Oil	Golden Oil	Golden Oil	Charisma
+Silver Oil	Golden Oil	Golden Oil	Constitution
+Golden Oil	Golden Oil	Golden Oil	Soul of Steel
+
+Tower Enchantments available by Anointing Rings
+Clear Oil	Clear Oil	Chilling Tower Damage
+Clear Oil	Sepia Oil	Freezebolt Tower Damage
+Sepia Oil	Sepia Oil	Glacial Cage Tower Duration
+Clear Oil	Amber Oil	Fireball Tower Damage
+Sepia Oil	Amber Oil	Flamethrower Tower Damage
+Clear Oil	Verdant Oil	Meteor Tower Damage
+Sepia Oil	Verdant Oil	Summoning Tower Damage
+Amber Oil	Amber Oil	Scout Tower Damage
+Clear Oil	Teal Oil	Sentinel Tower Damage
+Amber Oil	Verdant Oil	Shock Nova Tower Damage
+Sepia Oil	Teal Oil	Lightning Storm Tower Damage
+Verdant Oil	Verdant Oil	Arc Tower Damage
+Amber Oil	Teal Oil	Seismic Tower Damage
+Clear Oil	Azure Oil	Temporal Tower Effect
+Verdant Oil	Teal Oil	Stone Gaze Tower Effect
+Sepia Oil	Azure Oil	Empowering Tower Effect
+Amber Oil	Azure Oil	Imbuing Tower Effect
+Teal Oil	Teal Oil	Smothering Tower Effect
+Verdant Oil	Azure Oil	Chilling Tower Range
+Clear Oil	Violet Oil	Freezebolt Tower Range
+Teal Oil	Azure Oil	Glacial Cage Tower Range
+Sepia Oil	Violet Oil	Fireball Tower Range
+Amber Oil	Violet Oil	Flamethrower Tower Range
+Verdant Oil	Violet Oil	Meteor Tower Range
+Azure Oil	Azure Oil	Summoning Tower Range
+Teal Oil	Violet Oil	Scout Tower Range
+Azure Oil	Violet Oil	Sentinel Tower Range
+Clear Oil	Crimson Oil	Shock Nova Tower Range
+Sepia Oil	Crimson Oil	Lightning Storm Tower Range
+Amber Oil	Crimson Oil	Arc Tower Range
+Violet Oil	Violet Oil	Chilling Tower Chill Effect
+Verdant Oil	Crimson Oil	Freezebolt Tower Full Damage
+Teal Oil	Crimson Oil	Glacial Cage Tower Cooldown
+Azure Oil	Crimson Oil	Fireball Tower Cast Speed
+Violet Oil	Crimson Oil	Flamethrower Tower Full Damage
+Crimson Oil	Crimson Oil	Meteor Tower Stun
+Clear Oil	Black Oil	Seismic Tower Range
+Sepia Oil	Black Oil	Temporal Tower Range
+Amber Oil	Black Oil	Stone Gaze Tower Range
+Verdant Oil	Black Oil	Empowering Tower Range
+Teal Oil	Black Oil	Imbuing Tower Range
+Azure Oil	Black Oil	Smothering Tower Range
+Violet Oil	Black Oil	Chilling Tower Duration
+Crimson Oil	Black Oil	Freezebolt Tower Additional Projectile
+Clear Oil	Opalescent Oil	Glacial Cage Tower Increased Damage
+Sepia Oil	Opalescent Oil	Fireball Tower Projectile
+Amber Oil	Opalescent Oil	Flamethrower Tower Cast Speed
+Verdant Oil	Opalescent Oil	Meteor Tower Additional Meteor
+Teal Oil	Opalescent Oil	Summoning Tower Speed
+Azure Oil	Opalescent Oil	Scout Tower Speed
+Violet Oil	Opalescent Oil	Sentinel Tower Speed
+Crimson Oil	Opalescent Oil	Shock Nova Tower Full Damage
+Black Oil	Black Oil	Lightning Storm Tower Delay
+Clear Oil	Silver Oil	Arc Tower Repeat
+Sepia Oil	Silver Oil	Seismic Tower Stun Duration
+Amber Oil	Silver Oil	Temporal Tower Reduced Tick Speed
+Verdant Oil	Silver Oil	Stone Gaze Tower Cooldown
+Teal Oil	Silver Oil	Summoning Tower Life
+Azure Oil	Silver Oil	Scout Tower Life
+Black Oil	Opalescent Oil	Sentinel Tower Life
+Violet Oil	Silver Oil	Empowering Tower Cast Speed
+Crimson Oil	Silver Oil	Imbuing Tower Critical
+Opalescent Oil	Opalescent Oil	Smothering Tower Reduced Speed
+Clear Oil	Golden Oil	Shock Nova Tower Shock Effect
+Sepia Oil	Golden Oil	Lightning Storm Tower Explosion Area
+Amber Oil	Golden Oil	Arc Tower Chain
+Verdant Oil	Golden Oil	Seismic Tower Additional Cascade
+Teal Oil	Golden Oil	Temporal Tower Duration
+Azure Oil	Golden Oil	Stone Gaze Tower Reduced Duration
+Black Oil	Silver Oil	Empowering Tower Damage
+Violet Oil	Golden Oil	Imbuing Tower Damage
+Crimson Oil	Golden Oil	Smothering Tower Reduced Damage
+Opalescent Oil	Silver Oil	Chilling Tower Freeze
+Black Oil	Golden Oil	Shock Nova Tower Repeating
+Silver Oil	Silver Oil	Summoning Tower Additional Minions
+Opalescent Oil	Golden Oil	Fireball Tower Nova
+Silver Oil	Golden Oil	Seismic Tower Cascade Reach
+Golden Oil	Golden Oil	Empowering Tower Double Damage
