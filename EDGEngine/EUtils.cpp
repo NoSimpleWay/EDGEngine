@@ -179,6 +179,22 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	std::vector <NotablePassive*> EString::notable_list;
 
+	std::vector <std::string> EString::oil_name_list =
+	{
+		"oil_name_clear",
+		"oil_name_sepia",
+		"oil_name_amber",
+		"oil_name_verdant",
+		"oil_name_teal",
+		"oil_name_azure",
+		"oil_name_violet",
+		"oil_name_crimson",
+		"oil_name_black",
+		"oil_name_opalescent",
+		"oil_name_silver",
+		"oil_name_golden"
+	};
+
 	std::string EString::game_color_name[6]
 	=
 	{

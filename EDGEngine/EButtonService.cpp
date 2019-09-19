@@ -340,6 +340,16 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		rama_thikness = 1.0f;
 		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHECK_OIL)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+	}
 }
 
 void EButtonService::click_event()
@@ -928,6 +938,21 @@ void EButtonService::click_event()
 
 		StaticData::window_filter_block->unsave_change = true;
 		
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHECK_OIL)
+	{
+		StaticData::window_oil->oil_count.at(data_id) = 3;
+		StaticData::window_oil->update_passives_button();
+	}
+}
+
+void EButtonService::right_click_event()
+{
+	if (button_type == Enums::ButtonType::BUTTON_CHECK_OIL)
+	{
+		StaticData::window_oil->oil_count.at(data_id) = 0;
+		StaticData::window_oil->update_passives_button();
 	}
 }
 

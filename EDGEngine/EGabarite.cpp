@@ -92,5 +92,8 @@ EGabarite* DefaultGabarite::gabarite_button_collapse = NULL;
 
 EGabarite* DefaultGabarite::gabarite_error = NULL;
 
+EGabarite* DefaultGabarite::gabarite_oil[12];
+
+
 
 

@@ -190,7 +190,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EWindowOil.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\windows</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

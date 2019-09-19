@@ -96,6 +96,7 @@ public:
 
 	static EGabarite* gabarite_error;
 
+	static EGabarite* gabarite_oil[12];
 
 
 };

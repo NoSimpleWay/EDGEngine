@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "EGabarite.h"
+#include <vector>
 
 class NotablePassive
 {
@@ -18,6 +19,8 @@ public:
 	int need_opacelent_oil;
 	int need_silver_oil;
 	int need_golden_oil;
+
+	std::vector <int> need_oil = std::vector<int>(12, 0);
 
 	std::string passive_name;
 	std::string passive_description;

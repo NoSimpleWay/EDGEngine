@@ -120,6 +120,9 @@ public:
 	static std::vector <std::string> notable_passives_ru_description;
 
 	static std::vector <NotablePassive*> notable_list;
+
+	static std::vector < std::string> oil_name_list;
+
 };
 
 class EFile

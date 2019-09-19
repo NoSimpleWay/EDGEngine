@@ -131,3 +131,16 @@ description_add_separator	Add new separator to filter block
 description_cut_filter_block	Move filter block to another place
 button_add_enchantment_list	Add enchantment list
 description_add_enchantment_list	Add new list of enchantments
+hint_input_search_passives	Passives search
+oil_name_clear	Clear Oil
+oil_name_sepia	Sepia Oil
+oil_name_amber	Amber Oil
+oil_name_verdant	Verdant Oil
+oil_name_teal	Teal Oil
+oil_name_azure	Azure Oil
+oil_name_violet	Violet Oil
+oil_name_crimson	Crimson Oil
+oil_name_black	Black Oil
+oil_name_opalescent	Opalescent Oil
+oil_name_silver	Silver Oil
+oil_name_golden	Golden Oil

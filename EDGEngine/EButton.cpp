@@ -297,6 +297,8 @@
 			if ((EControl::delete_button_hold_time > 0.5f) && (is_input_mode_active))
 			{
 				text = "";
+
+				input_event();
 			}
 
 			if
@@ -324,6 +326,8 @@
 					input_event();
 					if (master_block != NULL) { StaticData::window_filter_block->unsave_change = true; }
 				}
+
+				//input_event();
 
 				
 			}

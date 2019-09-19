@@ -131,3 +131,16 @@ description_add_separator	Добавить новый разделитель
 description_cut_filter_block	Переместить блок в новое место
 button_add_enchantment_list	Добавить зачарование
 description_add_enchantment_list	Добавить список зачарований
+hint_input_search_passives	Поиск в пассивных умениях
+oil_name_clear	Прозрачное масло
+oil_name_sepia	Коричневое масло
+oil_name_amber	Янтарное Масло
+oil_name_verdant	Изумрудное масло
+oil_name_teal	Бирюзовое масло
+oil_name_azure	Лазурное масло
+oil_name_violet	Фиолетовое масло
+oil_name_crimson	Алое масло
+oil_name_black	Чёрное масло
+oil_name_opalescent	Перламутровое масло
+oil_name_silver	Серебряное масло
+oil_name_golden	Золотое масло

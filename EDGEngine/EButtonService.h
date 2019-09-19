@@ -11,6 +11,8 @@ public:
 	EButtonService(float _x, float _y, float _sx, float _sy, Enums::ButtonType _type);
 
 	virtual void click_event();
+	virtual void right_click_event();
+
 	bool is_plus = false;
 
 	virtual void update_localisation();

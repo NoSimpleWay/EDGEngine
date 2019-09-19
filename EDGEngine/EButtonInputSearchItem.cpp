@@ -35,7 +35,7 @@ EButtonInputSearchItem::EButtonInputSearchItem(float _x, float _y, float _sx, fl
 
 void EButtonInputSearchItem::input_event()
 {
-	std::cout << "input!" << std::endl;
+	//std::cout << "input!" << std::endl;
 
 	if
 	(
@@ -62,6 +62,12 @@ void EButtonInputSearchItem::input_event()
 		StaticData::window_filter_block_search->input_event(this);
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_PASSIVES)
+	{
+		//std::cout << std::to_string(position_mode_x) << std::endl;
+		StaticData::window_oil->input_event(this);
+	}
+
 
 }
 
@@ -84,6 +90,9 @@ void EButtonInputSearchItem::input_event()
 
 		if (Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_FILTER_BLOCK)
 		{input_hint = EString::localize_it("hint_input_filter_block_search");}
+
+		if (Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_PASSIVES)
+		{input_hint = EString::localize_it("hint_input_search_passives");}
 	}
 
 

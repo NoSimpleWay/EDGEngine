@@ -469,6 +469,69 @@ void load_notable_passives()
 
 }
 
+void load_notable_passives_ru()
+{
+	//ofstream myfile_open;
+	//myfile_open.open("gemor.txt");
+
+	ifstream myfile;
+	myfile.open("data/NotablePassivesListRU.txt");
+	string line;
+
+	string subdata;
+	string subdata_array[6];
+
+	int line_id = 0;
+	int data_order;
+
+	//cout << EMath::rgb::r << endl;
+
+
+	while ((getline(myfile, line)) && (line_id < 1000))
+	{
+
+		data_order = 0;
+		subdata = "";
+
+		for (int i = 0; i < line.length(); i++)
+		{
+
+
+			if (line.at(i) != '\t')
+			{
+				subdata += line.at(i);
+			}
+
+			if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+			{
+				subdata_array[data_order] = subdata;
+				subdata = "";
+				data_order++;
+			}
+
+		}
+
+		for (int i = 0; i < 2; i++)
+		{
+
+			if (subdata_array[i * 2] == "name")
+			{
+
+
+				EString::notable_passives_ru_name.push_back(EString::to_cyrillic(subdata_array[i * 2 + 1]));
+			}
+
+			if (subdata_array[i * 2] == "description")
+			{EString::notable_passives_ru_description.push_back(EString::to_cyrillic(subdata_array[i * 2 + 1]));}
+		}
+
+		line_id++;
+	}
+
+
+}
+
+
 void load_anointing()
 {
 	//ofstream myfile_open;
@@ -517,18 +580,18 @@ void load_anointing()
 
 			if (subdata_array[i * 2] == "oil")
 			{
-				if (subdata_array[i * 2 + 1] == "Verdant Oil")		{ just_created_passive->need_verdant_oil++; }
-				if (subdata_array[i * 2 + 1] == "Sepia Oil")		{ just_created_passive->need_sepia_oil++; }
-				if (subdata_array[i * 2 + 1] == "Clear Oil")		{ just_created_passive->need_clear_oil++; }
-				if (subdata_array[i * 2 + 1] == "Amber Oil")		{ just_created_passive->need_amber_oil++; }
-				if (subdata_array[i * 2 + 1] == "Teal Oil")			{ just_created_passive->need_teal_oil++; }
-				if (subdata_array[i * 2 + 1] == "Azure Oil")		{ just_created_passive->need_azure_oil++; }
-				if (subdata_array[i * 2 + 1] == "Violet Oil")		{ just_created_passive->need_violet_oil++; }
-				if (subdata_array[i * 2 + 1] == "Crimson Oil")		{ just_created_passive->need_crimson_oil++; }
-				if (subdata_array[i * 2 + 1] == "Black Oil")		{ just_created_passive->need_black_oil++; }
-				if (subdata_array[i * 2 + 1] == "Opacelent Oil")	{ just_created_passive->need_opacelent_oil++; }
-				if (subdata_array[i * 2 + 1] == "Silver Oil")		{ just_created_passive->need_silver_oil++; }
-				if (subdata_array[i * 2 + 1] == "Golden Oil")		{ just_created_passive->need_golden_oil++; }
+				if (subdata_array[i * 2 + 1] == "Verdant Oil")		{ just_created_passive->need_oil.at(Enums::OilId::VERDANT)++; }
+				if (subdata_array[i * 2 + 1] == "Sepia Oil")		{ just_created_passive->need_oil.at(Enums::OilId::SEPIA)++; }
+				if (subdata_array[i * 2 + 1] == "Clear Oil")		{ just_created_passive->need_oil.at(Enums::OilId::CLEAR)++; }
+				if (subdata_array[i * 2 + 1] == "Amber Oil")		{ just_created_passive->need_oil.at(Enums::OilId::AMBER)++; }
+				if (subdata_array[i * 2 + 1] == "Teal Oil")			{ just_created_passive->need_oil.at(Enums::OilId::TEAL)++; }
+				if (subdata_array[i * 2 + 1] == "Azure Oil")		{ just_created_passive->need_oil.at(Enums::OilId::AZURE)++; }
+				if (subdata_array[i * 2 + 1] == "Violet Oil")		{ just_created_passive->need_oil.at(Enums::OilId::VIOLET)++; }
+				if (subdata_array[i * 2 + 1] == "Crimson Oil")		{ just_created_passive->need_oil.at(Enums::OilId::CRIMSON)++; }
+				if (subdata_array[i * 2 + 1] == "Black Oil")		{ just_created_passive->need_oil.at(Enums::OilId::BLACK)++; }
+				if (subdata_array[i * 2 + 1] == "Opalescent Oil")	{ just_created_passive->need_oil.at(Enums::OilId::OPALESCENT)++; }
+				if (subdata_array[i * 2 + 1] == "Silver Oil")		{ just_created_passive->need_oil.at(Enums::OilId::SILVER)++; }
+				if (subdata_array[i * 2 + 1] == "Golden Oil")		{ just_created_passive->need_oil.at(Enums::OilId::GOLDEN)++; }
 			}
 
 			if (subdata_array[i * 2] == "name")
@@ -540,6 +603,19 @@ void load_anointing()
 					if (EString::notable_passives_name.at(j) == subdata_array[i * 2 + 1])
 					{
 						just_created_passive->passive_description = EString::notable_passives_description.at(j);
+					}
+				}
+			}
+
+			if (subdata_array[i * 2] == "name ru")
+			{
+				just_created_passive->passive_ru_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+				//name
+				for (int j = 0; j < EString::notable_passives_ru_name.size(); j++)
+				{
+					if (EString::notable_passives_ru_name.at(j) == EString::to_cyrillic(subdata_array[i * 2 + 1]))
+					{
+						just_created_passive->passive_ru_description = EString::notable_passives_ru_description.at(j);
 					}
 				}
 			}
@@ -1975,6 +2051,7 @@ int main()
 	load_enchantment();
 	load_prophecy_list();
 	load_notable_passives();
+	load_notable_passives_ru();
 
 	EString::load_localisation("EN");
 	
@@ -2120,6 +2197,19 @@ int main()
 	put_texture_to_atlas("data/button_clone.png");				DefaultGabarite::gabarite_button_clone = just_created_gabarite;
 	put_texture_to_atlas("data/gray_separator.png");			DefaultGabarite::gabarite_button_separator = just_created_gabarite;
 	put_texture_to_atlas("data/gray_collapse.png");				DefaultGabarite::gabarite_button_collapse = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/currency/Clear_Oil.png");		DefaultGabarite::gabarite_oil[0] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Sepia_Oil.png");		DefaultGabarite::gabarite_oil[1] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Amber_Oil.png");		DefaultGabarite::gabarite_oil[2] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Verdant_Oil.png");		DefaultGabarite::gabarite_oil[3] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Teal_Oil.png");		DefaultGabarite::gabarite_oil[4] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Azure_Oil.png");		DefaultGabarite::gabarite_oil[5] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Violet_Oil.png");		DefaultGabarite::gabarite_oil[6] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Crimson_Oil.png");		DefaultGabarite::gabarite_oil[7] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Black_Oil.png");		DefaultGabarite::gabarite_oil[8] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Opalescent_Oil.png");	DefaultGabarite::gabarite_oil[9] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Silver_Oil.png");		DefaultGabarite::gabarite_oil[10] = just_created_gabarite;
+	put_texture_to_atlas("data/icon/currency/Golden_Oil.png");		DefaultGabarite::gabarite_oil[11] = just_created_gabarite;
 
 	load_anointing();
 

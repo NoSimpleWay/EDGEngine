@@ -27,25 +27,74 @@ EButtonChange::EButtonChange(float _x, float _y, float _sx, float _sy, Enums::Bu
 
 void EButtonChange::click_event()
 {
+
 	if (button_type == Enums::ButtonType::BUTTON_SOCKET_RED)
 	{
-		std::cout << "red " << master_block->red_sockets << std::endl;
-		if (is_increase) {master_block->red_sockets++; std::cout<<"increase "<<std::endl;} else {master_block->red_sockets--;}
+		//std::cout << "red " << master_block->red_sockets << std::endl;
+		if (is_increase)
+		{
+			if (master_block->red_sockets < 9) { master_block->red_sockets++; }
+		}
+		else
+		{
+			if (master_block->red_sockets > 0) { master_block->red_sockets--; }
+		}
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SOCKET_GREEN)
 	{
-		if (is_increase) {master_block->green_sockets++;} else {master_block->green_sockets--;}
+		if (is_increase)
+		{
+			if (master_block->green_sockets < 9) { master_block->green_sockets++; }
+		}
+		else
+		{
+			if (master_block->green_sockets > 0) { master_block->green_sockets--; }
+		}
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SOCKET_BLUE)
 	{
-		if (is_increase) {master_block->blue_sockets++;} else {master_block->blue_sockets--;}
+		if (is_increase)
+		{
+			if (master_block->blue_sockets < 9) { master_block->blue_sockets++; }
+		}
+		else
+		{
+			if (master_block->blue_sockets > 0) { master_block->blue_sockets--; }
+		}
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SOCKET_WHITE)
 	{
-		if (is_increase) {master_block->white_sockets++;} else {master_block->white_sockets--;}
+		if (is_increase)
+		{
+			if (master_block->white_sockets < 9) { master_block->white_sockets++; }
+		}
+		else
+		{
+			if (master_block->white_sockets > 0) { master_block->white_sockets--; }
+		}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHANGE_OIL_COUNT)
+	{
+		if (is_increase)
+		{
+			if (StaticData::window_oil->oil_count.at(data_id) < 3)
+			{
+				StaticData::window_oil->oil_count.at(data_id)++;
+			}
+		}
+		else
+		{
+			if (StaticData::window_oil->oil_count.at(data_id) > 0)
+			{
+				StaticData::window_oil->oil_count.at(data_id)--;
+			}
+		}
+
+		StaticData::window_oil->update_passives_button();
 	}
 
 }
