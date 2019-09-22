@@ -116,8 +116,8 @@ bool compare_with_key(string _data, string _key)
 void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 {
 	
-	if (align_x == Enums::PositionMode::MID) { _x -= get_width(this, _s) / 2.0f; _x = _x; }
-	if (align_x == Enums::PositionMode::RIGHT) { _x -= get_width(this, _s); _x = _x; }
+	if (align_x == Enums::PositionMode::MID) { _x -= get_width(this, _s) / 2.0f; }
+	if (align_x == Enums::PositionMode::RIGHT) { _x -= get_width(this, _s);  }
 
 	_x = round(_x);
 
@@ -128,12 +128,16 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 		int target_symbol = (int)_s.at(sym);
 		if (target_symbol < 0) { target_symbol += 256; }
 
-		if ((target_symbol == '\\') && (sym + 2 < _s.length()) && ((int)_s.at(sym + 1) == 'n'))
+		if ((target_symbol == '\\') && (sym + 1 < _s.length()) && (_s.at(sym + 1) == 'n'))
 		{
+			//_s += " " + std::to_string(x_adding);
+
 			x_adding = 0.0f;
 			y_adding += 17.0f;
 
 			sym+=1;
+
+			
 		}
 		else
 		{
@@ -174,6 +178,7 @@ void EFont::draw(Batcher* _batcher, string _s, float _x, float _y)
 
 void EFont::add_draw(Batcher* _batcher, string _s, float _x, float _y)
 {
+	if (align_x == Enums::PositionMode::MID) { x_adding /= 2.0f; }
 	final_draw(_batcher, _s, _x, _y);
 }
 
@@ -479,10 +484,17 @@ float EFont::get_width(EFont* _font, string _text)
 {
 	float temp_w = 0;
 	float max_w = 0;
+
+	std::string zzz = "";
+
+	//std::cout << "-------" << std::endl;
+
 	for (int sym = 0; sym < _text.length(); sym++)
 	{
 		int target_symbol = (int)_text.at(sym);
 		if (target_symbol < 0) { target_symbol += 256; }
+
+		zzz += _text.at(sym);
 
 		/*
 		if (_text.at(sym) == ' ')
@@ -498,18 +510,29 @@ float EFont::get_width(EFont* _font, string _text)
 		}
 		*/
 		temp_w += (_font->advance[target_symbol]) * _font->scale;
-		if ((target_symbol == '\\') && (sym + 2 < _text.length()) && ((int)_text.at(sym + 1) == 'n'))
+
+		//std::cout << _text.substr(sym, 2) << std::endl;
+
+		if ((sym + 1 < _text.length()) && (_text.substr(sym, 2) == "\\n") )
 		{
 			if (temp_w > max_w)
 			{
+				//std::cout << zzz << " " << temp_w << std::endl;
+
+				zzz = "";
+
 				max_w = temp_w;
-				temp_w = 0;
+
 			}
+
+			temp_w = 0;
 		}
 	}
 
 	if (temp_w > max_w)
 	{
+		//std::cout << zzz << " final " << temp_w << std::endl;
+
 		max_w = temp_w;
 	}
 
@@ -525,7 +548,7 @@ float EFont::get_height(EFont* _font, string _text)
 		if (target_symbol < 0) { target_symbol += 256; }
 
 
-		if ((target_symbol == '\\') && (sym + 2 < _text.length()) && ((int)_text.at(sym + 1) == 'n'))
+		if ((target_symbol == '\\') && (sym + 2 < _text.length()) && (_text.at(sym + 1) == 'n'))
 		{
 			temp_h += 17.0f;
 		}

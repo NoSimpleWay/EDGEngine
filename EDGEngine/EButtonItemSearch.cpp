@@ -32,7 +32,7 @@ EButtonItemSearch::EButtonItemSearch(float _x, float _y, float _sx, float _sy, E
 
 	button_type = _type;
 
-	dynamic_input_width = false;
+	dynamic_input_width = true;
 }
 
 void EButtonItemSearch::click_event()

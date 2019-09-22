@@ -6,6 +6,11 @@
 #include "EWindowLootSimulator.h"
 #include <time.h>
 
+int sockets_postition_x[] = { 0, 1, 1, 0, 0, 1 };
+int sockets_postition_y[] = { 0, 0, 1, 1, 2, 2 };
+
+float links_postition_x[] = { 26.0f, 52.0f, 26.0f, 14.0f, 26.0f};
+float links_postition_y[] = { 12.0f, -16.0f, -28.0f, -56.0f, -69.0f};
 
 EWindowLootSimulator::EWindowLootSimulator(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 {
@@ -99,6 +104,25 @@ void EWindowLootSimulator::update(float _d)
 				if (loot->quality < 0) { loot->quality = 0; }
 			}
 
+			if ((p->corruption_chance > 0) && (rand() % 100 <= p->corruption_chance))
+			{
+				loot->corrupted = true;
+			}
+
+			if (p->max_gem_level > 0)
+			{
+				if (p->max_gem_level > p->min_gem_level)
+				{
+					loot->gem_level = p->min_gem_level + (rand() % (p->max_gem_level - p->min_gem_level));
+				}
+				else
+				{
+					loot->gem_level = p->max_gem_level;
+				}
+
+				if (loot->gem_level < 0) { loot->gem_level = 0; }
+			}
+
 			//std::cout << "min sockets=" << p->min_sockets << std::endl;
 			//std::cout << "max sockets=" << p->max_sockets << std::endl;
 			if (p->max_sockets > 0)
@@ -189,6 +213,23 @@ void EWindowLootSimulator::update(float _d)
 				}
 			}
 
+			int random_shaper = 0;
+			int random_elder = 0;
+			int random_normal = 0;
+
+			int max_value = 0;
+
+			if (p->shaper_item_weight > 0) { random_shaper = rand() % p->shaper_item_weight; }
+			if (p->elder_item_weight > 0) { random_elder = rand() % p->elder_item_weight; }
+			if (p->normal_item_weight > 0) { random_normal = rand() % p->normal_item_weight; }
+
+			if (random_shaper > max_value) { max_value = random_shaper; }
+			if (random_elder > max_value) { max_value = random_elder; }
+			if (random_normal > max_value) { max_value = random_normal; }
+
+			if (max_value == random_shaper) { loot->shaper_item = true; }
+			if (max_value == random_elder) { loot->elder_item = true; }
+
 			//std::cout << "min_item_level=" << p->min_item_level << std::endl;
 			//std::cout << "max_item_level=" << p->max_item_level << std::endl;
 
@@ -213,7 +254,7 @@ void EWindowLootSimulator::update(float _d)
 			{
 				if (p->max_rarity > p->min_rarity)
 				{
-					loot->numeric_rarity = p->min_rarity + (rand() % (p->max_rarity - p->min_rarity));
+					loot->numeric_rarity = p->min_rarity + (rand() % (p->max_rarity - p->min_rarity + 1));
 				}
 				else
 				{
@@ -439,21 +480,131 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			float xx = EControl::mouse_x + 8.0f;
 			if (xx + 300.0f > EWindow::SCR_WIDTH) { xx = EWindow::SCR_WIDTH - 300.0f; }
 
+			xx = round(xx);
+
 			float yy = EControl::mouse_y;
 			if (yy + 380.0f > EWindow::SCR_HEIGHT) { yy = EWindow::SCR_HEIGHT - 380.0f; }
 
+			yy = round(yy);
+
+			float dy = 20.0f;
+			float move_y = 1.0f;
+
 			EFont::active_font->scale = 1.0f;
+			EFont::active_font->align_x = Enums::PositionMode::MID;
+
 			_batch->setcolor_alpha(EColorCollection::BLACK, 0.9f);
-			_batch->draw_simple_rect(xx, yy, 300, 300);
-			_batch->setcolor(EColorCollection::WHITE);
+			_batch->draw_simple_rect(xx, yy, 434, 300);
+
+			_batch->setcolor_alpha(EColorCollection::GRAY, 0.9f);
+			if (loot->rarity == "Normal") { _batch->setcolor(EColorCollection::DAD_NORMAL); }
+			if (loot->rarity == "Magic") { _batch->setcolor(EColorCollection::DAD_MAGIC); }
+			if (loot->rarity == "Rare") { _batch->setcolor(EColorCollection::DAD_RARE); }
+			if (loot->rarity == "Unique") { _batch->setcolor(EColorCollection::DAD_UNIQUE); }
+
+			_batch->draw_rect_with_uv(xx, yy + 266, 434, 34, DefaultGabarite::gabarite_cap);
+
+			_batch->draw_rama(xx, yy, 434, 300, 3, DefaultGabarite::gabarite_cap);
+
+			EFont::active_font->draw(_batch, loot->name, xx + 5.0f + 222.0f, yy + 282.0f);
+
+			_batch->setcolor(EColorCollection::GRAY);
+			EFont::active_font->draw(_batch, loot->base_class, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y); move_y++;
+
+			if (loot->quality > 0)
+			{
+				_batch->setcolor(EColorCollection::GRAY);
+				EFont::active_font->draw(_batch, "quality:   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				_batch->setcolor(EColorCollection::WHITE);
+				EFont::active_font->add_draw(_batch, std::to_string(loot->quality) + "%", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				move_y++;
+			}
+
+			if (loot->item_level > 0)
+			{
+				_batch->setcolor(EColorCollection::GRAY);
+				EFont::active_font->draw(_batch, "item level:   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				_batch->setcolor(EColorCollection::WHITE);
+				EFont::active_font->add_draw(_batch, std::to_string(loot->item_level), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				move_y++;
+			}
+
+			_batch->setcolor(EColorCollection::GRAY);
+
+			int temp_red = loot->red_socket;
+			int temp_green = loot->green_socket;
+			int temp_blue = loot->blue_socket;
+			int temp_white = loot->white_socket;
+
+			_batch->setcolor(EColorCollection::DARK_GRAY);
+			_batch->draw_rect_with_uv(xx + 354.0f, yy + 30.0f, 76.0f, 120.0f, DefaultGabarite::gabarite_white);
+
+			_batch->setcolor(EColorCollection::GRAY);
+			_batch->draw_rama(xx + 354.0f, yy + 30.0f, 76.0f, 120.0f, 3.0f, DefaultGabarite::gabarite_white);
+
+
+
+			for (int i = 0; i < loot->sockets; i++)
+			{
+				if (temp_red > 0)
+				{
+					_batch->setcolor(EColorCollection::RED);
+					temp_red--;
+				}
+				else
+				if (temp_green > 0)
+				{
+					_batch->setcolor(EColorCollection::GREEN);
+					temp_green--;
+				}
+				else
+				if (temp_blue > 0)
+				{
+					_batch->setcolor(EColorCollection::BLUE);
+					temp_blue--;
+				}
+				else
+				{
+					_batch->setcolor(EColorCollection::WHITE);
+				}
+				_batch->draw_rect_with_uv(xx + 354.0f + sockets_postition_x[i] * 40.0f, yy + 115.0f - sockets_postition_y[i] * 40.0f, 36.0f, 36.0f, DefaultGabarite::gabarite_socket);
+
+				_batch->setcolor(EColorCollection::WHITE);
+
+				
+
+				
+				
+
+			}
+
+			bool is_link_horizontal = true;
+			for (int i = 0; i < loot->links - 1; i++)
+			{
+				if (is_link_horizontal)
+				{
+					_batch->draw_rect_with_uv(xx + 354.0f + links_postition_x[i], yy + 115.0f  + links_postition_y[i], 24.0f, 11.0f, DefaultGabarite::gabarite_link_horizontal);
+				}
+				else
+				{
+					_batch->draw_rect_with_uv(xx + 354.0f + links_postition_x[i], yy + 115.0f  + links_postition_y[i], 11.0f, 24.0f, DefaultGabarite::gabarite_link_vertical);
+				}
+
+				is_link_horizontal = !is_link_horizontal;
+			}
 
 			yy += 280.0f;
 
-			float dy = 20.0f;
-			float move_y = 0.0f;
+
+
 
 			
 
+			/*
 			if (loot->filter_block_link != NULL)
 			{
 				EFont::active_font->draw(_batch, "Block id: " + std::to_string(loot->filter_block_link->order_id), xx + 5.0f, yy - dy * move_y); move_y++;
@@ -461,19 +612,22 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			else
 			{
 				EFont::active_font->draw(_batch, "Block id: NONE", xx + 5.0f, yy - 18.0 * 2); move_y++;
-			}
+			}*/
 
-			EFont::active_font->draw(_batch, "Name: " + loot->name, xx + 5.0f, yy - dy * move_y); move_y++;
-			EFont::active_font->draw(_batch, "Class: " + loot->base_class, xx + 5.0f, yy - dy * move_y); move_y++;
 
+			
+			//EFont::active_font->draw(_batch, "Class: " + loot->base_class, xx + 5.0f, yy - dy * move_y); move_y++;
+
+			/*
 			if (loot->rarity == "Normal")	{ _batch->setcolor(EColorCollection::DAD_NORMAL); }
 			if (loot->rarity == "Magic")	{ _batch->setcolor(EColorCollection::DAD_MAGIC); }
 			if (loot->rarity == "Rare")		{ _batch->setcolor(EColorCollection::DAD_RARE); }
-			if (loot->rarity == "Unique")	{ _batch->setcolor(EColorCollection::DAD_UNIQUE); }
+			if (loot->rarity == "Unique")	{ _batch->setcolor(EColorCollection::DAD_UNIQUE); }*/
 
-			EFont::active_font->draw(_batch, loot->rarity, xx + 5.0f, yy - dy * move_y); move_y++;
+			//EFont::active_font->draw(_batch, loot->rarity, xx + 5.0f, yy - dy * move_y); move_y++;
 
-			_batch->setcolor(EColorCollection::WHITE);
+			//_batch->setcolor(EColorCollection::WHITE);
+			/*
 			if (loot->item_level > 0) { EFont::active_font->draw(_batch, "item level: " + std::to_string(loot->item_level), xx + 5.0f, yy - dy * move_y); move_y++;}
 
 
@@ -515,7 +669,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			{
 				_batch->setcolor(EColorCollection::WHITE);
 				EFont::active_font->draw(_batch, "WHITE: " + std::to_string(loot->white_socket), xx + 5.0f, yy - dy * move_y); move_y++;
-			}
+			}*/
 
 		}
 	}
@@ -687,6 +841,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if (!_default) { rejection("quality", _l); }
 		}
 
+
 		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_GEM_LEVEL)) && (!check_condition(fb->gem_level_condition, _l->gem_level, fb->gem_level)))
 		{
 			match_detect = false;
@@ -846,9 +1001,9 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		if
 			(
 			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED))
-				&&
-				(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_CORRUPTED) != _l->corrupted)
-				)
+			&&
+			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_CORRUPTED) != _l->corrupted)
+			)
 		{
 			match_detect = false;
 			if (!_default) { rejection("data corrupted", _l); }
@@ -1090,6 +1245,9 @@ void EWindowLootSimulator::manual_event()
 			pattern->min_quality = pattern_item_list.at(i)->min_quality;
 			pattern->max_quality = pattern_item_list.at(i)->max_quality;
 
+			pattern->min_gem_level = pattern_item_list.at(i)->min_gem_level;
+			pattern->max_gem_level = pattern_item_list.at(i)->max_gem_level;
+
 			pattern->min_sockets = pattern_item_list.at(i)->min_sockets;
 			pattern->max_sockets = pattern_item_list.at(i)->max_sockets;
 
@@ -1110,6 +1268,13 @@ void EWindowLootSimulator::manual_event()
 
 			pattern->min_rarity = pattern_item_list.at(i)->min_rarity;
 			pattern->max_rarity = pattern_item_list.at(i)->max_rarity;
+
+			pattern->shaper_item_weight = pattern_item_list.at(i)->shaper_item_weight;
+			pattern->elder_item_weight = pattern_item_list.at(i)->elder_item_weight;
+			pattern->normal_item_weight = pattern_item_list.at(i)->normal_item_weight;
+
+
+			pattern->corruption_chance = pattern_item_list.at(i)->corruption_chance;
 
 			if (pattern->item_name != "")
 			{

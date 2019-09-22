@@ -356,6 +356,18 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					just_created_pattern_item->max_quality = std::stoi(subdata_array[i * 2 + 1]);
 				}
 
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "gem_level_min")
+				{
+					just_created_pattern_item->min_gem_level = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "gem_level_max")
+				{
+					just_created_pattern_item->max_gem_level = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
 				if (EString::to_lower(subdata_array[i * 2], false) == "item_level_min")
 				{
 					
@@ -417,6 +429,30 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				if (EString::to_lower(subdata_array[i * 2], false) == "white_sockets_weight")
 				{
 					just_created_pattern_item->white_weight = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "corruption_chance")
+				{
+					just_created_pattern_item->corruption_chance = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "shaper_item_weight")
+				{
+					just_created_pattern_item->shaper_item_weight = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "elder_item_weight")
+				{
+					just_created_pattern_item->elder_item_weight = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "normal_item_weight")
+				{
+					just_created_pattern_item->normal_item_weight = std::stoi(subdata_array[i * 2 + 1]);
 				}
 
 

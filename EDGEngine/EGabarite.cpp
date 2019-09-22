@@ -94,6 +94,14 @@ EGabarite* DefaultGabarite::gabarite_error = NULL;
 
 EGabarite* DefaultGabarite::gabarite_oil[12];
 
+EGabarite* DefaultGabarite::gabarite_cap;
+EGabarite* DefaultGabarite::gabarite_socket;
+
+EGabarite* DefaultGabarite::gabarite_link_vertical;
+EGabarite* DefaultGabarite::gabarite_link_horizontal;
+EGabarite* DefaultGabarite::gabarite_cap_rama;
+EGabarite* DefaultGabarite::gabarite_wood_bg;
+
 
 
 

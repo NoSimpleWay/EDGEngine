@@ -1,0 +1,18 @@
+item_name	Gem	base_class	Active Skill Gems	count	20	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	21
+item_name	Gem	base_class	Active Skill Gems	count	3	quality_min	20	quality_max	23	gem_level_min	1	gem_level_max	21
+item_name	Gem	base_class	Active Skill Gems	count	3	quality_min	-10	quality_max	23	gem_level_min	20	gem_level_max	21
+item_name	Gem	base_class	Active Skill Gems	count	3	quality_min	20	quality_max	23	gem_level_min	21	gem_level_max	21
+item_name	Vaal	base_class	Active Skill Gems	count	5	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	21	corruption_chance	100
+item_name	Vaal	base_class	Active Skill Gems	count	1	quality_min	20	quality_max	23	gem_level_min	1	gem_level_max	21	corruption_chance	100
+item_name	Vaal	base_class	Active Skill Gems	count	1	quality_min	-10	quality_max	23	gem_level_min	20	gem_level_max	21	corruption_chance	100
+item_name	Vaal	base_class	Active Skill Gems	count	1	quality_min	20	quality_max	23	gem_level_min	21	gem_level_max	21	corruption_chance	100
+item_name	Empower	base_class	Gem	count	1	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	2
+item_name	Enhance	base_class	Gem	count	1	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	2
+item_name	Enlighten	base_class	Gem	count	1	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	2
+item_name	Empower	base_class	Gem	count	1	quality_min	-10	quality_max	23	gem_level_min	3	gem_level_max	3
+item_name	Enhance	base_class	Gem	count	1	quality_min	-10	quality_max	23	gem_level_min	3	gem_level_max	3
+item_name	Enlighten	base_class	Gem	count	1	quality_min	-10	quality_max	23	gem_level_min	3	gem_level_max	3
+item_name	Empower	base_class	Gem	count	1	quality_min	-10	quality_max	23	gem_level_min	4	gem_level_max	4
+item_name	Enhance	base_class	Gem	count	1	quality_min	-10	quality_max	23	gem_level_min	4	gem_level_max	4
+item_name	Enlighten	base_class	Gem	count	1	quality_min	-10	quality_max	23	gem_level_min	4	gem_level_max	4
+item_name	Vaal Raise Zombie	base_class	Active Skill Gems	count	5	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	21	corruption_chance	100

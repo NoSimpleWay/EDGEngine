@@ -18,6 +18,8 @@ public:
 	int sockets;
 	int links;
 
+	int corruption_chance = 0;
+
 	int numeric_rarity;
 
 	std::string rarity = "normal";

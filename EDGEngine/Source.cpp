@@ -2117,6 +2117,9 @@ int main()
 	put_texture_to_atlas("data/shaper_bg.png");				DefaultGabarite::gabarite_shaper_bg = just_created_gabarite;
 	put_texture_to_atlas("data/elder_bg.png");				DefaultGabarite::gabarite_elder_bg = just_created_gabarite;
 
+	put_texture_to_atlas("data/cap_rama.png");				DefaultGabarite::gabarite_cap_rama = just_created_gabarite;
+	put_texture_to_atlas("data/wood_bg.png");				DefaultGabarite::gabarite_wood_bg = just_created_gabarite;
+
 	cout << "item list size=" << ItemList::item_list.size() << endl;
 	
 
@@ -2210,6 +2213,13 @@ int main()
 	put_texture_to_atlas("data/icon/currency/Opalescent_Oil.png");	DefaultGabarite::gabarite_oil[9] = just_created_gabarite;
 	put_texture_to_atlas("data/icon/currency/Silver_Oil.png");		DefaultGabarite::gabarite_oil[10] = just_created_gabarite;
 	put_texture_to_atlas("data/icon/currency/Golden_Oil.png");		DefaultGabarite::gabarite_oil[11] = just_created_gabarite;
+
+	put_texture_to_atlas("data/cap.png");							DefaultGabarite::gabarite_cap = just_created_gabarite;
+	put_texture_to_atlas("data/socket.png");						DefaultGabarite::gabarite_socket = just_created_gabarite;
+
+	put_texture_to_atlas("data/link_horizontal.png");				DefaultGabarite::gabarite_link_horizontal = just_created_gabarite;
+	put_texture_to_atlas("data/link_vertical.png");					DefaultGabarite::gabarite_link_vertical = just_created_gabarite;
+
 
 	load_anointing();
 
@@ -2351,6 +2361,10 @@ int main()
 	{
 		///////////////////////////////////////////////////////////////////////////////
 
+		int last_index = StaticData::window_loading_screen->load_progress + 50;
+		if (last_index > ItemList::item_list.size()) { last_index = ItemList::item_list.size(); }
+		else
+		{
 			glViewport(0, 0, 4096, 4096);
 			glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
 
@@ -2372,9 +2386,8 @@ int main()
 			glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
 			anisShader->setInt("texture1", 0);
 			batch->setcolor(EColorCollection::WHITE);
-
-			int last_index = StaticData::window_loading_screen->load_progress + 20;
-			if (last_index > ItemList::item_list.size()) { last_index = ItemList::item_list.size(); }
+		}
+			
 
 			if (true)
 				for (int z = StaticData::window_loading_screen->load_progress; z < last_index; z++)
@@ -2418,7 +2431,7 @@ int main()
 					//if (z % 5 == 0) { cout << "Collision pass:" << green << z << white << endl; }
 				}
 
-			StaticData::window_loading_screen->load_progress += 20;
+			
 
 			/*
 			if (StaticData::window_loading_screen->load_progress >= ItemList::item_list.size())
@@ -2430,14 +2443,24 @@ int main()
 
 			}*/
 			///////////////////////////////////////////////////////////////////////////////
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-			glDisable(GL_DEPTH_TEST);
-			glBlendEquation(GL_FUNC_ADD);
-			//--------------------------------------------------------------------------------------------------------
-			//--------------------------------------------------------------------------------------------------------
+			if (last_index <= ItemList::item_list.size())
+			{
+				glBindFramebuffer(GL_FRAMEBUFFER, 0);
+				glDisable(GL_DEPTH_TEST);
+				glBlendEquation(GL_FUNC_ADD);
+				//--------------------------------------------------------------------------------------------------------
+				//--------------------------------------------------------------------------------------------------------
 
-			//cout << (int)01.35f << endl;
-			glViewport(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT);
+				//cout << (int)01.35f << endl;
+				glViewport(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT);
+
+				glActiveTexture(GL_TEXTURE0);
+				glBindTexture(GL_TEXTURE_2D, ETexture::texture[0]);
+				anisShader->setInt("texture1", 0);
+				batch->setcolor(EColorCollection::WHITE);
+			}
+			
+			StaticData::window_loading_screen->load_progress += 50;
 			//recalculate_correction();
 		
 		///////////////////////////////////////////////////////////////////////////////
@@ -2553,6 +2576,7 @@ int main()
 
 				w->default_update(delta_time);
 				w->update(delta_time);
+				w->pre_draw(batch, delta_time);
 				w->defaul_draw(batch);
 				w->draw(batch, delta_time);
 			}

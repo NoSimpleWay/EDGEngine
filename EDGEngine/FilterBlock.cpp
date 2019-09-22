@@ -581,10 +581,10 @@
 		max_h = 75.0f;
 
 
-		if (is_show) { _batch->setcolor_255(210, 200, 190, 35); }
-		else { _batch->setcolor_255(64, 32, 16, 25); }
+		if (is_show) { _batch->setcolor_255(210, 200, 190, 100); }
+		else { _batch->setcolor_255(64, 32, 16, 100); }
 
-		_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
+		_batch->draw_rect_gabarite_custom_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_wood_bg, 0, 0, size_x, size_y);
 
 		if
 		(

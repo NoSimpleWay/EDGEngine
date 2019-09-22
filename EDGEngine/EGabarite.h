@@ -98,5 +98,13 @@ public:
 
 	static EGabarite* gabarite_oil[12];
 
+	static EGabarite* gabarite_cap;
+	static EGabarite* gabarite_socket;
+
+	static EGabarite* gabarite_link_vertical;
+	static EGabarite* gabarite_link_horizontal;
+	static EGabarite* gabarite_cap_rama;
+	static EGabarite* gabarite_wood_bg;
+
 
 };

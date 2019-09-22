@@ -125,6 +125,10 @@ void EWindow::draw(Batcher* _batch, float _delta)
 	//std::cout << "F" << std::endl;
 }
 
+void EWindow::pre_draw(Batcher* _batch, float _delta)
+{
+}
+
 void EWindow::default_text_pass(Batcher* _batch)
 {
 	for (EButton* b : button_list)

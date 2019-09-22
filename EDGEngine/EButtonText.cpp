@@ -187,6 +187,8 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 		have_text = true;
 		have_input_mode = false;
+
+		bg_color->set_alpha(EColorCollection::GREEN, 0.35f);
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_PATTERN_WINDOW)

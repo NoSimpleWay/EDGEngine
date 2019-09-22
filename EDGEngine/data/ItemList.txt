@@ -513,7 +513,7 @@ item EN name	Fleshripper	icon path	Talon_Axe_inventory_icon	item RU name	Раз�
 item EN name	Crude Bow	icon path	Crude_Bow_inventory_icon	item RU name	Грубый лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	3	COST_GROUP	none
 item EN name	Short Bow	icon path	Short_Bow_inventory_icon	item RU name	Короткий лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	3	COST_GROUP	none
 item EN name	Long Bow	icon path	Long_Bow_inventory_icon	item RU name	Длинный лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4	COST_GROUP	none
-item EN name	Composite Bow	icon path	Ranger_Bow_inventory_icon	item RU name	Императорский баклер	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4	COST_GROUP	none
+item EN name	Composite Bow	icon path	Ranger_Bow_inventory_icon	item RU name	Составной лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4	COST_GROUP	none
 item EN name	Recurve Bow	icon path	Sniper_Bow_inventory_icon	item RU name	Загнутый лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4	COST_GROUP	none
 item EN name	Bone Bow	icon path	Ivory_Bow_inventory_icon	item RU name	Костяной лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4	COST_GROUP	none
 item EN name	Royal Bow	icon path	Royal_Bow_inventory_icon	item RU name	Царский лук	base class	Bows	folder	equip	item category	EQUIP	item sub category	BOW	width	2	height	4	COST_GROUP	none

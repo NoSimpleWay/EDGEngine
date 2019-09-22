@@ -19,6 +19,9 @@ public:
 	int min_quality = 0;
 	int max_quality = 0;
 
+	int min_gem_level = 0;
+	int max_gem_level = 0;
+
 	int min_item_level;
 	int max_item_level;
 
@@ -33,6 +36,13 @@ public:
 	int green_weight = 100;
 	int blue_weight = 100;
 	int white_weight = 0;
+
+	int corruption_chance = 0;
+
+	int shaper_item_weight = 0;
+	int elder_item_weight = 0;
+	int normal_item_weight = 100;
+
 
 	int height;
 	int width;

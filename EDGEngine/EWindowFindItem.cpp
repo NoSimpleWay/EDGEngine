@@ -528,6 +528,7 @@ public:
 		for (EButton* b : button_list)
 		{
 			b->master_block = master_block;
+			b->description_text = "";
 		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::ITEM)

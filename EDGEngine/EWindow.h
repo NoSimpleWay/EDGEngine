@@ -46,6 +46,7 @@ public:
 	
 
 	virtual void draw(Batcher* _batch, float _delta);
+	virtual void pre_draw(Batcher* _batch, float _delta);
 	virtual void button_event(EButton* _b);
 	virtual void input_event(EButton* _b);
 	virtual void text_pass(Batcher* _batch);

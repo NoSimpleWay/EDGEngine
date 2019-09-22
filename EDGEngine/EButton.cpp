@@ -590,7 +590,7 @@
 			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 20.0f - th, EFont::get_width(target_font, description_text)+3, th, DefaultGabarite::gabarite_white);
 
 			_batch->setcolor(EColorCollection::BLACK);
-			target_font->draw(_batch, description_text, x_description, EControl::mouse_y - 34.0f);
+			target_font->draw(_batch, description_text, x_description + 5.0f, EControl::mouse_y - 34.0f);
 
 			_batch->draw_rama(x_description, EControl::mouse_y - 20.0f - th, EFont::get_width(target_font, description_text)+3, th, 2, DefaultGabarite::gabarite_white);
 		}
