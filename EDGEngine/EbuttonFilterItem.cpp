@@ -13,8 +13,8 @@
 		can_be_removed = true;
 
 		have_rama = true;
-		rama_color->set(0.2f, 0.15f, 0.05f, 0.6f);
-		bg_color->set(0.2f, 0.18f, 0.16f, 0.5f);
+		rama_color->set(0.4f, 0.3f, 0.1f, 0.6f);
+		bg_color->set(0.1f, 0.08f, 0.06f, 0.75f);
 	}
 
 	void EButtonFilterItem::click_event()

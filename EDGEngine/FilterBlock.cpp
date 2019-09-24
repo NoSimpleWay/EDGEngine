@@ -399,6 +399,8 @@
 		link_to_cancel_remove_button = but;
 		//button_list.push_back(but);
 		but->bg_color = EColorCollection::GREEN;
+
+		random_bg_offset_y = rand() % 1080;
 	}
 
 	FilterBlock::~FilterBlock()
@@ -581,10 +583,14 @@
 		max_h = 75.0f;
 
 
-		if (is_show) { _batch->setcolor_255(210, 200, 190, 100); }
+		if (is_show) { _batch->setcolor_255(210, 210, 210, 100); }
 		else { _batch->setcolor_255(64, 32, 16, 100); }
 
-		_batch->draw_rect_gabarite_custom_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_wood_bg, 0, 0, size_x, size_y);
+		if (random_bg_offset_y + size_y > 1000.0f)
+		{
+			random_bg_offset_y -= random_bg_offset_y + size_y - 1000.0f;
+		}
+		_batch->draw_rect_gabarite_custom_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_wood_bg, 0, random_bg_offset_y, size_x, random_bg_offset_y + size_y);
 
 		if
 		(
@@ -746,7 +752,7 @@
 		for (int i = 0; i < 25; i++)
 		if (temp_pos_x + 53.0f < size_x - 260.0f)
 		{
-			_batch->setcolor_alpha(EColorCollection::WHITE, 0.1f);
+			_batch->setcolor_alpha(EColorCollection::BLACK, 0.25f);
 			_batch->draw_rect_with_uv(x + temp_pos_x, y + temp_pos_y, 45.0f, 45.0f, DefaultGabarite::gabarite_white);
 
 			temp_pos_x += 53.0f;
@@ -935,11 +941,11 @@
 		{
 			if (base_filter_data_active.at(i))
 			{
-				_batch->setcolor_alpha(EColorCollection::WHITE, 0.35f);
+				_batch->setcolor_alpha(EColorCollection::BLACK, 0.8f);
 				_batch->draw_rect_with_uv(data_x - 150, y + size_y - data_y - 3, 185, 21, DefaultGabarite::gabarite_white);
 
 				EFont::active_font->align_x = Enums::RIGHT;
-				_batch->setcolor(EColorCollection::BLACK);
+				_batch->setcolor(EColorCollection::GRAY);
 
 				EFont::active_font->draw(_batch, base_filter_data_name.at(i), data_x + 30, y + size_y - data_y);
 				
@@ -990,7 +996,7 @@
 		if (link_to_cancel_remove_button->is_active)
 		{link_to_cancel_remove_button->default_draw(_batch);}
 
-		_batch->setcolor_alpha(EColorCollection::WHITE, 0.5f);
+		_batch->setcolor_alpha(EColorCollection::WHITE, 0.35f);
 		_batch->draw_rama(x, y, size_x, size_y, 3.0f, DefaultGabarite::gabarite_white);
 
 		EFont::active_font->set_align_once(Enums::PositionMode::RIGHT);

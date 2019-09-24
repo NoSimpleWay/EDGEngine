@@ -144,3 +144,4 @@ oil_name_black	Чёрное масло
 oil_name_opalescent	Перламутровое масло
 oil_name_silver	Серебряное масло
 oil_name_golden	Золотое масло
+hint_input_search_loot_filter	Введите название лут-фильтра

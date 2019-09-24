@@ -106,5 +106,7 @@ public:
 	static EGabarite* gabarite_cap_rama;
 	static EGabarite* gabarite_wood_bg;
 
+	static EGabarite* gabarite_wood_button_bg;
+
 
 };

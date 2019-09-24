@@ -339,6 +339,8 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		rama_thikness = 1.0f;
 		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		have_bg = false;
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_CHECK_OIL)
@@ -349,6 +351,18 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		rama_thikness = 1.0f;
 		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_OIL_WINDOW)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+		gabarite = DefaultGabarite::gabarite_oil[11];
 	}
 }
 
@@ -944,6 +958,12 @@ void EButtonService::click_event()
 	{
 		StaticData::window_oil->oil_count.at(data_id) = 3;
 		StaticData::window_oil->update_passives_button();
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_OIL_WINDOW)
+	{
+		StaticData::window_oil->is_active = true;
+		//StaticData::window_oil->update_passives_button();
 	}
 }
 

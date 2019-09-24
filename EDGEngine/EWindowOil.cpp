@@ -140,13 +140,13 @@ void EWindowOil::update_passives_button()
 		{
 			passive_button_list.at(but_id)->icon_color->set(EColorCollection::WHITE);
 			passive_button_list.at(but_id)->rama_thikness = 2;
-			passive_button_list.at(but_id)->rama_color->set_alpha(EColorCollection::BLACK, 0.75);
+			passive_button_list.at(but_id)->rama_color->set_alpha(EColorCollection::DAD_UNIQUE, 0.75);
 		}
 		else
 		{
-			passive_button_list.at(but_id)->icon_color->set_alpha(EColorCollection::GRAY, 0.5f);
+			passive_button_list.at(but_id)->icon_color->set_alpha(EColorCollection::GRAY, 0.25f);
 			passive_button_list.at(but_id)->rama_thikness = 1;
-			passive_button_list.at(but_id)->rama_color->set_alpha(EColorCollection::RED, 0.50);
+			passive_button_list.at(but_id)->rama_color->set_alpha(EColorCollection::RED, 0.20);
 		}
 
 

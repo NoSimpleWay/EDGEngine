@@ -1,2 +1,2 @@
-times_new_roman
-RU
+georgia
+EN

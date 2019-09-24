@@ -144,3 +144,4 @@ oil_name_black	Black Oil
 oil_name_opalescent	Opalescent Oil
 oil_name_silver	Silver Oil
 oil_name_golden	Golden Oil
+hint_input_search_loot_filter	Input loot-filter name

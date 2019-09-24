@@ -2119,6 +2119,7 @@ int main()
 
 	put_texture_to_atlas("data/cap_rama.png");				DefaultGabarite::gabarite_cap_rama = just_created_gabarite;
 	put_texture_to_atlas("data/wood_bg.png");				DefaultGabarite::gabarite_wood_bg = just_created_gabarite;
+	put_texture_to_atlas("data/wood_button_bg.png");				DefaultGabarite::gabarite_wood_button_bg = just_created_gabarite;
 
 	cout << "item list size=" << ItemList::item_list.size() << endl;
 	

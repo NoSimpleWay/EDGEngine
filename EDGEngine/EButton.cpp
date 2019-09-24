@@ -394,7 +394,7 @@
 		if (have_bg)
 		{
 			_batch->setcolor(bg_color);
-			_batch->draw_rect_with_uv(master_position_x, master_position_y, button_size_x, button_size_y, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(master_position_x, master_position_y, button_size_x, button_size_y, DefaultGabarite::gabarite_wood_button_bg);
 		}
 
 		float temp_w = 0;
@@ -465,7 +465,7 @@
 
 			if ((text == "")&&(input_hint!=""))
 			{
-				_batch->setcolor(0.5f, 0.5f, 0.5f, 1.0f);
+				_batch->setcolor(0.2f, 0.2f, 0.2f, 0.8f);
 				target_font->draw(_batch, input_hint, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y - 20.0f) / 2.0f + 4.0f));
 			}
 
@@ -483,7 +483,7 @@
 		if (have_rama)
 		{
 			_batch->setcolor(rama_color);
-			_batch->draw_rama(master_position_x, master_position_y, button_size_x, button_size_y,rama_thikness,DefaultGabarite::gabarite_white);
+			_batch->draw_rama(master_position_x, master_position_y, button_size_x, button_size_y,rama_thikness,DefaultGabarite::gabarite_wood_button_bg);
 		}
 
 		if (is_slider)

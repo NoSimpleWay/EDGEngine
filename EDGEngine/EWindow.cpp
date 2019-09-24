@@ -89,7 +89,7 @@ void EWindow::defaul_draw(Batcher* _batch)
 		//pos_y = relative_y + (EWindow::SCR_WIDTH - window_size_y) / 2.0f;
 
 		_batch->setcolor(bg_color);
-		_batch->draw_rect_with_uv(pos_x, pos_y, window_size_x, window_size_y, DefaultGabarite::gabarite_white);
+		_batch->draw_rect_with_uv(pos_x, pos_y, window_size_x, window_size_y, DefaultGabarite::gabarite_wood_bg);
 	}
 
 	for (EButton* b : button_list)

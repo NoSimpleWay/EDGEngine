@@ -73,26 +73,31 @@ void EButtonInputSearchItem::input_event()
 
 	void EButtonInputSearchItem::update_localisation()
 	{
-		if (Enums::ButtonType::BUTTON_SEARCH_ITEM)
+		//std::cout << "search button localisation" << std::endl;
+		if (button_type == Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_ITEM)
 		{input_hint = EString::localize_it("hint_input_search_item");}
 
-		if (Enums::ButtonType::BUTTON_SEARCH_DEFAULT_SOUND)
+		if (button_type == Enums::ButtonType::BUTTON_SEARCH_DEFAULT_SOUND)
 		{input_hint = EString::localize_it("hint_default_sound");}
 
-		if (Enums::ButtonType::BUTTON_SEARCH_CUSTOM_SOUND)
+		if (button_type == Enums::ButtonType::BUTTON_SEARCH_CUSTOM_SOUND)
 		{input_hint = EString::localize_it("hint_custom_sound");}
 
-		if (Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS)
+		if (button_type == Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS)
 		{input_hint = EString::localize_it("hint_input_base_class_name");}
 
-		if (Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
+		if (button_type == Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
 		{input_hint = EString::localize_it("hint_input_prophecy_name");}
 
-		if (Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_FILTER_BLOCK)
+		if (button_type == Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_FILTER_BLOCK)
 		{input_hint = EString::localize_it("hint_input_filter_block_search");}
 
-		if (Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_PASSIVES)
+		if (button_type == Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_PASSIVES)
 		{input_hint = EString::localize_it("hint_input_search_passives");}
+
+		
+		if (button_type == Enums::ButtonType::BUTTON_SEARCH_LOOT_FILTER)
+		{input_hint = EString::localize_it("hint_input_search_loot_filter");}
 	}
 
 

@@ -40,7 +40,7 @@ class EButtonExplicit;
 class FilterBlock
 {
 public:
-	float x = 0;
+	float x = 10;
 	float y = 0;
 	float size_x = 300;
 	float size_y = 100;
@@ -140,6 +140,8 @@ public:
 	bool is_identified = false;
 	bool is_identified_active = false;
 
+	float random_bg_offset_x;
+	float random_bg_offset_y;
 
 
 	std::vector<string*> class_list;

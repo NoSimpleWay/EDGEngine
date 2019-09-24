@@ -94,7 +94,7 @@ void EWindowLootSimulator::update(float _d)
 			{
 				if (p->max_quality > p->min_quality)
 				{
-					loot->quality = p->min_quality + (rand() % (p->max_quality - p->min_quality));
+					loot->quality = p->min_quality + (rand() % (p->max_quality - p->min_quality + 1));
 				}
 				else
 				{
@@ -113,7 +113,7 @@ void EWindowLootSimulator::update(float _d)
 			{
 				if (p->max_gem_level > p->min_gem_level)
 				{
-					loot->gem_level = p->min_gem_level + (rand() % (p->max_gem_level - p->min_gem_level));
+					loot->gem_level = p->min_gem_level + (rand() % (p->max_gem_level - p->min_gem_level + 1));
 				}
 				else
 				{
@@ -129,7 +129,7 @@ void EWindowLootSimulator::update(float _d)
 			{
 				if (p->max_sockets > p->min_sockets)
 				{
-					loot->sockets = p->min_sockets + (rand() % (p->max_sockets - p->min_sockets));
+					loot->sockets = p->min_sockets + (rand() % (p->max_sockets - p->min_sockets + 1));
 				}
 				else
 				{
@@ -144,7 +144,7 @@ void EWindowLootSimulator::update(float _d)
 			{
 				if (p->max_links > p->min_links)
 				{
-					loot->links = p->min_links + (rand() % (p->max_links - p->min_links));
+					loot->links = p->min_links + (rand() % (p->max_links - p->min_links + 1));
 				}
 				else
 				{
@@ -159,7 +159,7 @@ void EWindowLootSimulator::update(float _d)
 			{
 				if (p->max_map_tier > p->min_map_tier)
 				{
-					loot->map_tier = p->min_map_tier + (rand() % (p->max_map_tier - p->min_map_tier));
+					loot->map_tier = p->min_map_tier + (rand() % (p->max_map_tier - p->min_map_tier + 1));
 				}
 				else
 				{
@@ -237,7 +237,7 @@ void EWindowLootSimulator::update(float _d)
 			{
 				if (p->max_item_level > p->min_item_level)
 				{
-					loot->item_level = p->min_item_level + (rand() % (p->max_item_level - p->min_item_level));
+					loot->item_level = p->min_item_level + (rand() % (p->max_item_level - p->min_item_level + 1));
 				}
 				else
 				{
