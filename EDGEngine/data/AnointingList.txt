@@ -362,3 +362,81 @@ oil	Silver Oil	oil	Silver Oil	oil	Golden Oil	name	Spiritual Aid	icon	Spiritual A
 oil	Opalescent Oil	oil	Golden Oil	oil	Golden Oil	name	Charisma	icon	Charisma	name ru	Харизма
 oil	Silver Oil	oil	Golden Oil	oil	Golden Oil	name	Constitution	icon	Constitution	name ru	Здоровое тело
 oil	Golden Oil	oil	Golden Oil	oil	Golden Oil	name	Soul of Steel	icon	Soul of Steel	name ru	Стальной дух
+oil	Amber Oil	oil	Amber Oil	name	Scout Tower Damage	icon	Summon Tower	description	Minions summoned by Your Scout Tower have 25% increased Damage
+oil	Amber Oil	oil	Verdant Oil	name	Shock Nova Tower Damage	icon	Lightning Tower	description	Your Shock Nova Towers deal 25% increased Damage
+oil	Amber Oil	oil	Teal Oil	name	Seismic Tower Damage	icon	Phys Tower	description	Your Seismic Towers deal 25% increased Damage
+oil	Amber Oil	oil	Azure Oil	name	Imbuing Tower Effect	icon	Empower Tower Imbuing	description	Your Imbuing Towers have 25% increased Effect
+oil	Amber Oil	oil	Violet Oil	name	Flamethrower Tower Range	icon	Fire Tower Flamethrower	description	Your Flamethrower Towers have 25% increased Range
+oil	Amber Oil	oil	Crimson Oil	name	Arc Tower Range	icon	Lightning Tower Arc	description	Your Arc Towers have 25% increased Range
+oil	Amber Oil	oil	Black Oil	name	Stone Gaze Tower Range	icon	Phys Tower Stone	description	Your Temporal Towers have 25% increased Range 
+oil	Amber Oil	oil	Opalescent Oil	name	Flamethrower Tower Cast Speed	icon	Fire Tower Flamethrower	description	Your Flamethrower Towers have 15% increased Cast Speed 
+oil	Amber Oil	oil	Silver Oil	name	Temporal Tower Reduced Tick Speed	icon	Phys Tower Temporal	description	Your Temporal Towers effects decay 25% slower 
+oil	Amber Oil	oil	Golden Oil	name	Arc Tower Chain	icon	Lightning Tower Arc	description	Your Arc Towers have 3 additional chains
+oil	Azure Oil	oil	Azure Oil	name	Summoning Tower Range	icon	Summon Tower	description	Your Summoning Towers have 25% increased Range
+oil	Azure Oil	oil	Violet Oil	name	Sentinel Tower Range	icon	Summon Tower Sentinel	description	Your Sentinel Towers have 25% increased Range
+oil	Azure Oil	oil	Crimson Oil	name	Fireball Tower Cast Speed	icon	Fire Tower	description	Your Fireball Towers have 15% increased Cast Speed
+oil	Azure Oil	oil	Black Oil	name	Smothering Tower Range	icon	Empower Tower Smothering	description	Your Smothering Towers have 25% increased Range 
+oil	Azure Oil	oil	Opalescent Oil	name	Scout Tower Speed	icon	Summon Tower Scout	description	Minions summoned by Your Scout Towers have 25% increased Movement Speed 
+oil	Azure Oil	oil	Silver Oil	name	Scout Tower Life	icon	Summon Tower Scout	description	Minions summoned by Your Scout Towers have 50% increased Life
+oil	Azure Oil	oil	Golden Oil	name	Stone Gaze Tower Reduced Duration	icon	Phys Tower Stone	description	Your Stone Gaze Towers have 20% reduced Petrification Delay 
+oil	Black Oil	oil	Black Oil	name	Lightning Storm Tower Delay	icon	Lightning Tower Storm	description	Your Lightning Storm Towers have 25% reduced Impact Delay 
+oil	Black Oil	oil	Opalescent Oil	name	Sentinel Tower Life	icon	Summon Tower Sentinel	description	Minions summoned by Your Sentinel Towers have 50% increased Life 
+oil	Black Oil	oil	Silver Oil	name	Empowering Tower Damage	icon	Empower Tower	description	Your Empowering Towers also grant 25% increased Damage 
+oil	Black Oil	oil	Golden Oil	name	Shock Nova Tower Repeating	icon	Lightning Tower	description	Your Shock Nova Towers have 30% increased area of effect per repeat\nYour Shock Nova Towers repeats 2 additional Times
+oil	Clear Oil	oil	Clear Oil	name	Chilling Tower Damage	icon	Ice Tower	description	Your Chilling Towers deal 25% increased Damage
+oil	Clear Oil	oil	Sepia Oil	name	Freezebolt Tower Damage	icon	Ice Tower	description	Your Freezebolt Towers deal 25% increased Damage
+oil	Clear Oil	oil	Amber Oil	name	Fireball Tower Damage	icon	Fire Tower	description	Your Fireball Towers deal 25% increased Damage
+oil	Clear Oil	oil	Verdant Oil	name	Meteor Tower Damage	icon	Fire Tower	description	Your Meteor Towers deal 25% increased Damage 
+oil	Clear Oil	oil	Teal Oil	name	Sentinel Tower Damage	icon	Summon Tower	description	Minions summoned by Your Sentinel Towers have 25% increased Damage 
+oil	Clear Oil	oil	Azure Oil	name	Temporal Tower Effect	icon	Phys Tower Temporal	description	Your Temporal Towers have 25% increased Effect
+oil	Clear Oil	oil	Violet Oil	name	Freezebolt Tower Range	icon	Ice Tower Freezebolt	description	Your Freezebolt Towers have 25% increased Range 
+oil	Clear Oil	oil	Crimson Oil	name	Shock Nova Tower Range	icon	Lightning Tower	description	Your Shock Nova Towers have 25% increased Range 
+oil	Clear Oil	oil	Black Oil	name	Seismic Tower Range	icon	Phys Tower	description	Your Seismic Towers have 25% increased Range 
+oil	Clear Oil	oil	Opalescent Oil	name	Glacial Cage Tower Increased Damage	icon	Ice Tower Glacial	description	Enemies inside Glacial Cage take 10% increased Damage 
+oil	Clear Oil	oil	Silver Oil	name	Arc Tower Repeat	icon	Lightning Tower Arc	description	Your Arc Towers repeats 1 additional Times 
+oil	Clear Oil	oil	Golden Oil	name	Shock Nova Tower Shock Effect	icon	Lightning Tower	description	Your Shock Nova Towers have 25% increased effect of Shock 
+oil	Crimson Oil	oil	Crimson Oil	name	Meteor Tower Stun	icon	Fire Tower Meteor	description	Your Meteor Towers always Stun 
+oil	Crimson Oil	oil	Black Oil	name	Freezebolt Tower Additional Projectile	icon	Ice Tower Freezebolt	description	Your Freezebolt Towers fire 2 additional Projectiles
+oil	Crimson Oil	oil	Opalescent Oil	name	Shock Nova Tower Full Damage	icon	Lightning Tower	description	Your Shock Nova Towers deal full damage to Lightning Enemies 
+oil	Crimson Oil	oil	Silver Oil	name	Imbuing Tower Critical	icon	Empower Tower Imbuing	description	Your Imbuing Towers also grant 50% increased Critical Strike Chance
+oil	Crimson Oil	oil	Golden Oil	name	Smothering Tower Reduced Damage	icon	Empower Tower Smothering	description	Your Smothering Towers also grant 10% reduced Damage 
+oil	Golden Oil	oil	Golden Oil	name	Empowering Tower Double Damage	icon	Empower Tower	description	All Towers in range of your Empowering Towers have 50% chance to deal Double Damage 
+oil	Opalescent Oil	oil	Opalescent Oil	name	Smothering Tower Reduced Speed	icon	Empower Tower Smothering	description	Your Smothering Towers also grant 20% reduced Movement Speed 
+oil	Opalescent Oil	oil	Silver Oil	name	Chilling Tower Freeze	icon	Ice Tower	description	Your Chilling Towers freeze enemies for 0.2 seconds while they are affected by chilling beams 
+oil	Opalescent Oil	oil	Golden Oil	name	Fireball Tower Nova	icon	Fire Tower	description	Your Fireball Towers fire an additional 8 Projectiles\nYour Fireball Towers Projectiles fire in a Nova
+oil	Sepia Oil	oil	Sepia Oil	name	Glacial Cage Tower Duration	icon	Ice Tower	description	Your Glacial Cage Towers have 25% increased Duration 
+oil	Sepia Oil	oil	Amber Oil	name	Flamethrower Tower Damage	icon	Fire Tower	description	Your Flamethrower Towers deal 25% increased Damage
+oil	Sepia Oil	oil	Verdant Oil	name	Summoning Tower Damage	icon	Summon Tower	description	Minions summoned by Your Summoning Towers have 25% increased Damage 
+oil	Sepia Oil	oil	Teal Oil	name	Lightning Storm Tower Damage	icon	Lightning Tower Storm	description	Your Lightning Storm Towers deal 25% increased Damage 
+oil	Sepia Oil	oil	Azure Oil	name	Empowering Tower Effect	icon	Empower Tower	description	Your Empowering Towers have 25% increased Effect 
+oil	Sepia Oil	oil	Violet Oil	name	Fireball Tower Range	icon	Fire Tower	description	Your Fireball Towers have 25% increased Range 
+oil	Sepia Oil	oil	Crimson Oil	name	Lightning Storm Tower Range	icon	Lightning Tower Storm	description	Your Shock Nova Towers have 25% increased Range 
+oil	Sepia Oil	oil	Black Oil	name	Temporal Tower Range	icon	Phys Tower Temporal	description	Your Temporal Towers have 25% increased Range 
+oil	Sepia Oil	oil	Opalescent Oil	name	Fireball Tower Projectile	icon	Fire Tower	description	Your Fireball Towers fire an additional 2 Projectiles 
+oil	Sepia Oil	oil	Silver Oil	name	Seismic Tower Stun Duration	icon	Phys Tower	description	Your Fireball Towers fire an additional 2 Projectiles 
+oil	Sepia Oil	oil	Golden Oil	name	Lightning Storm Tower Explosion Area	icon	Lightning Tower Storm	description	Your Lightning Storm Towers have 25% increased explosion Area of Effect
+oil	Silver Oil	oil	Silver Oil	name	Summoning Tower Additional Minions	icon	Summon Tower	description	Your Summoning Tower summons 2 additional Minions 
+oil	Silver Oil	oil	Golden Oil	name	Seismic Tower Cascade Reach	icon	Phys Tower	description	Your Seismic Towers has 100% increased length and range of Cascades 
+oil	Teal Oil	oil	Teal Oil	name	Smothering Tower Effect	icon	Empower Tower Smothering	description	Your Smothering Towers have 25% increased Effect 
+oil	Teal Oil	oil	Azure Oil	name	Glacial Cage Tower Range	icon	Ice Tower Glacial	description	Your Glacial Cage Towers have 25% increased Range 
+oil	Teal Oil	oil	Violet Oil	name	Scout Tower Range	icon	Summon Tower Scout	description	Your Scout Towers have 25% increased Range 
+oil	Teal Oil	oil	Crimson Oil	name	Glacial Cage Tower Cooldown	icon	Ice Tower Glacial	description	Your Glacial Cage Towers have 20% increased Cooldown Recovery 
+oil	Teal Oil	oil	Black Oil	name	Imbuing Tower Range	icon	Empower Tower Imbuing	description	Your Imbuing Towers have 25% increased Range 
+oil	Teal Oil	oil	Opalescent Oil	name	Summoning Tower Speed	icon	Summon Tower	description	Minions summoned by Your Summoning Towers have 25% increased Movement Speed 
+oil	Teal Oil	oil	Silver Oil	name	Summoning Tower Life	icon	Summon Tower	description	Minions summoned by Your Summoning Towers have 50% increased Life 
+oil	Teal Oil	oil	Golden Oil	name	Temporal Tower Duration	icon	Phys Tower Temporal	description	Your Temporal Towers also grant you 20% increased action speed 
+oil	Verdant Oil	oil	Verdant Oil	name	Arc Tower Damage	icon	Lightning Tower Arc	description	Your Arc Towers deal 25% increased Damage 
+oil	Verdant Oil	oil	Teal Oil	name	Stone Gaze Tower Effect	icon	Phys Tower Stone	description	Your Stone Gaze Towers have 25% increased Duration 
+oil	Verdant Oil	oil	Azure Oil	name	Chilling Tower Range	icon	Ice Tower	description	Your Chilling Towers have 25% increased Range 
+oil	Verdant Oil	oil	Violet Oil	name	Meteor Tower Range	icon	Fire Tower Meteor	description	Your Meteor Towers have 25% increased Range 
+oil	Verdant Oil	oil	Crimson Oil	name	Freezebolt Tower Full Damage	icon	Ice Tower Freezebolt	description	Your Freezebolt Tower deal full damage to Cold Enemies 
+oil	Verdant Oil	oil	Black Oil	name	Empowering Tower Range	icon	Empower Tower	description	Your Empowering Towers have 25% increased Range 
+oil	Verdant Oil	oil	Opalescent Oil	name	Meteor Tower Additional Meteor	icon	Fire Tower Meteor	description	Your Meteor Towers drop an additional Meteor 
+oil	Verdant Oil	oil	Silver Oil	name	Stone Gaze Tower Cooldown	icon	Phys Tower Stone	description	Your Stone Gaze Towers have 20% increased Cooldown Recovery 
+oil	Verdant Oil	oil	Golden Oil	name	Seismic Tower Additional Cascade	icon	Phys Tower	description	Your Seismic Towers have an additional Cascade 
+oil	Violet Oil	oil	Violet Oil	name	Chilling Tower Chill Effect	icon	Ice Tower	description	Your Chilling Towers have 25% increased effect of Chill 
+oil	Violet Oil	oil	Crimson Oil	name	Flamethrower Tower Full Damage	icon	Fire Tower Flamethrower	description	Your Flamethrower Towers deal full damage to Fire Enemies 
+oil	Violet Oil	oil	Black Oil	name	Chilling Tower Duration	icon	Ice Tower	description	Your Chilling Towers have 25% increased Duration 
+oil	Violet Oil	oil	Opalescent Oil	name	Sentinel Tower Speed	icon	Summon Tower Sentinel	description	Minions summoned by Your Sentinel Towers have 25% increased Movement Speed
+oil	Violet Oil	oil	Silver Oil	name	Empowering Tower Cast Speed	icon	Empower Tower	description	Minions summoned by Your Sentinel Towers have 25% increased Movement Speed
+oil	Violet Oil	oil	Golden Oil	name	Imbuing Tower Damage	icon	Empower Tower Imbuing	description	Your Imbuing Towers also grant 50% increased Damage 

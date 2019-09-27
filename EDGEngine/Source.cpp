@@ -205,6 +205,7 @@ std::vector<EWindowFilterBlock*> StaticData::filter_block_tab;
 int StaticData::active_tab = 0;
 bool StaticData::need_exit = false;
 
+bool loading_finish = false;
 
 //0		-	1
 //1		-	2
@@ -626,6 +627,16 @@ void load_anointing()
 				put_texture_to_atlas(aaa.c_str(), 32, 32);
 
 				just_created_passive->gabarite = just_created_gabarite;
+			}
+
+			if (subdata_array[i * 2] == "description")
+			{
+				just_created_passive->passive_description = subdata_array[i * 2 + 1];
+			}
+
+			if (subdata_array[i * 2] == "description_ru")
+			{
+				just_created_passive->passive_ru_description = EString::to_cyrillic(subdata_array[i * 2 + 1]);
 			}
 
 
@@ -2364,7 +2375,8 @@ int main()
 
 		int last_index = StaticData::window_loading_screen->load_progress + 50;
 		if (last_index > ItemList::item_list.size()) { last_index = ItemList::item_list.size(); }
-		else
+
+		if (!loading_finish)
 		{
 			glViewport(0, 0, 4096, 4096);
 			glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
@@ -2444,7 +2456,7 @@ int main()
 
 			}*/
 			///////////////////////////////////////////////////////////////////////////////
-			if (last_index <= ItemList::item_list.size())
+			if (!loading_finish)
 			{
 				glBindFramebuffer(GL_FRAMEBUFFER, 0);
 				glDisable(GL_DEPTH_TEST);
@@ -2622,6 +2634,8 @@ int main()
 					StaticData::window_find_item->is_active = true;
 				}
 			}
+
+			loading_finish = true;
 
 		}
 
