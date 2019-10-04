@@ -129,7 +129,8 @@ class EFile
 {
 public:
 	static void parse_loot_filter_data(std::string _path);
-	static void save_filter(std::string _path);
+	static void save_filter(std::string _path, Enums::AutogenSaveMode _save_mode, bool _ignore_autogen);
+	//static void save_filter(std::string _path);
 };
 
 

@@ -103,6 +103,7 @@ EGabarite* DefaultGabarite::gabarite_cap_rama;
 EGabarite* DefaultGabarite::gabarite_wood_bg;
 
 EGabarite* DefaultGabarite::gabarite_wood_button_bg;
+EGabarite* DefaultGabarite::gabarite_save_autogen;
 
 
 

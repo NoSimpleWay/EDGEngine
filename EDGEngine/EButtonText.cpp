@@ -341,7 +341,8 @@ void EButtonText::click_event()
 
 			if (EString::opened_loot_filter_path != "")
 			{
-				EFile::save_filter(EString::path_list.at(StaticData::active_tab));
+				//EFile::save_filter(EString::path_list.at(StaticData::active_tab));
+				EFile::save_filter(EString::path_list.at(StaticData::active_tab), Enums::AutogenSaveMode::VERY_LOW, true);
 			}
 		}
 

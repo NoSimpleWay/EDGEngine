@@ -145,3 +145,13 @@ oil_name_opalescent	Opalescent Oil
 oil_name_silver	Silver Oil
 oil_name_golden	Golden Oil
 hint_input_search_loot_filter	Input loot-filter name
+description_autogen_check_very_low	Enable/disable write this block for "very_low" version of you loot-filter
+description_autogen_check_low	Enable/disable write this block for "low" version of you loot-filter
+description_autogen_check_default	Enable/disable write this block for "default" version of you loot-filter
+description_autogen_check_rich	Enable/disable write this block for "rich" version of you loot-filter
+description_autogen_check_very_rich	Enable/disable write this block for "very_rich" version of you loot-filter
+autogen_very_low	_very_low
+autogen_low	_low
+autogen_default	_default
+autogen_rich	_rich
+autogen_very_rich	_very_rich

@@ -20,6 +20,7 @@
 #include "EButtonPlusWide.h"
 #include "EButtonSocketGroup.h"
 #include "EButtonExplicit.h"
+//#include "EButtonCheck.h"
 
 #include "ExplicitGroup.h"
 #include "BaseClass.h"
@@ -265,6 +266,21 @@
 
 		}
 
+		for (int i = 0; i < 5; i++)
+		{
+			EButtonCheck* but = new EButtonCheck(-150.0f + 20.0f * i, -5.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_CHECK_AUTOGEN);
+			but->master_window = StaticData::window_filter_block;
+			but->master_block = this;
+
+			but->data_id = i;
+
+			but->position_mode_x = Enums::PositionMode::RIGHT;
+			but->position_mode_y = Enums::PositionMode::UP;
+
+			autogen_button_link.push_back(but);
+			button_list.push_back(but);
+		}
+
 		plus_class_button_link = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
 		plus_class_button_link->text = "+";
 		plus_class_button_link->master_block = this;
@@ -347,7 +363,7 @@
 
 		button_list.push_back(remove_enchantment_button);
 
-		but = new EButtonService(-150.0f, 55.0f - 20.0f * 0.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_SHOW_HIDE);
+		but = new EButtonService(-150.0f, 45.0f - 20.0f * 0.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_SHOW_HIDE);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
@@ -370,24 +386,24 @@
 		button_list.push_back(but);
 
 
-		but = new EButtonService(-130.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_CUT_FILTER_BLOCK);
+		but = new EButtonService(-130.0f, 45.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_CUT_FILTER_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 
-		but = new EButtonService(-110.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_CLONE_FILTER_BLOCK);
+		but = new EButtonService(-110.0f, 45.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_CLONE_FILTER_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 
-		but = new EButtonService(-90.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_ADD_SEPARATOR_TO_FILTER_BLOCK);
+		but = new EButtonService(-90.0f, 45.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_ADD_SEPARATOR_TO_FILTER_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 
 
 
-		but = new EButtonService(-60.0f, 55.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
+		but = new EButtonService(-60.0f, 45.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
@@ -1148,6 +1164,13 @@
 		else
 		{
 			sound_button_link->activate();
+		}
+
+		int autogen_id = 0;
+		for (EButtonCheck* b : autogen_button_link)
+		{
+			b->change_state(autogen_include.at(autogen_id));
+			autogen_id++;
 		}
 					
 		/*

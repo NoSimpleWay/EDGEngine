@@ -2232,6 +2232,9 @@ int main()
 	put_texture_to_atlas("data/link_horizontal.png");				DefaultGabarite::gabarite_link_horizontal = just_created_gabarite;
 	put_texture_to_atlas("data/link_vertical.png");					DefaultGabarite::gabarite_link_vertical = just_created_gabarite;
 
+	put_texture_to_atlas("data/button_save_autogen.png");			DefaultGabarite::gabarite_save_autogen = just_created_gabarite;
+
+
 
 	load_anointing();
 

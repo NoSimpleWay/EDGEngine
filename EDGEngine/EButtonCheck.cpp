@@ -62,6 +62,11 @@ void EButtonCheck::click_event()
 		}
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_CHECK_AUTOGEN)
+	{
+		master_block->autogen_include.at(data_id) = is_checked;
+	}
+
 	/*BUTTON_CORRUPTION,
 	BUTTON_SHAPER_ITEM,
 	BUTTON_ELDER_ITEM,
@@ -87,6 +92,14 @@ void EButtonCheck::change_state(bool _b)
 
 void EButtonCheck::update_localisation()
 {
+	if (button_type == Enums::ButtonType::BUTTON_CHECK_AUTOGEN)
+	{
+		if (data_id == 0) { description_text = EString::localize_it("description_autogen_check_very_low"); }
+		if (data_id == 1) { description_text = EString::localize_it("description_autogen_check_low"); }
+		if (data_id == 2) { description_text = EString::localize_it("description_autogen_check_default"); }
+		if (data_id == 3) { description_text = EString::localize_it("description_autogen_check_rich"); }
+		if (data_id == 4) { description_text = EString::localize_it("description_autogen_check_very_rich"); }
+	}
 }
 
 void EButtonCheck::incoming_data(FilterBlock* _filter)

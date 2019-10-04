@@ -28,22 +28,26 @@ public:
 		but->master_window = this;
 		button_list.push_back(but);
 
-
-
-
-					but = new EButtonService(145, -5, 30, 30, Enums::ButtonType::BUTTON_OPEN_SIMULATOR);
+					but = new EButtonService(135, -5, 30, 30, Enums::ButtonType::BUTTON_AUTOGEN_SAVE_LOOT_FILTER);
 		but->master_window = this;
 		button_list.push_back(but);
 
-					but = new EButtonService(185, -5, 30, 30, Enums::ButtonType::BUTTON_OPEN_OIL_WINDOW);
+
+
+
+					but = new EButtonService(185, -5, 30, 30, Enums::ButtonType::BUTTON_OPEN_SIMULATOR);
+		but->master_window = this;
+		button_list.push_back(but);
+
+					but = new EButtonService(235, -5, 30, 30, Enums::ButtonType::BUTTON_OPEN_OIL_WINDOW);
 		but->master_window = this;
 		button_list.push_back(but);
 		
-					but = new EButtonService(235, -5, 30, 30, Enums::ButtonType::BUTTON_CONFIGUE_FONT);
+					but = new EButtonService(285, -5, 30, 30, Enums::ButtonType::BUTTON_CONFIGUE_FONT);
 		but->master_window = this;
 		button_list.push_back(but);
 		
-					but = new EButtonService(275, -5, 30, 30, Enums::ButtonType::BUTTON_CONFIGUE_LANGUAGE);
+					but = new EButtonService(325, -5, 30, 30, Enums::ButtonType::BUTTON_CONFIGUE_LANGUAGE);
 		but->master_window = this;
 		button_list.push_back(but);
 

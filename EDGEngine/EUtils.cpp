@@ -1032,10 +1032,46 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 
 								}
+
+								if (subdata == "#autogen")
+								{
+									parser_mode = Enums::ParserMode::C_AUTOGEN;
+								}
 							}
 						}
 						else
 						{
+
+							if (parser_mode == Enums::ParserMode::C_AUTOGEN)
+							{
+								//cout << "order: " << to_string(data_order) << " subdata: " << subdata << endl;
+								if (data_order == 0) {}
+
+								if (data_order == 1)
+								{
+									if (subdata == "true") {just_created_block->autogen_include.at(0) = true;} else { just_created_block->autogen_include.at(0) = false; }
+								}
+
+								if (data_order == 2)
+								{
+									if (subdata == "true") {just_created_block->autogen_include.at(1) = true;} else { just_created_block->autogen_include.at(1) = false; }
+								}
+
+								if (data_order == 3)
+								{
+									if (subdata == "true") {just_created_block->autogen_include.at(2) = true;} else { just_created_block->autogen_include.at(2) = false; }
+								}
+
+								if (data_order == 4)
+								{
+									if (subdata == "true") {just_created_block->autogen_include.at(3) = true;} else { just_created_block->autogen_include.at(3) = false; }
+								}
+
+								if (data_order == 5)
+								{
+									if (subdata == "true") {just_created_block->autogen_include.at(4) = true;} else { just_created_block->autogen_include.at(4) = false; }
+								}
+							}
 
 							if (parser_mode == Enums::ParserMode::C_SEPARATOR)
 							{
@@ -1857,7 +1893,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		StaticData::window_filter_block->recalculate_filter_block_separator();
 	}
 
-	void EFile::save_filter(std::string _path)
+	void EFile::save_filter(std::string _path, Enums::AutogenSaveMode _save_mode, bool _ignore_autogen)
 	{
 		StaticData::window_filter_block->unsave_change = false;
 		//std::experimental::filesystem::copy(_path, _path); // copy file
@@ -1893,9 +1929,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		}
 
 		for (FilterBlock* fb:StaticData::window_filter_block->filter_block_list)
+		if ((fb->autogen_include.at(_save_mode)) || (_ignore_autogen))
 		{
 			loot_writer += '\n';
 			loot_writer += '\n';
+
+
+
 			if (fb->is_show)
 			{
 				loot_writer += "Show";
@@ -1905,6 +1945,26 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			{
 				loot_writer += "Hide";
 				loot_writer += '\n';
+			}
+
+			if (_save_mode == Enums::AutogenSaveMode::SOURCE)
+			{
+				loot_writer += "#autogen ";
+
+				if (fb->autogen_include.at(0)) { loot_writer += "true "; }
+				else { loot_writer += "false "; }
+
+				if (fb->autogen_include.at(1)) { loot_writer += "true "; }
+				else { loot_writer += "false "; }
+
+				if (fb->autogen_include.at(2)) { loot_writer += "true "; }
+				else { loot_writer += "false "; }
+
+				if (fb->autogen_include.at(3)) { loot_writer += "true "; }
+				else { loot_writer += "false "; }
+
+				if (fb->autogen_include.at(4)) { loot_writer += "true\n"; }
+				else { loot_writer += "false\n"; }
 			}
 
 			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED))

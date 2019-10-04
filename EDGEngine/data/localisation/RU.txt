@@ -145,3 +145,13 @@ oil_name_opalescent	Перламутровое масло
 oil_name_silver	Серебряное масло
 oil_name_golden	Золотое масло
 hint_input_search_loot_filter	Введите название лут-фильтра
+description_autogen_check_very_low	Включить/выключить сохранение этого блока для "очень низкой" версии вашего лут-фильтра
+description_autogen_check_low	Включить/выключить сохранение этого блока для "низкой" версии вашего лут-фильтра
+description_autogen_check_default	Включить/выключить сохранение этого блока для "стандартной" версии вашего лут-фильтра
+description_autogen_check_rich	Включить/выключить сохранение этого блока для "богатой" версии вашего лут-фильтра
+description_autogen_check_very_rich	Включить/выключить сохранение этого блока для "очень богатой" версии вашего лут-фильтра
+autogen_very_low	_very_low
+autogen_low	_low
+autogen_default	_default
+autogen_rich	_rich
+autogen_very_rich	_very_rich

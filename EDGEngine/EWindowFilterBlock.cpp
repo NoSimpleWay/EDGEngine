@@ -177,7 +177,14 @@
 							*/
 
 							yy += 27.0f;
+							
+							if ((f->contain_start_separator)&&(f->hided_by_separator))
+							{
+								yy += 32.0f;
+							}
 						}
+
+						
 
 						if
 						(
@@ -246,6 +253,8 @@
 
 							yy += 63.0f;
 						}
+
+
 
 						if
 						(

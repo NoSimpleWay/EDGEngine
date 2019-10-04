@@ -364,6 +364,20 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 		gabarite = DefaultGabarite::gabarite_oil[11];
 	}
+
+
+
+	if (button_type == Enums::ButtonType::BUTTON_AUTOGEN_SAVE_LOOT_FILTER)
+	{
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		gabarite = DefaultGabarite::gabarite_save_autogen;
+
+
+	}
 }
 
 void EButtonService::click_event()
@@ -466,7 +480,27 @@ void EButtonService::click_event()
 	{
 		if (EString::path_list.at(StaticData::active_tab) != "")
 		{
-			EFile::save_filter(EString::path_list.at(StaticData::active_tab));
+			EFile::save_filter(EString::path_list.at(StaticData::active_tab), Enums::AutogenSaveMode::DEFAULT, true);
+
+			//EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + "_very_low.filter", Enums::AutogenSaveMode::VERY_LOW, true);
+			StaticData::filter_block_tab.at(StaticData::active_tab)->unsave_change = false;
+		}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_AUTOGEN_SAVE_LOOT_FILTER)
+	{
+		if (EString::path_list.at(StaticData::active_tab) != "")
+		{
+			
+
+			EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + EString::localize_it("autogen_very_low") + ".filter", Enums::AutogenSaveMode::VERY_LOW, false);
+			EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + EString::localize_it("autogen_low") + ".filter", Enums::AutogenSaveMode::LOW, false);
+			EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + EString::localize_it("autogen_default") + ".filter", Enums::AutogenSaveMode::DEFAULT, false);
+			EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + EString::localize_it("autogen_rich") + ".filter", Enums::AutogenSaveMode::RICH, false);
+			EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + EString::localize_it("autogen_very_rich") + ".filter", Enums::AutogenSaveMode::VERY_RICH, false);
+
+			EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + ".filter", Enums::AutogenSaveMode::SOURCE, false);
+
 			StaticData::filter_block_tab.at(StaticData::active_tab)->unsave_change = false;
 		}
 	}

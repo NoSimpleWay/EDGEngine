@@ -270,5 +270,7 @@ public:
 	bool contain_start_separator = false;
 	bool contain_end_separator = false;
 
-	std::vector <bool> autogen_include = { true, true, true, true, true };
+	std::vector <bool> autogen_include = { true, true, true, true, true, true };
+
+	std::vector <EButtonCheck*> autogen_button_link;
 };
