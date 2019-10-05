@@ -472,7 +472,11 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 				EControl::block_scroll = temp_scroll;
 
-				if (!loot->filter_block_link->hided_by_separator) { loot->filter_block_link->highlight_time = 0.5f; }
+				//loot->filter_block_link->hided_by_separator = false;
+				StaticData::window_filter_block->recalculate_filter_block_separator();
+				loot->filter_block_link->highlight_time = 0.5f;
+				loot->filter_block_link->hided_by_separator = false;
+				//if (!loot->filter_block_link->hided_by_separator) {  }
 			}
 
 			EFont::active_font->align_x = Enums::PositionMode::LEFT;
@@ -1295,4 +1299,6 @@ void EWindowLootSimulator::close_action()
 {
 	StaticData::window_loot_simulator->align_x = Enums::PositionMode::MID;
 	StaticData::window_filter_visual_editor->align_x = Enums::PositionMode::MID;
+
+	StaticData::window_filter_block->recalculate_filter_block_separator();
 }

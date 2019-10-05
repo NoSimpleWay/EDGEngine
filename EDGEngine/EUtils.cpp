@@ -1410,7 +1410,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							if (parser_mode == Enums::ParserMode::BASETYPE)
 							{
 								//if (data_order == 0) { cout << "activate rarity property" << endl; }
-								if (data_order > 0)
+								//if ((data_order == 1) && (subdata == "=="))
+								//{
+								//	parser_mode = Enums::ParserMode::BASETYPE_EQUAL;
+								//}
+
+								if ((data_order > 0)&&(subdata != "=="))
 								{
 									if (show_info_to_console) { cout << "add new base type <" << subdata << ">" << endl; }
 

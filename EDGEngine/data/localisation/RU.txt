@@ -155,3 +155,4 @@ autogen_low	_low
 autogen_default	_default
 autogen_rich	_rich
 autogen_very_rich	_very_rich
+description_save_autogen_loot_filter	Генерирует "очень низкую", "низкую", "стандартную", "богатую" и "очень богатую" версию вашего лут-фильтра

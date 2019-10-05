@@ -155,3 +155,4 @@ autogen_low	_low
 autogen_default	_default
 autogen_rich	_rich
 autogen_very_rich	_very_rich
+description_save_autogen_loot_filter	Generate "very low", "low", "default", "rich" and "very rich" version of you loot-filter

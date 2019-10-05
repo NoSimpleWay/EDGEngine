@@ -480,7 +480,7 @@ void EButtonService::click_event()
 	{
 		if (EString::path_list.at(StaticData::active_tab) != "")
 		{
-			EFile::save_filter(EString::path_list.at(StaticData::active_tab), Enums::AutogenSaveMode::DEFAULT, true);
+			EFile::save_filter(EString::path_list.at(StaticData::active_tab), Enums::AutogenSaveMode::SOURCE, true);
 
 			//EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + "_very_low.filter", Enums::AutogenSaveMode::VERY_LOW, true);
 			StaticData::filter_block_tab.at(StaticData::active_tab)->unsave_change = false;
@@ -1096,6 +1096,10 @@ void EButtonService::update_localisation()
 
 		if (button_type == Enums::ButtonType::BUTTON_CUT_FILTER_BLOCK)
 	{description_text = EString::localize_it("description_cut_filter_block");}
+		
+
+		if (button_type == Enums::ButtonType::BUTTON_AUTOGEN_SAVE_LOOT_FILTER)
+	{description_text = EString::localize_it("description_save_autogen_loot_filter");}
 
 
 
