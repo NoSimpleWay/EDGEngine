@@ -14,6 +14,7 @@
 #include "EUtils.h"
 #include "StaticData.h"
 
+#include <windows.h>
 
 	int EButton::top_window_id=-1;
 
@@ -130,7 +131,70 @@
 
 	void EButton::update(float _d)
 	{
-		
+		if
+		(
+			(can_receive_paste)
+			&&
+			(is_overlap())
+			&&
+			(glfwGetKey(EWindow::main_window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
+			&&
+			(glfwGetKey(EWindow::main_window, GLFW_KEY_V) == GLFW_PRESS)
+		)
+		{
+			if (!OpenClipboard(nullptr))
+			{}
+
+			// Get handle of clipboard object for ANSI text
+			HANDLE hData = GetClipboardData(CF_TEXT);
+			if (hData == nullptr)
+			{}
+
+			// Lock the handle to get the actual text pointer
+			char* pszText = static_cast<char*>(GlobalLock(hData));
+			if (pszText == nullptr)
+			{}
+
+			// Save text in a string class instance
+			std::string clipboard_text(pszText);
+			text = clipboard_text;
+
+			// Release the lock
+			GlobalUnlock(hData);
+
+			// Release the clipboard
+			CloseClipboard();
+
+			if (is_input_mode_active)
+			{
+				input_event();
+			}
+
+			if (master_block != NULL) { StaticData::window_filter_block->unsave_change = true; }
+			if (master_separator != NULL) { StaticData::window_filter_block->unsave_change = true; }
+		}
+
+		if
+			(
+				(is_overlap())
+				&&
+				(glfwGetKey(EWindow::main_window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
+				&&
+				(glfwGetKey(EWindow::main_window, GLFW_KEY_C) == GLFW_PRESS)
+				)
+		{
+			const char* output = text.c_str();
+			const size_t len = strlen(output) + 1;
+			HGLOBAL hMem = GlobalAlloc(GMEM_MOVEABLE, len);
+			memcpy(GlobalLock(hMem), output, len);
+			GlobalUnlock(hMem);
+			OpenClipboard(0);
+			EmptyClipboard();
+			SetClipboardData(CF_TEXT, hMem);
+			CloseClipboard();
+		}
+		//std::cout << "clipboard [" << (text) << "]" << std::endl;
+
 		if (is_outclick())
 		{
 			if ((is_expanded) && (is_drop_list))
@@ -587,12 +651,12 @@
 			target_font->align_x=Enums::PositionMode::LEFT;
 
 			_batch->setcolor(EColorCollection::WHITE);
-			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 20.0f - th, EFont::get_width(target_font, description_text)+3, th, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(x_description, EControl::mouse_y - 20.0f - th, EFont::get_width(target_font, description_text)+8, th, DefaultGabarite::gabarite_white);
 
 			_batch->setcolor(EColorCollection::BLACK);
 			target_font->draw(_batch, description_text, x_description + 5.0f, EControl::mouse_y - 34.0f);
 
-			_batch->draw_rama(x_description, EControl::mouse_y - 20.0f - th, EFont::get_width(target_font, description_text)+3, th, 2, DefaultGabarite::gabarite_white);
+			_batch->draw_rama(x_description, EControl::mouse_y - 20.0f - th, EFont::get_width(target_font, description_text)+8, th, 2, DefaultGabarite::gabarite_white);
 		}
 	}
 

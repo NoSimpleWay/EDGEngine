@@ -1,12 +1,12 @@
 random_subclass	FOSSIL	random_cost_group	top	count	3
 random_subclass	FOSSIL	random_cost_group	very_high	count	3
 random_subclass	FOSSIL	random_cost_group	hight	count	3
-random_subclass	FOSSIL	count	15
-item_name	Potent Alchemical Resonator	class	Delve Stackable Socketable Currency	count	6
-item_name	Potent Chaotic Resonator	class	Delve Stackable Socketable Currency	count	6
-item_name	Powerful Alchemical Resonator	class	Delve Stackable Socketable Currency	count	6
-item_name	Powerful Chaotic Resonator	class	Delve Stackable Socketable Currency	count	6
+random_subclass	FOSSIL	count	10
+item_name	Potent Alchemical Resonator	class	Delve Stackable Socketable Currency	count	3
+item_name	Potent Chaotic Resonator	class	Delve Stackable Socketable Currency	count	3
+item_name	Powerful Alchemical Resonator	class	Delve Stackable Socketable Currency	count	3
+item_name	Powerful Chaotic Resonator	class	Delve Stackable Socketable Currency	count	3
 item_name	Prime Alchemical Resonator	class	Delve Stackable Socketable Currency	count	2
 item_name	Prime Alchemical Resonator	class	Delve Stackable Socketable Currency	count	2
-item_name	Primitive Alchemical Resonator	class	Delve Stackable Socketable Currency	count	3
-item_name	Primitive Chaotic Resonator	class	Delve Stackable Socketable Currency	count	3
+item_name	Primitive Alchemical Resonator	class	Delve Stackable Socketable Currency	count	2
+item_name	Primitive Chaotic Resonator	class	Delve Stackable Socketable Currency	count	2

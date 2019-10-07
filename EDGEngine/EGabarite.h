@@ -108,6 +108,7 @@ public:
 
 	static EGabarite* gabarite_wood_button_bg;
 	static EGabarite* gabarite_save_autogen;
+	static EGabarite* gabarite_plus_equal;
 
 
 };

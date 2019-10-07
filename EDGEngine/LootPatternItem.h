@@ -55,8 +55,13 @@ public:
 	std::string random_class;
 	std::string random_subclass;
 	std::string random_cost_group;
+	std::string random_category;
 
 	int count = 1;
 
 	int stack_size = 1;
+
+	std::string enchantment;
+
+	std::vector <std::string> explicit_list;
 };

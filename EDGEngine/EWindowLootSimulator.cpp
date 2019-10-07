@@ -5,6 +5,7 @@
 #include "StaticData.h"
 #include "EWindowLootSimulator.h"
 #include <time.h>
+#include "EButtonFilterItem.h"
 
 int sockets_postition_x[] = { 0, 1, 1, 0, 0, 1 };
 int sockets_postition_y[] = { 0, 0, 1, 1, 2, 2 };
@@ -40,9 +41,13 @@ EWindowLootSimulator::EWindowLootSimulator(int _id, bool _can_be_closed) :EWindo
 	but = new EButtonService(355.0f, -15.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_CHANGE_BG_DARK);
 	but->master_window = this;
 	button_list.push_back(but);
+
+	but = new EButtonSlider(400.0f, -15.0f, 200.0f, 20.0f, Enums::ButtonType::SLIDER_LOOT_DROP_SIZE);
+	but->master_window = this;
+	button_list.push_back(but);
 }
 
-void EWindowLootSimulator::fill_random_pool(std::string _class, std::string _subclass, std::string _cost)
+void EWindowLootSimulator::fill_random_pool(std::string _class, std::string _subclass, std::string _cost, std::string _category)
 {
 
 
@@ -55,6 +60,8 @@ void EWindowLootSimulator::fill_random_pool(std::string _class, std::string _sub
 				((EString::to_lower(_subclass) == EString::to_lower(item->subcategory)) || (_subclass == "") || (EString::to_lower(_subclass) == "any"))
 				&&
 				((EString::to_lower(_cost) == EString::to_lower(item->cost_group)) || (_cost == "") || (EString::to_lower(_cost) == "any"))
+				&&
+				((EString::to_lower(_category) == EString::to_lower(item->category)) || (_category == "") || (EString::to_lower(_category) == "any"))
 				)
 		{
 			random_item_pool.push_back(item);
@@ -230,6 +237,14 @@ void EWindowLootSimulator::update(float _d)
 			if (max_value == random_shaper) { loot->shaper_item = true; }
 			if (max_value == random_elder) { loot->elder_item = true; }
 
+			loot->enchantment = p->enchantment;
+
+			for (std::string s : p->explicit_list)
+			{
+				//std::cout << "added explicit <" << s << "> to" << loot->name << std::endl;
+				loot->explicit_list.push_back(s);
+			}
+
 			//std::cout << "min_item_level=" << p->min_item_level << std::endl;
 			//std::cout << "max_item_level=" << p->max_item_level << std::endl;
 
@@ -303,7 +318,7 @@ void EWindowLootSimulator::update(float _d)
 				}
 			}
 
-			ESound::flip_sound->setDefaultVolume(0.5f);
+			ESound::flip_sound->setDefaultVolume(StaticData::window_filter_block->sound_volume);
 			ESound::engine->play2D(ESound::flip_sound);
 
 			loot_vector_id++;
@@ -347,14 +362,14 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 		if ((loot->filter_block_link != NULL) && (loot->filter_block_link->is_font_size_active))
 		{
-			EFont::active_font->scale = loot->filter_block_link->font_size / 32.0f;
+			EFont::active_font->scale = loot->filter_block_link->font_size / 32.0f * font_scale_factor;
 		}
 		else
 		{
 			if (loot->default_filter_block_link != NULL)
-			{EFont::active_font->scale = loot->default_filter_block_link->font_size / 32.0f;}
+			{EFont::active_font->scale = loot->default_filter_block_link->font_size / 32.0f * font_scale_factor;}
 			else
-			{EFont::active_font->scale = 20.0f / 32.0f;}
+			{EFont::active_font->scale = 20.0f / 32.0f * font_scale_factor;}
 		}
 
 		float w = EFont::active_font->get_width(EFont::active_font, loot->name);
@@ -437,11 +452,11 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 	{
 		if (loot->filter_block_link != NULL)
 		{
-			EFont::active_font->scale = loot->filter_block_link->font_size / 32.0f;
+			EFont::active_font->scale = loot->filter_block_link->font_size / 32.0f * font_scale_factor;
 		}
 		else
 		{
-			EFont::active_font->scale = 20.0f / 32.0f;
+			EFont::active_font->scale = 20.0f / 32.0f * font_scale_factor;
 		}
 
 		float w = EFont::active_font->get_width(EFont::active_font, loot->name);
@@ -512,6 +527,12 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 			EFont::active_font->draw(_batch, loot->name, xx + 5.0f + 222.0f, yy + 282.0f);
 
+			if (loot->enchantment != "")
+			{
+				_batch->setcolor(EColorCollection::GREEN);
+				EFont::active_font->draw(_batch, loot->enchantment, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y); move_y++;
+			}
+
 			_batch->setcolor(EColorCollection::GRAY);
 			EFont::active_font->draw(_batch, loot->base_class, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y); move_y++;
 
@@ -526,6 +547,17 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 				move_y++;
 			}
 
+			if (loot->gem_level > 0)
+			{
+				_batch->setcolor(EColorCollection::GRAY);
+				EFont::active_font->draw(_batch, "gem level:   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				_batch->setcolor(EColorCollection::WHITE);
+				EFont::active_font->add_draw(_batch, std::to_string(loot->gem_level), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				move_y++;
+			}
+
 			if (loot->item_level > 0)
 			{
 				_batch->setcolor(EColorCollection::GRAY);
@@ -535,6 +567,13 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 				EFont::active_font->add_draw(_batch, std::to_string(loot->item_level), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
 
 				move_y++;
+			}
+
+			move_y++;
+			for (std::string s : loot->explicit_list)
+			{
+				_batch->setcolor(EColorCollection::CYAN);
+				EFont::active_font->draw(_batch, s, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
 			}
 
 			_batch->setcolor(EColorCollection::GRAY);
@@ -678,16 +717,23 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 		}
 	}
 
+
 	EFont::active_font->scale = 1.0f;
 	EFont::active_font->align_x = Enums::PositionMode::LEFT;
-	//_batch->setcolor_alpha(EColorCollection::RED, 0.15f);
+	
+	/*
 
-	/*for (int i=0; i<100; i++)
-	for (int j=0; j<100; j++)
+
+	_batch->setcolor_alpha(EColorCollection::RED, 0.5f);
+
+	for (int i=0; i<87; i++)
+	for (int j=0; j<125; j++)
 	if (!free_space[j][i])
 	{
 		_batch->draw_simple_rect(pos_x + j * 8.0f, pos_y + i * 8.0f, 8.0f, 8.0f);
-	}*/
+	}
+	
+	*/
 
 
 
@@ -748,11 +794,27 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		{
 			if
 			(
-				(EString::to_lower(_l->data_name, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+				(
+					(!((EButtonFilterItem*)b)->is_full_equal_mode)
+					&&
+					(EString::to_lower(_l->data_name, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+				)
+				||
+				(
+					(((EButtonFilterItem*)b)->is_full_equal_mode)
+					&&
+					(_l->data_name == b->data_string)
+				)
 			)
 			{
 				match_detect = true;
 			}
+
+			/*if (()&&())
+			{
+
+			}*/
+			
 		}
 
 		if (match_detect)
@@ -770,6 +832,75 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			}
 
 			match_detect = temp_match;
+
+			if ((!_default) && (!temp_match)) { rejection("base_class", _l); }
+		}
+
+		if (match_detect)
+		{
+			temp_match = false;
+			if (!fb->is_enchantment_active) { temp_match = true; }
+
+			//std::cout << "ench: " << _l->enchantment << std::endl;
+
+			for (EButton* b : fb->enchantment_list)
+			{
+				if
+					(EString::to_lower(_l->enchantment, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+				{
+					temp_match = true;
+				}
+			}
+
+			match_detect = temp_match;
+
+			if ((!_default)&&(!temp_match)) { rejection("enchantment", _l); }
+
+		}
+
+		if (match_detect)
+		{
+			temp_match = true;
+
+			if (!fb->is_explicit)
+			{ temp_match = true; }
+			else
+			{
+				//std::cout << "explicit size in #" << std::to_string(fb->order_id) << " =" << std::to_string(fb->explicit_list.size()) << std::endl;
+				for (ExplicitGroup* ex : fb->explicit_list)
+				if (match_detect)
+				{
+						if (ex->button_list.size() > 0)
+						{temp_match = false;}
+						else
+						{temp_match = true;}
+
+						for (EButton* b : ex->button_list)
+						{
+							for (std::string s : _l->explicit_list)
+							{
+								if (EString::to_lower(s, false).find(EString::to_lower(b->text, false)) != std::string::npos)
+								{
+									temp_match = true;
+								}
+								else
+								{
+									if (!_default)
+									{
+										std::cout << "explicit from loot '" << s << "' not equal '" << b->text << "'" << std::endl;
+									}
+								}
+							}
+						}
+
+						if (!temp_match) { match_detect = false; }
+
+						//match_detect = temp_match;
+				}
+			}
+			
+			
+			
 		}
 
 		if (match_detect)
@@ -789,22 +920,6 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			match_detect = temp_match;
 		}	
 
-		if (match_detect)
-		{
-			temp_match = false;
-			if (!fb->is_enchantment_active) { temp_match = true; }
-			/*
-			for (EButton* b : fb->prophecy_list)
-			{
-				if
-					(EString::to_lower(_l->, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
-				{
-					temp_match = true;
-				}
-			}*/
-
-			match_detect = temp_match;
-		}
 
 		//std::cout << "data rarity is active =" << std::to_string(true) << std::endl;
 
@@ -924,7 +1039,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		}
 
 
-
+		/*
 		for (ExplicitGroup* ex : fb->explicit_list)
 			if (match_detect)
 			{
@@ -944,7 +1059,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 					match_detect = temp_match;
 				}
-			}
+			}*/
 
 		if
 			(
@@ -1017,9 +1132,9 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		if
 			(
 			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ENCHANTMENT))
-				&&
-				(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_ENCHANTMENT) != _l->any_enchantment)
-				)
+			&&
+			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_ENCHANTMENT) != _l->any_enchantment)
+			)
 		{
 			match_detect = false;
 			if (!_default) { rejection("enchant", _l); }
@@ -1044,9 +1159,15 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			
 
 			if (_default)
-			{_l->default_filter_block_link = fb; std::cout << "Match detect [default]! (" << _l->name << ")" << std::endl;}
+			{
+				_l->default_filter_block_link = fb;
+				//std::cout << "Match detect [default]! (" << _l->name << ")" << std::endl;
+			}
 			else
-			{_l->filter_block_link = fb; std::cout << "Match detect! (" << _l->name << ")" << std::endl;}
+			{
+				_l->filter_block_link = fb;
+				//std::cout << "Match detect! (" << _l->name << ")" << std::endl;
+			}
 
 			//_l->name += " " + std::to_string(fb_id);
 
@@ -1089,19 +1210,34 @@ void EWindowLootSimulator::place(LootItem* _l)
 
 	float w = 16;
 
-	if (_l->filter_block_link != NULL)
+	if ((_l->filter_block_link != NULL)&&(_l->filter_block_link->is_font_size_active))
 	{
-		EFont::active_font->scale = _l->filter_block_link->font_size / 32.0f;
+		EFont::active_font->scale = _l->filter_block_link->font_size / 32.0f * font_scale_factor;
+
+		//std::cout << "my loot filter font scale" << std::endl;
 	}
 	else
 	{
-		EFont::active_font->scale = 16.0f / 32.0f;
+		if (_l->default_filter_block_link != NULL)
+		{
+			EFont::active_font->scale = _l->default_filter_block_link->font_size / 32.0f * font_scale_factor; //EFont::active_font->scale = 16.0f / 32.0f;
+
+			//std::cout << "default loot-filter scale" << std::endl;
+		}
+		else
+		{
+			EFont::active_font->scale = 0.5f;
+
+			//std::cout << "have no any loot-filter link" << std::endl;
+		}
+
+		//EFont::active_font->scale = 0.2f;
 	}
 
 	w = EFont::active_font->get_width(EFont::active_font, _l->name);
 
-	for (int i = 0; i < 100; i++)
-		for (int j = 0; j < 200; j++)
+	for (int i = 0; i < 87; i++)
+	for (int j = 0; j < 128; j++)
 		{
 			bool detect_block = false;
 
@@ -1146,7 +1282,8 @@ void EWindowLootSimulator::place(LootItem* _l)
 	if ((good_pos_x >= 0) && (good_pos_y >= 0))
 	{
 
-		w = EFont::active_font->get_width(EFont::active_font, _l->name);
+		//w = EFont::active_font->get_width(EFont::active_font, _l->name);
+
 		for (int sy = good_pos_y - 1.0f; sy <= good_pos_y + (int)(EFont::active_font->scale * 22.0f / 8.0f) + 1; sy++)
 			for (int sx = good_pos_x - 2.0f; sx <= good_pos_x + (int)(w / 8.0f) + 2; sx++)
 			{
@@ -1221,10 +1358,12 @@ void EWindowLootSimulator::manual_event()
 					||
 					(pattern_item_list.at(i)->random_subclass != "") || (EString::to_lower(pattern_item_list.at(i)->random_subclass) == "any")
 					||
+					(pattern_item_list.at(i)->random_category != "") || (EString::to_lower(pattern_item_list.at(i)->random_category) == "any")
+					||
 					(pattern_item_list.at(i)->random_cost_group != "") || (EString::to_lower(pattern_item_list.at(i)->random_cost_group) == "any")
 					)
 			{
-				fill_random_pool(pattern_item_list.at(i)->random_class, pattern_item_list.at(i)->random_subclass, pattern_item_list.at(i)->random_cost_group);
+				fill_random_pool(pattern_item_list.at(i)->random_class, pattern_item_list.at(i)->random_subclass, pattern_item_list.at(i)->random_cost_group, pattern_item_list.at(i)->random_category);
 			}
 
 
@@ -1277,12 +1416,19 @@ void EWindowLootSimulator::manual_event()
 			pattern->elder_item_weight = pattern_item_list.at(i)->elder_item_weight;
 			pattern->normal_item_weight = pattern_item_list.at(i)->normal_item_weight;
 
+			pattern->enchantment = pattern_item_list.at(i)->enchantment;
+
 
 			pattern->corruption_chance = pattern_item_list.at(i)->corruption_chance;
 
 			if (pattern->item_name != "")
 			{
 				prepared_pattern_list.push_back(pattern);
+			}
+
+			for (std::string s : pattern_item_list.at(i)->explicit_list)
+			{
+				pattern->explicit_list.push_back(s);
 			}
 		}
 		//**********************************************************************************

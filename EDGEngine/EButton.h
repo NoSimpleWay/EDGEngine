@@ -167,4 +167,6 @@ public:
 	EFont* force_font;
 
 	FilterBlockSeparator* master_separator;
+
+	bool can_receive_paste = false;
 };

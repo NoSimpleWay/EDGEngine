@@ -6,3 +6,5 @@ random_class	Divination Card	random_cost_group	high	count	8
 random_class	Divination Card	random_cost_group	very_high	count	8
 random_class	Divination Card	random_cost_group	top	count	4
 item_name	Stacked Deck	count	5
+item_name	The Demon	count	1
+item_name	The Demoness	count	1

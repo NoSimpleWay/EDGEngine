@@ -156,3 +156,7 @@ autogen_default	_default
 autogen_rich	_rich
 autogen_very_rich	_very_rich
 description_save_autogen_loot_filter	Generate "very low", "low", "default", "rich" and "very rich" version of you loot-filter
+button_new_filter_item_equal	New item with exact matches.
+description_open_oil_window	Open oil's window
+description_oil_check_button	Press Left Mouse Button to set 3 oils.\nPress Right Mouse Button to set 0 oils.
+description_press_rmb_to_play_sound	Press right mouse button to play sound.

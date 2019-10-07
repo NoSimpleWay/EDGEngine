@@ -14,7 +14,7 @@ public:
 
 	EWindowLootSimulator(int _id, bool _can_be_closed);
 
-	void fill_random_pool(std::string _class, std::string _subclass, std::string _cost);
+	void fill_random_pool(std::string _class, std::string _subclass, std::string _cost, std::string _category);
 
 	virtual void update(float _d);
 
@@ -47,5 +47,7 @@ public:
 	bool is_bright_bg = true;
 
 	virtual void close_action();
+
+	float font_scale_factor = 1.0f;
 
 };

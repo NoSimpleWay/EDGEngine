@@ -485,6 +485,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					just_created_pattern_item->random_subclass = subdata_array[i * 2 + 1];
 				}
 
+				if (EString::to_lower(subdata_array[i * 2], false) == "random_category")
+				{
+					just_created_pattern_item->random_category = subdata_array[i * 2 + 1];
+				}
+
 				if (EString::to_lower(subdata_array[i * 2], false) == "random_cost_group")
 				{
 					just_created_pattern_item->random_cost_group = subdata_array[i * 2 + 1];
@@ -498,6 +503,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				if (EString::to_lower(subdata_array[i * 2], false) == "base_class")
 				{
 					just_created_pattern_item->base_class = subdata_array[i * 2 + 1];
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "enchantment")
+				{
+					just_created_pattern_item->enchantment = subdata_array[i * 2 + 1];
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "explicit")
+				{
+					just_created_pattern_item->explicit_list.push_back(subdata_array[i * 2 + 1]);
 				}
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "rarity_min")
@@ -856,13 +871,15 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		int error_counts = 0;
 		bool show_info_to_console = false;
 
+		
+
 		EButton* just_created_button = NULL;
 
 		int explicit_group_id = -1;
 
 		while ((getline(myfile, line)) && (line_number < 10000))
 		{
-
+			bool is_base_type_equal_mode = false;
 			//std::cout << "array is " << sizeof(condition_names)  << " length" << std::endl;
 
 			bool comment_mode = false;
@@ -985,7 +1002,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if (subdata == "ShaperItem") { parser_mode = Enums::ParserMode::IS_SHAPER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM) = true; }
 								if (subdata == "ItemLevel") { parser_mode = Enums::ParserMode::ITEM_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL) = true; }
-								if (subdata == "HasExplicitMod") { parser_mode = Enums::ParserMode::EXPLICIT_MOD; explicit_group_id++; }
+								if (subdata == "HasExplicitMod") { parser_mode = Enums::ParserMode::EXPLICIT_MOD; explicit_group_id++;  just_created_block->is_explicit = true; }
 								if (subdata == "Identified") { parser_mode = Enums::ParserMode::IDENTIFIED; just_created_block->is_identified_active = true; }
 								if (subdata == "ElderItem") { parser_mode = Enums::ParserMode::IS_ELDER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_ITEM) = true; }
 								if (subdata == "Sockets") { parser_mode = Enums::ParserMode::SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS) = true; }
@@ -1414,6 +1431,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								//{
 								//	parser_mode = Enums::ParserMode::BASETYPE_EQUAL;
 								//}
+								if ((data_order == 1)&&(subdata == "=="))
+								{
+									is_base_type_equal_mode = true;
+								}
 
 								if ((data_order > 0)&&(subdata != "=="))
 								{
@@ -1446,6 +1467,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
 
 										just_created_button->data_id = item_id;
+
+										
 									}
 									else
 									{
@@ -1458,6 +1481,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										if (just_created_button->button_size_x < 30) { just_created_button->button_size_x = 30; }
 
 										just_created_button->data_id = -1;
+									}
+									((EButtonFilterItem*)just_created_button)->is_full_equal_mode = is_base_type_equal_mode;
+
+									if (is_base_type_equal_mode)
+									{
+										((EButtonFilterItem*)just_created_button)->change_color_cheme();
 									}
 
 									//just_created_button->
@@ -2159,12 +2188,39 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
+			bool have_equal_base_type = false;
+
+			for (EButton* b : fb->filter_block_items_button_list)
+			{
+				if (((EButtonFilterItem*)b)->is_full_equal_mode)
+				{
+					have_equal_base_type = true;
+				}
+			}
+			if (have_equal_base_type)
+			{
+				loot_writer += '\t';
+				loot_writer += "BaseType == ";
+
+				for (EButton* b : fb->filter_block_items_button_list)
+				if (((EButtonFilterItem*)b)->is_full_equal_mode)
+				{
+					loot_writer += ' ';
+					loot_writer += '"';
+					loot_writer += b->data_string;
+					loot_writer += '"';
+				}
+
+				loot_writer += '\n';
+			}
+
 			if (fb->filter_block_items_button_list.size() > 0)
 			{
 				loot_writer += '\t';
 				loot_writer += "BaseType";
 
 				for (EButton* b : fb->filter_block_items_button_list)
+				if (!((EButtonFilterItem*)b)->is_full_equal_mode)
 				{
 					loot_writer += ' ';
 					loot_writer += '"';

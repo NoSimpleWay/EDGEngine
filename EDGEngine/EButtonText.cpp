@@ -263,6 +263,8 @@ void EButtonText::click_event()
 		master_block->explicit_list.at(data_id)->button_close->is_active = true;
 		master_block->explicit_list.at(data_id)->button_add->is_active = true;
 
+		master_block->is_explicit = true;
+
 		StaticData::window_add_new_base_data->is_active = false;
 	}
 
@@ -331,8 +333,10 @@ void EButtonText::click_event()
 			EString::path_list.at(StaticData::active_tab) = EString::path_to_poe_folder + "/" + StaticData::window_new_loot_filter->link_to_input_button->text + ".filter";
 			EString::opened_loot_filter_path = EString::path_to_poe_folder + "/" + StaticData::window_new_loot_filter->link_to_input_button->text + ".filter";
 
+			FilterBlock* new_fb = new FilterBlock();
+
 			StaticData::window_filter_block->filter_block_list.clear();
-			StaticData::window_filter_block->filter_block_list.push_back(new FilterBlock());
+			StaticData::window_filter_block->filter_block_list.push_back(new_fb);
 
 			StaticData::window_new_loot_filter->is_active = false;
 
@@ -344,6 +348,10 @@ void EButtonText::click_event()
 				//EFile::save_filter(EString::path_list.at(StaticData::active_tab));
 				EFile::save_filter(EString::path_list.at(StaticData::active_tab), Enums::AutogenSaveMode::VERY_LOW, true);
 			}
+
+			new_fb->update_localisation();
+
+
 		}
 
 

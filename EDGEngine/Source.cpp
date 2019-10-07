@@ -2233,6 +2233,7 @@ int main()
 	put_texture_to_atlas("data/link_vertical.png");					DefaultGabarite::gabarite_link_vertical = just_created_gabarite;
 
 	put_texture_to_atlas("data/button_save_autogen.png");			DefaultGabarite::gabarite_save_autogen = just_created_gabarite;
+	put_texture_to_atlas("data/plus_equal.png");					DefaultGabarite::gabarite_plus_equal = just_created_gabarite;
 
 
 
@@ -2555,6 +2556,7 @@ int main()
 		glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
 
 		batch->reset();
+		batch->setcolor(EColorCollection::WHITE);
 		batch->draw_rect_with_uv(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT, DefaultGabarite::gabarite_background);
 
 		int block_index = 0;

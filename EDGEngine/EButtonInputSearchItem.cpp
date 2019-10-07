@@ -29,8 +29,7 @@ EButtonInputSearchItem::EButtonInputSearchItem(float _x, float _y, float _sx, fl
 
 	have_rama = true;
 
-
-
+	can_receive_paste = true;
 }
 
 void EButtonInputSearchItem::input_event()

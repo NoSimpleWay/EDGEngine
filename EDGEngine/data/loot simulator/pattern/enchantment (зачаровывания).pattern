@@ -1,0 +1,3 @@
+random_class	Helmets	count	1	enchantment	Enchantment Wild Strike Num Of Additional Projectiles In Chain 2	links_min	1	links_max	4	sockets_min	1	sockets_max	4	rarity_min	normal	rarity_max	rare	item_level_min	1	item_level_max	100	shaper_item_weight	10	elder_item_weight	20
+random_class	Helmets	count	1	enchantment	Enchantment Scourge Arrow Additional Spore	links_min	1	links_max	4	sockets_min	1	sockets_max	4	rarity_min	normal	rarity_max	rare	item_level_min	1	item_level_max	100	shaper_item_weight	10	elder_item_weight	20
+random_class	Helmets	count	1	enchantment	Enchantment Tornado Shot Num Of Secondary Projectiles 2	1	links_max	4	sockets_min	1	sockets_max	4	rarity_min	normal	rarity_max	rare	item_level_min	1	item_level_max	100	shaper_item_weight	10	elder_item_weight	20

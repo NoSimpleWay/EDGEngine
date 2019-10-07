@@ -14,7 +14,7 @@ EWindowAC::EWindowAC(int _id, bool _can_be_closed):EWindow (_id, _can_be_closed)
 	but->master_window = this;
 	button_list.push_back(but);
 
-	window_size_x = 600.0f;
+	window_size_x = 700.0f;
 	window_size_y = 150.0f;
 
 	bg_color->set_alpha(EColorCollection::BLACK, 0.9f);

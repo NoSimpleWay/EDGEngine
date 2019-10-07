@@ -13,9 +13,23 @@
 		can_be_removed = true;
 
 		have_rama = true;
-		rama_color->set(0.4f, 0.3f, 0.1f, 0.6f);
-		bg_color->set(0.1f, 0.08f, 0.06f, 0.75f);
+
+
+		
+			rama_color->set(0.4f, 0.3f, 0.1f, 0.6f);
+			bg_color->set(0.1f, 0.08f, 0.06f, 0.75f);
+			rama_thikness = 2;
+		
 	}
+
+	void EButtonFilterItem::change_color_cheme()
+	{
+		rama_color->set(1.0f, 0.3f, 1.0f, 0.6f);
+		bg_color->set(0.1f, 0.08f, 0.1f, 0.75f);
+		rama_thikness = 5;
+
+		update_localisation();
+	};
 
 	void EButtonFilterItem::click_event()
 	{
@@ -37,20 +51,32 @@
 			but->description_text = "?";
 			master_block->filter_block_items_button_list.push_back(but);
 
-			but->master_block	= master_block;
-			but->master_window	= master_window;
+			but->master_block = master_block;
+			but->master_window = master_window;
 
 
 			StaticData::window_find_item->button_event(but);
 
 			StaticData::window_find_item->is_active = true;
 			StaticData::window_find_item->target_button = but;
+
+			but->is_full_equal_mode = is_full_equal_mode;
+
+			if (is_full_equal_mode)
+			{
+				but->change_color_cheme();
+			}
 		}
 	}
 
 	void EButtonFilterItem::update_localisation()
 	{
 		description_text = EString::localize_it("button_new_filter_item");
+
+		if (is_full_equal_mode)
+		{
+			description_text = EString::localize_it("button_new_filter_item_equal");
+		}
 	}
 
 

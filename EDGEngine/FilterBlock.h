@@ -149,6 +149,8 @@ public:
 	std::vector<string*> explicit_mod_list;
 	std::vector<EButtonExplicit*> prophecy_list;
 
+	bool is_explicit = false;
+
 	string YNE_value[3] = { "yes", "no", "either" };
 
 
@@ -189,6 +191,7 @@ public:
 	void text_pass(Batcher* _batch);
 
 	EButtonFilterItem* button_plus;
+	EButtonFilterItem* button_plus_equal;
 	EButtonService* button_service;
 	EButtonPlusWide* button_add_new_base_data;
 	EButtonPlusWide* button_add_new_EPC;

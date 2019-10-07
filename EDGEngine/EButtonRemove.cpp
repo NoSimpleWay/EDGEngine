@@ -72,6 +72,18 @@ void EButtonRemove::click_event()
 		}
 
 		is_active = false;
+
+		int explicit_button_count = 0;
+
+		for (ExplicitGroup* ex : master_block->explicit_list)
+		{
+			if (ex->button_list.size() > 0) { explicit_button_count++; }
+		}
+
+		if (explicit_button_count > 0)
+		{master_block->is_explicit = true;}
+		else
+		{master_block->is_explicit = false;}
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_REMOVE_BASE_CLASS)

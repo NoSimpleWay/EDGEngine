@@ -1,6 +1,6 @@
-item_name	Random low tier map	class	Maps	map_tier_min	1	map_tier_max	5	count	10
-item_name	Random mid tier map	class	Maps	map_tier_min	6	map_tier_max	10	count	8
-item_name	Random high tier map	class	Maps		map_tier_min	11	map_tier_max	16	count	5
+item_name	Random low tier map	class	Maps	map_tier_min	1	map_tier_max	5	count	7
+item_name	Random mid tier map	class	Maps	map_tier_min	6	map_tier_max	10	count	5
+item_name	Random high tier map	class	Maps		map_tier_min	11	map_tier_max	16	count	3
 random_class	Map Fragments	count	10
 item_name	Shaper's Orb
 item_name	Elder's Orb
@@ -16,3 +16,4 @@ item_name	Maze of the Minotaur	class	Maps	map_tier_min	16	map_tier_max	16
 item_name	Pit of the Chimera	class	Maps	map_tier_min	16	map_tier_max	16
 item_name	Forge of the Phoenix	class	Maps	map_tier_min	16	map_tier_max	16
 item_name	Lair of the Hydra	class	Maps	map_tier_min	16	map_tier_max	16
+random_subclass	MAP_FRAGMENT	count	16

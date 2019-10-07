@@ -33,7 +33,7 @@ EButtonInputBaseData::EButtonInputBaseData(float _x, float _y, float _sx, float 
 		input_only_numbers = false;
 	}
 
-
+	can_receive_paste = true;
 
 }
 

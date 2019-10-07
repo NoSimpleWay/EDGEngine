@@ -220,10 +220,11 @@ void EWindowOil::update_localisation()
 		}
 	}
 
+	/*
 	for (int i = 0; i < EString::oil_name_list.size(); i++)
 	{
 		oil_button_list.at(i)->description_text = EString::localize_it(EString::oil_name_list.at(i));
-	}
+	}*/
 }
 
 void EWindowOil::input_event(EButton* _b)

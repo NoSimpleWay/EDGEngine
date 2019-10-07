@@ -564,6 +564,8 @@ void EButtonService::click_event()
 		}
 
 		StaticData::window_filter_block->recalculate_filter_block_separator();
+
+		fb->update_localisation();
 	}
 
 	if ((button_type == Enums::ButtonType::BUTTON_MOVE_FILTER_BLOCK_UP))
@@ -937,16 +939,19 @@ void EButtonService::click_event()
 
 		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
 		{
-			if (sep->separator_start > fb->order_id - 1)
+			if (sep->separator_start > master_block->order_id - 1)
 			{
 				sep->separator_start++;
 			}
 
-			if (sep->separator_end >= fb->order_id - 1)
+			if (sep->separator_end >= master_block->order_id - 1)
 			{
 				sep->separator_end++;
 			}
 		}
+
+
+
 
 		StaticData::window_filter_block->recalculate_filter_block_separator();
 	}
@@ -1101,6 +1106,14 @@ void EButtonService::update_localisation()
 		if (button_type == Enums::ButtonType::BUTTON_AUTOGEN_SAVE_LOOT_FILTER)
 	{description_text = EString::localize_it("description_save_autogen_loot_filter");}
 
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_OIL_WINDOW)
+	{description_text = EString::localize_it("description_open_oil_window");}
+		
+	if (button_type == Enums::ButtonType::BUTTON_CHECK_OIL)
+	{
+		description_text = EString::localize_it(EString::oil_name_list.at(data_id)) + "\\n\\n" + EString::localize_it("description_oil_check_button");
+	}
 
 
 }

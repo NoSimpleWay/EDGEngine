@@ -156,3 +156,7 @@ autogen_default	_default
 autogen_rich	_rich
 autogen_very_rich	_very_rich
 description_save_autogen_loot_filter	Генерирует "очень низкую", "низкую", "стандартную", "богатую" и "очень богатую" версию вашего лут-фильтра
+button_new_filter_item_equal	Новый предмет с ТОЧНЫМ совпадением по имени\n\nЭто означает, что лут фильтр будет подсвечивать этот предмет только,\nесли имена будут совпадать полностью.\n\nПример: "The Demon" будет подсвечивать только "The Demon"\nи не будет подсвечивать "The Demoness"
+description_open_oil_window	Открыть окно масел
+description_oil_check_button	Нажмите левую клавишу мыши, что бы установить 3 масла.\nНажмите правую клавишу мыши, что бы установить 0 масел.
+description_press_rmb_to_play_sound	Нажмите правую кнопку мыши, что бы воспроизвести звук.

@@ -153,10 +153,27 @@
 
 		button_plus->master_position = Enums::FILTER_BLOCK;
 		button_plus->is_plus = true;
+		button_plus->is_full_equal_mode = false;
 	
 		button_plus->can_be_removed = false;
 
 		button_list.push_back(button_plus);
+
+
+
+		button_plus_equal = new EButtonFilterItem(0, 0, 45, 45);
+		button_plus_equal->gabarite = DefaultGabarite::gabarite_plus_equal;
+
+		button_plus_equal->master_block = this;
+		button_plus_equal->master_window = StaticData::window_filter_block;
+
+		button_plus_equal->master_position = Enums::FILTER_BLOCK;
+		button_plus_equal->is_plus = true;
+		button_plus_equal->is_full_equal_mode = true;
+
+		button_plus_equal->can_be_removed = false;
+
+		button_list.push_back(button_plus_equal);
 
 
 		/*
@@ -763,6 +780,10 @@
 
 		button_plus->button_x = temp_pos_x;
 		button_plus->button_y = temp_pos_y;
+		temp_pos_x += 53.0f;
+
+		button_plus_equal->button_x = temp_pos_x;
+		button_plus_equal->button_y = temp_pos_y;
 		temp_pos_x += 53.0f;
 		
 		for (int i = 0; i < 25; i++)

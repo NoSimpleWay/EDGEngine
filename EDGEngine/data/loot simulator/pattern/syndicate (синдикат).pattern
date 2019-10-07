@@ -1,0 +1,25 @@
+random_category	EQUIP	explicit	Veiled
+random_category	EQUIP	explicit	of the Veil
+random_category	EQUIP	explicit	Catarina's Veiled
+random_category	EQUIP	explicit	Elreon's Veiled
+random_category	EQUIP	explicit	Leo's Veiled
+random_category	EQUIP	explicit	Rin's Veiled
+random_category	EQUIP	explicit	Vagan's Veiled
+random_category	EQUIP	explicit	Vorici's Veiled
+random_category	EQUIP	explicit	Gravicius' Veiled
+random_category	EQUIP	explicit	Guff's Veiled
+random_category	EQUIP	explicit	Haku's
+random_category	EQUIP	explicit	It That Fled's Veiled
+random_category	EQUIP	explicit	of Aisling's Veil
+random_category	EQUIP	explicit	of Cameria's Veil
+random_category	EQUIP	explicit	of Hillock's Veil
+random_category	EQUIP	explicit	of Janus' Veil
+random_category	EQUIP	explicit	of Jorgin's Veil
+random_category	EQUIP	explicit	Riker
+random_category	EQUIP	explicit	Tora's Veiled
+random_subclass	SCARAB	random_cost_group	very_low	count	8
+random_subclass	SCARAB	random_cost_group	low	count	6
+random_subclass	SCARAB	random_cost_group	mid	count	4
+random_subclass	SCARAB	random_cost_group	high	count	2
+random_subclass	SCARAB	random_cost_group	very_high	count	2
+random_subclass	SCARAB	random_cost_group	top	count	2
