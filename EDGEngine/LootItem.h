@@ -35,8 +35,9 @@ public:
 
 	int map_tier;
 
-	bool is_shaper_map;
-	bool is_elder_map;
+	bool is_shaper_map = false;
+	bool is_elder_map = false;
+	bool is_blighted_map = false;
 
 	int height;
 	int width;

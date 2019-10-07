@@ -43,6 +43,10 @@ public:
 	int elder_item_weight = 0;
 	int normal_item_weight = 100;
 
+	bool shaped_map = false;
+	bool elder_map = false;
+	bool blighted_map = false;
+
 
 	int height;
 	int width;

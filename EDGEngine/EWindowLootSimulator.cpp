@@ -97,6 +97,10 @@ void EWindowLootSimulator::update(float _d)
 
 			loot->base_class = p->base_class;
 
+			loot->is_shaper_map = p->shaped_map;
+			loot->is_elder_map = p->elder_map;
+			loot->is_blighted_map = p->blighted_map;
+
 			if (p->max_quality > 0)
 			{
 				if (p->max_quality > p->min_quality)
@@ -1087,7 +1091,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		(
 			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_BLIGHTED))
 			&&
-			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_BLIGHTED) != _l->shaper_item)
+			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_BLIGHTED) != _l->is_blighted_map)
 		)
 		{
 			match_detect = false;
@@ -1415,6 +1419,10 @@ void EWindowLootSimulator::manual_event()
 			pattern->shaper_item_weight = pattern_item_list.at(i)->shaper_item_weight;
 			pattern->elder_item_weight = pattern_item_list.at(i)->elder_item_weight;
 			pattern->normal_item_weight = pattern_item_list.at(i)->normal_item_weight;
+
+			pattern->shaped_map = pattern_item_list.at(i)->shaped_map;
+			pattern->elder_map = pattern_item_list.at(i)->elder_map;
+			pattern->blighted_map = pattern_item_list.at(i)->blighted_map;
 
 			pattern->enchantment = pattern_item_list.at(i)->enchantment;
 

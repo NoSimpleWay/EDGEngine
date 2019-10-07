@@ -485,6 +485,20 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					just_created_pattern_item->random_subclass = subdata_array[i * 2 + 1];
 				}
 
+				if (EString::to_lower(subdata_array[i * 2], false) == "shaped_map")
+				{
+					just_created_pattern_item->shaped_map = true;
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "elder_map")
+				{
+					just_created_pattern_item->elder_map = true;
+				}
+				if (EString::to_lower(subdata_array[i * 2], false) == "blighted_map")
+				{
+					just_created_pattern_item->blighted_map = true;
+				}
+
 				if (EString::to_lower(subdata_array[i * 2], false) == "random_category")
 				{
 					just_created_pattern_item->random_category = subdata_array[i * 2 + 1];
