@@ -160,3 +160,9 @@ button_new_filter_item_equal	Новый предмет с ТОЧНЫМ совп�
 description_open_oil_window	Открыть окно масел
 description_oil_check_button	Нажмите левую клавишу мыши, что бы установить 3 масла.\nНажмите правую клавишу мыши, что бы установить 0 масел.
 description_press_rmb_to_play_sound	Нажмите правую кнопку мыши, что бы воспроизвести звук.
+description_drop_list_autogen_loot_simulator	Быбрать версию вашего лут-фильтра
+drop_list_element_very_low	Очень низкая
+drop_list_element_low	Низкая
+drop_list_element_default	Обычная
+drop_list_element_rich	Богатая
+drop_list_element_very_rich	Очень богатая

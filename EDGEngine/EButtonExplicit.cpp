@@ -7,6 +7,7 @@ EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums
 {
 	button_type = _type;
 	
+	can_receive_paste = true;
 
 	if (button_type == Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST)
 	{
@@ -134,7 +135,7 @@ void EButtonExplicit::click_event()
 		{
 			EButtonExplicit* enchantment_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_ENCHANTMENT_FILTER_BLOCK_LIST);
 			enchantment_button->text = cached_text_press_me;
-			enchantment_button->have_input_mode = true;
+			enchantment_button->have_input_mode = false;
 			enchantment_button->master_block = master_block;
 			enchantment_button->master_window = StaticData::window_filter_block;
 			enchantment_button->button_size_x = EFont::get_width(EFont::active_font, enchantment_button->text) + 5.0f;

@@ -50,4 +50,6 @@ public:
 
 	float font_scale_factor = 1.0f;
 
+	EButton* link_to_autogen_drop_button;
+
 };

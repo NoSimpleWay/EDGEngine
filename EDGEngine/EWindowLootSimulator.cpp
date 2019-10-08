@@ -6,6 +6,7 @@
 #include "EWindowLootSimulator.h"
 #include <time.h>
 #include "EButtonFilterItem.h"
+#include "EButtonAutogenLootSimulator.h"
 
 int sockets_postition_x[] = { 0, 1, 1, 0, 0, 1 };
 int sockets_postition_y[] = { 0, 0, 1, 1, 2, 2 };
@@ -45,6 +46,11 @@ EWindowLootSimulator::EWindowLootSimulator(int _id, bool _can_be_closed) :EWindo
 	but = new EButtonSlider(400.0f, -15.0f, 200.0f, 20.0f, Enums::ButtonType::SLIDER_LOOT_DROP_SIZE);
 	but->master_window = this;
 	button_list.push_back(but);
+
+	link_to_autogen_drop_button = new EButtonAutogenLootSimulator(650.0f, -15.0f, 200.0f, 20.0f, Enums::ButtonType::BUTTON_CONDITION_AUTOGEN_LOOT_SIMULATOR);
+	link_to_autogen_drop_button->master_window = this;
+	button_list.push_back(link_to_autogen_drop_button);
+	//link_to_autogen_drop_button = but;
 }
 
 void EWindowLootSimulator::fill_random_pool(std::string _class, std::string _subclass, std::string _cost, std::string _category)
@@ -242,6 +248,10 @@ void EWindowLootSimulator::update(float _d)
 			if (max_value == random_elder) { loot->elder_item = true; }
 
 			loot->enchantment = p->enchantment;
+			if (p->enchantment != "")
+			{
+				loot->any_enchantment = true;
+			}
 
 			for (std::string s : p->explicit_list)
 			{
@@ -391,6 +401,8 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			else
 			{_batch->setcolor_alpha(EColorCollection::GRAY, 0.9f);}
 		}
+
+		//LOOT BG
 		_batch->draw_rect_with_uv(pos_x + loot->pos_x, pos_y + loot->pos_y, w + 13.0f, h, DefaultGabarite::gabarite_white);
 
 
@@ -467,7 +479,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 		float h = 20.0f * EFont::active_font->scale;
 
 		if
-		(
+			(
 			(EControl::mouse_x >= loot->pos_x + pos_x)
 			&&
 			(EControl::mouse_x <= loot->pos_x + pos_x + w + 13.0f)
@@ -475,13 +487,13 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			(EControl::mouse_y >= loot->pos_y + pos_y)
 			&&
 			(EControl::mouse_y <= loot->pos_y + pos_y + h)
-		)
+			)
 		{
-			if ((EControl::mouse_pressed)&&(loot->filter_block_link != NULL))
+			if ((EControl::mouse_pressed) && (loot->filter_block_link != NULL))
 			{
 				int temp_scroll = -1;
 
-				for (int i=0; i <= loot->filter_block_link->order_id; i++)
+				for (int i = 0; i <= loot->filter_block_link->order_id; i++)
 				{
 					if ((!StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator) || (StaticData::window_filter_block->filter_block_list.at(i)->contain_start_separator))
 					{
@@ -516,8 +528,30 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			EFont::active_font->scale = 1.0f;
 			EFont::active_font->align_x = Enums::PositionMode::MID;
 
-			_batch->setcolor_alpha(EColorCollection::BLACK, 0.9f);
-			_batch->draw_simple_rect(xx, yy, 434, 300);
+
+			//loot description bg
+			if ((loot->is_shaper_map) || (loot->shaper_item))
+			{
+				_batch->setcolor_alpha(EColorCollection::WHITE, 0.9f);
+				_batch->draw_rect_with_uv(xx, yy, 434, 300, DefaultGabarite::gabarite_shaper_small);
+			}
+			else
+			if ((loot->is_elder_map) || (loot->elder_item))
+			{
+				_batch->setcolor_alpha(EColorCollection::WHITE, 0.9f);
+				_batch->draw_rect_with_uv(xx, yy, 434, 300, DefaultGabarite::gabarite_elder_small);
+			}
+			else
+			if ((loot->is_blighted_map))
+			{
+				_batch->setcolor_alpha(EColorCollection::WHITE, 0.9f);
+				_batch->draw_rect_with_uv(xx, yy, 434, 300, DefaultGabarite::gabarite_blighted_small);
+			}
+			else
+			{
+				_batch->setcolor_alpha(EColorCollection::BLACK, 0.9f);
+				_batch->draw_simple_rect(xx, yy, 434, 300);
+			}
 
 			_batch->setcolor_alpha(EColorCollection::GRAY, 0.9f);
 			if (loot->rarity == "Normal") { _batch->setcolor(EColorCollection::DAD_NORMAL); }
@@ -587,6 +621,8 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			int temp_blue = loot->blue_socket;
 			int temp_white = loot->white_socket;
 
+
+			//LOOT PREVIEW SOCKETS BG
 			_batch->setcolor(EColorCollection::DARK_GRAY);
 			_batch->draw_rect_with_uv(xx + 354.0f, yy + 30.0f, 76.0f, 120.0f, DefaultGabarite::gabarite_white);
 
@@ -594,7 +630,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			_batch->draw_rama(xx + 354.0f, yy + 30.0f, 76.0f, 120.0f, 3.0f, DefaultGabarite::gabarite_white);
 
 
-
+			//LOOT PREVIEW SOCKETS
 			for (int i = 0; i < loot->sockets; i++)
 			{
 				if (temp_red > 0)
@@ -819,6 +855,13 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 			}*/
 			
+		}
+
+		if (!fb->autogen_include.at(link_to_autogen_drop_button->selected_element))
+		{
+			match_detect = false;
+
+			if ((!_default) && (!match_detect)) { rejection("autogenerator exclude", _l); }
 		}
 
 		if (match_detect)

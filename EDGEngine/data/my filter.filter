@@ -1,0 +1,1110 @@
+#Created due to DaD Editor (by NoSimpleWay)
+
+
+#separator 33 49 true "Валюта"
+#separator 55 57 true "Сокеты/линки"
+#separator 62 67 true "Хаос рецепты/экепировка"
+#separator 83 84 true "Мусорные шейпер/элдер вещи"
+#separator 70 71 true "Бижа на экзальт рецепты"
+#separator 68 69 true "Дорогие шейпер/элдер базы"
+#separator 72 75 true "Флаконы"
+#separator 89 95 true "Мусор и заглушка"
+#separator 50 54 true "Фоссилы"
+#separator 76 82 true "Гадалки"
+#separator 85 88 true "Резонаторы"
+#separator 24 32 true "Карты/фрагменты"
+#separator 18 23 true "Масла"
+#separator 0 1 true "Зачарки"
+#separator 8 16 true "Камни умений"
+#separator 58 61 true "Лоулевел линки (3/4л)"
+#separator 2 7 true "Моды синдиката/делва"
+
+
+Show
+#autogen true true true true true
+	HasEnchantment "Enchantment Wild Strike Num Of Additional Projectiles In Chain 2" "Enchantment Ice Nova Damage 2" "Enchantment Volatile Dead Orbs 3" "Enchantment Scourge Arrow Additional Spore 1" "Enchantment Tornado Shot Num Of Secondary Projectiles 2" "Enchantment Cyclone Attack Speed 2" "Enchantment Ice Nova Damage 1" "Enchantment Temporal Chains Curse Effect 2" "Enchantment Molten Strike Num Of Additional Projectiles 2"
+	SetFontSize 31
+	SetTextColor 0 0 0 255
+	SetBorderColor 215 0 0 255
+	SetBackgroundColor 255 45 45 255
+	PlayAlertSound 1 300
+	PlayEffect Red
+	MinimapIcon 0 Red Circle
+	AnyEnchantment True
+
+
+Show
+#autogen true true true true true
+	SetFontSize 31
+	SetTextColor 0 0 0 255
+	SetBorderColor 68 215 0 255
+	SetBackgroundColor 33 76 13 255
+	PlayAlertSound 8 300
+	PlayEffect Green
+	MinimapIcon 2 Green Hexagon
+	AnyEnchantment True
+
+
+Show
+#autogen true true true true true
+	SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 0 0 255
+	SetBackgroundColor 244 0 255 192
+	PlayAlertSoundPositional 6 300
+	MinimapIcon 2 White Triangle
+	HasExplicitMod "Catarina"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 41
+	SetTextColor 255 0 0 255
+	SetBorderColor 157 52 255 255
+	SetBackgroundColor 64 19 66 192
+	PlayAlertSoundPositional 8 300
+	MinimapIcon 2 White Triangle
+	HasExplicitMod "Elreon" "Gravicius" "Haku" "It That" "Korell" "Loe" "Rin" "Tora" "Vagan" "of Ashling" "of Cameria" "of Hillok" "of Janus" "of Jorgin" "of Riker"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 41
+	SetTextColor 255 0 0 255
+	SetBorderColor 157 52 255 255
+	SetBackgroundColor 64 19 66 192
+	PlayAlertSoundPositional 8 300
+	MinimapIcon 2 White Triangle
+	HasExplicitMod "Veil"
+
+
+Show
+#autogen true true true false false
+	SetFontSize 45
+	SetTextColor 0 255 183 255
+	SetBorderColor 255 0 224 255
+	SetBackgroundColor 175 0 183 255
+	PlayAlertSoundPositional 10 300
+	PlayEffect Red
+	MinimapIcon 0 Red Triangle
+	HasExplicitMod "of the Veil"
+
+
+Show
+#autogen true true true true true
+	SetTextColor 224 0 255 255
+	SetBorderColor 255 255 255 255
+	SetBackgroundColor 0 0 0 255
+	PlayAlertSoundPositional 7 300
+	MinimapIcon 2 Red Hexagon
+	HasExplicitMod "of Crafting" "of Spellcraft" "of the Undenground" "Subterranean"
+
+
+Show
+#autogen true true true true true
+	SetTextColor 224 0 255 255
+	SetBorderColor 255 255 255 255
+	SetBackgroundColor 0 0 0 255
+	PlayAlertSoundPositional 7 300
+	MinimapIcon 2 Red Hexagon
+	HasExplicitMod "Citaqualotl" "Guatelitzi" "Matatl" "Puhuarte" "Tacati" "Topotante" "Xopec"
+
+
+Show
+#autogen true true true true true
+	Class "Active Skill Gems" "Support Skill Gems"
+	SetFontSize 45
+	SetTextColor 0 175 42 255
+	SetBorderColor 117 200 97 255
+	SetBackgroundColor 255 255 255 255
+	PlayAlertSound 6 300
+	PlayEffect Green
+	MinimapIcon 2 Green Circle
+	BaseType "Empower" "Enlighten" "Enhance"
+	GemLevel = 4
+
+
+Show
+#autogen true true true true true
+	Class "Active Skill Gems" "Support Skill Gems"
+	SetFontSize 40
+	SetTextColor 166 255 149 255
+	SetBorderColor 149 255 123 255
+	SetBackgroundColor 78 204 138 255
+	PlayAlertSound 13 300
+	PlayEffect Green
+	MinimapIcon 2 Green Circle
+	BaseType "Empower" "Enlighten" "Enhance"
+	GemLevel = 3
+
+
+Show
+#autogen true true true true true
+	Class "Active Skill Gems" "Support Skill Gems"
+	SetFontSize 37
+	SetTextColor 202 255 192 255
+	SetBorderColor 117 200 97 255
+	SetBackgroundColor 124 163 120 255
+	PlayAlertSound 10 300
+	PlayEffect Green
+	MinimapIcon 2 Green Circle
+	BaseType "Empower" "Enlighten" "Enhance"
+	GemLevel = 2
+
+
+Show
+#autogen true true true true true
+	Class "Active Skill Gems" "Support Skill Gems"
+	SetFontSize 30
+	SetTextColor 202 255 192 255
+	SetBorderColor 91 156 76 255
+	SetBackgroundColor 170 170 170 200
+	PlayAlertSound 10 300
+	PlayEffect Green
+	MinimapIcon 2 Green Circle
+	BaseType "Empower" "Enlighten" "Enhance"
+	GemLevel = 1
+
+
+Show
+#autogen true true true true true
+	Class "Active Skill Gems" "Support Skill Gems"
+	SetFontSize 45
+	SetTextColor 255 192 244 255
+	SetBorderColor 156 76 149 255
+	SetBackgroundColor 170 170 170 255
+	PlayAlertSound 10 300
+	PlayEffect Red
+	MinimapIcon 0 Red Circle
+	GemLevel >= 20
+
+
+Show
+#autogen true true true true true
+	Class "Active Skill Gems" "Support Skill Gems"
+	SetFontSize 45
+	SetTextColor 255 192 244 255
+	SetBorderColor 156 76 149 255
+	SetBackgroundColor 170 170 170 255
+	PlayAlertSound 10 300
+	PlayEffect Red
+	MinimapIcon 0 Red Circle
+	Quality >= 20
+
+
+Show
+#autogen true true true false false
+	Class "Active Skill Gems" "Support Skill Gems"
+	SetFontSize 36
+	SetTextColor 0 0 0 255
+	SetBorderColor 156 76 148 255
+	SetBackgroundColor 129 129 129 197
+	PlayAlertSound 14 300
+	PlayEffect Red
+	MinimapIcon 0 Red Circle
+	Quality >= 10
+
+
+Show
+#autogen true true false false false
+	Class "Active Skill Gems" "Support Skill Gems"
+	SetFontSize 36
+	SetTextColor 0 0 0 255
+	SetBorderColor 156 76 148 255
+	SetBackgroundColor 129 129 129 197
+	PlayAlertSound 14 300
+	Quality >= 1
+
+
+Show
+#autogen true true true true true
+	Class "Active Skill Gems" "Support Skill Gems"
+	SetFontSize 21
+	SetTextColor 0 0 0 255
+	SetBorderColor 156 76 148 255
+	SetBackgroundColor 129 129 129 197
+
+
+Show
+#autogen true true true true true
+	SetFontSize 33
+	SetTextColor 255 224 0 255
+	SetBorderColor 158 143 95 255
+	SetBackgroundColor 56 56 56 255
+	PlayAlertSound 9 300
+	BaseType "Incubator"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 45
+	SetTextColor 255 142 0 255
+	SetBorderColor 255 234 0 255
+	SetBackgroundColor 255 255 255 255
+	PlayAlertSoundPositional 1 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+	BaseType "Golden Oil"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 45
+	SetTextColor 0 0 0 255
+	SetBorderColor 255 255 255 255
+	SetBackgroundColor 188 188 188 183
+	PlayAlertSoundPositional 3 300
+	PlayEffect White
+	MinimapIcon 0 White Star
+	BaseType "Silver Oil"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 37
+	SetTextColor 0 0 0 255
+	SetBorderColor 255 255 255 164
+	SetBackgroundColor 132 132 132 147
+	PlayAlertSoundPositional 3 300
+	PlayEffect Blue
+	MinimapIcon 1 Blue Star
+	BaseType "Opalescent Oil"
+
+
+Show
+#autogen true true true true false
+	SetFontSize 33
+	SetTextColor 0 0 0 255
+	SetBorderColor 13 13 13 164
+	SetBackgroundColor 88 88 88 141
+	BaseType "Black Oil" "Crimson Oil"
+
+
+Show
+#autogen true true true false false
+	SetFontSize 26
+	SetTextColor 0 0 0 255
+	SetBorderColor 13 13 13 164
+	SetBackgroundColor 88 88 88 141
+	BaseType "Violet Oil" "Azure Oil" "Teal Oil"
+
+
+Show
+#autogen true true false false false
+	SetFontSize 18
+	SetTextColor 0 0 0 255
+	SetBorderColor 13 13 13 164
+	SetBackgroundColor 0 0 0 66
+	BaseType "Oil"
+
+
+Show
+#autogen true true true true false
+	Class "Map Fragments"
+	SetFontSize 29
+	SetTextColor 255 91 0 255
+	SetBorderColor 255 0 0 255
+	SetBackgroundColor 35 1 1 255
+	PlayAlertSoundPositional 10 300
+	MinimapIcon 0 Green Circle
+	BaseType "Sacrifice at"
+
+
+Show
+#autogen true true true true true
+	Class "Map Fragments"
+	SetFontSize 33
+	SetTextColor 255 0 214 255
+	SetBorderColor 255 0 0 255
+	SetBackgroundColor 53 2 62 255
+	PlayAlertSoundPositional 10 300
+	MinimapIcon 0 Green Circle
+	BaseType "Key"
+
+
+Show
+#autogen true true true true true
+	Class "Map Fragments"
+	SetFontSize 32
+	SetTextColor 255 255 255 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 45 128 5 255
+	PlayAlertSoundPositional 10 300
+	MinimapIcon 0 Green Circle
+
+
+Show
+#autogen true true true true true
+	Class "Maps"
+	SetFontSize 45
+	SetTextColor 255 122 0 255
+	SetBorderColor 255 102 0 255
+	SetBackgroundColor 0 0 0 255
+	CustomAlertSound "hostile.wav"
+	PlayEffect Brown
+	MinimapIcon 0 Brown Star
+	BlightedMap True
+
+
+Show
+#autogen true true true true true
+	Rarity <= Rare
+	Class "Maps"
+	SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBorderColor 122 0 0 255
+	SetBackgroundColor 255 0 0 215
+	PlayAlertSoundPositional 4 300
+	PlayEffect Red
+	MinimapIcon 0 Red Square
+	MapTier >= 16
+
+
+Show
+#autogen true true true true true
+	Rarity <= Rare
+	SetFontSize 36
+	SetTextColor 0 0 0 255
+	SetBorderColor 52 0 0 255
+	SetBackgroundColor 185 0 0 204
+	PlayAlertSoundPositional 10 300
+	PlayEffect Red
+	MinimapIcon 0 Red Square
+	MapTier = 15
+
+
+Show
+#autogen true true true true true
+	Rarity <= Rare
+	Class "Maps"
+	SetFontSize 33
+	SetTextColor 0 0 0 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 122 0 0 149
+	PlayAlertSoundPositional 3 300
+	MinimapIcon 1 Red Square
+	MapTier >= 11
+
+
+Show
+#autogen true true true true true
+	Rarity <= Rare
+	Class "Maps"
+	SetFontSize 33
+	SetTextColor 0 0 0 255
+	SetBorderColor 255 224 0 255
+	SetBackgroundColor 122 112 0 255
+	MinimapIcon 2 Yellow Square
+	MapTier >= 6
+
+
+Show
+#autogen true true true true true
+	Rarity <= Rare
+	Class "Maps"
+	SetFontSize 33
+	SetTextColor 0 0 0 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 129 129 129 149
+	PlayEffect Red
+	MinimapIcon 2 White Square
+	MapTier >= 0
+
+
+Show
+#autogen true true true true true
+	SetFontSize 45
+	SetTextColor 0 224 255 255
+	SetBorderColor 0 255 224 255
+	SetBackgroundColor 255 255 255 255
+	CustomAlertSound "silent_mirror.wav"
+	PlayEffect Blue
+	MinimapIcon 0 Blue Star
+	BaseType "Mirror of Kalandra"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 32
+	SetTextColor 0 224 255 255
+	SetBorderColor 0 255 224 255
+	SetBackgroundColor 255 255 255 180
+	PlayAlertSoundPositional 6 300
+	PlayEffect Blue
+	MinimapIcon 0 Blue Star
+	BaseType "Mirror Shard"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 45
+	SetTextColor 255 0 0 255
+	SetBorderColor 255 0 0 255
+	SetBackgroundColor 255 255 255 255
+	CustomAlertSound "windows.mp3"
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+	BaseType "Exalted Orb"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 45
+	SetTextColor 255 115 243 255
+	SetBorderColor 254 69 255 255
+	SetBackgroundColor 134 0 134 255
+	PlayAlertSound 13 300
+	PlayEffect Brown
+	MinimapIcon 0 Brown Circle
+	BaseType "Ancient Orb" "Harbinger's Orb" "Orb of Annulment" "Divine Orb"
+
+
+Show
+#autogen true true true false false
+	SetFontSize 45
+	SetTextColor 96 62 62 255
+	SetBorderColor 81 0 0 255
+	SetBackgroundColor 251 0 0 255
+	CustomAlertSound "damnit04.wav"
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Circle
+	BaseType "Vaal Orb"
+
+
+Show
+#autogen true true true true false
+	SetFontSize 45
+	SetTextColor 0 0 0 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 251 231 0 255
+	CustomAlertSound "ahh04.wav"
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Circle
+	BaseType "Chaos Orb"
+
+
+Show
+#autogen true true true false false
+	SetFontSize 30
+	SetTextColor 0 0 0 255
+	SetBorderColor 27 59 26 255
+	SetBackgroundColor 9 129 0 255
+	PlayAlertSound 16 300
+	MinimapIcon 2 Green Circle
+	BaseType "Regal Orb" "Orb of Alteration" "Orb of Chance" "Orb of Alchemy" "Chromatic Orb" "Orb of Scouring" "Orb of Horizons" "Orb of Regret" "Engineer's Orb" "Silver Coin" "Orb of Fusing" "Orb of Binding" "Jeweller's Orb" "Cartographer's Chisel" "Gemcutter's Prism"
+
+
+Show
+#autogen true true false false false
+	SetFontSize 26
+	SetTextColor 0 0 0 255
+	SetBorderColor 48 73 66 255
+	SetBackgroundColor 94 139 135 153
+	MinimapIcon 2 Blue Circle
+	BaseType "Orb of Augmentation" "Orb of Transmutation" "Blacksmith's Whetstone" "Armourer's Scrap" "Blessed Orb" "Glassblower's Bauble"
+
+
+Show
+#autogen true true true true false
+	SetTextColor 161 65 65 255
+	SetBorderColor 170 0 0 255
+	SetBackgroundColor 255 96 96 255
+	MinimapIcon 2 Red Hexagon
+	BaseType "Master Cartographer's Sextant"
+
+
+Show
+#autogen true true true true false
+	SetFontSize 31
+	SetTextColor 0 0 0 255
+	SetBorderColor 156 170 0 255
+	SetBackgroundColor 214 205 0 255
+	MinimapIcon 2 Yellow Hexagon
+	BaseType "Journeyman Cartographer's Sextant"
+
+
+Show
+#autogen true true true true false
+	SetFontSize 31
+	SetTextColor 197 197 197 255
+	SetBorderColor 170 170 170 255
+	SetBackgroundColor 137 137 137 255
+	MinimapIcon 2 White Hexagon
+	BaseType "Apprentice Cartographer's Sextant"
+
+
+Show
+#autogen true true false false false
+	SetTextColor 0 0 0 255
+	SetBorderColor 45 130 134 255
+	SetBackgroundColor 110 128 127 255
+	BaseType "Portal Scroll"
+
+
+Show
+#autogen true false false false false
+	SetTextColor 255 251 159 255
+	SetBorderColor 103 94 71 255
+	SetBackgroundColor 147 140 104 255
+	BaseType "Scroll of Wisdom"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBorderColor 254 255 135 255
+	SetBackgroundColor 255 206 0 255
+	PlayAlertSoundPositional 13 300
+	PlayEffect Yellow
+	MinimapIcon 0 Yellow Star
+	BaseType "Exalted Shard"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 36
+	SetTextColor 255 142 0 255
+	SetBorderColor 254 255 135 255
+	SetBackgroundColor 125 101 0 255
+	BaseType "Annulment Shard"
+
+
+Show
+#autogen true true true false false
+	SetFontSize 26
+	SetTextColor 255 185 96 255
+	SetBorderColor 254 255 135 255
+	SetBackgroundColor 125 114 67 255
+	BaseType "Alchemy Shard" "Binding Shard" "Chaos Shard" "Regal Shard" "Horizon Shard" "Engineer's Shard"
+
+
+Show
+#autogen true true true false false
+	SetTextColor 234 255 0 255
+	SetBorderColor 255 204 0 255
+	SetBackgroundColor 234 255 0 69
+	CustomAlertSound "gold.wav"
+	MinimapIcon 2 Yellow Circle
+	BaseType "Perandus Coin"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 45
+	SetTextColor 255 244 0 255
+	SetBorderColor 255 0 0 255
+	SetBackgroundColor 255 112 0 255
+	CustomAlertSound "wtf-sound.mp3"
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+	BaseType "Fractured Fossil" "Hollow Fossil" "Faceted Fossil"
+
+
+Show
+#autogen true true true true true
+	SetFontSize 37
+	SetTextColor 255 247 73 255
+	SetBorderColor 255 98 98 255
+	SetBackgroundColor 173 83 0 255
+	CustomAlertSound "fossil_mid.mp3"
+	PlayEffect Red
+	MinimapIcon 1 Red Star
+	BaseType "Bloodstained Fossil" "Glyphic Fossil" "Sanctified Fossil" "Serrated Fossil"
+
+
+Show
+#autogen true true true true false
+	SetFontSize 33
+	SetTextColor 255 247 73 255
+	SetBorderColor 255 97 97 255
+	SetBackgroundColor 115 55 0 255
+	CustomAlertSound "fossil_low.mp3"
+	PlayEffect Red
+	MinimapIcon 2 Red Star
+	BaseType "Enchanted Fossil" "Shuddering Fossil" "Bound Fossil" "Pristine Fossil" "Gilded Fossil" "Perfect Fossil" "Tangled Fossil" "Prismatic Fossil" "Aetheric Fossil" "Corroded Fossil"
+
+
+Show
+#autogen true true true false false
+	SetFontSize 30
+	SetTextColor 255 247 73 255
+	SetBorderColor 255 97 97 255
+	SetBackgroundColor 69 33 0 255
+	PlayAlertSoundPositional 2 300
+	PlayEffect Red
+	BaseType "Dense Fossil" "Encrusted Fossil" "Aberrant Fossil" "Frigid Fossil" "Jagged Fossil" "Metallic Fossil"
+
+
+Show
+#autogen true true true false false
+	SetFontSize 26
+	SetTextColor 255 247 73 255
+	SetBorderColor 255 97 97 255
+	SetBackgroundColor 56 26 0 255
+	PlayAlertSoundPositional 16 300
+	PlayEffect Red
+	BaseType "Fossil"
+
+
+Show
+#autogen true true true false false
+	LinkedSockets < 5
+	Rarity <= Rare
+	SetFontSize 35
+	SetTextColor 0 0 0 255
+	SetBorderColor 105 130 90 255
+	SetBackgroundColor 196 255 166 255
+	PlayAlertSoundPositional 3 300
+	Sockets = 6
+
+
+Show
+#autogen true true false false false
+	LinkedSockets = 5
+	SetFontSize 45
+	SetTextColor 0 0 0 255
+	SetBorderColor 116 46 125 255
+	SetBackgroundColor 142 142 142 255
+	PlayAlertSoundPositional 13 300
+
+
+Show
+#autogen true true true true true
+	LinkedSockets = 6
+	SetFontSize 45
+	SetTextColor 0 0 0 255
+	SetBorderColor 224 0 255 255
+	SetBackgroundColor 255 255 255 255
+	PlayAlertSoundPositional 1 300
+
+
+Show
+#autogen true true true true true
+	LinkedSockets >= 4
+	Rarity = Rare
+	SetFontSize 35
+	SetTextColor 156 163 0 255
+	SetBorderColor 255 234 0 255
+	SetBackgroundColor 0 255 100 255
+	PlayAlertSound 11 300
+	MinimapIcon 1 Yellow Diamond
+	ItemLevel < 40
+
+
+Show
+#autogen true false false false false
+	LinkedSockets >= 3
+	Rarity <= Magic
+	SetFontSize 35
+	SetTextColor 156 163 0 255
+	SetBorderColor 255 234 0 255
+	SetBackgroundColor 0 255 100 255
+	PlayAlertSound 11 300
+	MinimapIcon 1 Yellow Diamond
+	ItemLevel < 20
+
+
+Show
+#autogen true true true true true
+	LinkedSockets >= 4
+	Rarity = Rare
+	SetFontSize 35
+	SetTextColor 59 90 64 255
+	SetBorderColor 53 149 40 255
+	SetBackgroundColor 0 255 101 255
+	PlayAlertSound 9 300
+	MinimapIcon 1 White Diamond
+	ItemLevel < 40
+
+
+Show
+#autogen true false false false false
+	LinkedSockets >= 3
+	Rarity <= Magic
+	SetFontSize 35
+	SetTextColor 59 90 64 255
+	SetBorderColor 53 149 40 255
+	SetBackgroundColor 0 255 101 255
+	PlayAlertSound 9 300
+	MinimapIcon 1 White Diamond
+	ItemLevel < 20
+
+
+Show
+#autogen true true false false false
+	Rarity = Rare
+	Class "Rings" "Amulets" "Belts"
+	SetTextColor 255 173 0 255
+	SetBorderColor 255 193 0 255
+	SetBackgroundColor 103 95 0 255
+
+
+Show
+#autogen true true false false false
+	Rarity = Rare
+	Class "Body Armours"
+	SetFontSize 33
+	SetTextColor 255 255 255 255
+	SetBorderColor 234 255 0 255
+	SetBackgroundColor 173 173 173 255
+
+
+Show
+#autogen true true false false false
+	Rarity = Rare
+	Class "Two Hand" "Bows" "Staves"
+	SetTextColor 205 205 205 255
+	SetBorderColor 255 224 0 255
+	SetBackgroundColor 35 35 35 255
+
+
+Show
+#autogen true true false false false
+	Rarity = Rare
+	Class "Boots"
+	SetTextColor 0 255 255 255
+	SetBorderColor 214 255 0 255
+	SetBackgroundColor 0 52 100 255
+
+
+Show
+#autogen true true false false false
+	Rarity = Rare
+	Class "Helmets"
+	SetFontSize 31
+	SetTextColor 0 255 61 255
+	SetBorderColor 214 255 0 255
+	SetBackgroundColor 0 100 0 255
+
+
+Show
+#autogen true true false false false
+	Rarity = Rare
+	Class "Gloves"
+	SetTextColor 255 214 0 255
+	SetBorderColor 234 255 0 255
+	SetBackgroundColor 128 0 0 255
+
+
+Show
+#autogen true true true true true
+	Rarity <= Rare
+	SetFontSize 45
+	SetTextColor 157 171 0 255
+	SetBorderColor 153 122 0 255
+	SetBackgroundColor 120 255 101 255
+	PlayAlertSoundPositional 6 300
+	PlayEffect Green
+	MinimapIcon 0 Green Triangle
+	BaseType "Fingerless Silk Gloves" "Crystal Belt" "Opal Ring" "Opal Wand" "Gripped Gloves" "Marble Amulet" "Two-Toned Boots" "Vermillion Ring" "Titanium Spirit Shield" "Vaal Mask" "Spiked Gloves" "Prismatic Ring" "Imperial Bow" "Bone Helmet"
+	ShaperItem True
+	ItemLevel >= 82
+
+
+Show
+#autogen true true true true true
+	Rarity <= Rare
+	SetFontSize 45
+	SetTextColor 157 171 0 255
+	SetBorderColor 153 122 0 255
+	SetBackgroundColor 120 255 101 255
+	PlayAlertSoundPositional 6 300
+	PlayEffect Green
+	MinimapIcon 0 Green Triangle
+	BaseType "Bone Helmet" "Astral Plate" "Gripped Gloves" "Spiked Gloves" "Steel Ring" "Fingerless Silk Gloves" "Marble Amulet" "Vermillion Ring" "Crystal Belt" "Opal Ring"
+	ItemLevel >= 82
+	ElderItem True
+
+
+Show
+#autogen true true true true true
+	Corrupted False
+	Rarity = Rare
+	Class "Rings" "Amulets" "Belts"
+	SetTextColor 255 71 0 255
+	SetBorderColor 224 255 0 255
+	SetBackgroundColor 28 255 0 255
+	PlayAlertSoundPositional 13 300
+	PlayEffect Green
+	MinimapIcon 1 Green Star
+	ShaperItem True
+
+
+Show
+#autogen true true true true false
+	Corrupted False
+	Rarity = Rare
+	Class "Rings" "Amulets" "Belts"
+	SetTextColor 255 71 0 255
+	SetBorderColor 224 255 0 255
+	SetBackgroundColor 28 255 0 255
+	PlayAlertSoundPositional 13 300
+	PlayEffect Green
+	MinimapIcon 1 Green Star
+	ElderItem True
+
+
+Show
+#autogen true true true false false
+	Rarity <= Magic
+	Class "Utility Flasks"
+	SetTextColor 255 255 255 255
+	SetBorderColor 103 255 127 255
+	SetBackgroundColor 0 151 24 255
+	PlayAlertSoundPositional 12 300
+	PlayEffect Green
+	MinimapIcon 0 Green Star
+	BaseType "Quicksilver Flask"
+	ItemLevel <= 36
+
+
+Show
+#autogen true true true false false
+	Rarity <= Magic
+	Class "Utility Flasks"
+	SetTextColor 255 255 255 255
+	SetBorderColor 103 255 127 255
+	SetBackgroundColor 0 151 24 255
+	CustomAlertSound "potionui.wav"
+	MinimapIcon 2 Green Circle
+
+
+Show
+#autogen true true true false false
+	Rarity <= Magic
+	Class "Mana Flasks"
+	SetFontSize 32
+	SetTextColor 255 255 255 255
+	SetBorderColor 103 151 255 255
+	SetBackgroundColor 12 0 151 255
+	CustomAlertSound "potionui.wav"
+	MinimapIcon 2 Blue Circle
+
+
+Show
+#autogen true true false false false
+	Rarity <= Magic
+	Class "Mana Flasks"
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 103 103 255
+	SetBackgroundColor 205 0 0 255
+	CustomAlertSound "potionui.wav"
+	MinimapIcon 2 Red Circle
+
+
+Show
+#autogen true true true true true
+	SetFontSize 45
+	SetTextColor 244 255 0 255
+	SetBorderColor 234 255 0 255
+	SetBackgroundColor 255 252 202 255
+	PlayAlertSoundPositional 6 300
+	PlayEffect White
+	MinimapIcon 0 White Star
+	BaseType ==  "House of Mirrors" "The Doctor" "The Demon" "The Fiend"
+	BaseType
+
+
+Show
+#autogen true true true true true
+	SetFontSize 41
+	SetTextColor 254 0 255 255
+	SetBorderColor 225 105 255 255
+	SetBackgroundColor 128 50 112 255
+	PlayAlertSoundPositional 1 300
+	PlayEffect Red
+	MinimapIcon 1 Red Star
+	BaseType ==  "Beauty Through Death" "The Immortal" "Alluring Bounty" "Nook's Crown" "The Damned" "The Nurse" "The Iron Bard" "Pride of the First Ones" "Abandoned Wealth" "Immortal Resolve" "Seven Years Bad Luck"
+	BaseType
+
+
+Show
+#autogen true true true true true
+	SetTextColor 255 255 255 255
+	SetBorderColor 0 14 176 255
+	SetBackgroundColor 0 122 255 255
+	PlayAlertSoundPositional 4 300
+	PlayEffect Blue
+	MinimapIcon 2 Blue Star
+	BaseType ==  "The Spark and the Flame" "The Celestial Stone" "The Samurai's Eye" "Wealth and Power" "Hunter's Reward" "The Dragon's Heart" "The Queen" "Burning Blood" "The Eye of Terror" "The Price of Loyalty" "The Saint's Treasure" "The Mayor" "The Wolven King's Bite" "Mawr Blaidd" "The Sephirot" "The Bargain" "The Soul" "Void of the Elements" "The Polymath" "Pride Before the Fall" "Azyran's Reward" "Remembrance" "The Hoarder" "The Enlightened" "Dark Dreams" "The Artist" "The Landing" "The Undisputed" "The Celestial Justicar" "The Professor" "The King's Heart" "The Risk" "The Undaunted"
+	BaseType
+
+
+Show
+#autogen true true true true false
+	SetFontSize 31
+	SetTextColor 0 255 61 255
+	SetBorderColor 40 73 48 255
+	SetBackgroundColor 68 127 71 255
+	PlayAlertSoundPositional 10 300
+	PlayEffect Green
+	MinimapIcon 2 Green Star
+	BaseType ==  "Blessing of God" "The Valkyrie" "The World Eater" "Buried Treasure" "The Life Thief" "Rebirth" "The Throne" "Chaotic Disposition" "A Dab of Ink" "Perfection" "The Cartographer" "The Ethereal" "The Old Man" "The Sacrifice" "The Seeker" "Bowyer's Dream" "Heterochromia" "Hunter's Resolve" "The Dapper Prodigy" "The Hale Heart" "The Mad King" "The Vast"
+	BaseType
+
+
+Show
+#autogen true true true false false
+	SetFontSize 30
+	SetTextColor 255 255 255 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 128 128 128 255
+	PlayAlertSoundPositional 2 300
+	MinimapIcon 2 White Star
+	BaseType ==  "The Void" "Lucky Deck" "Boon of the First Ones" "Humility" "The Breach" "The Dark Mage" "The Dreamer" "The Journey" "The Porcupine" "The Valley of Steel Boxes" "The Wolf" "Time-Lost Relic" "Arrogance of the Vaal" "The Offering" "Emperor of Purity" "Akil's Prophecy" "Demigod's Wager" "Left to Fate" "Monochrome" "Sambodhi's Vow" "The Avenger" "The Betrayal" "The Brittle Emperor" "The Chains that Bind" "The Endless Darkness" "The Fletcher" "The Heroic Shot" "The Hunger" "The Jeweller's Boon" "The Master" "The Pact" "The Twilight Moon" "The Undisputed" "The Warlord" "The Wind" "The Wretched" "Vanity" "Last Hope" "The Obscured" "Hubris" "The Primordial" "Monochrome" "The Last One Standing" "Hope" "More is Never Enough" "The Wolf's Legacy" "Alone in the Darkness" "Anarchy's Price" "Atziri's Arsenal" "Audacity" "Blind Venture" "Boundless Realms" "Call to the First Ones" "Lingering Remnants" "Forbidden Power" "Scholar of the Seas" "Emperor's Luck" "Loyalty" "The Cacophony" "No Traces" "Dialla's Subjugation" "Imperial Legacy" "Glimmer of Hope" "Lost Worlds" "The Beast" "The Deal" "The Scavenger" "The Side Quest" "Earth Drinker" "Harmony of Souls" "Rain of Chaos" "The Gladiator" "Gemcutter's Promise" "The Body" "The Arena Champion" "Grave Knowledge" "The Cataclysm" "Lucky Connections" "Atziri's Arsenal" "Merciless Armament" "The Admirer" "Jack in the Box" "The Innocent"
+	BaseType
+
+
+Hide
+#autogen true true true true true
+	SetFontSize 18
+	SetTextColor 255 255 255 255
+	SetBorderColor 74 74 74 255
+	SetBackgroundColor 0 0 0 255
+	BaseType ==  "The Witch" "The Incantation" "Lantador's Lost Love" "A Mother's Parting Gift" "The Lunaris Priestess" "Prosperity" "Light and Truth" "Might is Right" "The Warden" "The Pack Leader" "The King's Blade" "The Army of Blood" "Struck by Lightning" "Doedre's Madness" "Rats" "The Wolf's Shadow" "The Carrion Crow" "The Watcher" "The Flora's Gift" "Shard of Fate" "Destined to Crumble" "The Hermit" "The Endurance" "Death" "Assassin's Favour" "The Tower" "The Sword King's Salute" "The Archmage's Right Hand" "The Lich" "The Scarred Meadow" "The Surgeon" "The Gambler" "The Inoculated" "Boon of Justice" "The Catalyst" "The Visionary" "Dark Temptation" "The Twins" "The Spoiled Prince" "The Oath" "The Mountain" "Vinia's Token" "Vile Power" "Turn the Other Cheek" "Treasure Hunter" "Tranquillity" "Thunderous Skies" "Thirst for Knowledge" "The Demoness" "Rain Tempter" "The Aesthete" "The Calling" "The Skeleton" "Echoes of Love" "The Battle Born"
+	BaseType
+
+
+Show
+#autogen true true true true true
+	Class "Divination Card"
+	SetFontSize 24
+	SetTextColor 255 0 0 255
+	SetBorderColor 255 0 0 255
+	SetBackgroundColor 255 255 255 0
+
+
+Show
+#autogen true true true false false
+	Corrupted False
+	Rarity = Rare
+	SetTextColor 0 0 0 255
+	SetBorderColor 224 255 0 255
+	SetBackgroundColor 10 90 0 255
+	ElderItem True
+
+
+Show
+#autogen true true true false false
+	Corrupted False
+	Rarity = Rare
+	SetTextColor 0 0 0 255
+	SetBorderColor 224 255 0 255
+	SetBackgroundColor 10 90 0 255
+	ShaperItem True
+
+
+Show
+#autogen true true true true true
+	Class "Delve Stackable Socketable Currency"
+	SetFontSize 45
+	SetTextColor 220 113 255 255
+	SetBorderColor 255 0 224 255
+	SetBackgroundColor 0 0 0 255
+	PlayAlertSound 8 300
+	MinimapIcon 2 White Circle
+	BaseType "Prime"
+
+
+Show
+#autogen true true true false false
+	Class "Delve Stackable Socketable Currency"
+	SetFontSize 36
+	SetTextColor 113 255 221 255
+	SetBorderColor 0 153 255 255
+	SetBackgroundColor 0 0 0 255
+	PlayAlertSound 8 300
+	MinimapIcon 2 White Circle
+	BaseType "Primitive"
+
+
+Show
+#autogen true true true false false
+	Class "Delve Stackable Socketable Currency"
+	SetFontSize 31
+	SetTextColor 113 255 113 255
+	SetBorderColor 10 255 0 255
+	SetBackgroundColor 0 0 0 255
+	PlayAlertSound 8 300
+	MinimapIcon 2 White Circle
+	BaseType "Powerful"
+
+
+Show
+#autogen true true true false true
+	Class "Delve Stackable Socketable Currency"
+	SetFontSize 31
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 255 255 255
+	SetBackgroundColor 0 0 0 255
+	PlayAlertSound 8 300
+	MinimapIcon 2 White Circle
+	BaseType "Potent"
+
+
+Show
+#autogen true true true true true
+	Rarity = Unique
+	SetFontSize 37
+	SetTextColor 224 80 0 255
+	SetBorderColor 181 65 0 255
+	SetBackgroundColor 64 43 0 255
+	PlayAlertSound 11 300
+	PlayEffect Brown
+	MinimapIcon 1 Brown Diamond
+
+
+Show
+#autogen true true false false false
+	Rarity = Rare
+	SetFontSize 24
+	SetTextColor 224 255 0 255
+	SetBorderColor 99 102 47 255
+	SetBackgroundColor 149 125 0 255
+
+
+Hide
+#autogen true true true true true
+	Rarity <= Magic
+	SetFontSize 18
+	SetTextColor 255 255 255 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 128 128 128 255
+	ItemLevel > 5
+
+
+Show
+#autogen true true true true true
+	Rarity = Magic
+	SetFontSize 18
+	SetTextColor 0 244 255 255
+	SetBorderColor 0 255 244 255
+	SetBackgroundColor 52 106 128 255
+
+
+Hide
+#autogen true true true true true
+	Class "Currency"
+	SetFontSize 18
+	SetTextColor 255 255 255 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 127 127 127 255
+
+
+Hide
+#autogen true true true true true
+	Rarity < Unique
+	Class "Two Hand" "One Hand" "Staves" "Thrusting One Hand Swords" "Bows" "Sceptres" "Daggers" "Body Armours" "Gloves" "Helmets" "Boots" "Belts" "Rings" "Amulets" "Shields" "Wands" "Flask"
+	SetFontSize 18
+	SetTextColor 255 255 255 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 127 127 127 255
+
+
+Show
+#autogen true true true true true
+	SetFontSize 45
+	SetTextColor 0 0 0 255
+	SetBorderColor 0 0 0 255
+	SetBackgroundColor 37 37 37 0

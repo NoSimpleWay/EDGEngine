@@ -106,6 +106,10 @@ EGabarite* DefaultGabarite::gabarite_wood_button_bg;
 EGabarite* DefaultGabarite::gabarite_save_autogen;
 EGabarite* DefaultGabarite::gabarite_plus_equal;
 
+EGabarite* DefaultGabarite::gabarite_shaper_small;
+EGabarite* DefaultGabarite::gabarite_elder_small;
+EGabarite* DefaultGabarite::gabarite_blighted_small;
+
 
 
 

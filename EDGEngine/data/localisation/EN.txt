@@ -160,3 +160,9 @@ button_new_filter_item_equal	New item with exact matches.
 description_open_oil_window	Open oil's window
 description_oil_check_button	Press Left Mouse Button to set 3 oils.\nPress Right Mouse Button to set 0 oils.
 description_press_rmb_to_play_sound	Press right mouse button to play sound.
+description_drop_list_autogen_loot_simulator	Select version of you loot-filter
+drop_list_element_very_low	Very low
+drop_list_element_low	Low
+drop_list_element_default	Default
+drop_list_element_rich	Rich
+drop_list_element_very_rich	Very rich

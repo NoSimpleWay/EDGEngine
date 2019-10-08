@@ -1,7 +1,13 @@
-item_name	Random low tier map	class	Maps	map_tier_min	1	map_tier_max	5	count	7
-item_name	Random mid tier map	class	Maps	map_tier_min	6	map_tier_max	10	count	5
+item_name	Random low tier map	class	Maps	map_tier_min	1	map_tier_max	5	count	3
+item_name	Random mid tier map	class	Maps	map_tier_min	6	map_tier_max	10	count	3
 item_name	Random high tier map	class	Maps		map_tier_min	11	map_tier_max	16	count	3
-random_class	Map Fragments	count	10
+item_name	Blighted low tier map	class	Maps	map_tier_min	1	map_tier_max	5	count	3	blighted_map	true
+item_name	Blighted mid tier map	class	Maps	map_tier_min	6	map_tier_max	10	count	3	blighted_map	true
+item_name	Blighted high tier map	class	Maps		map_tier_min	11	map_tier_max	15	count	3	blighted_map	true
+item_name	Shaped mid tier map	class	Maps	map_tier_min	6	map_tier_max	10	count	3	shaped_map	true
+item_name	Shaped high tier map	class	Maps		map_tier_min	11	map_tier_max	16	count	3	shaped_map	true
+item_name	Elder low tier map	class	Maps	map_tier_min	16	map_tier_max	16	count	3	elder_map	true
+random_class	Map Fragments	count	5
 item_name	Shaper's Orb
 item_name	Elder's Orb
 item_name	Apprentice Cartographer's Seal

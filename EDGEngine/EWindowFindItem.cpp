@@ -834,7 +834,8 @@ public:
 					b->have_text = true;
 					b->have_icon = false;
 
-					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+					b->text_color->set(EColorCollection::WHITE);
+					b->bg_color->set(0.1f, 0.08f, 0.06f, 0.9f);
 
 					if (data_index >= 0)
 					{
@@ -925,7 +926,7 @@ public:
 					b->have_text = true;
 					b->have_icon = false;
 
-					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+					b->bg_color->set(0.9f, 0.9f, 0.9f, 0.9f);
 
 					if (data_index >= 0)
 					{

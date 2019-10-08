@@ -144,6 +144,7 @@
     <ClCompile Include="Batcher.cpp" />
     <ClCompile Include="DADItem.h" />
     <ClCompile Include="EButtonAddNewBaseData.cpp" />
+    <ClCompile Include="EButtonAutogenLootSimulator.cpp" />
     <ClCompile Include="EButtonChange.cpp" />
     <ClCompile Include="EButtonCheck.cpp" />
     <ClCompile Include="EButtonClose.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="ConsoleColor.h" />
     <ClInclude Include="EButton.h" />
     <ClInclude Include="EButtonAddNewBaseData.h" />
+    <ClInclude Include="EButtonAutogenLootSimulator.h" />
     <ClInclude Include="EButtonChange.h" />
     <ClInclude Include="EButtonCheck.h" />
     <ClInclude Include="EButtonClose.h" />

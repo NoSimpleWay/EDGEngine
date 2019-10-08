@@ -28,7 +28,7 @@ EButtonItemSearch::EButtonItemSearch(float _x, float _y, float _sx, float _sy, E
 	have_rama = true;
 
 	rama_color->set(0.2f, 0.15f, 0.05f, 0.6f);
-	bg_color->set(0.2f, 0.15f, 0.05f, 0.2f);
+	bg_color->set(0.2f, 0.15f, 0.05f, 0.9f);
 
 	button_type = _type;
 

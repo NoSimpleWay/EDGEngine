@@ -110,5 +110,9 @@ public:
 	static EGabarite* gabarite_save_autogen;
 	static EGabarite* gabarite_plus_equal;
 
+	static EGabarite* gabarite_shaper_small;
+	static EGabarite* gabarite_elder_small;
+	static EGabarite* gabarite_blighted_small;
+
 
 };

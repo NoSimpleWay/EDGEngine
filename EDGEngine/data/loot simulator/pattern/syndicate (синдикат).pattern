@@ -15,7 +15,7 @@ random_category	EQUIP	explicit	of Cameria's Veil
 random_category	EQUIP	explicit	of Hillock's Veil
 random_category	EQUIP	explicit	of Janus' Veil
 random_category	EQUIP	explicit	of Jorgin's Veil
-random_category	EQUIP	explicit	Riker
+random_category	EQUIP	explicit	of Riker
 random_category	EQUIP	explicit	Tora's Veiled
 random_subclass	SCARAB	random_cost_group	very_low	count	8
 random_subclass	SCARAB	random_cost_group	low	count	6
@@ -23,3 +23,4 @@ random_subclass	SCARAB	random_cost_group	mid	count	4
 random_subclass	SCARAB	random_cost_group	high	count	2
 random_subclass	SCARAB	random_cost_group	very_high	count	2
 random_subclass	SCARAB	random_cost_group	top	count	2
+item_name	Silver Flask	explicit	Catarina's Veiled

@@ -1143,3 +1143,15 @@ Base name	Storm Brand Additional Chain Chance 1	RU name	Клеймо бури и
 Base name	Storm Brand Additional Chain Chance 2	RU name	Клеймо бури имеет 18% шанс поразить по цепи дополнительную цель
 Base name	Storm Brand Attached Target Lightning Penetration 1	RU name	Урон Клейма бури пробивает 8% сопротивления молнии заклеймённого врага
 Base name	Storm Brand Attached Target Lightning Penetration 2	RU name	Урон Клейма бури пробивает 12% сопротивления молнии заклеймённого врага
+Base name	Enchantment Cobra Lash Damage 1	RU name	Бросок кобры наносит увеличенный на 25% урон
+Base name	Enchantment Cobra Lash Damage 2	RU name	Бросок кобры наносит увеличенный на 40% урон
+Base name	Enchantment Cobra Lash Number Of Additional Chains 1	RU name	Бросок кобры поражает 2 дополнительных целей по цепи
+Base name	Enchantment Cobra Lash Number Of Additional Chains 2	RU name	Бросок кобры поражает 3 дополнительных целей по цепи
+Base name	Enchantment Cobra Lash Projectile Speed 1	RU name	Бросок кобры имеет 20% повышение скорости снарядов
+Base name	Enchantment Cobra Lash Projectile Speed 2	RU name	Бросок кобры имеет 30% повышение скорости снарядов
+Base name	Enchantment Icicle Mine Critical Multiplier 1	RU name	Шквальная мина имеет +20% к множителю критического удара
+Base name	Enchantment Icicle Mine Critical Multiplier 2	RU name	Шквальная мина имеет +30% к множителю критического удара
+Base name	Enchantment Icicle Mine Damage 1	RU name	Шквальная мина наносит увеличенный на 25% урон
+Base name	Enchantment Icicle Mine Damage 2	RU name	Шквальная мина наносит увеличенный на 40% урон
+Base name	Enchantment Icicle Mine Throwing Speed 1	RU name	10% повышение скорости броска Шквальной мины
+Base name	Enchantment Icicle MineThrowing Speed 2	RU name	15% повышение скорости броска Шквальной мины

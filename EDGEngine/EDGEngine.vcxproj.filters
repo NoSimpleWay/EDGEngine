@@ -192,6 +192,9 @@
     <ClCompile Include="EWindowOil.cpp">
       <Filter>Source Files\windows</Filter>
     </ClCompile>
+    <ClCompile Include="EButtonAutogenLootSimulator.cpp">
+      <Filter>Source Files\Buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -361,6 +364,9 @@
     </ClInclude>
     <ClInclude Include="EWindowOil.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonAutogenLootSimulator.h">
+      <Filter>Header Files\Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

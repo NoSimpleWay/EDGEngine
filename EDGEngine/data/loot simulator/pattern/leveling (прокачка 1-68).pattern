@@ -1,7 +1,7 @@
 random_class	Body Armours	count	3	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
-random_class	Gloves	count	3	links_min	1	links_max	4	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
-random_class	Boots	count	3	links_min	1	links_max	4	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
-random_class	Helmets	count	3	links_min	1	links_max	4	sockets_min	1	sockets_max	6	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Gloves	count	3	links_min	1	links_max	4	sockets_min	1	sockets_max	4	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Boots	count	3	links_min	1	links_max	4	sockets_min	1	sockets_max	4	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
+random_class	Helmets	count	3	links_min	1	links_max	4	sockets_min	1	sockets_max	4	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
 random_class	Amulets	count	3	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
 random_class	Rings	count	3	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
 random_class	Belts	count	3	rarity_min	normal	rarity_max	unique	item_level_min	1	item_level_max	68
