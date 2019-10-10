@@ -248,6 +248,29 @@ void EWindowLootSimulator::update(float _d)
 			if (max_value == random_elder) { loot->elder_item = true; }
 
 			loot->enchantment = p->enchantment;
+
+
+			loot->prophecy = p->prophecy_name;
+
+			if ((loot->prophecy == "%random%") && (EString::prophecy_list.size() > 0))
+			{
+				loot->prophecy = EString::prophecy_list.at(rand() % EString::prophecy_list.size())->base_name;
+			}
+
+			if (loot->prophecy != "")
+			{
+				loot->name = loot->prophecy;
+
+				if (EString::active_localisation == Enums::RU)
+				for (int i=0; i < EString::prophecy_list.size(); i++)
+				{
+					if (EString::to_lower(EString::prophecy_list.at(i)->base_name) == EString::to_lower(loot->prophecy))
+					{
+						loot->name = EString::prophecy_list.at(i)->ru_name;
+					}
+				}
+			}
+
 			if (p->enchantment != "")
 			{
 				loot->any_enchantment = true;
@@ -362,6 +385,8 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			(loot->filter_block_link != NULL)
 			&&
 			(loot->filter_block_link->is_show)
+			&&
+			(loot->filter_block_link->autogen_include.at(link_to_autogen_drop_button->selected_element))
 		)
 		||
 		(glfwGetKey(EWindow::main_window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS)
@@ -384,6 +409,11 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			{EFont::active_font->scale = loot->default_filter_block_link->font_size / 32.0f * font_scale_factor;}
 			else
 			{EFont::active_font->scale = 20.0f / 32.0f * font_scale_factor;}
+		}
+
+		if ((loot->filter_block_link != NULL) && (!loot->filter_block_link->autogen_include.at(link_to_autogen_drop_button->selected_element)))
+		{
+			EFont::active_font->scale = 16.0f / 32.0f * font_scale_factor;
 		}
 
 		float w = EFont::active_font->get_width(EFont::active_font, loot->name);
@@ -466,13 +496,25 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 		(loot->filter_block_link == NULL)
 	)
 	{
-		if (loot->filter_block_link != NULL)
+		if ((loot->filter_block_link != NULL) && (loot->filter_block_link->is_font_size_active))
 		{
 			EFont::active_font->scale = loot->filter_block_link->font_size / 32.0f * font_scale_factor;
 		}
 		else
 		{
-			EFont::active_font->scale = 20.0f / 32.0f * font_scale_factor;
+			if (loot->default_filter_block_link != NULL)
+			{
+				EFont::active_font->scale = loot->default_filter_block_link->font_size / 32.0f * font_scale_factor;
+			}
+			else
+			{
+				EFont::active_font->scale = 20.0f / 32.0f * font_scale_factor;
+			}
+		}
+
+		if ((loot->filter_block_link != NULL) && (!loot->filter_block_link->autogen_include.at(link_to_autogen_drop_button->selected_element)))
+		{
+			EFont::active_font->scale = 16.0f / 32.0f * font_scale_factor;
 		}
 
 		float w = EFont::active_font->get_width(EFont::active_font, loot->name);
@@ -532,24 +574,24 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			//loot description bg
 			if ((loot->is_shaper_map) || (loot->shaper_item))
 			{
-				_batch->setcolor_alpha(EColorCollection::WHITE, 0.9f);
+				_batch->setcolor_alpha(EColorCollection::WHITE, 0.95f);
 				_batch->draw_rect_with_uv(xx, yy, 434, 300, DefaultGabarite::gabarite_shaper_small);
 			}
 			else
 			if ((loot->is_elder_map) || (loot->elder_item))
 			{
-				_batch->setcolor_alpha(EColorCollection::WHITE, 0.9f);
+				_batch->setcolor_alpha(EColorCollection::WHITE, 0.95f);
 				_batch->draw_rect_with_uv(xx, yy, 434, 300, DefaultGabarite::gabarite_elder_small);
 			}
 			else
 			if ((loot->is_blighted_map))
 			{
-				_batch->setcolor_alpha(EColorCollection::WHITE, 0.9f);
+				_batch->setcolor_alpha(EColorCollection::WHITE, 0.95f);
 				_batch->draw_rect_with_uv(xx, yy, 434, 300, DefaultGabarite::gabarite_blighted_small);
 			}
 			else
 			{
-				_batch->setcolor_alpha(EColorCollection::BLACK, 0.9f);
+				_batch->setcolor_alpha(EColorCollection::BLACK, 0.95f);
 				_batch->draw_simple_rect(xx, yy, 434, 300);
 			}
 
@@ -577,7 +619,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			if (loot->quality > 0)
 			{
 				_batch->setcolor(EColorCollection::GRAY);
-				EFont::active_font->draw(_batch, "quality:   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				EFont::active_font->draw(_batch, cached_quality_text + "   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
 
 				_batch->setcolor(EColorCollection::WHITE);
 				EFont::active_font->add_draw(_batch, std::to_string(loot->quality) + "%", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
@@ -588,7 +630,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			if (loot->gem_level > 0)
 			{
 				_batch->setcolor(EColorCollection::GRAY);
-				EFont::active_font->draw(_batch, "gem level:   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				EFont::active_font->draw(_batch, cached_gem_level + "   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
 
 				_batch->setcolor(EColorCollection::WHITE);
 				EFont::active_font->add_draw(_batch, std::to_string(loot->gem_level), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
@@ -599,10 +641,29 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			if (loot->item_level > 0)
 			{
 				_batch->setcolor(EColorCollection::GRAY);
-				EFont::active_font->draw(_batch, "item level:   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				EFont::active_font->draw(_batch, cached_item_level + "   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
 
 				_batch->setcolor(EColorCollection::WHITE);
 				EFont::active_font->add_draw(_batch, std::to_string(loot->item_level), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				move_y++;
+			}
+
+			if (loot->map_tier > 0)
+			{
+				_batch->setcolor(EColorCollection::GRAY);
+				EFont::active_font->draw(_batch, cached_map_tier + "   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				_batch->setcolor(EColorCollection::WHITE);
+				EFont::active_font->add_draw(_batch, std::to_string(loot->map_tier), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				move_y++;
+			}
+
+			if (loot->corrupted)
+			{
+				_batch->setcolor(EColorCollection::RED);
+				EFont::active_font->draw(_batch, cached_corrupted, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
 
 				move_y++;
 			}
@@ -784,6 +845,12 @@ void EWindowLootSimulator::update_localisation()
 {
 	for (EButton* b : button_list)
 	{b->update_localisation();}
+
+	cached_quality_text = EString::localize_it("quality_text");
+	cached_gem_level = EString::localize_it("gem_level_text");
+	cached_item_level = EString::localize_it("item_level_text");
+	cached_map_tier = EString::localize_it("map_tier_text");
+	cached_corrupted = EString::localize_it("corrupted_text");
 }
 
 bool EWindowLootSimulator::check_condition(std::string _condition, int _num_a, int num_b)
@@ -857,12 +924,13 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			
 		}
 
+		/*
 		if (!fb->autogen_include.at(link_to_autogen_drop_button->selected_element))
 		{
 			match_detect = false;
 
 			if ((!_default) && (!match_detect)) { rejection("autogenerator exclude", _l); }
-		}
+		}*/
 
 		if (match_detect)
 		{
@@ -954,15 +1022,15 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		{
 			temp_match = false;
 			if (!fb->is_prophecy_active) { temp_match = true; }
-			/*
+			
 			for (EButton* b : fb->prophecy_list)
 			{
 				if
-					(EString::to_lower(_l->, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+					(EString::to_lower(_l->prophecy, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
 				{
 					temp_match = true;
 				}
-			}*/
+			}
 
 			match_detect = temp_match;
 		}	
@@ -1273,12 +1341,17 @@ void EWindowLootSimulator::place(LootItem* _l)
 		}
 		else
 		{
-			EFont::active_font->scale = 0.5f;
+			EFont::active_font->scale = 0.5f * font_scale_factor;
 
 			//std::cout << "have no any loot-filter link" << std::endl;
 		}
 
 		//EFont::active_font->scale = 0.2f;
+	}
+
+	if ((_l->filter_block_link != NULL) && (!_l->filter_block_link->autogen_include.at(link_to_autogen_drop_button->selected_element)))
+	{
+		EFont::active_font->scale = 0.5f * font_scale_factor;
 	}
 
 	w = EFont::active_font->get_width(EFont::active_font, _l->name);
@@ -1468,6 +1541,7 @@ void EWindowLootSimulator::manual_event()
 			pattern->blighted_map = pattern_item_list.at(i)->blighted_map;
 
 			pattern->enchantment = pattern_item_list.at(i)->enchantment;
+			pattern->prophecy_name = pattern_item_list.at(i)->prophecy_name;
 
 
 			pattern->corruption_chance = pattern_item_list.at(i)->corruption_chance;

@@ -166,3 +166,8 @@ drop_list_element_low	Низкая
 drop_list_element_default	Обычная
 drop_list_element_rich	Богатая
 drop_list_element_very_rich	Очень богатая
+quality_text	Качество:
+gem_level_text	Уровень камня:
+item_level_text	Уровень предмета:
+map_tier_text	Тир карты:
+corrupted_text	Осквернённый:

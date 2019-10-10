@@ -195,6 +195,14 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		"oil_name_golden"
 	};
 
+	std::vector <std::string> EString::loot_pattern_name;
+	std::vector <std::string> EString::loot_pattern_name_ru;
+
+	std::vector <std::string> EString::loot_pattern_description;
+	std::vector <std::string> EString::loot_pattern_description_ru;
+
+	std::vector <std::string> EString::loot_pattern_path;
+
 	std::string EString::game_color_name[6]
 	=
 	{
@@ -257,6 +265,90 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			localisation_key.push_back(subdata_array[0]);
 
 			localisation_text.push_back(to_cyrillic(subdata_array[1]));
+
+			//std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << subdata_array[1] << std::endl;
+
+			line_id++;
+		}
+
+		int wtf = 0;
+		for (BaseClass* b : base_class_list)
+		{
+			//cout << "[" << wtf << "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
+			wtf++;
+		}
+	}
+
+	void EString::load_loot_pattern_list(std::string _text)
+	{
+		EString::loot_pattern_description.clear();
+		EString::loot_pattern_description_ru.clear();
+
+		EString::loot_pattern_name.clear();
+		EString::loot_pattern_name_ru.clear();
+
+		EString::loot_pattern_path.clear();
+
+
+
+		//ofstream myfile_open;
+		//myfile_open.open("gemor.txt");
+
+		ifstream myfile;
+		myfile.open("data/loot simulator/pattern/" + _text + ".txt");
+		string line;
+
+		string subdata;
+		string subdata_array[14];
+
+		int line_id = 0;
+		int data_order;
+
+
+		//cout << EMath::rgb::r << endl;
+
+
+		while ((getline(myfile, line)) && (line_id < 1000))
+		{
+
+			data_order = 0;
+			subdata = "";
+
+			for (int i = 0; i < line.length(); i++)
+			{
+
+
+				if (line.at(i) != '\t')
+				{
+					subdata += line.at(i);
+				}
+
+				if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+				{
+					subdata_array[data_order] = subdata;
+					subdata = "";
+					data_order++;
+				}
+
+			}
+
+			for (int i = 0; i < 6; i++)
+			{
+				if (subdata_array[i * 2] == "name_en")
+				{EString::loot_pattern_name.push_back(subdata_array[i * 2 + 1]);}
+
+				if (subdata_array[i * 2] == "name_ru")
+				{EString::loot_pattern_name_ru.push_back(EString::to_cyrillic(subdata_array[i * 2 + 1]));}
+
+				if (subdata_array[i * 2] == "description_en")
+				{EString::loot_pattern_description.push_back(subdata_array[i * 2 + 1]);}
+
+				if (subdata_array[i * 2] == "description_ru")
+				{EString::loot_pattern_description_ru.push_back(EString::to_cyrillic(subdata_array[i * 2 + 1]));}
+
+				if (subdata_array[i * 2] == "path")
+				{EString::loot_pattern_path.push_back(subdata_array[i * 2 + 1]);}
+			}
 
 			//std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << subdata_array[1] << std::endl;
 
@@ -1496,6 +1588,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 										just_created_button->data_id = -1;
 									}
+
 									((EButtonFilterItem*)just_created_button)->is_full_equal_mode = is_base_type_equal_mode;
 
 									if (is_base_type_equal_mode)
@@ -2214,7 +2307,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			if (have_equal_base_type)
 			{
 				loot_writer += '\t';
-				loot_writer += "BaseType == ";
+				loot_writer += "BaseType ==";
 
 				for (EButton* b : fb->filter_block_items_button_list)
 				if (((EButtonFilterItem*)b)->is_full_equal_mode)

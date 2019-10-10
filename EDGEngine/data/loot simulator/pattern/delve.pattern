@@ -10,3 +10,7 @@ item_name	Prime Alchemical Resonator	class	Delve Stackable Socketable Currency	c
 item_name	Prime Alchemical Resonator	class	Delve Stackable Socketable Currency	count	2
 item_name	Primitive Alchemical Resonator	class	Delve Stackable Socketable Currency	count	2
 item_name	Primitive Chaotic Resonator	class	Delve Stackable Socketable Currency	count	2
+random_category	EQUIP	explicit	of Crafting
+random_category	EQUIP	explicit	of Spellcraft
+random_category	EQUIP	explicit	of the Undenground
+random_category	EQUIP	explicit	Subterranean

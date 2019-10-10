@@ -676,7 +676,7 @@ void EButtonService::click_event()
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_SIMULATOR)
 	{
 		StaticData::window_loot_simulator->is_active = true;
-		StaticData::window_loot_simulator->manual_event();
+		//StaticData::window_loot_simulator->manual_event();
 
 		if (StaticData::window_filter_visual_editor->is_active)
 		{

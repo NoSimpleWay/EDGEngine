@@ -197,6 +197,7 @@ EWindowLootSimulator* StaticData::window_loot_simulator =NULL;
 EWindowSelectFont* StaticData::window_select_font =NULL;
 EWindowAC* StaticData::window_accept_cancel;
 EWindowOil* StaticData::window_oil;
+EWindowSelectLootPattern* StaticData::window_select_loot_pattern;
 //EWindowAcceptCancel* StaticData::window_accept_cancel =NULL;
 
 EWindowFilterBlock* StaticData::default_filter_block =NULL;
@@ -2063,6 +2064,7 @@ int main()
 	load_prophecy_list();
 	load_notable_passives();
 	load_notable_passives_ru();
+	EString::load_loot_pattern_list("!pattern_list");
 
 	EString::load_localisation("EN");
 	
@@ -2311,34 +2313,39 @@ int main()
 	EControl::window_list.push_back(StaticData::window_oil);
 	StaticData::window_oil->is_active = true;
 
-	StaticData::window_main = new EWindowMain(8, false);
+	StaticData::window_select_loot_pattern = new EWindowSelectLootPattern(8, true);
+	StaticData::window_select_loot_pattern->name = "Select loot pattern";
+	EControl::window_list.push_back(StaticData::window_select_loot_pattern);
+	StaticData::window_select_loot_pattern->is_active = true;
+
+	StaticData::window_main = new EWindowMain(9, false);
 	StaticData::window_main->name = "Main window";
 	EControl::window_list.push_back(StaticData::window_main);
 	StaticData::window_main->is_active = true;
 
-	StaticData::window_loading_screen = new EWindowLoadingScreen(9, false);
+	StaticData::window_loading_screen = new EWindowLoadingScreen(10, false);
 	StaticData::window_loading_screen->name = "Loading screen";
 	StaticData::window_loading_screen->item_count = ItemList::item_list.size();
 	EControl::window_list.push_back(StaticData::window_loading_screen);
 	StaticData::window_loading_screen->is_active = true;
 
-	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(10, true);
+	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(11, true);
 	StaticData::window_new_loot_filter->name = "New loot-filter";
 	EControl::window_list.push_back(StaticData::window_new_loot_filter);
 	StaticData::window_new_loot_filter->is_active = false;
 
-	StaticData::window_select_localisation = new EWindowSelectLocalisation(11, false);
+	StaticData::window_select_localisation = new EWindowSelectLocalisation(12, false);
 	StaticData::window_select_localisation->name = "Select language";
 	EControl::window_list.push_back(StaticData::window_select_localisation);
 	StaticData::window_select_localisation->is_active = false;
 
 
-	StaticData::window_select_font = new EWindowSelectFont(12, true);
+	StaticData::window_select_font = new EWindowSelectFont(13, true);
 	StaticData::window_select_font->name = "Select font";
 	EControl::window_list.push_back(StaticData::window_select_font);
 	StaticData::window_select_font->is_active = false;
 
-	StaticData::window_accept_cancel = new EWindowAC(13, true);
+	StaticData::window_accept_cancel = new EWindowAC(14, true);
 	StaticData::window_accept_cancel->name = "Accept/cancel";
 	EControl::window_list.push_back(StaticData::window_accept_cancel);
 	StaticData::window_accept_cancel->is_active = false;
@@ -2895,10 +2902,14 @@ void framebuffer_size_callback(GLFWwindow * window, int width, int height)
 
 void recalculate_correction()
 {
-	correction_x = 1.0 / EWindow::SCR_WIDTH * 2.0;
-	correction_y = 1.0 / EWindow::SCR_HEIGHT * 2.0;
+	if ((EWindow::SCR_WIDTH > 100) && (EWindow::SCR_HEIGHT > 100))
+	{
+	
+		correction_x = 1.0 / EWindow::SCR_WIDTH * 2.0;
+		correction_y = 1.0 / EWindow::SCR_HEIGHT * 2.0;
 
-	std::cout << "helper correction_x: " << correction_x << " correction_y: " << correction_y << std::endl;
+		//std::cout << "helper correction_x: " << correction_x << " correction_y: " << correction_y << std::endl;
+	}
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)

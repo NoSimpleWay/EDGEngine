@@ -71,9 +71,12 @@
 
 	void EButtonFilterItem::update_localisation()
 	{
-		description_text = EString::localize_it("button_new_filter_item");
+		if (is_plus)
+		{
+			description_text = EString::localize_it("button_new_filter_item");
+		}
 
-		if (is_full_equal_mode)
+		if ((is_plus) && (is_full_equal_mode))
 		{
 			description_text = EString::localize_it("button_new_filter_item_equal");
 		}

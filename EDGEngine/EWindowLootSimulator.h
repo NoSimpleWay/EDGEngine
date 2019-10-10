@@ -33,7 +33,7 @@ public:
 	virtual void manual_event();
 
 	float drop_cooldown = 1.0f;
-	int drop_count = 50;
+	int drop_count = 0;
 
 	std::vector <LootPatternItem*> pattern_item_list;
 
@@ -51,5 +51,11 @@ public:
 	float font_scale_factor = 1.0f;
 
 	EButton* link_to_autogen_drop_button;
+
+	std::string cached_quality_text;
+	std::string cached_gem_level;
+	std::string cached_item_level;
+	std::string cached_map_tier;
+	std::string cached_corrupted;
 
 };

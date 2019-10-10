@@ -233,6 +233,19 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		have_text = true;
 		have_input_mode = false;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SELECT_LOOT_PATTERN)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		have_text = true;
+		have_input_mode = false;
+	}
 	
 }
 
@@ -399,17 +412,29 @@ void EButtonText::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_PATTERN_WINDOW)
 	{
+
+		StaticData::window_select_loot_pattern->is_active = true;
+		/*
 		EString::load_loot_simulator_pattern_list();
+
 
 		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::LOOT_SIMULATOR_PATTERN;
 		StaticData::window_find_item->is_active = true;
-		StaticData::window_find_item->button_event(this);
+		StaticData::window_find_item->button_event(this);*/
 	}
 
 
 	if ((button_type == Enums::ButtonType::BUTTON_ACCEPT)||(button_type == Enums::ButtonType::BUTTON_CANCEL))
 	{
 		master_window->button_event(this);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SELECT_LOOT_PATTERN)
+	{
+		EString::load_loot_pattern(EString::loot_pattern_path.at(data_id));
+		StaticData::window_loot_simulator->manual_event();
+
+		master_window->is_active = false;
 	}
 }
 
@@ -561,6 +586,24 @@ void EButtonText::update_localisation()
 		description_text = "";
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_SELECT_LOOT_PATTERN)
+	{
+		if (EString::active_localisation == Enums::LocalisationList::EN)
+		{text = EString::loot_pattern_name.at(data_id);}
+
+		if (EString::active_localisation == Enums::LocalisationList::RU)
+		{text = EString::loot_pattern_name_ru.at(data_id);}
+
+		///
+
+		if (EString::active_localisation == Enums::LocalisationList::EN)
+		{description_text = EString::loot_pattern_description.at(data_id);}
+
+		if (EString::active_localisation == Enums::LocalisationList::RU)
+		{description_text = EString::loot_pattern_description_ru.at(data_id);}
+
+		//description_text = "";
+	}
 
 }
 

@@ -31,7 +31,7 @@ public:
 		is_active = false;
 		window_size_x = 1100;
 		window_size_y = 500;
-		bg_color->set(0.2f, 0.36f, 0.3f, 0.95f);
+		//bg_color->set(0.2f, 0.36f, 0.3f, 0.95f);
 
 		EButtonItemSearch* but;
 		but= new EButtonItemSearch(0, 0, 40, 40, Enums::ButtonType::BUTTON_SEARCH_ITEM);
@@ -555,7 +555,7 @@ public:
 					b->description_text = ItemList::item_list.at(temp_id)->item_name;
 				}
 
-				b->bg_color->set(0.2f, 0.15f, 0.05f, 0.5f);
+				//b->bg_color->set(0.2f, 0.15f, 0.05f, 0.5f);
 
 				temp_id++;
 			}
@@ -594,11 +594,13 @@ public:
 
 					if (data_index != master_block->alert_sound_id)
 					{
-						b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+						b->bg_color->set(EColorCollection::BLACK);
+						rama_color->set(0.2f, 0.15f, 0.05f, 0.6f);
 					}
 					else
 					{
-						b->bg_color->set(1.0f, 0.8f, 0.5f, 0.6f);
+						b->bg_color->set(EColorCollection::DARK_GRAY);
+						rama_color->set(0.4f, 0.35f, 0.2f, 0.8f);
 					}
 
 					data_index++;
@@ -641,7 +643,7 @@ public:
 					b->data_id = data_index;
 					b->description_text = "";
 
-					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+					//b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
 
 					data_index++;
 				}
@@ -694,7 +696,7 @@ public:
 					b->data_id = data_index - 1;
 					b->description_text = "";
 
-					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+					//b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
 
 					data_index++;
 				}
@@ -746,7 +748,7 @@ public:
 					b->data_id = data_index - 1;
 					b->description_text = "";
 
-					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+					//b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
 
 					data_index++;
 				}
@@ -777,7 +779,7 @@ public:
 					b->have_text = true;
 					b->have_icon = false;
 
-					b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
+					//b->bg_color->set(0.8f, 0.7f, 0.6f, 0.5f);
 
 					if (data_index >= 1)
 					{
@@ -785,11 +787,11 @@ public:
 						b->data_string = EString::prophecy_list.at(data_index - 1)->base_name;
 						b->data_id = data_index - 1;
 
-						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::TRASH) { b->bg_color->set(0.6f, 0.6f, 0.6f, 0.5f); }
-						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::LOW_COST) { b->bg_color->set(0.4f, 0.8f, 0.4f, 0.6f); }
-						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::MID_COST) { b->bg_color->set(0.4f, 0.8f, 0.8f, 0.7f); }
-						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::HIGH_COST) { b->bg_color->set(0.8f, 0.4f, 0.8f, 0.8f); }
-						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::TOP_COST) { b->bg_color->set(1.0f, 1.0f, 0.4f, 0.9f); }
+						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::TRASH) { b->text_color->set(0.6f, 0.6f, 0.6f, 0.5f); }
+						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::LOW_COST) { b->text_color->set(0.4f, 0.8f, 0.4f, 0.6f); }
+						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::MID_COST) { b->text_color->set(0.4f, 0.8f, 0.8f, 0.7f); }
+						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::HIGH_COST) { b->text_color->set(0.8f, 0.4f, 0.8f, 0.8f); }
+						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::TOP_COST) { b->text_color->set(1.0f, 1.0f, 0.4f, 0.9f); }
 					}
 					else
 					{
@@ -834,8 +836,8 @@ public:
 					b->have_text = true;
 					b->have_icon = false;
 
-					b->text_color->set(EColorCollection::WHITE);
-					b->bg_color->set(0.1f, 0.08f, 0.06f, 0.9f);
+					//b->text_color->set(EColorCollection::WHITE);
+					//b->bg_color->set(0.1f, 0.08f, 0.06f, 0.9f);
 
 					if (data_index >= 0)
 					{
@@ -926,7 +928,7 @@ public:
 					b->have_text = true;
 					b->have_icon = false;
 
-					b->bg_color->set(0.9f, 0.9f, 0.9f, 0.9f);
+					//b->bg_color->set(0.9f, 0.9f, 0.9f, 0.9f);
 
 					if (data_index >= 0)
 					{

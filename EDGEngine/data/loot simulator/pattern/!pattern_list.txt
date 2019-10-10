@@ -1,0 +1,15 @@
+name_en	Breach item	name_ru	Предметы "Разлома"	description_en	Generate breach splinters/stone	description_ru	Генерирует осколки/камни разлома	path	breach
+name_en	Currency	name_ru	Валюта	description_en	Generate all regular game currency	description_ru	Генерирует всю обычную игровую валюту	path	currency
+name_en	Delve	name_ru	Шахта	description_en	Generate fossils, resonators, and delve item	description_ru	Генерирует ископаемые, резонаторы, и предметы спуска	path	delve
+name_en	Divination card	name_ru	Гадальные карты	description_en	Generate lot of divination card	description_ru	Генерирует множество гадальных карты	path	divination
+name_en	Equip	name_ru	Экиперовка	description_en	Generate lot of equip items.\nItems can be shaper/elder	description_ru	Генерирует множество предметов экепировки\nПредметы могут быть шейпера/древнего.	path	only equip
+name_en	Enchantment card	name_ru	Зачаровывания	description_en	Generate lab enchantments	description_ru	Генерирует зачаровывания лабиринта	path	enchantment
+name_en	Essences	name_ru	Сущности	description_en	Generate lab lot of Essences	description_ru	Генерирует множество Сущностей	path	essences
+name_en	Incursion	name_ru	Вмешательство	description_en	Generate incursion items and vials	description_ru	Генерирует предметы вмешательства и фиалы	path	incursion
+name_en	Leveling items (low level)	name_ru	Предметы прокачки	description_en	Generate typical loot from low level areas	description_ru	Генерирует лут с низкоуровневых локаций	path	leveling low
+name_en	Legion items	name_ru	Предметы Легиона	description_en	Generate Legion splinters/emblem/items	description_ru	Генерирует осколки/эмблемы/предметы Легиона	path	legion
+name_en	Map items	name_ru	Предметы карт	description_en	Generate maps and map fragments.\nMaps can be shaped/elder/blighted	description_ru	Генерирует карты и фрагменты карт\nКарты могут быть шейпера/древнего/заражённые	path	maps
+name_en	Oils	name_ru	Масла	description_en	Generate lot of oils	description_ru	Генерирует множество масел	path	oils
+name_en	Skill gems	name_ru	Камни умений	description_en	Generate skill gems with different gem level and quality	description_ru	Генерирует камни умений	path	skill gems
+name_en	Syndicate	name_ru	Синдикат	description_en	Generate item with veiled mods, and lot of scarabs	description_ru	Генерирует вещи с завуалированными свойствами, а так же скарабеев	path	syndicate
+name_en	Prophecy	name_ru	Пророчества	description_en	Generate lot of prophecies	description_ru	Генерирует множество пророчеств	path	prophecy

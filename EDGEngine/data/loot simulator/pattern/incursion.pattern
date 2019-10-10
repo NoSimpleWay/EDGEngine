@@ -1,0 +1,20 @@
+item_name	Stone of Passage
+item_name	Flashpowder Keg
+item_name	Vial of Dominance
+item_name	Vial of Summoning
+item_name	Vial of Awakening
+item_name	Vial of the Ritual
+item_name	Vial of Fate
+item_name	Vial of Consequence
+item_name	Vial of Transcendence
+item_name	Vial of the Ghost
+item_name	Vial of Sacrifice
+random_category	EQUIP	explicit	Citaqualotl's
+random_category	EQUIP	explicit	Guatelitzi's
+random_category	EQUIP	explicit	Matatl's
+random_category	EQUIP	explicit	of Citaqualotl
+random_category	EQUIP	explicit	of Matatl
+random_category	EQUIP	explicit	of Puhuarte
+random_category	EQUIP	explicit	of Tacati
+random_category	EQUIP	explicit	Topotante's
+random_category	EQUIP	explicit	Xopec's

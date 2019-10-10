@@ -166,3 +166,8 @@ drop_list_element_low	Low
 drop_list_element_default	Default
 drop_list_element_rich	Rich
 drop_list_element_very_rich	Very rich
+quality_text	Quality:
+gem_level_text	Gem level:
+item_level_text	item level:
+map_tier_text	Map tier:
+corrupted_text	Corrupted

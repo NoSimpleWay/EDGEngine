@@ -58,6 +58,7 @@ public:
 	static std::string lower_charset;
 
 	static void load_localisation(std::string _text);
+	static void load_loot_pattern_list(std::string _text);
 	static void load_loot_pattern(std::string _text);
 
 	static std::string to_lower(std::string _s);
@@ -123,6 +124,16 @@ public:
 
 	static std::vector < std::string> oil_name_list;
 
+	//////////////////////////////////////////////////////////////////////
+	
+	static std::vector <std::string> loot_pattern_name;
+	static std::vector <std::string> loot_pattern_name_ru;
+
+	static std::vector <std::string> loot_pattern_description;
+	static std::vector <std::string> loot_pattern_description_ru;
+
+	static std::vector <std::string> loot_pattern_path;
+	//////////////////////////////////////////////////////////////////////
 };
 
 class EFile

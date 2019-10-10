@@ -195,6 +195,9 @@
     <ClCompile Include="EButtonAutogenLootSimulator.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="EWindowSelectLootPattern.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Batcher.h">
@@ -367,6 +370,9 @@
     </ClInclude>
     <ClInclude Include="EButtonAutogenLootSimulator.h">
       <Filter>Header Files\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="EWindowSelectLootPattern.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

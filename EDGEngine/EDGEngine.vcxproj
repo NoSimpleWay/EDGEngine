@@ -168,6 +168,7 @@
     <ClCompile Include="EInit.cpp" />
     <ClCompile Include="EWindowAC.cpp" />
     <ClCompile Include="EWindowOil.cpp" />
+    <ClCompile Include="EWindowSelectLootPattern.cpp" />
     <ClCompile Include="FilterBlockSeparator.cpp" />
     <ClCompile Include="LabEnchantment.cpp" />
     <ClCompile Include="LabEnchantment.h" />
@@ -242,6 +243,7 @@
     <ClInclude Include="EWindowMain.cpp" />
     <ClInclude Include="EWindowOil.h" />
     <ClInclude Include="EWindowSelectFont.h" />
+    <ClInclude Include="EWindowSelectLootPattern.h" />
     <ClInclude Include="EWindowSocketGroup.cpp" />
     <ClInclude Include="ExplicitGroup.h" />
     <ClInclude Include="FilterBlock.h" />

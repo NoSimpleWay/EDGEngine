@@ -24,3 +24,4 @@ random_subclass	SCARAB	random_cost_group	high	count	2
 random_subclass	SCARAB	random_cost_group	very_high	count	2
 random_subclass	SCARAB	random_cost_group	top	count	2
 item_name	Silver Flask	explicit	Catarina's Veiled
+random_class	Sceptres	explicit	of the Veil
