@@ -2048,6 +2048,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		loot_writer += '\n';
 		loot_writer += '\n';
 
+		std::string string_for_autogen_data = "";
+
 		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
 		{
 			loot_writer += "#separator ";
@@ -2070,14 +2072,22 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		}
 
 		for (FilterBlock* fb:StaticData::window_filter_block->filter_block_list)
-		if ((fb->autogen_include.at(_save_mode)) || (_ignore_autogen))
 		{
 			loot_writer += '\n';
 			loot_writer += '\n';
 
 
-
-			if (fb->is_show)
+			//if ((fb->autogen_include.at(_save_mode)) || (_ignore_autogen))
+			if
+			(
+				(fb->is_show)
+				&&
+				(
+					(fb->autogen_include.at(_save_mode))
+					||
+					(_ignore_autogen)
+				)
+			)
 			{
 				loot_writer += "Show";
 				loot_writer += '\n';
@@ -2182,7 +2192,22 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			{
 				loot_writer += '\t';
 				loot_writer += "SetFontSize ";
-				loot_writer += std::to_string(fb->font_size);
+
+				string_for_autogen_data = std::to_string(fb->font_size);
+
+				if
+				(
+					(!fb->autogen_include.at(_save_mode))
+					&&
+					(!_ignore_autogen)
+				)
+				{
+					string_for_autogen_data = "16";
+				}
+
+				loot_writer += string_for_autogen_data;
+
+
 				loot_writer += '\n';
 			}
 
@@ -2242,7 +2267,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
-			if (fb->is_alert_sound)
+			if
+			(
+				(fb->is_alert_sound)
+				&&
+				(
+					(fb->autogen_include.at(_save_mode))
+					||
+					(_ignore_autogen)
+				)
+			)
 			{
 				loot_writer += '\t';
 				if (fb->is_positional_sound)
@@ -2258,7 +2292,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
-			if (fb->is_custom_alert_sound)
+			if
+			(
+				fb->is_custom_alert_sound
+				&&
+				(
+					(fb->autogen_include.at(_save_mode))
+					||
+					(_ignore_autogen)
+				)
+			)
 			{
 				loot_writer += '\t';
 				loot_writer += "CustomAlertSound ";
@@ -2270,7 +2313,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
-			if (fb->is_ray)
+			if
+			(
+				fb->is_ray
+				&&
+				(
+					(fb->autogen_include.at(_save_mode))
+					||
+					(_ignore_autogen)
+				)
+			)
 			{
 				loot_writer += '\t';
 				loot_writer += "PlayEffect ";
@@ -2281,7 +2333,17 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
-			if (fb->is_minimap_icon)
+
+			if
+			(
+				fb->is_minimap_icon
+				&&
+				(
+					(fb->autogen_include.at(_save_mode))
+					||
+					(_ignore_autogen)
+				)
+			)
 			{
 				loot_writer += '\t';
 				loot_writer += "MinimapIcon ";
