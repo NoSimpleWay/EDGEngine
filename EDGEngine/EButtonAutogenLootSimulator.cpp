@@ -42,8 +42,8 @@ EButtonAutogenLootSimulator::EButtonAutogenLootSimulator(float _x, float _y, flo
 	drop_text_base.push_back("Rich");
 	drop_text_base.push_back("Very rich");
 
-	selected_element = 2;
-	text = drop_text.at(2);
+	selected_element = 0;
+	text = drop_text.at(0);
 
 
 }
@@ -93,6 +93,8 @@ void EButtonAutogenLootSimulator::update_localisation()
 		drop_text.at(2) = EString::localize_it("drop_list_element_default");
 		drop_text.at(3) = EString::localize_it("drop_list_element_rich");
 		drop_text.at(4) = EString::localize_it("drop_list_element_very_rich");
+
+		text = drop_text.at(selected_element);
 	}
 }
 

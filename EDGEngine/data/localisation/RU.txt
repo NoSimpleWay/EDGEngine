@@ -9,7 +9,7 @@ name_of_suffix/prefix	Название суффикса/префикса
 name_of_class	Название класса
 name_of_prophecy	Название пророчества
 press_me	=Нажми меня=
-open_loot_filter	Октрыть лут-фильтр
+open_loot_filter	Открыть лут-фильтр
 save_loot_filter	Сохранить лут фильтр
 create_new_loot_filter	Создать новый лут-фильтр
 text_hue	Цветовой тон

@@ -189,6 +189,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		have_input_mode = false;
 
 		bg_color->set_alpha(EColorCollection::GREEN, 0.35f);
+		text_color->set(EColorCollection::WHITE);
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_PATTERN_WINDOW)
@@ -619,6 +620,6 @@ void EButtonText::update_additional(float _d)
 		if (StaticData::filter_block_tab.at(data_id)->unsave_change)
 		{text_color->set(EColorCollection::RED);}
 		else
-		{text_color->set(EColorCollection::BLACK);}
+		{text_color->set(EColorCollection::WHITE);}
 	}
 }

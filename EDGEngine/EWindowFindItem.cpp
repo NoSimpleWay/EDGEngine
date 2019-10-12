@@ -529,6 +529,9 @@ public:
 		{
 			b->master_block = master_block;
 			b->description_text = "";
+
+			b->text_color->set(EColorCollection::WHITE);
+			b->bg_color->set(EColorCollection::BLACK);
 		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::ITEM)
@@ -913,6 +916,15 @@ public:
 	{
 		
 		int data_index=0;
+
+		for (EButton* b : button_list)
+		{
+			b->master_block = master_block;
+			b->description_text = "";
+
+			b->text_color->set(EColorCollection::WHITE);
+			b->bg_color->set(EColorCollection::BLACK);
+		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST)
 		{

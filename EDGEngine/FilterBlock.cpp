@@ -623,6 +623,10 @@
 		{
 			random_bg_offset_y -= random_bg_offset_y + size_y - 1000.0f;
 		}
+
+		if (random_bg_offset_y > 800) { random_bg_offset_y = 800; }
+		if (random_bg_offset_y < 0) { random_bg_offset_y = 0; }
+
 		_batch->draw_rect_gabarite_custom_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_wood_bg, 0, random_bg_offset_y, size_x, random_bg_offset_y + size_y);
 
 		if

@@ -155,7 +155,7 @@ static GLFWwindow* window;
 
 
 
-
+#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
 #include <experimental/filesystem>
 
 
@@ -2311,12 +2311,12 @@ int main()
 	StaticData::window_oil = new EWindowOil(7, true);
 	StaticData::window_oil->name = "Oils";
 	EControl::window_list.push_back(StaticData::window_oil);
-	StaticData::window_oil->is_active = true;
+	StaticData::window_oil->is_active = false;
 
 	StaticData::window_select_loot_pattern = new EWindowSelectLootPattern(8, true);
 	StaticData::window_select_loot_pattern->name = "Select loot pattern";
 	EControl::window_list.push_back(StaticData::window_select_loot_pattern);
-	StaticData::window_select_loot_pattern->is_active = true;
+	StaticData::window_select_loot_pattern->is_active = false;
 
 	StaticData::window_main = new EWindowMain(9, false);
 	StaticData::window_main->name = "Main window";

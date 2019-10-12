@@ -2,6 +2,8 @@
 #include "EUtils.h"
 #include <cmath>
 #include <irr/irrKlang.h>
+
+#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
 #include <experimental\filesystem>
 #include <iostream>
 #include <fstream>
@@ -1440,16 +1442,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									if (subdata == "15") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_15; }
 									if (subdata == "16") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_16; }
 
-									if (subdata == "ShAlchemy") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_ALCHEMY; }
-									if (subdata == "ShBlessed") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_BLESSED; }
-									if (subdata == "ShChaos") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_CHAOS; }
-									if (subdata == "ShDivine") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_DIVINE; }
-									if (subdata == "ShExalted") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_EXALTED; }
-									if (subdata == "ShFusing") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_FUSING; }
-									if (subdata == "ShGeneral") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_GENERAL; }
-									if (subdata == "ShMirror") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_MIRROR; }
-									if (subdata == "ShRegal") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_REGAL; }
-									if (subdata == "ShVaal") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_VAAL; }
+									if (EString::to_lower(subdata) == "shalchemy") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_ALCHEMY; }
+									if (EString::to_lower(subdata) == "shblessed") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_BLESSED; }
+									if (EString::to_lower(subdata) == "shchaos") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_CHAOS; }
+									if (EString::to_lower(subdata) == "shdivine") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_DIVINE; }
+									if (EString::to_lower(subdata) == "shexalted") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_EXALTED; }
+									if (EString::to_lower(subdata) == "shfusing") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_FUSING; }
+									if (EString::to_lower(subdata) == "shgeneral") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_GENERAL; }
+									if (EString::to_lower(subdata) == "shmirror") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_MIRROR; }
+									if (EString::to_lower(subdata) == "shregal") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_REGAL; }
+									if (EString::to_lower(subdata) == "shvaal") { just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_SHAPER_VAAL; }
 
 									if (just_created_block->alert_sound_id == Enums::DefaultAlertSound::SOUND_NONE)
 									{
@@ -1458,6 +1460,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										cout << red << "=================================================" << endl << white;
 
 										error_counts++;
+
+										//just_created_block->alert_sound_id = Enums::DefaultAlertSound::SOUND_01;
+										just_created_block->is_alert_sound = false;
 									}
 								
 								}
@@ -2366,6 +2371,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					have_equal_base_type = true;
 				}
 			}
+
 			if (have_equal_base_type)
 			{
 				loot_writer += '\t';
@@ -2383,7 +2389,17 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
-			if (fb->filter_block_items_button_list.size() > 0)
+			bool have_regular_base_type = false;
+
+			for (EButton* b : fb->filter_block_items_button_list)
+			{
+				if (!((EButtonFilterItem*)b)->is_full_equal_mode)
+				{
+					have_regular_base_type = true;
+				}
+			}
+
+			if ((have_regular_base_type) && (fb->filter_block_items_button_list.size() > 0))
 			{
 				loot_writer += '\t';
 				loot_writer += "BaseType";

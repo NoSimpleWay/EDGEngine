@@ -279,6 +279,7 @@ void EButtonItemSearch::right_click_event()
 
 void EButtonItemSearch::update_localisation()
 {
+	description_text = "";
 	if ((button_type == Enums::ButtonType::BUTTON_SEARCH_CUSTOM_SOUND)||(button_type == Enums::ButtonType::BUTTON_SEARCH_DEFAULT_SOUND))
 	{
 		description_text = EString::localize_it("description_press_rmb_to_play_sound");
