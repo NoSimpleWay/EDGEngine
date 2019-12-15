@@ -9,6 +9,7 @@ name_en	Incursion	name_ru	Вмешательство	description_en	Generate inc
 name_en	Leveling items (low level)	name_ru	Предметы прокачки	description_en	Generate typical loot from low level areas	description_ru	Генерирует лут с низкоуровневых локаций	path	leveling low
 name_en	Legion items	name_ru	Предметы Легиона	description_en	Generate Legion splinters/emblem/items	description_ru	Генерирует осколки/эмблемы/предметы Легиона	path	legion
 name_en	Map items	name_ru	Предметы карт	description_en	Generate maps and map fragments.\nMaps can be shaped/elder/blighted	description_ru	Генерирует карты и фрагменты карт\nКарты могут быть шейпера/древнего/заражённые	path	maps
+name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Метаморф"	path	new items
 name_en	Oils	name_ru	Масла	description_en	Generate lot of oils	description_ru	Генерирует множество масел	path	oils
 name_en	Skill gems	name_ru	Камни умений	description_en	Generate skill gems with different gem level and quality	description_ru	Генерирует камни умений	path	skill gems
 name_en	Syndicate	name_ru	Синдикат	description_en	Generate item with veiled mods, and lot of scarabs	description_ru	Генерирует вещи с завуалированными свойствами, а так же скарабеев	path	syndicate

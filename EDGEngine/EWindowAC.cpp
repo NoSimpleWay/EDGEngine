@@ -36,7 +36,7 @@ void EWindowAC::button_event(EButton* _b)
 	}
 
 	if (window_mode == Enums::WindowAcceptCancelMode::AC_exit_program)
-	{
+	{	
 		if (_b->button_type == Enums::ButtonType::BUTTON_ACCEPT)
 		{
 			StaticData::need_exit = true;

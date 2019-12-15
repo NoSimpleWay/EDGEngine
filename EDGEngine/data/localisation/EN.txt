@@ -171,3 +171,7 @@ gem_level_text	Gem level:
 item_level_text	item level:
 map_tier_text	Map tier:
 corrupted_text	Corrupted
+base_data_text_and_shaper	(AND) Shaper item
+base_data_text_or_shaper	(OR) Shaper item
+base_data_text_and_elder	(AND) Elder item
+base_data_text_or_elder	(OR) Elder item 

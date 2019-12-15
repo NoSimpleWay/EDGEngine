@@ -146,7 +146,9 @@
 				if
 					(
 					(
-						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM))
+						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_SHAPER))
+						||
+						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
 						||
 						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_MAP))
 						)
@@ -166,7 +168,9 @@
 				if
 					(
 					(
-						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_ITEM))
+						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER))
+						||
+						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER))
 						||
 						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_MAP))
 						)

@@ -91,8 +91,9 @@
 				if
 				(
 					(_button_type == Enums::ButtonType::BUTTON_SHAPER_ITEM) ||
-					(_button_type == Enums::ButtonType::BUTTON_SHAPER_MAP) ||
 					(_button_type == Enums::ButtonType::BUTTON_ELDER_ITEM) ||
+
+					(_button_type == Enums::ButtonType::BUTTON_SHAPER_MAP) ||
 					(_button_type == Enums::ButtonType::BUTTON_ELDER_MAP) ||
 
 					(_button_type == Enums::ButtonType::BUTTON_CORRUPTION) ||
@@ -108,7 +109,16 @@
 				}
 				else
 				{
-					but = new EButtonInputBaseData(0, 0, 65, 17, _button_type);
+					if
+					(
+						(_button_type != Enums::ButtonType::BUTTON_OR_ELDER_ITEM) &&
+						(_button_type != Enums::ButtonType::BUTTON_OR_SHAPER_ITEM) &&
+						(_button_type != Enums::ButtonType::BUTTON_AND_ELDER_ITEM) &&
+						(_button_type != Enums::ButtonType::BUTTON_AND_SHAPER_ITEM)
+					)
+					{but = new EButtonInputBaseData(0, 0, 65, 17, _button_type);}
+					else
+					{but = NULL; }
 				}
 			}
 			else
@@ -117,11 +127,17 @@
 				//if (_button_type == Enums::ButtonType::BUTTON_SOCKET_GROUP) { but = new EButtonDropRarity(0, 0, 16, 17, _button_type);}
 			}
 
-			but->master_block = this;
-			but->master_window = StaticData::window_filter_block;
-			but->data_id = _id;
+			if (but != NULL)
+			{
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = _id;
+
+				
+			}
 
 			base_filter_buttons.push_back(but);
+			
 		}
 		else
 		{
@@ -235,13 +251,21 @@
 		add_base_buttons("Количество",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,		false,	Enums::BoolData::BOOL_STACK_SIZE);//13
 																																						
 		add_base_buttons("Осквернённый",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,		true,	Enums::BoolData::BOOL_CORRUPTION);//14
-		add_base_buttons("Предмет шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,		false,	Enums::BoolData::BOOL_SHAPER_ITEM);//15
-		add_base_buttons("Предмет древнего",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,		false,	Enums::BoolData::BOOL_ELDER_ITEM);//16
-		add_base_buttons("Синтезированный",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false,	Enums::BoolData::BOOL_SYNTHESISED);//17
-		add_base_buttons("Разбитый",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	Enums::BoolData::BOOL_FRACTURED);//18
-		add_base_buttons("Зачарование",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//19
-		add_base_buttons("Опознанный",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	Enums::BoolData::BOOL_IDENTIFIED);//20
-		add_base_buttons("Зараж. карта",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_BLIGHTED,			false,	Enums::BoolData::BOOL_BLIGHTED);//21
+		
+		add_base_buttons("(и) Пр. шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_SHAPER_ITEM,		false,	Enums::BoolData::BOOL_AND_SHAPER);//15
+		add_base_buttons("(или) Пр. шейпера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_SHAPER_ITEM,		false,	Enums::BoolData::BOOL_OR_SHAPER);//16
+		
+		add_base_buttons("(и) Пр. элдера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_ELDER_ITEM,		false,	Enums::BoolData::BOOL_AND_ELDER);//17
+		add_base_buttons("(или) Пр. элдера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_ELDER_ITEM,		false,	Enums::BoolData::BOOL_OR_ELDER);//18
+
+		add_base_buttons("Синтезир.",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false,	Enums::BoolData::BOOL_SYNTHESISED);//19
+		add_base_buttons("Разбитый",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	Enums::BoolData::BOOL_FRACTURED);//20
+		add_base_buttons("Зачарование",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//21
+		add_base_buttons("Опознанный",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	Enums::BoolData::BOOL_IDENTIFIED);//22
+		add_base_buttons("Зараж. карта",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_BLIGHTED,			false,	Enums::BoolData::BOOL_BLIGHTED);//23
+
+		add_base_buttons("Пр. Шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,			false,	Enums::BoolData::BOOL_SHAPER);//24
+		add_base_buttons("Пр. Древнего",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,			false,	Enums::BoolData::BOOL_ELDER);//25
 
 		
 		for (int i = 0; i < 6; i++)
@@ -567,13 +591,19 @@
 
 						base_filter_condition_list.at(i)->update(_d);
 
-						base_filter_buttons.at(i)->button_x = data_x + 35;
-						base_filter_buttons.at(i)->button_y = size_y - data_y;
+						if (base_filter_buttons.at(i) != NULL)
+						{
+							base_filter_buttons.at(i)->button_x = data_x + 35;
+							base_filter_buttons.at(i)->button_y = size_y - data_y;
+						}
 					}
 					else
 					{
-						base_filter_buttons.at(i)->button_x = data_x;
-						base_filter_buttons.at(i)->button_y = size_y - data_y;
+						if (base_filter_buttons.at(i) != NULL)
+						{
+							base_filter_buttons.at(i)->button_x = data_x;
+							base_filter_buttons.at(i)->button_y = size_y - data_y;
+						}
 					}
 
 
@@ -586,7 +616,8 @@
 					base_filter_data_remove_buttons.at(i)->update(_d);
 
 
-					base_filter_buttons.at(i)->update(_d);
+					if (base_filter_buttons.at(i) != NULL)
+					{base_filter_buttons.at(i)->update(_d);}
 
 					data_y += _data_y_offset;
 				}
@@ -631,9 +662,9 @@
 
 		if
 		(
-			(base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_ITEM))
+			(base_filter_data_bool.at(Enums::BoolData::BOOL_AND_SHAPER))
 			&&
-			(base_filter_data_active.at(Enums::BoolData::BOOL_SHAPER_ITEM))
+			(base_filter_data_active.at(Enums::BoolData::BOOL_AND_SHAPER))
 		)
 		{
 			if (is_show) { _batch->setcolor_255(180, 180, 180, 180); } else { _batch->setcolor_255(150, 50, 25, 100); }
@@ -645,9 +676,9 @@
 		else
 		if
 		(
-			(base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_ITEM))
+			(base_filter_data_bool.at(Enums::BoolData::BOOL_AND_ELDER))
 			&&
-			(base_filter_data_active.at(Enums::BoolData::BOOL_ELDER_ITEM))
+			(base_filter_data_active.at(Enums::BoolData::BOOL_AND_ELDER))
 		)
 		{
 			if (is_show) {_batch->setcolor_255(255, 255, 255, 200);} else {_batch->setcolor_255(200, 150, 100, 150);}
@@ -1002,7 +1033,8 @@
 					//base_filter_data_remove_buttons.at(i)->button_y = 0;
 				}
 
-				base_filter_buttons.at(i)->default_draw(_batch);
+				if (base_filter_buttons.at(i) != NULL)
+				{base_filter_buttons.at(i)->default_draw(_batch);}
 
 				base_filter_data_remove_buttons.at(i)->default_draw(_batch);
 				base_filter_data_remove_buttons.at(i)->additional_draw(_batch);
@@ -1148,7 +1180,9 @@
 			if (base_filter_data_active.at(i))
 			{
 				if (base_filter_condition_list.at(i)!=NULL) { base_filter_condition_list.at(i)->text_pass(_batch); }
-				base_filter_buttons.at(i)->text_pass(_batch);
+
+				if (base_filter_buttons.at(i) != NULL)
+				{base_filter_buttons.at(i)->text_pass(_batch);}
 
 				base_filter_data_remove_buttons.at(i)->text_pass(_batch);
 			}
@@ -1285,13 +1319,27 @@
 		base_filter_data_name.at(13) = EString::localize_it("base_data_text_quantity");
 		
 		base_filter_data_name.at(14) = EString::localize_it("base_data_text_corrupted");
-		base_filter_data_name.at(15) = EString::localize_it("base_data_text_shaper_item");
-		base_filter_data_name.at(16) = EString::localize_it("base_data_text_elder_item");
-		base_filter_data_name.at(17) = EString::localize_it("base_data_text_synthesis");
-		base_filter_data_name.at(18) = EString::localize_it("base_data_text_fractured");
-		base_filter_data_name.at(19) = EString::localize_it("base_data_text_enchanted");
-		base_filter_data_name.at(20) = EString::localize_it("base_data_text_identified");
-		base_filter_data_name.at(21) = EString::localize_it("base_data_text_blighted");
+
+		base_filter_data_name.at(15) = EString::localize_it("base_data_text_and_shaper");
+		base_filter_data_name.at(16) = EString::localize_it("base_data_text_or_shaper");
+
+		base_filter_data_name.at(17) = EString::localize_it("base_data_text_and_elder");
+		base_filter_data_name.at(18) = EString::localize_it("base_data_text_or_elder");
+
+		base_filter_data_name.at(19) = EString::localize_it("base_data_text_synthesis");
+		base_filter_data_name.at(20) = EString::localize_it("base_data_text_fractured");
+		base_filter_data_name.at(21) = EString::localize_it("base_data_text_enchanted");
+		base_filter_data_name.at(22) = EString::localize_it("base_data_text_identified");
+		base_filter_data_name.at(23) = EString::localize_it("base_data_text_blighted");
+
+		base_filter_data_name.at(24) = EString::localize_it("base_data_text_shaper_item");
+		base_filter_data_name.at(25) = EString::localize_it("base_data_text_elder_item");
+
+		/*
+		base_filter_data_name.at(26) = EString::localize_it("base_data_text_elder_item");
+		base_filter_data_name.at(27) = EString::localize_it("base_data_text_elder_item");
+		*/
+		//base_filter_data_name.at(24) = EString::localize_it("base_data_text_blighted");
 
 		link_to_cancel_remove_button->update_localisation();
 

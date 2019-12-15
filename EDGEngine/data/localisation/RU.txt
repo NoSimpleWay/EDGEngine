@@ -9,7 +9,7 @@ name_of_suffix/prefix	Название суффикса/префикса
 name_of_class	Название класса
 name_of_prophecy	Название пророчества
 press_me	=Нажми меня=
-open_loot_filter	Открыть лут-фильтр
+open_loot_filter	Октрыть лут-фильтр
 save_loot_filter	Сохранить лут фильтр
 create_new_loot_filter	Создать новый лут-фильтр
 text_hue	Цветовой тон
@@ -171,3 +171,7 @@ gem_level_text	Уровень камня:
 item_level_text	Уровень предмета:
 map_tier_text	Тир карты:
 corrupted_text	Осквернённый:
+base_data_text_and_shaper	(И) Пр. Шейпера
+base_data_text_or_shaper	(ИЛИ) Пр. Шейпера
+base_data_text_and_elder	(И) Пр. Древнего
+base_data_text_or_elder	(ИЛИ) Пр. Древнего

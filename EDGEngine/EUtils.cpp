@@ -1108,11 +1108,15 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if (subdata == "BaseType") { parser_mode = Enums::ParserMode::BASETYPE; }
 
-								if (subdata == "ShaperItem") { parser_mode = Enums::ParserMode::IS_SHAPER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM) = true; }
+								if (subdata == "ShaperItem") { parser_mode = Enums::ParserMode::IS_SHAPER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER) = true; }
+								
+								if (subdata == "HasInfluence") { parser_mode = Enums::ParserMode::IS_HAVE_INFLUENCE_OR; }
+								
 								if (subdata == "ItemLevel") { parser_mode = Enums::ParserMode::ITEM_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL) = true; }
+
 								if (subdata == "HasExplicitMod") { parser_mode = Enums::ParserMode::EXPLICIT_MOD; explicit_group_id++;  just_created_block->is_explicit = true; }
 								if (subdata == "Identified") { parser_mode = Enums::ParserMode::IDENTIFIED; just_created_block->is_identified_active = true; }
-								if (subdata == "ElderItem") { parser_mode = Enums::ParserMode::IS_ELDER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_ITEM) = true; }
+								if (subdata == "ElderItem") { parser_mode = Enums::ParserMode::IS_ELDER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER) = true; }
 								if (subdata == "Sockets") { parser_mode = Enums::ParserMode::SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS) = true; }
 								if (subdata == "FracturedItem") { parser_mode = Enums::ParserMode::IS_FRACTURED_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_FRACTURED) = true; }
 								if (subdata == "DropLevel") { parser_mode = Enums::ParserMode::DROP_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_REQUIRED_LEVEL) = true; }
@@ -1609,7 +1613,54 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							if (parser_mode == Enums::ParserMode::IS_SHAPER_ITEM)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate shaper item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set shaper item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_ITEM) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set shaper item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER) = EString::convert_text_to_bool(subdata); }
+							}
+
+							if (parser_mode == Enums::ParserMode::IS_HAVE_INFLUENCE_OR)
+							{
+								if (data_order == 0) { if (show_info_to_console) { cout << "activate shaper item property" << endl; } }
+
+								if ((data_order == 1) && (subdata == "=="))
+								{
+									if (show_info_to_console) { cout << "change to AND mode" << endl; }
+
+									parser_mode == Enums::ParserMode::IS_HAVE_INFLUENCE_AND;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "shaper"))
+								{
+									if (show_info_to_console) { cout << "set shaper item as <true>" << endl; }
+								
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_SHAPER) = true;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "elder"))
+								{
+									if (show_info_to_console) { cout << "set elder item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_ELDER) = true;
+								}
+							}
+
+							if (parser_mode == Enums::ParserMode::IS_HAVE_INFLUENCE_AND)
+							{
+								if ((data_order > 0) && (EString::to_lower(subdata) == "shaper"))
+								{
+									if (show_info_to_console) { cout << "set shaper item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_SHAPER) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_SHAPER) = true;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "elder"))
+								{
+									if (show_info_to_console) { cout << "set elder item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_ELDER) = true;
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::ITEM_LEVEL)
@@ -1665,7 +1716,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							if (parser_mode == Enums::ParserMode::IS_ELDER_ITEM)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate elder item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set elder item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_ITEM) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set elder item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER) = EString::convert_text_to_bool(subdata); }
 							}
 
 							if (parser_mode == Enums::ParserMode::DROP_LEVEL)
@@ -2416,9 +2467,45 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_ITEM))
+			if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER))||(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_SHAPER)))
 			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_ITEM))
+					loot_writer += '\t';
+					loot_writer += "HasInfluence ==";
+
+					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER))
+					{
+						loot_writer += " Elder";
+					}
+
+					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_SHAPER))
+					{
+						loot_writer += " Shaper";
+					}
+
+					loot_writer += '\n';
+			}
+
+			if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER)) || (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER)))
+			{
+				loot_writer += '\t';
+				loot_writer += "HasInfluence";
+
+				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER))
+				{
+					loot_writer += " Elder";
+				}
+
+				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
+				{
+					loot_writer += " Shaper";
+				}
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER))
 				{
 					loot_writer += '\t';
 					loot_writer += "ShaperItem True";
@@ -2428,6 +2515,22 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				{
 					loot_writer += '\t';
 					loot_writer += "ShaperItem False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER))
+				{
+					loot_writer += '\t';
+					loot_writer += "ElderItem True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "ElderItem False";
 					loot_writer += '\n';
 				}
 			}
@@ -2479,9 +2582,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				}
 			}
 
+			/*
 			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_ITEM))
 			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_ITEM))
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_ELDER))
 				{
 					loot_writer += '\t';
 					loot_writer += "ElderItem True";
@@ -2493,7 +2597,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					loot_writer += "ElderItem False";
 					loot_writer += '\n';
 				}
-			}
+			}*/
 
 			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_REQUIRED_LEVEL))
 			{

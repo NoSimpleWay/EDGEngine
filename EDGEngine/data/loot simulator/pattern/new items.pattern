@@ -1,0 +1,48 @@
+random_subclass	AWAKENED	base_class	Support Skill Gems	count	5	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	5
+random_subclass	NEW	count	5	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	23
+item_name	Crusader's Exalted Orb	count	1
+item_name	Redeemer's Exalted Orb	count	1
+item_name	Hunter's Exalted Orb	count	1
+item_name	Warlord's Exalted Orb	count	1
+item_name	Metamorph Brain	count	1
+item_name	Metamorph Eye	count	1
+item_name	Metamorph Liver	count	1
+item_name	Metamorph Lung	count	1
+item_name	Metamorph Heart	count	1
+item_name	Turbulent Catalyst	count	1
+item_name	Imbued Catalyst	count	1
+item_name	Abrasive Catalyst	count	1
+item_name	Tempering Catalyst	count	1
+item_name	Fertile Catalyst	count	1
+item_name	Prismatic Catalyst	count	1
+item_name	Intrinsic Catalyst	count	1
+item_name	Simple Sextant	count	1
+item_name	Prime Sextant	count	1
+item_name	Awakened Sextant	count	1
+item_name	Fragment of Enslavement	count	1
+item_name	Fragment of Eradication	count	1
+item_name	Fragment of Constriction	count	1
+item_name	Fragment of Purification	count	1
+item_name	Fragment of Shape	count	1
+item_name	Fragment of Knowledge	count	1
+item_name	Fragment of Terror	count	1
+item_name	Fragment of Emptiness	count	1
+item_name	Ivory Watchstone	count	1
+item_name	Baited Expectations	count	1
+item_name	Succor of the Sinless	count	1
+item_name	Underground Forest	count	1
+item_name	The Escape	count	1
+item_name	Deathly Designs	count	1
+item_name	The Chosen	count	1
+item_name	Cameria's Cut	count	1
+item_name	Divine Justice	count	1
+item_name	The Fishmonger	count	1
+item_name	The Bones	count	1
+item_name	Friendship	count	1
+item_name	The Craving	count	1
+item_name	Etched in Blood	count	1
+item_name	Squandered Prosperity	count	1
+item_name	Crimson Watchstone	count	1
+item_name	Cobalt Watchstone	count	1
+item_name	Viridian Watchstone	count	1
+item_name	Golden Watchstone	count	1
