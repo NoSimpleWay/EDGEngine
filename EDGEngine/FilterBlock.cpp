@@ -257,15 +257,27 @@
 		
 		add_base_buttons("(и) Пр. элдера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_ELDER_ITEM,		false,	Enums::BoolData::BOOL_AND_ELDER);//17
 		add_base_buttons("(или) Пр. элдера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_ELDER_ITEM,		false,	Enums::BoolData::BOOL_OR_ELDER);//18
+		
+		add_base_buttons("(и) Пр. элдера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_ELDER_ITEM,		false,	Enums::BoolData::BOOL_AND_ELDER);//19
+		add_base_buttons("(или) Пр. элдера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_ELDER_ITEM,		false,	Enums::BoolData::BOOL_OR_ELDER);//20
+		
+		add_base_buttons("(и) Пр. элдера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_ELDER_ITEM,		false,	Enums::BoolData::BOOL_AND_ELDER);//21
+		add_base_buttons("(или) Пр. элдера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_ELDER_ITEM,		false,	Enums::BoolData::BOOL_OR_ELDER);//22
+		
+		add_base_buttons("(и) Пр. элдера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_ELDER_ITEM,		false,	Enums::BoolData::BOOL_AND_ELDER);//23
+		add_base_buttons("(или) Пр. элдера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_ELDER_ITEM,		false,	Enums::BoolData::BOOL_OR_ELDER);//24
+		
+		add_base_buttons("(и) Пр. элдера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_ELDER_ITEM,		false,	Enums::BoolData::BOOL_AND_ELDER);//25
+		add_base_buttons("(или) Пр. элдера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_ELDER_ITEM,		false,	Enums::BoolData::BOOL_OR_ELDER);//26
 
-		add_base_buttons("Синтезир.",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false,	Enums::BoolData::BOOL_SYNTHESISED);//19
-		add_base_buttons("Разбитый",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	Enums::BoolData::BOOL_FRACTURED);//20
-		add_base_buttons("Зачарование",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//21
-		add_base_buttons("Опознанный",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	Enums::BoolData::BOOL_IDENTIFIED);//22
-		add_base_buttons("Зараж. карта",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_BLIGHTED,			false,	Enums::BoolData::BOOL_BLIGHTED);//23
+		add_base_buttons("Синтезир.",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false,	Enums::BoolData::BOOL_SYNTHESISED);//27
+		add_base_buttons("Разбитый",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	Enums::BoolData::BOOL_FRACTURED);//28
+		add_base_buttons("Зачарование",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//29
+		add_base_buttons("Опознанный",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	Enums::BoolData::BOOL_IDENTIFIED);//30
+		add_base_buttons("Зараж. карта",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_BLIGHTED,			false,	Enums::BoolData::BOOL_BLIGHTED);//31
 
-		add_base_buttons("Пр. Шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,			false,	Enums::BoolData::BOOL_SHAPER);//24
-		add_base_buttons("Пр. Древнего",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,			false,	Enums::BoolData::BOOL_ELDER);//25
+		add_base_buttons("Пр. Шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,			false,	Enums::BoolData::BOOL_SHAPER);//32
+		add_base_buttons("Пр. Древнего",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,			false,	Enums::BoolData::BOOL_ELDER);//33
 
 		
 		for (int i = 0; i < 6; i++)
@@ -1326,14 +1338,26 @@
 		base_filter_data_name.at(17) = EString::localize_it("base_data_text_and_elder");
 		base_filter_data_name.at(18) = EString::localize_it("base_data_text_or_elder");
 
-		base_filter_data_name.at(19) = EString::localize_it("base_data_text_synthesis");
-		base_filter_data_name.at(20) = EString::localize_it("base_data_text_fractured");
-		base_filter_data_name.at(21) = EString::localize_it("base_data_text_enchanted");
-		base_filter_data_name.at(22) = EString::localize_it("base_data_text_identified");
-		base_filter_data_name.at(23) = EString::localize_it("base_data_text_blighted");
+		base_filter_data_name.at(19) = EString::localize_it("base_data_text_and_crusader");
+		base_filter_data_name.at(20) = EString::localize_it("base_data_text_or_crusader");
 
-		base_filter_data_name.at(24) = EString::localize_it("base_data_text_shaper_item");
-		base_filter_data_name.at(25) = EString::localize_it("base_data_text_elder_item");
+		base_filter_data_name.at(21) = EString::localize_it("base_data_text_and_redeemer");
+		base_filter_data_name.at(22) = EString::localize_it("base_data_text_or_redeemer"); //крестоносца 23:52:40 15.12.2019
+
+		base_filter_data_name.at(23) = EString::localize_it("base_data_text_and_hunter");
+		base_filter_data_name.at(24) = EString::localize_it("base_data_text_or_hunter");
+
+		base_filter_data_name.at(25) = EString::localize_it("base_data_text_and_warlord");
+		base_filter_data_name.at(26) = EString::localize_it("base_data_text_or_warlord");
+
+		base_filter_data_name.at(27) = EString::localize_it("base_data_text_synthesis");
+		base_filter_data_name.at(28) = EString::localize_it("base_data_text_fractured");
+		base_filter_data_name.at(29) = EString::localize_it("base_data_text_enchanted");
+		base_filter_data_name.at(30) = EString::localize_it("base_data_text_identified");
+		base_filter_data_name.at(31) = EString::localize_it("base_data_text_blighted");
+
+		base_filter_data_name.at(32) = EString::localize_it("base_data_text_shaper_item");
+		base_filter_data_name.at(33) = EString::localize_it("base_data_text_elder_item");
 
 		/*
 		base_filter_data_name.at(26) = EString::localize_it("base_data_text_elder_item");

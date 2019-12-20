@@ -1189,10 +1189,35 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 				&&
 				(!_l->shaper_item)
 			)
+			||
+			(
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_CRUSADER))
+				//&&
+				//(!_l->shaper_item)
+			)
+			||
+			(
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_HUNTER))
+				//&&
+				//(!_l->shaper_item)
+			)
+			||
+			(
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER))
+				//&&
+				//(!_l->shaper_item)
+			)
+			||
+			(
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD))
+				//&&
+				//(!_l->shaper_item)
+			)
+			
 		)
 		{
 			match_detect = false;
-			if (!_default) { rejection("and shaper/elder", _l); }
+			if (!_default) { rejection("and shaper/elder/new influences", _l); }
 		}
 
 		if
@@ -1212,12 +1237,22 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			)
 			&&
 			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER)) || (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD))
 			)
 		)
 		{
 			match_detect = false;
-			if (!_default) { rejection("or shaper/elder", _l); }
+			if (!_default) { rejection("or shaper/elder/new influences", _l); }
 		}
 
 		if

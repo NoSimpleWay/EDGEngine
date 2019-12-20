@@ -175,3 +175,11 @@ base_data_text_and_shaper	(И) Пр. Шейпера
 base_data_text_or_shaper	(ИЛИ) Пр. Шейпера
 base_data_text_and_elder	(И) Пр. Древнего
 base_data_text_or_elder	(ИЛИ) Пр. Древнего
+base_data_text_and_crusader	(И) Крестоносца
+base_data_text_or_crusader	(ИЛИ) Крестоносца
+base_data_text_and_redeemer	(И) Избавителя
+base_data_text_or_redeemer	(ИЛИ) Избавителя
+base_data_text_and_hunter	(И) Охотника
+base_data_text_or_hunter	(ИЛИ) Охотника
+base_data_text_and_warlord	(И) Вождя
+base_data_text_or_warlord	(ИЛИ) Вождя

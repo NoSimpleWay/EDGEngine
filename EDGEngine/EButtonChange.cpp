@@ -79,6 +79,7 @@ void EButtonChange::click_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_CHANGE_OIL_COUNT)
 	{
+		std::cout << "oil: " << std::to_string(StaticData::window_oil->oil_count.at(data_id)) << std::endl;
 		if (is_increase)
 		{
 			if (StaticData::window_oil->oil_count.at(data_id) < 3)

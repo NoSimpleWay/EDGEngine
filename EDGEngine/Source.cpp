@@ -982,16 +982,16 @@ int main()
 	ESound::default_drop_sound_name.push_back("ItemFilterAlert15");
 	ESound::default_drop_sound_name.push_back("ItemFilterAlert16");
 
-	ESound::default_drop_sound_name.push_back("SHAlchemy");
-	ESound::default_drop_sound_name.push_back("SHBlessed");
-	ESound::default_drop_sound_name.push_back("SHChaos");
-	ESound::default_drop_sound_name.push_back("SHDivine");
-	ESound::default_drop_sound_name.push_back("SHExalted");
-	ESound::default_drop_sound_name.push_back("SHFusing");
-	ESound::default_drop_sound_name.push_back("SHGeneral");
-	ESound::default_drop_sound_name.push_back("SHMirror");
-	ESound::default_drop_sound_name.push_back("SHRegal");
-	ESound::default_drop_sound_name.push_back("SHVaal");
+	ESound::default_drop_sound_name.push_back("ShAlchemy");
+	ESound::default_drop_sound_name.push_back("ShBlessed");
+	ESound::default_drop_sound_name.push_back("ShChaos");
+	ESound::default_drop_sound_name.push_back("ShDivine");
+	ESound::default_drop_sound_name.push_back("ShExalted");
+	ESound::default_drop_sound_name.push_back("ShFusing");
+	ESound::default_drop_sound_name.push_back("ShGeneral");
+	ESound::default_drop_sound_name.push_back("ShMirror");
+	ESound::default_drop_sound_name.push_back("ShRegal");
+	ESound::default_drop_sound_name.push_back("ShVaal");
 
 
 
@@ -1013,16 +1013,16 @@ int main()
 	ESound::default_drop_sound_original_name.push_back("15");
 	ESound::default_drop_sound_original_name.push_back("16");
 
-	ESound::default_drop_sound_original_name.push_back("SHAlchemy");
-	ESound::default_drop_sound_original_name.push_back("SHBlessed");
-	ESound::default_drop_sound_original_name.push_back("SHChaos");
-	ESound::default_drop_sound_original_name.push_back("SHDivine");
-	ESound::default_drop_sound_original_name.push_back("SHExalted");
-	ESound::default_drop_sound_original_name.push_back("SHFusing");
-	ESound::default_drop_sound_original_name.push_back("SHGeneral");
-	ESound::default_drop_sound_original_name.push_back("SHMirror");
-	ESound::default_drop_sound_original_name.push_back("SHRegal");
-	ESound::default_drop_sound_original_name.push_back("SHVaal");
+	ESound::default_drop_sound_original_name.push_back("ShAlchemy");
+	ESound::default_drop_sound_original_name.push_back("ShBlessed");
+	ESound::default_drop_sound_original_name.push_back("ShChaos");
+	ESound::default_drop_sound_original_name.push_back("ShDivine");
+	ESound::default_drop_sound_original_name.push_back("ShExalted");
+	ESound::default_drop_sound_original_name.push_back("ShFusing");
+	ESound::default_drop_sound_original_name.push_back("ShGeneral");
+	ESound::default_drop_sound_original_name.push_back("ShMirror");
+	ESound::default_drop_sound_original_name.push_back("ShRegal");
+	ESound::default_drop_sound_original_name.push_back("ShVaal");
 
 	int sound_order = 0;
 	for (string s : ESound::default_drop_sound_name)

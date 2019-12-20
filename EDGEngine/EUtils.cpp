@@ -1642,6 +1642,38 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_ELDER) = true;
 								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "crusader"))
+								{
+									if (show_info_to_console) { cout << "set Crusader item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_CRUSADER) = true;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "redeemer"))
+								{
+									if (show_info_to_console) { cout << "set Redeemer item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_REDEEMER) = true;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "hunter"))
+								{
+									if (show_info_to_console) { cout << "set Hunter item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_HUNTER) = true;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "warlord"))
+								{
+									if (show_info_to_console) { cout << "set Warlord item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_WARLORD) = true;
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_HAVE_INFLUENCE_AND)
@@ -1660,6 +1692,38 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_ELDER) = true;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "crusader"))
+								{
+									if (show_info_to_console) { cout << "set Crusader item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_CRUSADER) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_CRUSADER) = true;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "redeemer"))
+								{
+									if (show_info_to_console) { cout << "set Redeemer item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_REDEEMER) = true;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "hunter"))
+								{
+									if (show_info_to_console) { cout << "set Hunter item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_HUNTER) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_HUNTER) = true;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "warlord"))
+								{
+									if (show_info_to_console) { cout << "set Warlord item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_WARLORD) = true;
 								}
 							}
 
@@ -2467,7 +2531,20 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
-			if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER))||(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_SHAPER)))
+			if
+				(
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_SHAPER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_CRUSADER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_HUNTER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD))
+			)
 			{
 					loot_writer += '\t';
 					loot_writer += "HasInfluence ==";
@@ -2482,10 +2559,43 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 						loot_writer += " Shaper";
 					}
 
+					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_CRUSADER))
+					{
+						loot_writer += " Crusader";
+					}
+
+					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER))
+					{
+						loot_writer += " Redeemer";
+					}
+
+					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_HUNTER))
+					{
+						loot_writer += " Hunter";
+					}
+
+					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD))
+					{
+						loot_writer += " Warlord";
+					}
+
 					loot_writer += '\n';
 			}
 
-			if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER)) || (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER)))
+			if
+			(
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD))
+			)
 			{
 				loot_writer += '\t';
 				loot_writer += "HasInfluence";
@@ -2498,6 +2608,26 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
 				{
 					loot_writer += " Shaper";
+				}
+
+				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER))
+				{
+					loot_writer += " Crusader";
+				}
+
+				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER))
+				{
+					loot_writer += " Redeemer";
+				}
+
+				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER))
+				{
+					loot_writer += " Hunter";
+				}
+
+				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD))
+				{
+					loot_writer += " Warlord";
 				}
 
 				loot_writer += '\n';

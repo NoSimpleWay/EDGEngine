@@ -174,4 +174,12 @@ corrupted_text	Corrupted
 base_data_text_and_shaper	(AND) Shaper item
 base_data_text_or_shaper	(OR) Shaper item
 base_data_text_and_elder	(AND) Elder item
-base_data_text_or_elder	(OR) Elder item 
+base_data_text_or_elder	(OR) Elder item
+base_data_text_and_crusader	(AND) Crusader
+base_data_text_or_crusader	(OR) Crusader
+base_data_text_and_redeemer	(AND) Redeemer
+base_data_text_or_redeemer	(OR) Redeemer
+base_data_text_and_hunter	(AND) Hunter
+base_data_text_or_hunter	(OR) Hunter
+base_data_text_and_warlord	(AND) Warlord
+base_data_text_or_warlord	(OR) Warlord
