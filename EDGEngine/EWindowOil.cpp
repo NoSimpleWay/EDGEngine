@@ -13,7 +13,7 @@ EWindowOil::EWindowOil(int _id, bool _can_be_closed):EWindow (_id, _can_be_close
 
 
 	window_size_x = 1400.0f;
-	window_size_y = 800.0f;
+	window_size_y = 600.0f;
 
 	bg_color->set_alpha(EColorCollection::DARK_GRAY, 0.9f);
 
@@ -21,12 +21,12 @@ EWindowOil::EWindowOil(int _id, bool _can_be_closed):EWindow (_id, _can_be_close
 
 	
 
-	for (int i = 0; i < 20; i++)
-	for (int j = 0; j < 30; j++)
+	for (int i = 0; i < 15; i++)
+	for (int j = 0; j < 43; j++)
 	{
 		if (id < EString::notable_list.size())
 		{
-			EButton* but = new EButtonService(100.0f + j * 40.0f, 600.0f - i * 40.0f, 32.0f, 32.0f, Enums::ButtonType::BUTTON_PASSIVE);
+			EButton* but = new EButtonService(10.0f + j * 32.0f, 400.0f - i * 32.0f, 28.0f, 28.0f, Enums::ButtonType::BUTTON_PASSIVE);
 			but->master_window = this;
 
 			but->description_text = EString::notable_list.at(id)->passive_name + "\\n\\n";

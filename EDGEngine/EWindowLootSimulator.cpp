@@ -19,9 +19,11 @@ EWindowLootSimulator::EWindowLootSimulator(int _id, bool _can_be_closed) :EWindo
 	window_size_x = 1000.0f;
 	window_size_y = 750.0f;
 
+	relative_y = 50.0f;
+
 	//relative_x = 16.0f;
 
-	//align_x = Enums::PositionMode::LEFT;
+	align_y = Enums::PositionMode::DOWN;
 
 	bg_color->set_alpha(EColorCollection::GRAY, 0.75f);
 

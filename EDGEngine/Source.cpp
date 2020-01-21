@@ -962,7 +962,8 @@ int main()
 		collision_matrix[j][i][z] = false;
 	}
 	
-	ESound::engine = irrklang::createIrrKlangDevice();
+	//ESound::engine = irrklang::createIrrKlangDevice();
+	ESound::engine = irrklang::createIrrKlangDevice(irrklang::E_SOUND_OUTPUT_DRIVER::ESOD_WIN_MM);
 
 	ESound::default_drop_sound_name.push_back("NONE");
 	ESound::default_drop_sound_name.push_back("ItemFilterAlert01");
@@ -1491,45 +1492,52 @@ int main()
 
 
 
-	StaticData::window_loot_simulator = new EWindowLootSimulator(3, true);
-	StaticData::window_loot_simulator->name = "Loot simulator";
-	EControl::window_list.push_back(StaticData::window_loot_simulator);
-	StaticData::window_loot_simulator->is_active = false;
-
-	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(4, true);
-	StaticData::window_filter_visual_editor->name = "Change colors and sounds";
-	EControl::window_list.push_back(StaticData::window_filter_visual_editor);
-	StaticData::window_filter_visual_editor->is_active = false;
 
 
 
 
-	StaticData::window_find_item = new EWindowFindItem(5, true);
+	StaticData::window_find_item = new EWindowFindItem(3, true);
 	StaticData::window_find_item->name = "Search item";
 	EControl::window_list.push_back(StaticData::window_find_item);
 	StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
 	StaticData::window_find_item->manual_event();
 	StaticData::window_find_item->is_active = false;
 
-	StaticData::window_filter_block_search = new EWindowFilterBlockSearch(6, false);
+	StaticData::window_filter_block_search = new EWindowFilterBlockSearch(4, false);
 	StaticData::window_filter_block_search->name = "Search filter blocks";
 	EControl::window_list.push_back(StaticData::window_filter_block_search);
 	StaticData::window_filter_block_search->is_active = true;
 
-	StaticData::window_oil = new EWindowOil(7, true);
+	StaticData::window_oil = new EWindowOil(5, true);
 	StaticData::window_oil->name = "Oils";
 	EControl::window_list.push_back(StaticData::window_oil);
 	StaticData::window_oil->is_active = false;
+
+
+	StaticData::window_main = new EWindowMain(6, false);
+	StaticData::window_main->name = "Main window";
+	EControl::window_list.push_back(StaticData::window_main);
+	StaticData::window_main->is_active = true;
+
+	StaticData::window_loot_simulator = new EWindowLootSimulator(7, true);
+	StaticData::window_loot_simulator->name = "Loot simulator";
+	EControl::window_list.push_back(StaticData::window_loot_simulator);
+	StaticData::window_loot_simulator->is_active = false;
 
 	StaticData::window_select_loot_pattern = new EWindowSelectLootPattern(8, true);
 	StaticData::window_select_loot_pattern->name = "Select loot pattern";
 	EControl::window_list.push_back(StaticData::window_select_loot_pattern);
 	StaticData::window_select_loot_pattern->is_active = false;
 
-	StaticData::window_main = new EWindowMain(9, false);
-	StaticData::window_main->name = "Main window";
-	EControl::window_list.push_back(StaticData::window_main);
-	StaticData::window_main->is_active = true;
+
+
+
+	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(9, true);
+	StaticData::window_filter_visual_editor->name = "Change colors and sounds";
+	EControl::window_list.push_back(StaticData::window_filter_visual_editor);
+	StaticData::window_filter_visual_editor->is_active = false;
+
+
 
 	StaticData::window_loading_screen = new EWindowLoadingScreen(10, false);
 	StaticData::window_loading_screen->name = "Loading screen";
