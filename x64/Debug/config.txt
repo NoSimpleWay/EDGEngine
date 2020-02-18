@@ -1,2 +1,2 @@
 arial
-RU
+EN

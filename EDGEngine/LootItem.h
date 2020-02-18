@@ -31,6 +31,13 @@ public:
 	int blue_socket;
 	int white_socket;
 
+	int linked_red_socket;
+	int linked_green_socket;
+	int linked_blue_socket;
+	int linked_white_socket;
+
+	std::vector<EColor*> socket_color;
+
 	int gem_level;
 
 	int map_tier;

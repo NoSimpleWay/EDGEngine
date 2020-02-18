@@ -835,11 +835,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		if
 			(
 			(_s == "<=") ||
-				(_s == "<") ||
-				(_s == "=") ||
-				(_s == ">") ||
-				(_s == ">=")
-				)
+			(_s == "<") ||
+			(_s == "=") ||
+			(_s == "==") ||
+			(_s == ">") ||
+			(_s == ">=")
+			)
 		{
 			return true;
 		}
@@ -979,7 +980,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		int error_counts = 0;
 		bool show_info_to_console = false;
 
-		
+		int data_order_start = 0;
 
 		EButton* just_created_button = NULL;
 
@@ -1056,6 +1057,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_block->is_show = true;
 
 									explicit_group_id = -1;
+
+									just_created_block->red_sockets = { 0,0,0,0,0 }; //.at(data_id) 18.02.2020 10:43:35
+									just_created_block->green_sockets = { 0,0,0,0,0 };
+									just_created_block->blue_sockets = { 0,0,0,0,0 };
+									just_created_block->white_sockets = { 0,0,0,0,0 };
+									just_created_block->abyss_sockets = { 0,0,0,0,0 };
+									just_created_block->delve_sockets = { 0,0,0,0,0 };
 								}
 
 								if (subdata == "Hide")
@@ -1068,6 +1076,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_block->is_show = false;
 
 									explicit_group_id = -1;
+
+									just_created_block->red_sockets = { 0,0,0,0,0 }; //.at(data_id) 18.02.2020 10:43:35
+									just_created_block->green_sockets = { 0,0,0,0,0 };
+									just_created_block->blue_sockets = { 0,0,0,0,0 };
+									just_created_block->white_sockets = { 0,0,0,0,0 };
+									just_created_block->abyss_sockets = { 0,0,0,0,0 };
+									just_created_block->delve_sockets = { 0,0,0,0,0 };
 								}
 
 								if (subdata == "Corrupted") { parser_mode = Enums::ParserMode::IS_CORRUPTED; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED) = true; }
@@ -1928,27 +1943,52 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 							if (parser_mode == Enums::ParserMode::SOCKET_GROUP)
 							{
+
+
+
 								if (data_order == 0)
 								{
 									if (show_info_to_console) { cout << "activate socket group property" << endl; }
+									data_order_start = 1;
 								}
 
-								if (data_order == 1)
+								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
-									just_created_block->red_sockets = 0;
-									just_created_block->green_sockets = 0;
-									just_created_block->blue_sockets = 0;
-									just_created_block->white_sockets = 0;
+									if (show_info_to_console) { cout << "set socket group condition as <" << subdata << ">" << endl; }
+									just_created_block->socket_group_condition = subdata;
+									data_order_start = 2;
+								}
 
+								if
+								(
+									(
+										(data_order == 1)
+										&&
+										(!EString::check_is_condition_symbols(subdata))
+									)
+									||
+									(data_order >= 2)
+								)
+								{
 									for (int socket = 0; socket < subdata.length(); socket++)
 									{
-										if (subdata.at(socket) == 'R') { just_created_block->red_sockets++; }
-										if (subdata.at(socket) == 'G') { just_created_block->green_sockets++; }
-										if (subdata.at(socket) == 'B') { just_created_block->blue_sockets++; }
-										if (subdata.at(socket) == 'W') { just_created_block->white_sockets++; }
+										if (subdata.at(socket) == '1') { just_created_block->socket_group_links.at(data_order - data_order_start) = 1; }
+										if (subdata.at(socket) == '2') { just_created_block->socket_group_links.at(data_order - data_order_start) = 2; }
+										if (subdata.at(socket) == '3') { just_created_block->socket_group_links.at(data_order - data_order_start) = 3; }
+										if (subdata.at(socket) == '4') { just_created_block->socket_group_links.at(data_order - data_order_start) = 4; }
+										if (subdata.at(socket) == '5') { just_created_block->socket_group_links.at(data_order - data_order_start) = 5; }
+										if (subdata.at(socket) == '6') { just_created_block->socket_group_links.at(data_order - data_order_start) = 6; }
+
+										if (subdata.at(socket) == 'R') { just_created_block->red_sockets.at(data_order - data_order_start)++; }
+										if (subdata.at(socket) == 'G') { just_created_block->green_sockets.at(data_order - data_order_start)++; }
+										if (subdata.at(socket) == 'B') { just_created_block->blue_sockets.at(data_order - data_order_start)++; }
+										if (subdata.at(socket) == 'W') { just_created_block->white_sockets.at(data_order - data_order_start)++; }
+										if (subdata.at(socket) == 'A') { just_created_block->abyss_sockets.at(data_order - data_order_start)++; }
+										if (subdata.at(socket) == 'D') { just_created_block->delve_sockets.at(data_order - data_order_start)++; }
 									}
 
-									if (show_info_to_console) { cout << "set RED as <" << just_created_block->red_sockets << "> set GREEN as <" << just_created_block->green_sockets << "> set BLUE as <" << just_created_block->blue_sockets << "> set WHITE as <" << just_created_block->white_sockets << ">" << endl; }
+									//{ cout << "set RED as <" << just_created_block->red_sockets.at(data_order - data_order_start) << "> set GREEN as <" << just_created_block->green_sockets.at(data_order - data_order_start) << "> set BLUE as <" << just_created_block->blue_sockets.at(data_order - data_order_start) << "> set WHITE as <" << just_created_block->white_sockets.at(data_order - data_order_start) << ">" << endl; }
+									//if (show_info_to_console) { cout << "set RED as <" << just_created_block->red_sockets << "> set GREEN as <" << just_created_block->green_sockets << "> set BLUE as <" << just_created_block->blue_sockets << "> set WHITE as <" << just_created_block->white_sockets << ">" << endl; }
 									//just_created_block->item_height = std::stoi(subdata);
 									//just_created_block->item_height_condition = "=";
 								}
@@ -2859,10 +2899,35 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\t';
 				loot_writer += "SocketGroup ";
 
-				for (int i = 0; i < fb->red_sockets; i++)		{ loot_writer += "R"; }
-				for (int i = 0; i < fb->green_sockets; i++)		{ loot_writer += "G"; }
-				for (int i = 0; i < fb->blue_sockets; i++)		{ loot_writer += "B"; }
-				for (int i = 0; i < fb->white_sockets; i++)		{ loot_writer += "W"; }
+				loot_writer += fb->socket_group_condition;
+
+				for (int k = 0; k < fb->red_sockets.size(); k++)
+				if
+				(
+					fb->red_sockets.at(k)+
+					fb->green_sockets.at(k)+
+					fb->blue_sockets.at(k)+
+					fb->white_sockets.at(k)+
+					fb->abyss_sockets.at(k)+
+					fb->delve_sockets.at(k)
+					>0
+				)
+				{
+
+
+					loot_writer += " ";
+					loot_writer += '"';
+
+					for (int i = 0; i < fb->red_sockets.at(k); i++) { loot_writer += "R"; }
+					for (int i = 0; i < fb->green_sockets.at(k); i++) { loot_writer += "G"; }
+					for (int i = 0; i < fb->blue_sockets.at(k); i++) { loot_writer += "B"; }
+					for (int i = 0; i < fb->white_sockets.at(k); i++) { loot_writer += "W"; }
+
+					for (int i = 0; i < fb->abyss_sockets.at(k); i++) { loot_writer += "A"; }
+					for (int i = 0; i < fb->delve_sockets.at(k); i++) { loot_writer += "D"; }
+
+					loot_writer += '"';
+				}
 
 				loot_writer += '\n';
 			}

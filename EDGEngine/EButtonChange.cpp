@@ -28,16 +28,29 @@ EButtonChange::EButtonChange(float _x, float _y, float _sx, float _sy, Enums::Bu
 void EButtonChange::click_event()
 {
 
+	if (button_type == Enums::ButtonType::BUTTON_SOCKET_LINKED)
+	{
+		//std::cout << "red " << master_block->red_sockets << std::endl;
+		if (is_increase)
+		{
+			if (master_block->socket_group_links.at(data_id) < 6) { master_block->socket_group_links.at(data_id)++; }
+		}
+		else
+		{
+			if (master_block->socket_group_links.at(data_id) > 0) { master_block->socket_group_links.at(data_id)--; }
+		}
+	}
+
 	if (button_type == Enums::ButtonType::BUTTON_SOCKET_RED)
 	{
 		//std::cout << "red " << master_block->red_sockets << std::endl;
 		if (is_increase)
 		{
-			if (master_block->red_sockets < 9) { master_block->red_sockets++; }
+			if (master_block->red_sockets.at(data_id) < 6) { master_block->red_sockets.at(data_id)++; }
 		}
 		else
 		{
-			if (master_block->red_sockets > 0) { master_block->red_sockets--; }
+			if (master_block->red_sockets.at(data_id) > 0) { master_block->red_sockets.at(data_id)--; }
 		}
 	}
 
@@ -45,11 +58,11 @@ void EButtonChange::click_event()
 	{
 		if (is_increase)
 		{
-			if (master_block->green_sockets < 9) { master_block->green_sockets++; }
+			if (master_block->green_sockets.at(data_id) < 6) { master_block->green_sockets.at(data_id)++; }
 		}
 		else
 		{
-			if (master_block->green_sockets > 0) { master_block->green_sockets--; }
+			if (master_block->green_sockets.at(data_id) > 0) { master_block->green_sockets.at(data_id)--; }
 		}
 	}
 
@@ -57,11 +70,11 @@ void EButtonChange::click_event()
 	{
 		if (is_increase)
 		{
-			if (master_block->blue_sockets < 9) { master_block->blue_sockets++; }
+			if (master_block->blue_sockets.at(data_id) < 6) { master_block->blue_sockets.at(data_id)++; }
 		}
 		else
 		{
-			if (master_block->blue_sockets > 0) { master_block->blue_sockets--; }
+			if (master_block->blue_sockets.at(data_id) > 0) { master_block->blue_sockets.at(data_id)--; }
 		}
 	}
 
@@ -69,11 +82,35 @@ void EButtonChange::click_event()
 	{
 		if (is_increase)
 		{
-			if (master_block->white_sockets < 9) { master_block->white_sockets++; }
+			if (master_block->white_sockets.at(data_id) < 6) { master_block->white_sockets.at(data_id)++; }
 		}
 		else
 		{
-			if (master_block->white_sockets > 0) { master_block->white_sockets--; }
+			if (master_block->white_sockets.at(data_id) > 0) { master_block->white_sockets.at(data_id)--; }
+		}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SOCKET_ABYSS)
+	{
+		if (is_increase)
+		{
+			if (master_block->abyss_sockets.at(data_id) < 6) { master_block->abyss_sockets.at(data_id)++; }
+		}
+		else
+		{
+			if (master_block->abyss_sockets.at(data_id) > 0) { master_block->abyss_sockets.at(data_id)--; }
+		}
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SOCKET_DELVE)
+	{
+		if (is_increase)
+		{
+			if (master_block->delve_sockets.at(data_id) < 6) { master_block->delve_sockets.at(data_id)++; }
+		}
+		else
+		{
+			if (master_block->delve_sockets.at(data_id) > 0) { master_block->delve_sockets.at(data_id)--; }
 		}
 	}
 

@@ -171,6 +171,7 @@ void EWindowLootSimulator::update(float _d)
 				}
 
 				if (loot->links < 0) { loot->links = 0; }
+				if (loot->links == 1) { loot->links = 2; }
 				if (loot->links > loot->sockets) { loot->links = loot->sockets; }
 			}
 
@@ -225,10 +226,20 @@ void EWindowLootSimulator::update(float _d)
 					if (color_pool.size() == 1) { selected_color = color_pool.at(0); }
 					if (color_pool.size() > 1) { selected_color = color_pool.at(rand() % color_pool.size()); }
 
-					if (selected_color == 0) { loot->red_socket++; }
-					if (selected_color == 1) { loot->green_socket++; }
-					if (selected_color == 2) { loot->blue_socket++; }
-					if (selected_color == 3) { loot->white_socket++; }
+					if (selected_color == 0) { loot->red_socket++; loot->socket_color.push_back(EColorCollection::RED); }
+					if (selected_color == 1) { loot->green_socket++; loot->socket_color.push_back(EColorCollection::GREEN);}
+					if (selected_color == 2) { loot->blue_socket++; loot->socket_color.push_back(EColorCollection::BLUE);}
+					if (selected_color == 3) { loot->white_socket++; loot->socket_color.push_back(EColorCollection::WHITE);}
+
+					if (i < loot->links)
+					{
+						if (selected_color == 0) { loot->linked_red_socket++; }
+						if (selected_color == 1) { loot->linked_green_socket++; }
+						if (selected_color == 2) { loot->linked_blue_socket++; }
+						if (selected_color == 3) { loot->linked_white_socket++; }
+					}
+
+
 				}
 			}
 
@@ -242,12 +253,12 @@ void EWindowLootSimulator::update(float _d)
 			if (p->elder_item_weight > 0) { random_elder = rand() % p->elder_item_weight; }
 			if (p->normal_item_weight > 0) { random_normal = rand() % p->normal_item_weight; }
 
-			if (random_shaper > max_value) { max_value = random_shaper; }
-			if (random_elder > max_value) { max_value = random_elder; }
-			if (random_normal > max_value) { max_value = random_normal; }
+			if (random_shaper > max_value)	{	max_value = random_shaper;	}
+			if (random_elder > max_value)	{	max_value = random_elder;	}
+			if (random_normal > max_value)	{	max_value = random_normal;	}
 
-			if (max_value == random_shaper) { loot->shaper_item = true; }
-			if (max_value == random_elder) { loot->elder_item = true; }
+			if (max_value == random_shaper) { loot->shaper_item = true;	}
+			if (max_value == random_elder) { loot->elder_item = true;	}
 
 			loot->enchantment = p->enchantment;
 
@@ -717,6 +728,9 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 				{
 					_batch->setcolor(EColorCollection::WHITE);
 				}
+
+				_batch->setcolor(loot->socket_color.at(i));
+
 				_batch->draw_rect_with_uv(xx + 354.0f + sockets_postition_x[i] * 40.0f, yy + 115.0f - sockets_postition_y[i] * 40.0f, 36.0f, 36.0f, DefaultGabarite::gabarite_socket);
 
 				_batch->setcolor(EColorCollection::WHITE);
@@ -863,6 +877,7 @@ bool EWindowLootSimulator::check_condition(std::string _condition, int _num_a, i
 	if ((_condition == "<") && (_num_a >= num_b)) { return false; }
 	if ((_condition == "<=") && (_num_a > num_b)) { return false; }
 	if ((_condition == "=") && (_num_a != num_b)) { return false; }
+	if ((_condition == "==") && (_num_a != num_b)) { return false; }
 	if ((_condition == ">=") && (_num_a < num_b)) { return false; }
 	if ((_condition == ">") && (_num_a <= num_b)) { return false; }
 
@@ -902,19 +917,19 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		for (EButton* b : fb->filter_block_items_button_list)
 		{
 			if
-			(
+				(
 				(
 					(!((EButtonFilterItem*)b)->is_full_equal_mode)
 					&&
 					(EString::to_lower(_l->data_name, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
-				)
-				||
-				(
+					)
+					||
+					(
 					(((EButtonFilterItem*)b)->is_full_equal_mode)
-					&&
-					(_l->data_name == b->data_string)
-				)
-			)
+						&&
+						(_l->data_name == b->data_string)
+						)
+					)
 			{
 				match_detect = true;
 			}
@@ -923,7 +938,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			{
 
 			}*/
-			
+
 		}
 
 		/*
@@ -971,7 +986,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 			match_detect = temp_match;
 
-			if ((!_default)&&(!temp_match)) { rejection("enchantment", _l); }
+			if ((!_default) && (!temp_match)) { rejection("enchantment", _l); }
 
 		}
 
@@ -980,17 +995,23 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			temp_match = true;
 
 			if (!fb->is_explicit)
-			{ temp_match = true; }
+			{
+				temp_match = true;
+			}
 			else
 			{
 				//std::cout << "explicit size in #" << std::to_string(fb->order_id) << " =" << std::to_string(fb->explicit_list.size()) << std::endl;
 				for (ExplicitGroup* ex : fb->explicit_list)
-				if (match_detect)
-				{
+					if (match_detect)
+					{
 						if (ex->button_list.size() > 0)
-						{temp_match = false;}
+						{
+							temp_match = false;
+						}
 						else
-						{temp_match = true;}
+						{
+							temp_match = true;
+						}
 
 						for (EButton* b : ex->button_list)
 						{
@@ -1013,18 +1034,18 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 						if (!temp_match) { match_detect = false; }
 
 						//match_detect = temp_match;
-				}
+					}
 			}
-			
-			
-			
+
+
+
 		}
 
 		if (match_detect)
 		{
 			temp_match = false;
 			if (!fb->is_prophecy_active) { temp_match = true; }
-			
+
 			for (EButton* b : fb->prophecy_list)
 			{
 				if
@@ -1035,7 +1056,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			}
 
 			match_detect = temp_match;
-		}	
+		}
 
 
 		//std::cout << "data rarity is active =" << std::to_string(true) << std::endl;
@@ -1113,23 +1134,57 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 
 		if
-			(
 			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP))
-				&&
+			{
+				//bool microreject = true;
+				match_detect = false;
+				for (int i = 0; i < fb->red_sockets.size(); i++)
+				if
 				(
-					(_l->red_socket < fb->red_sockets)
-					||
-					(_l->green_socket < fb->green_sockets)
-					||
-					(_l->blue_socket < fb->blue_sockets)
-					||
-					(_l->white_socket < fb->white_sockets)
+					(
+						(fb->red_sockets.at(i)>0)||
+						(fb->green_sockets.at(i)>0)||
+						(fb->blue_sockets.at(i)>0)||
+						(fb->white_sockets.at(i)>0)||
+						(fb->abyss_sockets.at(i)>0)||
+						(fb->delve_sockets.at(i)>0)
+					)
+					&&
+					(
+							(
+								(check_condition(fb->socket_group_condition, _l->linked_red_socket, fb->red_sockets.at(i)))
+								||
+								(fb->red_sockets.at(i) == 0)
+							)
+							&&
+							(
+								(check_condition(fb->socket_group_condition, _l->linked_green_socket, fb->green_sockets.at(i)))
+								||
+								(fb->green_sockets.at(i) == 0)
+							)
+							&&
+							(
+								(check_condition(fb->socket_group_condition, _l->linked_blue_socket, fb->blue_sockets.at(i)))
+								||
+								(fb->blue_sockets.at(i) == 0)
+							)
+							&&
+							(
+								(check_condition(fb->socket_group_condition, _l->linked_white_socket, fb->white_sockets.at(i)))
+								||
+								(fb->white_sockets.at(i) == 0)
+							)
 					)
 				)
-		{
-			match_detect = false;
-			if (!_default) { rejection("socket colour", _l); }
-		}
+				{
+					match_detect = true;
+				}
+
+				if (!match_detect)
+				{
+					if (!_default) { rejection("socket colour", _l); }
+				}
+			}
 
 		//std::cout << "is active=" << std::to_string(fb->is_synthesised_item_active) << " is synthesised block=" << std::to_string(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SYNTHESISED)) << "is synthesised item=" << std::to_string(_l->synthesised_item) << std::endl;
 

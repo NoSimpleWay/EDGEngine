@@ -49,14 +49,16 @@
 #include "ItemList.h"
 using namespace std;
 using namespace Helper;
-//Helper helper_object;
-
-
+//Helper helper_object; 
+              
+ 
 
 static int im_static = 0;
 int EControl::WTF = 0;
+ 
 
-int EControl::mouse_x = 0;
+   
+int EControl::mouse_x = 0; 
 int EControl::mouse_y = 0;
 
 bool EControl::button_pressed = false;
@@ -82,7 +84,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 void mouse_position_callback(GLFWwindow* window, double _x, double _y);
 void char_input_callback(GLFWwindow* window, unsigned int _char);
 
-//void load_texture();
+//void load_texture();           
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void load_texture(const char* _path, int _id);
 
@@ -197,7 +199,7 @@ EWindowLootSimulator* StaticData::window_loot_simulator =NULL;
 EWindowSelectFont* StaticData::window_select_font =NULL;
 EWindowAC* StaticData::window_accept_cancel;
 EWindowOil* StaticData::window_oil;
-EWindowSelectLootPattern* StaticData::window_select_loot_pattern;
+EWindowSelectLootPattern* StaticData::window_select_loot_pattern; 
 //EWindowAcceptCancel* StaticData::window_accept_cancel =NULL;
 
 EWindowFilterBlock* StaticData::default_filter_block =NULL;
@@ -1426,7 +1428,7 @@ int main()
 
 	put_texture_to_atlas("data/button_clone.png");				DefaultGabarite::gabarite_button_clone = just_created_gabarite;
 	put_texture_to_atlas("data/gray_separator.png");			DefaultGabarite::gabarite_button_separator = just_created_gabarite;
-	put_texture_to_atlas("data/gray_collapse.png");				DefaultGabarite::gabarite_button_collapse = just_created_gabarite;
+	put_texture_to_atlas("data/gray_collapse.png");				DefaultGabarite::gabarite_button_collapse = just_created_gabarite;                        
 
 	put_texture_to_atlas("data/icon/currency/Clear_Oil.png");		DefaultGabarite::gabarite_oil[0] = just_created_gabarite;
 	put_texture_to_atlas("data/icon/currency/Sepia_Oil.png");		DefaultGabarite::gabarite_oil[1] = just_created_gabarite;
@@ -1496,54 +1498,52 @@ int main()
 
 
 
-	StaticData::window_find_item = new EWindowFindItem(3, true);
+
+
+	StaticData::window_filter_block_search = new EWindowFilterBlockSearch(3, false);
+	StaticData::window_filter_block_search->name = "Search filter blocks";
+	EControl::window_list.push_back(StaticData::window_filter_block_search);
+	StaticData::window_filter_block_search->is_active = true;
+
+	StaticData::window_oil = new EWindowOil(4, true);
+	StaticData::window_oil->name = "Oils";
+	EControl::window_list.push_back(StaticData::window_oil);
+	StaticData::window_oil->is_active = false;
+
+
+	StaticData::window_main = new EWindowMain(5, false);
+	StaticData::window_main->name = "Main window";
+	EControl::window_list.push_back(StaticData::window_main);
+	StaticData::window_main->is_active = true;
+
+	StaticData::window_loot_simulator = new EWindowLootSimulator(6, true);
+	StaticData::window_loot_simulator->name = "Loot simulator";
+	EControl::window_list.push_back(StaticData::window_loot_simulator);
+	StaticData::window_loot_simulator->is_active = false;
+
+	StaticData::window_select_loot_pattern = new EWindowSelectLootPattern(7, true);
+	StaticData::window_select_loot_pattern->name = "Select loot pattern";
+	EControl::window_list.push_back(StaticData::window_select_loot_pattern);
+	StaticData::window_select_loot_pattern->is_active = false;
+
+	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(8, true);
+	StaticData::window_filter_visual_editor->name = "Change colors and sounds";
+	EControl::window_list.push_back(StaticData::window_filter_visual_editor);
+	StaticData::window_filter_visual_editor->is_active = false;
+
+	StaticData::window_find_item = new EWindowFindItem(9, true);
 	StaticData::window_find_item->name = "Search item";
 	EControl::window_list.push_back(StaticData::window_find_item);
 	StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
 	StaticData::window_find_item->manual_event();
 	StaticData::window_find_item->is_active = false;
 
-	StaticData::window_filter_block_search = new EWindowFilterBlockSearch(4, false);
-	StaticData::window_filter_block_search->name = "Search filter blocks";
-	EControl::window_list.push_back(StaticData::window_filter_block_search);
-	StaticData::window_filter_block_search->is_active = true;
-
-	StaticData::window_oil = new EWindowOil(5, true);
-	StaticData::window_oil->name = "Oils";
-	EControl::window_list.push_back(StaticData::window_oil);
-	StaticData::window_oil->is_active = false;
-
-
-	StaticData::window_main = new EWindowMain(6, false);
-	StaticData::window_main->name = "Main window";
-	EControl::window_list.push_back(StaticData::window_main);
-	StaticData::window_main->is_active = true;
-
-	StaticData::window_loot_simulator = new EWindowLootSimulator(7, true);
-	StaticData::window_loot_simulator->name = "Loot simulator";
-	EControl::window_list.push_back(StaticData::window_loot_simulator);
-	StaticData::window_loot_simulator->is_active = false;
-
-	StaticData::window_select_loot_pattern = new EWindowSelectLootPattern(8, true);
-	StaticData::window_select_loot_pattern->name = "Select loot pattern";
-	EControl::window_list.push_back(StaticData::window_select_loot_pattern);
-	StaticData::window_select_loot_pattern->is_active = false;
-
-
-
-
-	StaticData::window_filter_visual_editor = new EWindowFilterVisualEditor(9, true);
-	StaticData::window_filter_visual_editor->name = "Change colors and sounds";
-	EControl::window_list.push_back(StaticData::window_filter_visual_editor);
-	StaticData::window_filter_visual_editor->is_active = false;
-
-
-
 	StaticData::window_loading_screen = new EWindowLoadingScreen(10, false);
 	StaticData::window_loading_screen->name = "Loading screen";
 	StaticData::window_loading_screen->item_count = ItemList::item_list.size();
 	EControl::window_list.push_back(StaticData::window_loading_screen);
 	StaticData::window_loading_screen->is_active = true;
+
 
 	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(11, true);
 	StaticData::window_new_loot_filter->name = "New loot-filter";
@@ -1822,15 +1822,15 @@ int main()
 				w->default_update(delta_time);
 				w->update(delta_time);
 				w->pre_draw(batch, delta_time);
-				w->defaul_draw(batch);
+				w->defaul_draw(batch); 
 				w->draw(batch, delta_time);
-			}
+			} 
 
 			if (w->is_active)
 			{
 				w->default_text_pass(batch);
 				w->text_pass(batch);
-			}
+			} 
 		}
 
 

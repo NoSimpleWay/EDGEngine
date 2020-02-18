@@ -57,7 +57,7 @@ void EButtonDropCondition::incoming_data(FilterBlock* _filter)
 	if (button_type == Enums::ButtonType::BUTTON_CONDITION_RARITY)			{ text = _filter->rarity_condition; }
 	if (button_type == Enums::ButtonType::BUTTON_CONDITION_SOCKETS)			{ text = _filter->socket_condition; }
 	if (button_type == Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE)		{ text = _filter->item_stack_size_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_WIDTH)			{ text = _filter->item_width_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_SOCKET_GROUP)	{ text = _filter->socket_group_condition; }
 }
 
 void EButtonDropCondition::drop_list_select_event()
@@ -73,6 +73,7 @@ void EButtonDropCondition::drop_list_select_event()
 	if (button_type == Enums::ButtonType::BUTTON_CONDITION_SOCKETS)			{ master_block->socket_condition=text; }
 	if (button_type == Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE)		{ master_block->item_stack_size_condition=text; }
 	if (button_type == Enums::ButtonType::BUTTON_CONDITION_WIDTH)			{ master_block->item_width_condition=text; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_SOCKET_GROUP)	{ master_block->socket_group_condition =text; }
 }
 
 void EButtonDropCondition::update_localisation()

@@ -183,3 +183,11 @@ base_data_text_and_hunter	(AND) Hunter
 base_data_text_or_hunter	(OR) Hunter
 base_data_text_and_warlord	(AND) Warlord
 base_data_text_or_warlord	(OR) Warlord
+socket_group_button_description	Count of links and colours of linked sockets.\nPress to open socket group window
+socket_group_button_linked_sockets	Linked sockets: 
+socket_group_button_color_red	Red sockets: 
+socket_group_button_color_green	Green sockets: 
+socket_group_button_color_blue	Blue sockets: 
+socket_group_button_color_white	White sockets: 
+socket_group_button_color_abyssal	Abyssal (black) sockets: 
+socket_group_button_color_delve	Delve (resonator) sockets: 

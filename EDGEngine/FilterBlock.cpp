@@ -86,7 +86,7 @@
 
 			if (_button_type!=Enums::ButtonType::BUTTON_RARITY)
 			{
-				if (_button_type == Enums::ButtonType::BUTTON_SOCKET_GROUP) { but = new EButtonSocketGroup(0, 0, 100, 17, _button_type); }
+				if (_button_type == Enums::ButtonType::BUTTON_SOCKET_GROUP) { but = new EButtonSocketGroup(0, 0, 140, 17, _button_type); }
 				else
 				if
 				(
@@ -241,52 +241,52 @@
 
 
 		
-		add_base_buttons("Редкость",			Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,			false,	Enums::BoolData::BOOL_RARITY);//0
-		add_base_buttons("Уровень",				Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL,		Enums::ButtonType::BUTTON_ITEM_LEVEL,		false,	Enums::BoolData::BOOL_ITEM_LEVEL);//1
-		add_base_buttons("Треб. уровень",		Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL,		Enums::ButtonType::BUTTON_DROP_LEVEL,		false,	Enums::BoolData::BOOL_DROP_LEVEL);//2
-		add_base_buttons("Сокеты",				Enums::ButtonType::BUTTON_CONDITION_SOCKETS,		Enums::ButtonType::BUTTON_SOCKETS,			false,	Enums::BoolData::BOOL_SOCKETS);//3
-		add_base_buttons("Связи",				Enums::ButtonType::BUTTON_CONDITION_LINKS,			Enums::ButtonType::BUTTON_LINKS,			false,	Enums::BoolData::BOOL_LINKS);//4
-		add_base_buttons("Цвета гнёзд",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SOCKET_GROUP,		false,	Enums::BoolData::BOOL_SOCKET_GROUP);//5
-																																						
-		add_base_buttons("Качество",			Enums::ButtonType::BUTTON_CONDITION_QUALITY,		Enums::ButtonType::BUTTON_QUALITY,			true,	Enums::BoolData::BOOL_QUALITY);//6
-		add_base_buttons("Ур. камня",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,		false,	Enums::BoolData::BOOL_GEM_LEVEL);//7
-																																						
-		add_base_buttons("Тир карты",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,			true,	Enums::BoolData::BOOL_MAP_TIER);//8
-		add_base_buttons("Шейпер карта",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,		false,	Enums::BoolData::BOOL_SHAPER_MAP);//9
-		add_base_buttons("Карта древнего",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,		false,	Enums::BoolData::BOOL_ELDER_MAP);//10
-																																						
-		add_base_buttons("Ширина",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,			true,	Enums::BoolData::BOOL_WIDTH);//11
-		add_base_buttons("Высота",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,			false,	Enums::BoolData::BOOL_HEIGHT);//12
-		add_base_buttons("Количество",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,		false,	Enums::BoolData::BOOL_STACK_SIZE);//13
-																																						
-		add_base_buttons("Осквернённый",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,		true,	Enums::BoolData::BOOL_CORRUPTION);//14
+		add_base_buttons("Редкость",			Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,					false,	Enums::BoolData::BOOL_RARITY);//0
+		add_base_buttons("Уровень",				Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL,		Enums::ButtonType::BUTTON_ITEM_LEVEL,				false,	Enums::BoolData::BOOL_ITEM_LEVEL);//1
+		add_base_buttons("Треб. уровень",		Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL,		Enums::ButtonType::BUTTON_DROP_LEVEL,				false,	Enums::BoolData::BOOL_DROP_LEVEL);//2
+		add_base_buttons("Сокеты",				Enums::ButtonType::BUTTON_CONDITION_SOCKETS,		Enums::ButtonType::BUTTON_SOCKETS,					false,	Enums::BoolData::BOOL_SOCKETS);//3
+		add_base_buttons("Связи",				Enums::ButtonType::BUTTON_CONDITION_LINKS,			Enums::ButtonType::BUTTON_LINKS,					false,	Enums::BoolData::BOOL_LINKS);//4
+		add_base_buttons("Цвета гнёзд",			Enums::ButtonType::BUTTON_CONDITION_SOCKET_GROUP,	Enums::ButtonType::BUTTON_SOCKET_GROUP,				false,	Enums::BoolData::BOOL_SOCKET_GROUP);//5
+																																								
+		add_base_buttons("Качество",			Enums::ButtonType::BUTTON_CONDITION_QUALITY,		Enums::ButtonType::BUTTON_QUALITY,					true,	Enums::BoolData::BOOL_QUALITY);//6
+		add_base_buttons("Ур. камня",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,				false,	Enums::BoolData::BOOL_GEM_LEVEL);//7
+																																								
+		add_base_buttons("Тир карты",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,					true,	Enums::BoolData::BOOL_MAP_TIER);//8
+		add_base_buttons("Шейпер карта",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,				false,	Enums::BoolData::BOOL_SHAPER_MAP);//9
+		add_base_buttons("Карта древнего",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,				false,	Enums::BoolData::BOOL_ELDER_MAP);//10
+																																								
+		add_base_buttons("Ширина",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,					true,	Enums::BoolData::BOOL_WIDTH);//11
+		add_base_buttons("Высота",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,					false,	Enums::BoolData::BOOL_HEIGHT);//12
+		add_base_buttons("Количество",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,				false,	Enums::BoolData::BOOL_STACK_SIZE);//13
+																																								
+		add_base_buttons("Осквернённый",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,				true,	Enums::BoolData::BOOL_CORRUPTION);//14
 		
-		add_base_buttons("(и) Пр. шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_SHAPER_ITEM,		false,	Enums::BoolData::BOOL_AND_SHAPER);//15
-		add_base_buttons("(или) Пр. шейпера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_SHAPER_ITEM,		false,	Enums::BoolData::BOOL_OR_SHAPER);//16
+		add_base_buttons("(и) Пр. шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_SHAPER_ITEM,			true,	Enums::BoolData::BOOL_AND_SHAPER);//15
+		add_base_buttons("(или) Пр. шейпера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_SHAPER_ITEM,			false,	Enums::BoolData::BOOL_OR_SHAPER);//16
 		
-		add_base_buttons("(и) Пр. элдера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_ELDER_ITEM,		false,	Enums::BoolData::BOOL_AND_ELDER);//17
-		add_base_buttons("(или) Пр. элдера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_ELDER_ITEM,		false,	Enums::BoolData::BOOL_OR_ELDER);//18
+		add_base_buttons("(и) Пр. элдера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_ELDER_ITEM,			true,	Enums::BoolData::BOOL_AND_ELDER);//17
+		add_base_buttons("(или) Пр. элдера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_ELDER_ITEM,			false,	Enums::BoolData::BOOL_OR_ELDER);//18
 		
-		add_base_buttons("(и) Пр. крестоносца",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_CRUSADER_ITEM,		false,	Enums::BoolData::BOOL_AND_CRUSADER);//19
-		add_base_buttons("(или) Пр. крестоносца",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_CRUSADER_ITEM,		false,	Enums::BoolData::BOOL_OR_CRUSADER);//20
+		add_base_buttons("(и) Пр. крестоносца",		Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_AND_CRUSADER_ITEM,		true,	Enums::BoolData::BOOL_AND_CRUSADER);//19
+		add_base_buttons("(или) Пр. крестоносца",	Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_OR_CRUSADER_ITEM,			false,	Enums::BoolData::BOOL_OR_CRUSADER);//20
 		
-		add_base_buttons("(и) Пр. redemeer",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_REDEEMER_ITEM,		false,	Enums::BoolData::BOOL_AND_REDEEMER);//21
-		add_base_buttons("(или) Пр. redemeer",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_REDEEMER_ITEM,		false,	Enums::BoolData::BOOL_OR_REDEEMER);//22
+		add_base_buttons("(и) Пр. redemeer",		Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_AND_REDEEMER_ITEM,		true,	Enums::BoolData::BOOL_AND_REDEEMER);//21
+		add_base_buttons("(или) Пр. redemeer",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_REDEEMER_ITEM,			false,	Enums::BoolData::BOOL_OR_REDEEMER);//22
 		
-		add_base_buttons("(и) Пр. охотника",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_HUNTER_ITEM,		false,	Enums::BoolData::BOOL_AND_HUNTER);//23
-		add_base_buttons("(или) Пр. охотника",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_HUNTER_ITEM,		false,	Enums::BoolData::BOOL_OR_HUNTER);//24
+		add_base_buttons("(и) Пр. охотника",		Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_AND_HUNTER_ITEM,			true,	Enums::BoolData::BOOL_AND_HUNTER);//23
+		add_base_buttons("(или) Пр. охотника",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_HUNTER_ITEM,			false,	Enums::BoolData::BOOL_OR_HUNTER);//24
 		
-		add_base_buttons("(и) Пр. воеводы",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_WARLORD_ITEM,		false,	Enums::BoolData::BOOL_AND_WARLORD);//25
-		add_base_buttons("(или) Пр. воеводы",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_WARLORD_ITEM,		false,	Enums::BoolData::BOOL_OR_WARLORD);//26
+		add_base_buttons("(и) Пр. воеводы",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_WARLORD_ITEM,			true,	Enums::BoolData::BOOL_AND_WARLORD);//25
+		add_base_buttons("(или) Пр. воеводы",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_WARLORD_ITEM,			false,	Enums::BoolData::BOOL_OR_WARLORD);//26
 
-		add_base_buttons("Синтезир.",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,		false,	Enums::BoolData::BOOL_SYNTHESISED);//27
-		add_base_buttons("Разбитый",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,		false,	Enums::BoolData::BOOL_FRACTURED);//28
-		add_base_buttons("Зачарование",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,	false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//29
-		add_base_buttons("Опознанный",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,		false,	Enums::BoolData::BOOL_IDENTIFIED);//30
-		add_base_buttons("Зараж. карта",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_BLIGHTED,			false,	Enums::BoolData::BOOL_BLIGHTED);//31
+		add_base_buttons("Синтезир.",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,				true,	Enums::BoolData::BOOL_SYNTHESISED);//27
+		add_base_buttons("Разбитый",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,				false,	Enums::BoolData::BOOL_FRACTURED);//28
+		add_base_buttons("Зачарование",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,			false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//29
+		add_base_buttons("Опознанный",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,				false,	Enums::BoolData::BOOL_IDENTIFIED);//30
+		add_base_buttons("Зараж. карта",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_BLIGHTED,					false,	Enums::BoolData::BOOL_BLIGHTED);//31
 
-		add_base_buttons("Пр. Шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SHAPER_ITEM,			false,	Enums::BoolData::BOOL_SHAPER);//32
-		add_base_buttons("Пр. Древнего",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ELDER_ITEM,			false,	Enums::BoolData::BOOL_ELDER);//33
+		add_base_buttons("Пр. Шейпера",		Enums::ButtonType::BUTTON_NONE,							Enums::ButtonType::BUTTON_SHAPER_ITEM,				true,	Enums::BoolData::BOOL_SHAPER);//32
+		add_base_buttons("Пр. Древнего",	Enums::ButtonType::BUTTON_NONE,							Enums::ButtonType::BUTTON_ELDER_ITEM,				false,	Enums::BoolData::BOOL_ELDER);//33
 		
 		
 		for (int i = 0; i < 6; i++)
@@ -723,7 +723,7 @@
 		}
 
 		_batch->setcolor_alpha(EColorCollection::BLACK, 0.25f);
-		_batch->draw_rama(x + 5.0f, y + 5.0f, 295.0f, size_y - 10.0f, 3.0f, DefaultGabarite::gabarite_white);
+		_batch->draw_rama(x + 5.0f, y + 5.0f, 355.0f, size_y - 10.0f, 3.0f, DefaultGabarite::gabarite_white);
 
 		
 		
@@ -801,7 +801,7 @@
 			_batch->draw_rect_with_uv(x + size_x - 240.0f - right_side_buttons_offset, y + 10.0f, 35.0f * siz, 35.0f * siz, DefaultGabarite::gabarite_minimap_icon[minimap_icon_shape]);
 		}
 
-		float temp_pos_x = 310;
+		float temp_pos_x = start_position_draw_x;
 		float temp_pos_y = 10;
 
 
@@ -823,7 +823,7 @@
 
 				if (temp_pos_x + 53.0f > size_x - 260.0f)
 				{
-					temp_pos_x = 310.0f;
+					temp_pos_x = start_position_draw_x;
 					temp_pos_y += 53.0f;
 
 					if (temp_pos_y + 105 > max_h) { max_h = temp_pos_y + 105; button_h_max = max_h; }
@@ -851,7 +851,7 @@
 			temp_pos_x += 53.0f;
 		}
 
-		float ex_x = 310;
+		float ex_x = start_position_draw_x;
 		float ex_y = -10;
 
 		int close_button_id = 0;
@@ -900,7 +900,7 @@
 
 
 
-		ex_x = 310;
+		ex_x = start_position_draw_x;
 
 
 		if ((is_base_class_active) && ((remove_timer < 0)))
@@ -933,7 +933,7 @@
 			ex_y -= 30.0f;
 		}
 
-		ex_x = 310;
+		ex_x = start_position_draw_x;
 
 
 		if ((is_prophecy_active) && (remove_timer < 0))
@@ -965,7 +965,7 @@
 			ex_y -= 30.0f;
 		}
 
-		ex_x = 310;
+		ex_x = start_position_draw_x;
 		if ((is_enchantment_active) && (remove_timer < 0))
 		{
 			remove_enchantment_button->button_x = ex_x;
@@ -1000,7 +1000,7 @@
 			ex_y -= 30.0f;
 		}
 
-		button_add_new_EPC->button_x = 310;
+		button_add_new_EPC->button_x = start_position_draw_x;
 		button_add_new_EPC->button_y = ex_y;
 		max_h += 5;
 		if (-ex_y > 0)

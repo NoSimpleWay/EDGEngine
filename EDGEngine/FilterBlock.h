@@ -61,11 +61,16 @@ public:
 	int map_tier = 0;			bool is_map_tier_active = false;		std::string map_tier_condition = "=";
 
 
-	bool is_socket_group_active = false;
-	int red_sockets = 0;
-	int green_sockets = 0;
-	int blue_sockets = 0;
-	int white_sockets = 0;
+	bool is_socket_group_active = false;	std::string socket_group_condition = "=";
+
+	std::vector<int> socket_group_links = { 0,0,0,0,0 };
+	std::vector<int> red_sockets = { 0,0,0,0,0 };
+	std::vector<int> green_sockets = { 0,0,0,0,0 };
+	std::vector<int> blue_sockets = { 0,0,0,0,0 };
+	std::vector<int> white_sockets = { 0,0,0,0,0 };
+	std::vector<int> abyss_sockets = { 0,0,0,0,0 };
+	std::vector<int> delve_sockets = { 0,0,0,0,0 };
+
 	bool is_prophecy_active = false;
 	bool is_enchantment_active = false;
 
@@ -276,4 +281,6 @@ public:
 	std::vector <bool> autogen_include = { true, true, true, true, true, true };
 
 	std::vector <EButtonCheck*> autogen_button_link;
+
+	float start_position_draw_x = 370.0f;
 };

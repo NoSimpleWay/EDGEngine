@@ -58,7 +58,7 @@ void EButtonInputBaseData::incoming_data(FilterBlock* _filter)
 
 	if (button_type == Enums::ButtonType::BUTTON_SOCKETS)		{ text = std::to_string(_filter->socket_count); }
 	if (button_type == Enums::ButtonType::BUTTON_STACK_SIZE)	{ text = std::to_string(_filter->item_stack_size); }
-	if (button_type == Enums::ButtonType::BUTTON_WIDTH)			{ text = std::to_string(_filter->item_width); }
+	if (button_type == Enums::ButtonType::BUTTON_WIDTH)			{ text = std::to_string(_filter->item_width);}
 }
 
 void EButtonInputBaseData::input_finish_event()
