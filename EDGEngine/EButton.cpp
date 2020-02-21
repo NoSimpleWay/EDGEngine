@@ -117,7 +117,7 @@
 
 	bool EButton::is_outclick()
 	{
-		if ((EControl::mouse_pressed) && (!EControl::button_pressed) && (!is_overlap())) { return true; }
+		if ((EControl::mouse_pressed) && (!is_overlap())) { return true; }
 
 		return false;
 	}
@@ -630,7 +630,17 @@
 			bound_size_down = 0;
 		}
 
+		/*if (prev_description_text != description_text)
+		{
+			
+
+			//std::cout << "description changed from <" << prev_description_text << "> to [" << description_text << ">" << std::endl;
+
+			//prev_description_text = description_text;
+		}*/
+
 		if ((have_description) && (is_overlap())&&(description_text != ""))
+		//if (is_overlap() && (have_description))
 		{
 
 			EFont* target_font = EFont::active_font;

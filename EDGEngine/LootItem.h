@@ -30,6 +30,8 @@ public:
 	int green_socket;
 	int blue_socket;
 	int white_socket;
+	int abyss_socket;
+	int delve_socket;
 
 	int linked_red_socket;
 	int linked_green_socket;
@@ -45,6 +47,7 @@ public:
 	bool is_shaper_map = false;
 	bool is_elder_map = false;
 	bool is_blighted_map = false;
+	bool is_mirrored = false;
 
 	int height;
 	int width;
@@ -52,6 +55,7 @@ public:
 	int quantity = 1;
 
 	bool corrupted = false;
+	int corrupted_mods = 0;
 
 	bool shaper_item = false;
 	bool elder_item = false;

@@ -45,7 +45,16 @@ public:
 	float size_x = 300;
 	float size_y = 100;
 
-	int socket_count = 0;		bool is_socket_active = false;			std::string socket_condition = "=";
+	std::vector<int> socket_count = { 0,0,0,0,0 };
+	
+	bool is_socket_active = false;			std::string socket_condition = "=";
+	std::vector<int> red_sockets = { 0,0,0,0,0 };
+	std::vector<int> green_sockets = { 0,0,0,0,0 };
+	std::vector<int> blue_sockets = { 0,0,0,0,0 };
+	std::vector<int> white_sockets = { 0,0,0,0,0 };
+	std::vector<int> abyss_sockets = { 0,0,0,0,0 };
+	std::vector<int> delve_sockets = { 0,0,0,0,0 };
+
 	int links_count = 0;		bool is_links_active = false;			std::string links_condition = "=";
 
 	int item_level = 0;			bool is_item_level_active = false;		std::string item_level_condition = "=";
@@ -62,14 +71,16 @@ public:
 
 
 	bool is_socket_group_active = false;	std::string socket_group_condition = "=";
+	bool is_area_level_active = false;		std::string area_level_condition = "=";	int area_level = 0;
+	bool is_corrupted_mods_active = false;		std::string corrupted_mods_condition = "=";	int corrupted_mods_count = 0;
 
 	std::vector<int> socket_group_links = { 0,0,0,0,0 };
-	std::vector<int> red_sockets = { 0,0,0,0,0 };
-	std::vector<int> green_sockets = { 0,0,0,0,0 };
-	std::vector<int> blue_sockets = { 0,0,0,0,0 };
-	std::vector<int> white_sockets = { 0,0,0,0,0 };
-	std::vector<int> abyss_sockets = { 0,0,0,0,0 };
-	std::vector<int> delve_sockets = { 0,0,0,0,0 };
+	std::vector<int> red_sockets_group = { 0,0,0,0,0 };
+	std::vector<int> green_sockets_group = { 0,0,0,0,0 };
+	std::vector<int> blue_sockets_group = { 0,0,0,0,0 };
+	std::vector<int> white_sockets_group = { 0,0,0,0,0 };
+	std::vector<int> abyss_sockets_group = { 0,0,0,0,0 };
+	std::vector<int> delve_sockets_group = { 0,0,0,0,0 };
 
 	bool is_prophecy_active = false;
 	bool is_enchantment_active = false;
@@ -160,6 +171,7 @@ public:
 
 
 	bool is_show = true;
+	bool is_continue = false;
 	bool disable_drop_sound = false;
 
 	//EButton* idiot=NULL;
@@ -283,4 +295,6 @@ public:
 	std::vector <EButtonCheck*> autogen_button_link;
 
 	float start_position_draw_x = 370.0f;
+
+	EButton* link_to_continue_button;
 };

@@ -86,7 +86,14 @@
 
 			if (_button_type!=Enums::ButtonType::BUTTON_RARITY)
 			{
-				if (_button_type == Enums::ButtonType::BUTTON_SOCKET_GROUP) { but = new EButtonSocketGroup(0, 0, 140, 17, _button_type); }
+				if
+				(
+					(_button_type == Enums::ButtonType::BUTTON_SOCKETS_GROUP_COLORS_AND_LINKS)
+					||
+					(_button_type == Enums::ButtonType::BUTTON_SOCKETS_COLORS_AND_COUNT)
+				)
+				{ but = new EButtonSocketGroup(0, 0, 130, 17, _button_type); }
+				
 				else
 				if
 				(
@@ -101,7 +108,8 @@
 					(_button_type == Enums::ButtonType::BUTTON_SYNTHESISED) ||
 					(_button_type == Enums::ButtonType::BUTTON_IDENTIFIED) ||
 					(_button_type == Enums::ButtonType::BUTTON_ANY_ENCHANTMENT)||
-					(_button_type == Enums::ButtonType::BUTTON_BLIGHTED)
+					(_button_type == Enums::ButtonType::BUTTON_BLIGHTED)||
+					(_button_type == Enums::ButtonType::BUTTON_MIRRORED_ITEM)
 				)
 				{
 					
@@ -244,49 +252,53 @@
 		add_base_buttons("Редкость",			Enums::ButtonType::BUTTON_CONDITION_RARITY,			Enums::ButtonType::BUTTON_RARITY,					false,	Enums::BoolData::BOOL_RARITY);//0
 		add_base_buttons("Уровень",				Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL,		Enums::ButtonType::BUTTON_ITEM_LEVEL,				false,	Enums::BoolData::BOOL_ITEM_LEVEL);//1
 		add_base_buttons("Треб. уровень",		Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL,		Enums::ButtonType::BUTTON_DROP_LEVEL,				false,	Enums::BoolData::BOOL_DROP_LEVEL);//2
-		add_base_buttons("Сокеты",				Enums::ButtonType::BUTTON_CONDITION_SOCKETS,		Enums::ButtonType::BUTTON_SOCKETS,					false,	Enums::BoolData::BOOL_SOCKETS);//3
-		add_base_buttons("Связи",				Enums::ButtonType::BUTTON_CONDITION_LINKS,			Enums::ButtonType::BUTTON_LINKS,					false,	Enums::BoolData::BOOL_LINKS);//4
-		add_base_buttons("Цвета гнёзд",			Enums::ButtonType::BUTTON_CONDITION_SOCKET_GROUP,	Enums::ButtonType::BUTTON_SOCKET_GROUP,				false,	Enums::BoolData::BOOL_SOCKET_GROUP);//5
-																																								
-		add_base_buttons("Качество",			Enums::ButtonType::BUTTON_CONDITION_QUALITY,		Enums::ButtonType::BUTTON_QUALITY,					true,	Enums::BoolData::BOOL_QUALITY);//6
-		add_base_buttons("Ур. камня",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,				false,	Enums::BoolData::BOOL_GEM_LEVEL);//7
-																																								
-		add_base_buttons("Тир карты",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,					true,	Enums::BoolData::BOOL_MAP_TIER);//8
-		add_base_buttons("Шейпер карта",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,				false,	Enums::BoolData::BOOL_SHAPER_MAP);//9
-		add_base_buttons("Карта древнего",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,				false,	Enums::BoolData::BOOL_ELDER_MAP);//10
-																																								
-		add_base_buttons("Ширина",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,					true,	Enums::BoolData::BOOL_WIDTH);//11
-		add_base_buttons("Высота",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,					false,	Enums::BoolData::BOOL_HEIGHT);//12
-		add_base_buttons("Количество",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,				false,	Enums::BoolData::BOOL_STACK_SIZE);//13
-																																								
-		add_base_buttons("Осквернённый",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,				true,	Enums::BoolData::BOOL_CORRUPTION);//14
-		
-		add_base_buttons("(и) Пр. шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_SHAPER_ITEM,			true,	Enums::BoolData::BOOL_AND_SHAPER);//15
-		add_base_buttons("(или) Пр. шейпера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_SHAPER_ITEM,			false,	Enums::BoolData::BOOL_OR_SHAPER);//16
-		
-		add_base_buttons("(и) Пр. элдера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_ELDER_ITEM,			true,	Enums::BoolData::BOOL_AND_ELDER);//17
-		add_base_buttons("(или) Пр. элдера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_ELDER_ITEM,			false,	Enums::BoolData::BOOL_OR_ELDER);//18
-		
-		add_base_buttons("(и) Пр. крестоносца",		Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_AND_CRUSADER_ITEM,		true,	Enums::BoolData::BOOL_AND_CRUSADER);//19
-		add_base_buttons("(или) Пр. крестоносца",	Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_OR_CRUSADER_ITEM,			false,	Enums::BoolData::BOOL_OR_CRUSADER);//20
-		
-		add_base_buttons("(и) Пр. redemeer",		Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_AND_REDEEMER_ITEM,		true,	Enums::BoolData::BOOL_AND_REDEEMER);//21
-		add_base_buttons("(или) Пр. redemeer",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_REDEEMER_ITEM,			false,	Enums::BoolData::BOOL_OR_REDEEMER);//22
-		
-		add_base_buttons("(и) Пр. охотника",		Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_AND_HUNTER_ITEM,			true,	Enums::BoolData::BOOL_AND_HUNTER);//23
-		add_base_buttons("(или) Пр. охотника",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_HUNTER_ITEM,			false,	Enums::BoolData::BOOL_OR_HUNTER);//24
-		
-		add_base_buttons("(и) Пр. воеводы",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_WARLORD_ITEM,			true,	Enums::BoolData::BOOL_AND_WARLORD);//25
-		add_base_buttons("(или) Пр. воеводы",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_WARLORD_ITEM,			false,	Enums::BoolData::BOOL_OR_WARLORD);//26
+		add_base_buttons("Уровень области",		Enums::ButtonType::BUTTON_CONDITION_AREA_LEVEL,		Enums::ButtonType::BUTTON_AREA_LEVEL,				false,	Enums::BoolData::BOOL_AREA_LEVEL);//3
 
-		add_base_buttons("Синтезир.",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,				true,	Enums::BoolData::BOOL_SYNTHESISED);//27
-		add_base_buttons("Разбитый",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,				false,	Enums::BoolData::BOOL_FRACTURED);//28
-		add_base_buttons("Зачарование",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,			false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//29
-		add_base_buttons("Опознанный",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,				false,	Enums::BoolData::BOOL_IDENTIFIED);//30
-		add_base_buttons("Зараж. карта",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_BLIGHTED,					false,	Enums::BoolData::BOOL_BLIGHTED);//31
+		add_base_buttons("Сокеты",				Enums::ButtonType::BUTTON_CONDITION_SOCKETS,		Enums::ButtonType::BUTTON_SOCKETS_COLORS_AND_COUNT,	true,	Enums::BoolData::BOOL_SOCKETS);//4
+		add_base_buttons("Связи",				Enums::ButtonType::BUTTON_CONDITION_LINKS,			Enums::ButtonType::BUTTON_LINKS,					false,	Enums::BoolData::BOOL_LINKS);//5
+		add_base_buttons("Цвета гнёзд",			Enums::ButtonType::BUTTON_CONDITION_SOCKET_GROUP,	Enums::ButtonType::BUTTON_SOCKETS_GROUP_COLORS_AND_LINKS,				false,	Enums::BoolData::BOOL_SOCKET_GROUP);//6
+																																								
+		add_base_buttons("Качество",			Enums::ButtonType::BUTTON_CONDITION_QUALITY,		Enums::ButtonType::BUTTON_QUALITY,					true,	Enums::BoolData::BOOL_QUALITY);//7
+		add_base_buttons("Ур. камня",			Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL,		Enums::ButtonType::BUTTON_GEM_LEVEL,				false,	Enums::BoolData::BOOL_GEM_LEVEL);//8
+																																								
+		add_base_buttons("Тир карты",			Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_MAP_TIER,					true,	Enums::BoolData::BOOL_MAP_TIER);//9
+		add_base_buttons("Шейпер карта",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_SHAPER_MAP,				false,	Enums::BoolData::BOOL_SHAPER_MAP);//10
+		add_base_buttons("Карта древнего",		Enums::ButtonType::BUTTON_CONDITION_MAP_TIER,		Enums::ButtonType::BUTTON_ELDER_MAP,				false,	Enums::BoolData::BOOL_ELDER_MAP);//11
+																																								
+		add_base_buttons("Ширина",				Enums::ButtonType::BUTTON_CONDITION_WIDTH,			Enums::ButtonType::BUTTON_WIDTH,					true,	Enums::BoolData::BOOL_WIDTH);//12
+		add_base_buttons("Высота",				Enums::ButtonType::BUTTON_CONDITION_HEIGHT,			Enums::ButtonType::BUTTON_HEIGHT,					false,	Enums::BoolData::BOOL_HEIGHT);//13
+		add_base_buttons("Количество",			Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE,		Enums::ButtonType::BUTTON_STACK_SIZE,				false,	Enums::BoolData::BOOL_STACK_SIZE);//14																																			
+		add_base_buttons("Осквернённый",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_CORRUPTION,				false,	Enums::BoolData::BOOL_CORRUPTION);//15
+		
+		add_base_buttons("(и) Пр. шейпера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_SHAPER_ITEM,			true,	Enums::BoolData::BOOL_AND_SHAPER);//16
+		add_base_buttons("(или) Пр. шейпера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_SHAPER_ITEM,			false,	Enums::BoolData::BOOL_OR_SHAPER);//17
+		
+		add_base_buttons("(и) Пр. элдера",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_ELDER_ITEM,			true,	Enums::BoolData::BOOL_AND_ELDER);//18
+		add_base_buttons("(или) Пр. элдера",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_ELDER_ITEM,			false,	Enums::BoolData::BOOL_OR_ELDER);//19
+		
+		add_base_buttons("(и) Пр. крестоносца",		Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_AND_CRUSADER_ITEM,		true,	Enums::BoolData::BOOL_AND_CRUSADER);//20
+		add_base_buttons("(или) Пр. крестоносца",	Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_OR_CRUSADER_ITEM,			false,	Enums::BoolData::BOOL_OR_CRUSADER);//21
+		
+		add_base_buttons("(и) Пр. redemeer",		Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_AND_REDEEMER_ITEM,		true,	Enums::BoolData::BOOL_AND_REDEEMER);//22
+		add_base_buttons("(или) Пр. redemeer",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_REDEEMER_ITEM,			false,	Enums::BoolData::BOOL_OR_REDEEMER);//23
+		
+		add_base_buttons("(и) Пр. охотника",		Enums::ButtonType::BUTTON_NONE,					Enums::ButtonType::BUTTON_AND_HUNTER_ITEM,			true,	Enums::BoolData::BOOL_AND_HUNTER);//24
+		add_base_buttons("(или) Пр. охотника",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_HUNTER_ITEM,			false,	Enums::BoolData::BOOL_OR_HUNTER);//25
+		
+		add_base_buttons("(и) Пр. воеводы",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_AND_WARLORD_ITEM,			true,	Enums::BoolData::BOOL_AND_WARLORD);//26
+		add_base_buttons("(или) Пр. воеводы",	Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_OR_WARLORD_ITEM,			false,	Enums::BoolData::BOOL_OR_WARLORD);//27
 
-		add_base_buttons("Пр. Шейпера",		Enums::ButtonType::BUTTON_NONE,							Enums::ButtonType::BUTTON_SHAPER_ITEM,				true,	Enums::BoolData::BOOL_SHAPER);//32
-		add_base_buttons("Пр. Древнего",	Enums::ButtonType::BUTTON_NONE,							Enums::ButtonType::BUTTON_ELDER_ITEM,				false,	Enums::BoolData::BOOL_ELDER);//33
+		add_base_buttons("Синтезир.",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_SYNTHESISED,				true,	Enums::BoolData::BOOL_SYNTHESISED);//28
+		add_base_buttons("Разбитый",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_FRACTURED,				false,	Enums::BoolData::BOOL_FRACTURED);//29
+		add_base_buttons("Зачарование",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_ANY_ENCHANTMENT,			false,	Enums::BoolData::BOOL_ANY_ENCHANTMENT);//30
+		add_base_buttons("Опознанный",			Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_IDENTIFIED,				false,	Enums::BoolData::BOOL_IDENTIFIED);//31
+		add_base_buttons("Зараж. карта",		Enums::ButtonType::BUTTON_NONE,						Enums::ButtonType::BUTTON_BLIGHTED,					false,	Enums::BoolData::BOOL_BLIGHTED);//32
+
+		add_base_buttons("Пр. Шейпера",		Enums::ButtonType::BUTTON_NONE,							Enums::ButtonType::BUTTON_SHAPER_ITEM,				true,	Enums::BoolData::BOOL_SHAPER);//33
+		add_base_buttons("Пр. Древнего",	Enums::ButtonType::BUTTON_NONE,							Enums::ButtonType::BUTTON_ELDER_ITEM,				false,	Enums::BoolData::BOOL_ELDER);//34
+
+		add_base_buttons("Оскв. свойства",	Enums::ButtonType::BUTTON_CONDITION_CORRUPTION_IMPLICITES,	Enums::ButtonType::BUTTON_CORRUPTION_IMPLICITES,	true,	Enums::BoolData::BOOL_CORRUPTION_IMPLICITES);//35
+		add_base_buttons("Отражённый",		Enums::ButtonType::BUTTON_NONE,								Enums::ButtonType::BUTTON_MIRRORED_ITEM,			false,	Enums::BoolData::BOOL_MIRRORED_ITEM);//36
 		
 		
 		for (int i = 0; i < 6; i++)
@@ -463,9 +475,15 @@
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 
+		but = new EButtonService(-70.0f, 45.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_SET_BLOCK_CONTINUE);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		button_list.push_back(but);
+		link_to_continue_button = but;
 
 
-		but = new EButtonService(-60.0f, 45.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
+
+		but = new EButtonService(-50.0f, 45.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_BLOCK);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
@@ -722,6 +740,12 @@
 			_batch->draw_rect_gabarite_custom_uv(x + offset_x, y + offset_y, orig_size_x, orig_size_y, DefaultGabarite::gabarite_elder_bg, move_x, move_y, 1000.0f - move_x, 300.0f - move_y);
 		}
 
+		if (is_continue)
+		{
+			_batch->setcolor_alpha(EColorCollection::CYAN, 0.33f);
+			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
+		}
+
 		_batch->setcolor_alpha(EColorCollection::BLACK, 0.25f);
 		_batch->draw_rama(x + 5.0f, y + 5.0f, 355.0f, size_y - 10.0f, 3.0f, DefaultGabarite::gabarite_white);
 
@@ -821,7 +845,7 @@
 			{
 				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 8;
 
-				if (temp_pos_x + 53.0f > size_x - 260.0f)
+				if (temp_pos_x + 53.0f > size_x - 300.0f)
 				{
 					temp_pos_x = start_position_draw_x;
 					temp_pos_y += 53.0f;
@@ -859,7 +883,7 @@
 		if (remove_timer < 0)
 		for (ExplicitGroup* ex : explicit_list)
 		{
-			ex_x = 310;
+			ex_x = start_position_draw_x;
 
 			if (ex->is_active)
 			{
@@ -1324,49 +1348,54 @@
 		base_filter_data_name.at(0) = EString::localize_it("base_data_text_rarity");
 		base_filter_data_name.at(1) = EString::localize_it("base_data_text_level");//	"Уровень",
 		base_filter_data_name.at(2) = EString::localize_it("base_data_text_req_level");
-		base_filter_data_name.at(3) = EString::localize_it("base_data_text_sockets");
-		base_filter_data_name.at(4) = EString::localize_it("base_data_text_links");
-		base_filter_data_name.at(5) = EString::localize_it("base_data_text_sockets_colour");
+		base_filter_data_name.at(3) = EString::localize_it("base_data_text_area_level");
+
+		base_filter_data_name.at(4) = EString::localize_it("base_data_text_sockets");
+		base_filter_data_name.at(5) = EString::localize_it("base_data_text_links");
+		base_filter_data_name.at(6) = EString::localize_it("base_data_text_sockets_colour");
 		
-		base_filter_data_name.at(6) = EString::localize_it("base_data_text_quality");
-		base_filter_data_name.at(7) = EString::localize_it("base_data_text_gem_level");
+		base_filter_data_name.at(7) = EString::localize_it("base_data_text_quality");
+		base_filter_data_name.at(8) = EString::localize_it("base_data_text_gem_level");
 		
-		base_filter_data_name.at(8) = EString::localize_it("base_data_text_map_tier");
-		base_filter_data_name.at(9) = EString::localize_it("base_data_text_shaper_map");
-		base_filter_data_name.at(10) = EString::localize_it("base_data_text_elder_map");
+		base_filter_data_name.at(9) = EString::localize_it("base_data_text_map_tier");
+		base_filter_data_name.at(10) = EString::localize_it("base_data_text_shaper_map");
+		base_filter_data_name.at(11) = EString::localize_it("base_data_text_elder_map");
 		
-		base_filter_data_name.at(11) = EString::localize_it("base_data_text_height");
-		base_filter_data_name.at(12) = EString::localize_it("base_data_text_width");
-		base_filter_data_name.at(13) = EString::localize_it("base_data_text_quantity");
+		base_filter_data_name.at(12) = EString::localize_it("base_data_text_height");
+		base_filter_data_name.at(13) = EString::localize_it("base_data_text_width");
+		base_filter_data_name.at(14) = EString::localize_it("base_data_text_quantity");
 		
-		base_filter_data_name.at(14) = EString::localize_it("base_data_text_corrupted");
+		base_filter_data_name.at(15) = EString::localize_it("base_data_text_corrupted");
 
-		base_filter_data_name.at(15) = EString::localize_it("base_data_text_and_shaper");
-		base_filter_data_name.at(16) = EString::localize_it("base_data_text_or_shaper");
+		base_filter_data_name.at(16) = EString::localize_it("base_data_text_and_shaper");
+		base_filter_data_name.at(17) = EString::localize_it("base_data_text_or_shaper");
 
-		base_filter_data_name.at(17) = EString::localize_it("base_data_text_and_elder");
-		base_filter_data_name.at(18) = EString::localize_it("base_data_text_or_elder");
+		base_filter_data_name.at(18) = EString::localize_it("base_data_text_and_elder");
+		base_filter_data_name.at(19) = EString::localize_it("base_data_text_or_elder");
 
-		base_filter_data_name.at(19) = EString::localize_it("base_data_text_and_crusader");
-		base_filter_data_name.at(20) = EString::localize_it("base_data_text_or_crusader");
+		base_filter_data_name.at(20) = EString::localize_it("base_data_text_and_crusader");
+		base_filter_data_name.at(21) = EString::localize_it("base_data_text_or_crusader");
 
-		base_filter_data_name.at(21) = EString::localize_it("base_data_text_and_redeemer");
-		base_filter_data_name.at(22) = EString::localize_it("base_data_text_or_redeemer"); //крестоносца 23:52:40 15.12.2019
+		base_filter_data_name.at(22) = EString::localize_it("base_data_text_and_redeemer");
+		base_filter_data_name.at(23) = EString::localize_it("base_data_text_or_redeemer"); //крестоносца 23:52:40 15.12.2019
 
-		base_filter_data_name.at(23) = EString::localize_it("base_data_text_and_hunter");
-		base_filter_data_name.at(24) = EString::localize_it("base_data_text_or_hunter");
+		base_filter_data_name.at(24) = EString::localize_it("base_data_text_and_hunter");
+		base_filter_data_name.at(25) = EString::localize_it("base_data_text_or_hunter");
 
-		base_filter_data_name.at(25) = EString::localize_it("base_data_text_and_warlord");
-		base_filter_data_name.at(26) = EString::localize_it("base_data_text_or_warlord");
+		base_filter_data_name.at(26) = EString::localize_it("base_data_text_and_warlord");
+		base_filter_data_name.at(27) = EString::localize_it("base_data_text_or_warlord");
 
-		base_filter_data_name.at(27) = EString::localize_it("base_data_text_synthesis");
-		base_filter_data_name.at(28) = EString::localize_it("base_data_text_fractured");
-		base_filter_data_name.at(29) = EString::localize_it("base_data_text_enchanted");
-		base_filter_data_name.at(30) = EString::localize_it("base_data_text_identified");
-		base_filter_data_name.at(31) = EString::localize_it("base_data_text_blighted");
+		base_filter_data_name.at(28) = EString::localize_it("base_data_text_synthesis");
+		base_filter_data_name.at(29) = EString::localize_it("base_data_text_fractured");
+		base_filter_data_name.at(30) = EString::localize_it("base_data_text_enchanted");
+		base_filter_data_name.at(31) = EString::localize_it("base_data_text_identified");
+		base_filter_data_name.at(32) = EString::localize_it("base_data_text_blighted");
 
-		base_filter_data_name.at(32) = EString::localize_it("base_data_text_shaper_item");
-		base_filter_data_name.at(33) = EString::localize_it("base_data_text_elder_item");
+		base_filter_data_name.at(33) = EString::localize_it("base_data_text_shaper_item");
+		base_filter_data_name.at(34) = EString::localize_it("base_data_text_elder_item");
+
+		base_filter_data_name.at(35) = EString::localize_it("base_data_text_corruption_implicites");
+		base_filter_data_name.at(36) = EString::localize_it("base_data_text_mirrored_item");
 
 		/*
 		base_filter_data_name.at(26) = EString::localize_it("base_data_text_elder_item");

@@ -183,3 +183,20 @@ base_data_text_and_hunter	(И) Охотника
 base_data_text_or_hunter	(ИЛИ) Охотника
 base_data_text_and_warlord	(И) Вождя
 base_data_text_or_warlord	(ИЛИ) Вождя
+socket_group_button_description	Количество связей и определенных цветов гнезд\nВы можете указывать сразу несколько групп связей цветов\nНажмите, что бы отредактировать количество связей/цветов
+socket_group_button_linked_sockets	Связанные гнёзда: 
+socket_group_button_color_red	Красные гнёзда: 
+socket_group_button_color_green	Зелёные гнёзда: 
+socket_group_button_color_blue	Синие гнёзда: 
+socket_group_button_color_white	Белые гнёзда: 
+socket_group_button_color_abyssal	Гнёзда Бездны (чёрные): 
+socket_group_button_color_delve	Гнёзда Спуска (желтые): 
+socket_count_button_description	Количество гнёзд и определенных цветов гнёзд\nВы можете указывать сразу несколько групп цветов\nНажмите, что бы отредактировать количество гнёзд/цветов
+socket_group_button_sockets_count	Гнёзда: 
+base_data_text_area_level	Уровень области
+base_data_text_corruption_implicites	Оскрернённые свойтва
+corrupted_text_mods_count	Количество осквернённых свойств: 
+hint_input_enchantment	Введите название зачарования
+description_area_level_for_loot_simulator	Введите уровень локации.
+base_data_text_mirrored_item	Отражённый предмет
+mirrored_text	-ОТРАЖЕНО-

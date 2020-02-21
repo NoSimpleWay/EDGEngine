@@ -191,3 +191,11 @@ socket_group_button_color_blue	Blue sockets:
 socket_group_button_color_white	White sockets: 
 socket_group_button_color_abyssal	Abyssal (black) sockets: 
 socket_group_button_color_delve	Delve (resonator) sockets: 
+socket_count_button_description	Count of links and count of sockets.\nPress to edit.
+socket_group_button_sockets_count	Sockets: 
+base_data_text_area_level	Area level
+corrupted_text_mods_count	Corruption mods count: 
+hint_input_enchantment	Input enchantment name
+description_area_level_for_loot_simulator	Input level of area
+base_data_text_mirrored_item	Mirrored item
+mirrored_text	-MIRRORED-

@@ -297,6 +297,20 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_SET_BLOCK_CONTINUE)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		gabarite = DefaultGabarite::gabarite_button_continue_off;
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
+
+
+	}
 	if (button_type == Enums::ButtonType::BUTTON_SEPARATOR_COLLAPSE)
 	{
 		master_position = Enums::PositionMaster::SEPARATOR;
@@ -396,7 +410,7 @@ void EButtonService::click_event()
 		std::cout << "Map tier is active:" << master_block->is_map_tier_active << " " << master_block->map_tier_condition << master_block->map_tier << std::endl;
 		std::cout << "Quality is active:" << master_block->is_item_quality_active << " " << master_block->item_quality_condition << master_block->item_quality << std::endl;
 		std::cout << "Rarity is active:" << master_block->is_item_rarity_active << " " << master_block->rarity_condition << master_block->item_rarity << std::endl;
-		std::cout << "Sockets is active:" << master_block->is_socket_active << " " << master_block->socket_condition << master_block->socket_count << std::endl;
+		//std::cout << "Sockets is active:" << master_block->is_socket_active << " " << master_block->socket_condition << master_block->socket_count << std::endl;
 		std::cout << "Stack size is active:" << master_block->is_stack_size_active << " " << master_block->item_stack_size_condition << master_block->item_stack_size << std::endl;
 		std::cout << "Width is active:" << master_block->is_item_width_active << " " << master_block->item_width_condition << master_block->item_width << std::endl;
 	}
@@ -814,10 +828,10 @@ void EButtonService::click_event()
 		fb->links_condition = master_block->links_condition;
 		fb->links_count = master_block->links_count;
 
-		fb->red_sockets = master_block->red_sockets;
-		fb->green_sockets = master_block->green_sockets;
-		fb->blue_sockets = master_block->blue_sockets;
-		fb->white_sockets = master_block->white_sockets;
+		fb->red_sockets_group = master_block->red_sockets_group;
+		fb->green_sockets_group = master_block->green_sockets_group;
+		fb->blue_sockets_group = master_block->blue_sockets_group;
+		fb->white_sockets_group = master_block->white_sockets_group;
 
 		fb->item_quality_condition = master_block->item_quality_condition;
 		fb->item_quality = master_block->item_quality;
@@ -965,6 +979,22 @@ void EButtonService::click_event()
 
 			StaticData::window_filter_block->separator_list.push_back(sep);
 			StaticData::window_filter_block->recalculate_filter_block_separator();
+			//std::cout << "separator created" << std::endl;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SET_BLOCK_CONTINUE)
+	{
+		master_block->is_continue = !master_block->is_continue;
+
+		if (master_block->is_continue)
+		{
+			gabarite = DefaultGabarite::gabarite_button_continue_on;
+		}
+		else
+		{
+			gabarite = DefaultGabarite::gabarite_button_continue_off;
+		}
+
 			//std::cout << "separator created" << std::endl;
 	}
 	

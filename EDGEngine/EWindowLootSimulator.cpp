@@ -48,10 +48,16 @@ EWindowLootSimulator::EWindowLootSimulator(int _id, bool _can_be_closed) :EWindo
 	but = new EButtonSlider(400.0f, -15.0f, 200.0f, 20.0f, Enums::ButtonType::SLIDER_LOOT_DROP_SIZE);
 	but->master_window = this;
 	button_list.push_back(but);
+	
 
 	link_to_autogen_drop_button = new EButtonAutogenLootSimulator(650.0f, -15.0f, 200.0f, 20.0f, Enums::ButtonType::BUTTON_CONDITION_AUTOGEN_LOOT_SIMULATOR);
 	link_to_autogen_drop_button->master_window = this;
 	button_list.push_back(link_to_autogen_drop_button);
+
+	but = new EButtonText(860.0f, -15.0f, 50.0f, 20.0f, Enums::ButtonType::BUTTON_AREA_LEVEL_FOR_LOOT_SIMULATOR);
+	but->master_window = this;
+	button_list.push_back(but);
+	but->text = std::to_string(area_level);
 	//link_to_autogen_drop_button = but;
 }
 
@@ -108,6 +114,7 @@ void EWindowLootSimulator::update(float _d)
 			loot->is_shaper_map = p->shaped_map;
 			loot->is_elder_map = p->elder_map;
 			loot->is_blighted_map = p->blighted_map;
+			loot->is_mirrored = p->mirrored;
 
 			if (p->max_quality > 0)
 			{
@@ -126,6 +133,13 @@ void EWindowLootSimulator::update(float _d)
 			if ((p->corruption_chance > 0) && (rand() % 100 <= p->corruption_chance))
 			{
 				loot->corrupted = true;
+
+				loot->corrupted_mods = (rand() % 3);
+			}
+
+			if ((p->mirrored_chance > 0) && (rand() % 100 <= p->mirrored_chance))
+			{
+				loot->is_mirrored = true;
 			}
 
 			if (p->max_gem_level > 0)
@@ -679,6 +693,20 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 				EFont::active_font->draw(_batch, cached_corrupted, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
 
 				move_y++;
+
+				EFont::active_font->draw(_batch, cached_corrupted_mods_count + std::to_string(loot->corrupted_mods), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				move_y++;
+			}
+
+			if (loot->is_mirrored)
+			{
+				_batch->setcolor(EColorCollection::CYAN);
+				EFont::active_font->draw(_batch, cached_mirrored, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				move_y++;
+
+				//EFont::active_font->draw(_batch, cached_corrupted_mods_count + std::to_string(loot->corrupted_mods), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
 			}
 
 			move_y++;
@@ -867,6 +895,8 @@ void EWindowLootSimulator::update_localisation()
 	cached_item_level = EString::localize_it("item_level_text");
 	cached_map_tier = EString::localize_it("map_tier_text");
 	cached_corrupted = EString::localize_it("corrupted_text");
+	cached_corrupted_mods_count = EString::localize_it("corrupted_text_mods_count");
+	cached_mirrored = EString::localize_it("mirrored_text");
 }
 
 bool EWindowLootSimulator::check_condition(std::string _condition, int _num_a, int num_b)
@@ -912,6 +942,8 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 	for (FilterBlock* fb : _w->filter_block_list)
 	{
+		
+
 		if (fb->filter_block_items_button_list.size() <= 0) { match_detect = true; }
 
 		for (EButton* b : fb->filter_block_items_button_list)
@@ -1073,23 +1105,35 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if (!_default) { rejection("itemlevel", _l); }
 		}
 
+		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL)) && (!check_condition(fb->area_level_condition, area_level, fb->area_level)))
+		{
+			match_detect = false;
+			if (!_default) { rejection("area level", _l); }
+		}
+
 		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_REQUIRED_LEVEL)) && (!check_condition(fb->required_level_condition, _l->req_level, fb->required_level)))
 		{
 			match_detect = false;
 			if (!_default) { rejection("req", _l); }
 		}
 
-
+		/*
 		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS)) && (!check_condition(fb->socket_condition, _l->sockets, fb->socket_count)))
 		{
 			match_detect = false;
 			if (!_default) { rejection("sockets", _l); }
-		}
+		}*/
 
 		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_LINKS)) && (!check_condition(fb->links_condition, _l->links, fb->links_count)))
 		{
 			match_detect = false;
 			if (!_default) { rejection("links", _l); }
+		}
+
+		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTION_MODS)) && (!check_condition(fb->corrupted_mods_condition, _l->corrupted_mods, fb->corrupted_mods_count)))
+		{
+			match_detect = false;
+			if (!_default) { rejection("corruption mods", _l); }
 		}
 
 		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_QUALITY)) && (!check_condition(fb->item_quality_condition, _l->quality, fb->item_quality)))
@@ -1133,46 +1177,53 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 
 
-		if
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP))
+		if ((match_detect) && (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP)))
 			{
 				//bool microreject = true;
 				match_detect = false;
-				for (int i = 0; i < fb->red_sockets.size(); i++)
+				for (int i = 0; i < fb->red_sockets_group.size(); i++)
 				if
 				(
 					(
-						(fb->red_sockets.at(i)>0)||
-						(fb->green_sockets.at(i)>0)||
-						(fb->blue_sockets.at(i)>0)||
-						(fb->white_sockets.at(i)>0)||
-						(fb->abyss_sockets.at(i)>0)||
-						(fb->delve_sockets.at(i)>0)
+						(fb->socket_group_links.at(i) > 0) ||
+						(fb->red_sockets_group.at(i)>0)||
+						(fb->green_sockets_group.at(i)>0)||
+						(fb->blue_sockets_group.at(i)>0)||
+						(fb->white_sockets_group.at(i)>0)||
+						(fb->abyss_sockets_group.at(i)>0)||
+						(fb->delve_sockets_group.at(i)>0)
 					)
 					&&
 					(
+					(
 							(
-								(check_condition(fb->socket_group_condition, _l->linked_red_socket, fb->red_sockets.at(i)))
+								check_condition(fb->socket_group_condition, _l->links, fb->socket_group_links.at(i)))
 								||
-								(fb->red_sockets.at(i) == 0)
+								(fb->socket_group_links.at(i) == 0)
 							)
 							&&
 							(
-								(check_condition(fb->socket_group_condition, _l->linked_green_socket, fb->green_sockets.at(i)))
+								(check_condition(fb->socket_group_condition, _l->linked_red_socket, fb->red_sockets_group.at(i)))
 								||
-								(fb->green_sockets.at(i) == 0)
+								(fb->red_sockets_group.at(i) == 0)
 							)
 							&&
 							(
-								(check_condition(fb->socket_group_condition, _l->linked_blue_socket, fb->blue_sockets.at(i)))
+								(check_condition(fb->socket_group_condition, _l->linked_green_socket, fb->green_sockets_group.at(i)))
 								||
-								(fb->blue_sockets.at(i) == 0)
+								(fb->green_sockets_group.at(i) == 0)
 							)
 							&&
 							(
-								(check_condition(fb->socket_group_condition, _l->linked_white_socket, fb->white_sockets.at(i)))
+								(check_condition(fb->socket_group_condition, _l->linked_blue_socket, fb->blue_sockets_group.at(i)))
 								||
-								(fb->white_sockets.at(i) == 0)
+								(fb->blue_sockets_group.at(i) == 0)
+							)
+							&&
+							(
+								(check_condition(fb->socket_group_condition, _l->linked_white_socket, fb->white_sockets_group.at(i)))
+								||
+								(fb->white_sockets_group.at(i) == 0)
 							)
 					)
 				)
@@ -1185,6 +1236,78 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 					if (!_default) { rejection("socket colour", _l); }
 				}
 			}
+
+		if((match_detect)&&(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS)))
+		{
+			//bool microreject = true;
+			match_detect = false;
+			for (int i = 0; i < fb->socket_count.size(); i++)
+				if
+					(
+					(
+						(fb->socket_count.at(i) > 0) ||
+						(fb->red_sockets.at(i) > 0) ||
+						(fb->green_sockets.at(i) > 0) ||
+						(fb->blue_sockets.at(i) > 0) ||
+						(fb->white_sockets.at(i) > 0) ||
+						(fb->abyss_sockets.at(i) > 0) ||
+						(fb->delve_sockets.at(i) > 0)
+						)
+						&&
+						(
+						(
+							(
+								check_condition(fb->socket_condition, _l->sockets, fb->socket_count.at(i)))
+								||
+								(fb->socket_count.at(i) == 0)
+							)
+							&&
+							(
+								(check_condition(fb->socket_condition, _l->red_socket, fb->red_sockets.at(i)))
+								||
+								(fb->red_sockets.at(i) == 0)
+							)
+							&&
+							(
+								(check_condition(fb->socket_condition, _l->green_socket, fb->green_sockets.at(i)))
+								||
+								(fb->green_sockets.at(i) == 0)
+							)
+							&&
+							(
+								(check_condition(fb->socket_condition, _l->blue_socket, fb->blue_sockets.at(i)))
+								||
+								(fb->blue_sockets.at(i) == 0)
+							)
+							&&
+							(
+								(check_condition(fb->socket_condition, _l->white_socket, fb->white_sockets.at(i)))
+								||
+								(fb->white_sockets.at(i) == 0)
+							)
+							&&
+							(
+								(check_condition(fb->socket_condition, _l->abyss_socket, fb->abyss_sockets.at(i)))
+								||
+								(fb->abyss_sockets.at(i) == 0)
+							)
+							&&
+							(
+								(check_condition(fb->socket_condition, _l->delve_socket, fb->delve_sockets.at(i)))
+								||
+								(fb->delve_sockets.at(i) == 0)
+							)
+							)
+						)
+				{
+					match_detect = true;
+				}
+
+			if (!match_detect)
+			{
+				if (!_default) { rejection("socket colour", _l); }
+			}
+		}
 
 		//std::cout << "is active=" << std::to_string(fb->is_synthesised_item_active) << " is synthesised block=" << std::to_string(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SYNTHESISED)) << "is synthesised item=" << std::to_string(_l->synthesised_item) << std::endl;
 
@@ -1350,6 +1473,17 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		}
 
 		if
+		(
+			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM))
+			&&
+			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM) != _l->is_mirrored)
+		)
+		{
+			match_detect = false;
+			if (!_default) { rejection("mirrored item", _l); }
+		}
+
+		if
 			(
 			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_MAP))
 				&&
@@ -1426,10 +1560,11 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 			//_l->name += " " + std::to_string(fb_id);
 
-			break;
+			if (!fb->is_continue) { break; }
 		}
 
-		if (match_detect) { break;}
+		if ((match_detect) && (!fb->is_continue)) { break;}
+
 		fb_id++;
 	}
 
@@ -1679,12 +1814,14 @@ void EWindowLootSimulator::manual_event()
 			pattern->shaped_map = pattern_item_list.at(i)->shaped_map;
 			pattern->elder_map = pattern_item_list.at(i)->elder_map;
 			pattern->blighted_map = pattern_item_list.at(i)->blighted_map;
+			pattern->mirrored = pattern_item_list.at(i)->mirrored;
 
 			pattern->enchantment = pattern_item_list.at(i)->enchantment;
 			pattern->prophecy_name = pattern_item_list.at(i)->prophecy_name;
 
 
 			pattern->corruption_chance = pattern_item_list.at(i)->corruption_chance;
+			pattern->mirrored_chance = pattern_item_list.at(i)->mirrored_chance;
 
 			if (pattern->item_name != "")
 			{

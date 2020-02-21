@@ -78,6 +78,7 @@ public:
 
 	bool have_description = true;
 	string description_text;
+	string prev_description_text;
 
 	bool have_text = true;
 

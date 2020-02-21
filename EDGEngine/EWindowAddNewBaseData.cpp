@@ -177,6 +177,9 @@ public:
 		{
 			bool free_space_detected = false;
 
+			window_size_x = 400;
+			window_size_y = 50;
+
 			for (ExplicitGroup* ex : _b->master_block->explicit_list)
 			{
 				if (!free_space_detected)
@@ -191,9 +194,58 @@ public:
 				
 			}
 
+			if (!_b->master_block->is_base_class_active)
+			{
+				EButton* but = new EButtonText(0, 0, 300, 20, Enums::ButtonType::BUTTON_ACTIVE_BASE_CLASS_LIST);
+
+				but->master_window = this;
+				but->button_x = 0;
+
+				but->master_window = this;
+				but->master_block = _b->master_block;
+
+				button_list.push_back(but);
+
+				window_size_y += 40;
+			}
+
+
+
+
+
+			if (!_b->master_block->is_prophecy_active)
+			{
+				EButton* but = new EButtonText(0, 0, 300, 20, Enums::ButtonType::BUTTON_ACTIVE_PROPHECY_LIST);
+
+				but->master_window = this;
+				but->button_x = 0;
+
+				but->master_window = this;
+				but->master_block = _b->master_block;
+
+				button_list.push_back(but);
+
+				window_size_y += 30;
+			}
+
+			if (!_b->master_block->is_enchantment_active)
+			{
+				EButton* but = new EButtonText(0, 0, 300, 20, Enums::ButtonType::BUTTON_ACTIVE_ENCHANTEMENT_LIST);
+
+				but->master_window = this;
+				but->button_x = 0;
+
+				but->master_window = this;
+				but->master_block = _b->master_block;
+
+				button_list.push_back(but);
+
+				window_size_y += 30;
+			}
+
 			if (free_space_detected)
 			{
-				EButton* but = new EButtonText(0, 0, 200, 17, Enums::ButtonType::BUTTON_ADD_EXPLICIT_GROUP);
+				EButton* but = new EButtonText(0, 0, 300, 20, Enums::ButtonType::BUTTON_ADD_EXPLICIT_GROUP);
 
 				but->master_window = this;
 				//but->text = "Add new explicit list";
@@ -208,52 +260,15 @@ public:
 
 				button_list.push_back(but);
 
-				window_size_y += 23;
+				window_size_y += 30;
 			}
 
-			if (!_b->master_block->is_base_class_active)
+			float by = -25.0f;
+
+			for (EButton* b : button_list)
 			{
-				EButton* but = new EButtonText(0, 0, 200, 17, Enums::ButtonType::BUTTON_ACTIVE_BASE_CLASS_LIST);
-
-				but->master_window = this;
-				but->button_x = 0;
-
-				but->master_window = this;
-				but->master_block = _b->master_block;
-
-				button_list.push_back(but);
-
-				window_size_y += 23;
-			}
-
-			if (!_b->master_block->is_prophecy_active)
-			{
-				EButton* but = new EButtonText(0, 0, 200, 17, Enums::ButtonType::BUTTON_ACTIVE_PROPHECY_LIST);
-
-				but->master_window = this;
-				but->button_x = 0;
-
-				but->master_window = this;
-				but->master_block = _b->master_block;
-
-				button_list.push_back(but);
-
-				window_size_y += 23;
-			}
-
-			if (!_b->master_block->is_enchantment_active)
-			{
-				EButton* but = new EButtonText(0, 0, 200, 17, Enums::ButtonType::BUTTON_ACTIVE_ENCHANTEMENT_LIST);
-
-				but->master_window = this;
-				but->button_x = 0;
-
-				but->master_window = this;
-				but->master_block = _b->master_block;
-
-				button_list.push_back(but);
-
-				window_size_y += 23;
+				b->button_y = by;
+				by -= 35.0f;
 			}
 		}
 		

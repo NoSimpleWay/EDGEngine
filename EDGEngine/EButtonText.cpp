@@ -14,12 +14,21 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 	button_type = _type;
 
-	if (button_type == Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW)
+	if (button_type == Enums::ButtonType::BUTTON_AREA_LEVEL_FOR_LOOT_SIMULATOR)
 	{
-		text_align_x = Enums::PositionMode::MID;
-	
+		text_align_x = Enums::PositionMode::LEFT;
 
+		input_only_numbers = true;
+		have_input_mode = true;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+
+	
 		master_position = Enums::PositionMaster::WINDOW;
+		dynamic_input_width = false;
+
+		//text = std::to_string(StaticData::window_loot_simulator->area_level);
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW)
@@ -40,7 +49,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 		master_position = Enums::PositionMaster::WINDOW;
 
-		bg_color->set(0.5f,0.5f,0.8f,0.5f);
+		bg_color->set(0.5f,0.5f,1.0f,0.85f);
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_BASE_CLASS_LIST)
@@ -53,7 +62,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 		master_position = Enums::PositionMaster::WINDOW;
 
-		bg_color->set(0.5f, 0.8f, 0.5f, 0.5f);
+		bg_color->set(0.5f, 1.0f, 0.5f, 0.85f);
 	}
 	
 	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_PROPHECY_LIST)
@@ -66,7 +75,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 		master_position = Enums::PositionMaster::WINDOW;
 
-		bg_color->set(0.8f, 0.5f, 0.8f, 0.5f);
+		bg_color->set(1.0f, 0.5f, 1.0f, 0.85f);
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_ENCHANTEMENT_LIST)
@@ -79,7 +88,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 		master_position = Enums::PositionMaster::WINDOW;
 
-		bg_color->set(0.3f, 0.3f, 0.3f, 0.5f);
+		bg_color->set(0.3f, 0.3f, 0.3f, 0.85f);
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_ADD_EXPLICIT_ELEMENT)
@@ -252,6 +261,8 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 void EButtonText::click_event()
 {
+
+
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW)
 	{
 		StaticData::window_find_item->is_active = true;
@@ -452,11 +463,21 @@ void EButtonText::input_event()
 			StaticData::window_new_loot_filter->link_to_accept_button->bg_color->set_alpha(EColorCollection::GREEN, 0.5f);
 		}
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_AREA_LEVEL_FOR_LOOT_SIMULATOR)
+	{
+		if ((text != "") && (text.length() <= 3)) { StaticData::window_loot_simulator->area_level = std::stoi(text); }
+	}
 }
 
 void EButtonText::update_localisation()
 {
 	//std::cout << "LOCAL" << std::endl;
+	if (button_type == Enums::ButtonType::BUTTON_AREA_LEVEL_FOR_LOOT_SIMULATOR)
+	{
+		//text = EString::localize_it("text_default_sound");
+		description_text = EString::localize_it("description_area_level_for_loot_simulator");
+	}
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW)
 	{

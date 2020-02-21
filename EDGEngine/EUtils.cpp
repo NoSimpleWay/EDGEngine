@@ -531,6 +531,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					just_created_pattern_item->corruption_chance = std::stoi(subdata_array[i * 2 + 1]);
 				}
 
+				if (EString::to_lower(subdata_array[i * 2], false) == "mirrored_chance")
+				{
+					just_created_pattern_item->mirrored_chance = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "shaper_item_weight")
 				{
@@ -1058,12 +1063,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									explicit_group_id = -1;
 
-									just_created_block->red_sockets = { 0,0,0,0,0 }; //.at(data_id) 18.02.2020 10:43:35
-									just_created_block->green_sockets = { 0,0,0,0,0 };
-									just_created_block->blue_sockets = { 0,0,0,0,0 };
-									just_created_block->white_sockets = { 0,0,0,0,0 };
-									just_created_block->abyss_sockets = { 0,0,0,0,0 };
-									just_created_block->delve_sockets = { 0,0,0,0,0 };
+									just_created_block->red_sockets_group = { 0,0,0,0,0 }; //.at(data_id) 18.02.2020 10:43:35
+									just_created_block->green_sockets_group = { 0,0,0,0,0 };
+									just_created_block->blue_sockets_group = { 0,0,0,0,0 };
+									just_created_block->white_sockets_group = { 0,0,0,0,0 };
+									just_created_block->abyss_sockets_group = { 0,0,0,0,0 };
+									just_created_block->delve_sockets_group = { 0,0,0,0,0 };
 								}
 
 								if (subdata == "Hide")
@@ -1077,15 +1082,24 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									explicit_group_id = -1;
 
-									just_created_block->red_sockets = { 0,0,0,0,0 }; //.at(data_id) 18.02.2020 10:43:35
-									just_created_block->green_sockets = { 0,0,0,0,0 };
-									just_created_block->blue_sockets = { 0,0,0,0,0 };
-									just_created_block->white_sockets = { 0,0,0,0,0 };
-									just_created_block->abyss_sockets = { 0,0,0,0,0 };
-									just_created_block->delve_sockets = { 0,0,0,0,0 };
+									just_created_block->red_sockets_group = { 0,0,0,0,0 }; //.at(data_id) 18.02.2020 10:43:35
+									just_created_block->green_sockets_group = { 0,0,0,0,0 };
+									just_created_block->blue_sockets_group = { 0,0,0,0,0 };
+									just_created_block->white_sockets_group = { 0,0,0,0,0 };
+									just_created_block->abyss_sockets_group = { 0,0,0,0,0 };
+									just_created_block->delve_sockets_group = { 0,0,0,0,0 };
+								}
+
+								if (subdata == "Continue")
+								{
+									just_created_block->is_continue = true;
+									just_created_block->link_to_continue_button->gabarite = DefaultGabarite::gabarite_button_continue_on;
+
+									parser_mode = Enums::ParserMode::CONTINUE;
 								}
 
 								if (subdata == "Corrupted") { parser_mode = Enums::ParserMode::IS_CORRUPTED; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED) = true; }
+								if (subdata == "CorruptedMods") { parser_mode = Enums::ParserMode::CORRUPTED_MODS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTION_MODS) = true; }
 								if (subdata == "LinkedSockets") { parser_mode = Enums::ParserMode::LINKED_SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_LINKS) = true; }
 								if (subdata == "Rarity") { parser_mode = Enums::ParserMode::RARITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_RARITY) = true; }
 								if (subdata == "Class")
@@ -1132,7 +1146,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (subdata == "HasExplicitMod") { parser_mode = Enums::ParserMode::EXPLICIT_MOD; explicit_group_id++;  just_created_block->is_explicit = true; }
 								if (subdata == "Identified") { parser_mode = Enums::ParserMode::IDENTIFIED; just_created_block->is_identified_active = true; }
 								if (subdata == "ElderItem") { parser_mode = Enums::ParserMode::IS_ELDER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER) = true; }
-								if (subdata == "Sockets") { parser_mode = Enums::ParserMode::SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS) = true; }
+								if (subdata == "Sockets") { parser_mode = Enums::ParserMode::SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS) = true; data_order_start = 1;}
 								if (subdata == "FracturedItem") { parser_mode = Enums::ParserMode::IS_FRACTURED_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_FRACTURED) = true; }
 								if (subdata == "DropLevel") { parser_mode = Enums::ParserMode::DROP_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_REQUIRED_LEVEL) = true; }
 
@@ -1143,7 +1157,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (subdata == "AnyEnchantment") { parser_mode = Enums::ParserMode::IS_ANY_ENCHANTMENT; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ENCHANTMENT) = true; }
 
 								if (subdata == "Quality") { parser_mode = Enums::ParserMode::QUALITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_QUALITY) = true; }
-								if (subdata == "SocketGroup") { parser_mode = Enums::ParserMode::SOCKET_GROUP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP) = true; }
+								if (subdata == "SocketGroup") { parser_mode = Enums::ParserMode::SOCKET_GROUP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP) = true; data_order_start = 1;}
 								if (subdata == "StackSize") { parser_mode = Enums::ParserMode::STACK_SIZE; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_STACK_SIZE) = true; }
 								if (subdata == "GemLevel") { parser_mode = Enums::ParserMode::GEM_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_GEM_LEVEL) = true; }
 
@@ -1162,7 +1176,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								}
 
 								if (subdata == "BlightedMap") { parser_mode = Enums::ParserMode::IS_BLIGHTED_MAP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_BLIGHTED) = true; }
+								if (subdata == "Mirrored") { parser_mode = Enums::ParserMode::IS_MIRRORED; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM) = true; }
 
+								if (subdata == "AreaLevel") { parser_mode = Enums::ParserMode::AREA_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL) = true; }
 							}
 							else
 							{
@@ -1809,6 +1825,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (data_order == 2) { if (show_info_to_console) { cout << "set required level as <" << subdata << ">" << endl; } just_created_block->required_level = std::stoi(subdata); }
 							}
 
+							/*
 							if (parser_mode == Enums::ParserMode::SOCKETS)
 							{
 								if (data_order == 0)
@@ -1835,6 +1852,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_block->socket_count = std::stoi(subdata);
 								}
 							}
+							*/
 
 							if (parser_mode == Enums::ParserMode::WIDTH)
 							{
@@ -1908,6 +1926,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (data_order == 1) { if (show_info_to_console) { cout << "set blighted item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_BLIGHTED) = EString::convert_text_to_bool(subdata); }
 							}
 
+							if (parser_mode == Enums::ParserMode::IS_MIRRORED)
+							{
+								if (data_order == 0) { if (show_info_to_console) { cout << "activate mirrored item property" << endl; } }
+								if (data_order == 1) { if (show_info_to_console) { cout << "set mirrored item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_MIRRORED_ITEM) = EString::convert_text_to_bool(subdata); }
+							}
+
 							if (parser_mode == Enums::ParserMode::IS_ANY_ENCHANTMENT)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate enchantment item property" << endl; } }
@@ -1949,7 +1973,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (data_order == 0)
 								{
 									if (show_info_to_console) { cout << "activate socket group property" << endl; }
-									data_order_start = 1;
+									
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
@@ -1978,6 +2002,58 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										if (subdata.at(socket) == '4') { just_created_block->socket_group_links.at(data_order - data_order_start) = 4; }
 										if (subdata.at(socket) == '5') { just_created_block->socket_group_links.at(data_order - data_order_start) = 5; }
 										if (subdata.at(socket) == '6') { just_created_block->socket_group_links.at(data_order - data_order_start) = 6; }
+
+										if (subdata.at(socket) == 'R') { just_created_block->red_sockets_group.at(data_order - data_order_start)++; }
+										if (subdata.at(socket) == 'G') { just_created_block->green_sockets_group.at(data_order - data_order_start)++; }
+										if (subdata.at(socket) == 'B') { just_created_block->blue_sockets_group.at(data_order - data_order_start)++; }
+										if (subdata.at(socket) == 'W') { just_created_block->white_sockets_group.at(data_order - data_order_start)++; }
+										if (subdata.at(socket) == 'A') { just_created_block->abyss_sockets_group.at(data_order - data_order_start)++; }
+										if (subdata.at(socket) == 'D') { just_created_block->delve_sockets_group.at(data_order - data_order_start)++; }
+									}
+
+									//{ cout << "set RED as <" << just_created_block->red_sockets.at(data_order - data_order_start) << "> set GREEN as <" << just_created_block->green_sockets.at(data_order - data_order_start) << "> set BLUE as <" << just_created_block->blue_sockets.at(data_order - data_order_start) << "> set WHITE as <" << just_created_block->white_sockets.at(data_order - data_order_start) << ">" << endl; }
+									//if (show_info_to_console) { cout << "set RED as <" << just_created_block->red_sockets << "> set GREEN as <" << just_created_block->green_sockets << "> set BLUE as <" << just_created_block->blue_sockets << "> set WHITE as <" << just_created_block->white_sockets << ">" << endl; }
+									//just_created_block->item_height = std::stoi(subdata);
+									//just_created_block->item_height_condition = "=";
+								}
+
+
+							}
+
+							if (parser_mode == Enums::ParserMode::SOCKETS)
+							{
+								if (data_order == 0)
+								{
+									if (show_info_to_console) { cout << "activate sockets property" << endl; }
+									data_order_start = 1;
+								}
+
+								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set sockets condition as <" << subdata << ">" << endl; }
+									just_created_block->socket_condition = subdata;
+									data_order_start = 2;
+								}
+
+								if
+								(
+									(
+										(data_order == 1)
+										&&
+										(!EString::check_is_condition_symbols(subdata))
+									)
+									||
+									(data_order >= 2)
+								)
+								{
+									for (int socket = 0; socket < subdata.length(); socket++)
+									{
+										if (subdata.at(socket) == '1') { just_created_block->socket_count.at(data_order - data_order_start) = 1; }
+										if (subdata.at(socket) == '2') { just_created_block->socket_count.at(data_order - data_order_start) = 2; }
+										if (subdata.at(socket) == '3') { just_created_block->socket_count.at(data_order - data_order_start) = 3; }
+										if (subdata.at(socket) == '4') { just_created_block->socket_count.at(data_order - data_order_start) = 4; }
+										if (subdata.at(socket) == '5') { just_created_block->socket_count.at(data_order - data_order_start) = 5; }
+										if (subdata.at(socket) == '6') { just_created_block->socket_count.at(data_order - data_order_start) = 6; }
 
 										if (subdata.at(socket) == 'R') { just_created_block->red_sockets.at(data_order - data_order_start)++; }
 										if (subdata.at(socket) == 'G') { just_created_block->green_sockets.at(data_order - data_order_start)++; }
@@ -2086,6 +2162,60 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								{
 									if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
 									just_created_block->map_tier = std::stoi(subdata);
+								}
+							}
+
+							if (parser_mode == Enums::ParserMode::AREA_LEVEL)
+							{
+								if (data_order == 0)
+								{
+									if (show_info_to_console) { cout << "activate area level property" << endl; }
+								}
+
+								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set area level as <" << subdata << ">" << endl; }
+									just_created_block->area_level = std::stoi(subdata);
+									just_created_block->area_level_condition = "=";
+								}
+
+								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set area level condition as < " << subdata << " >" << endl; }
+									just_created_block->area_level_condition = subdata;
+								}
+
+								if (data_order == 2)
+								{
+									if (show_info_to_console) { cout << "set area level as <" << subdata << ">" << endl; }
+									just_created_block->area_level = std::stoi(subdata);
+								}
+							}
+
+							if (parser_mode == Enums::ParserMode::CORRUPTED_MODS)
+							{
+								if (data_order == 0)
+								{
+									if (show_info_to_console) { cout << "activate corrupted mods property" << endl; }
+								}
+
+								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set corrupted mods as <" << subdata << ">" << endl; }
+									just_created_block->corrupted_mods_count = std::stoi(subdata);
+									just_created_block->corrupted_mods_condition = "=";
+								}
+
+								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set corrupted mods condition as < " << subdata << " >" << endl; }
+									just_created_block->corrupted_mods_condition = subdata;
+								}
+
+								if (data_order == 2)
+								{
+									if (show_info_to_console) { cout << "set corrupted mods as <" << subdata << ">" << endl; }
+									just_created_block->corrupted_mods_count = std::stoi(subdata);
 								}
 							}
 
@@ -2257,6 +2387,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += "Hide";
 				loot_writer += '\n';
 			}
+
 
 			if (_save_mode == Enums::AutogenSaveMode::SOURCE)
 			{
@@ -2781,6 +2912,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
+			/*
 			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS))
 			{
 				loot_writer += '\t';
@@ -2791,7 +2923,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += std::to_string(fb->socket_count);
 
 				loot_writer += '\n';
-			}
+			}*/
 
 
 			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_FRACTURED))
@@ -2866,6 +2998,22 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				}
 			}
 
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_MIRRORED_ITEM))
+				{
+					loot_writer += '\t';
+					loot_writer += "Mirrored True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "Mirrored False";
+					loot_writer += '\n';
+				}
+			}
+
 			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ENCHANTMENT))
 			{
 				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ANY_ENCHANTMENT))
@@ -2901,15 +3049,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				loot_writer += fb->socket_group_condition;
 
-				for (int k = 0; k < fb->red_sockets.size(); k++)
+				for (int k = 0; k < fb->red_sockets_group.size(); k++)
 				if
 				(
-					fb->red_sockets.at(k)+
-					fb->green_sockets.at(k)+
-					fb->blue_sockets.at(k)+
-					fb->white_sockets.at(k)+
-					fb->abyss_sockets.at(k)+
-					fb->delve_sockets.at(k)
+					fb->socket_group_links.at(k) +
+					fb->red_sockets_group.at(k)+
+					fb->green_sockets_group.at(k)+
+					fb->blue_sockets_group.at(k)+
+					fb->white_sockets_group.at(k)+
+					fb->abyss_sockets_group.at(k)+
+					fb->delve_sockets_group.at(k)
 					>0
 				)
 				{
@@ -2918,16 +3067,59 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					loot_writer += " ";
 					loot_writer += '"';
 
-					for (int i = 0; i < fb->red_sockets.at(k); i++) { loot_writer += "R"; }
-					for (int i = 0; i < fb->green_sockets.at(k); i++) { loot_writer += "G"; }
-					for (int i = 0; i < fb->blue_sockets.at(k); i++) { loot_writer += "B"; }
-					for (int i = 0; i < fb->white_sockets.at(k); i++) { loot_writer += "W"; }
+					if (fb->socket_group_links.at(k) > 0) { loot_writer += std::to_string(fb->socket_group_links.at(k)); }
 
-					for (int i = 0; i < fb->abyss_sockets.at(k); i++) { loot_writer += "A"; }
-					for (int i = 0; i < fb->delve_sockets.at(k); i++) { loot_writer += "D"; }
+					for (int i = 0; i < fb->red_sockets_group.at(k); i++) { loot_writer += "R"; }
+					for (int i = 0; i < fb->green_sockets_group.at(k); i++) { loot_writer += "G"; }
+					for (int i = 0; i < fb->blue_sockets_group.at(k); i++) { loot_writer += "B"; }
+					for (int i = 0; i < fb->white_sockets_group.at(k); i++) { loot_writer += "W"; }
+
+					for (int i = 0; i < fb->abyss_sockets_group.at(k); i++) { loot_writer += "A"; }
+					for (int i = 0; i < fb->delve_sockets_group.at(k); i++) { loot_writer += "D"; }
 
 					loot_writer += '"';
 				}
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS))
+			{
+				loot_writer += '\t';
+				loot_writer += "Sockets ";
+
+				loot_writer += fb->socket_condition;
+
+				for (int k = 0; k < fb->red_sockets.size(); k++)
+					if
+						(
+							fb->socket_count.at(k) +
+							fb->red_sockets.at(k) +
+							fb->green_sockets.at(k) +
+							fb->blue_sockets.at(k) +
+							fb->white_sockets.at(k) +
+							fb->abyss_sockets.at(k) +
+							fb->delve_sockets.at(k)
+							> 0
+						)
+					{
+
+
+						loot_writer += " ";
+						loot_writer += '"';
+
+						if (fb->socket_count.at(k) > 0) { loot_writer += std::to_string(fb->socket_count.at(k)); }
+
+						for (int i = 0; i < fb->red_sockets.at(k); i++)		{ loot_writer += "R"; }
+						for (int i = 0; i < fb->green_sockets.at(k); i++)	{ loot_writer += "G"; }
+						for (int i = 0; i < fb->blue_sockets.at(k); i++)	{ loot_writer += "B"; }
+						for (int i = 0; i < fb->white_sockets.at(k); i++)	{ loot_writer += "W"; }
+
+						for (int i = 0; i < fb->abyss_sockets.at(k); i++)	{ loot_writer += "A"; }
+						for (int i = 0; i < fb->delve_sockets.at(k); i++)	{ loot_writer += "D"; }
+
+						loot_writer += '"';
+					}
 
 				loot_writer += '\n';
 			}
@@ -2988,6 +3180,30 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL))
+			{
+				loot_writer += '\t';
+				loot_writer += "AreaLevel ";
+
+				loot_writer += fb->area_level_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->area_level);
+
+				loot_writer += '\n';
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTION_MODS))
+			{
+				loot_writer += '\t';
+				loot_writer += "CorruptedMods ";
+
+				loot_writer += fb->corrupted_mods_condition;
+				loot_writer += " ";
+				loot_writer += std::to_string(fb->corrupted_mods_count);
+
+				loot_writer += '\n';
+			}
+
 			if (fb->is_prophecy_active)
 			{
 				loot_writer += '\t';
@@ -3016,10 +3232,19 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}
 
+
+			if (fb->is_continue)
+			{
+				loot_writer += "Continue";
+				loot_writer += '\n';
+			}
+
 		}
 
 		myfile << loot_writer;
 		myfile.close();
+
+
 
 		/*
 		myfile.open("D:\\c++\\EDGEngine\\x64\\Debug\\EDGEngine.exe");

@@ -47,6 +47,8 @@ void EButtonCheck::click_event()
 	if (button_type == Enums::ButtonType::BUTTON_SHAPER_MAP) { master_block->base_filter_data_bool.at(data_id) = is_checked; }
 	if (button_type == Enums::ButtonType::BUTTON_ELDER_MAP) { master_block->base_filter_data_bool.at(data_id) = is_checked; }
 
+	if (button_type == Enums::ButtonType::BUTTON_MIRRORED_ITEM) { master_block->base_filter_data_bool.at(data_id) = is_checked; }
+
 	if (button_type == Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON)
 	{
 		master_block->is_minimap_icon = is_checked;

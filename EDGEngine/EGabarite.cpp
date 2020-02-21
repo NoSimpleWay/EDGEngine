@@ -88,6 +88,7 @@ EGabarite* DefaultGabarite::gabarite_button_dark_bg = NULL;
 
 EGabarite* DefaultGabarite::gabarite_button_clone = NULL;
 EGabarite* DefaultGabarite::gabarite_button_separator = NULL;
+
 EGabarite* DefaultGabarite::gabarite_button_collapse = NULL;
 
 EGabarite* DefaultGabarite::gabarite_error = NULL;
@@ -109,6 +110,9 @@ EGabarite* DefaultGabarite::gabarite_plus_equal;
 EGabarite* DefaultGabarite::gabarite_shaper_small;
 EGabarite* DefaultGabarite::gabarite_elder_small;
 EGabarite* DefaultGabarite::gabarite_blighted_small;
+
+EGabarite* DefaultGabarite::gabarite_button_continue_on = NULL;
+EGabarite* DefaultGabarite::gabarite_button_continue_off = NULL;
 
 
 

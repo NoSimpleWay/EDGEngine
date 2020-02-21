@@ -151,16 +151,25 @@ public:
 
 				if
 					(
-					(
-						(EString::to_lower(item->item_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
-						||
-						(EString::to_lower(item->item_name_ru, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+						(
+							(EString::to_lower(item->item_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+							||
+							(EString::to_lower(item->item_name_ru, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+							||
+							(_b->text == "")
 						)
 						&&
 						(order >= 0)
-						)
+					)
 				{
-					if (search_count < 150)
+					bool this_item_already_added = false;
+
+					for (EButton* fi : master_block->filter_block_items_button_list)
+					{
+						if (EString::to_lower(fi->data_string) == EString::to_lower(item->item_name)) { this_item_already_added = true; }
+					}
+
+					if ((search_count < 150) && (!this_item_already_added))
 					{
 						button_list.at(search_count)->is_active = true;
 						button_list.at(search_count)->gabarite = item->gabarite;
@@ -172,6 +181,9 @@ public:
 						{button_list.at(search_count)->description_text = item->item_name_ru+" ("+item->item_name+")";}
 
 						button_list.at(search_count)->data_string = item->item_name;
+
+						//button_list.at(search_count)->description_text = "WTF OLOLO";
+						//button_list.at(search_count)->have_description = true;
 
 						search_count++;
 					}
@@ -516,6 +528,8 @@ public:
 				order++;
 			}
 		}
+
+
 	}
 
 
@@ -532,10 +546,13 @@ public:
 
 			b->text_color->set(EColorCollection::WHITE);
 			b->bg_color->set(EColorCollection::BLACK);
+
+
 		}
 
-		if (window_searchs_mode == Enums::WindowSearchMode::ITEM)
+		if ((window_searchs_mode == Enums::WindowSearchMode::ITEM))
 		{
+			std::cout << "item window active" << std::endl;
 			help_text = "";
 
 			have_undefined_input = true;
@@ -552,12 +569,15 @@ public:
 
 				//b->gabarite = DefaultGabarite::gabarite_undefined;
 				b->button_type = Enums::ButtonType::BUTTON_SEARCH_ITEM;
+				
 
 				if (temp_id >= 0)
 				{
+					std::cout << "temp id = " << temp_id << "item name: " << ItemList::item_list.at(temp_id)->item_name << std::endl;
 					b->description_text = ItemList::item_list.at(temp_id)->item_name;
 				}
 
+				//b->description_text = "1234567";
 				//b->bg_color->set(0.2f, 0.15f, 0.05f, 0.5f);
 
 				temp_id++;
@@ -892,6 +912,8 @@ public:
 				b->text_pass(_batch);
 			}
 		}
+
+
 	}
 
 	virtual void input_event(EButton* _b)

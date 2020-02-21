@@ -40,12 +40,18 @@
 		if (!is_plus)
 		{
 			StaticData::window_find_item->is_active = true;
-			StaticData::window_find_item->button_event(this);
+			StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::ITEM;
 			StaticData::window_find_item->target_button = this;
+
+			StaticData::window_find_item->button_event(this);
+			
+		
 		}
 		else
 		{
 			EButtonFilterItem* but = new EButtonFilterItem(0, 0, 45, 45);
+
+			StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::ITEM;
 
 			but->gabarite = DefaultGabarite::gabarite_undefined;
 			but->description_text = "?";
@@ -55,7 +61,7 @@
 			but->master_window = master_window;
 
 
-			StaticData::window_find_item->button_event(but);
+			
 
 			StaticData::window_find_item->is_active = true;
 			StaticData::window_find_item->target_button = but;
@@ -66,6 +72,8 @@
 			{
 				but->change_color_cheme();
 			}
+
+			StaticData::window_find_item->button_event(but);
 		}
 	}
 

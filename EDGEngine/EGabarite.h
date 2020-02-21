@@ -113,6 +113,8 @@ public:
 	static EGabarite* gabarite_shaper_small;
 	static EGabarite* gabarite_elder_small;
 	static EGabarite* gabarite_blighted_small;
+	static EGabarite* gabarite_button_continue_on;
+	static EGabarite* gabarite_button_continue_off;
 
 
 };

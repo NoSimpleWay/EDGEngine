@@ -84,7 +84,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 void mouse_position_callback(GLFWwindow* window, double _x, double _y);
 void char_input_callback(GLFWwindow* window, unsigned int _char);
 
-//void load_texture();           
+//void load_texture();             
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void load_texture(const char* _path, int _id);
 
@@ -188,7 +188,7 @@ std::vector<EWindow*> EControl::window_list;
 EWindowFilterBlock* StaticData::window_filter_block = NULL;
 EWindowFindItem* StaticData::window_find_item = NULL;
 EWindowAddNewBaseData* StaticData::window_add_new_base_data = NULL;
-EWindowSocketGroup* StaticData::window_socket_group = NULL;
+EWindowSocketGroup* StaticData::window_socket_group = NULL;                                                                       
 EWindowFilterVisualEditor* StaticData::window_filter_visual_editor = NULL;
 EWindowMain* StaticData::window_main=NULL;
 EWindowFilterBlockSearch* StaticData::window_filter_block_search=NULL;
@@ -1451,6 +1451,9 @@ int main()
 
 	put_texture_to_atlas("data/button_save_autogen.png");			DefaultGabarite::gabarite_save_autogen = just_created_gabarite;
 	put_texture_to_atlas("data/plus_equal.png");					DefaultGabarite::gabarite_plus_equal = just_created_gabarite;
+
+	put_texture_to_atlas("data/button_continue_on.png");			       DefaultGabarite::gabarite_button_continue_on = just_created_gabarite;
+	put_texture_to_atlas("data/button_continue_off.png");			DefaultGabarite::gabarite_button_continue_off = just_created_gabarite;
 
 
 

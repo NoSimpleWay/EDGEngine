@@ -3,4 +3,29 @@ item_name	Splinter of Esh	count	1
 item_name	Splinter of Tul	count	1
 item_name	Splinter of Uul-Netol	count	1
 item_name	Splinter of Xoph	count	1
-item_name	Микрочелик (200 рублей)	count	1	class	Donate
+item_name	Blessing of Chayula	count	1
+item_name	Blessing of Esh	count	1
+item_name	Blessing of Tul	count	1
+item_name	Blessing of Uul-Netol	count	1
+item_name	Blessing of Xoph	count	1
+item_name	Esh's Breachstone
+item_name	Tul's Breachstone
+item_name	Xoph's Breachstone
+item_name	Uul-Netol's Breachstone
+item_name	Chayula's Breachstone
+item_name	Esh's Charged Breachstone
+item_name	Tul's Charged Breachstone
+item_name	Xoph's Charged Breachstone
+item_name	Uul-Netol's Charged Breachstone
+item_name	Chayula's Charged Breachstone
+item_name	Esh's Enriched Breachstone
+item_name	Tul's Enriched Breachstone
+item_name	Xoph's Enriched Breachstone
+item_name	Uul-Netol's Enriched Breachstone
+item_name	Chayula's Enriched Breachstone
+item_name	Esh's Pure Breachstone
+item_name	Tul's Pure Breachstone
+item_name	Xoph's Pure Breachstone
+item_name	Uul-Netol's Pure Breachstone
+item_name	Chayula's Pure Breachstone
+item_name	Breach Ring	rarity_min	rare	rarity_max	rare	item_level_min	68	item_level_max	80	corruption_chance	100

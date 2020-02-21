@@ -86,6 +86,9 @@ void EButtonInputSearchItem::input_event()
 		if (button_type == Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS)
 		{input_hint = EString::localize_it("hint_input_base_class_name");}
 
+		if (button_type == Enums::ButtonType::BUTTON_SEARCH_ENCHANTMENT)
+		{input_hint = EString::localize_it("hint_input_enchantment");}
+
 		if (button_type == Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
 		{input_hint = EString::localize_it("hint_input_prophecy_name");}
 

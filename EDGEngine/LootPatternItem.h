@@ -38,6 +38,7 @@ public:
 	int white_weight = 0;
 
 	int corruption_chance = 0;
+	int mirrored_chance = 0;
 
 	int shaper_item_weight = 0;
 	int elder_item_weight = 0;
@@ -46,6 +47,7 @@ public:
 	bool shaped_map = false;
 	bool elder_map = false;
 	bool blighted_map = false;
+	bool mirrored = false;
 
 
 	int height;
