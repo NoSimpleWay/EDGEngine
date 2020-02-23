@@ -16,6 +16,7 @@
 #include "EWindowAC.h"
 #include "EWindowOil.h"
 #include "EWindowSelectLootPattern.h"
+#include "EWindowManualLoot.h"
 //#include "EWindowAcceptCancel.h"
 
 
@@ -43,6 +44,7 @@ public:
 	//static EWindowAcceptCancel* window_accept_cancel;
 
 	static EWindowFilterBlock* default_filter_block;
+	static EWindowManualLoot* window_manual_loot;
 
 	static std::vector<EWindowFilterBlock*> filter_block_tab;
 	static int active_tab;

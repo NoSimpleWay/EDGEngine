@@ -14,6 +14,8 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 	button_type = _type;
 
+	
+
 	if (button_type == Enums::ButtonType::BUTTON_AREA_LEVEL_FOR_LOOT_SIMULATOR)
 	{
 		text_align_x = Enums::PositionMode::LEFT;
@@ -262,6 +264,77 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 void EButtonText::click_event()
 {
 
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_ADD_TO_LOOT_SIMULATOR)
+	{
+		LootItem* loot = new LootItem();
+		loot->base_class = StaticData::window_manual_loot->link_to_class_button->text;
+
+		for (DADItem* item : ItemList::item_list)
+		{
+			
+			if (item->item_name == StaticData::window_manual_loot->link_to_item_button->data_string)
+			{
+				if (EString::active_localisation == Enums::LocalisationList::EN)
+				{loot->name = item->item_name;}
+
+				if (EString::active_localisation == Enums::LocalisationList::RU)
+				{loot->name = item->item_name_ru;}
+			}
+		}
+
+		loot->data_name = StaticData::window_manual_loot->link_to_item_button->data_string;
+		loot->rarity = StaticData::window_manual_loot->rarity;
+		loot->sockets = StaticData::window_manual_loot->sockets;
+		loot->links = StaticData::window_manual_loot->links;
+		loot->item_level = StaticData::window_manual_loot->item_level;
+		
+
+		int sc = 0;
+
+		for (int i = 0; i < 6; i++)
+		{
+			sc = StaticData::window_manual_loot->socket_color.at(i);
+
+			if (sc == 0) { loot->socket_color.push_back(EColorCollection::RED);		loot->red_socket++; if (i < loot->links)	{ loot->linked_red_socket;}}
+			if (sc == 1) { loot->socket_color.push_back(EColorCollection::GREEN);	loot->green_socket++; if (i < loot->links)	{ loot->linked_green_socket;}}
+			if (sc == 2) { loot->socket_color.push_back(EColorCollection::BLUE);	loot->blue_socket++; if (i < loot->links)	{ loot->linked_blue_socket;}}
+			if (sc == 3) { loot->socket_color.push_back(EColorCollection::WHITE);	loot->white_socket++; if (i < loot->links)	{ loot->linked_white_socket;}}
+			if (sc == 4) { loot->socket_color.push_back(EColorCollection::BLACK);	loot->abyss_socket++;}
+			if (sc == 5) { loot->socket_color.push_back(EColorCollection::YELLOW);	loot->delve_socket++;}
+		}
+
+		loot->quality = StaticData::window_manual_loot->quality;
+		loot->gem_level = StaticData::window_manual_loot->gem_level;
+
+		loot->map_tier = StaticData::window_manual_loot->map_tier;
+		loot->is_elder_map = StaticData::window_manual_loot->elder_map;
+		loot->is_shaper_map = StaticData::window_manual_loot->shaper_map;
+		loot->is_blighted_map = StaticData::window_manual_loot->blighted_map;
+
+		loot->identified = StaticData::window_manual_loot->identified;
+		loot->quantity = StaticData::window_manual_loot->quantity;
+
+		loot->height = StaticData::window_manual_loot->item_height;
+		loot->width = StaticData::window_manual_loot->item_width;
+
+		loot->corrupted = StaticData::window_manual_loot->is_corrupted;
+		loot->corrupted_mods = StaticData::window_manual_loot->corruption_count;
+
+		loot->shaper_item = StaticData::window_manual_loot->shaper_influence;
+		loot->elder_item = StaticData::window_manual_loot->elder_influence;
+		loot->crusader_item = StaticData::window_manual_loot->crusader_influence;
+		loot->redeemer_item = StaticData::window_manual_loot->redeemer_influence;
+		loot->hunter_item = StaticData::window_manual_loot->hunter_influence;
+		loot->warlord_item = StaticData::window_manual_loot->warlord_influence;
+
+		loot->fractured_item = StaticData::window_manual_loot->is_fractured;
+		loot->synthesised_item = StaticData::window_manual_loot->is_synthesised;
+
+		loot->any_enchantment = StaticData::window_manual_loot->is_enchanted;
+		loot->is_mirrored = StaticData::window_manual_loot->is_mirrored;
+
+		StaticData::window_loot_simulator->put_loot(loot);
+	}
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW)
 	{
@@ -464,14 +537,78 @@ void EButtonText::input_event()
 		}
 	}
 
+}
+
+void EButtonText::input_finish_event()
+{
+
 	if (button_type == Enums::ButtonType::BUTTON_AREA_LEVEL_FOR_LOOT_SIMULATOR)
 	{
 		if ((text != "") && (text.length() <= 3)) { StaticData::window_loot_simulator->area_level = std::stoi(text); }
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_SOCKET_COUNT)
+	{
+		StaticData::window_manual_loot->sockets = std::stoi(text);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_ITEM_LEVEL)
+	{
+		StaticData::window_manual_loot->item_level = std::stoi(text);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_LINK)
+	{
+		StaticData::window_manual_loot->links = std::stoi(text);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_QUALITY)
+	{
+		StaticData::window_manual_loot->quality = std::stoi(text);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_GEM_LEVEL)
+	{
+		StaticData::window_manual_loot->gem_level = std::stoi(text);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_QUANTITY)
+	{
+		StaticData::window_manual_loot->quantity = std::stoi(text);
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_HEIGHT)
+	{
+		StaticData::window_manual_loot->item_height = std::stoi(text);
+	}
+	
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_WIDTH)
+	{
+		StaticData::window_manual_loot->item_width = std::stoi(text);
+	}
+	
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_CORRUPTION_COUNT)
+	{
+		StaticData::window_manual_loot->corruption_count = std::stoi(text);
+	}
+
+
+
+
+	if (button_type == Enums::ButtonType::BUTTON_AREA_LEVEL_FOR_LOOT_SIMULATOR)
+	{
+		if ((text != "") && (text.length() <= 3)) { StaticData::window_loot_simulator->area_level = std::stoi(text); }
+	}
+
 }
 
 void EButtonText::update_localisation()
 {
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_ADD_TO_LOOT_SIMULATOR)
+	{
+		text = EString::localize_it("manual_loot_text_add_loot_to_simulator");
+	}
+
 	//std::cout << "LOCAL" << std::endl;
 	if (button_type == Enums::ButtonType::BUTTON_AREA_LEVEL_FOR_LOOT_SIMULATOR)
 	{

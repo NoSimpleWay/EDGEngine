@@ -195,8 +195,14 @@
     <ClCompile Include="EButtonAutogenLootSimulator.cpp">
       <Filter>Source Files\Buttons</Filter>
     </ClCompile>
+    <ClCompile Include="EWindowManualLoot.cpp">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
     <ClCompile Include="EWindowSelectLootPattern.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="EButtonDropSocketColor.cpp">
+      <Filter>Source Files\Buttons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -373,6 +379,12 @@
     </ClInclude>
     <ClInclude Include="EWindowSelectLootPattern.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EWindowManualLoot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EButtonDropSocketColor.h">
+      <Filter>Header Files\Button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

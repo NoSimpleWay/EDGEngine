@@ -151,6 +151,7 @@
     <ClCompile Include="EButtonClose.cpp" />
     <ClCompile Include="EButtonDropCondition.cpp" />
     <ClCompile Include="EButtonDropRarity.cpp" />
+    <ClCompile Include="EButtonDropSocketColor.cpp" />
     <ClCompile Include="EButtonExplicit.cpp" />
     <ClCompile Include="EButtonFilterItem.cpp" />
     <ClCompile Include="EButtonInputBaseData.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="EGabarite.cpp" />
     <ClCompile Include="EInit.cpp" />
     <ClCompile Include="EWindowAC.cpp" />
+    <ClCompile Include="EWindowManualLoot.cpp" />
     <ClCompile Include="EWindowOil.cpp" />
     <ClCompile Include="EWindowSelectLootPattern.cpp" />
     <ClCompile Include="FilterBlockSeparator.cpp" />
@@ -211,6 +213,7 @@
     <ClInclude Include="EButtonClose.h" />
     <ClInclude Include="EButtonDropCondition.h" />
     <ClInclude Include="EButtonDropRarity.h" />
+    <ClInclude Include="EButtonDropSocketColor.h" />
     <ClInclude Include="EButtonExplicit.h" />
     <ClInclude Include="EButtonFilterItem.h" />
     <ClInclude Include="EButtonInputBaseData.h" />
@@ -242,6 +245,7 @@
     <ClInclude Include="EWindowFilterVisualEditor.h" />
     <ClInclude Include="EWindowLootSimulator.h" />
     <ClInclude Include="EWindowMain.cpp" />
+    <ClInclude Include="EWindowManualLoot.h" />
     <ClInclude Include="EWindowOil.h" />
     <ClInclude Include="EWindowSelectFont.h" />
     <ClInclude Include="EWindowSelectLootPattern.h" />

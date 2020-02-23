@@ -33,7 +33,7 @@
 
 
 #include "EWindow.h"
-#include "StaticData.h"
+#include "StaticData.h"    
 
 
 
@@ -200,6 +200,7 @@ EWindowSelectFont* StaticData::window_select_font =NULL;
 EWindowAC* StaticData::window_accept_cancel;
 EWindowOil* StaticData::window_oil;
 EWindowSelectLootPattern* StaticData::window_select_loot_pattern; 
+EWindowManualLoot* StaticData::window_manual_loot; 
 //EWindowAcceptCancel* StaticData::window_accept_cancel =NULL;
 
 EWindowFilterBlock* StaticData::default_filter_block =NULL;
@@ -1534,37 +1535,46 @@ int main()
 	EControl::window_list.push_back(StaticData::window_filter_visual_editor);
 	StaticData::window_filter_visual_editor->is_active = false;
 
-	StaticData::window_find_item = new EWindowFindItem(9, true);
+	StaticData::window_manual_loot = new EWindowManualLoot(9, true);
+	StaticData::window_manual_loot->name = "Manual loot";
+	EControl::window_list.push_back(StaticData::window_manual_loot);
+	//StaticData::window_manual_loot->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
+	//StaticData::window_manual_loot->manual_event();
+	StaticData::window_manual_loot->is_active = true;
+
+	StaticData::window_find_item = new EWindowFindItem(10, true);
 	StaticData::window_find_item->name = "Search item";
 	EControl::window_list.push_back(StaticData::window_find_item);
 	StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
 	StaticData::window_find_item->manual_event();
 	StaticData::window_find_item->is_active = false;
 
-	StaticData::window_loading_screen = new EWindowLoadingScreen(10, false);
+
+
+	StaticData::window_loading_screen = new EWindowLoadingScreen(11, false);
 	StaticData::window_loading_screen->name = "Loading screen";
 	StaticData::window_loading_screen->item_count = ItemList::item_list.size();
 	EControl::window_list.push_back(StaticData::window_loading_screen);
 	StaticData::window_loading_screen->is_active = true;
 
 
-	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(11, true);
+	StaticData::window_new_loot_filter = new EWindowCreateNewLootFilter(12, true);
 	StaticData::window_new_loot_filter->name = "New loot-filter";
 	EControl::window_list.push_back(StaticData::window_new_loot_filter);
 	StaticData::window_new_loot_filter->is_active = false;
 
-	StaticData::window_select_localisation = new EWindowSelectLocalisation(12, false);
+	StaticData::window_select_localisation = new EWindowSelectLocalisation(13, false);
 	StaticData::window_select_localisation->name = "Select language";
 	EControl::window_list.push_back(StaticData::window_select_localisation);
 	StaticData::window_select_localisation->is_active = false;
 
 
-	StaticData::window_select_font = new EWindowSelectFont(13, true);
+	StaticData::window_select_font = new EWindowSelectFont(14, true);
 	StaticData::window_select_font->name = "Select font";
 	EControl::window_list.push_back(StaticData::window_select_font);
 	StaticData::window_select_font->is_active = false;
 
-	StaticData::window_accept_cancel = new EWindowAC(14, true);
+	StaticData::window_accept_cancel = new EWindowAC(15, true);
 	StaticData::window_accept_cancel->name = "Accept/cancel";
 	EControl::window_list.push_back(StaticData::window_accept_cancel);
 	StaticData::window_accept_cancel->is_active = false;

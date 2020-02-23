@@ -69,6 +69,58 @@ void EButtonCheck::click_event()
 		master_block->autogen_include.at(data_id) = is_checked;
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_ELDER_MAP)
+	{
+		StaticData::window_manual_loot->elder_map = is_checked;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_BLIGHT_MAP)
+	{
+		StaticData::window_manual_loot->blighted_map = is_checked;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_IDENTIFIED)
+	{
+		StaticData::window_manual_loot->identified = is_checked;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_CORRUPTED)
+	{
+		StaticData::window_manual_loot->is_corrupted = is_checked;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_SHAPER_INFLUENCE)
+	{StaticData::window_manual_loot->shaper_influence = is_checked;}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_ELDER_INFLUENCE)
+	{StaticData::window_manual_loot->elder_influence = is_checked;}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_CRUSADER_INFLUENCE)
+	{StaticData::window_manual_loot->crusader_influence = is_checked;}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_REDEEMER_INFLUENCE)
+	{StaticData::window_manual_loot->redeemer_influence = is_checked;}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_HUNTER_INFLUENCE)
+	{StaticData::window_manual_loot->hunter_influence = is_checked;}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_WARLORD_INFLUENCE)
+	{StaticData::window_manual_loot->warlord_influence = is_checked;}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_FRACTURED)
+	{StaticData::window_manual_loot->is_fractured = is_checked;}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_SYNTHESISED)
+	{StaticData::window_manual_loot->is_synthesised = is_checked;}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_ENCHANTMENT)
+	{StaticData::window_manual_loot->is_enchanted = is_checked;}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_MIRRORED)
+	{StaticData::window_manual_loot->is_mirrored = is_checked;}
+
+
+
 	/*BUTTON_CORRUPTION,
 	BUTTON_SHAPER_ITEM,
 	BUTTON_ELDER_ITEM,

@@ -59,6 +59,10 @@ public:
 
 	bool shaper_item = false;
 	bool elder_item = false;
+	bool crusader_item = false;
+	bool redeemer_item = false;
+	bool hunter_item = false;
+	bool warlord_item = false;
 
 	bool synthesised_item = false;
 	bool fractured_item = false;

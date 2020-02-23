@@ -23,6 +23,16 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 	position_mode_x = Enums::PositionMode::RIGHT;
 	position_mode_y = Enums::PositionMode::UP;
 
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_MANUAL_LOOT_WINDOW)
+	{
+		gabarite = DefaultGabarite::gabarite_plus;
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+	}
+
 	if (button_type == Enums::ButtonType::BUTTON_SYS_VISUAL_MODE)
 	{
 		gabarite = DefaultGabarite::gabarite_visual_mode;
@@ -413,6 +423,11 @@ void EButtonService::click_event()
 		//std::cout << "Sockets is active:" << master_block->is_socket_active << " " << master_block->socket_condition << master_block->socket_count << std::endl;
 		std::cout << "Stack size is active:" << master_block->is_stack_size_active << " " << master_block->item_stack_size_condition << master_block->item_stack_size << std::endl;
 		std::cout << "Width is active:" << master_block->is_item_width_active << " " << master_block->item_width_condition << master_block->item_width << std::endl;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_MANUAL_LOOT_WINDOW)
+	{
+		StaticData::window_manual_loot->is_active = true;
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SYS_VISUAL_MODE)

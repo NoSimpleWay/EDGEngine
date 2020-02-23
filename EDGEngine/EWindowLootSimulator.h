@@ -18,6 +18,8 @@ public:
 
 	virtual void update(float _d);
 
+	void put_loot(LootItem*& loot);
+
 
 	virtual void draw(Batcher* _batch, float _delta);
 

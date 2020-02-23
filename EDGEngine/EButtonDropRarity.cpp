@@ -45,8 +45,8 @@ void EButtonDropRarity::click_event()
 
 void EButtonDropRarity::incoming_data(FilterBlock* _filter)
 {
-	if (button_type == Enums::ButtonType::BUTTON_RARITY)
-	{
+	//if (button_type == Enums::ButtonType::BUTTON_RARITY)
+	//{
 		if (_filter->item_rarity == drop_text_base.at(0)) { text = drop_text.at(0); selected_element = 0; }
 		if (_filter->item_rarity == drop_text_base.at(1)) { text = drop_text.at(1); selected_element = 1; }
 		if (_filter->item_rarity == drop_text_base.at(2)) { text = drop_text.at(2); selected_element = 2; }
@@ -56,7 +56,7 @@ void EButtonDropRarity::incoming_data(FilterBlock* _filter)
 		if (text == drop_text.at(1)) { bg_color->set(EColorCollection::DAD_MAGIC); }
 		if (text == drop_text.at(2)) { bg_color->set(EColorCollection::DAD_RARE); }
 		if (text == drop_text.at(3)) { bg_color->set(EColorCollection::DAD_UNIQUE); }
-	}
+	//}
 }
 
 void EButtonDropRarity::drop_list_select_event()
@@ -64,12 +64,17 @@ void EButtonDropRarity::drop_list_select_event()
 	if (button_type == Enums::ButtonType::BUTTON_RARITY)
 	{
 		master_block->item_rarity = drop_text_base.at(selected_element);
-
-		if (selected_element == 0) { bg_color->set(EColorCollection::DAD_NORMAL); }
-		if (selected_element == 1) { bg_color->set(EColorCollection::DAD_MAGIC); }
-		if (selected_element == 2) { bg_color->set(EColorCollection::DAD_RARE); }
-		if (selected_element == 3) { bg_color->set(EColorCollection::DAD_UNIQUE); }
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_RARITY)
+	{
+		StaticData::window_manual_loot->rarity = drop_text_base.at(selected_element);
+	}
+
+	if (selected_element == 0) { bg_color->set(EColorCollection::DAD_NORMAL); }
+	if (selected_element == 1) { bg_color->set(EColorCollection::DAD_MAGIC); }
+	if (selected_element == 2) { bg_color->set(EColorCollection::DAD_RARE); }
+	if (selected_element == 3) { bg_color->set(EColorCollection::DAD_UNIQUE); }
 }
 
 void EButtonDropRarity::update_localisation()

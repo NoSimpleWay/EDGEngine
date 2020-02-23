@@ -47,6 +47,32 @@ void EButtonItemSearch::click_event()
 		StaticData::window_find_item->target_button->data_id = data_id;
 		StaticData::window_find_item->target_button->data_string = data_string;
 
+		if (StaticData::window_find_item->target_button->master_window == StaticData::window_manual_loot)
+		{
+			for (DADItem* item : ItemList::item_list)
+			{
+				if (item->item_name == data_string)
+				{
+					std::string class_text = item->base_class;
+
+					/*if (EString::active_localisation == Enums::LocalisationList::RU)
+					{
+						for (BaseClass* c : EString::base_class_list)
+						{
+							if (c->base_name == class_text) { StaticData::window_manual_loot->link_to_class_button->text = c->ru_name; }
+						}
+					}
+					else*/
+					{StaticData::window_manual_loot->link_to_class_button->text = class_text;}
+
+					StaticData::window_manual_loot->link_to_height->text = std::to_string(item->height);
+					StaticData::window_manual_loot->link_to_width->text = std::to_string(item->width);
+				}
+			}
+
+			
+		}
+
 		//StaticData::window_find_item->input_button->text = "";
 	}
 

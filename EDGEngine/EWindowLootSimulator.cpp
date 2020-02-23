@@ -45,7 +45,11 @@ EWindowLootSimulator::EWindowLootSimulator(int _id, bool _can_be_closed) :EWindo
 	but->master_window = this;
 	button_list.push_back(but);
 
-	but = new EButtonSlider(400.0f, -15.0f, 200.0f, 20.0f, Enums::ButtonType::SLIDER_LOOT_DROP_SIZE);
+	but = new EButtonService(390.0f, -15.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_OPEN_MANUAL_LOOT_WINDOW);
+	but->master_window = this;
+	button_list.push_back(but);
+
+	but = new EButtonSlider(425.0f, -15.0f, 200.0f, 20.0f, Enums::ButtonType::SLIDER_LOOT_DROP_SIZE);
 	but->master_window = this;
 	button_list.push_back(but);
 	
@@ -358,38 +362,44 @@ void EWindowLootSimulator::update(float _d)
 
 			prepared_pattern_list.erase(prepared_pattern_list.begin() + selected);
 
-			main_loot_item_list.push_back(loot);
-
-			find_filter_block(loot, StaticData::window_filter_block, false);
-			find_filter_block(loot, StaticData::default_filter_block, true);
-
-			place(loot);
-
-			drop_count--;
-
-			if (loot->filter_block_link != NULL)
-			{
-				if ((loot->filter_block_link->is_alert_sound) && (loot->filter_block_link->alert_sound_name != ""))
-				{
-					ESound::default_drop_sound.at(loot->filter_block_link->alert_sound_id)->setDefaultVolume(StaticData::window_filter_block->sound_volume);
-					ESound::engine->play2D(ESound::default_drop_sound.at(loot->filter_block_link->alert_sound_id));
-				}
-
-				if ((loot->filter_block_link->is_custom_alert_sound) && (loot->filter_block_link->custom_alert_sound_name != ""))
-				{
-					ESound::get_sound_by_name(loot->filter_block_link->custom_alert_sound_name)->setDefaultVolume(StaticData::window_filter_block->sound_volume);
-					ESound::engine->play2D(ESound::get_sound_by_name(loot->filter_block_link->custom_alert_sound_name));
-				}
-			}
-
-			ESound::flip_sound->setDefaultVolume(StaticData::window_filter_block->sound_volume);
-			ESound::engine->play2D(ESound::flip_sound);
+			put_loot(loot);
 
 			loot_vector_id++;
+			drop_count--;
 		}
 	}
 
 
+}
+
+void EWindowLootSimulator::put_loot(LootItem*& loot)
+{
+	main_loot_item_list.push_back(loot);
+
+	find_filter_block(loot, StaticData::window_filter_block, false);
+	find_filter_block(loot, StaticData::default_filter_block, true);
+
+	place(loot);
+
+
+
+	if (loot->filter_block_link != NULL)
+	{
+		if ((loot->filter_block_link->is_alert_sound) && (loot->filter_block_link->alert_sound_name != ""))
+		{
+			ESound::default_drop_sound.at(loot->filter_block_link->alert_sound_id)->setDefaultVolume(StaticData::window_filter_block->sound_volume);
+			ESound::engine->play2D(ESound::default_drop_sound.at(loot->filter_block_link->alert_sound_id));
+		}
+
+		if ((loot->filter_block_link->is_custom_alert_sound) && (loot->filter_block_link->custom_alert_sound_name != ""))
+		{
+			ESound::get_sound_by_name(loot->filter_block_link->custom_alert_sound_name)->setDefaultVolume(StaticData::window_filter_block->sound_volume);
+			ESound::engine->play2D(ESound::get_sound_by_name(loot->filter_block_link->custom_alert_sound_name));
+		}
+	}
+
+	ESound::flip_sound->setDefaultVolume(StaticData::window_filter_block->sound_volume);
+	ESound::engine->play2D(ESound::flip_sound);
 }
 
 void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
@@ -1372,26 +1382,26 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			||
 			(
 				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_CRUSADER))
-				//&&
-				//(!_l->shaper_item)
+				&&
+				(!_l->crusader_item)
 			)
 			||
 			(
 				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_HUNTER))
-				//&&
-				//(!_l->shaper_item)
+				&&
+				(!_l->hunter_item)
 			)
 			||
 			(
 				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER))
-				//&&
-				//(!_l->shaper_item)
+				&&
+				(!_l->redeemer_item)
 			)
 			||
 			(
 				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD))
-				//&&
-				//(!_l->shaper_item)
+				&&
+				(!_l->warlord_item)
 			)
 			
 		)
@@ -1413,6 +1423,30 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
 					&&
 					(_l->shaper_item)
+				)
+				||
+				(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER))
+					&&
+					(_l->redeemer_item)
+				)
+				||
+				(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER))
+					&&
+					(_l->crusader_item)
+				)
+				||
+				(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER))
+					&&
+					(_l->hunter_item)
+				)
+				||
+				(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD))
+					&&
+					(_l->warlord_item)
 				)
 			)
 			&&

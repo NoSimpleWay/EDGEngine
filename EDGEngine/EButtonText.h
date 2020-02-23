@@ -11,6 +11,7 @@ public:
 
 	virtual void click_event();
 	virtual void input_event();
+	virtual void input_finish_event();
 
 	virtual void update_localisation();
 	virtual void update_additional(float _d);

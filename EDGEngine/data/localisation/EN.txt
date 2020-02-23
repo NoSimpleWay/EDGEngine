@@ -199,3 +199,35 @@ hint_input_enchantment	Input enchantment name
 description_area_level_for_loot_simulator	Input level of area
 base_data_text_mirrored_item	Mirrored item
 mirrored_text	-MIRRORED-
+manual_loot_text_class	Item class
+manual_loot_text_add_loot_to_simulator	Add item
+manual_loot_text_rarity	Item rarity
+socket_color_red	Red
+socket_color_green	Green
+socket_color_blue	Blue
+socket_color_white	White
+socket_color_abyss	Abyss
+socket_color_delve	Delve
+manual_loot_text_sockets	Socket countZ
+manual_loot_text_links	Linked sockets
+manual_loot_text_socket_color	Socket color
+manual_loot_text_quality	Quality
+manual_loot_text_gem_level	Gem level
+manual_loot_text_is_elder_map	Is Elder map
+manual_loot_text_is_shaper_map	Is Shaper map
+manual_loot_text_is_blighted_map	Is blighted map
+manual_loot_text_is_identified	Identified
+manual_loot_text_quantity	Quantity
+manual_loot_text_height	Height
+manual_loot_text_width	Width
+manual_loot_text_is_corrupted	Item is corrupted
+manual_loot_text_corruption_count	Corrupted mods count
+manual_loot_text_is_shaper_item	Is shaper influence
+manual_loot_text_is_elder_item	Is elder influence
+manual_loot_text_is_crusader_item	Is crusader influence
+manual_loot_text_is_redeemer_item	Is Redeemer influence
+manual_loot_text_is_hunter_item	Is Hunter influence
+manual_loot_text_is_fractured_item	Is fractured item
+manual_loot_text_is_synthesised_item	Is synthesised item
+manual_loot_text_is_enchanted_item	Any enchantment
+manual_loot_text_is_mirrored_item	Mirrored copy

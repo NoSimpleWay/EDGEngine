@@ -151,22 +151,25 @@ public:
 
 				if
 					(
-						(
-							(EString::to_lower(item->item_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
-							||
-							(EString::to_lower(item->item_name_ru, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
-							||
-							(_b->text == "")
+					(
+						(EString::to_lower(item->item_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+						||
+						(EString::to_lower(item->item_name_ru, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+						||
+						(_b->text == "")
 						)
 						&&
 						(order >= 0)
-					)
+						)
 				{
 					bool this_item_already_added = false;
 
-					for (EButton* fi : master_block->filter_block_items_button_list)
+					if (master_block != NULL)
 					{
-						if (EString::to_lower(fi->data_string) == EString::to_lower(item->item_name)) { this_item_already_added = true; }
+						for (EButton* fi : master_block->filter_block_items_button_list)
+						{
+							if (EString::to_lower(fi->data_string) == EString::to_lower(item->item_name)) { this_item_already_added = true; }
+						}
 					}
 
 					if ((search_count < 150) && (!this_item_already_added))
