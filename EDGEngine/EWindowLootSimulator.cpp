@@ -29,7 +29,11 @@ EWindowLootSimulator::EWindowLootSimulator(int _id, bool _can_be_closed) :EWindo
 
 	is_active = false;
 
-	EButton* but = new EButtonText(15.0f, -15.0f, 250.0f, 20.0f, Enums::BUTTON_OPEN_PATTERN_WINDOW);
+	EButton* but = new EButtonText(15.0f, -15.0f, 220.0f, 20.0f, Enums::BUTTON_OPEN_PATTERN_WINDOW);
+	but->master_window = this;
+	button_list.push_back(but);
+
+	but = new EButtonService(240.0f, -15.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_REMOVE_LOOT_FROM_SIMULATOR);
 	but->master_window = this;
 	button_list.push_back(but);
 
@@ -945,6 +949,8 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 	bool temp_match = false;
 
+	bool any_detect = false;
+
 
 
 
@@ -952,7 +958,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 	for (FilterBlock* fb : _w->filter_block_list)
 	{
-		
+		match_detect = false;
 
 		if (fb->filter_block_items_button_list.size() <= 0) { match_detect = true; }
 
@@ -1098,6 +1104,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			}
 
 			match_detect = temp_match;
+			if ((!_default) && (!match_detect)) { rejection("prophecy", _l); }
 		}
 
 
@@ -1249,9 +1256,33 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		if((match_detect)&&(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS)))
 		{
+			
+			std::cout << "[" << 0
+				<< "] sockets: " << fb->socket_count.at(0)
+				<< ", red: " << fb->red_sockets.at(0)
+				<< ", green: " << fb->green_sockets.at(0)
+				<< ", blue: " << fb->blue_sockets.at(0)
+				<< ", white: " << fb->white_sockets.at(0)
+				<< ", abyss: " << fb->abyss_sockets.at(0)
+				<< ", delve: " << fb->delve_sockets.at(0)
+				<< ", equation: " << fb->socket_condition
+				<< std::endl;
+
+			std::cout << "[" << "item param"
+				<< "] sockets: " << _l->sockets
+				<< ", red: " << _l->red_socket
+				<< ", green: " << _l->green_socket
+				<< ", blue: " << _l->blue_socket
+				<< ", white: " << _l->white_socket
+				<< ", abyss: " << _l->abyss_socket
+				<< ", delve: " << _l->delve_socket
+				<< std::endl;
 			//bool microreject = true;
 			match_detect = false;
 			for (int i = 0; i < fb->socket_count.size(); i++)
+			{
+
+
 				if
 					(
 					(
@@ -1268,50 +1299,51 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 						(
 							(
 								check_condition(fb->socket_condition, _l->sockets, fb->socket_count.at(i)))
-								||
-								(fb->socket_count.at(i) == 0)
+							||
+							(fb->socket_count.at(i) == 0)
 							)
 							&&
 							(
-								(check_condition(fb->socket_condition, _l->red_socket, fb->red_sockets.at(i)))
+							(check_condition(fb->socket_condition, _l->red_socket, fb->red_sockets.at(i)))
 								||
 								(fb->red_sockets.at(i) == 0)
-							)
+								)
 							&&
 							(
-								(check_condition(fb->socket_condition, _l->green_socket, fb->green_sockets.at(i)))
+							(check_condition(fb->socket_condition, _l->green_socket, fb->green_sockets.at(i)))
 								||
 								(fb->green_sockets.at(i) == 0)
-							)
+								)
 							&&
 							(
-								(check_condition(fb->socket_condition, _l->blue_socket, fb->blue_sockets.at(i)))
+							(check_condition(fb->socket_condition, _l->blue_socket, fb->blue_sockets.at(i)))
 								||
 								(fb->blue_sockets.at(i) == 0)
-							)
+								)
 							&&
 							(
-								(check_condition(fb->socket_condition, _l->white_socket, fb->white_sockets.at(i)))
+							(check_condition(fb->socket_condition, _l->white_socket, fb->white_sockets.at(i)))
 								||
 								(fb->white_sockets.at(i) == 0)
-							)
+								)
 							&&
 							(
-								(check_condition(fb->socket_condition, _l->abyss_socket, fb->abyss_sockets.at(i)))
+							(check_condition(fb->socket_condition, _l->abyss_socket, fb->abyss_sockets.at(i)))
 								||
 								(fb->abyss_sockets.at(i) == 0)
-							)
+								)
 							&&
 							(
-								(check_condition(fb->socket_condition, _l->delve_socket, fb->delve_sockets.at(i)))
+							(check_condition(fb->socket_condition, _l->delve_socket, fb->delve_sockets.at(i)))
 								||
 								(fb->delve_sockets.at(i) == 0)
-							)
+								)
 							)
 						)
 				{
 					match_detect = true;
 				}
+			}
 
 			if (!match_detect)
 			{
@@ -1579,17 +1611,17 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		if (match_detect)
 		{
-			
+			any_detect = true;
 
 			if (_default)
 			{
 				_l->default_filter_block_link = fb;
-				//std::cout << "Match detect [default]! (" << _l->name << ")" << std::endl;
+				std::cout << "Match detect [default]! (" << _l->name << ")" << std::endl;
 			}
 			else
 			{
 				_l->filter_block_link = fb;
-				//std::cout << "Match detect! (" << _l->name << ")" << std::endl;
+				std::cout << "Match detect! (" << _l->name << ")" << std::endl;
 			}
 
 			//_l->name += " " + std::to_string(fb_id);
@@ -1604,7 +1636,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 
 
-	if (!match_detect)
+	if (!any_detect)
 	{
 
 		if (_default)

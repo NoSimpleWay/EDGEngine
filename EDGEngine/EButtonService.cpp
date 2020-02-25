@@ -23,6 +23,16 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 	position_mode_x = Enums::PositionMode::RIGHT;
 	position_mode_y = Enums::PositionMode::UP;
 
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_LOOT_FROM_SIMULATOR)
+	{
+		gabarite = DefaultGabarite::gabarite_remove;
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+	}
+
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_MANUAL_LOOT_WINDOW)
 	{
 		gabarite = DefaultGabarite::gabarite_plus;
@@ -423,6 +433,15 @@ void EButtonService::click_event()
 		//std::cout << "Sockets is active:" << master_block->is_socket_active << " " << master_block->socket_condition << master_block->socket_count << std::endl;
 		std::cout << "Stack size is active:" << master_block->is_stack_size_active << " " << master_block->item_stack_size_condition << master_block->item_stack_size << std::endl;
 		std::cout << "Width is active:" << master_block->is_item_width_active << " " << master_block->item_width_condition << master_block->item_width << std::endl;
+	}
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_LOOT_FROM_SIMULATOR)
+	{
+		StaticData::window_loot_simulator->main_loot_item_list.clear();
+		for (int i = 0; i < 87; i++)
+		for (int j = 0; j < 125; j++)
+		{
+			StaticData::window_loot_simulator->free_space[j][i] = true;
+		}
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_MANUAL_LOOT_WINDOW)
@@ -1062,7 +1081,15 @@ void EButtonService::right_click_event()
 
 void EButtonService::update_localisation()
 {
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_LOOT_FROM_SIMULATOR)
+	{
+		description_text = EString::localize_it("clear_loot_from_simulator");
+	}
 
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_MANUAL_LOOT_WINDOW)
+	{
+		description_text = EString::localize_it("open_manual_window_localisation");
+	}
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_LOOT_FILTER)
 	{description_text = EString::localize_it("open_loot_filter");}
 

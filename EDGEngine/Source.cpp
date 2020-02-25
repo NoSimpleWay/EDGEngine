@@ -1452,7 +1452,7 @@ int main()
 
 	put_texture_to_atlas("data/button_save_autogen.png");			DefaultGabarite::gabarite_save_autogen = just_created_gabarite;
 	put_texture_to_atlas("data/plus_equal.png");					DefaultGabarite::gabarite_plus_equal = just_created_gabarite;
-
+ 
 	put_texture_to_atlas("data/button_continue_on.png");			       DefaultGabarite::gabarite_button_continue_on = just_created_gabarite;
 	put_texture_to_atlas("data/button_continue_off.png");			DefaultGabarite::gabarite_button_continue_off = just_created_gabarite;
 

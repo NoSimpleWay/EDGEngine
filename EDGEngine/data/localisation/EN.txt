@@ -208,6 +208,7 @@ socket_color_blue	Blue
 socket_color_white	White
 socket_color_abyss	Abyss
 socket_color_delve	Delve
+manual_loot_text_item_level	Item level
 manual_loot_text_sockets	Socket countZ
 manual_loot_text_links	Linked sockets
 manual_loot_text_socket_color	Socket color
@@ -231,3 +232,5 @@ manual_loot_text_is_fractured_item	Is fractured item
 manual_loot_text_is_synthesised_item	Is synthesised item
 manual_loot_text_is_enchanted_item	Any enchantment
 manual_loot_text_is_mirrored_item	Mirrored copy
+open_manual_window_localisation	Open manual loot window
+clear_loot_from_simulator	Clean loot-simulator window and delete all loot.

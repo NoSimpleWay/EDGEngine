@@ -113,6 +113,10 @@ void EButtonItemSearch::click_event()
 		StaticData::window_find_item->target_button->data_string = data_string;
 		StaticData::window_find_item->target_button->data_id = data_id;
 
+		if (StaticData::window_find_item->target_button->master_window == StaticData::window_manual_loot)
+		{
+			StaticData::window_find_item->target_button->text = data_string;
+		}
 
 		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::active_font, text) + 5.0f;
 

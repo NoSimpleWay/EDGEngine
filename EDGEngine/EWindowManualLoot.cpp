@@ -7,12 +7,12 @@
 
 EWindowManualLoot::EWindowManualLoot(int _id, bool _can_be_closed) :EWindow(_id, _can_be_closed)
 {
-	window_size_x = 800;
+	window_size_x = 900;
 	window_size_y = 700;
 
 
 
-	EButton* but = new EButtonExplicit(100, 100, 120, 20.0f, Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
+	EButton* but = new EButtonExplicit(100, 100, 220, 20.0f, Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
 	but->text = ""; link_to_class_button = but;
 	add_complex("manual_loot_text_class", but);
 
@@ -67,8 +67,8 @@ EWindowManualLoot::EWindowManualLoot(int _id, bool _can_be_closed) :EWindow(_id,
 	but_check->change_state(false);
 	add_complex("manual_loot_text_is_blighted_map", but_check);
 
-	complex_x += 350.0f;
-	complex_y = 100.0f;
+	complex_x += 450.0f;
+	complex_y = 125.0f;
 
 	but_check = new EButtonCheck(100, 200, 20, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_IDENTIFIED);
 	but_check->change_state(false);
@@ -148,10 +148,11 @@ EWindowManualLoot::EWindowManualLoot(int _id, bool _can_be_closed) :EWindow(_id,
 		fi->master_window = this;
 		fi->gabarite = DefaultGabarite::gabarite_plus;
 		fi->position_mode_y = Enums::PositionMode::UP;
+		fi->can_be_removed = false;
 		link_to_item_button = fi;
 	button_list.push_back(fi);
 
-	but = new EButtonText(100, 100, 200, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_ADD_TO_LOOT_SIMULATOR);
+	but = new EButtonText(20, 20, 200, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_ADD_TO_LOOT_SIMULATOR);
 		but->master_window = this;
 		but->position_mode_x = Enums::LEFT;
 		but->position_mode_y = Enums::DOWN;
@@ -213,6 +214,7 @@ void EWindowManualLoot::add_complex(std::string _s, EButton* _b)
 
 	_b->button_x = complex_x + 200.0f;
 	_b->button_y = -complex_y;
+	_b->input_auto_clear_text = true;
 
 	complex_y += 25.0f;
 	//complex_list.at(complex_list.size() - 1).button = _b;

@@ -942,7 +942,7 @@
 				ex_x += b->button_size_x + 5;
 				if (b->button_x + b->button_size_x > size_x - 270.0f)
 				{
-					ex_x = 310.0f;
+					ex_x = start_position_draw_x;
 					ex_y -= 22.0f;
 				}
 			}

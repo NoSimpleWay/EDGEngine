@@ -268,7 +268,7 @@ void EButtonSlider::click_event()
 
 	 if (button_type == Enums::ButtonType::BUTTON_GLOBAL_DROP_SOUND_VOLUME)
 	 {
-		 StaticData::window_filter_block->sound_volume = slider_value;
+		 StaticData::window_filter_block->sound_volume = slider_value * slider_value;
 
 		 description_text = cached_text_sound_volume + std::to_string((int)round(slider_value * 100.0f)) + "%";
 	 }

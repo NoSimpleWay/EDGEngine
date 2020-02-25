@@ -209,6 +209,7 @@ socket_color_blue	Синий
 socket_color_white	Белый
 socket_color_abyss	Бездна
 socket_color_delve	Спуск
+manual_loot_text_item_level	Уровень предмета
 manual_loot_text_sockets	Количетсво гнёзд
 manual_loot_text_links	Связанные гнёзда
 manual_loot_text_socket_color	Цвет гнезда
@@ -222,13 +223,15 @@ manual_loot_text_quantity	Количество
 manual_loot_text_height	Высота
 manual_loot_text_width	Ширина
 manual_loot_text_is_corrupted	Предмет осквернён
-manual_loot_text_corruption_count	Кол-во осквернённых свойств
+manual_loot_text_corruption_count	Осквернённые свойства
 manual_loot_text_is_shaper_item	Влияние Создателя
 manual_loot_text_is_elder_item	Влияние Древнего
 manual_loot_text_is_crusader_item	Влияние Крестоносца
 manual_loot_text_is_redeemer_item	Влияние Избавителя
 manual_loot_text_is_hunter_item	Влияние Охотника
 manual_loot_text_is_fractured_item	Расколотый предмет
-manual_loot_text_is_synthesised_item	Синтезированный предмет
+manual_loot_text_is_synthesised_item	Синтез. предмет
 manual_loot_text_is_enchanted_item	Зачарование лабиринта
 manual_loot_text_is_mirrored_item	Зеркальная копия
+open_manual_window_localisation	Открыть окно ручного добавления лута
+clear_loot_from_simulator	Очистить экран, удалив весь лут.

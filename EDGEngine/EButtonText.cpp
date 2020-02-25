@@ -282,16 +282,21 @@ void EButtonText::click_event()
 			}
 		}
 
+		StaticData::window_manual_loot->is_active = false;
+
 		loot->data_name = StaticData::window_manual_loot->link_to_item_button->data_string;
 		loot->rarity = StaticData::window_manual_loot->rarity;
-		loot->sockets = StaticData::window_manual_loot->sockets;
+
+		loot->sockets = min(StaticData::window_manual_loot->sockets, 6);
+
+
 		loot->links = StaticData::window_manual_loot->links;
 		loot->item_level = StaticData::window_manual_loot->item_level;
 		
 
 		int sc = 0;
 
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < StaticData::window_manual_loot->sockets; i++)
 		{
 			sc = StaticData::window_manual_loot->socket_color.at(i);
 
@@ -542,54 +547,54 @@ void EButtonText::input_event()
 void EButtonText::input_finish_event()
 {
 
-	if (button_type == Enums::ButtonType::BUTTON_AREA_LEVEL_FOR_LOOT_SIMULATOR)
+	/*if (button_type == Enums::ButtonType::BUTTON_AREA_LEVEL_FOR_LOOT_SIMULATOR)
 	{
 		if ((text != "") && (text.length() <= 3)) { StaticData::window_loot_simulator->area_level = std::stoi(text); }
-	}
+	}*/
 
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_SOCKET_COUNT)
 	{
-		StaticData::window_manual_loot->sockets = std::stoi(text);
+		if ((text != "") && (text.length() <= 1)) {	StaticData::window_manual_loot->sockets = std::stoi(text); }
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_ITEM_LEVEL)
 	{
-		StaticData::window_manual_loot->item_level = std::stoi(text);
+		if ((text != "") && (text.length() <= 3)) { StaticData::window_manual_loot->item_level = std::stoi(text); }
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_LINK)
 	{
-		StaticData::window_manual_loot->links = std::stoi(text);
+		if ((text != "") && (text.length() <= 1)) { StaticData::window_manual_loot->links = std::stoi(text); }
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_QUALITY)
 	{
-		StaticData::window_manual_loot->quality = std::stoi(text);
+		if ((text != "") && (text.length() <= 2)) { StaticData::window_manual_loot->quality = std::stoi(text); }
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_GEM_LEVEL)
 	{
-		StaticData::window_manual_loot->gem_level = std::stoi(text);
+		if ((text != "") && (text.length() <= 2)) { StaticData::window_manual_loot->gem_level = std::stoi(text);	}
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_QUANTITY)
 	{
-		StaticData::window_manual_loot->quantity = std::stoi(text);
+		if ((text != "") && (text.length() <= 2)) { StaticData::window_manual_loot->quantity = std::stoi(text); }
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_HEIGHT)
 	{
-		StaticData::window_manual_loot->item_height = std::stoi(text);
+		if ((text != "") && (text.length() <= 1)) { StaticData::window_manual_loot->item_height = std::stoi(text); }
 	}
 	
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_WIDTH)
 	{
-		StaticData::window_manual_loot->item_width = std::stoi(text);
+		if ((text != "") && (text.length() <= 1)) { StaticData::window_manual_loot->item_width = std::stoi(text); }
 	}
 	
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_CORRUPTION_COUNT)
 	{
-		StaticData::window_manual_loot->corruption_count = std::stoi(text);
+		if ((text != "") && (text.length() <= 2)) { StaticData::window_manual_loot->corruption_count = std::stoi(text); }
 	}
 
 
