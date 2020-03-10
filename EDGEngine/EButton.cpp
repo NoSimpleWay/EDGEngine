@@ -117,7 +117,7 @@
 
 	bool EButton::is_outclick()
 	{
-		if ((EControl::mouse_pressed) && (!is_overlap())) { return true; }
+		if ((EControl::mouse_pressed) && (!is_overlap()) && (!outclick_protection)) { return true; }
 
 		return false;
 	}
@@ -131,6 +131,7 @@
 
 	void EButton::update(float _d)
 	{
+
 		if
 		(
 			(can_receive_paste)
@@ -208,6 +209,12 @@
 				input_finish_event();
 			}
 		}
+
+		if (!EControl::mouse_pressed)
+		{
+			outclick_protection = false;
+		}
+
 		//cout << main_window << endl;
 		if (master_position == Enums::PositionMaster::FILTER_BLOCK)
 		{
@@ -398,7 +405,12 @@
 
 
 
-			if (glfwGetKey(EWindow::main_window, GLFW_KEY_ENTER) == GLFW_PRESS)
+			if
+			(
+				(glfwGetKey(EWindow::main_window, GLFW_KEY_ENTER) == GLFW_PRESS)
+				||
+				(glfwGetKey(EWindow::main_window, GLFW_KEY_KP_ENTER) == GLFW_PRESS)
+			)
 			{
 				is_input_mode_active = false;
 

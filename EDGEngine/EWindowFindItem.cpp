@@ -125,6 +125,8 @@ public:
 	{
 		if (window_searchs_mode == Enums::WindowSearchMode::ITEM)
 		{
+			
+
 			if (input_button->text != "")
 			{
 				button_list.at(0)->description_text = input_button->text;
@@ -561,6 +563,8 @@ public:
 			have_undefined_input = true;
 			int temp_id = -1;
 
+
+
 			for (EButton* b : button_list)
 			{
 				b->button_size_x	= 40;
@@ -587,6 +591,8 @@ public:
 			}
 
 			input_button->is_input_mode_active = true;
+			input_button->outclick_protection = true;
+
 			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_ITEM;
 
 		}

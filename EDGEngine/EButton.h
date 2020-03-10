@@ -110,6 +110,7 @@ public:
 	void text_pass(Batcher* _batch);
 	virtual void incoming_data(FilterBlock* _block);
 
+	bool outclick_protection = false;
 
 	virtual void click_event();
 	virtual void right_click_event();

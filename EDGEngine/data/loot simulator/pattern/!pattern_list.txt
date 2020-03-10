@@ -2,7 +2,7 @@ name_en	Breach item	name_ru	Предметы "Разлома"	description_en	Gen
 name_en	Currency	name_ru	Валюта	description_en	Generate all regular game currency	description_ru	Генерирует всю обычную игровую валюту	path	currency
 name_en	Delve	name_ru	Шахта	description_en	Generate fossils, resonators, and delve item	description_ru	Генерирует ископаемые, резонаторы, и предметы спуска	path	delve
 name_en	Divination card	name_ru	Гадальные карты	description_en	Generate lot of divination card	description_ru	Генерирует множество гадальных карты	path	divination
-name_en	Equip	name_ru	Экиперовка	description_en	Generate lot of equip items.\nItems can be shaper/elder	description_ru	Генерирует множество предметов экепировки\nПредметы могут быть шейпера/древнего.	path	only equip
+name_en	Equip	name_ru	Экеперовка	description_en	Generate lot of equip items.\nItems can be shaper/elder	description_ru	Генерирует множество предметов экепировки\nПредметы могут быть шейпера/древнего.	path	only equip
 name_en	Enchantment card	name_ru	Зачаровывания	description_en	Generate lab enchantments	description_ru	Генерирует зачаровывания лабиринта	path	enchantment
 name_en	Essences	name_ru	Сущности	description_en	Generate lab lot of Essences	description_ru	Генерирует множество Сущностей	path	essences
 name_en	Incursion	name_ru	Вмешательство	description_en	Generate incursion items and vials	description_ru	Генерирует предметы вмешательства и фиалы	path	incursion

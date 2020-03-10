@@ -234,3 +234,4 @@ manual_loot_text_is_enchanted_item	Any enchantment
 manual_loot_text_is_mirrored_item	Mirrored copy
 open_manual_window_localisation	Open manual loot window
 clear_loot_from_simulator	Clean loot-simulator window and delete all loot.
+description_continue	Disable/enable "Continue" property.\n"Continue" to indicate that filter rule matching should not stop when an item matches this block.

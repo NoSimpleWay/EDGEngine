@@ -889,6 +889,9 @@ void EButtonService::click_event()
 		fb->item_quality_condition = master_block->item_quality_condition;
 		fb->item_quality = master_block->item_quality;
 
+		fb->area_level_condition = master_block->area_level_condition;
+		fb->area_level = master_block->area_level;
+
 		fb->is_corrupted = master_block->is_corrupted;
 		fb->is_shaper_item = master_block->is_shaper_item;
 		fb->is_elder_item = master_block->is_elder_item;
@@ -1175,7 +1178,7 @@ void EButtonService::update_localisation()
 	{description_text = EString::localize_it("description_cut_filter_block");}
 		
 
-		if (button_type == Enums::ButtonType::BUTTON_AUTOGEN_SAVE_LOOT_FILTER)
+	if (button_type == Enums::ButtonType::BUTTON_AUTOGEN_SAVE_LOOT_FILTER)
 	{description_text = EString::localize_it("description_save_autogen_loot_filter");}
 
 
@@ -1185,6 +1188,12 @@ void EButtonService::update_localisation()
 	if (button_type == Enums::ButtonType::BUTTON_CHECK_OIL)
 	{
 		description_text = EString::localize_it(EString::oil_name_list.at(data_id)) + "\\n\\n" + EString::localize_it("description_oil_check_button");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SET_BLOCK_CONTINUE)
+	{
+
+			description_text = EString::localize_it("description_continue");
 	}
 
 

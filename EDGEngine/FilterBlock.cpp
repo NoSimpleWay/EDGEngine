@@ -133,7 +133,7 @@
 						(_button_type != Enums::ButtonType::BUTTON_AND_CRUSADER_ITEM) &&
 						(_button_type != Enums::ButtonType::BUTTON_AND_WARLORD_ITEM)
 					)
-					{but = new EButtonInputBaseData(0, 0, 65, 17, _button_type);}
+					{but = new EButtonInputBaseData(0, 0, 65, 17, _button_type); but->input_auto_clear_text = true;}
 					else
 					{but = NULL; }
 				}

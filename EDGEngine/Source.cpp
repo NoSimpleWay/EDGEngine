@@ -1540,7 +1540,7 @@ int main()
 	EControl::window_list.push_back(StaticData::window_manual_loot);
 	//StaticData::window_manual_loot->window_searchs_mode = Enums::WindowSearchMode::OPEN_LOOT_FILTER_SEARCH_LIST;
 	//StaticData::window_manual_loot->manual_event();
-	StaticData::window_manual_loot->is_active = true;
+	StaticData::window_manual_loot->is_active = false;
 
 	StaticData::window_find_item = new EWindowFindItem(10, true);
 	StaticData::window_find_item->name = "Search item";
