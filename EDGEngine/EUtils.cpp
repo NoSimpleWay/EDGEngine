@@ -11,6 +11,7 @@
 #include "ConsoleColor.h"
 #include "StaticData.h"
 #include "EButtonFilterItem.h"
+#include "EColor.h"
 
 using namespace std;
 
@@ -205,6 +206,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	std::vector <std::string> EString::loot_pattern_path;
 
+	std::vector<EColor*> EString::loot_pattern_button_color;
+	std::vector<EColor*> EString::loot_pattern_text_color;
+
 	std::string EString::game_color_name[6]
 	=
 	{
@@ -291,6 +295,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 		EString::loot_pattern_path.clear();
 
+		EString::loot_pattern_button_color.clear();
+		EString::loot_pattern_text_color.clear();
+
 
 
 		//ofstream myfile_open;
@@ -301,7 +308,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		string line;
 
 		string subdata;
-		string subdata_array[14];
+		string subdata_array[20];
 
 		int line_id = 0;
 		int data_order;
@@ -334,7 +341,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 			}
 
-			for (int i = 0; i < 6; i++)
+			for (int i = 0; i < 10; i++)
 			{
 				if (subdata_array[i * 2] == "name_en")
 				{EString::loot_pattern_name.push_back(subdata_array[i * 2 + 1]);}
@@ -350,6 +357,33 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				if (subdata_array[i * 2] == "path")
 				{EString::loot_pattern_path.push_back(subdata_array[i * 2 + 1]);}
+
+				if (subdata_array[i * 2] == "button_color")
+				{
+					if (subdata_array[i * 2 + 1] == "RED")		{EString::loot_pattern_button_color.push_back(EColorCollection::RED); };
+					if (subdata_array[i * 2 + 1] == "GREEN")	{EString::loot_pattern_button_color.push_back(EColorCollection::GREEN); };
+					if (subdata_array[i * 2 + 1] == "BLUE")		{EString::loot_pattern_button_color.push_back(EColorCollection::BLUE); };
+					if (subdata_array[i * 2 + 1] == "BLACK")	{EString::loot_pattern_button_color.push_back(EColorCollection::BLACK); };
+					if (subdata_array[i * 2 + 1] == "WHITE")	{EString::loot_pattern_button_color.push_back(EColorCollection::WHITE); };
+					if (subdata_array[i * 2 + 1] == "YELLOW")	{EString::loot_pattern_button_color.push_back(EColorCollection::YELLOW); };
+					if (subdata_array[i * 2 + 1] == "PINK")		{EString::loot_pattern_button_color.push_back(EColorCollection::PINK); };
+
+					//{EString::loot_pattern_button_color.push_back(EColorCollection::CYAN); };
+				}
+
+				if (subdata_array[i * 2] == "text_color")
+				{
+					std::cout << "color = " << subdata_array[i * 2 + 1] << std::endl;
+					if (subdata_array[i * 2 + 1] == "RED")		{EString::loot_pattern_text_color.push_back(EColorCollection::RED); };
+					if (subdata_array[i * 2 + 1] == "GREEN")	{EString::loot_pattern_text_color.push_back(EColorCollection::GREEN); };
+					if (subdata_array[i * 2 + 1] == "BLUE")		{EString::loot_pattern_text_color.push_back(EColorCollection::BLUE); };
+					if (subdata_array[i * 2 + 1] == "BLACK")	{EString::loot_pattern_text_color.push_back(EColorCollection::BLACK); };
+					if (subdata_array[i * 2 + 1] == "WHITE")	{EString::loot_pattern_text_color.push_back(EColorCollection::WHITE); };
+					if (subdata_array[i * 2 + 1] == "YELLOW")	{EString::loot_pattern_text_color.push_back(EColorCollection::YELLOW); };
+					if (subdata_array[i * 2 + 1] == "PINK")		{EString::loot_pattern_text_color.push_back(EColorCollection::PINK); };
+
+					//{EString::loot_pattern_text_color.push_back(EColorCollection::CYAN); };
+				}
 			}
 
 			//std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << subdata_array[1] << std::endl;

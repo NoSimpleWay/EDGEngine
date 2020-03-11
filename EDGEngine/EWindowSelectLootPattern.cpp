@@ -10,9 +10,14 @@ EWindowSelectLootPattern::EWindowSelectLootPattern(int _id, bool _can_be_closed)
 	float x_position = 30.0f;
 	float y_position = -30.0f;
 
+	std::cout << "size name = " << EString::loot_pattern_name.size() << "size color text = " << EString::loot_pattern_text_color.size() << std::endl;
+
 	for (int i = 0; i < EString::loot_pattern_name.size(); i++)
 	{
 		EButton* but = new EButtonText(x_position, y_position, 200.0f, 25.0f, Enums::ButtonType::BUTTON_SELECT_LOOT_PATTERN);
+
+		but->bg_color = EString::loot_pattern_button_color.at(i);
+		but->text_color = EString::loot_pattern_text_color.at(i);
 
 		but->data_id = i;
 
@@ -33,6 +38,12 @@ EWindowSelectLootPattern::EWindowSelectLootPattern(int _id, bool _can_be_closed)
 
 void EWindowSelectLootPattern::update(float _d)
 {
+
+}
+
+void EWindowSelectLootPattern::manual_event()
+{
+
 }
 
 void EWindowSelectLootPattern::draw(Batcher* _batch, float _delta)

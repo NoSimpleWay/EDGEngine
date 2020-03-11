@@ -228,6 +228,7 @@ manual_loot_text_is_elder_item	Is elder influence
 manual_loot_text_is_crusader_item	Is crusader influence
 manual_loot_text_is_redeemer_item	Is Redeemer influence
 manual_loot_text_is_hunter_item	Is Hunter influence
+manual_loot_text_is_warlord_item	Is Warlord influence
 manual_loot_text_is_fractured_item	Is fractured item
 manual_loot_text_is_synthesised_item	Is synthesised item
 manual_loot_text_is_enchanted_item	Any enchantment

@@ -504,6 +504,7 @@ void EButtonText::click_event()
 	{
 
 		StaticData::window_select_loot_pattern->is_active = true;
+		StaticData::window_select_loot_pattern->manual_event();
 		/*
 		EString::load_loot_simulator_pattern_list();
 

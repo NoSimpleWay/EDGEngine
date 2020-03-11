@@ -119,6 +119,10 @@ EWindowManualLoot::EWindowManualLoot(int _id, bool _can_be_closed) :EWindow(_id,
 	but_check = new EButtonCheck(100, 200, 20, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_HUNTER_INFLUENCE);
 	but_check->change_state(false);
 	add_complex("manual_loot_text_is_hunter_item", but_check);
+	
+	but_check = new EButtonCheck(100, 200, 20, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_WARLORD_INFLUENCE);
+	but_check->change_state(false);
+	add_complex("manual_loot_text_is_warlord_item", but_check);
 
 	complex_y += 25.0f;
 

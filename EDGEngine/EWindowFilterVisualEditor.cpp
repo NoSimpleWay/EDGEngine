@@ -67,6 +67,8 @@
 		EButton* but = new EButtonText(5, 50, 220, 40, Enums::ButtonType::BUTTON_OPEN_DEFAULT_DROP_SOUND_WINDOW);
 		but->master_window = this;
 		but->master_block = master_block;
+		but->master_position = Enums::PositionMaster::WINDOW;
+		but->text_align_x = Enums::PositionMode::MID;
 		button_list.push_back(but);
 
 		but = new EButtonText(5, 5, 220, 40, Enums::ButtonType::BUTTON_OPEN_CUSTOM_DROP_SOUND_WINDOW);
@@ -402,7 +404,7 @@
 		_batch->draw_rama(pos_x + default_position_x + distance_between_x * 3.0f - 5.0f, /**/ pos_y + default_position_y - 5.0f, /**/ button_size_x + 10.0f, /**/ distance_between_y * 4.0f + 22.0f, /**/ 2.0f, /**/ DefaultGabarite::gabarite_white);
 
 		EFont::active_font->scale = 1.0f;
-		_batch->setcolor(EColorCollection::BLACK);
+		_batch->setcolor(EColorCollection::LIGHT_GRAY);
 		EFont::active_font->align_x = Enums::PositionMode::MID;
 
 		EFont::active_font->draw(_batch, cached_text_bg_color,		pos_x + default_position_x + distance_between_x * 0.0f + button_size_x / 2.0f, pos_y + default_position_y + distance_between_y * 4.0f + 3.0f);

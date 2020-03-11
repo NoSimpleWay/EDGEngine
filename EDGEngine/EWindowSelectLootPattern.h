@@ -17,4 +17,6 @@ public:
 	virtual void update_localisation();
 	virtual void input_event(EButton* _b);
 	virtual void pre_draw(Batcher* _batch, float _delta);
+
+	virtual void manual_event();
 };

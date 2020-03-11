@@ -5,6 +5,7 @@
 #include "ProphecyList.h"
 #include "LabEnchantment.h"
 #include "NotablePassive.h"
+#include "EColor.h"
 
 #include <string>
 
@@ -133,6 +134,9 @@ public:
 	static std::vector <std::string> loot_pattern_description_ru;
 
 	static std::vector <std::string> loot_pattern_path;
+
+	static std::vector <EColor*> loot_pattern_button_color;
+	static std::vector <EColor*> loot_pattern_text_color;
 	//////////////////////////////////////////////////////////////////////
 };
 

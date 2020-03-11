@@ -1,6 +1,7 @@
 #include "EWindow.h"
 #include "EControl.h"
 #include "EButtonClose.h"
+#include "EUtils.h"
 
 EWindow::EWindow(int _id, bool _can_be_closed)
 {
