@@ -209,7 +209,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	std::vector<EColor*> EString::loot_pattern_button_color;
 	std::vector<EColor*> EString::loot_pattern_text_color;
 
-	std::string EString::game_color_name[6]
+	std::string EString::game_color_name[11]
 	=
 	{
 		"Red",
@@ -217,7 +217,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		"Blue",
 		"Brown",
 		"White",
-		"Yellow"
+		"Yellow",
+
+		"Cyan",
+		"Grey",
+		"Orange",
+		"Pink",
+		"Purple"
 	}
 	;
 
@@ -688,7 +694,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	bool EString::font_is_configued = false;
 	bool EString::localisation_is_configued = false;
 
-	std::string EString::icon_shape_name[6]
+	std::string EString::icon_shape_name[12]
 	=
 	{
 		"Circle",
@@ -696,7 +702,15 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		"Hexagon",
 		"Square",
 		"Star",
-		"Triangle"
+		"Triangle",
+
+		"Cross",
+		"Moon",
+		"Raindrop",
+		"Kite",
+		"Pentagon",
+		"UpsideDownHouse"
+
 	}
 	;
 
@@ -990,13 +1004,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 		StaticData::window_filter_block->filter_block_list.clear();
 
-		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
-		{
-			sep->link_to_caption_text->need_remove = true;
-			sep->link_to_collapse->need_remove = true;
-			sep->link_to_remove->need_remove = true;
-		}
-		StaticData::window_filter_block->separator_list.clear();
+
+
+
 
 		ifstream myfile;
 		myfile.open(_path);
@@ -1217,7 +1227,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							else
 							{
 								//cout << "comment data: " << subdata << endl;
-								if (subdata == "#separator")
+								/*if (subdata == "#separator")
 								{
 									parser_mode = Enums::ParserMode::C_SEPARATOR;
 
@@ -1225,6 +1235,23 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									StaticData::window_filter_block->separator_list.push_back(just_created_separator);
 
 
+								}*/
+
+								if (subdata == "#header_separator")
+								{
+									//cout << "SEPARATOR " << subdata << endl;
+
+									for (EButton* b : just_created_block->header_button_list)
+									{
+										b->is_active = true;
+									}
+
+									parser_mode = Enums::ParserMode::C_SEPARATOR;
+								}
+
+								if (subdata == "#block_is_disabled")
+								{
+									just_created_block->disabled = true;
 								}
 
 								if (subdata == "#autogen")
@@ -1270,22 +1297,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							if (parser_mode == Enums::ParserMode::C_SEPARATOR)
 							{
 								//cout << "order: " << to_string(data_order) << " subdata: " << subdata << endl;
-								if (data_order == 0) {  }
-								if (data_order == 1) { just_created_separator->separator_start = std::stoi(subdata); }
-								if (data_order == 2) { just_created_separator->separator_end = std::stoi(subdata); }
-								if (data_order == 3)
-								{
-									if (subdata == "true")
-									{just_created_separator->is_collapsed = true;}
-									else
-									{just_created_separator->is_collapsed = false;}
-
-								}
-								if (data_order == 4)
-								{
-									just_created_separator->link_to_caption_text->text = subdata;
-									just_created_separator->name = subdata;
-								}
+								/*if (data_order == 0) {
+									just_created_block->link_to_header_separator->is_active = true;
+									just_created_block->link_to_header_collapse_separator->is_active = true;
+									just_created_block->link_to_header_destroy_separator->is_active = true;
+								}*/
+								if (data_order == 1) { just_created_block->link_to_header_separator->text = subdata; }
 
 							}
 
@@ -1566,6 +1583,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									if (subdata == "Brown") { just_created_block->minimap_icon_color = Enums::GameColors::BROWN; }
 									if (subdata == "White") { just_created_block->minimap_icon_color = Enums::GameColors::WHITE; }
 									if (subdata == "Yellow") { just_created_block->minimap_icon_color = Enums::GameColors::YELLOW; }
+
+									if (subdata == "Cyan") { just_created_block->minimap_icon_color = Enums::GameColors::CYAN; }
+									if (subdata == "Grey") { just_created_block->minimap_icon_color = Enums::GameColors::GREY; }
+									if (subdata == "Orange") { just_created_block->minimap_icon_color = Enums::GameColors::ORANGE; }
+									if (subdata == "Pink") { just_created_block->minimap_icon_color = Enums::GameColors::PINK; }
+									if (subdata == "Purple") { just_created_block->minimap_icon_color = Enums::GameColors::PURPLE; }
 								}
 
 								if (data_order == 3)
@@ -1576,6 +1599,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									if (subdata == "Square") { just_created_block->minimap_icon_shape = Enums::IconShape::SQUARE; }
 									if (subdata == "Star") { just_created_block->minimap_icon_shape = Enums::IconShape::STAR; }
 									if (subdata == "Triangle") { just_created_block->minimap_icon_shape = Enums::IconShape::TRIANGLE; }
+
+									if (subdata == "Cross") { just_created_block->minimap_icon_shape = Enums::IconShape::CROSS; }
+									if (subdata == "Moon") { just_created_block->minimap_icon_shape = Enums::IconShape::MOON; }
+									if (subdata == "Raindrop") { just_created_block->minimap_icon_shape = Enums::IconShape::RAINDROP; }
+									if (subdata == "Kite") { just_created_block->minimap_icon_shape = Enums::IconShape::KITE; }
+									if (subdata == "Pentagon") { just_created_block->minimap_icon_shape = Enums::IconShape::PENTAGON; }
+									if (subdata == "UpsideDownHouse") { just_created_block->minimap_icon_shape = Enums::IconShape::UPSIDEDOWNHOUSE; }
 									
 								}
 							}
@@ -2326,15 +2356,6 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			f->data_change();
 		}
 
-		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
-		{
-			
-				for (int i = sep->separator_start; i <= sep->separator_end; i++)
-				{
-					StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator = sep->is_collapsed;
-				}
-		}
-
 		if (error_counts <= 0) { cout << green << "Error count:0" << endl;; }
 		else
 		{
@@ -2355,7 +2376,14 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			StaticData::window_filter_block->filter_block_list.at(i)->order_id = i;
 		}
 
-		StaticData::window_filter_block->recalculate_filter_block_separator();
+		for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
+		{
+			fb->is_deactivated = false;
+			fb->force_enabled = false;
+
+		}
+	
+
 	}
 
 	void EFile::save_filter(std::string _path, Enums::AutogenSaveMode _save_mode, bool _ignore_autogen)
@@ -2374,31 +2402,15 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 		std::string string_for_autogen_data = "";
 
-		for (FilterBlockSeparator* sep : StaticData::window_filter_block->separator_list)
-		{
-			loot_writer += "#separator ";
-			loot_writer +=std::to_string(sep->separator_start);
-			loot_writer += " ";
-			loot_writer += std::to_string(sep->separator_end);
-			
-
-			if (sep->is_collapsed)
-			{loot_writer +=" true";}
-			else
-			{loot_writer +=" false";}
-
-			loot_writer += " ";
-			loot_writer += '"';
-			loot_writer += sep->link_to_caption_text->text;
-			loot_writer += '"';
-
-			loot_writer += '\n';
-		}
+		
 
 		for (FilterBlock* fb:StaticData::window_filter_block->filter_block_list)
+		if ((!fb->disabled) || (fb->autogen_include.at(_save_mode)))
 		{
 			loot_writer += '\n';
 			loot_writer += '\n';
+
+
 
 
 			//if ((fb->autogen_include.at(_save_mode)) || (_ignore_autogen))
@@ -2419,6 +2431,27 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			else
 			{
 				loot_writer += "Hide";
+				loot_writer += '\n';
+			}
+
+
+			if (fb->link_to_header_separator->is_active)
+			{
+				loot_writer += "#header_separator";
+				loot_writer += ' ';
+
+				loot_writer += '"';
+				loot_writer += fb->link_to_header_separator->text;
+				loot_writer += '"';
+
+				loot_writer += '\n';
+			}
+
+
+			if (fb->disabled)
+			{
+				loot_writer += "#block_is_disabled";
+
 				loot_writer += '\n';
 			}
 

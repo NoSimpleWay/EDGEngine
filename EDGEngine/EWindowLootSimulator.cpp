@@ -576,20 +576,29 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			{
 				int temp_scroll = -1;
 
+				/*
 				for (int i = 0; i <= loot->filter_block_link->order_id; i++)
 				{
 					if ((!StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator) || (StaticData::window_filter_block->filter_block_list.at(i)->contain_start_separator))
 					{
 						temp_scroll++;
 					}
-				}
+				}*/
 
-				EControl::block_scroll = temp_scroll;
+				//EControl::block_scroll = temp_scroll;
+				EControl::block_scroll = loot->filter_block_link->order_id;
 
 				//loot->filter_block_link->hided_by_separator = false;
-				StaticData::window_filter_block->recalculate_filter_block_separator();
+				//StaticData::window_filter_block->recalculate_filter_block_separator();
 				loot->filter_block_link->highlight_time = 0.5f;
-				loot->filter_block_link->hided_by_separator = false;
+				//loot->filter_block_link->hided_by_separator = false;
+
+				for (FilterBlock* f : StaticData::window_filter_block->filter_block_list)
+				{
+					f->force_enabled = false;
+				}
+
+				loot->filter_block_link->force_enabled = true;
 				//if (!loot->filter_block_link->hided_by_separator) {  }
 			}
 
@@ -1914,5 +1923,10 @@ void EWindowLootSimulator::close_action()
 	StaticData::window_loot_simulator->align_x = Enums::PositionMode::MID;
 	StaticData::window_filter_visual_editor->align_x = Enums::PositionMode::MID;
 
-	StaticData::window_filter_block->recalculate_filter_block_separator();
+	//StaticData::window_filter_block->recalculate_filter_block_separator();
+
+	for (FilterBlock* f : StaticData::window_filter_block->filter_block_list)
+	{
+		f->force_enabled = false;
+	}
 }

@@ -23,7 +23,7 @@
 #include "EFont.h"
 
 #include <ctime>
-#include "Helper.h";
+#include "Helper.h"; 
 
 #include "FilterBlock.h"
 
@@ -1388,6 +1388,14 @@ int main()
 	put_texture_to_atlas("data/icon_star.png");					DefaultGabarite::gabarite_minimap_icon[4] = just_created_gabarite;
 	put_texture_to_atlas("data/icon_triangle.png");				DefaultGabarite::gabarite_minimap_icon[5] = just_created_gabarite;
 
+	put_texture_to_atlas("data/icon_cross.png");				DefaultGabarite::gabarite_minimap_icon[6] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_moon.png");					DefaultGabarite::gabarite_minimap_icon[7] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_raindrop.png");				DefaultGabarite::gabarite_minimap_icon[8] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_kite.png");					DefaultGabarite::gabarite_minimap_icon[9] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_pentagon.png");				DefaultGabarite::gabarite_minimap_icon[10] = just_created_gabarite;
+	put_texture_to_atlas("data/icon_upsidedownhouse.png");		DefaultGabarite::gabarite_minimap_icon[11] = just_created_gabarite;
+
+
 
 	put_texture_to_atlas("data/button_load.png");				DefaultGabarite::gabarite_button_load = just_created_gabarite;
 	put_texture_to_atlas("data/button_save.png");				DefaultGabarite::gabarite_button_save = just_created_gabarite;
@@ -1453,8 +1461,11 @@ int main()
 	put_texture_to_atlas("data/button_save_autogen.png");			DefaultGabarite::gabarite_save_autogen = just_created_gabarite;
 	put_texture_to_atlas("data/plus_equal.png");					DefaultGabarite::gabarite_plus_equal = just_created_gabarite;
  
-	put_texture_to_atlas("data/button_continue_on.png");			       DefaultGabarite::gabarite_button_continue_on = just_created_gabarite;
+	put_texture_to_atlas("data/button_continue_on.png");			DefaultGabarite::gabarite_button_continue_on = just_created_gabarite;
 	put_texture_to_atlas("data/button_continue_off.png");			DefaultGabarite::gabarite_button_continue_off = just_created_gabarite;
+
+	put_texture_to_atlas("data/disable_block.png");					DefaultGabarite::gabarite_button_disable_block = just_created_gabarite;
+	put_texture_to_atlas("data/enable_block.png");					DefaultGabarite::gabarite_button_enable_block = just_created_gabarite;
 
 
 
@@ -2162,7 +2173,14 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 	*/
 
 	EControl::block_scroll -= yoffset;
+	
 	if (EControl::block_scroll < 0) { EControl::block_scroll = 0; }
+	if (EControl::block_scroll >= StaticData::window_filter_block->filter_block_list.size()) { EControl::block_scroll = StaticData::window_filter_block->filter_block_list.size()-1; }
+	
+	if (StaticData::window_filter_block->filter_block_list.at(EControl::block_scroll)->hided_by_separator) { EControl::block_scroll -= yoffset * 2; }
+
+	if (EControl::block_scroll < 0) { EControl::block_scroll = 0; }
+	if (EControl::block_scroll > StaticData::window_filter_block->filter_block_list.size()) { EControl::block_scroll = StaticData::window_filter_block->filter_block_list.size(); }
 	//cout << "scroll (" << yoffset << ")" << endl;
 
 	int active_block_count = 0;

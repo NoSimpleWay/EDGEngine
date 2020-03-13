@@ -29,7 +29,7 @@ public:
 	float button_min_size_x = 100;
 	float button_min_size_y = 25;
 
-	std::string text = "!";
+	std::string text = "";
 
 	bool have_input_mode = false;
 	bool is_input_mode_active = false;
@@ -171,4 +171,6 @@ public:
 	FilterBlockSeparator* master_separator;
 
 	bool can_receive_paste = false;
+
+	EColor* hint_color = new EColor(0.25f, 0.25f, 0.25f, 1.0f);
 };

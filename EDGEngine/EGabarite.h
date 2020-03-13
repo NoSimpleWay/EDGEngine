@@ -46,7 +46,7 @@ public:
 
 	static EGabarite* gabarite_visual_editor_bg;
 
-	static EGabarite* gabarite_minimap_icon[6];
+	static EGabarite* gabarite_minimap_icon[12];
 
 	static EGabarite* gabarite_button_load;
 	static EGabarite* gabarite_button_save;
@@ -115,6 +115,9 @@ public:
 	static EGabarite* gabarite_blighted_small;
 	static EGabarite* gabarite_button_continue_on;
 	static EGabarite* gabarite_button_continue_off;
+
+	static EGabarite* gabarite_button_disable_block;
+	static EGabarite* gabarite_button_enable_block;
 
 
 };

@@ -64,7 +64,7 @@ void EWindowAC::button_event(EButton* _b)
 	{
 		if (_b->button_type == Enums::ButtonType::BUTTON_ACCEPT)
 		{
-			int sep_id = -1;
+			/*int sep_id = -1;
 			for (int i=0; i < StaticData::window_filter_block->separator_list.size(); i++)
 			{
 				if (StaticData::window_filter_block->separator_list.at(i) == master_separator) { sep_id = i;}
@@ -83,7 +83,20 @@ void EWindowAC::button_event(EButton* _b)
 			master_separator->link_to_remove->need_remove = true;
 			master_separator->link_to_caption_text->need_remove = true;
 
-			StaticData::window_filter_block->recalculate_filter_block_separator();
+			StaticData::window_filter_block->recalculate_filter_block_separator();*/
+
+			/*for (int i = master_block->order_id; i < StaticData::window_filter_block->filter_block_list.size(); i++)
+			{
+				if ((i != master_block->order_id) && (StaticData::window_filter_block->filter_block_list.at(i)->link_to_header_separator->is_active))
+				{
+					break;
+					//i = 999999;
+				}
+
+				StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator = !StaticData::window_filter_block->filter_block_list.at(i)->hided_by_separator;
+
+
+			}*/
 		}
 
 		is_active = false;

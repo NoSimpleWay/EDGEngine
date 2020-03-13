@@ -40,7 +40,8 @@ public:
 	static EColor* LIGHT_GRAY;
 	static EColor* DARK_GRAY;
 
-	static EColor* MINIMAP_ICON_COLOR[6];
+	static EColor* MINIMAP_ICON_COLOR[10];
+	static EColor* MINIMAP_RAY_COLOR[11];
 
 
 };

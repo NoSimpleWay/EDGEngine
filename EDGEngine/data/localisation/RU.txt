@@ -194,7 +194,7 @@ socket_group_button_color_delve	Гнёзда Спуска (желтые):
 socket_count_button_description	Количество гнёзд и определенных цветов гнёзд\nВы можете указывать сразу несколько групп цветов\nНажмите, что бы отредактировать количество гнёзд/цветов
 socket_group_button_sockets_count	Гнёзда: 
 base_data_text_area_level	Уровень области
-base_data_text_corruption_implicites	Оскрернённые свойтва
+base_data_text_corruption_implicites	Осквернённые свойства
 corrupted_text_mods_count	Количество осквернённых свойств: 
 hint_input_enchantment	Введите название зачарования
 description_area_level_for_loot_simulator	Введите уровень локации.
@@ -237,3 +237,9 @@ manual_loot_text_is_mirrored_item	Зеркальная копия
 open_manual_window_localisation	Открыть окно ручного добавления лута
 clear_loot_from_simulator	Очистить экран, удалив весь лут.
 description_continue	Включить или выключить параметр "continue".\nЕсли параметр включён, поиск блока не прекращается\nпри подходящих условиях.\nВместо этого запоминается последний подходящий блок,\n а затем поиск продолжается.
+description_deactivate_block	Выключает все блоки между 2 разделителями. Выключенные блоки не сохраняются в лут-фильтр
+description_activate_block	Включает все блоки между разделителями.
+description_remove_separator	Удалить разделитель
+description_header_separator	Комментарий для разделителя. Нажмите, что бы отредактировать.
+description_collapse_separator	Скрыть/раскрыть блоки между 2 разделителями\n\nНажмите ПКМ, что бы свернуть ВСЕ блоки.\n\nНажмите с нажатым SHIFT, что бы раскрыть ВСЕ блоки
+hint_header_separator	Введите комментарий

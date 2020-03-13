@@ -43,7 +43,7 @@
 	{
 		//StaticData::window_filter_block->is_active = false;
 		
-		StaticData::window_filter_block->recalculate_filter_block_separator();
+		//StaticData::window_filter_block->recalculate_filter_block_separator();
 
 		EControl::block_scroll = 0;
 
@@ -189,16 +189,18 @@
 
 				fb->is_deactivated = !detection;
 
-				if (detection)
+				/*if (detection)
 				{
 					fb->hided_by_separator = false;
-				}
+				}*/
+
+				fb->force_enabled = true;
 			}
 		}
 		else
 		{
 			for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
-			{fb->is_deactivated = false;}
+			{fb->is_deactivated = false; fb->force_enabled = false;}
 		}
 
 		

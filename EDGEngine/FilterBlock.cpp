@@ -497,6 +497,84 @@
 		but->bg_color = EColorCollection::GREEN;
 
 		random_bg_offset_y = rand() % 1080;
+
+
+
+		but = new EButtonService(0.0f, 27.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_SEPARATOR_COLLAPSE);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		but->is_active = false;
+		but->bg_color = EColorCollection::DARK_GRAY;
+		but->text_color = EColorCollection::YELLOW;
+		but->gabarite = DefaultGabarite::gabarite_button_collapse;
+		but->have_input_mode = false;
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::UP;
+		but->master_position = Enums::PositionMaster::FILTER_BLOCK;
+		link_to_header_collapse_separator = but;
+		button_list.push_back(but);
+		header_button_list.push_back(but);
+
+
+		but = new EButtonService(22.0f, 27.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_DISABLE_FILTER_BLOCK);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		but->is_active = false;
+		but->bg_color = EColorCollection::DARK_GRAY;
+		but->text_color = EColorCollection::YELLOW;
+		but->gabarite = DefaultGabarite::gabarite_button_disable_block;
+		but->have_input_mode = false;
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::UP;
+		but->master_position = Enums::PositionMaster::FILTER_BLOCK;
+		button_list.push_back(but);
+		header_button_list.push_back(but);
+
+		but = new EButtonService(42.0f, 27.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_ENABLE_FILTER_BLOCK);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		but->is_active = false;
+		but->bg_color = EColorCollection::DARK_GRAY;
+		but->text_color = EColorCollection::YELLOW;
+		but->gabarite = DefaultGabarite::gabarite_button_enable_block;
+		but->have_input_mode = false;
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::UP;
+		but->master_position = Enums::PositionMaster::FILTER_BLOCK;
+		button_list.push_back(but);
+		header_button_list.push_back(but);
+
+		but = new EButtonService(65.0f, 27.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_REMOVE_SEPARATOR);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		but->is_active = false;
+		but->bg_color = EColorCollection::DARK_GRAY;
+		but->text_color = EColorCollection::YELLOW;
+		but->gabarite = DefaultGabarite::gabarite_remove_block;
+		but->have_input_mode = false;
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::UP;
+		but->master_position = Enums::PositionMaster::FILTER_BLOCK;
+		link_to_header_destroy_separator = but;
+		button_list.push_back(but);
+		header_button_list.push_back(but);
+
+		but = new EButtonText(90.0f, 27.0f, 777.0f, 20.0f, Enums::ButtonType::BUTTON_HEADER_SEPARATOR);
+		but->master_block = this;
+		but->master_window = StaticData::window_filter_block;
+		but->is_active = false;
+		but->bg_color = EColorCollection::DARK_GRAY;
+		but->text_color = EColorCollection::YELLOW;
+		but->rama_color = EColorCollection::YELLOW;
+		but->rama_thikness = 3.0f;
+		but->have_input_mode = true;
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::UP;
+		but->master_position = Enums::PositionMaster::FILTER_BLOCK;
+		link_to_header_separator = but;
+		but->hint_color = EColorCollection::GRAY;
+		button_list.push_back(but);
+		header_button_list.push_back(but);
 	}
 
 	FilterBlock::~FilterBlock()
@@ -689,6 +767,11 @@
 		if (is_show) { _batch->setcolor_255(210, 210, 210, 100); }
 		else { _batch->setcolor_255(64, 32, 16, 100); }
 
+		if (disabled)
+		{
+			_batch->setcolor_alpha(EColorCollection::RED, 0.55f);
+		}
+
 		if (random_bg_offset_y + size_y > 1000.0f)
 		{
 			random_bg_offset_y -= random_bg_offset_y + size_y - 1000.0f;
@@ -740,7 +823,7 @@
 			_batch->draw_rect_gabarite_custom_uv(x + offset_x, y + offset_y, orig_size_x, orig_size_y, DefaultGabarite::gabarite_elder_bg, move_x, move_y, 1000.0f - move_x, 300.0f - move_y);
 		}
 
-		if (is_continue)
+		if ((is_continue) && (!disabled))
 		{
 			_batch->setcolor_alpha(EColorCollection::CYAN, 0.33f);
 			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
@@ -811,6 +894,12 @@
 			if (ray_color == Enums::GameColors::WHITE) { _batch->setcolor_255(255, 255, 255, transparent); }
 			if (ray_color == Enums::GameColors::YELLOW) { _batch->setcolor_255(255, 255, 0, transparent); }
 
+			if (ray_color == Enums::GameColors::CYAN) { _batch->setcolor_255(0, 255, 255, transparent); }
+			if (ray_color == Enums::GameColors::GREY) { _batch->setcolor_255(128, 128, 128, transparent); }
+			if (ray_color == Enums::GameColors::ORANGE) { _batch->setcolor_255(255, 128, 0, transparent); }
+			if (ray_color == Enums::GameColors::PINK) { _batch->setcolor_255(255, 128, 255, transparent); }
+			if (ray_color == Enums::GameColors::PURPLE) { _batch->setcolor_255(255, 0, 128, transparent); }
+
 
 			//draw ray
 			_batch->draw_rect_with_uv(x + size_x - 213.0f - right_side_buttons_offset, y + 5.0f, 30, 60, DefaultGabarite::gabarite_ray_icon);
@@ -836,6 +925,9 @@
 		{
 			filter_block_items_button_list.at(i)->button_x = temp_pos_x;
 			filter_block_items_button_list.at(i)->button_y = temp_pos_y;
+
+			filter_block_items_button_list.at(i)->button_size_x = 45.0f;
+			filter_block_items_button_list.at(i)->button_size_y = 45.0f;
 
 			filter_block_items_button_list.at(i)->default_draw(_batch);
 			filter_block_items_button_list.at(i)->additional_draw(_batch);
@@ -904,7 +996,7 @@
 					ex_x += b->button_size_x + 5;
 					if (b->button_x + b->button_size_x > size_x - 270.0f)
 					{
-						ex_x = 310.0f;
+						ex_x = start_position_draw_x;
 						ex_y -= 22.0f;
 					}
 
@@ -975,7 +1067,7 @@
 				ex_x += b->button_size_x + 5;
 				if (b->button_x + b->button_size_x > size_x - 270.0f)
 				{
-					ex_x = 310.0f;
+					ex_x = start_position_draw_x;
 					ex_y -= 22.0f;
 				}
 			}
@@ -1005,7 +1097,7 @@
 				ex_x += b->button_size_x + 5;
 				if (b->button_x + b->button_size_x > size_x - 270.0f)
 				{
-					ex_x = 310.0f;
+					ex_x = start_position_draw_x;
 					ex_y -= 22.0f;
 
 					b->button_x = ex_x;

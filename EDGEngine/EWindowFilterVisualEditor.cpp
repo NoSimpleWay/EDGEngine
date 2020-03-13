@@ -90,12 +90,12 @@
 
 		bg_color->set(0.60f, 0.7f, 0.75f, 0.80f);
 
-
+		for (int j = 0; j < 2; j++)
 		for (int i = 0; i < 6; i++)
 		{
-			but = new EButtonService(icon_button_base_x + 55.0f * i, icon_button_base_y+60.0*2.0f, 45.0f, 45.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SHAPE);
-			but->gabarite = DefaultGabarite::gabarite_minimap_icon[i];
-			but->data_id = i;
+			but = new EButtonService(icon_button_base_x + 55.0f * i, icon_button_base_y+90.0*2.0f - 50.0f * j, 45.0f, 45.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SHAPE);
+			but->gabarite = DefaultGabarite::gabarite_minimap_icon[i + j * 6];
+			but->data_id = i + j * 6;
 
 			but->master_block = master_block;
 			but->master_window = this;
@@ -105,7 +105,12 @@
 			
 
 
-			but = new EButtonService(icon_button_base_x + 55.0f * i, icon_button_base_y + 60.0 * 1.0f, 45.0f, 45.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR);
+
+		}
+
+		for (int i = 0; i < 10; i++)
+		{
+			but = new EButtonService(icon_button_base_x + 32.0f * i, icon_button_base_y + 55.0 * 1.0f, 29.0f, 29.0f, Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR);
 			but->gabarite = DefaultGabarite::gabarite_minimap_icon[i];
 			but->data_id = i;
 
@@ -124,12 +129,13 @@
 
 			but->master_block = master_block;
 			but->master_window = this;
+			but->text_color = EColorCollection::WHITE;
 
 			link_to_icon_size.push_back(but);
 			button_list.push_back(but);
 		}
 
-		but =new EButtonCheck(icon_button_base_x + 110.0f * 0.0f, icon_button_base_y + 60.0 * 3.0f, 25.0f, 25.0f, Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON);
+		but =new EButtonCheck(icon_button_base_x + 110.0f * 0.0f, icon_button_base_y + 80.0 * 3.0f, 25.0f, 25.0f, Enums::ButtonType::BUTTON_CHECKER_MINIMAP_ICON);
 		but->master_block = master_block;
 		but->master_window = this;
 		but->master_position = Enums::PositionMaster::WINDOW;
@@ -140,15 +146,16 @@
 		link_to_icon_checker = but;
 		button_list.push_back(but);
 
-		for (int i = -1; i < 6; i++)
+		for (int j = 0; j < 2; j++)
+		for (int i = 0; i < 6; i++)
 		{
-			but = new EButtonService(260.0f + (i+1)*40.0f, icon_button_base_y + 60.0f * 1.0f - 35.0f, 30.0f, 60.0f, Enums::ButtonType::BUTTON_SELECT_RAY_COLOR);
+			but = new EButtonService(255.0f + (i)*49.0f, icon_button_base_y + 25.0f + j * 65.0f, 30.0f, 60.0f, Enums::ButtonType::BUTTON_SELECT_RAY_COLOR);
 
 			but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
 
-			if (i >= 0)
+			if (i + j * 6 > 0)
 			{
-				but->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i]);
+				but->icon_color->set(EColorCollection::MINIMAP_RAY_COLOR[i + j * 6 - 1]);
 
 				but->gabarite = DefaultGabarite::gabarite_ray_icon;
 			}
@@ -156,12 +163,11 @@
 			{
 				but->icon_color->set(EColorCollection::WHITE);
 				but->gabarite = DefaultGabarite::gabarite_ray_icon_remove;
-				
 			}
 
 			but->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 
-			but->data_id = i;
+			but->data_id = i + j * 6 - 1;
 
 			but->master_block = master_block;
 			but->master_window = this;
@@ -174,10 +180,11 @@
 			button_list.push_back(but);
 		}
 
-		but = new EButtonText(260.0f, icon_button_base_y + 60.0f * 0.0f, 130.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY);
+		but = new EButtonText(255.0f, icon_button_base_y + 0.0f, 135.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY);
 		but->master_window = this;
 		but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
 		but->master_block = master_block;
+		but->text_color = EColorCollection::WHITE;
 
 		but->master_position = Enums::PositionMaster::WINDOW;
 		but->position_mode_x = Enums::PositionMode::LEFT;
@@ -187,11 +194,12 @@
 		link_to_ray_tempotary = but;
 
 
-		but = new EButtonText(400.0f, icon_button_base_y + 60.0f * 0.0f, 130.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT);
+		but = new EButtonText(395.0f, icon_button_base_y + 0.0f, 135.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT);
 		but->master_window = this;
 		but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
 		but->master_block = master_block;
 		but->master_window = this;
+		but->text_color = EColorCollection::WHITE;
 
 		but->master_position = Enums::PositionMaster::WINDOW;
 		but->position_mode_x = Enums::PositionMode::LEFT;
@@ -203,14 +211,14 @@
 
 	void EWindowFilterVisualEditor::update_ray_button()
 	{
-			for (int i = 0; i < 7; i++)
+			for (int i = 0; i < 12; i++)
 			{
 				link_to_ray_color.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 				link_to_ray_color.at(i)->bg_color->set(0.4f, 0.3f, 0.2f, 0.4f);
 
 				if (i - 1 >= 0)
 				{
-					link_to_ray_color.at(i)->icon_color->set(EColorCollection::MINIMAP_ICON_COLOR[i - 1]);
+					link_to_ray_color.at(i)->icon_color->set(EColorCollection::MINIMAP_RAY_COLOR[i - 1]);
 				}
 				else
 				{
@@ -262,7 +270,7 @@
 
 	void EWindowFilterVisualEditor::update_minimap_button()
 	{
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 12; i++)
 		{
 			link_to_icon_shape.at(i)->bg_color->set(0.4f, 0.3f, 0.2f, 0.4f);
 			link_to_icon_shape.at(i)->icon_color->set(EColorCollection::WHITE);
@@ -279,7 +287,7 @@
 
 		}
 
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 10; i++)
 		{
 			link_to_icon_color.at(i)->bg_color->set(0.4f, 0.3f, 0.2f, 0.4f);
 
@@ -312,7 +320,7 @@
 
 	void EWindowFilterVisualEditor::deactivate_minimap_button()
 	{
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 12; i++)
 		{
 			
 			link_to_icon_shape.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
@@ -321,7 +329,7 @@
 			link_to_icon_shape.at(i)->bg_color->set_alpha(EColorCollection::GRAY, 0.35f);
 		}
 
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 10; i++)
 		{
 			
 			link_to_icon_color.at(i)->rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
@@ -415,10 +423,10 @@
 		float siz = 1.0 / (master_block->minimap_icon_size * 0.5f + 1.0);
 
 		_batch->setcolor(EColorCollection::MINIMAP_ICON_COLOR[master_block->minimap_icon_color]);
-		_batch->draw_rect_with_uv(pos_x + icon_button_base_x + 55.0f * 5.0f, pos_y + icon_button_base_y + 60.0 * 3.0f, 35.0f * siz, 35.0f * siz, DefaultGabarite::gabarite_minimap_icon[master_block->minimap_icon_shape]);
+		_batch->draw_rect_with_uv(pos_x + icon_button_base_x + 55.0f * 5.0f, pos_y + icon_button_base_y + 80.0 * 3.0f, 45.0f * siz, 45.0f * siz, DefaultGabarite::gabarite_minimap_icon[master_block->minimap_icon_shape]);
 		
 		_batch->setcolor_alpha(EColorCollection::BLACK, 0.5f);
-		_batch->draw_rama(pos_x + icon_button_base_x + 55.0f * 5.0f, pos_y + icon_button_base_y + 60.0 * 3.0f, 35.0f * siz, 35.0f * siz, 2.0f, DefaultGabarite::gabarite_white);
+		_batch->draw_rama(pos_x + icon_button_base_x + 55.0f * 5.0f, pos_y + icon_button_base_y + 80.0 * 3.0f, 45.0f * siz, 45.0f * siz, 2.0f, DefaultGabarite::gabarite_white);
 	}
 
 	void EWindowFilterVisualEditor::text_pass(Batcher* _batch)

@@ -42,7 +42,7 @@ EGabarite* DefaultGabarite::gabarite_slider_alpha =NULL;
 
 EGabarite* DefaultGabarite::gabarite_visual_editor_bg =NULL;
 
-EGabarite* DefaultGabarite::gabarite_minimap_icon[6];
+EGabarite* DefaultGabarite::gabarite_minimap_icon[12];
 
 EGabarite* DefaultGabarite::gabarite_button_load = NULL;
 EGabarite* DefaultGabarite::gabarite_button_save = NULL;
@@ -113,6 +113,9 @@ EGabarite* DefaultGabarite::gabarite_blighted_small;
 
 EGabarite* DefaultGabarite::gabarite_button_continue_on = NULL;
 EGabarite* DefaultGabarite::gabarite_button_continue_off = NULL;
+
+EGabarite* DefaultGabarite::gabarite_button_disable_block = NULL;
+EGabarite* DefaultGabarite::gabarite_button_enable_block = NULL;
 
 
 

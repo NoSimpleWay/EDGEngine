@@ -71,11 +71,29 @@ EColor* EColorCollection::DAD_UNIQUE = new EColor	(0.78f,		0.5f,		0.25f,		1.0f);
 EColor* EColorCollection::LIGHT_GRAY = new EColor(0.75f, 0.75f, 0.75f, 1.0f);
 EColor* EColorCollection::DARK_GRAY = new EColor(0.25f, 0.25f, 0.25f, 1.0f);
 
-EColor* EColorCollection::MINIMAP_ICON_COLOR[6] = {
-	new EColor(1.0f,		0.0f,		0.0f,		1.0f),
-	new EColor(0.0f,		1.0f,		0.0f,		1.0f),
-	new EColor(0.25f,		0.5f,		1.0f,		1.0f),
-	new EColor(0.78f,		0.47f,		0.15f,		1.0f),
-	new EColor(1.0f,		1.0f,		1.0f,		1.0f),
-	new EColor(1.0f,		1.0f,		0.0f,		1.0f)
+EColor* EColorCollection::MINIMAP_ICON_COLOR[10] = {
+	new EColor(1.0f,		0.0f,		0.0f,		1.0f),//RED
+	new EColor(0.0f,		1.0f,		0.0f,		1.0f),//GREEN
+	new EColor(0.25f,		0.5f,		1.0f,		1.0f),//BLUE
+	new EColor(1.0f,		1.0f,		0.0f,		1.0f),//YELLOW
+	new EColor(1.0f,		1.0f,		1.0f,		1.0f),//WHITE
+	new EColor(0.0f,		1.0f,		1.0f,		1.0f),//CYAN
+	new EColor(0.5f,		0.5f,		0.5f,		1.0f),//GREY
+	new EColor(1.0f,		0.5f,		0.0f,		1.0f),//ORANGE
+	new EColor(1.0f,		0.5f,		1.0f,		1.0f),//PINK
+	new EColor(1.0f,		0.0f,		0.5f,		1.0f)//PURPLE
+};
+
+EColor* EColorCollection::MINIMAP_RAY_COLOR[11] = {
+	new EColor(1.0f,		0.0f,		0.0f,		1.0f),//RED
+	new EColor(0.0f,		1.0f,		0.0f,		1.0f),//GREEN
+	new EColor(0.25f,		0.5f,		1.0f,		1.0f),//BLUE
+	new EColor(0.78f,		0.67f,		0.15f,		1.0f),//BROWN
+	new EColor(1.0f,		1.0f,		1.0f,		1.0f),//WHITE
+	new EColor(1.0f,		1.0f,		0.0f,		1.0f),//YELLOW
+	new EColor(0.0f,		1.0f,		1.0f,		1.0f),//CYAN
+	new EColor(0.5f,		0.5f,		0.5f,		1.0f),//GREY
+	new EColor(1.0f,		0.5f,		0.0f,		1.0f),//ORANGE
+	new EColor(1.0f,		0.5f,		1.0f,		1.0f),//PINK
+	new EColor(1.0f,		0.0f,		0.5f,		1.0f)//PURPLE
 };

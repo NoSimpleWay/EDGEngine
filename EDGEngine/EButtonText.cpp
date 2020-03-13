@@ -695,6 +695,12 @@ void EButtonText::update_localisation()
 		description_text = EString::localize_it("description_new_loot_filter_ok");
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_HEADER_SEPARATOR)
+	{
+		description_text = EString::localize_it("description_header_separator");
+		input_hint = EString::localize_it("hint_header_separator");
+	}
+
 	if (button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE)
 	{
 		if (data_id == 0)

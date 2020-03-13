@@ -277,6 +277,9 @@ public:
 	bool need_remove = false;
 
 	EButton* link_to_cancel_remove_button;
+	EButton* link_to_header_separator;
+	EButton* link_to_header_collapse_separator;
+	EButton* link_to_header_destroy_separator;
 
 	int order_id;
 
@@ -294,7 +297,12 @@ public:
 
 	std::vector <EButtonCheck*> autogen_button_link;
 
+	std::vector <EButton*> header_button_list;
+
 	float start_position_draw_x = 370.0f;
 
 	EButton* link_to_continue_button;
+
+	bool disabled = false;
+	bool force_enabled = false;
 };

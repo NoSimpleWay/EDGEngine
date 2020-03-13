@@ -541,7 +541,7 @@
 
 			if ((text == "")&&(input_hint!=""))
 			{
-				_batch->setcolor(0.2f, 0.2f, 0.2f, 0.8f);
+				_batch->setcolor(hint_color);
 				target_font->draw(_batch, input_hint, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y - 20.0f) / 2.0f + 4.0f));
 			}
 

@@ -62,7 +62,7 @@ public:
 
 		if (window_searchs_mode == Enums::WindowSearchMode::BASE_DATA_VERTICAL_LIST)
 		{
-			window_size_x = 1024;
+			window_size_x = 1124;
 			window_size_y = 500;
 			
 			float bpos_x = 0.0f;
@@ -170,7 +170,7 @@ public:
 				data_id++;
 			}
 
-			window_size_x = max_size_x + 10.0f;
+			window_size_x = max_size_x + 80.0f;
 		}
 
 		if (window_searchs_mode == Enums::WindowSearchMode::EXPLICIT_PROPHECY_CLASS_VERTICAL_LIST)

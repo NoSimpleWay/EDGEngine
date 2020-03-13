@@ -236,3 +236,9 @@ manual_loot_text_is_mirrored_item	Mirrored copy
 open_manual_window_localisation	Open manual loot window
 clear_loot_from_simulator	Clean loot-simulator window and delete all loot.
 description_continue	Disable/enable "Continue" property.\n"Continue" to indicate that filter rule matching should not stop when an item matches this block.
+description_deactivate_block	Deactivate all filter blocks between separators. Disabled blocks not save to loot-filter
+description_activate_block	Activate all filter blocks between separators.
+description_remove_separator	Remove separator
+description_header_separator	Separator commentary. Click to edit.
+description_collapse_separator	Collapse/expland filter blocks between separators.\n\nPress RMB to collapse ALL blocks\n\nClick with SHIFT to expand ALL blocks
+hint_header_separator	Input commentary
