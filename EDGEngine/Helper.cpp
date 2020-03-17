@@ -22,6 +22,13 @@ namespace Helper {
 		if (_text == "White") { return 4; }
 		if (_text == "Yellow") { return 5; }
 
+		if (_text == "Cyan") { return 6; }
+		if (_text == "Grey") { return 7; }
+		if (_text == "Orange") { return 8; }
+		if (_text == "Pink") { return 9; }
+		if (_text == "Purple") { return 10; }
+
+
 		return -1;
 	}
 

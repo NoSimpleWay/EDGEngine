@@ -2405,7 +2405,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		
 
 		for (FilterBlock* fb:StaticData::window_filter_block->filter_block_list)
-		if ((!fb->disabled) || (fb->autogen_include.at(_save_mode)))
+		if ((!fb->disabled) || (_save_mode == Enums::AutogenSaveMode::SOURCE))
 		{
 			loot_writer += '\n';
 			loot_writer += '\n';

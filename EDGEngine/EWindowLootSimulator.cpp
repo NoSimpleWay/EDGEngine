@@ -1006,6 +1006,13 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if ((!_default) && (!match_detect)) { rejection("autogenerator exclude", _l); }
 		}*/
 
+		if (fb->disabled)
+		{
+			match_detect = false;
+
+			if ((!_default) && (!temp_match)) { rejection("disabled", _l); }
+		}
+
 		if (match_detect)
 		{
 			temp_match = false;
