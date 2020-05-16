@@ -117,6 +117,14 @@ EGabarite* DefaultGabarite::gabarite_button_continue_off = NULL;
 EGabarite* DefaultGabarite::gabarite_button_disable_block = NULL;
 EGabarite* DefaultGabarite::gabarite_button_enable_block = NULL;
 
+EGabarite* DefaultGabarite::gabarite_shaper_slider_bg = NULL;
+EGabarite* DefaultGabarite::gabarite_shaper_slider_trail = NULL;
+EGabarite* DefaultGabarite::gabarite_shaper_slider_head = NULL;
+
+EGabarite* DefaultGabarite::gabarite_button_oil = NULL;
+
+
+
 
 
 

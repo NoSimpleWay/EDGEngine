@@ -119,5 +119,11 @@ public:
 	static EGabarite* gabarite_button_disable_block;
 	static EGabarite* gabarite_button_enable_block;
 
+	static EGabarite* gabarite_shaper_slider_bg;
+	static EGabarite* gabarite_shaper_slider_trail;
+	static EGabarite* gabarite_shaper_slider_head;
+
+	static EGabarite* gabarite_button_oil;
+
 
 };

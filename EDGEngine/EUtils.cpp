@@ -209,6 +209,25 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	std::vector<EColor*> EString::loot_pattern_button_color;
 	std::vector<EColor*> EString::loot_pattern_text_color;
 
+	std::string EString::icon_color_name[10]
+	=
+	{
+		"Red",
+		"Green",
+		"Blue",
+
+		"Yellow",
+		"White",
+		"Cyan",
+
+		"Grey",
+		"Orange",
+		"Pink",
+
+		"Purple"
+	}
+	;
+
 	std::string EString::game_color_name[11]
 	=
 	{
@@ -997,6 +1016,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 		//StaticData::window_filter_block->unsave_change = false;
 
+
+
 		for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
 		{
 			delete fb;
@@ -1576,19 +1597,20 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if (data_order == 2)
 								{
-									if (subdata == "Red") { just_created_block->minimap_icon_color = Enums::GameColors::RED; }
-									if (subdata == "Green") { just_created_block->minimap_icon_color = Enums::GameColors::GREEN; }
-									if (subdata == "Blue") { just_created_block->minimap_icon_color = Enums::GameColors::BLUE; }
+									if (subdata == "Red") { just_created_block->minimap_icon_color = Enums::IconColor::RED; }
+									if (subdata == "Green") { just_created_block->minimap_icon_color = Enums::IconColor::GREEN; }
+									if (subdata == "Blue") { just_created_block->minimap_icon_color = Enums::IconColor::BLUE; }
 
-									if (subdata == "Brown") { just_created_block->minimap_icon_color = Enums::GameColors::BROWN; }
-									if (subdata == "White") { just_created_block->minimap_icon_color = Enums::GameColors::WHITE; }
-									if (subdata == "Yellow") { just_created_block->minimap_icon_color = Enums::GameColors::YELLOW; }
+									//if (subdata == "Brown") { just_created_block->minimap_icon_color = Enums::IconColor::BROWN; }
+									if (subdata == "White") { just_created_block->minimap_icon_color = Enums::IconColor::WHITE; }
+									if (subdata == "Yellow") { just_created_block->minimap_icon_color = Enums::IconColor::YELLOW; }
+									if (subdata == "Cyan") { just_created_block->minimap_icon_color = Enums::IconColor::CYAN; }
 
-									if (subdata == "Cyan") { just_created_block->minimap_icon_color = Enums::GameColors::CYAN; }
-									if (subdata == "Grey") { just_created_block->minimap_icon_color = Enums::GameColors::GREY; }
-									if (subdata == "Orange") { just_created_block->minimap_icon_color = Enums::GameColors::ORANGE; }
-									if (subdata == "Pink") { just_created_block->minimap_icon_color = Enums::GameColors::PINK; }
-									if (subdata == "Purple") { just_created_block->minimap_icon_color = Enums::GameColors::PURPLE; }
+									if (subdata == "Grey") { just_created_block->minimap_icon_color = Enums::IconColor::GREY; }
+									if (subdata == "Orange") { just_created_block->minimap_icon_color = Enums::IconColor::ORANGE; }
+									if (subdata == "Pink") { just_created_block->minimap_icon_color = Enums::IconColor::PINK; }
+
+									if (subdata == "Purple") { just_created_block->minimap_icon_color = Enums::IconColor::PURPLE; }
 								}
 
 								if (data_order == 3)
@@ -1606,7 +1628,6 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									if (subdata == "Kite") { just_created_block->minimap_icon_shape = Enums::IconShape::KITE; }
 									if (subdata == "Pentagon") { just_created_block->minimap_icon_shape = Enums::IconShape::PENTAGON; }
 									if (subdata == "UpsideDownHouse") { just_created_block->minimap_icon_shape = Enums::IconShape::UPSIDEDOWNHOUSE; }
-									
 								}
 							}
 
@@ -2555,9 +2576,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				if
 				(
-					(!fb->autogen_include.at(_save_mode))
-					&&
-					(!_ignore_autogen)
+					(
+						(!fb->autogen_include.at(_save_mode))
+						&&
+						(!_ignore_autogen)
+					)
+					||
+					(!fb->is_show)
 				)
 				{
 					string_for_autogen_data = "16";
@@ -2634,6 +2659,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					||
 					(_ignore_autogen)
 				)
+				&&
+				(fb->is_show)
 			)
 			{
 				loot_writer += '\t';
@@ -2659,6 +2686,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					||
 					(_ignore_autogen)
 				)
+				&&
+				(fb->is_show)
 			)
 			{
 				loot_writer += '\t';
@@ -2680,6 +2709,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					||
 					(_ignore_autogen)
 				)
+				&&
+				(fb->is_show)
 			)
 			{
 				loot_writer += '\t';
@@ -2701,6 +2732,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					||
 					(_ignore_autogen)
 				)
+				&&
+				(fb->is_show)
 			)
 			{
 				loot_writer += '\t';
@@ -2708,7 +2741,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += std::to_string(fb->minimap_icon_size);
 				loot_writer += " ";
 
-				loot_writer += EString::game_color_name[fb->minimap_icon_color];
+				loot_writer += EString::icon_color_name[fb->minimap_icon_color];
 				loot_writer += " ";
 				loot_writer += EString::icon_shape_name[fb->minimap_icon_shape];
 

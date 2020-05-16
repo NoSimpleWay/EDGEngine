@@ -173,4 +173,9 @@ public:
 	bool can_receive_paste = false;
 
 	EColor* hint_color = new EColor(0.25f, 0.25f, 0.25f, 1.0f);
+
+	EGabarite* slider_head_texture;
+	EGabarite* slider_trail_texture;
+
+	bool can_be_highlighted = true;
 };

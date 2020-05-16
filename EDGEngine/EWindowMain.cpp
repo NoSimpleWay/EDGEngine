@@ -68,7 +68,7 @@ public:
 
 		bg_color->set(0.8f, 0.9f, 1.0f, 0.8f);
 
-		but = new EButtonSlider(-5.0f, -5.0f, 250.0f, 20.0f, Enums::ButtonType::BUTTON_GLOBAL_DROP_SOUND_VOLUME);
+		but = new EButtonSlider(-5.0f, -5.0f, 274, 32.0f, Enums::ButtonType::BUTTON_GLOBAL_DROP_SOUND_VOLUME);
 		but->master_window = this;
 
 		button_list.push_back(but);
@@ -93,15 +93,18 @@ public:
 
 	virtual void draw(Batcher* _batch, float _delta)
 	{
+		_batch->setcolor(EColorCollection::BLACK);
+		_batch->draw_rect_with_uv(window_size_x - 470.0f, pos_y + window_size_y - 37.0f, 180.0f, 25.0f, DefaultGabarite::gabarite_white);
 
-		_batch->setcolor_alpha(EColorCollection::WHITE, 0.8f);
+		_batch->setcolor_alpha(EColorCollection::LIGHT_ORANGE, 0.8f);
 		EFont::active_font->set_align_once(Enums::PositionMode::RIGHT);
 
-		EFont::active_font->draw(_batch, cached_text_sound_volume, window_size_x - 270, pos_y + window_size_y - 22.0f);
+		EFont::active_font->draw(_batch, cached_text_sound_volume, window_size_x - 300, pos_y + window_size_y - 30.0f);
 	}
 
 	virtual void pre_draw(Batcher* _batch, float _delta)
 	{
+
 		_batch->setcolor(EColorCollection::WHITE);
 		_batch->draw_rect_with_uv(pos_x, pos_y - 35.0f, 1920.0f, 105.0f, DefaultGabarite::gabarite_cap_rama);
 	}

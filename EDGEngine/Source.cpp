@@ -31,7 +31,7 @@
 #include "EButtonExplicit.h"
 #include "ExplicitGroup.h"
 
-
+ 
 #include "EWindow.h"
 #include "StaticData.h"    
 
@@ -1467,6 +1467,12 @@ int main()
 	put_texture_to_atlas("data/disable_block.png");					DefaultGabarite::gabarite_button_disable_block = just_created_gabarite;
 	put_texture_to_atlas("data/enable_block.png");					DefaultGabarite::gabarite_button_enable_block = just_created_gabarite;
 
+	put_texture_to_atlas("data/shaper_slider_bg.png");				DefaultGabarite::gabarite_shaper_slider_bg = just_created_gabarite;
+	put_texture_to_atlas("data/shaper_slider_head.png");			DefaultGabarite::gabarite_shaper_slider_head = just_created_gabarite;
+	put_texture_to_atlas("data/shaper_slider_trail.png");			DefaultGabarite::gabarite_shaper_slider_trail = just_created_gabarite;
+
+	put_texture_to_atlas("data/button_oil.png");					DefaultGabarite::gabarite_button_oil = just_created_gabarite; 
+	 
 
 
 	load_anointing();

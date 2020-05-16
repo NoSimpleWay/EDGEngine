@@ -68,13 +68,22 @@ EButtonSlider::EButtonSlider(float _x, float _y, float _sx, float _sy, Enums::Bu
 
 	if (button_type == Enums::ButtonType::BUTTON_GLOBAL_DROP_SOUND_VOLUME)
 	{
-		gabarite = DefaultGabarite::gabarite_slider_value;
+		have_bg = false;
+
+		gabarite =				DefaultGabarite::gabarite_shaper_slider_bg;
+		slider_head_texture	=	DefaultGabarite::gabarite_shaper_slider_head;
+		slider_trail_texture =	DefaultGabarite::gabarite_shaper_slider_trail;
+
+		can_be_highlighted = false;
+
 		master_position = Enums::PositionMaster::WINDOW;
 
 		position_mode_x = Enums::PositionMode::RIGHT;
 		position_mode_y = Enums::PositionMode::UP;
 
 		slider_value = 0.5f;
+
+
 
 		
 	}

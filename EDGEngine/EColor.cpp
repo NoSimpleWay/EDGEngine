@@ -66,10 +66,18 @@ EColor* EColorCollection::CYAN = new EColor			(0,			1.0f,		1.0f,		1.0f);
 EColor* EColorCollection::DAD_NORMAL = new EColor	(0.8f,		0.8f,		0.8f,		1.0f);
 EColor* EColorCollection::DAD_MAGIC = new EColor	(0.0f,		1.0f,		1.0f,		1.0f);
 EColor* EColorCollection::DAD_RARE = new EColor		(1.0f,		1.0f,		0,			1.0f);
-EColor* EColorCollection::DAD_UNIQUE = new EColor	(0.78f,		0.5f,		0.25f,		1.0f);
+EColor* EColorCollection::DAD_UNIQUE = new EColor	(0.78f, 0.5f, 0.25f, 1.0f);
+
+EColor* EColorCollection::ORANGE = new EColor		(1.0f, 0.5f, 0.25f, 1.0f); 
+EColor* EColorCollection::LIGHT_ORANGE = new EColor	(1.0f, 0.75f, 0.5f, 1.0f); 
 
 EColor* EColorCollection::LIGHT_GRAY = new EColor(0.75f, 0.75f, 0.75f, 1.0f);
 EColor* EColorCollection::DARK_GRAY = new EColor(0.25f, 0.25f, 0.25f, 1.0f);
+
+EColor* EColorCollection::SHAPER = new EColor(0.45f, 0.35f, 0.55f, 1.0f);
+EColor* EColorCollection::SHAPER_LIGHT = new EColor(0.75f, 0.65f, 0.95f, 1.0f);
+
+
 
 EColor* EColorCollection::MINIMAP_ICON_COLOR[10] = {
 	new EColor(1.0f,		0.0f,		0.0f,		1.0f),//RED
@@ -83,6 +91,7 @@ EColor* EColorCollection::MINIMAP_ICON_COLOR[10] = {
 	new EColor(1.0f,		0.5f,		1.0f,		1.0f),//PINK
 	new EColor(1.0f,		0.0f,		0.5f,		1.0f)//PURPLE
 };
+
 
 EColor* EColorCollection::MINIMAP_RAY_COLOR[11] = {
 	new EColor(1.0f,		0.0f,		0.0f,		1.0f),//RED

@@ -199,7 +199,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		have_text = true;
 		have_input_mode = false;
 
-		bg_color->set_alpha(EColorCollection::GREEN, 0.35f);
+		bg_color->set_alpha(EColorCollection::BLACK, 0.85f);
 		text_color->set(EColorCollection::WHITE);
 	}
 
@@ -783,13 +783,21 @@ void EButtonText::update_additional(float _d)
 	if (button_type == Enums::ButtonType::BUTTON_FILTER_BLOCK_TAB)
 	{
 		if (StaticData::active_tab == data_id)
-		{rama_color->set(EColorCollection::YELLOW);}
+		{
+			text_color->set(EColorCollection::SHAPER_LIGHT);
+			rama_color->set(EColorCollection::SHAPER);
+			bg_color->set_alpha(EColorCollection::SHAPER, 0.55f);
+		}
 		else
-		{rama_color->set(EColorCollection::GRAY);}
+		{
+			text_color->set_alpha(EColorCollection::SHAPER, 0.95f);
+			rama_color->set(EColorCollection::BLACK);
+			bg_color->set_alpha(EColorCollection::BLACK, 0.85f);
+		}
 
 		if (StaticData::filter_block_tab.at(data_id)->unsave_change)
 		{text_color->set(EColorCollection::RED);}
-		else
-		{text_color->set(EColorCollection::WHITE);}
+		//else
+		//{text_color->set(EColorCollection::PINK);}
 	}
 }

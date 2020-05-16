@@ -145,11 +145,11 @@ public:
 	string custom_alert_sound_name = "";
 
 	bool is_ray = false;
-	Enums::GameColors ray_color = Enums::GameColors::WHITE;
+	Enums::GameColors ray_color = Enums::GameColors::RAY_WHITE;
 	bool ray_is_temp=false;
 
 	bool is_minimap_icon = false;
-	Enums::GameColors minimap_icon_color = Enums::GameColors::WHITE;
+	Enums::IconColor minimap_icon_color = Enums::IconColor::WHITE;
 	Enums::IconShape minimap_icon_shape = Enums::IconShape::CIRCLE;
 	Enums::IconSize minimap_icon_size = Enums::IconSize::SMALL;
 

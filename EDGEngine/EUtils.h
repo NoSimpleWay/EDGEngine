@@ -96,6 +96,8 @@ public:
 	static std::string opened_loot_filter_path;
 
 	static std::string game_color_name[11];
+
+	static std::string icon_color_name[10];
 	static std::string icon_shape_name[12];
 
 	static std::vector<std::string> localisation_key;

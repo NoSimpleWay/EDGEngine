@@ -380,7 +380,7 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		rama_thikness = 1.0f;
 		rama_color->set_alpha(EColorCollection::BLACK, 0.75f);
 
-		gabarite = DefaultGabarite::gabarite_oil[11];
+		gabarite = DefaultGabarite::gabarite_button_oil;
 	}
 
 
@@ -484,12 +484,19 @@ void EButtonService::click_event()
 
 	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_COLOR) && (master_block->is_minimap_icon))
 	{
-		master_block->minimap_icon_color = Enums::GameColors(data_id);
+		master_block->minimap_icon_color = Enums::IconColor(data_id);
 		StaticData::window_filter_visual_editor->update_minimap_button();
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_LOOT_FILTER)
 	{
+		StaticData::window_add_new_base_data->is_active = false;
+		StaticData::window_filter_visual_editor->is_active = false;
+		StaticData::window_find_item->is_active = false;
+		StaticData::window_manual_loot->is_active = false;
+		StaticData::window_new_loot_filter->is_active = false;
+		StaticData::window_socket_group->is_active = false;
+
 		if (StaticData::window_filter_block->unsave_change)
 		{ 
 			StaticData::window_accept_cancel->window_mode = Enums::WindowAcceptCancelMode::AC_unsave_open;
@@ -539,6 +546,13 @@ void EButtonService::click_event()
 	
 	if (button_type == Enums::ButtonType::BUTTON_NEW_LOOT_FILTER_WINDOW)
 	{
+		StaticData::window_add_new_base_data->is_active = false;
+		StaticData::window_filter_visual_editor->is_active = false;
+		StaticData::window_find_item->is_active = false;
+		StaticData::window_manual_loot->is_active = false;
+		//StaticData::window_new_loot_filter->is_active = false;
+		StaticData::window_socket_group->is_active = false;
+
 		if (StaticData::window_filter_block->unsave_change)
 		{
 			StaticData::window_accept_cancel->window_mode = Enums::WindowAcceptCancelMode::AC_new_loot_filter;

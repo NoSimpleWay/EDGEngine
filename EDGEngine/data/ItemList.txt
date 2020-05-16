@@ -961,7 +961,7 @@ item EN name	The Seeker	icon path	Card	item RU name	Искатель	base class	
 item EN name	The Vast	icon path	Card	item RU name	Простор	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
 item EN name	Chaotic Disposition	icon path	Card	item RU name	Баламут	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
 item EN name	Dark Dreams	icon path	Card	item RU name	Тёмные мечты	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
-item EN name	Heterochromia	icon path	Card	item RU name	Heterochromia	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
+item EN name	Heterochromia	icon path	Card	item RU name	Гетерохромия	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
 item EN name	The Sacrifice	icon path	Card	item RU name	Жертвоприношение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
 item EN name	The Void	icon path	Card	item RU name	Ничто	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
 item EN name	Rebirth	icon path	Card	item RU name	Перерождение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
@@ -983,7 +983,7 @@ item EN name	The Ethereal	icon path	Card	item RU name	Эфемерность	bas
 item EN name	The Journey	icon path	Card	item RU name	Путешествие	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
 item EN name	The Wind	icon path	Card	item RU name	Ветер	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
 item EN name	The Cartographer	icon path	Card	item RU name	Картограф	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
-item EN name	Vanity	icon path	Card	item RU name	Vanity	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
+item EN name	Vanity	icon path	Card	item RU name	Тщеславие	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	Alone in the Darkness	icon path	Card	item RU name	Один в темноте	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	Blessing of God	icon path	Card	item RU name	Благословение Господа	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	Emperor of Purity	icon path	Card	item RU name	Император Чистоты	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
@@ -1027,7 +1027,7 @@ item EN name	Prosperity	icon path	Card	item RU name	Богатство	base clas
 item EN name	Rain Tempter	icon path	Card	item RU name	Дождь-искуситель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	Rain of Chaos	icon path	Card	item RU name	Пришествие хаоса	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	Rats	icon path	Card	item RU name	Крысы	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
-item EN name	Scholar of the Seas	icon path	Card	item RU name	Scholar of the Seas	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
+item EN name	Scholar of the Seas	icon path	Card	item RU name	Мореплаватель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	The Admirer	icon path	Card	item RU name	Поклонник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	The Aesthete	icon path	Card	item RU name	Эстет	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	The Archmage's Right Hand	icon path	Card	item RU name	Правая рука Архимага	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
@@ -1040,7 +1040,7 @@ item EN name	The Body	icon path	Card	item RU name	Тело	base class	Divination
 item EN name	The Breach	icon path	Card	item RU name	Разлом	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	The Brittle Emperor	icon path	Card	item RU name	Хрупкий император	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	The Cacophony	icon path	Card	item RU name	Какофония	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
-item EN name	The Calling	icon path	Card	item RU name	Призыватель бури	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
+item EN name	The Calling	icon path	Card	item RU name	Призыв	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	The Cataclysm	icon path	Card	item RU name	Катаклизм	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
 item EN name	The Catalyst	icon path	Card	item RU name	Катализатор	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Cursed King	icon path	Card	item RU name	Проклятый монарх	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
@@ -1079,7 +1079,7 @@ item EN name	The Oath	icon path	Card	item RU name	Клятва	base class	Divina
 item EN name	The Obscured	icon path	Card	item RU name	Скрытный	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Offering	icon path	Card	item RU name	Подношение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The One With All	icon path	Card	item RU name	Единство	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
-item EN name	The Pact	icon path	Card	item RU name	Договор	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
+item EN name	The Pact	icon path	Card	item RU name	Пакт	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Penitent	icon path	Card	item RU name	Кающийся	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Polymath	icon path	Card	item RU name	Полимат	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Price of Protection	icon path	Card	item RU name	Цена защиты	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
@@ -1120,7 +1120,7 @@ item EN name	Vinia's Token	icon path	Card	item RU name	Знак Винии	base 
 item EN name	Gift of the Gemling Queen	icon path	Card	item RU name	Дары царицы каменитов	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Gambler	icon path	Card	item RU name	Игрок	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	Might is Right	icon path	Card	item RU name	Правда в силе	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
-item EN name	The Doppelganger	icon path	Card	item RU name	The Doppelganger	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
+item EN name	The Doppelganger	icon path	Card	item RU name	Двойник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Warden	icon path	Card	item RU name	Смотритель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Poet	icon path	Card	item RU name	Поэт	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	Lysah's Respite	icon path	Card	item RU name	Передышка Лисы	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
@@ -1155,7 +1155,7 @@ item EN name	Hunter's Resolve	icon path	Card	item RU name	Решение охо�
 item EN name	Lantador's Lost Love	icon path	Card	item RU name	Утраченная любовь Лантадора	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	Mitts	icon path	Card	item RU name	Рукавички	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	Shard of Fate	icon path	Card	item RU name	Осколок рока	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
-item EN name	Struck by Lightning	icon path	Card	item RU name	Удар молнии	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
+item EN name	Struck by Lightning	icon path	Card	item RU name	Пораженный молнией	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Army of Blood	icon path	Card	item RU name	Армия крови	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Blazing Fire	icon path	Card	item RU name	Пылающий огонь	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low
 item EN name	The Carrion Crow	icon path	Card	item RU name	Чёрный ворон	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very low

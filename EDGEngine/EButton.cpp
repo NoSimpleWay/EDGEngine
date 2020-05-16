@@ -566,11 +566,37 @@
 		{
 			if (slider_is_horizontal)
 			{
-				_batch->setcolor(EColorCollection::WHITE);
-				_batch->draw_rect_with_uv(master_position_x + (button_size_x - 3.0f) * slider_value - 1, master_position_y - 1, 5, button_size_y + 2, DefaultGabarite::gabarite_white);
+				if (slider_trail_texture != NULL)
+				{
+					_batch->setcolor(EColorCollection::WHITE);
+					_batch->draw_rect_gabarite_custom_uv
+					(
+						master_position_x,
+						master_position_y,
+						(slider_trail_texture->size_x - slider_head_texture->size_x) * slider_value + slider_head_texture->size_x * 0.5f,
+						button_size_y,
+						slider_trail_texture,
+						0.0f,
+						0.0f,
+						(slider_trail_texture->size_x - slider_head_texture->size_x) * slider_value + slider_head_texture->size_x * 0.5f,
+						slider_trail_texture->size_y
+					);
+				}
 
-				_batch->setcolor(EColorCollection::BLACK);
-				_batch->draw_rect_with_uv(master_position_x + (button_size_x - 3.0f) * slider_value, master_position_y, 3, button_size_y, DefaultGabarite::gabarite_white);
+				if (slider_head_texture == NULL)
+				{
+					_batch->setcolor(EColorCollection::WHITE);
+					_batch->draw_rect_with_uv(master_position_x + (button_size_x - 3.0f) * slider_value - 1, master_position_y - 1, 5, button_size_y + 2, DefaultGabarite::gabarite_white);
+
+
+					_batch->setcolor(EColorCollection::BLACK);
+					_batch->draw_rect_with_uv(master_position_x + (button_size_x - 3.0f) * slider_value, master_position_y, 3, button_size_y, DefaultGabarite::gabarite_white);
+				}
+				else
+				{
+					_batch->setcolor(EColorCollection::WHITE);
+					_batch->draw_rect_with_uv(master_position_x + (button_size_x - slider_head_texture->size_x) * slider_value , master_position_y + (button_size_y - slider_head_texture->size_y) / 2.0f, slider_head_texture->size_x, slider_head_texture->size_y, slider_head_texture);
+				}
 			}
 			else
 			{
@@ -586,7 +612,7 @@
 
 		additional_draw(_batch);
 
-		if (is_overlap())
+		if ((is_overlap()) & (can_be_highlighted))
 		{
 			_batch->setcolor_alpha(EColorCollection::GREEN, 0.25f);
 			_batch->draw_rect_with_uv(master_position_x - 3.0f, master_position_y - 3.0f, button_size_x + 6.0f, button_size_y + 6.0f, DefaultGabarite::gabarite_white);

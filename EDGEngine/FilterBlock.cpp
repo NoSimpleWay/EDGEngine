@@ -887,18 +887,18 @@
 
 			if ((ray_semitransarent) && (ray_is_temp)) { transparent = 33; }
 
-			if (ray_color == Enums::GameColors::RED) { _batch->setcolor_255(255, 0, 0, transparent); }
-			if (ray_color == Enums::GameColors::GREEN) { _batch->setcolor_255(0, 255, 0, transparent); }
-			if (ray_color == Enums::GameColors::BLUE) { _batch->setcolor_255(0, 0, 255, transparent); }
-			if (ray_color == Enums::GameColors::BROWN) { _batch->setcolor_255(255, 128, 64, transparent); }
-			if (ray_color == Enums::GameColors::WHITE) { _batch->setcolor_255(255, 255, 255, transparent); }
-			if (ray_color == Enums::GameColors::YELLOW) { _batch->setcolor_255(255, 255, 0, transparent); }
+			if (ray_color == Enums::GameColors::RAY_RED) { _batch->setcolor_255(255, 0, 0, transparent); }
+			if (ray_color == Enums::GameColors::RAY_GREEN) { _batch->setcolor_255(0, 255, 0, transparent); }
+			if (ray_color == Enums::GameColors::RAY_BLUE) { _batch->setcolor_255(0, 0, 255, transparent); }
+			if (ray_color == Enums::GameColors::RAY_BROWN) { _batch->setcolor_255(255, 128, 64, transparent); }
+			if (ray_color == Enums::GameColors::RAY_WHITE) { _batch->setcolor_255(255, 255, 255, transparent); }
+			if (ray_color == Enums::GameColors::RAY_YELLOW) { _batch->setcolor_255(255, 255, 0, transparent); }
 
-			if (ray_color == Enums::GameColors::CYAN) { _batch->setcolor_255(0, 255, 255, transparent); }
-			if (ray_color == Enums::GameColors::GREY) { _batch->setcolor_255(128, 128, 128, transparent); }
-			if (ray_color == Enums::GameColors::ORANGE) { _batch->setcolor_255(255, 128, 0, transparent); }
-			if (ray_color == Enums::GameColors::PINK) { _batch->setcolor_255(255, 128, 255, transparent); }
-			if (ray_color == Enums::GameColors::PURPLE) { _batch->setcolor_255(255, 0, 128, transparent); }
+			if (ray_color == Enums::GameColors::RAY_CYAN) { _batch->setcolor_255(0, 255, 255, transparent); }
+			if (ray_color == Enums::GameColors::RAY_GREY) { _batch->setcolor_255(128, 128, 128, transparent); }
+			if (ray_color == Enums::GameColors::RAY_ORANGE) { _batch->setcolor_255(255, 128, 0, transparent); }
+			if (ray_color == Enums::GameColors::RAY_PINK) { _batch->setcolor_255(255, 128, 255, transparent); }
+			if (ray_color == Enums::GameColors::RAY_PURPLE) { _batch->setcolor_255(255, 0, 128, transparent); }
 
 
 			//draw ray

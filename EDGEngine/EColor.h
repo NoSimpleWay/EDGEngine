@@ -37,8 +37,14 @@ public:
 	static EColor* DAD_RARE;
 	static EColor* DAD_UNIQUE;
 
+	static EColor* ORANGE;
+	static EColor* LIGHT_ORANGE;
+
 	static EColor* LIGHT_GRAY;
 	static EColor* DARK_GRAY;
+
+	static EColor* SHAPER;
+	static EColor* SHAPER_LIGHT;
 
 	static EColor* MINIMAP_ICON_COLOR[10];
 	static EColor* MINIMAP_RAY_COLOR[11];
