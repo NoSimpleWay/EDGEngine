@@ -10,7 +10,7 @@ EWindowSelectLootPattern::EWindowSelectLootPattern(int _id, bool _can_be_closed)
 	float x_position = 30.0f;
 	float y_position = -30.0f;
 
-	std::cout << "size name = " << EString::loot_pattern_name.size() << "size color text = " << EString::loot_pattern_text_color.size() << std::endl;
+	//std::cout << "size name = " << EString::loot_pattern_name.size() << "size color text = " << EString::loot_pattern_text_color.size() << std::endl;
 
 	for (int i = 0; i < EString::loot_pattern_name.size(); i++)
 	{

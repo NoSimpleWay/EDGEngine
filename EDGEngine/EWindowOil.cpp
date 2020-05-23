@@ -51,7 +51,7 @@ EWindowOil::EWindowOil(int _id, bool _can_be_closed):EWindow (_id, _can_be_close
 			button_list.push_back(but);
 			passive_button_list.push_back(but);
 
-			std::cout << "button_created: " << std::to_string(id) << " " << EString::notable_list.at(id)->passive_name << std::endl;
+			//std::cout << "button_created: " << std::to_string(id) << " " << EString::notable_list.at(id)->passive_name << std::endl;
 			id++;
 		}
 	}

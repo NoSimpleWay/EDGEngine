@@ -297,7 +297,7 @@ public:
 
 	virtual void update_localisation()
 	{
-		std::cout << "try update localisation (ECP button)!" << std::endl;
+		//std::cout << "try update localisation (ECP button)!" << std::endl;
 		for (EButton* b : button_list)
 		{
 			b->update_localisation();

@@ -278,7 +278,7 @@
 			if (master_block != NULL) {StaticData::window_filter_block->unsave_change = true;}
 
 			if (!is_holdable) { EControl::button_pressed = true; }
-			std::cout << "Button pressed" << std::endl;
+			//std::cout << "Button pressed" << std::endl;
 
 			if (is_drop_list)
 			{

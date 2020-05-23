@@ -398,7 +398,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				if (subdata_array[i * 2] == "text_color")
 				{
-					std::cout << "color = " << subdata_array[i * 2 + 1] << std::endl;
+					//std::cout << "color = " << subdata_array[i * 2 + 1] << std::endl;
 					if (subdata_array[i * 2 + 1] == "RED")		{EString::loot_pattern_text_color.push_back(EColorCollection::RED); };
 					if (subdata_array[i * 2 + 1] == "GREEN")	{EString::loot_pattern_text_color.push_back(EColorCollection::GREEN); };
 					if (subdata_array[i * 2 + 1] == "BLUE")		{EString::loot_pattern_text_color.push_back(EColorCollection::BLUE); };
@@ -624,7 +624,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				{
 					just_created_pattern_item->max_sockets = std::stoi(subdata_array[i * 2 + 1]);
 
-					cout << "max sockets [" << just_created_pattern_item->random_class << "] = " << just_created_pattern_item->max_sockets << " data (" << subdata_array[i * 2 + 1] << ")" << endl;
+					//cout << "max sockets [" << just_created_pattern_item->random_class << "] = " << just_created_pattern_item->max_sockets << " data (" << subdata_array[i * 2 + 1] << ")" << endl;
 					
 				}
 

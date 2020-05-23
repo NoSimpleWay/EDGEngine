@@ -736,7 +736,7 @@ void load_base_class()
 	int wtf = 0;
 	for (BaseClass* b : EString::base_class_list)
 	{
-		cout << "["<<wtf<< "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
+		//cout << "["<<wtf<< "] base class name: " << b->base_name << " ru name: " << b->ru_name << endl;
 		wtf++;
 	}
 }

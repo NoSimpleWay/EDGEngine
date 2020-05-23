@@ -1273,7 +1273,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		if((match_detect)&&(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS)))
 		{
 			
-			std::cout << "[" << 0
+			/*std::cout << "[" << 0
 				<< "] sockets: " << fb->socket_count.at(0)
 				<< ", red: " << fb->red_sockets.at(0)
 				<< ", green: " << fb->green_sockets.at(0)
@@ -1292,7 +1292,8 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 				<< ", white: " << _l->white_socket
 				<< ", abyss: " << _l->abyss_socket
 				<< ", delve: " << _l->delve_socket
-				<< std::endl;
+				<< std::endl;*/
+
 			//bool microreject = true;
 			match_detect = false;
 			for (int i = 0; i < fb->socket_count.size(); i++)

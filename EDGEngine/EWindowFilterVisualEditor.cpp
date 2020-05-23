@@ -86,7 +86,7 @@
 
 		changed_color = EMath::rgb2hsv(target_color);
 
-		std::cout << "H: " << changed_color.h << " S: " << changed_color.s << " V: " << changed_color.v << std::endl;
+		//std::cout << "H: " << changed_color.h << " S: " << changed_color.s << " V: " << changed_color.v << std::endl;
 
 		bg_color->set(0.60f, 0.7f, 0.75f, 0.80f);
 

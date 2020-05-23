@@ -557,7 +557,7 @@ public:
 
 		if ((window_searchs_mode == Enums::WindowSearchMode::ITEM))
 		{
-			std::cout << "item window active" << std::endl;
+			//std::cout << "item window active" << std::endl;
 			help_text = "";
 
 			have_undefined_input = true;
@@ -580,7 +580,7 @@ public:
 
 				if (temp_id >= 0)
 				{
-					std::cout << "temp id = " << temp_id << "item name: " << ItemList::item_list.at(temp_id)->item_name << std::endl;
+					//std::cout << "temp id = " << temp_id << "item name: " << ItemList::item_list.at(temp_id)->item_name << std::endl;
 					b->description_text = ItemList::item_list.at(temp_id)->item_name;
 				}
 
@@ -715,7 +715,7 @@ public:
 
 						b->data_string = EString::base_class_list.at(data_index - 1)->base_name;
 
-						std::cout << "fill button: " << EString::base_class_list.at(data_index - 1)->base_name << std::endl;
+						//std::cout << "fill button: " << EString::base_class_list.at(data_index - 1)->base_name << std::endl;
 					}
 					else
 					{
