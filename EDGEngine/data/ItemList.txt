@@ -1222,13 +1222,13 @@ item EN name	Awakened Spell Cascade Support	icon path	Awakened	item RU name	Пр
 item EN name	Awakened Spell Echo Support	icon path	Awakened	item RU name	Пробужденный: Эхо магии	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	AWAKENED					COST_GROUP	high
 item EN name	Awakened Unbound Ailments Support	icon path	Awakened	item RU name	Пробужденный: Безграничные состояния	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	AWAKENED					COST_GROUP	high
 item EN name	Awakened Unleash Support	icon path	Awakened	item RU name	Пробужденный: Высвобождение	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	AWAKENED					COST_GROUP	high
-item EN name	Shrapnel Ballista	icon path	Active	item RU name	Осколочная баллиста	base class	Active Skill Gems	folder	gem	item category	GEM	item sub category	NEW					COST_GROUP	low
-item EN name	Ensnaring Arrow	icon path	Active	item RU name	Стрела ловчего	base class	Active Skill Gems	folder	gem	item category	GEM	item sub category	NEW					COST_GROUP	low
-item EN name	Artillery Ballista	icon path	Active	item RU name	Артиллерийская баллиста	base class	Active Skill Gems	folder	gem	item category	GEM	item sub category	NEW					COST_GROUP	low
-item EN name	Greater Volley Support	icon path	Awakened	item RU name	Большой залп	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	NEW					COST_GROUP	high
-item EN name	Ballista Totem Support	icon path	Awakened	item RU name	Тотем-баллиста	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	NEW					COST_GROUP	high
-item EN name	Arrow Nova Support	icon path	Awakened	item RU name	Кольцо стрел	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	NEW					COST_GROUP	high
-item EN name	Barrage Support	icon path	Awakened	item RU name	Стрельба очередями	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	NEW					COST_GROUP	high
+item EN name	Shrapnel Ballista	icon path	Active	item RU name	Осколочная баллиста	base class	Active Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
+item EN name	Ensnaring Arrow	icon path	Active	item RU name	Стрела ловчего	base class	Active Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
+item EN name	Artillery Ballista	icon path	Active	item RU name	Артиллерийская баллиста	base class	Active Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
+item EN name	Greater Volley Support	icon path	Awakened	item RU name	Большой залп	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	high
+item EN name	Ballista Totem Support	icon path	Awakened	item RU name	Тотем-баллиста	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	high
+item EN name	Arrow Nova Support	icon path	Awakened	item RU name	Кольцо стрел	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	high
+item EN name	Barrage Support	icon path	Awakened	item RU name	Стрельба очередями	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	high
 item EN name	Small Life Flask	icon path	Small_Life_Flask_inventory_icon	item RU name	Малый флакон жизни	base class	Life Flasks	folder	flask	item category	FLASK	item sub category	LIFE FLASK					COST_GROUP	very low
 item EN name	Medium Life Flask	icon path	Medium_Life_Flask_inventory_icon	item RU name	Средний флакон жизни	base class	Life Flasks	folder	flask	item category	FLASK	item sub category	LIFE FLASK					COST_GROUP	very low
 item EN name	Large Life Flask	icon path	Large_Life_Flask_inventory_icon	item RU name	Большой флакон жизни	base class	Life Flasks	folder	flask	item category	FLASK	item sub category	LIFE FLASK					COST_GROUP	very low
@@ -1398,13 +1398,13 @@ item EN name	Eye	icon path	eye	item RU name	Глаз Метаморфа	base cla
 item EN name	Liver	icon path	liver	item RU name	Печень Метаморфа	base class	Metamorph Sample	folder	metamorph	item category	METAMORPH	item sub category	METAMORPH	COST_GROUP	none
 item EN name	Lung	icon path	lung	item RU name	Лёгкие Метаморфа	base class	Metamorph Sample	folder	metamorph	item category	METAMORPH	item sub category	METAMORPH	COST_GROUP	none
 item EN name	Heart	icon path	heart	item RU name	Сердце Метаморфа	base class	Metamorph Sample	folder	metamorph	item category	METAMORPH	item sub category	METAMORPH	COST_GROUP	none
-item EN name	Turbulent Catalyst	icon path	Turbulent_Catalyst	item RU name	Бурный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	mid
-item EN name	Imbued Catalyst	icon path	Imbued_Catalyst	item RU name	Волшебный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	mid
-item EN name	Abrasive Catalyst	icon path	Abrasive_Catalyst	item RU name	Абразивный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	mid
-item EN name	Tempering Catalyst	icon path	Tempering_Catalyst	item RU name	Закаляющий катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	mid
-item EN name	Fertile Catalyst	icon path	Fertile_Catalyst	item RU name	Насыщенный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	mid
-item EN name	Prismatic Catalyst	icon path	Prismatic_Catalyst	item RU name	Радужный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	mid
-item EN name	Intrinsic Catalyst	icon path	Intrinsic_Catalyst	item RU name	Истинный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	mid
+item EN name	Turbulent Catalyst	icon path	Turbulent_Catalyst	item RU name	Бурный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	ALL	COST_GROUP	mid
+item EN name	Imbued Catalyst	icon path	Imbued_Catalyst	item RU name	Волшебный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	ALL	COST_GROUP	mid
+item EN name	Abrasive Catalyst	icon path	Abrasive_Catalyst	item RU name	Абразивный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	ALL	COST_GROUP	mid
+item EN name	Tempering Catalyst	icon path	Tempering_Catalyst	item RU name	Закаляющий катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	ALL	COST_GROUP	mid
+item EN name	Fertile Catalyst	icon path	Fertile_Catalyst	item RU name	Насыщенный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	ALL	COST_GROUP	mid
+item EN name	Prismatic Catalyst	icon path	Prismatic_Catalyst	item RU name	Радужный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	ALL	COST_GROUP	mid
+item EN name	Intrinsic Catalyst	icon path	Intrinsic_Catalyst	item RU name	Истинный катализатор	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	ALL	COST_GROUP	mid
 item EN name	Crusader's Exalted Orb	icon path	CrusaderExalt	item RU name	Сфера Возвышения Крестоносца	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NORMAL_CURRENCY	COST_GROUP	very high
 item EN name	Redeemer's Exalted Orb	icon path	AdjudicatorExalt	item RU name	Сфера Возвышения Избавителя	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NORMAL_CURRENCY	COST_GROUP	very high
 item EN name	Hunter's Exalted Orb	icon path	HunterExalt	item RU name	Сфера Возвышения Охотника	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NORMAL_CURRENCY	COST_GROUP	very high
@@ -1456,3 +1456,89 @@ item EN name	Kinetic Bolt	icon path	Active	item RU name	Кинетический
 item EN name	Blade Blast	icon path	Active	item RU name	Взрыв клинков	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low
 item EN name	Archmage Support	icon path	Active	item RU name	Архимаг	base class	Support Skill Gem	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low
 item EN name	Second Wind Support	icon path	Active	item RU name	Второе дыхание	base class	Support Skill Gem	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low
+item EN name	Infused Engineer's Orb	icon path	Chargerd_Engineer's_Orb_inventory_icon	item RU name	Заряженная сфера инженера	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Time-light Scroll	icon path	Time-light-Scroll	item RU name	Свиток времени и света	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Fragmentation Scroll	icon path	Fragmentation-Scroll	item RU name	Свиток фрагментации	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Deregulation Scroll	icon path	Deregulation-Scroll	item RU name	Свиток дерегуляции	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Electroshock Scroll	icon path	Electroshock-Scroll	item RU name	Свиток электрошока	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Haemocombustion Scroll	icon path	Haemocombustion-Scroll	item RU name	Свиток кровосожжения	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Specularity Scroll	icon path	Specularity-Scroll	item RU name	Свиток зеркальности	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Facetor's Lens	icon path	Facetor's-Lens	item RU name	Линза награнения	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Indigo Oil	icon path	Indigo-Oil	item RU name	Масло индиго	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Tribute to the Goddess	icon path	Tribute-to-the-Goddess	item RU name	Дань богине	base class	Map Fragments	folder	lab	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Gift to the Goddess	icon path	Gift-to-the-Goddess	item RU name	Дар богине	base class	Map Fragments	folder	lab	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Dedication to the Goddess	icon path	Dedication to the Goddess	item RU name	Посвящение богине	base class	Map Fragments	folder	lab	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low
+item EN name	Winged Cartography Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей картографии	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Reliquary Scarab	icon path	Winged_Scarab	item RU name	Крылатый реликтовый скарабей	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Bestiary Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей Бестиария	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Shaper Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей Создателя	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Elder Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей Древнего	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Sulphite Scarab	icon path	Winged_Scarab	item RU name	Крылатый сульфитовый скарабей	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Divination Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей предсказания	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Torment Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей Мучения	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Ambush Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей Засады	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Harbinger Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей Предвестника	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Perandus Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей Перандусов	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Breach Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей Разлома	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Legion Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей Легиона	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Winged Metamorph Scarab	icon path	Winged_Scarab	item RU name	Крылатый скарабей Метаморфа	base class	Map Fragments	folder	fragment	item category	SCARAB	item sub category	NEW SCARAB	COST_GROUP	mid
+item EN name	Wild Ursaling Grain	icon path	Grain	item RU name	Зерно дикого медведя	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Wild Hellion Grain	icon path	Grain	item RU name	Зерно дикого адского льва	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Wild Thornwolf Grain	icon path	Grain	item RU name	Зерно дикого шиповолка	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Wild Ape Grain	icon path	Grain	item RU name	Зерно дикого примата	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Wild Hatchling Grain	icon path	Grain	item RU name	Зерно дикого малька	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Vivid Arachnid Grain	icon path	Grain	item RU name	Зерно буйного арахнида	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Vivid Weta Grain	icon path	Grain	item RU name	Зерно буйного кузнечика	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Vivid Leech Grain	icon path	Grain	item RU name	Зерно буйной личинки	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Vivid Scorpion Grain	icon path	Grain	item RU name	Зерно буйного скорпиона	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Vivid Thornweaver Grain	icon path	Grain	item RU name	Зерно буйного шипопряда	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Primal Rhoa Grain	icon path	Grain	item RU name	Зерно первобытного роа	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Primal Dustspitter Grain	icon path	Grain	item RU name	Зерно первобытного пылевого плевуна	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Primal Feasting Horror Grain	icon path	Grain	item RU name	Зерно первобытного пирующего ужаса	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Primal Maw Grain	icon path	Grain	item RU name	Зерно первобытной пасти	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Primal Cleaveling Grain	icon path	Grain	item RU name	Зерно первобытного разрубателя	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	GRAIN	COST_GROUP	mid
+item EN name	Wild Bristlebeast Seed	icon path	Seed	item RU name	Семя дикого щетинистого зверя	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Wild Snap Hound Seed	icon path	Seed	item RU name	Семя дикой хваткой гончей	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Wild Homunculus Seed	icon path	Seed	item RU name	Семя дикого гомункула	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Wild Chieftain Seed	icon path	Seed	item RU name	Семя дикого вожака	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Wild Spikeback Seed	icon path	Seed	item RU name	Семя дикого иглоспина	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Vivid Razorleg Seed	icon path	Seed	item RU name	Семя буйного бритвонога	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Vivid Sapsucker Seed	icon path	Seed	item RU name	Семя буйного зудня	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Vivid Parasite Seed	icon path	Seed	item RU name	Семя буйного паразита	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Vivid Striketail Seed	icon path	Seed	item RU name	Семя буйного боехвоста	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Vivid Nestback Seed	icon path	Seed	item RU name	Семя буйного гнездоспина	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Primal Rhex Seed	icon path	Seed	item RU name	Семя первобытного рекса	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Primal Dustcrab Seed	icon path	Seed	item RU name	Семя первобытного пылевого краба	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Primal Viper Seed	icon path	Seed	item RU name	Семя первобытного аспида	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Primal Chimeral Seed	icon path	Seed	item RU name	Семя первобытного ящера	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Primal Scrabbler Seed	icon path	Seed	item RU name	Семя первобытного норовика	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED	COST_GROUP	mid
+item EN name	Wild Bristle Matron Bulb	icon path	Bulb	item RU name	Луковица дикой щетинистой матроны	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Wild Hellion Alpha Bulb	icon path	Bulb	item RU name	Луковица дикого адского льва-альфы	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Wild Thornmaw Bulb	icon path	Bulb	item RU name	Луковица дикого шиполапа	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Wild Brambleback Bulb	icon path	Bulb	item RU name	Луковица дикого шипоспина	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Wild Infestation Queen Bulb	icon path	Bulb	item RU name	Луковица дикой королевы паразитов	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Vivid Whipleg Bulb	icon path	Bulb	item RU name	Луковица буйного кнутонога	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Vivid Watcher Bulb	icon path	Bulb	item RU name	Луковица буйного наблюдателя	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Vivid Vulture Bulb	icon path	Bulb	item RU name	Луковица буйного стервятника	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Vivid Abberarach Bulb	icon path	Bulb	item RU name	Луковица буйного арахниона	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Vivid Devourer Bulb	icon path	Bulb	item RU name	Луковица буйного пожирателя	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Primal Rhex Matriarch Bulb	icon path	Bulb	item RU name	Луковица первобытного рекс-матриарха	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Primal Crushclaw Bulb	icon path	Bulb	item RU name	Луковица первобытного клешнелома	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Primal Blisterlord Bulb	icon path	Bulb	item RU name	Луковица первобытного мерзостня	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Primal Cystcaller Bulb	icon path	Bulb	item RU name	Луковица первобытного наростня	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Primal Reborn Bulb	icon path	Bulb	item RU name	Луковица первородного перерожденного	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	BULB	COST_GROUP	mid
+item EN name	Wild Thornfruit	icon path	Fruit	item RU name	Дикий шипофрукт	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	FRUIT	COST_GROUP	mid
+item EN name	Vivid Scalefruit	icon path	Fruit	item RU name	Буйный чешуефрукт	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	FRUIT	COST_GROUP	mid
+item EN name	Primal Blisterfruit	icon path	Fruit	item RU name	Первобытный мерзофрукт	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	FRUIT	COST_GROUP	mid
+item EN name	The Tumbleweed	icon path	Card	item RU name	Перекати-поле	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	high
+item EN name	The Hive of Knowledge	icon path	Card	item RU name	Скопище знаний	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid
+item EN name	Gift of Asenath	icon path	Card	item RU name	Подарок Азенат	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid
+item EN name	A Note in the Wind	icon path	Card	item RU name	Музыка на ветру	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid
+item EN name	The Greatest Intentions	icon path	Card	item RU name	Величайшие намерения	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid
+item EN name	The White Knight	icon path	Card	item RU name	Белый рыцарь	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid
+item EN name	Prometheus' Armoury	icon path	Card	item RU name	Кузня Прометея	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid
+item EN name	The Sustenance	icon path	Card	item RU name	Пропитание	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid
+item EN name	Peaceful Moments	icon path	Card	item RU name	Безмятежные минуты	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid
+item EN name	The Awakened	icon path	Card	item RU name	Пробуждённые	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid
+item EN name	A Familiar Call	icon path	Card	item RU name	Знакомый зов	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid
+item EN name	The Long Con	icon path	Card	item RU name	Долгое собрание	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW	COST_GROUP	mid

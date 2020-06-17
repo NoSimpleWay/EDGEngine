@@ -92,3 +92,4 @@ Base name	Warstaves	RU name	Воинский посох
 Base name	Delve Stackable Socketable Currency	RU name	Складываемая валюта спуска
 Base name	Metamorph Sample	RU name	Образец Метаморфа
 Base name	Atlas Region Upgrade Item	RU name	Предмет улучшения области Атласа
+Base name	Harvest Seed	RU name	Семя жатвы

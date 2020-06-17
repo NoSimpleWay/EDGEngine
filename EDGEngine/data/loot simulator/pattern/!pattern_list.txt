@@ -1,6 +1,7 @@
-name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Делириум"	path	new items	button_color	BLACK	text_color	RED
+name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Жатва"	path	new items	button_color	BLACK	text_color	RED
 name_en	Breach item	name_ru	Предметы "Разлома"	description_en	Generate breach splinters/stone	description_ru	Генерирует осколки/камни разлома	path	breach	button_color	WHITE	text_color	BLACK
 name_en	Currency	name_ru	Валюта	description_en	Generate all regular game currency	description_ru	Генерирует всю обычную игровую валюту	path	currency	button_color	WHITE	text_color	BLACK
+name_en	Delirium	name_ru	Делириум	description_en	Generate cluster jewels, and delirium orb, and other delirium items	description_ru	Генерирует премдеты Делириума: самоцветы, сферы, симулякр	path	delirium	button_color	WHITE	text_color	BLACK
 name_en	Delve	name_ru	Шахта	description_en	Generate fossils, resonators, and delve item	description_ru	Генерирует ископаемые, резонаторы, и предметы спуска	path	delve	button_color	WHITE	text_color	BLACK
 name_en	Divination card	name_ru	Гадальные карты	description_en	Generate lot of divination card	description_ru	Генерирует множество гадальных карты	path	divination	button_color	WHITE	text_color	BLACK
 name_en	Equip	name_ru	Экеперовка	description_en	Generate lot of equip items.\nItems can be shaper/elder	description_ru	Генерирует множество предметов экепировки\nПредметы могут быть шейпера/древнего.	path	only equip	button_color	WHITE	text_color	BLACK
