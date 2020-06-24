@@ -12,7 +12,7 @@ item_name	Haemocombustion Scroll	count	1
 item_name	Specularity Scroll	count	1
 item_name	Facetor's Lens	count	1
 random_subclass	NEW SCARAB	count	7
-random_subclass	GRAIN	count	3
-random_subclass	SEED	count	3
-random_subclass	BULB	count	3
-random_subclass	FRUIT	count	3
+random_subclass	SEED_T1	count	3
+random_subclass	SEED_T2	count	3
+random_subclass	SEED_T3	count	3
+random_subclass	SEED_T4	count	3
