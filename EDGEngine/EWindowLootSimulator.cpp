@@ -283,6 +283,7 @@ void EWindowLootSimulator::update(float _d)
 			if (max_value == random_elder) { loot->elder_item = true;	}
 
 			loot->enchantment = p->enchantment;
+			loot->cluster_enchantment = p->cluster_enchantment;
 
 
 			loot->prophecy = p->prophecy_name;
@@ -661,6 +662,12 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			{
 				_batch->setcolor(EColorCollection::GREEN);
 				EFont::active_font->draw(_batch, loot->enchantment, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y); move_y++;
+			}
+
+			if (loot->cluster_enchantment != "")
+			{
+				_batch->setcolor(EColorCollection::GRAY);
+				EFont::active_font->draw(_batch, loot->cluster_enchantment, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y); move_y++;
 			}
 
 			_batch->setcolor(EColorCollection::GRAY);
@@ -1051,6 +1058,28 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			match_detect = temp_match;
 
 			if ((!_default) && (!temp_match)) { rejection("enchantment", _l); }
+
+		}
+
+		if (match_detect)
+		{
+			temp_match = false;
+			if (!fb->is_cluster_enchantment_active) { temp_match = true; }
+
+			//std::cout << "ench: " << _l->enchantment << std::endl;
+
+			for (EButton* b : fb->cluster_enchantment_list)
+			{
+				if
+					(EString::to_lower(_l->cluster_enchantment, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+				{
+					temp_match = true;
+				}
+			}
+
+			match_detect = temp_match;
+
+			if ((!_default) && (!temp_match)) { rejection("cluster enchantment", _l); }
 
 		}
 
@@ -1900,6 +1929,8 @@ void EWindowLootSimulator::manual_event()
 			pattern->mirrored = pattern_item_list.at(i)->mirrored;
 
 			pattern->enchantment = pattern_item_list.at(i)->enchantment;
+			pattern->cluster_enchantment = pattern_item_list.at(i)->cluster_enchantment;
+
 			pattern->prophecy_name = pattern_item_list.at(i)->prophecy_name;
 
 

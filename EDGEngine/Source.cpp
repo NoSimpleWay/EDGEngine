@@ -828,6 +828,93 @@ void load_enchantment()
 	}*/
 }
 
+void load_cluster_enchantment()
+{
+	//ofstream myfile_open;
+	//myfile_open.open("gemor.txt");
+
+	ifstream myfile;
+	myfile.open("data/ClusterEnchantment.txt");
+	string line;
+
+	string subdata;
+	string subdata_array[100];
+
+	int line_id = 0;
+	int data_order;
+
+	EString::cluster_enchantment_struct* just_created_struct = NULL;
+
+	//cout << EMath::rgb::r << endl;
+
+
+	while ((getline(myfile, line)) && (line_id < 2000))
+	{
+		just_created_struct = new EString::cluster_enchantment_struct;
+
+		data_order = 0;
+		subdata = "";
+
+		for (int i = 0; i < line.length(); i++)
+		{
+
+
+			if (line.at(i) != '\t')
+			{
+				subdata += line.at(i);
+			}
+
+			if ((line.at(i) == '\t') || (i + 1 >= line.length()))
+			{
+				subdata_array[data_order] = subdata;
+				subdata = "";
+				data_order++;
+			}
+
+		}
+
+		for (int i = 0; i < 40; i++)
+		{
+
+			if (subdata_array[i * 2] == "Base name")
+			{
+				just_created_struct->name = subdata_array[i * 2 + 1];
+			}
+
+			if (subdata_array[i * 2] == "RU name")
+			{
+				char sInvalid[1024];
+				strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
+				//комментарии
+
+				int size = strlen(sInvalid) + 1;
+				wchar_t* wsValid = new wchar_t[size];
+				char* sValid = new char[size];
+
+				MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
+				WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
+
+				//cout << "A: " << wsValid << " B: " << sValid << endl;
+
+				just_created_struct->ru_name = sValid;
+			}
+
+
+		}
+
+		EString::cluster_enchantment_list.push_back(just_created_struct);
+
+	}
+
+	/*cout << "Enchantement count: " << EString::enchantment_list.size() << endl;
+	int wtf = 0;
+	for (Enchantment * b : EString::enchantment_list)
+	{
+		cout << "["<<wtf<< "] enchantement name: " << b->base_name << " ru name: " << b->ru_name << endl;
+		wtf++;
+	}*/
+}
+
 void parse_item_data()
 {
 	//ofstream myfile_open;
@@ -1273,6 +1360,7 @@ int main()
 	parse_item_data();
 	load_base_class();
 	load_enchantment();
+	load_cluster_enchantment();
 	load_prophecy_list();
 	load_notable_passives();
 	load_notable_passives_ru();

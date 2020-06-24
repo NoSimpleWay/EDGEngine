@@ -140,6 +140,14 @@ public:
 	static std::vector <EColor*> loot_pattern_button_color;
 	static std::vector <EColor*> loot_pattern_text_color;
 	//////////////////////////////////////////////////////////////////////
+
+	struct cluster_enchantment_struct
+	{
+		std::string name;
+		std::string ru_name;
+	};
+
+	static std::vector< cluster_enchantment_struct* > cluster_enchantment_list;
 };
 
 class EFile

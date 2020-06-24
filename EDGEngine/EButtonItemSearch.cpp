@@ -135,6 +135,18 @@ void EButtonItemSearch::click_event()
 		StaticData::window_find_item->is_active = false;
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_SEARCH_CLUSTER_ENCHANTMENT)
+	{
+		StaticData::window_find_item->target_button->text = text;
+		StaticData::window_find_item->target_button->data_string = data_string;
+		StaticData::window_find_item->target_button->data_id = data_id;
+
+
+		StaticData::window_find_item->target_button->button_size_x = EFont::get_width(EFont::active_font, text) + 5.0f;
+
+		StaticData::window_find_item->is_active = false;
+	}
+
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
 	{
 		StaticData::window_find_item->target_button->text = text;

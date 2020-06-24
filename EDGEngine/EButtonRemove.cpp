@@ -33,6 +33,12 @@ EButtonRemove::EButtonRemove(float _x, float _y, float _sx, float _sy, Enums::Bu
 		position_mode_y = Enums::PositionMode::UP;
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_CLUSTER_ENCHANTEMENT)
+	{
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::UP;
+	}
+
 	text_align_x = Enums::PositionMode::MID;
 
 	have_text = false;
@@ -121,6 +127,20 @@ void EButtonRemove::click_event()
 		master_block->plus_enchantment_button_link->is_active = false;
 
 		for (EButton* b : master_block->enchantment_list)
+		{
+			b->need_remove = true;
+		}
+
+		is_active = false;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_CLUSTER_ENCHANTEMENT)
+	{
+		master_block->is_cluster_enchantment_active = false;
+
+		master_block->plus_cluster_enchantment_button_link->is_active = false;
+
+		for (EButton* b : master_block->cluster_enchantment_list)
 		{
 			b->need_remove = true;
 		}

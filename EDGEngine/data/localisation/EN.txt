@@ -242,3 +242,5 @@ description_remove_separator	Remove separator
 description_header_separator	Separator commentary. Click to edit.
 description_collapse_separator	Collapse/expland filter blocks between separators.\n\nPress RMB to collapse ALL blocks\n\nClick with SHIFT to expand ALL blocks
 hint_header_separator	Input commentary
+button_add_cluster_enchantment_list	Add new cluster jewel enchantment
+description_add_enchantment_list	Add new cluster jewel enchantment

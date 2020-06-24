@@ -151,6 +151,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	std::string EString::upper_charset = "QWERTYUIOPASDFGHJKLZXCVBNM¨ÉÖÓÊÅÍÃØÙÇÕÚÔÛÂÀÏĞÎËÄÆİß×ÑÌÈÒÜÁŞ";
 	std::string EString::lower_charset = "qwertyuiopasdfghjklzxcvbnm¸éöóêåíãøùçõúôûâàïğîëäæıÿ÷ñìèòüáş";
+	
+	std::vector< EString::cluster_enchantment_struct* > EString::cluster_enchantment_list;
+
 
 	std::string EString::path_to_poe_folder;
 
@@ -682,6 +685,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					just_created_pattern_item->enchantment = subdata_array[i * 2 + 1];
 				}
 
+				if (EString::to_lower(subdata_array[i * 2], false) == "cluster_enchantment")
+				{
+					just_created_pattern_item->cluster_enchantment = subdata_array[i * 2 + 1];
+				}
+
 				if (EString::to_lower(subdata_array[i * 2], false) == "explicit")
 				{
 					just_created_pattern_item->explicit_list.push_back(subdata_array[i * 2 + 1]);
@@ -1188,6 +1196,17 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_block->remove_enchantment_button->is_active = true;
 								}
 
+								if (subdata == "EnchantmentPassiveNode")
+								{
+									//std::cout << "Try get acess to remove button" << std::endl;
+
+									parser_mode = Enums::ParserMode::CLUSTER_ENCHANTMENT;
+
+									just_created_block->is_cluster_enchantment_active = true;
+									just_created_block->plus_cluster_enchantment_button_link->is_active = true;
+									just_created_block->remove_cluster_enchantment_button->is_active = true;
+								}
+
 								if (subdata == "SetFontSize") { parser_mode = Enums::ParserMode::FONT_SIZE; just_created_block->is_font_size_active = true; }
 								if (subdata == "SetTextColor") { parser_mode = Enums::ParserMode::TEXT_COLOR; just_created_block->is_text_color_active = true; }
 								if (subdata == "SetBorderColor") { parser_mode = Enums::ParserMode::BORDER_COLOR; just_created_block->is_rama_color_active = true; }
@@ -1244,6 +1263,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (subdata == "Mirrored") { parser_mode = Enums::ParserMode::IS_MIRRORED; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM) = true; }
 
 								if (subdata == "AreaLevel") { parser_mode = Enums::ParserMode::AREA_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL) = true; }
+								//if (subdata == "EnchantmentPassiveNode") { parser_mode = Enums::ParserMode::CLUSTER_ENCHANTMENT; }
 							}
 							else
 							{
@@ -1485,6 +1505,57 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								}
 							}
 
+							if (parser_mode == Enums::ParserMode::CLUSTER_ENCHANTMENT)
+							{
+								//if (data_order == 0) { cout << "activate rarity property" << endl; }
+								if (data_order > 0)
+								{
+									if (show_info_to_console) { cout << "add new cluster enchantment <" << subdata << ">" << endl; }
+									//just_created_block->class_list.push_back(new string(subdata));
+
+									if (subdata != "=" & subdata != "==")
+									{
+										EButtonExplicit* enchantment_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLUSTER_ENCHANTMENT_FILTER_BLOCK_LIST);
+										enchantment_button->text = subdata;
+										enchantment_button->data_string = subdata;
+
+										enchantment_button->master_block = just_created_block;
+										enchantment_button->master_window = StaticData::window_filter_block;
+
+
+										just_created_block->button_list.push_back(enchantment_button);
+										just_created_block->cluster_enchantment_list.push_back(enchantment_button);
+
+										enchantment_button->data_id = -1;
+
+
+										for (int i = 0; i < EString::cluster_enchantment_list.size(); i++)
+										{
+											if ((EString::to_lower(subdata, false) == EString::to_lower(EString::cluster_enchantment_list.at(i)->name, false)) && (enchantment_button->data_id == -1))
+											{
+												enchantment_button->data_id = i;
+
+												if (EString::active_localisation == Enums::LocalisationList::EN)
+												{
+													enchantment_button->text = EString::cluster_enchantment_list.at(i)->name;
+												}
+
+												if (EString::active_localisation == Enums::LocalisationList::RU)
+												{
+													enchantment_button->text = EString::cluster_enchantment_list.at(i)->ru_name;
+												}
+											}
+										}
+
+										//class_button->text += " (" + std::to_string(class_button->data_id) + ")";
+
+										enchantment_button->button_size_x = EFont::get_width(EFont::active_font, enchantment_button->text) + 5.0f;
+										enchantment_button->button_min_size_x = 30.0f;
+									
+									}
+								
+								}
+							}
 							if (parser_mode == Enums::ParserMode::FONT_SIZE)
 							{
 								//if (data_order == 0) { cout << "activate rarity property" << endl; }
@@ -2557,6 +2628,23 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += "HasEnchantment";
 
 				for (EButton* b : fb->enchantment_list)
+				{
+					loot_writer += " ";
+					loot_writer += '"';
+					loot_writer += b->data_string;
+					loot_writer += '"';
+				}
+
+				loot_writer += '\n';
+			}
+
+
+			if ((fb->is_cluster_enchantment_active) && (fb->cluster_enchantment_list.size() > 0))
+			{
+				loot_writer += '\t';
+				loot_writer += "EnchantmentPassiveNode";
+
+				for (EButton* b : fb->cluster_enchantment_list)
 				{
 					loot_writer += " ";
 					loot_writer += '"';

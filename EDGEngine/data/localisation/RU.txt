@@ -243,3 +243,5 @@ description_remove_separator	Удалить разделитель
 description_header_separator	Комментарий для разделителя. Нажмите, что бы отредактировать.
 description_collapse_separator	Скрыть/раскрыть блоки между 2 разделителями\n\nНажмите ПКМ, что бы свернуть ВСЕ блоки.\n\nНажмите с нажатым SHIFT, что бы раскрыть ВСЕ блоки
 hint_header_separator	Введите комментарий
+button_add_cluster_enchantment_list	Новый список зачарований самоцвета
+Add new cluster jewel enchantment	Добавляет список зачарований, которые могут быть на кластерном самоцвете

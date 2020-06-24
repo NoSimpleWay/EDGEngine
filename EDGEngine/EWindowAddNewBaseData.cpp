@@ -263,6 +263,21 @@ public:
 				window_size_y += 30;
 			}
 
+			if (!_b->master_block->is_cluster_enchantment_active)
+			{
+				EButton* but = new EButtonText(0, 0, 300, 20, Enums::ButtonType::BUTTON_ACTIVE_CLUSTER_ENCHANTEMENT_LIST);
+
+				but->master_window = this;
+				but->button_x = 0;
+
+				but->master_window = this;
+				but->master_block = _b->master_block;
+
+				button_list.push_back(but);
+
+				window_size_y += 30;
+			}
+
 			float by = -25.0f;
 
 			for (EButton* b : button_list)

@@ -68,6 +68,7 @@ public:
 	int stack_size = 1;
 
 	std::string enchantment;
+	std::string cluster_enchantment;
 
 	std::vector <std::string> explicit_list;
 };

@@ -92,6 +92,20 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 
 		bg_color->set(0.3f, 0.3f, 0.3f, 0.85f);
 	}
+	
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_CLUSTER_ENCHANTEMENT_LIST)
+	{
+		text_align_x = Enums::PositionMode::MID;
+		position_mode_x = Enums::PositionMode::MID;
+		position_mode_y = Enums::PositionMode::UP;
+
+		
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		bg_color->set(1.0f, 1.0f, 1.0f, 0.85f);
+		text_color->set(0.0f, 0.0f, 0.0f, 1.0f);
+	}
 
 	if (button_type == Enums::ButtonType::BUTTON_ADD_EXPLICIT_ELEMENT)
 	{
@@ -402,6 +416,16 @@ void EButtonText::click_event()
 
 		StaticData::window_add_new_base_data->is_active = false;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_CLUSTER_ENCHANTEMENT_LIST)
+	{
+		master_block->plus_cluster_enchantment_button_link->is_active = true;
+		master_block->remove_cluster_enchantment_button->is_active = true;
+		master_block->is_cluster_enchantment_active = true;
+
+		StaticData::window_add_new_base_data->is_active = false;
+	}
+
 	if ((button_type == Enums::ButtonType::BUTTON_MINIMAP_ICON_SELECT_SIZE)&&(master_block->is_minimap_icon))
 	{
 		master_block->minimap_icon_size = Enums::IconSize(data_id);
@@ -643,6 +667,12 @@ void EButtonText::update_localisation()
 	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_ENCHANTEMENT_LIST)
 	{
 		text = EString::localize_it("button_add_enchantment_list");
+		description_text = EString::localize_it("description_add_enchantment_list");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_CLUSTER_ENCHANTEMENT_LIST)
+	{
+		text = EString::localize_it("button_add_cluster_enchantment_list");
 		description_text = EString::localize_it("description_add_enchantment_list");
 	}
 

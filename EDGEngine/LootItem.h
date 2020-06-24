@@ -79,6 +79,7 @@ public:
 	std::vector <std::string> explicit_list;
 
 	std::string enchantment;
+	std::string cluster_enchantment;
 	std::string prophecy;
 
 };

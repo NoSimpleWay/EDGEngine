@@ -84,6 +84,7 @@ public:
 
 	bool is_prophecy_active = false;
 	bool is_enchantment_active = false;
+	bool is_cluster_enchantment_active = false;
 
 	std::string	item_rarity = "Rare";				bool is_item_rarity_active = false;	 std::string rarity_condition = "=";
 
@@ -250,12 +251,16 @@ public:
 	EButtonExplicit* plus_enchantment_button_link;
 	EButton* remove_enchantment_button;
 
+	EButtonExplicit* plus_cluster_enchantment_button_link;
+	EButton* remove_cluster_enchantment_button;
+
 	EButtonExplicit* plus_prophecy_button_link;
 	EButton* remove_prophecy_button;
 
 	vector <ExplicitGroup*> explicit_list;
 	vector <EButtonExplicit*> base_class_list;
 	vector <EButtonExplicit*> enchantment_list;
+	vector <EButtonExplicit*> cluster_enchantment_list;
 
 
 

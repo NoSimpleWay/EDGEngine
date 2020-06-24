@@ -1,2 +1,2 @@
-verdana
+arial
 RU

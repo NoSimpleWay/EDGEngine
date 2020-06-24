@@ -407,6 +407,22 @@
 		button_list.push_back(plus_enchantment_button_link);
 
 
+		plus_cluster_enchantment_button_link = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_CLUSTER_ENCHANTMENT_FILTER_BLOCK_LIST);
+		plus_cluster_enchantment_button_link->text = "+";
+		plus_cluster_enchantment_button_link->master_block = this;
+		plus_cluster_enchantment_button_link->master_window = StaticData::window_filter_block;
+
+		plus_cluster_enchantment_button_link->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
+		plus_cluster_enchantment_button_link->button_min_size_x = plus_prophecy_button_link->button_size_x;
+
+		plus_cluster_enchantment_button_link->can_be_removed = false;
+		plus_cluster_enchantment_button_link->have_input_mode = false;
+		plus_cluster_enchantment_button_link->is_plus = true;
+		plus_cluster_enchantment_button_link->is_active = false;
+
+		button_list.push_back(plus_cluster_enchantment_button_link);
+
+
 
 
 		
@@ -430,12 +446,17 @@
 
 
 		remove_enchantment_button = new EButtonRemove(0, 0, 17, 17, Enums::ButtonType::BUTTON_REMOVE_ENCHANTEMENT);
-
 		remove_enchantment_button->master_block = this;
 		remove_enchantment_button->master_window = StaticData::window_filter_block;
 		remove_enchantment_button->is_active = false;
-
 		button_list.push_back(remove_enchantment_button);
+
+
+		remove_cluster_enchantment_button = new EButtonRemove(0, 0, 17, 17, Enums::ButtonType::BUTTON_REMOVE_CLUSTER_ENCHANTEMENT);
+		remove_cluster_enchantment_button->master_block = this;
+		remove_cluster_enchantment_button->master_window = StaticData::window_filter_block;
+		remove_cluster_enchantment_button->is_active = false;
+		button_list.push_back(remove_cluster_enchantment_button);
 
 		but = new EButtonService(-150.0f, 45.0f - 20.0f * 0.0f, 16.0f, 16.0f, Enums::ButtonType::BUTTON_SHOW_HIDE);
 		but->master_block = this;
@@ -676,6 +697,16 @@
 				if (enchantment_list.at(i)->need_remove)
 				{
 					enchantment_list.erase(enchantment_list.begin() + i);
+					i--;
+				}
+			}
+
+		if (remove_timer < 0)
+			for (int i = 0; i < cluster_enchantment_list.size(); i++)
+			{
+				if (cluster_enchantment_list.at(i)->need_remove)
+				{
+					cluster_enchantment_list.erase(cluster_enchantment_list.begin() + i);
 					i--;
 				}
 			}
@@ -1112,6 +1143,41 @@
 
 			_batch->setcolor_alpha(EColorCollection::BLACK, 0.15f);
 			_batch->draw_rect_with_uv(plus_enchantment_button_link->master_position_x, plus_enchantment_button_link->master_position_y, size_x - plus_enchantment_button_link->master_position_x - 270.0f, 20.0f, DefaultGabarite::gabarite_white);
+
+			ex_y -= 30.0f;
+		}
+
+		ex_x = start_position_draw_x;
+		if ((is_cluster_enchantment_active) && (remove_timer < 0))
+		{
+			remove_cluster_enchantment_button->button_x = ex_x;
+			remove_cluster_enchantment_button->button_y = ex_y;
+
+			ex_x += 20;
+
+			for (EButtonExplicit* b : cluster_enchantment_list)
+			{
+				b->button_x = ex_x;
+				b->button_y = ex_y;
+
+				ex_x += b->button_size_x + 5;
+				if (b->button_x + b->button_size_x > size_x - 270.0f)
+				{
+					ex_x = start_position_draw_x;
+					ex_y -= 22.0f;
+
+					b->button_x = ex_x;
+					b->button_y = ex_y;
+
+					ex_x += b->button_size_x + 5;
+				}
+			}
+
+			plus_cluster_enchantment_button_link->button_x = ex_x;
+			plus_cluster_enchantment_button_link->button_y = ex_y;
+
+			_batch->setcolor_alpha(EColorCollection::BLACK, 0.15f);
+			_batch->draw_rect_with_uv(plus_cluster_enchantment_button_link->master_position_x, plus_cluster_enchantment_button_link->master_position_y, size_x - plus_cluster_enchantment_button_link->master_position_x - 270.0f, 20.0f, DefaultGabarite::gabarite_white);
 
 			ex_y -= 30.0f;
 		}
