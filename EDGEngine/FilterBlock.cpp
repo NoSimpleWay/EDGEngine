@@ -126,12 +126,14 @@
 						(_button_type != Enums::ButtonType::BUTTON_OR_REDEEMER_ITEM) &&
 						(_button_type != Enums::ButtonType::BUTTON_OR_CRUSADER_ITEM) &&
 						(_button_type != Enums::ButtonType::BUTTON_OR_WARLORD_ITEM) &&
+						(_button_type != Enums::ButtonType::BUTTON_OR_NO_INFLUENCE) &&
 
 						(_button_type != Enums::ButtonType::BUTTON_AND_ELDER_ITEM) &&
 						(_button_type != Enums::ButtonType::BUTTON_AND_HUNTER_ITEM) &&
 						(_button_type != Enums::ButtonType::BUTTON_AND_REDEEMER_ITEM) &&
 						(_button_type != Enums::ButtonType::BUTTON_AND_CRUSADER_ITEM) &&
-						(_button_type != Enums::ButtonType::BUTTON_AND_WARLORD_ITEM)
+						(_button_type != Enums::ButtonType::BUTTON_AND_WARLORD_ITEM) &&
+						(_button_type != Enums::ButtonType::BUTTON_AND_NO_INFLUENCE)
 					)
 					{but = new EButtonInputBaseData(0, 0, 65, 17, _button_type); but->input_auto_clear_text = true;}
 					else
@@ -300,7 +302,8 @@
 		add_base_buttons("Оскв. свойства",	Enums::ButtonType::BUTTON_CONDITION_CORRUPTION_IMPLICITES,	Enums::ButtonType::BUTTON_CORRUPTION_IMPLICITES,	true,	Enums::BoolData::BOOL_CORRUPTION_IMPLICITES);//35
 		add_base_buttons("Отражённый",		Enums::ButtonType::BUTTON_NONE,								Enums::ButtonType::BUTTON_MIRRORED_ITEM,			false,	Enums::BoolData::BOOL_MIRRORED_ITEM);//36
 		
-		
+		add_base_buttons("(или) без влияния", Enums::ButtonType::BUTTON_NONE, Enums::ButtonType::BUTTON_OR_NO_INFLUENCE, false, Enums::BoolData::BOOL_NO_INFLUENCE_OR);//37
+		add_base_buttons("(и) без влияния", Enums::ButtonType::BUTTON_NONE, Enums::ButtonType::BUTTON_AND_NO_INFLUENCE, false, Enums::BoolData::BOOL_NO_INFLUENCE_AND);//38
 		for (int i = 0; i < 6; i++)
 		{
 			ExplicitGroup* ex = new ExplicitGroup();
@@ -1554,6 +1557,9 @@
 
 		base_filter_data_name.at(35) = EString::localize_it("base_data_text_corruption_implicites");
 		base_filter_data_name.at(36) = EString::localize_it("base_data_text_mirrored_item");
+
+		base_filter_data_name.at(37) = EString::localize_it("base_data_or_no_influence");
+		base_filter_data_name.at(38) = EString::localize_it("base_data_and_no_influence");
 
 		/*
 		base_filter_data_name.at(26) = EString::localize_it("base_data_text_elder_item");
