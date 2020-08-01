@@ -1113,7 +1113,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					{
 						//if ((i >= line.length())&&(line.at(i)!=' ')) { subdata += line.at(i); }
 
-						if (show_info_to_console) cout << "--- subdata:'" << subdata << "'" << endl;
+						if (show_info_to_console) cout << "[" << std::to_string(parser_mode) << "]--- subdata:'" << subdata << "'" << endl;
 
 
 						if (parser_mode == Enums::ParserMode::NOTHING)
@@ -1809,14 +1809,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order == 1) && (subdata == "=="))
 								{
-									if (show_info_to_console) { cout << "change to AND mode" << endl; }
+								
 
-									parser_mode == Enums::ParserMode::IS_HAVE_INFLUENCE_AND;
+									parser_mode = Enums::ParserMode::IS_HAVE_INFLUENCE_AND;
+
+									if (show_info_to_console) { cout << "change to AND mode. ID=" << std::to_string(parser_mode) << endl; }
 								}
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "shaper"))
 								{
-									if (show_info_to_console) { cout << "set shaper item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set OR shaper item as <true>" << endl; }
 								
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_SHAPER) = true;
@@ -1824,7 +1826,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "elder"))
 								{
-									if (show_info_to_console) { cout << "set elder item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set OR elder item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_ELDER) = true;
@@ -1832,7 +1834,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "crusader"))
 								{
-									if (show_info_to_console) { cout << "set Crusader item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set OR Crusader item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_CRUSADER) = true;
@@ -1840,7 +1842,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "redeemer"))
 								{
-									if (show_info_to_console) { cout << "set Redeemer item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set OR Redeemer item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_REDEEMER) = true;
@@ -1848,7 +1850,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "hunter"))
 								{
-									if (show_info_to_console) { cout << "set Hunter item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set OR Hunter item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_HUNTER) = true;
@@ -1856,10 +1858,18 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "warlord"))
 								{
-									if (show_info_to_console) { cout << "set Warlord item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set OR Warlord item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_WARLORD) = true;
+								}
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "none"))
+								{
+									if (show_info_to_console) { cout << "set OR None item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_OR) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_NO_INFLUENCE_OR) = true;
 								}
 							}
 
@@ -1867,7 +1877,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							{
 								if ((data_order > 0) && (EString::to_lower(subdata) == "shaper"))
 								{
-									if (show_info_to_console) { cout << "set shaper item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set AND shaper item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_SHAPER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_SHAPER) = true;
@@ -1875,7 +1885,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "elder"))
 								{
-									if (show_info_to_console) { cout << "set elder item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set AND elder item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_ELDER) = true;
@@ -1883,7 +1893,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "crusader"))
 								{
-									if (show_info_to_console) { cout << "set Crusader item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set AND Crusader item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_CRUSADER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_CRUSADER) = true;
@@ -1891,7 +1901,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "redeemer"))
 								{
-									if (show_info_to_console) { cout << "set Redeemer item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set AND Redeemer item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_REDEEMER) = true;
@@ -1899,7 +1909,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "hunter"))
 								{
-									if (show_info_to_console) { cout << "set Hunter item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set AND Hunter item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_HUNTER) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_HUNTER) = true;
@@ -1907,10 +1917,19 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "warlord"))
 								{
-									if (show_info_to_console) { cout << "set Warlord item as <true>" << endl; }
+									if (show_info_to_console) { cout << "set AND Warlord item as <true>" << endl; }
 
 									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD) = true;
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_AND_WARLORD) = true;
+								}
+
+
+								if ((data_order > 0) && (EString::to_lower(subdata) == "none"))
+								{
+									if (show_info_to_console) { cout << "set AND none item as <true>" << endl; }
+
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_AND) = true;
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_NO_INFLUENCE_AND) = true;
 								}
 							}
 
@@ -2903,6 +2922,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER))
 				||
 				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_AND))
 			)
 			{
 					loot_writer += '\t';
@@ -2938,6 +2959,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 						loot_writer += " Warlord";
 					}
 
+					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_AND))
+					{
+						loot_writer += " None";
+					}
+
 					loot_writer += '\n';
 			}
 
@@ -2954,6 +2980,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER))
 				||
 				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD))
+				||
+				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_OR))
 			)
 			{
 				loot_writer += '\t';
@@ -2987,6 +3015,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD))
 				{
 					loot_writer += " Warlord";
+				}
+
+				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_OR))
+				{
+					loot_writer += " None";
 				}
 
 				loot_writer += '\n';

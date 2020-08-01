@@ -244,3 +244,5 @@ description_collapse_separator	Collapse/expland filter blocks between separators
 hint_header_separator	Input commentary
 button_add_cluster_enchantment_list	Add new cluster jewel enchantment
 description_add_enchantment_list	Add new cluster jewel enchantment
+base_data_or_no_influence	(OR)NO influence
+base_data_and_no_influence	(AND)No influence

@@ -57,6 +57,8 @@ void EButtonAddNewBaseData::click_event()
 	master_block->base_filter_data_active.at(data_id) = true;
 
 	master_block->base_filter_data_bool.at(data_id) = true;
+
+	//std::cout << "click: " << std::to_string(data_id) << std::endl;
 }
 
 

@@ -9,7 +9,7 @@ name_of_suffix/prefix	Название суффикса/префикса
 name_of_class	Название класса
 name_of_prophecy	Название пророчества
 press_me	=Нажми меня=
-open_loot_filter	Октрыть лут-фильтр
+open_loot_filter	Открыть лут-фильтр
 save_loot_filter	Сохранить лут фильтр
 create_new_loot_filter	Создать новый лут-фильтр
 text_hue	Цветовой тон
@@ -245,3 +245,5 @@ description_collapse_separator	Скрыть/раскрыть блоки межд
 hint_header_separator	Введите комментарий
 button_add_cluster_enchantment_list	Новый список зачарований самоцвета
 Add new cluster jewel enchantment	Добавляет список зачарований, которые могут быть на кластерном самоцвете
+base_data_or_no_influence	(ИЛИ)Без влияния
+base_data_and_no_influence	(И)Без влияния
