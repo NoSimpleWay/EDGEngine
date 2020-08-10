@@ -914,7 +914,7 @@ public:
 				}
 			}
 
-			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_ENCHANTMENT;
+			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_CLUSTER_ENCHANTMENT;
 			input_button->is_input_mode_active = true;
 		}
 		if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST)

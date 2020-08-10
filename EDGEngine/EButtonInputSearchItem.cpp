@@ -52,6 +52,8 @@ void EButtonInputSearchItem::input_event()
 		(button_type == Enums::ButtonType::BUTTON_SEARCH_LOOT_FILTER)
 		||
 		(button_type == Enums::ButtonType::BUTTON_SEARCH_ENCHANTMENT)
+		||
+		(button_type == Enums::ButtonType::BUTTON_SEARCH_CLUSTER_ENCHANTMENT)
 	)
 	{
 		StaticData::window_find_item->input_event(this);

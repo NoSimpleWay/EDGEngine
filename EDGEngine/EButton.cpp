@@ -206,6 +206,11 @@
 			if ((have_input_mode) && (is_input_mode_active))
 			{
 				is_input_mode_active = false;
+
+				if ((input_only_numbers) && (text == ""))
+				{
+					text = "0";
+				}
 				input_finish_event();
 			}
 		}

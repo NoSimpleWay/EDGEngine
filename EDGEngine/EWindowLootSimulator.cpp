@@ -1400,11 +1400,11 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		//std::cout << "is active=" << std::to_string(fb->is_synthesised_item_active) << " is synthesised block=" << std::to_string(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SYNTHESISED)) << "is synthesised item=" << std::to_string(_l->synthesised_item) << std::endl;
 
 		if
-			(
+		(
 			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SYNTHESISED))
-				&&
-				(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SYNTHESISED) != _l->synthesised_item)
-				)
+			&&
+			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SYNTHESISED) != _l->synthesised_item)
+		)
 		{
 			match_detect = false;
 			if (!_default) { rejection("synthesised", _l); }

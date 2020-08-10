@@ -14,6 +14,7 @@ EWindowManualLoot::EWindowManualLoot(int _id, bool _can_be_closed) :EWindow(_id,
 
 	EButton* but = new EButtonExplicit(100, 100, 220, 20.0f, Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST);
 	but->text = ""; link_to_class_button = but;
+	but->can_be_removed = false;
 	add_complex("manual_loot_text_class", but);
 
 	but = new EButtonDropRarity(100, 200, 120, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_RARITY);
