@@ -61,6 +61,8 @@ public:
 	std::string cached_corrupted;
 	std::string cached_corrupted_mods_count;
 	std::string cached_mirrored;
+	std::string cached_replica;
+	std::string cached_alternate_quality;
 
 	int area_level = 68;
 

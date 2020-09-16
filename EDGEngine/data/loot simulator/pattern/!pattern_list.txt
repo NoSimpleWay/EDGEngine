@@ -1,4 +1,4 @@
-name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Жатва"	path	new items	button_color	BLACK	text_color	RED
+name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Кража"	path	new items	button_color	BLACK	text_color	RED
 name_en	Breach item	name_ru	Предметы "Разлома"	description_en	Generate breach splinters/stone	description_ru	Генерирует осколки/камни разлома	path	breach	button_color	WHITE	text_color	BLACK
 name_en	Currency	name_ru	Валюта	description_en	Generate all regular game currency	description_ru	Генерирует всю обычную игровую валюту	path	currency	button_color	WHITE	text_color	BLACK
 name_en	Delirium	name_ru	Делириум	description_en	Generate cluster jewels, and delirium orb, and other delirium items	description_ru	Генерирует премдеты Делириума: самоцветы, сферы, симулякр	path	delirium	button_color	WHITE	text_color	BLACK
@@ -15,3 +15,4 @@ name_en	Oils	name_ru	Масла	description_en	Generate lot of oils	description_
 name_en	Skill gems	name_ru	Камни умений	description_en	Generate skill gems with different gem level and quality	description_ru	Генерирует камни умений	path	skill gems	button_color	WHITE	text_color	BLACK
 name_en	Syndicate	name_ru	Синдикат	description_en	Generate item with veiled mods, and lot of scarabs	description_ru	Генерирует вещи с завуалированными свойствами, а так же скарабеев	path	syndicate	button_color	WHITE	text_color	BLACK
 name_en	Prophecy	name_ru	Пророчества	description_en	Generate lot of prophecies	description_ru	Генерирует множество пророчеств	path	prophecy	button_color	WHITE	text_color	BLACK
+name_en	Harvest	name_ru	Жатва	description_en	Generate lot of harvest item	description_ru	Генерирует предметы из лиги "Жатва"	path	harvest	button_color	WHITE	text_color	BLACK

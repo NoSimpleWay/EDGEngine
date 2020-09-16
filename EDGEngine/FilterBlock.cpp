@@ -109,7 +109,9 @@
 					(_button_type == Enums::ButtonType::BUTTON_IDENTIFIED) ||
 					(_button_type == Enums::ButtonType::BUTTON_ANY_ENCHANTMENT)||
 					(_button_type == Enums::ButtonType::BUTTON_BLIGHTED)||
-					(_button_type == Enums::ButtonType::BUTTON_MIRRORED_ITEM)
+					(_button_type == Enums::ButtonType::BUTTON_MIRRORED_ITEM)||
+					(_button_type == Enums::ButtonType::BUTTON_ALTERNATE_QUALITY)||
+					(_button_type == Enums::ButtonType::BUTTON_REPLICA)
 				)
 				{
 					
@@ -304,6 +306,9 @@
 		
 		add_base_buttons("(или) без влияния", Enums::ButtonType::BUTTON_NONE, Enums::ButtonType::BUTTON_OR_NO_INFLUENCE, false, Enums::BoolData::BOOL_NO_INFLUENCE_OR);//37
 		add_base_buttons("(и) без влияния", Enums::ButtonType::BUTTON_NONE, Enums::ButtonType::BUTTON_AND_NO_INFLUENCE, false, Enums::BoolData::BOOL_NO_INFLUENCE_AND);//38
+
+		add_base_buttons("Альт. качество", Enums::ButtonType::BUTTON_NONE, Enums::ButtonType::BUTTON_ALTERNATE_QUALITY, false, Enums::BoolData::BOOL_ALTERNATE_QUALITY);//39
+		add_base_buttons("Реплика",			Enums::ButtonType::BUTTON_NONE, Enums::ButtonType::BUTTON_REPLICA, false, Enums::BoolData::BOOL_REPLICA);//40
 		for (int i = 0; i < 6; i++)
 		{
 			ExplicitGroup* ex = new ExplicitGroup();
@@ -1560,6 +1565,9 @@
 
 		base_filter_data_name.at(37) = EString::localize_it("base_data_or_no_influence");
 		base_filter_data_name.at(38) = EString::localize_it("base_data_and_no_influence");
+
+		base_filter_data_name.at(39) = EString::localize_it("base_data_alternate_quality");
+		base_filter_data_name.at(40) = EString::localize_it("base_data_replica");
 
 		/*
 		base_filter_data_name.at(26) = EString::localize_it("base_data_text_elder_item");

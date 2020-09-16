@@ -593,6 +593,17 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					just_created_pattern_item->corruption_chance = std::stoi(subdata_array[i * 2 + 1]);
 				}
 
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "replica_chance")
+				{
+					just_created_pattern_item->replica_chance = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "alternate_quality_chance")
+				{
+					just_created_pattern_item->alternate_quality_chance = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
 				if (EString::to_lower(subdata_array[i * 2], false) == "mirrored_chance")
 				{
 					just_created_pattern_item->mirrored_chance = std::stoi(subdata_array[i * 2 + 1]);
@@ -1172,6 +1183,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								}
 
 								if (subdata == "Corrupted") { parser_mode = Enums::ParserMode::IS_CORRUPTED; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED) = true; }
+								
+								if (subdata == "AlternateQuality") { parser_mode = Enums::ParserMode::ALTERNATIVE_QUALITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ALTERNATE_QUALITY) = true; }
+								if (subdata == "Replica") { parser_mode = Enums::ParserMode::IS_REPLICA; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IS_REPLICA) = true; }
+								
 								if (subdata == "CorruptedMods") { parser_mode = Enums::ParserMode::CORRUPTED_MODS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTION_MODS) = true; }
 								if (subdata == "LinkedSockets") { parser_mode = Enums::ParserMode::LINKED_SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_LINKS) = true; }
 								if (subdata == "Rarity") { parser_mode = Enums::ParserMode::RARITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_RARITY) = true; }
@@ -1360,6 +1375,36 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_CORRUPTION) = EString::convert_text_to_bool(subdata);
 								}
 							}
+
+							if (parser_mode == Enums::ParserMode::ALTERNATIVE_QUALITY)
+							{
+								if (data_order == 0)
+								{
+									if (show_info_to_console) { cout << "activate alternate quality" << endl; }
+								}
+
+								if (data_order == 1)
+								{
+									if (show_info_to_console) { cout << "set alternate quality as as <" << subdata << ">" << endl; }
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ALTERNATE_QUALITY) = EString::convert_text_to_bool(subdata);
+								}
+							}
+
+							if (parser_mode == Enums::ParserMode::IS_REPLICA)
+							{
+								if (data_order == 0)
+								{
+									if (show_info_to_console) { cout << "activate replica property" << endl; }
+								}
+
+								if (data_order == 1)
+								{
+									if (show_info_to_console) { cout << "set replica as <" << subdata << ">" << endl; }
+									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_REPLICA) = EString::convert_text_to_bool(subdata);
+								}
+							}
+
+
 
 							if (parser_mode == Enums::ParserMode::LINKED_SOCKETS)
 							{
@@ -2599,6 +2644,38 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				{
 					loot_writer += '\t';
 					loot_writer += "Corrupted False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ALTERNATE_QUALITY))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ALTERNATE_QUALITY))
+				{
+					loot_writer += '\t';
+					loot_writer += "AlternateQuality True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "AlternateQuality False";
+					loot_writer += '\n';
+				}
+			}
+
+			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IS_REPLICA))
+			{
+				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_REPLICA))
+				{
+					loot_writer += '\t';
+					loot_writer += "Replica True";
+					loot_writer += '\n';
+				}
+				else
+				{
+					loot_writer += '\t';
+					loot_writer += "Replica False";
 					loot_writer += '\n';
 				}
 			}

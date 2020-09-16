@@ -1,18 +1,15 @@
-item_name	Indigo Oil	count	1
-item_name	Tribute to the Goddess	count	1
-item_name	Gift to the Goddess	count	1
-item_name	Dedication to the Goddess	count	1
-item_name	Gilded Metamorph Scarab	count	1
-item_name	Infused Engineer's Orb	count	1
-item_name	Time-light Scroll	count	1
-item_name	Fragmentation Scroll	count	1
-item_name	Deregulation Scroll	count	1
-item_name	Electroshock Scroll	count	1
-item_name	Haemocombustion Scroll	count	1
-item_name	Specularity Scroll	count	1
-item_name	Facetor's Lens	count	1
-random_subclass	NEW SCARAB	count	7
-random_subclass	SEED_T1	count	3
-random_subclass	SEED_T2	count	3
-random_subclass	SEED_T3	count	3
-random_subclass	SEED_T4	count	3
+random_class	Body Armours	count	1	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+random_class	Gloves	count	1	links_min	1	links_max	4	sockets_min	1	sockets_max	4	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+random_class	Boots	count	1	links_min	1	links_max	4	sockets_min	1	sockets_max	4	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+random_class	Helmets	count	1	links_min	1	links_max	4	sockets_min	1	sockets_max	4	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+random_class	Amulets	count	1	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	68	replica_chance	100
+random_class	Rings	count	1	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	68	replica_chance	100
+random_class	Belts	count	1	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	68	replica_chance	100
+random_class	One Hand	count	1	links_min	1	links_max	3	sockets_min	1	sockets_max	3	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+random_class	Two Hand	count	1	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+random_class	Bow	count	1	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+random_class	Wand	count	1	links_min	1	links_max	3	sockets_min	1	sockets_max	3	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+random_class	Shield	count	1	links_min	1	links_max	3	sockets_min	1	sockets_max	3	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+random_class	Staff	count	1	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+random_class	Sceptre	count	1	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
+item_name	Gem	base_class	Active Skill Gems	count	10	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	21	alternate_quality_chance	100

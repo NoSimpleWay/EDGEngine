@@ -150,6 +150,18 @@ void EWindowLootSimulator::update(float _d)
 				loot->is_mirrored = true;
 			}
 
+			if ((p->replica_chance > 0) && (rand() % 100 <= p->replica_chance))
+			{
+				loot->is_replica = true;
+			}
+
+
+
+			if ((p->alternate_quality_chance > 0) && (rand() % 100 <= p->alternate_quality_chance))
+			{
+				loot->is_alternate_quality = true;
+			}
+
 			if (p->max_gem_level > 0)
 			{
 				if (p->max_gem_level > p->min_gem_level)
@@ -656,7 +668,10 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 			_batch->draw_rama(xx, yy, 434, 300, 3, DefaultGabarite::gabarite_cap);
 
-			EFont::active_font->draw(_batch, loot->name, xx + 5.0f + 222.0f, yy + 282.0f);
+			if (loot->is_replica)
+			{EFont::active_font->draw(_batch, cached_replica + " " + loot->name, xx + 5.0f + 222.0f, yy + 282.0f);}
+			else
+			{EFont::active_font->draw(_batch, loot->name, xx + 5.0f + 222.0f, yy + 282.0f);}
 
 			if (loot->enchantment != "")
 			{
@@ -680,6 +695,14 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 				_batch->setcolor(EColorCollection::WHITE);
 				EFont::active_font->add_draw(_batch, std::to_string(loot->quality) + "%", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				move_y++;
+			}
+
+			if (loot->is_alternate_quality)
+			{
+				_batch->setcolor(EColorCollection::CYAN);
+				EFont::active_font->draw(_batch, cached_alternate_quality, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
 
 				move_y++;
 			}
@@ -927,6 +950,8 @@ void EWindowLootSimulator::update_localisation()
 	cached_corrupted = EString::localize_it("corrupted_text");
 	cached_corrupted_mods_count = EString::localize_it("corrupted_text_mods_count");
 	cached_mirrored = EString::localize_it("mirrored_text");
+	cached_replica = EString::localize_it("replica_text");
+	cached_alternate_quality = EString::localize_it("alternate_quality_text");
 }
 
 bool EWindowLootSimulator::check_condition(std::string _condition, int _num_a, int num_b)
@@ -956,7 +981,7 @@ int EWindowLootSimulator::rarity_to_number(std::string _rarity)
 
 void rejection(std::string _s, LootItem* _l)
 {
-	//std::cout << "item: " << _l->name << "   rejected by: " + _s << std::endl;
+	std::cout << "item: " << _l->name << "   rejected by: " + _s << std::endl;
 }
 
 void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _w, bool _default)
@@ -1197,6 +1222,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			match_detect = false;
 			if (!_default) { rejection("corruption mods", _l); }
 		}
+
 
 		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_QUALITY)) && (!check_condition(fb->item_quality_condition, _l->quality, fb->item_quality)))
 		{
@@ -1632,6 +1658,30 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		if
 			(
+			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IS_REPLICA))
+			&&
+			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_IS_REPLICA) != _l->is_replica)
+			)
+		{
+			match_detect = false;
+			if (!_default) { rejection("data replica", _l); }
+		}
+
+
+		if
+			(
+			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ALTERNATE_QUALITY))
+			&&
+			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_ALTERNATE_QUALITY) != _l->is_alternate_quality)
+			)
+		{
+			match_detect = false;
+			if (!_default) { rejection("data alternate quality", _l); }
+		}
+
+
+		if
+			(
 			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ENCHANTMENT))
 			&&
 			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_ENCHANTMENT) != _l->any_enchantment)
@@ -1936,6 +1986,11 @@ void EWindowLootSimulator::manual_event()
 
 			pattern->corruption_chance = pattern_item_list.at(i)->corruption_chance;
 			pattern->mirrored_chance = pattern_item_list.at(i)->mirrored_chance;
+
+			pattern->replica_chance = pattern_item_list.at(i)->replica_chance;
+			pattern->alternate_quality_chance = pattern_item_list.at(i)->alternate_quality_chance;
+
+
 
 			if (pattern->item_name != "")
 			{

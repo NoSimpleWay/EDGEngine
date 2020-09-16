@@ -82,4 +82,7 @@ public:
 	std::string cluster_enchantment;
 	std::string prophecy;
 
+	bool is_replica;
+	bool is_alternate_quality;
+
 };

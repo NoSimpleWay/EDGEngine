@@ -93,3 +93,11 @@ Base name	Delve Stackable Socketable Currency	RU name	Складываемая �
 Base name	Metamorph Sample	RU name	Образец Метаморфа
 Base name	Atlas Region Upgrade Item	RU name	Предмет улучшения области Атласа
 Base name	Harvest Seed	RU name	Семя жатвы
+Base name	Heist Target	RU name	Предмет кражи
+Base name	Trinket	RU name	Украшения
+Base name	Contract	RU name	Контракт
+Base name	Blueprint	RU name	Чертёж
+Base name	Heist Cloak	RU name	Разбойничья накидка
+Base name	Heist Brooch	RU name	Разбойничья брошь
+Base name	Heist Tool	RU name	Разбойничий инструмент
+Base name	Heist Gear	RU name	Разбойничьи принадлежности

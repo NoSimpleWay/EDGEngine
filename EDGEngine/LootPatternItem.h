@@ -39,6 +39,8 @@ public:
 
 	int corruption_chance = 0;
 	int mirrored_chance = 0;
+	int replica_chance = 0;
+	int alternate_quality_chance = 0;
 
 	int shaper_item_weight = 0;
 	int elder_item_weight = 0;
