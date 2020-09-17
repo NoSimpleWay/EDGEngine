@@ -23,7 +23,7 @@
 #include "EFont.h"
        
 #include <ctime>
-#include "Helper.h"; 
+#include "Helper.h";  
 
 #include "FilterBlock.h"
 

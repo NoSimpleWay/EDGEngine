@@ -73,4 +73,8 @@ public:
 	std::string cluster_enchantment;
 
 	std::vector <std::string> explicit_list;
+
+	int item_id = -1;
+
+	EGabarite* gabarite;
 };

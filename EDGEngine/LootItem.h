@@ -85,4 +85,6 @@ public:
 	bool is_replica;
 	bool is_alternate_quality;
 
+	int item_id = -1;
+	EGabarite* gabarite;
 };

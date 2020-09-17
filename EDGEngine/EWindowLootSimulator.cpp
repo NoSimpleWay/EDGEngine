@@ -124,6 +124,10 @@ void EWindowLootSimulator::update(float _d)
 			loot->is_blighted_map = p->blighted_map;
 			loot->is_mirrored = p->mirrored;
 
+			loot->item_id = p->item_id;
+			loot->gabarite = p->gabarite;
+
+
 			if (p->max_quality > 0)
 			{
 				if (p->max_quality > p->min_quality)
@@ -658,6 +662,12 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 				_batch->draw_simple_rect(xx, yy, 434, 300);
 			}
 
+			if (loot->gabarite != NULL)
+			{
+				_batch->setcolor(EColorCollection::WHITE);
+				_batch->draw_rect_with_uv(xx + 5.0f, yy + 5.0f, loot->gabarite->size_x, loot->gabarite->size_y, loot->gabarite);
+			}
+
 			_batch->setcolor_alpha(EColorCollection::GRAY, 0.9f);
 			if (loot->rarity == "Normal") { _batch->setcolor(EColorCollection::DAD_NORMAL); }
 			if (loot->rarity == "Magic") { _batch->setcolor(EColorCollection::DAD_MAGIC); }
@@ -669,9 +679,9 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			_batch->draw_rama(xx, yy, 434, 300, 3, DefaultGabarite::gabarite_cap);
 
 			if (loot->is_replica)
-			{EFont::active_font->draw(_batch, cached_replica + " " + loot->name, xx + 5.0f + 222.0f, yy + 282.0f);}
+			{EFont::active_font->draw(_batch, cached_replica + " " + loot->name + " " + std::to_string(loot->item_id), xx + 5.0f + 222.0f, yy + 282.0f);}
 			else
-			{EFont::active_font->draw(_batch, loot->name, xx + 5.0f + 222.0f, yy + 282.0f);}
+			{EFont::active_font->draw(_batch, loot->name + " " + std::to_string(loot->item_id), xx + 5.0f + 222.0f, yy + 282.0f);}
 
 			if (loot->enchantment != "")
 			{
@@ -1906,6 +1916,9 @@ void EWindowLootSimulator::manual_event()
 
 					pattern->height = ItemList::item_list.at(l)->height;
 					pattern->width = ItemList::item_list.at(l)->width;
+
+					pattern->item_id = l;
+					pattern->gabarite = ItemList::item_list.at(l)->gabarite;
 				}
 			}
 
@@ -1940,6 +1953,9 @@ void EWindowLootSimulator::manual_event()
 
 				pattern->height = random_item_pool.at(random_selected_item)->height;
 				pattern->width = random_item_pool.at(random_selected_item)->width;
+
+				//pattern->item_id = random_selected_item;
+				pattern->gabarite = random_item_pool.at(random_selected_item)->gabarite;
 			}
 
 			pattern->min_quality = pattern_item_list.at(i)->min_quality;
