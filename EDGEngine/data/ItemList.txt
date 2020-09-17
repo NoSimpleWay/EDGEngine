@@ -1546,8 +1546,8 @@ item EN name	Wild Thornfruit	icon path	violet_t4	item RU name	Дикий шип�
 item EN name	Wild Thornmaw Bulb	icon path	violet_t3	item RU name	Луковица дикого шиполапа	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED_T3	COST_GROUP	high				
 item EN name	Wild Thornwolf Seed	icon path	violet_t1	item RU name	Семя дикого шиповолка	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED_T1	COST_GROUP	low				
 item EN name	Wild Ursaling Seed	icon path	violet_t1	item RU name	Семя дикого медведя	base class	Harvest Seed	folder	harvest	item category	HARVEST SEED	item sub category	SEED_T1	COST_GROUP	low				
-item EN name	Rogue's Marker 	icon path	RoguesMarker	item RU name	Разбойничий жетон	base class	Stackable Currency 	folder	currency	item category	CURRENCY	item sub category	NEW_ITEM	COST_GROUP	
-item EN name	Thief's Trinket 	icon path	Thief's Trinket	item RU name	Воровское украшение	base class	Trinket 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Rogue's Marker	icon path	RoguesMarker	item RU name	Разбойничий жетон	base class	Stackable Currency	folder	currency	item category	CURRENCY	item sub category	NEW_ITEM	COST_GROUP	
+item EN name	Thief's Trinket	icon path	Thief's Trinket	item RU name	Воровское украшение	base class	Trinket	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
 item EN name	Blazing Salvo	icon path	Active	item RU name	Пылающий залп	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category		COST_GROUP	
 item EN name	Void Sphere	icon path	Active	item RU name	Сфера пустоты	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category		COST_GROUP	
 item EN name	Crackling Lance	icon path	Active	item RU name	Искрящееся копьё	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category		COST_GROUP	
@@ -1623,61 +1623,61 @@ item EN name	Contract: Findings for Fidium	icon path	Contract	item RU name	Ко�
 item EN name	Contract: Hyrri's Gift	icon path	Contract	item RU name	Контракт: Подарок Хайрри	base class	Quest Item	folder	heist	item category	HEIST_CONTRACT	item sub category	HEIST_QUEST_ITEM	COST_GROUP	
 item EN name	Contract: The Negotiation	icon path	Contract	item RU name	Контракт: Переговоры	base class	Quest Item	folder	heist	item category	HEIST_CONTRACT	item sub category	HEIST_QUEST_ITEM	COST_GROUP	
 item EN name	Contract: The Rescue	icon path	Contract	item RU name	Контракт: Вызволение	base class	Quest Item	folder	heist	item category	HEIST_CONTRACT	item sub category	HEIST_QUEST_ITEM	COST_GROUP	
-item EN name	Torn Cloak	icon path	Cloak	item RU name	Оторванная накидка	base class	Heist Cloak 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Tattered Cloak	icon path	Cloak	item RU name	Истрёпанная накидка	base class	Heist Cloak 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Hooded Cloak	icon path	Cloak	item RU name	Накидка с капюшоном	base class	Heist Cloak 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Whisper-woven Cloak	icon path	Cloak	item RU name	Шелестящая накидка	base class	Heist Cloak 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Silver Brooch	icon path	Brooch	item RU name	Серебряная брошь	base class	Heist Brooch 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Golden Brooch	icon path	Brooch	item RU name	Золотая брошь	base class	Heist Brooch 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Enamel Brooch	icon path	Brooch	item RU name	Глянцевая брошь	base class	Heist Brooch 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Foliate Brooch	icon path	Brooch	item RU name	Амальгамированная брошь	base class	Heist Brooch 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Simple Lockpick	icon path	Lockpick	item RU name	Простая отмычка	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Standard Lockpick	icon path	Lockpick	item RU name	Стандартная отмычка	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Fine Lockpick	icon path	Lockpick	item RU name	Тонкая отмычка	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Master Lockpick	icon path	Lockpick	item RU name	Мастерская отмычка	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Leather Bracers	icon path	Bracers	item RU name	Кожаные наручи	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Studded Bracers	icon path	Bracers	item RU name	Клёпаные наручи	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Runed Bracers	icon path	Bracers	item RU name	Рунные наручи	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Steel Bracers	icon path	Bracers	item RU name	Стальные наручи	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Crude Sensing Charm	icon path	Charm	item RU name	Грубый чуящий амулет	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Fine Sensing Charm	icon path	Charm	item RU name	Тонкий чуящий амулет	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Polished Sensing Charm	icon path	Charm	item RU name	Гладкий чуящий амулет	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Thaumaturgical Sensing Charm	icon path	Charm	item RU name	Волшебный чуящий амулет	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Voltaxic Flashpowder	icon path	Powder	item RU name	Вольтаксовый порох	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Trarthan Flashpowder	icon path	Powder	item RU name	Тератновый порох	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Azurite Flashpowder	icon path	Powder	item RU name	Азуритовый порох	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Crude Ward	icon path	Ward	item RU name	Грубый оберег	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Lustrous Ward	icon path	Ward	item RU name	Блестящий оберег	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Shining Ward	icon path	Ward	item RU name	Сияющий оберег	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Thaumaturgical Ward	icon path	Ward	item RU name	Волшебный оберег	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Essential Keyring	icon path	Key	item RU name	Cвязка типовых ключей	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Versatile Keyring	icon path	Key	item RU name	Связка универсальных ключей	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Master Keyring	icon path	Key	item RU name	Связка мастера ключей	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Grandmaster Keyring	icon path	Key	item RU name	Связка великого мастера ключей	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Eelskin Sole	icon path	Sole	item RU name	Щучьи подошвы	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Foxhide Sole	icon path	Sole	item RU name	Лисьи подошвы	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Winged Sole	icon path	Sole	item RU name	Крылатые подошвы	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Silkweave Sole	icon path	Sole	item RU name	Шелкопрядные подошвы	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Basic Disguise Kit	icon path	Mask	item RU name	Простой маскировочный набор	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Theatre Disguise Kit	icon path	Mask	item RU name	Театральный маскировочный набор	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Espionage Disguise Kit	icon path	Mask	item RU name	Шпионский маскировочный набор	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Regicide Disguise Kit	icon path	Mask	item RU name	Маскировочный набор цареубийцы	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Steel Drill	icon path	Drill	item RU name	Стальная дрель	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Flanged Drill	icon path	Drill	item RU name	Звездообразная дрель	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Sulphur Blowtorch	icon path	Firetorch	item RU name	Серная горелка	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Thaumetic Blowtorch	icon path	Firetorch	item RU name	Волшебная горелка	base class	Heist Tool 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Rough Sharpening Stone	icon path	Sharpstone	item RU name	Грубый оселок	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Standard Sharpening Stone	icon path	Sharpstone	item RU name	Обычный оселок	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Fine Sharpening Stone	icon path	Sharpstone	item RU name	Мелкий оселок	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Obsidian Sharpening Stone	icon path	Sharpstone	item RU name	Обсидиановый оселок	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Flanged Arrowhead	icon path	Arrow	item RU name	Рубчатый наконечник	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Fragmenting Arrowhead	icon path	Arrow	item RU name	Раскалывающий наконечник	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Hollowpoint Arrowhead	icon path	Arrow	item RU name	Сминающий наконечник	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Precise Arrowhead	icon path	Arrow	item RU name	Точный наконечник	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Focal Stone	icon path	Stone	item RU name	Фокусирующий камень	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Conduit Line	icon path	Ward	item RU name	Проводящая цепочка	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Aggregator Charm	icon path	Charm	item RU name	Накопительный оберег	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
-item EN name	Burst Band	icon path	Ward	item RU name	Высвобождающее ожерелье	base class	Heist Gear 	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Torn Cloak	icon path	Cloak	item RU name	Оторванная накидка	base class	Heist Cloak	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Tattered Cloak	icon path	Cloak	item RU name	Истрёпанная накидка	base class	Heist Cloak	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Hooded Cloak	icon path	Cloak	item RU name	Накидка с капюшоном	base class	Heist Cloak	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Whisper-woven Cloak	icon path	Cloak	item RU name	Шелестящая накидка	base class	Heist Cloak	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Silver Brooch	icon path	Brooch	item RU name	Серебряная брошь	base class	Heist Brooch	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Golden Brooch	icon path	Brooch	item RU name	Золотая брошь	base class	Heist Brooch	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Enamel Brooch	icon path	Brooch	item RU name	Глянцевая брошь	base class	Heist Brooch	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Foliate Brooch	icon path	Brooch	item RU name	Амальгамированная брошь	base class	Heist Brooch	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Simple Lockpick	icon path	Lockpick	item RU name	Простая отмычка	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Standard Lockpick	icon path	Lockpick	item RU name	Стандартная отмычка	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Fine Lockpick	icon path	Lockpick	item RU name	Тонкая отмычка	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Master Lockpick	icon path	Lockpick	item RU name	Мастерская отмычка	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Leather Bracers	icon path	Bracers	item RU name	Кожаные наручи	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Studded Bracers	icon path	Bracers	item RU name	Клёпаные наручи	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Runed Bracers	icon path	Bracers	item RU name	Рунные наручи	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Steel Bracers	icon path	Bracers	item RU name	Стальные наручи	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Crude Sensing Charm	icon path	Charm	item RU name	Грубый чуящий амулет	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Fine Sensing Charm	icon path	Charm	item RU name	Тонкий чуящий амулет	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Polished Sensing Charm	icon path	Charm	item RU name	Гладкий чуящий амулет	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Thaumaturgical Sensing Charm	icon path	Charm	item RU name	Волшебный чуящий амулет	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Voltaxic Flashpowder	icon path	Powder	item RU name	Вольтаксовый порох	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Trarthan Flashpowder	icon path	Powder	item RU name	Тератновый порох	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Azurite Flashpowder	icon path	Powder	item RU name	Азуритовый порох	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Crude Ward	icon path	Ward	item RU name	Грубый оберег	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Lustrous Ward	icon path	Ward	item RU name	Блестящий оберег	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Shining Ward	icon path	Ward	item RU name	Сияющий оберег	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Thaumaturgical Ward	icon path	Ward	item RU name	Волшебный оберег	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Essential Keyring	icon path	Key	item RU name	Cвязка типовых ключей	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Versatile Keyring	icon path	Key	item RU name	Связка универсальных ключей	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Master Keyring	icon path	Key	item RU name	Связка мастера ключей	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Grandmaster Keyring	icon path	Key	item RU name	Связка великого мастера ключей	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Eelskin Sole	icon path	Sole	item RU name	Щучьи подошвы	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Foxhide Sole	icon path	Sole	item RU name	Лисьи подошвы	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Winged Sole	icon path	Sole	item RU name	Крылатые подошвы	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Silkweave Sole	icon path	Sole	item RU name	Шелкопрядные подошвы	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Basic Disguise Kit	icon path	Mask	item RU name	Простой маскировочный набор	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Theatre Disguise Kit	icon path	Mask	item RU name	Театральный маскировочный набор	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Espionage Disguise Kit	icon path	Mask	item RU name	Шпионский маскировочный набор	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Regicide Disguise Kit	icon path	Mask	item RU name	Маскировочный набор цареубийцы	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Steel Drill	icon path	Drill	item RU name	Стальная дрель	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Flanged Drill	icon path	Drill	item RU name	Звездообразная дрель	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Sulphur Blowtorch	icon path	Firetorch	item RU name	Серная горелка	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Thaumetic Blowtorch	icon path	Firetorch	item RU name	Волшебная горелка	base class	Heist Tool	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Rough Sharpening Stone	icon path	Sharpstone	item RU name	Грубый оселок	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Standard Sharpening Stone	icon path	Sharpstone	item RU name	Обычный оселок	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Fine Sharpening Stone	icon path	Sharpstone	item RU name	Мелкий оселок	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Obsidian Sharpening Stone	icon path	Sharpstone	item RU name	Обсидиановый оселок	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Flanged Arrowhead	icon path	Arrow	item RU name	Рубчатый наконечник	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Fragmenting Arrowhead	icon path	Arrow	item RU name	Раскалывающий наконечник	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Hollowpoint Arrowhead	icon path	Arrow	item RU name	Сминающий наконечник	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Precise Arrowhead	icon path	Arrow	item RU name	Точный наконечник	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Focal Stone	icon path	Stone	item RU name	Фокусирующий камень	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Conduit Line	icon path	Ward	item RU name	Проводящая цепочка	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Aggregator Charm	icon path	Charm	item RU name	Накопительный оберег	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
+item EN name	Burst Band	icon path	Ward	item RU name	Высвобождающее ожерелье	base class	Heist Gear	folder	heist	item category	MERC_ITEM	item sub category		COST_GROUP	
 item EN name	Assembler Wand	icon path	SuperWand	item RU name	Собирающий жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	HEIST_EQUIP	COST_GROUP	
 item EN name	Congregator Wand	icon path	SuperWand	item RU name	Накопляющий жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	HEIST_EQUIP	COST_GROUP	
 item EN name	Accumulator Wand	icon path	SuperWand	item RU name	Аккумулирующий жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	HEIST_EQUIP	COST_GROUP	
@@ -1735,3 +1735,7 @@ item EN name	Cold-attuned Buckler	icon path	SuperShield	item RU name	Ледян�
 item EN name	Exothermic Tower Shield	icon path	SuperShield	item RU name	Экзотермический ростовой щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	HEIST_EQUIP	COST_GROUP	
 item EN name	Magmatic Tower Shield	icon path	SuperShield	item RU name	Магматический ростовой щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	HEIST_EQUIP	COST_GROUP	
 item EN name	Heat-attuned Tower Shield	icon path	SuperShield	item RU name	Пламенный ростовой щит	base class	Shields	folder	equip	item category	EQUIP	item sub category	HEIST_EQUIP	COST_GROUP	
+item EN name	Prime Regrading Lens	icon path	LensPrimal	item RU name	Первичная профилирующая линза	base class	Stackable Currency	folder	currency	item category	CURRENCY	item sub category	NEW_ITEM	COST_GROUP	
+item EN name	Secondary Regrading Lens	icon path	LensSecondary	item RU name	Вторичная профилирующая линза	base class	Stackable Currency	folder	currency	item category	CURRENCY	item sub category	NEW_ITEM	COST_GROUP	
+item EN name	Tempering Orb	icon path	LensTempering	item RU name	Закаляющая сфера	base class	Stackable Currency	folder	currency	item category	CURRENCY	item sub category	NEW_ITEM	COST_GROUP	
+item EN name	Tailoring Orb	icon path	LensTaloring	item RU name	Сфера подгонки	base class	Stackable Currency	folder	currency	item category	CURRENCY	item sub category	NEW_ITEM	COST_GROUP	

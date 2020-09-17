@@ -247,3 +247,7 @@ button_add_cluster_enchantment_list	Новый список зачаровани
 Add new cluster jewel enchantment	Добавляет список зачарований, которые могут быть на кластерном самоцвете
 base_data_or_no_influence	(ИЛИ)Без влияния
 base_data_and_no_influence	(И)Без влияния
+alternate_quality_text	Изменённое качество!
+replica_text	Копия
+base_data_alternate_quality	Альтерн. качество
+base_data_replica	Копия уника

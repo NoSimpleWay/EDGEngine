@@ -185,6 +185,26 @@
 					detection = true;
 				}
 
+				if
+				(
+					(
+						(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_RARITY))
+						&&
+						(
+							(fb->item_rarity == "Unique")
+						)
+					)
+					&&
+					(
+						(EString::to_lower("уникальный").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+						||
+						(EString::to_lower("unique").find(EString::to_lower(input_button_link->text)) != std::string::npos)
+					)
+				)
+				{
+					detection = true;
+				}
+
 
 
 				fb->is_deactivated = !detection;

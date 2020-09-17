@@ -12,4 +12,31 @@ random_class	Wand	count	1	links_min	1	links_max	3	sockets_min	1	sockets_max	3	ra
 random_class	Shield	count	1	links_min	1	links_max	3	sockets_min	1	sockets_max	3	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
 random_class	Staff	count	1	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
 random_class	Sceptre	count	1	links_min	1	links_max	6	sockets_min	1	sockets_max	6	rarity_min	unique	rarity_max	unique	item_level_min	1	item_level_max	100	replica_chance	100
-item_name	Gem	base_class	Active Skill Gems	count	10	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	21	alternate_quality_chance	100
+item_name	Random Skill Gem	base_class	Active Skill Gems	count	3	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	21	alternate_quality_chance	100
+item_name	Random Support Gem	base_class	Support Skill Gem	count	3	quality_min	-10	quality_max	23	gem_level_min	1	gem_level_max	21	alternate_quality_chance	100
+item_name	Prime Regrading Lens	count	1
+item_name	Secondary Regrading Lens	count	1
+item_name	Tempering Orb	count	1
+item_name	Tailoring Orb	count	1
+item_name	Rogue's Marker	count	1
+random_class	Trinket	count	1
+random_class	Heist Target	count	1
+item_name	The Gulf	count	1
+item_name	The Bitter Blossom	count	1
+item_name	Triskaidekaphobia	count	1
+item_name	Unrequited Love	count	1
+item_name	The Cache	count	1
+item_name	The Academic	count	1
+item_name	Desecrated Virtue	count	1
+item_name	Brother's Stash	count	1
+item_name	Unchained	count	1
+item_name	The Unexpected Prize	count	1
+item_name	Cursed Words	count	1
+item_name	The Journalist	count	1
+random_class	Contract	count	1
+random_class	Blueprint	count	1
+random_class	Quest Item	count	1
+random_class	Heist Cloak	count	1
+random_class	Heist Brooch	count	1
+random_class	Heist Tool	count	1
+random_class	Heist Gear	count	1

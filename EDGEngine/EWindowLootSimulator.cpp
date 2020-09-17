@@ -981,7 +981,7 @@ int EWindowLootSimulator::rarity_to_number(std::string _rarity)
 
 void rejection(std::string _s, LootItem* _l)
 {
-	std::cout << "item: " << _l->name << "   rejected by: " + _s << std::endl;
+		//std::cout << "item: " << _l->name << "   rejected by: " + _s << std::endl;
 }
 
 void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _w, bool _default)
