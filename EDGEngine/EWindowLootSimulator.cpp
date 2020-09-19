@@ -679,9 +679,9 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			_batch->draw_rama(xx, yy, 434, 300, 3, DefaultGabarite::gabarite_cap);
 
 			if (loot->is_replica)
-			{EFont::active_font->draw(_batch, cached_replica + " " + loot->name + " " + std::to_string(loot->item_id), xx + 5.0f + 222.0f, yy + 282.0f);}
+			{EFont::active_font->draw(_batch, cached_replica + " " + loot->name, xx + 5.0f + 222.0f, yy + 282.0f);}
 			else
-			{EFont::active_font->draw(_batch, loot->name + " " + std::to_string(loot->item_id), xx + 5.0f + 222.0f, yy + 282.0f);}
+			{EFont::active_font->draw(_batch, loot->name, xx + 5.0f + 222.0f, yy + 282.0f);}
 
 			if (loot->enchantment != "")
 			{
