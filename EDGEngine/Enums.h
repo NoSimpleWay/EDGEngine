@@ -522,5 +522,13 @@ public:
 		SOURCE
 	};
 
+	enum FilterBlockButtonType
+	{
+		FBBT_INPUT_FIELD,
+		FBBT_CHECKBOX,
+		FBBT_DROP_LIST_RARITY,
+		FBBT_SOCKET_GROUP
+	};
+
 
 };

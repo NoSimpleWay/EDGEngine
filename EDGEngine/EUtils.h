@@ -158,5 +158,31 @@ public:
 	//static void save_filter(std::string _path);
 };
 
+class EBaseData
+{
+public:
+
+	struct base_data_registerer
+	{
+
+		std::string data_name;
+
+		bool have_operator = false;
+		bool have_checkbox = false;
+		bool have_number_input = false;
+		bool socket_group = false;
+		bool collapsed = false;
+		bool drop_list = false;
+		
+		std::string unlocalised_name;
+
+		int target_id = 0;
+	};
+
+	static std::vector< base_data_registerer*> base_data_registerer_list;
+
+
+};
+
 
 

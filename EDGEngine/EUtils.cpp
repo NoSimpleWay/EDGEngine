@@ -3554,5 +3554,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		myfile.close();
 		*/
 
+		
+
 
 	}
+
+	std::vector< EBaseData::base_data_registerer* > EBaseData::base_data_registerer_list;

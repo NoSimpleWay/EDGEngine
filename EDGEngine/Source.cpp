@@ -1036,8 +1036,134 @@ int find_item_by_full_name(string _name)
 //irrklang::ISoundEngine* engine= irrklang::createIrrKlangDevice();
 //irrklang::ISoundSource* shootSound = engine->addSoundSourceFromFile("data/cool01.wav");
 
+std::vector<FilterBlock::filter_block_data_attribute_struct*> filter_block_data_attribute_registerer;
 int main()
 {
+	FilterBlock::filter_block_data_attribute_struct* just_created_bdas;
+	
+	/*
+	//corrupted
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "Corrupted";
+	*just_created_bdas->id = Enums::ParserMode::IS_CORRUPTED;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
+
+	//AlternateQuality
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->id = Enums::ParserMode::ALTERNATIVE_QUALITY;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	/*
+	//Replica
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "Replica";
+	*just_created_bdas->id = Enums::ParserMode::IS_REPLICA;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
+
+	//CorruptedMods
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "CorruptedMods";
+	*just_created_bdas->id = Enums::ParserMode::CORRUPTED_MODS;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//Rarity
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "Rarity";
+	*just_created_bdas->id = Enums::ParserMode::RARITY;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_DROP_LIST_RARITY;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	/*
+	//HasEnchantment
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "HasEnchantment";
+	*just_created_bdas->id = Enums::ParserMode::HAS_ENCHANTMENT;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
+
+	/*
+	//ShaperItem
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "ShaperItem";
+	*just_created_bdas->id = Enums::ParserMode::IS_SHAPER_ITEM;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+	*/
+
+	//ItemLevel
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "ItemLevel";
+	*just_created_bdas->id = Enums::ParserMode::ITEM_LEVEL;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	/*
+	//Identified
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "Identified";
+	*just_created_bdas->id = Enums::ParserMode::IDENTIFIED;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
+
+	/*
+	//ElderItem
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "ElderItem";
+	*just_created_bdas->id = Enums::ParserMode::IS_ELDER_ITEM;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
+
+	/*
+	//FracturedItem
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "FracturedItem";
+	*just_created_bdas->id = Enums::ParserMode::IS_FRACTURED_ITEM;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
+
+	//DropLevel
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "DropLevel";
+	*just_created_bdas->id = Enums::ParserMode::DROP_LEVEL;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//Width
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "Width";
+	*just_created_bdas->id = Enums::ParserMode::WIDTH;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//Height
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "Height";
+	*just_created_bdas->id = Enums::ParserMode::HEIGHT;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	/*
+	//SynthesisedItem
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "SynthesisedItem";
+	*just_created_bdas->id = Enums::ParserMode::IS_SYNTHESISED_ITEM;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+	*/
+
+	//Quality
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "Quality";
+	*just_created_bdas->id = Enums::ParserMode::QUALITY;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+
+
 	//engine->play2D("data/cool01.wav");
 	for (int i = 0; i < 4096; ++i) {
 		collision_matrix[i] = new bool* [4096];
@@ -1367,6 +1493,62 @@ int main()
 	EString::load_loot_pattern_list("!pattern_list");
 
 	EString::load_localisation("EN");
+
+	EBaseData::base_data_registerer* just_create_base_data = NULL;
+
+	just_create_base_data = new EBaseData::base_data_registerer;
+		just_create_base_data->data_name = "Corrupted";
+		just_create_base_data->have_checkbox = true;
+		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
+
+
+	just_create_base_data = new EBaseData::base_data_registerer;
+		just_create_base_data->data_name = "AlternateQuality";
+		just_create_base_data->have_checkbox = true;
+		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
+
+
+	just_create_base_data = new EBaseData::base_data_registerer;
+		just_create_base_data->data_name = "Replica";
+		just_create_base_data->have_checkbox = true;
+		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
+
+
+	just_create_base_data = new EBaseData::base_data_registerer;
+		just_create_base_data->data_name = "CorruptedMods";
+		just_create_base_data->have_operator = true;
+		just_create_base_data->have_number_input = true;
+		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
+
+
+	just_create_base_data = new EBaseData::base_data_registerer;
+		just_create_base_data->data_name = "LinkedSockets";
+		just_create_base_data->have_operator = true;
+		just_create_base_data->have_number_input = true;
+		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
+
+
+	just_create_base_data = new EBaseData::base_data_registerer;
+		just_create_base_data->data_name = "Rarity";
+		just_create_base_data->have_operator = true;
+		just_create_base_data->drop_list = true;
+		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
+
+
+	just_create_base_data = new EBaseData::base_data_registerer;
+		just_create_base_data->data_name = "ShaperItem";
+		just_create_base_data->have_checkbox = true;
+		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
+
+
+	just_create_base_data = new EBaseData::base_data_registerer;
+		just_create_base_data->data_name = "ShaperItem";
+		just_create_base_data->have_checkbox = true;
+		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
+
+
+
+	EBaseData::base_data_registerer_list.push_back(NULL);
 	
 	//##################################
 	//##################################
@@ -1905,6 +2087,8 @@ int main()
 		batch->draw_rect_with_uv(0, 0, EWindow::SCR_WIDTH, EWindow::SCR_HEIGHT, DefaultGabarite::gabarite_background);
 
 		int block_index = 0;
+
+		
 
 		if (glfwWindowShouldClose(window))
 		{

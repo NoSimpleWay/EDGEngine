@@ -27,10 +27,11 @@
 #include "FilterBlockSeparator.h"
 //#include "EButton.cpp"
 
-
+std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filter_block_data_attribute_registerer;
 
 	
 	
+
 	//std::vector<EButton*> filter_block_button_list;
 
 	int FilterBlock::rarity_text_to_id(string _text)

@@ -12,6 +12,7 @@
 #include "LabEnchantment.h"
 
 #include "ProphecyList.h"
+#include "EUtils.h"
 
 //#include "ExplicitGroup.h"
 
@@ -310,4 +311,37 @@ public:
 
 	bool disabled = false;
 	bool force_enabled = false;
+
+
+	struct base_data_buttons_struct
+	{
+		std::vector<EButton*> button_operator;
+		std::vector<EButton*> button_checkbox;
+		std::vector<EButton*> button_delete;
+		std::vector<EButton*> button_input;
+		std::vector<EButton*> button_drop_list;
+
+		std::vector<EButton*> button_add_new_element;
+
+		int order = 0;
+		int element_count = 0;
+	};
+
+	std::vector< base_data_buttons_struct* > base_data_button_list;
+
+	struct filter_block_data_attribute_struct
+	{
+		std::string* name		= new std::string("");
+
+		bool* have_operator		= new bool(false);
+		bool* have_input_field	= new bool(false);
+		bool* have_rarity		= new bool(false);
+		bool* have_checkbox		= new bool(false);
+
+		int* id					= new int(-1);
+
+		int* button_type		= new int(-1);
+	};
+
+	static std::vector<filter_block_data_attribute_struct*> filter_block_data_attribute_registerer;
 };
