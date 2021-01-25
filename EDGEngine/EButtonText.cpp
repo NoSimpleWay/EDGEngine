@@ -273,6 +273,24 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		have_input_mode = false;
 	}
 	
+	if (button_type == Enums::ButtonType::BUTTON_INFLUENCE_ALL_OR_ONEOF)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		have_text = true;
+		have_input_mode = false;
+
+		text = EString::localize_it("influence_oneof");
+
+		bg_color->set(EColorCollection::WHITE);
+		text_color->set(EColorCollection::BLACK);
+	}
+	
 }
 
 void EButtonText::click_event()
@@ -326,8 +344,10 @@ void EButtonText::click_event()
 		loot->gem_level = StaticData::window_manual_loot->gem_level;
 
 		loot->map_tier = StaticData::window_manual_loot->map_tier;
+
 		loot->is_elder_map = StaticData::window_manual_loot->elder_map;
 		loot->is_shaper_map = StaticData::window_manual_loot->shaper_map;
+
 		loot->is_blighted_map = StaticData::window_manual_loot->blighted_map;
 
 		loot->identified = StaticData::window_manual_loot->identified;
@@ -551,6 +571,50 @@ void EButtonText::click_event()
 
 		master_window->is_active = false;
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_INFLUENCE_ALL_OR_ONEOF)
+	{
+		if (master_block != NULL)
+		{
+			if (master_block->influence_mode == FilterBlock::InfluenceMode::IM_ONE_OF)
+			{
+				master_block->influence_mode = FilterBlock::InfluenceMode::IM_ALL;
+				text = EString::localize_it("influence_all");
+
+				bg_color->set(EColorCollection::WHITE);
+				text_color->set(EColorCollection::BLACK);
+
+				for (EButton* b : master_block->influences_button_list)
+				{b->is_active = true;}
+			}
+			else
+			if (master_block->influence_mode == FilterBlock::InfluenceMode::IM_ALL)
+			{
+				master_block->influence_mode = FilterBlock::InfluenceMode::IM_NONE;
+				text = EString::localize_it("influence_none");
+
+				bg_color->set(EColorCollection::RED);
+				text_color->set(EColorCollection::WHITE);
+				for (EButton* b : master_block->influences_button_list)
+				{b->is_active = false;}
+
+			}
+			else
+			if (master_block->influence_mode == FilterBlock::InfluenceMode::IM_NONE)
+			{
+				master_block->influence_mode = FilterBlock::InfluenceMode::IM_ONE_OF;
+				text = EString::localize_it("influence_oneof");
+
+				for (EButton* b : master_block->influences_button_list)
+				{b->is_active = true;}
+
+				bg_color->set(EColorCollection::WHITE);
+				text_color->set(EColorCollection::BLACK);
+			}
+		}
+	}
+
+
 }
 
 void EButtonText::input_event()
@@ -804,6 +868,24 @@ void EButtonText::update_localisation()
 		{description_text = EString::loot_pattern_description_ru.at(data_id);}
 
 		//description_text = "";
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_INFLUENCE_ALL_OR_ONEOF)
+	{
+		if (master_block->influence_mode == FilterBlock::InfluenceMode::IM_ONE_OF)
+		{
+			text = EString::localize_it("influence_oneof");
+		}
+		if (master_block->influence_mode == FilterBlock::InfluenceMode::IM_ALL)
+		{
+			text = EString::localize_it("influence_all");
+		}
+		if (master_block->influence_mode == FilterBlock::InfluenceMode::IM_NONE)
+		{
+			text = EString::localize_it("influence_none");
+		}
+
+		description_text = EString::localize_it("influence_description");
 	}
 
 }

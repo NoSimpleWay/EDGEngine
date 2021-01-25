@@ -605,6 +605,65 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		but->hint_color = EColorCollection::GRAY;
 		button_list.push_back(but);
 		header_button_list.push_back(but);
+
+		///////
+		but = new EButtonService(365.0f, 5.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_INFLUENCE);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+			but->data_id = InfluenceList::IL_SHAPER;
+			but->gabarite = DefaultGabarite::gabarite_switcher_influence_shaper_deactivated;
+			button_list.push_back(but);
+			influences_button_list.push_back(but);
+
+		but = new EButtonService(365.0f + 32.0f, 5.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_INFLUENCE);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+			but->data_id = InfluenceList::IL_ELDER;
+			but->gabarite = DefaultGabarite::gabarite_switcher_influence_elder_deactivated;
+			button_list.push_back(but);
+			influences_button_list.push_back(but);
+			///////
+		but = new EButtonService(365.0f, 5.0f + 32.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_INFLUENCE);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+			but->data_id = InfluenceList::IL_CRUSADER;
+			but->gabarite = DefaultGabarite::gabarite_switcher_influence_crusader_deactivated;
+			button_list.push_back(but);
+			influences_button_list.push_back(but);
+
+		but = new EButtonService(365.0f + 32.0f , 5.0f + 32.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_INFLUENCE);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+			but->data_id = InfluenceList::IL_REDEEMER;
+			but->gabarite = DefaultGabarite::gabarite_switcher_influence_redeemer_deactivated;
+			button_list.push_back(but);
+			influences_button_list.push_back(but);
+			///////
+		but = new EButtonService(365.0f, 5.0f + 64.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_INFLUENCE);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+			but->data_id = InfluenceList::IL_WARLORD;
+			but->gabarite = DefaultGabarite::gabarite_switcher_influence_warlord_deactivated;
+			button_list.push_back(but);
+			influences_button_list.push_back(but);
+
+		but = new EButtonService(365.0f + 32.0f, 5.0f + 64.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_INFLUENCE);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+			but->data_id = InfluenceList::IL_HUNTER;
+			but->gabarite = DefaultGabarite::gabarite_switcher_influence_hunter_deactivated;
+			button_list.push_back(but);
+			influences_button_list.push_back(but);
+			///////
+		
+		but = new EButtonText(365.0f, 5.0f + 96.0f, 64.0f, 20.0f, Enums::ButtonType::BUTTON_INFLUENCE_ALL_OR_ONEOF);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+			//but->gabarite = DefaultGabarite::gabarite_switcher_influence_hunter_deactivated;
+			button_list.push_back(but);
+			link_to_all_or_oneof = but;
+
+			but->text = EString::localize_it("influence_oneof");
 	}
 
 	FilterBlock::~FilterBlock()
@@ -736,7 +795,33 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 			float data_x = x + 185;
 			float data_y = 25;
 
-			if (remove_timer < 0)
+			if ((remove_timer < 0))
+			{
+				for (base_data_button_collection_struct* bdbcs : base_data_button_collection_list)
+				{
+					if (bdbcs->condition_button != NULL)
+					{
+						bdbcs->condition_button->button_x = data_x;
+						bdbcs->condition_button->button_y = size_y - data_y;
+
+						bdbcs->condition_button->update(_d);
+					}
+
+					if (bdbcs->main_button != NULL)
+					{
+						bdbcs->main_button->button_x = data_x + 35.0f;
+						bdbcs->main_button->button_y = size_y - data_y;
+					}
+
+					//if (bdbcs->remove_button != NULL)
+					//
+					//	bdbcs->remove_button->button_x = 
+					//}
+
+					data_y += _data_y_offset;
+				}
+			}
+			if ((remove_timer < 0) & (true))
 			{
 				for (int i = 0; i < base_filter_data_active.size(); i++)
 				if (base_filter_data_active.at(i))
@@ -956,6 +1041,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 		float temp_pos_x = start_position_draw_x;
 		float temp_pos_y = 10;
+
 
 
 		button_h_max = 0.0f;
@@ -1268,6 +1354,8 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		EFont::active_font->align_x = Enums::LEFT;
 
 		if (data_y > max_h) { max_h = data_y; }
+
+		if (max_h < 230) { max_h = 130; }
 
 		size_y = max_h;
 

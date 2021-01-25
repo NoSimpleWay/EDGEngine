@@ -250,3 +250,7 @@ alternate_quality_text	Alternate quality!
 replica_text	Replica of
 base_data_alternate_quality	Alternate quality
 base_data_replica	Replica of item
+influence_oneof	One of
+influence_all	All of
+influence_oneof_description	One of these influences
+influence_all_description	All of these influences

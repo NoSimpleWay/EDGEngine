@@ -125,5 +125,44 @@ public:
 
 	static EGabarite* gabarite_button_oil;
 
+	static EGabarite* gabarite_switcher_vaaled;
+	static EGabarite* gabarite_switcher_vaaled_deactivated;
+	static EGabarite* gabarite_switcher_vaaled_off;
+
+	static EGabarite* gabarite_switcher_identified;
+	static EGabarite* gabarite_switcher_identified_deactivated;
+	static EGabarite* gabarite_switcher_identified_off;
+
+	static EGabarite* gabarite_switcher_enchant;
+	static EGabarite* gabarite_switcher_enchant_deactivated;
+	static EGabarite* gabarite_switcher_enchant_off;
+
+	static EGabarite* gabarite_switcher_alternate_gem;
+	static EGabarite* gabarite_switcher_alternate_gem_deactivated;
+	static EGabarite* gabarite_switcher_alternate_gem_off;
+
+	static EGabarite* gabarite_switcher_mirrored;
+	static EGabarite* gabarite_switcher_mirrored_deactivated;
+	static EGabarite* gabarite_switcher_mirrored_off;
+
+	static EGabarite* gabarite_switcher_influence_shaper;
+	static EGabarite* gabarite_switcher_influence_shaper_deactivated;
+
+	static EGabarite* gabarite_switcher_influence_elder;
+	static EGabarite* gabarite_switcher_influence_elder_deactivated;
+
+	static EGabarite* gabarite_switcher_influence_crusader;
+	static EGabarite* gabarite_switcher_influence_crusader_deactivated;
+
+	static EGabarite* gabarite_switcher_influence_redeemer;
+	static EGabarite* gabarite_switcher_influence_redeemer_deactivated;
+
+	static EGabarite* gabarite_switcher_influence_warlord;
+	static EGabarite* gabarite_switcher_influence_warlord_deactivated;
+
+	static EGabarite* gabarite_switcher_influence_hunter;
+	static EGabarite* gabarite_switcher_influence_hunter_deactivated;
+
+
 
 };

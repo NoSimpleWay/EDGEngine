@@ -305,7 +305,7 @@ public:
 
 	std::vector <EButton*> header_button_list;
 
-	float start_position_draw_x = 370.0f;
+	float start_position_draw_x = 370.0f + 95.0f;
 
 	EButton* link_to_continue_button;
 
@@ -343,5 +343,62 @@ public:
 		int* button_type		= new int(-1);
 	};
 
+	struct base_data_button_collection_struct
+	{
+		EButton* condition_button;
+		EButton* main_button;
+		EButton* remove_button;
+
+		int target_id = -1;
+
+		bool need_remove = false;
+	};
+
+	std::vector <base_data_button_collection_struct*> base_data_button_collection_list;
+
 	static std::vector<filter_block_data_attribute_struct*> filter_block_data_attribute_registerer;
+
+	std::vector <EButton*> influences_button_list;
+
+	EButton* link_to_all_or_oneof;
+
+	enum InfluenceList
+	{
+		IL_SHAPER,
+		IL_ELDER,
+
+		IL_CRUSADER,
+		IL_REDEEMER,
+		
+		IL_WARLORD,
+		IL_HUNTER,
+	};
+
+	std::vector <bool> vector_influence =
+	{
+		false,	//shaper
+		false,	//elder
+
+		false,	//crusader
+		false,	//redeemer
+		false,	//warlord
+		false	//hunter
+	};
+
+	enum InfluenceMode
+	{
+		IM_ALL,
+		IM_ONE_OF,
+		IM_NONE
+	};
+
+	int influence_mode = InfluenceMode::IM_ONE_OF;
+
+	/*int swithed_data_shaper_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;
+	int swithed_data_elder_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;
+
+	int swithed_data_redeemer_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;
+	int swithed_data_warlord_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;
+	int swithed_data_crusader_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;
+	int swithed_data_hunter_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;*/
 };

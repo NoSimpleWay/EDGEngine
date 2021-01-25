@@ -1856,65 +1856,107 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								{
 								
 
-									parser_mode = Enums::ParserMode::IS_HAVE_INFLUENCE_AND;
+									//parser_mode = Enums::ParserMode::IS_HAVE_INFLUENCE_AND;
 
 									if (show_info_to_console) { cout << "change to AND mode. ID=" << std::to_string(parser_mode) << endl; }
+
+									just_created_block->influence_mode = FilterBlock::InfluenceMode::IM_ALL;
+									//just_created_block->link_to_all_or_oneof->text = EString::localize_it("influence_all");;
 								}
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "shaper"))
 								{
-									if (show_info_to_console) { cout << "set OR shaper item as <true>" << endl; }
+									{ cout << "set OR shaper item as <true>" << endl; }
 								
-									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER) = true;
-									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_SHAPER) = true;
+									just_created_block->vector_influence.at(FilterBlock::InfluenceList::IL_SHAPER) = true;
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_SHAPER)->gabarite = DefaultGabarite::gabarite_switcher_influence_shaper;
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_SHAPER)->rama_color->set(EColorCollection::YELLOW);
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_SHAPER)->bg_color->set(EColorCollection::WHITE);
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER) = true;
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_SHAPER) = true;
 								}
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "elder"))
 								{
 									if (show_info_to_console) { cout << "set OR elder item as <true>" << endl; }
 
-									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER) = true;
-									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_ELDER) = true;
+									just_created_block->vector_influence.at			(FilterBlock::InfluenceList::IL_ELDER) = true;
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_ELDER)->gabarite = DefaultGabarite::gabarite_switcher_influence_elder;
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_ELDER)->rama_color->set(EColorCollection::YELLOW);
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_ELDER)->bg_color->set(EColorCollection::WHITE);
+
 								}
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "crusader"))
 								{
 									if (show_info_to_console) { cout << "set OR Crusader item as <true>" << endl; }
 
-									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER) = true;
-									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_CRUSADER) = true;
+									just_created_block->vector_influence.at			(FilterBlock::InfluenceList::IL_CRUSADER) = true;
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_CRUSADER)->gabarite = DefaultGabarite::gabarite_switcher_influence_crusader;
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_CRUSADER)->rama_color->set(EColorCollection::YELLOW);
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_CRUSADER)->bg_color->set(EColorCollection::WHITE);
+
 								}
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "redeemer"))
 								{
 									if (show_info_to_console) { cout << "set OR Redeemer item as <true>" << endl; }
 
-									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER) = true;
-									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_REDEEMER) = true;
+									just_created_block->vector_influence.at			(FilterBlock::InfluenceList::IL_REDEEMER) = true;
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_REDEEMER)->gabarite = DefaultGabarite::gabarite_switcher_influence_redeemer;
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_REDEEMER)->rama_color->set(EColorCollection::YELLOW);
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_REDEEMER)->bg_color->set(EColorCollection::WHITE);
+
 								}
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "hunter"))
 								{
 									if (show_info_to_console) { cout << "set OR Hunter item as <true>" << endl; }
 
-									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER) = true;
-									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_HUNTER) = true;
+									just_created_block->vector_influence.at			(FilterBlock::InfluenceList::IL_HUNTER) = true;
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_HUNTER)->gabarite = DefaultGabarite::gabarite_switcher_influence_hunter;
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_HUNTER)->rama_color->set(EColorCollection::YELLOW);
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_HUNTER)->bg_color->set(EColorCollection::WHITE);
+
+
 								}
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "warlord"))
 								{
 									if (show_info_to_console) { cout << "set OR Warlord item as <true>" << endl; }
 
-									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD) = true;
-									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_OR_WARLORD) = true;
+									just_created_block->vector_influence.at			(FilterBlock::InfluenceList::IL_WARLORD) = true;
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_WARLORD)->gabarite = DefaultGabarite::gabarite_switcher_influence_warlord;
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_WARLORD)->rama_color->set(EColorCollection::YELLOW);
+									just_created_block->influences_button_list.at	(FilterBlock::InfluenceList::IL_WARLORD)->bg_color->set(EColorCollection::WHITE);
 								}
 
 								if ((data_order > 0) && (EString::to_lower(subdata) == "none"))
 								{
 									if (show_info_to_console) { cout << "set OR None item as <true>" << endl; }
 
-									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_OR) = true;
-									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_NO_INFLUENCE_OR) = true;
+									//just_created_block->link_to_all_or_oneof->text = EString::localize_it("influence_none");
+									just_created_block->link_to_all_or_oneof->text_color->set(EColorCollection::WHITE);
+									just_created_block->link_to_all_or_oneof->bg_color->set(EColorCollection::RED);
+
+									just_created_block->influence_mode = FilterBlock::InfluenceMode::IM_NONE;
+
+									/*
+									for (bool infl : just_created_block->vector_influence)
+									{
+										infl = false;
+									}
+
+									for (EButton* b : just_created_block->influences_button_list)
+									{
+										b->bg_color->set(EColorCollection::DARK_GRAY);
+									}*/
+									for (EButton* b : just_created_block->influences_button_list)
+									{
+										b->is_active = false;
+									}
+
+									//just_created_block->link_to_all_or_oneof->text = EString::localize_it("influence_none");
 								}
 							}
 
@@ -2987,119 +3029,63 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			}
 
 			if
-				(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER))
+			(
+				(fb->vector_influence.at(0))
 				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_SHAPER))
+				(fb->vector_influence.at(1))
 				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_CRUSADER))
+				(fb->vector_influence.at(2))
 				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_HUNTER))
+				(fb->vector_influence.at(3))
 				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER))
+				(fb->vector_influence.at(4))
 				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD))
-				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_AND))
+				(fb->vector_influence.at(5))
 			)
 			{
 					loot_writer += '\t';
-					loot_writer += "HasInfluence ==";
 
-					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER))
+					if (fb->influence_mode == FilterBlock::InfluenceMode::IM_ALL)
+					{loot_writer += "HasInfluence ==";}
+					else
+					{loot_writer += "HasInfluence";}
+
+					if (fb->vector_influence.at(FilterBlock::InfluenceList::IL_ELDER))
 					{
 						loot_writer += " Elder";
 					}
 
-					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_SHAPER))
+					if (fb->vector_influence.at(FilterBlock::InfluenceList::IL_SHAPER))
 					{
 						loot_writer += " Shaper";
 					}
 
-					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_CRUSADER))
+					if (fb->vector_influence.at(FilterBlock::InfluenceList::IL_CRUSADER))
 					{
 						loot_writer += " Crusader";
 					}
 
-					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER))
+					if (fb->vector_influence.at(FilterBlock::InfluenceList::IL_REDEEMER))
 					{
 						loot_writer += " Redeemer";
 					}
 
-					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_HUNTER))
+					if (fb->vector_influence.at(FilterBlock::InfluenceList::IL_HUNTER))
 					{
 						loot_writer += " Hunter";
 					}
 
-					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD))
+					if (fb->vector_influence.at(FilterBlock::InfluenceList::IL_WARLORD))
 					{
 						loot_writer += " Warlord";
 					}
 
-					if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_AND))
+					if (fb->influence_mode == FilterBlock::InfluenceMode::IM_NONE)
 					{
 						loot_writer += " None";
 					}
 
 					loot_writer += '\n';
-			}
-
-			if
-			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER))
-				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
-				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER))
-				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER))
-				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER))
-				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD))
-				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_OR))
-			)
-			{
-				loot_writer += '\t';
-				loot_writer += "HasInfluence";
-
-				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER))
-				{
-					loot_writer += " Elder";
-				}
-
-				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
-				{
-					loot_writer += " Shaper";
-				}
-
-				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER))
-				{
-					loot_writer += " Crusader";
-				}
-
-				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER))
-				{
-					loot_writer += " Redeemer";
-				}
-
-				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER))
-				{
-					loot_writer += " Hunter";
-				}
-
-				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD))
-				{
-					loot_writer += " Warlord";
-				}
-
-				if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_NO_INFLUENCE_OR))
-				{
-					loot_writer += " None";
-				}
-
-				loot_writer += '\n';
 			}
 
 			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER))

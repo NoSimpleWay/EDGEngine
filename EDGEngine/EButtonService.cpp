@@ -396,6 +396,31 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 
 
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SWITCHER_INFLUENCE)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		have_icon = true;
+
+		//{gabarite = DefaultGabarite::gabarite_switcher_influence_shaper_deactivated; }
+		gabarite = DefaultGabarite::gabarite_bg_noise;
+
+		/*if (data_id == 0) { gabarite = DefaultGabarite::gabarite_switcher_influence_shaper_deactivated; }
+		if (data_id == 1) { gabarite = DefaultGabarite::gabarite_switcher_influence_elder_deactivated; }
+
+		if (data_id == 2) { gabarite = DefaultGabarite::gabarite_switcher_influence_crusader_deactivated; }
+		if (data_id == 3) { gabarite = DefaultGabarite::gabarite_switcher_influence_redeemer_deactivated; }
+		if (data_id == 4) { gabarite = DefaultGabarite::gabarite_switcher_influence_warlord_deactivated; }
+		if (data_id == 5) { gabarite = DefaultGabarite::gabarite_switcher_influence_hunter_deactivated; }*/
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::GRAY, 0.75f);
+		bg_color->set(EColorCollection::DARK_GRAY);
+	}
 }
 
 void EButtonService::click_event()
@@ -1172,6 +1197,39 @@ void EButtonService::click_event()
 		}
 
 		StaticData::window_filter_block->unsave_change = true;
+	}
+	
+	if (button_type == Enums::ButtonType::BUTTON_SWITCHER_INFLUENCE)
+	{
+
+
+		master_block->vector_influence.at(data_id) = !master_block->vector_influence.at(data_id);
+
+		if (master_block->vector_influence.at(data_id))
+		{
+			if (data_id == 0) { gabarite = DefaultGabarite::gabarite_switcher_influence_shaper; }
+			if (data_id == 1) { gabarite = DefaultGabarite::gabarite_switcher_influence_elder; }
+
+			if (data_id == 2) { gabarite = DefaultGabarite::gabarite_switcher_influence_crusader; }
+			if (data_id == 3) { gabarite = DefaultGabarite::gabarite_switcher_influence_redeemer; }
+			if (data_id == 4) { gabarite = DefaultGabarite::gabarite_switcher_influence_warlord; }
+			if (data_id == 5) { gabarite = DefaultGabarite::gabarite_switcher_influence_hunter; }
+
+			bg_color->set(EColorCollection::WHITE);
+		}
+		else
+		{
+			if (data_id == 0) { gabarite = DefaultGabarite::gabarite_switcher_influence_shaper_deactivated; }
+			if (data_id == 1) { gabarite = DefaultGabarite::gabarite_switcher_influence_elder_deactivated; }
+
+			if (data_id == 2) { gabarite = DefaultGabarite::gabarite_switcher_influence_crusader_deactivated; }
+			if (data_id == 3) { gabarite = DefaultGabarite::gabarite_switcher_influence_redeemer_deactivated; }
+			if (data_id == 4) { gabarite = DefaultGabarite::gabarite_switcher_influence_warlord_deactivated; }
+			if (data_id == 5) { gabarite = DefaultGabarite::gabarite_switcher_influence_hunter_deactivated; }
+
+			bg_color->set(EColorCollection::DARK_GRAY);
+		}
+
 	}
 }
 

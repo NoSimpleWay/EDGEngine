@@ -123,6 +123,43 @@ EGabarite* DefaultGabarite::gabarite_shaper_slider_head = NULL;
 
 EGabarite* DefaultGabarite::gabarite_button_oil = NULL;
 
+EGabarite* DefaultGabarite::gabarite_switcher_alternate_gem = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_alternate_gem_off = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_enchant = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_enchant_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_enchant_off = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_identified = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_identified_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_identified_off = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_mirrored = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_mirrored_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_mirrored_off = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_vaaled = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_vaaled_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_vaaled_off = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_influence_shaper = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_influence_shaper_deactivated = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_influence_elder = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_influence_elder_deactivated = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_influence_crusader = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_influence_crusader_deactivated = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_influence_redeemer = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_influence_redeemer_deactivated = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_influence_warlord = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_influence_warlord_deactivated = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_influence_hunter = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_influence_hunter_deactivated = NULL;
 
 
 

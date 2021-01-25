@@ -1162,6 +1162,41 @@ int main()
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
+	//SocketGroup
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "SocketGroup";
+	*just_created_bdas->id = Enums::ParserMode::SOCKET_GROUP;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_SOCKET_GROUP;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//StackSize
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "StackSize";
+	*just_created_bdas->id = Enums::ParserMode::STACK_SIZE;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//GemLevel
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "GemLevel";
+	*just_created_bdas->id = Enums::ParserMode::GEM_LEVEL;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//MapTier
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "MapTier";
+	*just_created_bdas->id = Enums::ParserMode::MAP_TIER;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//AreaLevel
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "AreaLevel";
+	*just_created_bdas->id = Enums::ParserMode::AREA_LEVEL;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
 
 
 	//engine->play2D("data/cool01.wav");
@@ -1535,18 +1570,6 @@ int main()
 		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
 
 
-	just_create_base_data = new EBaseData::base_data_registerer;
-		just_create_base_data->data_name = "ShaperItem";
-		just_create_base_data->have_checkbox = true;
-		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
-
-
-	just_create_base_data = new EBaseData::base_data_registerer;
-		just_create_base_data->data_name = "ShaperItem";
-		just_create_base_data->have_checkbox = true;
-		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
-
-
 
 	EBaseData::base_data_registerer_list.push_back(NULL);
 	
@@ -1742,9 +1765,46 @@ int main()
 	put_texture_to_atlas("data/shaper_slider_trail.png");			DefaultGabarite::gabarite_shaper_slider_trail = just_created_gabarite;
 
 	put_texture_to_atlas("data/button_oil.png");					DefaultGabarite::gabarite_button_oil = just_created_gabarite; 
-	 
 
+	put_texture_to_atlas("data/icon/sys/alternate_quality.png");					DefaultGabarite::gabarite_switcher_alternate_gem = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/alternate_quality_deactivated.png");		DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite; 
+	put_texture_to_atlas("data/icon/sys/alternate_quality_off.png");				DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite; 
+	
+	put_texture_to_atlas("data/icon/sys/crusader_influence.png");					DefaultGabarite::gabarite_switcher_influence_crusader = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/crusader_influence_deactivated.png");		DefaultGabarite::gabarite_switcher_influence_crusader_deactivated = just_created_gabarite;
 
+	put_texture_to_atlas("data/icon/sys/shaper_influence.png");						DefaultGabarite::gabarite_switcher_influence_shaper = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/shaper_influence_deactivated.png");			DefaultGabarite::gabarite_switcher_influence_shaper_deactivated = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/elder_influence.png");						DefaultGabarite::gabarite_switcher_influence_elder = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/elder_influence_deactivated.png");			DefaultGabarite::gabarite_switcher_influence_elder_deactivated = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/enchant.png");								DefaultGabarite::gabarite_switcher_enchant = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/enchant_deactivated.png");					DefaultGabarite::gabarite_switcher_enchant_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/enchant_off.png");							DefaultGabarite::gabarite_switcher_enchant_off = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/hunter_influence.png");						DefaultGabarite::gabarite_switcher_influence_hunter = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/hunter_influence_deactivated.png");			DefaultGabarite::gabarite_switcher_influence_hunter_deactivated = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/identified.png");							DefaultGabarite::gabarite_switcher_identified = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/identified_deactivated.png");				DefaultGabarite::gabarite_switcher_identified_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/identified_off.png");						DefaultGabarite::gabarite_switcher_identified_off = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/mirrored.png");								DefaultGabarite::gabarite_switcher_mirrored = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/mirrored_deactivated.png");					DefaultGabarite::gabarite_switcher_mirrored_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/mirrored_off.png");							DefaultGabarite::gabarite_switcher_mirrored_off = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/redeemer_influence.png");					DefaultGabarite::gabarite_switcher_influence_redeemer = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/redeemer_influence_deactivated.png");		DefaultGabarite::gabarite_switcher_influence_redeemer_deactivated = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/vaaled.png");								DefaultGabarite::gabarite_switcher_vaaled = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/vaaled_deactivated.png");					DefaultGabarite::gabarite_switcher_vaaled_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/vaaled_off.png");							DefaultGabarite::gabarite_switcher_vaaled_off = just_created_gabarite;
+	
+	put_texture_to_atlas("data/icon/sys/warlord_influence.png");					DefaultGabarite::gabarite_switcher_influence_warlord = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/warlord_influence_deactivated.png");		DefaultGabarite::gabarite_switcher_influence_warlord_deactivated = just_created_gabarite;
+
+	
 	load_anointing();
 
 	StaticData::window_filter_block = new EWindowFilterBlock(0, false);

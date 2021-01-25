@@ -676,6 +676,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 			_batch->draw_rect_with_uv(xx, yy + 266, 434, 34, DefaultGabarite::gabarite_cap);
 
+
 			_batch->draw_rama(xx, yy, 434, 300, 3, DefaultGabarite::gabarite_cap);
 
 			if (loot->is_replica)
@@ -697,6 +698,51 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 			_batch->setcolor(EColorCollection::GRAY);
 			EFont::active_font->draw(_batch, loot->base_class, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y); move_y++;
+
+			
+			if (loot->shaper_item)
+			{
+				_batch->setcolor(EColorCollection::GRAY);
+				EFont::active_font->draw(_batch, "shaper item", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				move_y++;
+			}			
+
+			if (loot->elder_item)
+			{
+				_batch->setcolor(EColorCollection::GREEN);
+				EFont::active_font->draw(_batch, "elder item", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				move_y++;
+			}			
+
+			if (loot->redeemer_item)
+			{
+				_batch->setcolor(EColorCollection::BLUE);
+				EFont::active_font->draw(_batch, "redeemer item", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				move_y++;
+			}			
+
+			if (loot->warlord_item)
+			{
+				_batch->setcolor(EColorCollection::YELLOW);
+				EFont::active_font->draw(_batch, "warlord item item", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				move_y++;
+			}			
+
+			if (loot->hunter_item)
+			{
+				_batch->setcolor(EColorCollection::GREEN);
+				EFont::active_font->draw(_batch, "shaper item", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				move_y++;
+			}
+
+
+
+			if (loot->crusader_item)
+			{
+				_batch->setcolor(EColorCollection::RED);
+				EFont::active_font->draw(_batch, "crusader item", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				move_y++;
+			}
 
 			if (loot->quality > 0)
 			{
@@ -1482,40 +1528,44 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		if
 		(
+			(fb->influence_mode == FilterBlock::InfluenceMode::IM_ALL)
+			&
 			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_ELDER))
-				&&
-				(!_l->elder_item)
-			)
-			||
-			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_SHAPER))
-				&&
-				(!_l->shaper_item)
-			)
-			||
-			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_CRUSADER))
-				&&
-				(!_l->crusader_item)
-			)
-			||
-			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_HUNTER))
-				&&
-				(!_l->hunter_item)
-			)
-			||
-			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER))
-				&&
-				(!_l->redeemer_item)
-			)
-			||
-			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD))
-				&&
-				(!_l->warlord_item)
+				(
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_ELDER))
+					&&
+					(!_l->elder_item)
+				)
+				||
+				(
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_SHAPER))
+					&&
+					(!_l->shaper_item)
+				)
+				||
+				(
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_CRUSADER))
+					&&
+					(!_l->crusader_item)
+				)
+				||
+				(
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_HUNTER))
+					&&
+					(!_l->hunter_item)
+				)
+				||
+				(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_REDEEMER))
+					&&
+					(!_l->redeemer_item)
+				)
+				||
+				(
+					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AND_WARLORD))
+					&&
+					(!_l->warlord_item)
+				)
 			)
 			
 		)
@@ -1526,61 +1576,92 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		if
 		(
+			(fb->influence_mode == FilterBlock::InfluenceMode::IM_ONE_OF)
+			&
 			!(
 				(
-					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER))
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_ELDER))
 					&&
 					(_l->elder_item)
 				)
 				||
 				(
-					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_SHAPER))
 					&&
 					(_l->shaper_item)
 				)
 				||
 				(
-					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER))
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_REDEEMER))
 					&&
 					(_l->redeemer_item)
 				)
 				||
 				(
-					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER))
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_CRUSADER))
 					&&
 					(_l->crusader_item)
 				)
 				||
 				(
-					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER))
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_HUNTER))
 					&&
 					(_l->hunter_item)
 				)
 				||
 				(
-					(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD))
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_ELDER))
+					&&
+					(_l->elder_item)
+				)
+				||
+				(
+					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_WARLORD))
 					&&
 					(_l->warlord_item)
 				)
 			)
 			&&
 			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_ELDER))
+				(fb->vector_influence.at(FilterBlock::InfluenceList::IL_ELDER))
 				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_SHAPER))
+				(fb->vector_influence.at(FilterBlock::InfluenceList::IL_SHAPER))
 				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_CRUSADER))
+				(fb->vector_influence.at(FilterBlock::InfluenceList::IL_CRUSADER))
 				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_HUNTER))
+				(fb->vector_influence.at(FilterBlock::InfluenceList::IL_HUNTER))
 				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_REDEEMER))
+				(fb->vector_influence.at(FilterBlock::InfluenceList::IL_REDEEMER))
 				||
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_OR_WARLORD))
+				(fb->vector_influence.at(FilterBlock::InfluenceList::IL_WARLORD))
 			)
 		)
 		{
 			match_detect = false;
 			if (!_default) { rejection("or shaper/elder/new influences", _l); }
+		}
+
+		if
+		(
+			(fb->influence_mode == FilterBlock::InfluenceMode::IM_NONE)
+			&
+			(
+					(_l->elder_item)
+					||
+					(_l->shaper_item)
+					||
+					(_l->redeemer_item)
+					||
+					(_l->crusader_item)
+					||
+					(_l->hunter_item)
+					||
+					(_l->warlord_item)
+			)
+		)
+		{
+			match_detect = false;
+			if (!_default) { rejection("condition is 'have no influence', but item have influence", _l); }
 		}
 
 		if

@@ -251,3 +251,7 @@ alternate_quality_text	Изменённое качество!
 replica_text	Копия
 base_data_alternate_quality	Альтерн. качество
 base_data_replica	Копия уника
+influence_oneof	Одно из
+influence_all	Все
+influence_none	Ничего
+influence_description	"Одно из" - предмет содержит одно из выбранных вдияний \n"Все" - предмет должен иметь все перечисленные влияния\n"Ничего" - Предмет не должен содержать ни одного влияния
