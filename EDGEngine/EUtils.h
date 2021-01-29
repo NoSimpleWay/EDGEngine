@@ -150,15 +150,7 @@ public:
 	static std::vector< cluster_enchantment_struct* > cluster_enchantment_list;
 };
 
-class EFile
-{
-public:
-	static void parse_loot_filter_data(std::string _path);
-	static void save_filter(std::string _path, Enums::AutogenSaveMode _save_mode, bool _ignore_autogen);
-	//static void save_filter(std::string _path);
 
-	static void add_new_base_data_button(std::string _data);
-};
 
 class EBaseData
 {
@@ -182,6 +174,17 @@ public:
 	};
 
 	static std::vector< base_data_registerer*> base_data_registerer_list;
+	//static void add_new_base_data(base_data_registerer* _bdr);
+
+
+};
+
+class EFile
+{
+public:
+	static void parse_loot_filter_data(std::string _path);
+	static void save_filter(std::string _path, Enums::AutogenSaveMode _save_mode, bool _ignore_autogen);
+	//static void save_filter(std::string _path);
 
 
 };

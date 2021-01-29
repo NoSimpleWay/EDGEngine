@@ -137,9 +137,26 @@ public:
 	static EGabarite* gabarite_switcher_enchant_deactivated;
 	static EGabarite* gabarite_switcher_enchant_off;
 
+	static EGabarite* gabarite_switcher_fractured;
+	static EGabarite* gabarite_switcher_fractured_deactivated;
+	static EGabarite* gabarite_switcher_fractured_off;
+	
+
+	static EGabarite* gabarite_switcher_replica;
+	static EGabarite* gabarite_switcher_replica_deactivated;
+	static EGabarite* gabarite_switcher_replica_off;
+
+	static EGabarite* gabarite_switcher_synthesised;
+	static EGabarite* gabarite_switcher_synthesised_deactivated;
+	static EGabarite* gabarite_switcher_synthesised_off;
+
 	static EGabarite* gabarite_switcher_alternate_gem;
 	static EGabarite* gabarite_switcher_alternate_gem_deactivated;
 	static EGabarite* gabarite_switcher_alternate_gem_off;
+
+	static EGabarite* gabarite_switcher_blighted;
+	static EGabarite* gabarite_switcher_blighted_deactivated;
+	static EGabarite* gabarite_switcher_blighted_off;
 
 	static EGabarite* gabarite_switcher_mirrored;
 	static EGabarite* gabarite_switcher_mirrored_deactivated;

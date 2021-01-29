@@ -536,18 +536,19 @@
 			float added_x = 0;
 
 			if (text_align_x == Enums::PositionMode::MID) { added_x = round(button_size_x / 2.0f); }
+			else { added_x = 3.0f; }
 			target_font->align_x = text_align_x;
 
 			if (text != "")
 			{
 				_batch->setcolor(text_color);
-				target_font->draw(_batch, text, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y-20.0f)/2.0f + 4.0f));
+				target_font->draw(_batch, text, master_position_x + 0.0f +added_x, master_position_y + round((button_size_y-20.0f)/2.0f + 4.0f));
 			}
 
 			if ((text == "")&&(input_hint!=""))
 			{
 				_batch->setcolor(hint_color);
-				target_font->draw(_batch, input_hint, master_position_x + 3.0f +added_x, master_position_y + round((button_size_y - 20.0f) / 2.0f + 4.0f));
+				target_font->draw(_batch, input_hint, master_position_x + 0.0f +added_x, master_position_y + round((button_size_y - 20.0f) / 2.0f + 4.0f));
 			}
 
 			if (is_input_mode_active)

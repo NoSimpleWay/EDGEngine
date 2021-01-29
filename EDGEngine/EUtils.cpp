@@ -1075,6 +1075,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 		int explicit_group_id = -1;
 
+		FilterBlock::base_data_button_collection_struct* just_created_base_data_registerer = NULL;
+
 		while ((getline(myfile, line)) && (line_number < 10000))
 		{
 			bool is_base_type_equal_mode = false;
@@ -1182,14 +1184,29 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									parser_mode = Enums::ParserMode::CONTINUE;
 								}
 
-								if (subdata == "Corrupted") { parser_mode = Enums::ParserMode::IS_CORRUPTED; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED) = true; }
+								if (subdata == "Corrupted")
+								{
+									parser_mode = Enums::ParserMode::IS_CORRUPTED; 
+								}
 								
 								if (subdata == "AlternateQuality") { parser_mode = Enums::ParserMode::ALTERNATIVE_QUALITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ALTERNATE_QUALITY) = true; }
 								if (subdata == "Replica") { parser_mode = Enums::ParserMode::IS_REPLICA; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IS_REPLICA) = true; }
 								
-								if (subdata == "CorruptedMods") { parser_mode = Enums::ParserMode::CORRUPTED_MODS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTION_MODS) = true; }
-								if (subdata == "LinkedSockets") { parser_mode = Enums::ParserMode::LINKED_SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_LINKS) = true; }
-								if (subdata == "Rarity") { parser_mode = Enums::ParserMode::RARITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_RARITY) = true; }
+								if (subdata == "CorruptedMods")
+								{
+									parser_mode = Enums::ParserMode::CORRUPTED_MODS;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("CorruptedMods", just_created_block);
+								}
+								if (subdata == "LinkedSockets")
+								{
+									parser_mode = Enums::ParserMode::LINKED_SOCKETS;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("LinkedSockets", just_created_block);
+								}
+								if (subdata == "Rarity")
+								{
+									parser_mode = Enums::ParserMode::RARITY;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("Rarity", just_created_block);
+								}
 								if (subdata == "Class")
 								{
 									//std::cout << "Try get acess to remove button" << std::endl;
@@ -1416,20 +1433,34 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set links as <" << subdata << ">" << endl; }
-									just_created_block->links_count = std::stoi(subdata);
-									just_created_block->links_condition = "=";
+									//if (just_created_base_data_registerer->main_button != NULL)
+									//{just_created_base_data_registerer->main_button->text = subdata;}
+
+									//if (just_created_base_data_registerer->condition_button != NULL)
+									//{just_created_base_data_registerer->condition_button->text = subdata;}
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set links condition as <" << subdata << ">" << endl; }
-									just_created_block->links_condition = subdata;
+									//just_created_block->links_condition = subdata;
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
 								}
 
 								if (data_order == 2)
 								{
 									if (show_info_to_console) { cout << "set links as <" << subdata << ">" << endl; }
-									just_created_block->links_count = std::stoi(subdata);
+									//just_created_block->links_count = std::stoi(subdata);
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
 								}
 							}
 
@@ -1443,20 +1474,37 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set rarity as <" << subdata << ">" << endl; }
-									just_created_block->item_rarity = subdata;
-									just_created_block->rarity_condition = "=";
+									//just_created_block->item_rarity = subdata;
+									//just_created_block->rarity_condition = "=";
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set rarity condition as <" << subdata << ">" << endl; }
-									just_created_block->rarity_condition = subdata;
+									//just_created_block->rarity_condition = subdata;
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
 								}
 
 								if (data_order == 2)
 								{
 									if (show_info_to_console) { cout << "set rarity as <" << subdata << ">" << endl; }
-									just_created_block->item_rarity = subdata;
+									//just_created_block->item_rarity = subdata;
+									if (just_created_base_data_registerer->main_button != NULL)
+									{
+										just_created_base_data_registerer->main_button->text = subdata;
+
+										if (EString::to_lower(subdata) == "normal")		{ just_created_base_data_registerer->main_button->selected_element = 0;}
+										if (EString::to_lower(subdata) == "magic")		{ just_created_base_data_registerer->main_button->selected_element = 1;}
+										if (EString::to_lower(subdata) == "rare")		{ just_created_base_data_registerer->main_button->selected_element = 2;}
+										if (EString::to_lower(subdata) == "unique")		{ just_created_base_data_registerer->main_button->selected_element = 3;}
+									}
 								}
 							}
 
@@ -2464,20 +2512,31 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set corrupted mods as <" << subdata << ">" << endl; }
-									just_created_block->corrupted_mods_count = std::stoi(subdata);
-									just_created_block->corrupted_mods_condition = "=";
+									
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
+									//just_created_block->corrupted_mods_count = std::stoi(subdata);
+									//just_created_block->corrupted_mods_condition = "=";
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set corrupted mods condition as < " << subdata << " >" << endl; }
-									just_created_block->corrupted_mods_condition = subdata;
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
+									//just_created_block->corrupted_mods_condition = subdata;
 								}
 
 								if (data_order == 2)
 								{
 									if (show_info_to_console) { cout << "set corrupted mods as <" << subdata << ">" << endl; }
-									just_created_block->corrupted_mods_count = std::stoi(subdata);
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+									//just_created_block->corrupted_mods_count = std::stoi(subdata);
 								}
 							}
 
@@ -3544,5 +3603,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 
 	}
+
+
 
 	std::vector< EBaseData::base_data_registerer* > EBaseData::base_data_registerer_list;

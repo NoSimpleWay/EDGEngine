@@ -1048,12 +1048,12 @@ int main()
 	*just_created_bdas->id = Enums::ParserMode::IS_CORRUPTED;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
-
+	/*
 	//AlternateQuality
 	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
 	*just_created_bdas->id = Enums::ParserMode::ALTERNATIVE_QUALITY;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
 
 	/*
 	//Replica
@@ -1064,7 +1064,7 @@ int main()
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
 
 	//CorruptedMods
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct; 
 	*just_created_bdas->name = "CorruptedMods";
 	*just_created_bdas->id = Enums::ParserMode::CORRUPTED_MODS;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
@@ -1167,6 +1167,15 @@ int main()
 	*just_created_bdas->name = "SocketGroup";
 	*just_created_bdas->id = Enums::ParserMode::SOCKET_GROUP;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_SOCKET_GROUP;
+	*just_created_bdas->force_split = true;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//Sockets
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "Sockets";
+	*just_created_bdas->id = Enums::ParserMode::SOCKETS;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_SOCKET_GROUP;
+	*just_created_bdas->force_split = true;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
 	//StackSize
@@ -1194,6 +1203,13 @@ int main()
 	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
 	*just_created_bdas->name = "AreaLevel";
 	*just_created_bdas->id = Enums::ParserMode::AREA_LEVEL;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//LinkedSockets
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->name = "LinkedSockets";
+	*just_created_bdas->id = Enums::ParserMode::LINKED_SOCKETS;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
@@ -1531,6 +1547,7 @@ int main()
 
 	EBaseData::base_data_registerer* just_create_base_data = NULL;
 
+	/*
 	just_create_base_data = new EBaseData::base_data_registerer;
 		just_create_base_data->data_name = "Corrupted";
 		just_create_base_data->have_checkbox = true;
@@ -1569,7 +1586,7 @@ int main()
 		just_create_base_data->drop_list = true;
 		EBaseData::base_data_registerer_list.push_back(just_create_base_data);
 
-
+		*/
 
 	EBaseData::base_data_registerer_list.push_back(NULL);
 	
@@ -1770,6 +1787,11 @@ int main()
 	put_texture_to_atlas("data/icon/sys/alternate_quality_deactivated.png");		DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite; 
 	put_texture_to_atlas("data/icon/sys/alternate_quality_off.png");				DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite; 
 	
+	put_texture_to_atlas("data/icon/sys/blighted.png");						DefaultGabarite::gabarite_switcher_alternate_gem = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/blighted_deactivated.png");			DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/blighted_off.png");					DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite;
+
+
 	put_texture_to_atlas("data/icon/sys/crusader_influence.png");					DefaultGabarite::gabarite_switcher_influence_crusader = just_created_gabarite;
 	put_texture_to_atlas("data/icon/sys/crusader_influence_deactivated.png");		DefaultGabarite::gabarite_switcher_influence_crusader_deactivated = just_created_gabarite;
 

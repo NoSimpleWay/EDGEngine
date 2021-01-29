@@ -85,5 +85,12 @@ void EButtonDropRarity::update_localisation()
 	drop_text.push_back(EString::localize_it("rarity_name_magic"));
 	drop_text.push_back(EString::localize_it("rarity_name_rare"));
 	drop_text.push_back(EString::localize_it("rarity_name_unique"));
+
+	{ text = drop_text.at(selected_element);}
+
+	if (selected_element == 0) { bg_color->set(EColorCollection::DAD_NORMAL); }
+	if (selected_element == 1) { bg_color->set(EColorCollection::DAD_MAGIC); }
+	if (selected_element == 2) { bg_color->set(EColorCollection::DAD_RARE); }
+	if (selected_element == 3) { bg_color->set(EColorCollection::DAD_UNIQUE); }
 }
 

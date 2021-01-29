@@ -337,6 +337,7 @@ public:
 		bool* have_input_field	= new bool(false);
 		bool* have_rarity		= new bool(false);
 		bool* have_checkbox		= new bool(false);
+		bool* force_split		= new bool(false);
 
 		int* id					= new int(-1);
 
@@ -345,9 +346,9 @@ public:
 
 	struct base_data_button_collection_struct
 	{
-		EButton* condition_button;
-		EButton* main_button;
-		EButton* remove_button;
+		EButton* condition_button	= NULL;
+		EButton* main_button		= NULL;
+		EButton* remove_button		= NULL;
 
 		int target_id = -1;
 
@@ -359,6 +360,7 @@ public:
 	static std::vector<filter_block_data_attribute_struct*> filter_block_data_attribute_registerer;
 
 	std::vector <EButton*> influences_button_list;
+	std::vector <EButton*> special_status_button_list;
 
 	EButton* link_to_all_or_oneof;
 
@@ -374,6 +376,28 @@ public:
 		IL_HUNTER,
 	};
 
+	enum SpecialStatusList
+	{
+		SSL_CORRUPTED,
+		SSL_IDENTIFIED,
+		SSL_ENCHANTED,
+
+		SSL_SYNTHESISED,
+		SSL_FRACTURED,
+		SSL_BLIGHTED,
+
+		SSL_ALTERNATE_QUALITY,
+		SSL_REPLICA,
+		SSL_MIRRORED
+	};
+
+	enum SpecialStatusMode
+	{
+		SSM_ON,
+		SSM_OFF,
+		SSM_DEACTIVATED
+	};
+
 	std::vector <bool> vector_influence =
 	{
 		false,	//shaper
@@ -385,6 +409,21 @@ public:
 		false	//hunter
 	};
 
+	std::vector <int> vector_special_status =
+	{
+		SpecialStatusMode::SSM_DEACTIVATED,	//corrupted
+		SpecialStatusMode::SSM_DEACTIVATED,	//identified
+		SpecialStatusMode::SSM_DEACTIVATED,	//enchant
+
+		SpecialStatusMode::SSM_DEACTIVATED,	//synthesised
+		SpecialStatusMode::SSM_DEACTIVATED,	//fractured
+		SpecialStatusMode::SSM_DEACTIVATED,	//blighted
+
+		SpecialStatusMode::SSM_DEACTIVATED,	//alternate_quality
+		SpecialStatusMode::SSM_DEACTIVATED,	//replica
+		SpecialStatusMode::SSM_DEACTIVATED	//mirrored
+	};
+
 	enum InfluenceMode
 	{
 		IM_ALL,
@@ -394,6 +433,7 @@ public:
 
 	int influence_mode = InfluenceMode::IM_ONE_OF;
 
+	static base_data_button_collection_struct* add_new_base_attribute(std::string _text, FilterBlock* _filter_block);
 	/*int swithed_data_shaper_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;
 	int swithed_data_elder_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;
 

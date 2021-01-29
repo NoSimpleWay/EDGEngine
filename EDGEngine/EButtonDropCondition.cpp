@@ -47,18 +47,21 @@ void EButtonDropCondition::click_event()
 
 void EButtonDropCondition::incoming_data(FilterBlock* _filter)
 {
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL)		{ text = _filter->required_level_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL)		{ text = _filter->gem_level_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_HEIGHT)			{ text = _filter->item_height_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL)		{ text = _filter->item_level_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_LINKS)			{ text = _filter->links_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_MAP_TIER)		{ text = _filter->map_tier_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_QUALITY)			{ text = _filter->item_quality_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_RARITY)			{ text = _filter->rarity_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_SOCKETS)			{ text = _filter->socket_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE)		{ text = _filter->item_stack_size_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_SOCKET_GROUP)	{ text = _filter->socket_group_condition; }
-	if (button_type == Enums::ButtonType::BUTTON_CONDITION_AREA_LEVEL)		{ text = _filter->area_level_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_DROP_LEVEL)			{ text = _filter->required_level_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_GEM_LEVEL)			{ text = _filter->gem_level_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_HEIGHT)				{ text = _filter->item_height_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_ITEM_LEVEL)			{ text = _filter->item_level_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_LINKS)				{ text = _filter->links_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_MAP_TIER)			{ text = _filter->map_tier_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_QUALITY)				{ text = _filter->item_quality_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_RARITY)				{ text = _filter->rarity_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_SOCKETS)				{ text = _filter->socket_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_STACK_SIZE)			{ text = _filter->item_stack_size_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_SOCKET_GROUP)		{ text = _filter->socket_group_condition; }
+	if (button_type == Enums::ButtonType::BUTTON_CONDITION_AREA_LEVEL)			{ text = _filter->area_level_condition; }
+
+
+	//if (button_type == Enums::ButtonType::BUTTON_BASE_DATA_CONDITION_REGULAR)	{ text = _filter->base_data_button_collection_list.at(data_id); }
 }
 
 void EButtonDropCondition::drop_list_select_event()

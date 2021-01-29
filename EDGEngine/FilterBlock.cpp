@@ -664,6 +664,18 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 			link_to_all_or_oneof = but;
 
 			but->text = EString::localize_it("influence_oneof");
+
+
+
+
+
+			but = new EButtonService(405.0f, 5.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+			but->data_id = SpecialStatusList::SSL_CORRUPTED;
+			but->gabarite = DefaultGabarite::gabarite_switcher_vaaled_off;
+			button_list.push_back(but);
+			special_status_button_list.push_back(but);
 	}
 
 	FilterBlock::~FilterBlock()
@@ -795,7 +807,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 			float data_x = x + 185;
 			float data_y = 25;
 
-			if ((remove_timer < 0))
+			if ((remove_timer < 0) & (true))
 			{
 				for (base_data_button_collection_struct* bdbcs : base_data_button_collection_list)
 				{
@@ -811,6 +823,8 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 					{
 						bdbcs->main_button->button_x = data_x + 35.0f;
 						bdbcs->main_button->button_y = size_y - data_y;
+
+						bdbcs->main_button->update(_d);
 					}
 
 					//if (bdbcs->remove_button != NULL)
@@ -821,7 +835,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 					data_y += _data_y_offset;
 				}
 			}
-			if ((remove_timer < 0) & (true))
+			if ((remove_timer < 0) & (false))
 			{
 				for (int i = 0; i < base_filter_data_active.size(); i++)
 				if (base_filter_data_active.at(i))
@@ -1306,10 +1320,10 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		float data_x = x + 155;
 		float data_y = 25;
 
-		if (remove_timer < 0)
-		for (int i = 0; i < base_filter_data_active.size(); i++)
+		if ((remove_timer < 0) & (true))
+		for (base_data_button_collection_struct* bdbcs : base_data_button_collection_list)
 		{
-			if (base_filter_data_active.at(i))
+			//if (base_filter_data_active.at(i))
 			{
 				_batch->setcolor_alpha(EColorCollection::BLACK, 0.8f);
 				_batch->draw_rect_with_uv(data_x - 150, y + size_y - data_y - 3, 185, 21, DefaultGabarite::gabarite_white);
@@ -1317,13 +1331,14 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 				EFont::active_font->align_x = Enums::RIGHT;
 				_batch->setcolor(EColorCollection::GRAY);
 
-				EFont::active_font->draw(_batch, base_filter_data_name.at(i), data_x + 30, y + size_y - data_y);
+				//EFont::active_font->draw(_batch, EBaseData::base_data_registerer_list.at(bdbcs->target_id)->unlocalised_name, data_x + 30, y + size_y - data_y);
+				EFont::active_font->draw(_batch, *FilterBlock::filter_block_data_attribute_registerer.at(bdbcs->target_id)->name, data_x + 30, y + size_y - data_y);
 				
-				if (base_filter_condition_list.at(i) != NULL)
+				if ((bdbcs->condition_button != NULL) & (true))
 				{
 					//base_filter_condition_list.at(i)->description_text = std::to_string(size_y - data_y);
-					base_filter_condition_list.at(i)->default_draw(_batch);
-					base_filter_condition_list.at(i)->additional_draw(_batch);
+					bdbcs->condition_button->default_draw(_batch);
+					bdbcs->condition_button->additional_draw(_batch);
 				}
 				else
 				{
@@ -1331,11 +1346,17 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 					//base_filter_data_remove_buttons.at(i)->button_y = 0;
 				}
 
-				if (base_filter_buttons.at(i) != NULL)
-				{base_filter_buttons.at(i)->default_draw(_batch);}
+				if ((bdbcs->main_button != NULL)&(true))
+				{
+					bdbcs->main_button->default_draw(_batch);
+					bdbcs->main_button->additional_draw(_batch);
+				}
 
-				base_filter_data_remove_buttons.at(i)->default_draw(_batch);
-				base_filter_data_remove_buttons.at(i)->additional_draw(_batch);
+				if ((bdbcs->remove_button != NULL)&(true))
+				{
+					bdbcs->remove_button->default_draw(_batch);
+					bdbcs->remove_button->additional_draw(_batch);
+				}
 
 				_batch->setcolor_alpha(EColorCollection::BLACK, 0.17f);
 				_batch->draw_rama(x + 5, y + size_y - data_y - 3, 185, 21, 1, DefaultGabarite::gabarite_white);
@@ -1475,16 +1496,22 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		}
 
 		if (remove_timer < 0)
-		for (int i = 0; i < base_filter_data_active.size(); i++)
+		//for (int i = 0; i < base_filter_data_active.size(); i++)
+		for (base_data_button_collection_struct* bdbcs : base_data_button_collection_list)
 		{
-			if (base_filter_data_active.at(i))
+			//if (base_filter_data_active.at(i))
 			{
-				if (base_filter_condition_list.at(i)!=NULL) { base_filter_condition_list.at(i)->text_pass(_batch); }
+				if (bdbcs->condition_button != NULL) { bdbcs->condition_button->text_pass(_batch); }
 
-				if (base_filter_buttons.at(i) != NULL)
-				{base_filter_buttons.at(i)->text_pass(_batch);}
+				if (bdbcs->main_button != NULL)
+				{
+					bdbcs->main_button->text_pass(_batch);
+				}
 
-				base_filter_data_remove_buttons.at(i)->text_pass(_batch);
+				if (bdbcs->remove_button != NULL)
+				{
+					bdbcs->remove_button->text_pass(_batch);
+				}
 			}
 		}
 
@@ -1670,5 +1697,63 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		{
 			but->update_localisation();
 		}
+	}
+
+
+	FilterBlock::base_data_button_collection_struct* FilterBlock::add_new_base_attribute(std::string _text, FilterBlock* _filter_block)
+	{
+		//FilterBlock::base_data_button_collection_struct* dase_data = new FilterBlock::base_data_button_collection_struct;
+
+		base_data_button_collection_struct* data_collection = new base_data_button_collection_struct;
+
+		int id = 0;
+		for (FilterBlock::filter_block_data_attribute_struct* fbdas : FilterBlock::filter_block_data_attribute_registerer)
+		{
+			if (*fbdas->name == _text)
+			{
+				if (*fbdas->button_type == Enums::FilterBlockButtonType::FBBT_INPUT_FIELD)
+				{
+					EButton* but;
+					but = new EButtonDropCondition(0, 0, 30, 13, Enums::ButtonType::BUTTON_BASE_DATA_CONDITION_REGULAR);
+					but->master_block = _filter_block;
+					but->master_window = StaticData::window_filter_block;
+					but->is_drop_list = true;
+					data_collection->condition_button = but;
+
+					but = new EButtonInputBaseData(0, 0, 65, 17, Enums::ButtonType::BUTTON_BASE_DATA_INPUT_REGULAR);
+					but->input_auto_clear_text = true;
+					but->master_block = _filter_block;
+					but->master_window = StaticData::window_filter_block;
+					data_collection->main_button = but;
+					
+				}
+
+				if (*fbdas->button_type == Enums::FilterBlockButtonType::FBBT_DROP_LIST_RARITY)
+				{
+					EButton* but;
+					but = new EButtonDropCondition(0, 0, 30, 13, Enums::ButtonType::BUTTON_BASE_DATA_CONDITION_REGULAR);
+					but->master_block = _filter_block;
+					but->master_window = StaticData::window_filter_block;
+					data_collection->condition_button = but;
+
+					but = new EButtonDropRarity(0, 0, 65, 17, Enums::ButtonType::BUTTON_BASE_DATA_RARITY_REGULAR);
+					but->master_block = _filter_block;
+					but->master_window = StaticData::window_filter_block;
+					data_collection->main_button = but;
+				}
+
+				data_collection->target_id = id;
+
+				_filter_block->base_data_button_collection_list.push_back(data_collection);
+
+				std::cout << "Found math. text:" << _text << " ID:" << id << std::endl;
+				return data_collection;
+				//break;
+			}
+
+			id++;
+		}
+		std::cout << "NOT Found math. text:" << _text << " ID:" << id << std::endl;
+		return data_collection;
 	}
 

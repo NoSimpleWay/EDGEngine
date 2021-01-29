@@ -127,9 +127,25 @@ EGabarite* DefaultGabarite::gabarite_switcher_alternate_gem = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_alternate_gem_off = NULL;
 
+EGabarite* DefaultGabarite::gabarite_switcher_blighted = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_blighted_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_blighted_off = NULL;
+
 EGabarite* DefaultGabarite::gabarite_switcher_enchant = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_enchant_deactivated = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_enchant_off = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_fractured = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_fractured_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_fractured_off = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_replica = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_replica_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_replica_off = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_synthesised = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_synthesised_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_synthesised_off = NULL;
 
 EGabarite* DefaultGabarite::gabarite_switcher_identified = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_identified_deactivated = NULL;

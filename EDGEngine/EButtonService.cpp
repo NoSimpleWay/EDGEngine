@@ -421,6 +421,24 @@ EButtonService::EButtonService(float _x, float _y, float _sx, float _sy, Enums::
 		rama_color->set_alpha(EColorCollection::GRAY, 0.75f);
 		bg_color->set(EColorCollection::DARK_GRAY);
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS)
+	{
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		have_icon = true;
+
+		gabarite = DefaultGabarite::gabarite_bg_noise;
+
+
+
+		rama_thikness = 1.0f;
+		rama_color->set_alpha(EColorCollection::GRAY, 0.75f);
+		bg_color->set(EColorCollection::DARK_GRAY);
+	}
 }
 
 void EButtonService::click_event()
@@ -1228,6 +1246,65 @@ void EButtonService::click_event()
 			if (data_id == 5) { gabarite = DefaultGabarite::gabarite_switcher_influence_hunter_deactivated; }
 
 			bg_color->set(EColorCollection::DARK_GRAY);
+		}
+
+	}
+	
+	if (button_type == Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS)
+	{
+
+
+		//master_block->vector_special_status.at(data_id) = !master_block->vector_special_status.at(data_id);
+
+		if (master_block->vector_special_status.at(data_id) == FilterBlock::SpecialStatusMode::SSM_DEACTIVATED)
+		{
+			master_block->vector_special_status.at(data_id) = FilterBlock::SpecialStatusMode::SSM_ON;
+
+			if (data_id == FilterBlock::SpecialStatusList::SSL_CORRUPTED)			{ gabarite = DefaultGabarite::gabarite_switcher_vaaled; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY)	{ gabarite = DefaultGabarite::gabarite_switcher_alternate_gem; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_BLIGHTED)			{ gabarite = DefaultGabarite::gabarite_switcher_blighted; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_ENCHANTED)			{ gabarite = DefaultGabarite::gabarite_switcher_enchant; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_FRACTURED)			{ gabarite = DefaultGabarite::gabarite_switcher_fractured; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_IDENTIFIED)			{ gabarite = DefaultGabarite::gabarite_switcher_identified; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_MIRRORED)			{ gabarite = DefaultGabarite::gabarite_switcher_mirrored; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_REPLICA)				{ gabarite = DefaultGabarite::gabarite_switcher_replica; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_SYNTHESISED)			{ gabarite = DefaultGabarite::gabarite_switcher_synthesised; }
+
+
+			bg_color->set(EColorCollection::WHITE);
+		}
+		else
+		if (master_block->vector_special_status.at(data_id) == FilterBlock::SpecialStatusMode::SSM_ON)
+		{
+			master_block->vector_special_status.at(data_id) = FilterBlock::SpecialStatusMode::SSM_OFF;
+
+			if (data_id == FilterBlock::SpecialStatusList::SSL_CORRUPTED)			{ gabarite = DefaultGabarite::gabarite_switcher_vaaled_off; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY)	{ gabarite = DefaultGabarite::gabarite_switcher_alternate_gem_off; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_BLIGHTED)			{ gabarite = DefaultGabarite::gabarite_switcher_blighted_off; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_ENCHANTED)			{ gabarite = DefaultGabarite::gabarite_switcher_enchant_off; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_FRACTURED)			{ gabarite = DefaultGabarite::gabarite_switcher_fractured_off; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_IDENTIFIED)			{ gabarite = DefaultGabarite::gabarite_switcher_identified_off; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_MIRRORED)			{ gabarite = DefaultGabarite::gabarite_switcher_mirrored_off; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_REPLICA)				{ gabarite = DefaultGabarite::gabarite_switcher_replica_off; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_SYNTHESISED)			{ gabarite = DefaultGabarite::gabarite_switcher_synthesised_off; }
+
+			bg_color->set(EColorCollection::RED);
+		}
+		else
+		{
+			master_block->vector_special_status.at(data_id) = FilterBlock::SpecialStatusMode::SSM_DEACTIVATED;
+
+			if (data_id == FilterBlock::SpecialStatusList::SSL_CORRUPTED)			{ gabarite = DefaultGabarite::gabarite_switcher_vaaled_deactivated; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY)	{ gabarite = DefaultGabarite::gabarite_switcher_alternate_gem_deactivated; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_BLIGHTED)			{ gabarite = DefaultGabarite::gabarite_switcher_blighted_deactivated; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_ENCHANTED)			{ gabarite = DefaultGabarite::gabarite_switcher_enchant_deactivated; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_FRACTURED)			{ gabarite = DefaultGabarite::gabarite_switcher_fractured_deactivated; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_IDENTIFIED)			{ gabarite = DefaultGabarite::gabarite_switcher_identified_deactivated; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_MIRRORED)			{ gabarite = DefaultGabarite::gabarite_switcher_mirrored_deactivated; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_REPLICA)				{ gabarite = DefaultGabarite::gabarite_switcher_replica_deactivated; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_SYNTHESISED)			{ gabarite = DefaultGabarite::gabarite_switcher_synthesised_deactivated; }
+			bg_color->set(EColorCollection::DARK_GRAY);
+			
 		}
 
 	}
