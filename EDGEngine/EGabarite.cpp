@@ -159,6 +159,10 @@ EGabarite* DefaultGabarite::gabarite_switcher_vaaled = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_vaaled_deactivated = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_vaaled_off = NULL;
 
+/*EGabarite* DefaultGabarite::gabarite_switcher_identified = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_identified_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_identified_off = NULL;*/
+
 EGabarite* DefaultGabarite::gabarite_switcher_influence_shaper = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_influence_shaper_deactivated = NULL;
 

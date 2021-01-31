@@ -64,7 +64,8 @@ void EButtonRemove::click_event()
 {
 	if (button_type == Enums::ButtonType::BUTTON_REMOVE_BASE_DATA)
 	{
-		master_block->base_filter_data_active.at(data_id) = false;
+		//master_block->base_filter_data_active.at(data_id) = false;
+		master_block->base_data_button_collection_list.at(data_id)->need_remove = true;
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_REMOVE_EXPLICIT_GROUP)

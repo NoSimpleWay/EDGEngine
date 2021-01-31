@@ -375,6 +375,22 @@
 				//std::cout << "button: " << b->text << std::endl;
 				b->update_localisation();
 			}
+
+			/*for (EButton* b : fb->influences_button_list)
+			{
+				b->update_localisation();
+			}
+
+			for (EButton* b : fb->special_status_button_list)
+			{
+				b->update_localisation();
+			}*/
+
+			for (FilterBlock::base_data_button_collection_struct* bdbcs : fb->base_data_button_collection_list)
+			{
+				bdbcs->condition_button->update_localisation();
+				bdbcs->main_button->update_localisation();
+			}
 		}
 	}
 

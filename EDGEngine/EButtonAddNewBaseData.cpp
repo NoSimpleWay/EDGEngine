@@ -54,9 +54,12 @@ EButtonAddNewBaseData::EButtonAddNewBaseData(float _x, float _y, float _sx, floa
 void EButtonAddNewBaseData::click_event()
 {
 	StaticData::window_add_new_base_data->is_active = false;
-	master_block->base_filter_data_active.at(data_id) = true;
+	//	master_block->base_filter_data_active.at(data_id) = true;
 
-	master_block->base_filter_data_bool.at(data_id) = true;
+	//master_block->base_filter_data_bool.at(data_id) = true;
+
+	if (master_block != NULL)
+	{FilterBlock::add_new_base_attribute(data_string, master_block);}
 
 	//std::cout << "click: " << std::to_string(data_id) << std::endl;
 }

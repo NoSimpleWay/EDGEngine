@@ -1059,6 +1059,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		if (fb->filter_block_items_button_list.size() <= 0) { match_detect = true; }
 
+		/*			ITEM LIST			*/
 		for (EButton* b : fb->filter_block_items_button_list)
 		{
 			if
@@ -1086,14 +1087,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		}
 
-		/*
-		if (!fb->autogen_include.at(link_to_autogen_drop_button->selected_element))
-		{
-			match_detect = false;
-
-			if ((!_default) && (!match_detect)) { rejection("autogenerator exclude", _l); }
-		}*/
-
+		/*			BLOCK DISABLED			*/
 		if (fb->disabled)
 		{
 			match_detect = false;
@@ -1101,6 +1095,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if ((!_default) && (!temp_match)) { rejection("disabled", _l); }
 		}
 
+		/*			BASE CLASS			*/
 		if (match_detect)
 		{
 			temp_match = false;
@@ -1120,6 +1115,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if ((!_default) && (!temp_match)) { rejection("base_class", _l); }
 		}
 
+		/*			ENCHANTMENT			*/
 		if (match_detect)
 		{
 			temp_match = false;
@@ -1142,6 +1138,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		}
 
+		/*			CLUSTER ENCHANTMENT			*/
 		if (match_detect)
 		{
 			temp_match = false;
@@ -1164,6 +1161,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		}
 
+		/*			AFFIXES			*/
 		if (match_detect)
 		{
 			temp_match = true;
@@ -1215,6 +1213,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		}
 
+		/*			PROPHECY			*/
 		if (match_detect)
 		{
 			temp_match = false;
@@ -1236,80 +1235,134 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		//std::cout << "data rarity is active =" << std::to_string(true) << std::endl;
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_RARITY)) && (!check_condition(fb->rarity_condition, rarity_to_number(_l->rarity), rarity_to_number(fb->item_rarity))))
+		for (FilterBlock::base_data_button_collection_struct* bdbcs : fb->base_data_button_collection_list)
 		{
-			match_detect = false;
-			if (!_default) { rejection("rarity", _l); }
-		}
+			int target_data = *FilterBlock::filter_block_data_attribute_registerer.at(bdbcs->target_id)->id;
+			
+			std::string attribute_operator = "";
+			int attribute_value_num = 0;
+			std::string attribute_value_string = "";
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL)) && (!check_condition(fb->item_level_condition, _l->item_level, fb->item_level)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("itemlevel", _l); }
-		}
+			if (bdbcs->condition_button != NULL)
+			{ attribute_operator = bdbcs->condition_button->text;}
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL)) && (!check_condition(fb->area_level_condition, area_level, fb->area_level)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("area level", _l); }
-		}
+			if ((bdbcs->main_button != NULL) && (bdbcs->main_button->input_only_numbers) && (bdbcs->main_button->text != ""))
+			{
+				attribute_value_num = std::stoi(bdbcs->main_button->text);
+			}
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_REQUIRED_LEVEL)) && (!check_condition(fb->required_level_condition, _l->req_level, fb->required_level)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("req", _l); }
-		}
+			if ((bdbcs->main_button != NULL) && (!bdbcs->main_button->input_only_numbers))
+			{
+				attribute_value_string = bdbcs->main_button->text;
+			}
 
-		/*
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS)) && (!check_condition(fb->socket_condition, _l->sockets, fb->socket_count)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("sockets", _l); }
-		}*/
+			/*       RARITY       */
+			if
+			(
+				(target_data == Enums::ParserMode::RARITY)
+				&
+				(!check_condition(attribute_operator, rarity_to_number(_l->rarity), bdbcs->main_button->selected_element))
+				&
+				(match_detect)
+			)
+			{
+				match_detect = false;
+				if (!_default) { rejection("rarity", _l); }
+			}
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_LINKS)) && (!check_condition(fb->links_condition, _l->links, fb->links_count)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("links", _l); }
-		}
+			/*       ITEM LEVEL       */
+			if
+			(
+				(target_data == Enums::ParserMode::ITEM_LEVEL)
+				&
+				(!check_condition(attribute_operator, _l->item_level, attribute_value_num))
+				&
+				(match_detect)
+			)
+			{
+				match_detect = false;
+				if (!_default) { rejection("item level", _l); }
+			}
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTION_MODS)) && (!check_condition(fb->corrupted_mods_condition, _l->corrupted_mods, fb->corrupted_mods_count)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("corruption mods", _l); }
-		}
+			/*       AREA LEVEL       */
+			if
+			(
+				(target_data == Enums::ParserMode::AREA_LEVEL)
+				&
+				(!check_condition(attribute_operator, area_level, attribute_value_num))
+				&
+				(match_detect)
+			)
+			{
+				match_detect = false;
+				if (!_default) { rejection("area level", _l); }
+			}
+
+			/*       REQUIRED LEVEL       */
+			if
+			(
+				(target_data == Enums::ParserMode::DROP_LEVEL)
+				&
+				(!check_condition(attribute_operator, _l->req_level, attribute_value_num))
+				&
+				(match_detect)
+			)
+			{
+				match_detect = false;
+				if (!_default) { rejection("required level", _l); }
+			}
+
+			/*       LINKS       */
+			if ((target_data == Enums::ParserMode::LINKED_SOCKETS) & (!check_condition(attribute_operator, _l->links, attribute_value_num)) & (match_detect))
+			{
+				match_detect = false;
+				if (!_default) { rejection("links", _l); }
+			}
+
+			if ((target_data == Enums::ParserMode::CORRUPTED_MODS) & (!check_condition(attribute_operator, _l->corrupted_mods, attribute_value_num)) & (match_detect))
+			{
+				match_detect = false;
+				if (!_default) { rejection("corrupted mods", _l); }
+			}
+
+			if ((target_data == Enums::ParserMode::QUALITY) & (!check_condition(attribute_operator, _l->quality, attribute_value_num)) & (match_detect))
+			
+			if ((target_data == Enums::ParserMode::GEM_LEVEL) & (!check_condition(attribute_operator, _l->gem_level, attribute_value_num)) & (match_detect))
+			{
+				match_detect = false;
+				if (!_default) { rejection("gem level", _l); }
+			}
+		
+			if ((target_data == Enums::ParserMode::MAP_TIER) & (!check_condition(attribute_operator, _l->map_tier, attribute_value_num)) & (match_detect))
+			{
+				match_detect = false;
+				if (!_default) { rejection("map tier", _l); }
+			}
+
+			if ((target_data == Enums::ParserMode::HEIGHT) & (!check_condition(attribute_operator, _l->height, attribute_value_num)) & (match_detect))
+			{
+				match_detect = false;
+				if (!_default) { rejection("height", _l); }
+			}
+
+			if ((target_data == Enums::ParserMode::WIDTH) & (!check_condition(attribute_operator, _l->width, attribute_value_num)) & (match_detect))
+			{
+				match_detect = false;
+				if (!_default) { rejection("width", _l); }
+			}
+
+			if ((target_data == Enums::ParserMode::STACK_SIZE) & (!check_condition(attribute_operator, _l->width, attribute_value_num)) & (match_detect))
+			{
+				match_detect = false;
+				if (!_default) { rejection("width", _l); }
+			}
 
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_QUALITY)) && (!check_condition(fb->item_quality_condition, _l->quality, fb->item_quality)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("quality", _l); }
-		}
 
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_GEM_LEVEL)) && (!check_condition(fb->gem_level_condition, _l->gem_level, fb->gem_level)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("gem level", _l); }
-		}
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MAP_TIER)) && (!check_condition(fb->map_tier_condition, _l->map_tier, fb->map_tier)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("map tier", _l); }
-		}
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_HEIGHT)) && (!check_condition(fb->item_height_condition, _l->height, fb->item_height)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("height", _l); }
-		}
 
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_WIDTH)) && (!check_condition(fb->item_width_condition, _l->width, fb->item_width)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("width", _l); }
-		}
 
 		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_STACK_SIZE)) && (!check_condition(fb->item_stack_size_condition, _l->quantity, fb->item_stack_size)))
 		{
@@ -1502,6 +1555,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			match_detect = false;
 			if (!_default) { rejection("fractured", _l); }
 		}
+	}
 
 
 		/*

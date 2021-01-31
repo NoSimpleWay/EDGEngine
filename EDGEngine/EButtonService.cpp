@@ -1042,8 +1042,98 @@ void EButtonService::click_event()
 			}
 		}
 
+		for (int i = 0; i < master_block->special_status_button_list.size(); i++)
+		{
+			fb->special_status_button_list.at(i)->is_active = master_block->special_status_button_list.at(i)->is_active;
 
+			fb->special_status_button_list.at(i)->bg_color->set(master_block->special_status_button_list.at(i)->bg_color);
+			fb->special_status_button_list.at(i)->text_color->set(master_block->special_status_button_list.at(i)->text_color);
 
+			fb->special_status_button_list.at(i)->gabarite = master_block->special_status_button_list.at(i)->gabarite;
+		}
+
+		for (int i = 0; i < master_block->vector_special_status.size(); i++)
+		{
+			fb->vector_special_status.at(i) = master_block->vector_special_status.at(i);
+		}
+
+		for (int i = 0; i < master_block->influences_button_list.size(); i++)
+		{
+			fb->influences_button_list.at(i)->is_active = master_block->influences_button_list.at(i)->is_active;
+
+			fb->influences_button_list.at(i)->bg_color->set(master_block->influences_button_list.at(i)->bg_color);
+			fb->influences_button_list.at(i)->text_color->set(master_block->influences_button_list.at(i)->text_color);
+
+			fb->influences_button_list.at(i)->gabarite = master_block->influences_button_list.at(i)->gabarite;
+		}
+
+		for (int i = 0; i < master_block->vector_influence.size(); i++)
+		{
+			fb->vector_influence.at(i) = master_block->vector_influence.at(i);
+		}
+
+		fb->link_to_all_or_oneof->text = master_block->link_to_all_or_oneof->text;
+
+		fb->link_to_all_or_oneof->bg_color->set(master_block->link_to_all_or_oneof->bg_color);
+		fb->link_to_all_or_oneof->text_color->set(master_block->link_to_all_or_oneof->text_color);
+
+		fb->influence_mode = master_block->influence_mode;
+
+		for (int i = 0; i < master_block->base_data_button_collection_list.size(); i++)
+		{
+			FilterBlock::base_data_button_collection_struct* jc_bdbcs
+			=
+				FilterBlock::add_new_base_attribute
+				(
+					*FilterBlock::filter_block_data_attribute_registerer.at(master_block->base_data_button_collection_list.at(i)->target_id)->data_name, fb
+				);
+
+			if (master_block->base_data_button_collection_list.at(i)->condition_button != NULL)
+			{
+				jc_bdbcs->condition_button->text = master_block->base_data_button_collection_list.at(i)->condition_button->text;
+				jc_bdbcs->condition_button->selected_element = master_block->base_data_button_collection_list.at(i)->condition_button->selected_element;
+				jc_bdbcs->condition_button->update_localisation();
+			}
+
+			if (master_block->base_data_button_collection_list.at(i)->main_button != NULL)
+			{
+				jc_bdbcs->main_button->text = master_block->base_data_button_collection_list.at(i)->main_button->text;
+				jc_bdbcs->main_button->selected_element = master_block->base_data_button_collection_list.at(i)->main_button->selected_element;
+				jc_bdbcs->main_button->update_localisation();
+			}
+
+			//fb->base_data_button_collection_list.push_back(jc_bdbcs);
+
+		}
+
+		for (int i = 0; i < master_block->explicit_list.size(); i++)
+		//for (ExplicitGroup* eg : master_block->explicit_list)
+		{
+			fb->explicit_list.at(i)->is_active = master_block->explicit_list.at(i)->is_active;
+
+			for (int j = 0; j < master_block->explicit_list.at(i)->button_list.size(); j++)
+			{
+				EButtonExplicit* explicit_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST);
+
+				explicit_button->text = master_block->explicit_list.at(i)->button_list.at(j)->text;
+				explicit_button->data_string = master_block->explicit_list.at(i)->button_list.at(j)->data_string;
+
+				explicit_button->master_block = fb;
+				explicit_button->master_window = StaticData::window_filter_block;
+
+				explicit_button->button_size_x = EFont::get_width(EFont::active_font, explicit_button->text) + 5.0f;
+				explicit_button->button_min_size_x = 30.0f;
+
+				fb->explicit_list.at(i)->button_list.push_back(explicit_button);
+				fb->button_list.push_back(explicit_button);
+
+				explicit_button->is_active = master_block->explicit_list.at(i)->button_list.at(j)->is_active;
+			}
+
+			fb->explicit_list.at(i)->button_add->is_active = master_block->explicit_list.at(i)->button_add->is_active;
+			fb->explicit_list.at(i)->button_close->is_active = master_block->explicit_list.at(i)->button_close->is_active;
+
+		}
 
 		StaticData::window_filter_block->recalculate_filter_block_separator();
 	}
@@ -1270,7 +1360,7 @@ void EButtonService::click_event()
 			if (data_id == FilterBlock::SpecialStatusList::SSL_REPLICA)				{ gabarite = DefaultGabarite::gabarite_switcher_replica; }
 			if (data_id == FilterBlock::SpecialStatusList::SSL_SYNTHESISED)			{ gabarite = DefaultGabarite::gabarite_switcher_synthesised; }
 
-
+			icon_color->set_alpha(EColorCollection::WHITE, 1.0f);
 			bg_color->set(EColorCollection::WHITE);
 		}
 		else
@@ -1303,6 +1393,8 @@ void EButtonService::click_event()
 			if (data_id == FilterBlock::SpecialStatusList::SSL_MIRRORED)			{ gabarite = DefaultGabarite::gabarite_switcher_mirrored_deactivated; }
 			if (data_id == FilterBlock::SpecialStatusList::SSL_REPLICA)				{ gabarite = DefaultGabarite::gabarite_switcher_replica_deactivated; }
 			if (data_id == FilterBlock::SpecialStatusList::SSL_SYNTHESISED)			{ gabarite = DefaultGabarite::gabarite_switcher_synthesised_deactivated; }
+			
+			icon_color->set_alpha(EColorCollection::WHITE, 0.5f);
 			bg_color->set(EColorCollection::DARK_GRAY);
 			
 		}
@@ -1454,6 +1546,43 @@ void EButtonService::update_localisation()
 	{
 
 			description_text = EString::localize_it("description_continue");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SWITCHER_INFLUENCE)
+	{
+		if (data_id == FilterBlock::InfluenceList::IL_CRUSADER)		{ description_text = EString::localize_it("description_switcher_influence_crusader"); }
+		if (data_id == FilterBlock::InfluenceList::IL_ELDER)		{ description_text = EString::localize_it("description_switcher_influence_elder"); }
+		if (data_id == FilterBlock::InfluenceList::IL_HUNTER)		{ description_text = EString::localize_it("description_switcher_influence_hunter"); }
+		if (data_id == FilterBlock::InfluenceList::IL_REDEEMER)		{ description_text = EString::localize_it("description_switcher_influence_redeemer"); }
+		if (data_id == FilterBlock::InfluenceList::IL_SHAPER)		{ description_text = EString::localize_it("description_switcher_influence_shaper"); }
+		if (data_id == FilterBlock::InfluenceList::IL_WARLORD)		{ description_text = EString::localize_it("description_switcher_influence_warlord"); }
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS)
+	{
+		if (master_block->vector_special_status.at(data_id) == FilterBlock::SpecialStatusMode::SSM_DEACTIVATED)
+		{
+			icon_color->set_alpha(EColorCollection::WHITE, 0.5f);
+		}
+		else
+		{
+			icon_color->set_alpha(EColorCollection::WHITE, 1.0f);
+		}
+
+		if (data_id == FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY)		{ description_text = EString::localize_it("description_special_status_alternate_quality"); }
+		if (data_id == FilterBlock::SpecialStatusList::SSL_BLIGHTED)				{ description_text = EString::localize_it("description_special_status_blighted"); }
+		if (data_id == FilterBlock::SpecialStatusList::SSL_CORRUPTED)				{ description_text = EString::localize_it("description_special_status_corrupted"); }
+																					
+		if (data_id == FilterBlock::SpecialStatusList::SSL_ENCHANTED)				{ description_text = EString::localize_it("description_special_status_enchanted"); }
+		if (data_id == FilterBlock::SpecialStatusList::SSL_FRACTURED)				{ description_text = EString::localize_it("description_special_status_fractured"); }
+		if (data_id == FilterBlock::SpecialStatusList::SSL_IDENTIFIED)				{ description_text = EString::localize_it("description_special_status_identified"); }
+																					
+		if (data_id == FilterBlock::SpecialStatusList::SSL_MIRRORED)				{ description_text = EString::localize_it("description_special_status_mirrored"); }
+		if (data_id == FilterBlock::SpecialStatusList::SSL_REPLICA)					{ description_text = EString::localize_it("description_special_status_replica"); }
+		if (data_id == FilterBlock::SpecialStatusList::SSL_SYNTHESISED)				{ description_text = EString::localize_it("description_special_status_synthesised"); }
+
+
+
 	}
 
 

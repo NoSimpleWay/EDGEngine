@@ -1063,155 +1063,226 @@ int main()
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
 
-	//CorruptedMods
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct; 
-	*just_created_bdas->name = "CorruptedMods";
-	*just_created_bdas->id = Enums::ParserMode::CORRUPTED_MODS;
+
+	//ItemLevel
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "ItemLevel";
+
+	*just_created_bdas->name_RU = "Уровень предмета";
+	*just_created_bdas->description_RU = "Уровень (ilvl) предмета. Чем выше уровень предмета,\\nтем больше свойств доступно для крафта";
+
+	*just_created_bdas->name_EN = "Item level";
+	*just_created_bdas->description_EN = "Item level of item";
+
+	*just_created_bdas->id = Enums::ParserMode::ITEM_LEVEL;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
 	//Rarity
 	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "Rarity";
+	*just_created_bdas->data_name = "Rarity";
+
+	*just_created_bdas->name_RU = "Редкость";
+	*just_created_bdas->description_RU = "Редкость предмета. Может быть следующей:\\nОбычный (белый)\\nВолшебный (синий)\\nРедкий (жёлтый)\\nУникальный (коричневый)";
+
+	*just_created_bdas->name_EN = "Rarity";
+	*just_created_bdas->description_EN = "Rarity of item. Can be:\\nNormal (white)\\nMagick (blue)\\nRare (yellow)\\nUique (brown)";
+
 	*just_created_bdas->id = Enums::ParserMode::RARITY;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_DROP_LIST_RARITY;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
-	/*
-	//HasEnchantment
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "HasEnchantment";
-	*just_created_bdas->id = Enums::ParserMode::HAS_ENCHANTMENT;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
-
-	/*
-	//ShaperItem
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "ShaperItem";
-	*just_created_bdas->id = Enums::ParserMode::IS_SHAPER_ITEM;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
-	*/
-
-	//ItemLevel
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "ItemLevel";
-	*just_created_bdas->id = Enums::ParserMode::ITEM_LEVEL;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
-
-	/*
-	//Identified
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "Identified";
-	*just_created_bdas->id = Enums::ParserMode::IDENTIFIED;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
-
-	/*
-	//ElderItem
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "ElderItem";
-	*just_created_bdas->id = Enums::ParserMode::IS_ELDER_ITEM;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
-
-	/*
-	//FracturedItem
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "FracturedItem";
-	*just_created_bdas->id = Enums::ParserMode::IS_FRACTURED_ITEM;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);*/
-
 	//DropLevel
 	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "DropLevel";
+	*just_created_bdas->data_name = "DropLevel";
+
+	*just_created_bdas->name_RU = "Требуемый уровень";
+	*just_created_bdas->description_RU = "Минимальный уровень персонажа,\\nс которого можно экиперовать этот предмет";
+
+	*just_created_bdas->name_EN = "Required level";
+	*just_created_bdas->description_EN = "Minimal level of character\\nto equip this item";
+
 	*just_created_bdas->id = Enums::ParserMode::DROP_LEVEL;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_CHECKBOX;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
-
-	//Width
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "Width";
-	*just_created_bdas->id = Enums::ParserMode::WIDTH;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
-	//Height
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "Height";
-	*just_created_bdas->id = Enums::ParserMode::HEIGHT;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
-
-	/*
-	//SynthesisedItem
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "SynthesisedItem";
-	*just_created_bdas->id = Enums::ParserMode::IS_SYNTHESISED_ITEM;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
-	*/
 
 	//Quality
 	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "Quality";
+	*just_created_bdas->data_name = "Quality";
+
+	*just_created_bdas->name_RU = "Качество";
+	*just_created_bdas->description_RU = "Качество предмета";
+
+	*just_created_bdas->name_EN = "Quality";
+	*just_created_bdas->description_EN = "Quality of item";
+
 	*just_created_bdas->id = Enums::ParserMode::QUALITY;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
-
-	//SocketGroup
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "SocketGroup";
-	*just_created_bdas->id = Enums::ParserMode::SOCKET_GROUP;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_SOCKET_GROUP;
 	*just_created_bdas->force_split = true;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
-	//Sockets
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "Sockets";
-	*just_created_bdas->id = Enums::ParserMode::SOCKETS;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_SOCKET_GROUP;
-	*just_created_bdas->force_split = true;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
-	//StackSize
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "StackSize";
-	*just_created_bdas->id = Enums::ParserMode::STACK_SIZE;
-	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
-	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	/*--------------------------------------------------------------------------------------------------------*/
+
 
 	//GemLevel
 	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "GemLevel";
+	*just_created_bdas->data_name = "GemLevel";
+
+	*just_created_bdas->name_RU = "Уровень камня";
+	*just_created_bdas->description_RU = "Уровень камня умения или поддержки";
+
+	*just_created_bdas->name_EN = "Gem level";
+	*just_created_bdas->description_EN = "Level of support or skill gem";
+
 	*just_created_bdas->id = Enums::ParserMode::GEM_LEVEL;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
 	//MapTier
 	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "MapTier";
+	*just_created_bdas->data_name = "MapTier";
+
+	*just_created_bdas->name_RU = "Тир карты";
+	*just_created_bdas->description_RU = "Уровень карты. \\n\\nБелые карты: тир 1-5.\\nЖёлтные карты: тир 6-10.\\nКрасные карты: тир 11-16";
+
+	*just_created_bdas->name_EN = "Map tier";
+	*just_created_bdas->description_EN = "Level of map.\\n\\nWhite map: tier 1-5.\\nYellow map: tier 6-10\\nRed map:: tier 11-16";
+
 	*just_created_bdas->id = Enums::ParserMode::MAP_TIER;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//SocketGroup
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "SocketGroup";
+
+	*just_created_bdas->name_RU = "Связи/цвета";
+	*just_created_bdas->description_RU = "Количество связанных гнёзд и их цвета";
+
+	*just_created_bdas->name_EN = "Links/colors";
+	*just_created_bdas->description_EN = "Count of linked sockets and their colours";
+
+	*just_created_bdas->id = Enums::ParserMode::SOCKET_GROUP;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD_ANY;
+	//*just_created_bdas->force_split = true;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//Sockets
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "Sockets";
+
+	*just_created_bdas->name_RU = "Гнёзда/цвета";
+	*just_created_bdas->description_RU = "Количество НЕ связанных гнёзд их их цвета";
+
+	*just_created_bdas->name_EN = "Sockets/colors";
+	*just_created_bdas->description_EN = "Count of NOT linked sockets and their colors";
+
+	*just_created_bdas->id = Enums::ParserMode::SOCKETS;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD_ANY;
+	//*just_created_bdas->force_split = true;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//LinkedSockets
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "LinkedSockets";
+
+	*just_created_bdas->name_RU = "Связанные гнёзда";
+	*just_created_bdas->description_RU = "Количество связанных гнёзд";
+
+	*just_created_bdas->name_EN = "Linked sockets";
+	*just_created_bdas->description_EN = "Count of linked sockets";
+
+	*just_created_bdas->id = Enums::ParserMode::LINKED_SOCKETS;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//StackSize
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "StackSize";
+
+	*just_created_bdas->name_RU = "Размер стопки";
+	*just_created_bdas->description_RU = "Количество предметов в одной стопке";
+
+	*just_created_bdas->name_EN = "Stack size";
+	*just_created_bdas->description_EN = "Count of items on stack";
+
+	*just_created_bdas->id = Enums::ParserMode::STACK_SIZE;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
 	//AreaLevel
 	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "AreaLevel";
+	*just_created_bdas->data_name = "AreaLevel";
+
+	*just_created_bdas->name_RU = "Уровень области";
+	*just_created_bdas->description_RU = "Уровень локации, в которой находится персонаж";
+
+	*just_created_bdas->name_EN = "Area level";
+	*just_created_bdas->description_EN = "Level of location";
+
 	*just_created_bdas->id = Enums::ParserMode::AREA_LEVEL;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+	*just_created_bdas->force_split = true;
 
-	//LinkedSockets
-	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
-	*just_created_bdas->name = "LinkedSockets";
-	*just_created_bdas->id = Enums::ParserMode::LINKED_SOCKETS;
+
+	/*--------------------------------------------------------------------------------------------------------*/
+
+	//CorruptedMods
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct; 
+	*just_created_bdas->data_name = "CorruptedMods";
+
+	*just_created_bdas->name_RU = "Осквернения";
+	*just_created_bdas->description_RU = "Количество собственных свойств,\\nполученных при помощи осквернения предмета.";
+
+	*just_created_bdas->name_EN = "Corrupted mods";
+	*just_created_bdas->description_EN = "Count of implicites, gained by item corruption";
+
+	*just_created_bdas->id = Enums::ParserMode::CORRUPTED_MODS;
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//Width
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "Width";
+
+	*just_created_bdas->name_RU = "Ширина";
+	*just_created_bdas->description_RU = "Количество клеток, которые занимает предмет в инвентаре";
+
+	*just_created_bdas->name_EN = "Width";
+	*just_created_bdas->description_EN = "Count of cells in inventory";
+
+	*just_created_bdas->id = Enums::ParserMode::WIDTH;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//Height
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "Height";
+
+
+	*just_created_bdas->name_RU = "Высота";
+	*just_created_bdas->description_RU = "Количество клеток, которые занимает предмет в инвентаре";
+
+	*just_created_bdas->name_EN = "Height";
+	*just_created_bdas->description_EN = "Count of cells in inventory";
+
+	*just_created_bdas->id = Enums::ParserMode::HEIGHT;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+
+	 
+
+
+
+
+
+
+
 
 
 
@@ -1783,15 +1854,6 @@ int main()
 
 	put_texture_to_atlas("data/button_oil.png");					DefaultGabarite::gabarite_button_oil = just_created_gabarite; 
 
-	put_texture_to_atlas("data/icon/sys/alternate_quality.png");					DefaultGabarite::gabarite_switcher_alternate_gem = just_created_gabarite;
-	put_texture_to_atlas("data/icon/sys/alternate_quality_deactivated.png");		DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite; 
-	put_texture_to_atlas("data/icon/sys/alternate_quality_off.png");				DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite; 
-	
-	put_texture_to_atlas("data/icon/sys/blighted.png");						DefaultGabarite::gabarite_switcher_alternate_gem = just_created_gabarite;
-	put_texture_to_atlas("data/icon/sys/blighted_deactivated.png");			DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite;
-	put_texture_to_atlas("data/icon/sys/blighted_off.png");					DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite;
-
-
 	put_texture_to_atlas("data/icon/sys/crusader_influence.png");					DefaultGabarite::gabarite_switcher_influence_crusader = just_created_gabarite;
 	put_texture_to_atlas("data/icon/sys/crusader_influence_deactivated.png");		DefaultGabarite::gabarite_switcher_influence_crusader_deactivated = just_created_gabarite;
 
@@ -1801,32 +1863,56 @@ int main()
 	put_texture_to_atlas("data/icon/sys/elder_influence.png");						DefaultGabarite::gabarite_switcher_influence_elder = just_created_gabarite;
 	put_texture_to_atlas("data/icon/sys/elder_influence_deactivated.png");			DefaultGabarite::gabarite_switcher_influence_elder_deactivated = just_created_gabarite;
 
-	put_texture_to_atlas("data/icon/sys/enchant.png");								DefaultGabarite::gabarite_switcher_enchant = just_created_gabarite;
-	put_texture_to_atlas("data/icon/sys/enchant_deactivated.png");					DefaultGabarite::gabarite_switcher_enchant_deactivated = just_created_gabarite;
-	put_texture_to_atlas("data/icon/sys/enchant_off.png");							DefaultGabarite::gabarite_switcher_enchant_off = just_created_gabarite;
-
 	put_texture_to_atlas("data/icon/sys/hunter_influence.png");						DefaultGabarite::gabarite_switcher_influence_hunter = just_created_gabarite;
 	put_texture_to_atlas("data/icon/sys/hunter_influence_deactivated.png");			DefaultGabarite::gabarite_switcher_influence_hunter_deactivated = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/redeemer_influence.png");					DefaultGabarite::gabarite_switcher_influence_redeemer = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/redeemer_influence_deactivated.png");		DefaultGabarite::gabarite_switcher_influence_redeemer_deactivated = just_created_gabarite;
+	
+	put_texture_to_atlas("data/icon/sys/warlord_influence.png");					DefaultGabarite::gabarite_switcher_influence_warlord = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/warlord_influence_deactivated.png");		DefaultGabarite::gabarite_switcher_influence_warlord_deactivated = just_created_gabarite;
+
+
+
+
+
+	put_texture_to_atlas("data/icon/sys/vaaled.png");								DefaultGabarite::gabarite_switcher_vaaled = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/vaaled_deactivated.png");					DefaultGabarite::gabarite_switcher_vaaled_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/vaaled_off.png");							DefaultGabarite::gabarite_switcher_vaaled_off = just_created_gabarite;
 
 	put_texture_to_atlas("data/icon/sys/identified.png");							DefaultGabarite::gabarite_switcher_identified = just_created_gabarite;
 	put_texture_to_atlas("data/icon/sys/identified_deactivated.png");				DefaultGabarite::gabarite_switcher_identified_deactivated = just_created_gabarite;
 	put_texture_to_atlas("data/icon/sys/identified_off.png");						DefaultGabarite::gabarite_switcher_identified_off = just_created_gabarite;
 
+	put_texture_to_atlas("data/icon/sys/enchant.png");								DefaultGabarite::gabarite_switcher_enchant = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/enchant_deactivated.png");					DefaultGabarite::gabarite_switcher_enchant_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/enchant_off.png");							DefaultGabarite::gabarite_switcher_enchant_off = just_created_gabarite;
+	/*===*/
+	put_texture_to_atlas("data/icon/sys/synthesised_item.png");						DefaultGabarite::gabarite_switcher_synthesised = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/synthesised_item_deactivated.png");			DefaultGabarite::gabarite_switcher_synthesised_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/synthesised_item_off.png");					DefaultGabarite::gabarite_switcher_synthesised_off = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/fractured_item.png");						DefaultGabarite::gabarite_switcher_fractured = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/fractured_item_deactivated.png");			DefaultGabarite::gabarite_switcher_fractured_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/fractured_item_off.png");					DefaultGabarite::gabarite_switcher_fractured_off = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/blighted.png");								DefaultGabarite::gabarite_switcher_blighted = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/blighted_deactivated.png");					DefaultGabarite::gabarite_switcher_blighted_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/blighted_off.png");							DefaultGabarite::gabarite_switcher_blighted_off = just_created_gabarite;
+	/*===*/
+	put_texture_to_atlas("data/icon/sys/alternate_quality.png");					DefaultGabarite::gabarite_switcher_alternate_gem = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/alternate_quality_deactivated.png");		DefaultGabarite::gabarite_switcher_alternate_gem_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/alternate_quality_off.png");				DefaultGabarite::gabarite_switcher_alternate_gem_off = just_created_gabarite;
+	
+	put_texture_to_atlas("data/icon/sys/replica.png");								DefaultGabarite::gabarite_switcher_replica = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/replica_deactivated.png");					DefaultGabarite::gabarite_switcher_replica_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/replica_off.png");							DefaultGabarite::gabarite_switcher_replica_off = just_created_gabarite;
+
 	put_texture_to_atlas("data/icon/sys/mirrored.png");								DefaultGabarite::gabarite_switcher_mirrored = just_created_gabarite;
 	put_texture_to_atlas("data/icon/sys/mirrored_deactivated.png");					DefaultGabarite::gabarite_switcher_mirrored_deactivated = just_created_gabarite;
 	put_texture_to_atlas("data/icon/sys/mirrored_off.png");							DefaultGabarite::gabarite_switcher_mirrored_off = just_created_gabarite;
 
-	put_texture_to_atlas("data/icon/sys/redeemer_influence.png");					DefaultGabarite::gabarite_switcher_influence_redeemer = just_created_gabarite;
-	put_texture_to_atlas("data/icon/sys/redeemer_influence_deactivated.png");		DefaultGabarite::gabarite_switcher_influence_redeemer_deactivated = just_created_gabarite;
 
-	put_texture_to_atlas("data/icon/sys/vaaled.png");								DefaultGabarite::gabarite_switcher_vaaled = just_created_gabarite;
-	put_texture_to_atlas("data/icon/sys/vaaled_deactivated.png");					DefaultGabarite::gabarite_switcher_vaaled_deactivated = just_created_gabarite;
-	put_texture_to_atlas("data/icon/sys/vaaled_off.png");							DefaultGabarite::gabarite_switcher_vaaled_off = just_created_gabarite;
-	
-	put_texture_to_atlas("data/icon/sys/warlord_influence.png");					DefaultGabarite::gabarite_switcher_influence_warlord = just_created_gabarite;
-	put_texture_to_atlas("data/icon/sys/warlord_influence_deactivated.png");		DefaultGabarite::gabarite_switcher_influence_warlord_deactivated = just_created_gabarite;
-
-	
 	load_anointing();
 
 	StaticData::window_filter_block = new EWindowFilterBlock(0, false);

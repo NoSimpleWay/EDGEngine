@@ -663,19 +663,86 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 			button_list.push_back(but);
 			link_to_all_or_oneof = but;
 
-			but->text = EString::localize_it("influence_oneof");
+			but->text = EString::localize_it("influence_ignore");
+
+			for (EButton* b : influences_button_list)
+			{
+				b->is_active = false;
+			}
 
 
 
+			but = new EButtonService(435.0f, 5.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_CORRUPTED;
+				but->gabarite = DefaultGabarite::gabarite_switcher_vaaled_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);	
 
+			but = new EButtonService(435.0f + 32.0f, 5.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_IDENTIFIED;
+				but->gabarite = DefaultGabarite::gabarite_switcher_identified_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);
 
-			but = new EButtonService(405.0f, 5.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
-			but->master_block = this;
-			but->master_window = StaticData::window_filter_block;
-			but->data_id = SpecialStatusList::SSL_CORRUPTED;
-			but->gabarite = DefaultGabarite::gabarite_switcher_vaaled_off;
-			button_list.push_back(but);
-			special_status_button_list.push_back(but);
+			but = new EButtonService(435.0f + 64.0f, 5.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_ENCHANTED;
+				but->gabarite = DefaultGabarite::gabarite_switcher_enchant_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);
+				/*-------*/
+			but = new EButtonService(435.0f, 5.0f + 32.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_SYNTHESISED;
+				but->gabarite = DefaultGabarite::gabarite_switcher_synthesised_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);	
+
+			but = new EButtonService(435.0f + 32.0f, 5.0f + 32.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_FRACTURED;
+				but->gabarite = DefaultGabarite::gabarite_switcher_fractured_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);
+
+			but = new EButtonService(435.0f + 64.0f, 5.0f + 32.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_BLIGHTED;
+				but->gabarite = DefaultGabarite::gabarite_switcher_blighted_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);
+				/*-------*/
+			but = new EButtonService(435.0f, 5.0f + 64.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_ALTERNATE_QUALITY;
+				but->gabarite = DefaultGabarite::gabarite_switcher_alternate_gem_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);	
+
+			but = new EButtonService(435.0f + 32.0f, 5.0f + 64.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_REPLICA;
+				but->gabarite = DefaultGabarite::gabarite_switcher_replica_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);
+
+			but = new EButtonService(435.0f + 64.0f, 5.0f + 64.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_MIRRORED;
+				but->gabarite = DefaultGabarite::gabarite_switcher_mirrored_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);
 	}
 
 	FilterBlock::~FilterBlock()
@@ -807,6 +874,25 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 			float data_x = x + 185;
 			float data_y = 25;
 
+			bool any_remove = false;
+			for (int i = 0; i < base_data_button_collection_list.size(); i++)
+			{
+				if (base_data_button_collection_list.at(i)->need_remove)
+				{
+					base_data_button_collection_list.erase(base_data_button_collection_list.begin() + i);
+					i--;
+					any_remove = true;
+				}
+			}
+
+			if (any_remove)
+			{
+				for (int i = 0; i < base_data_button_collection_list.size(); i++)
+				{
+					base_data_button_collection_list.at(i)->remove_button->data_id = i;
+				}
+			}
+
 			if ((remove_timer < 0) & (true))
 			{
 				for (base_data_button_collection_struct* bdbcs : base_data_button_collection_list)
@@ -827,10 +913,17 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 						bdbcs->main_button->update(_d);
 					}
 
-					//if (bdbcs->remove_button != NULL)
-					//
-					//	bdbcs->remove_button->button_x = 
-					//}
+					if (bdbcs->remove_button != NULL)
+					{
+						bdbcs->remove_button->button_x = x;
+						bdbcs->remove_button->button_y = size_y - data_y;
+
+
+
+						bdbcs->remove_button->update(_d);
+					}
+
+
 
 					data_y += _data_y_offset;
 				}
@@ -900,7 +993,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 	void FilterBlock::draw(Batcher* _batch)
 	{
-		max_h = 75.0f;
+		max_h = 110.0f;
 
 
 		if (is_show) { _batch->setcolor_255(210, 210, 210, 100); }
@@ -1332,7 +1425,12 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 				_batch->setcolor(EColorCollection::GRAY);
 
 				//EFont::active_font->draw(_batch, EBaseData::base_data_registerer_list.at(bdbcs->target_id)->unlocalised_name, data_x + 30, y + size_y - data_y);
-				EFont::active_font->draw(_batch, *FilterBlock::filter_block_data_attribute_registerer.at(bdbcs->target_id)->name, data_x + 30, y + size_y - data_y);
+
+				if (EString::active_localisation == Enums::LocalisationList::EN)
+				{EFont::active_font->draw(_batch, *FilterBlock::filter_block_data_attribute_registerer.at(bdbcs->target_id)->name_EN, data_x + 30, y + size_y - data_y);}
+
+				if (EString::active_localisation == Enums::LocalisationList::RU)
+				{EFont::active_font->draw(_batch, *FilterBlock::filter_block_data_attribute_registerer.at(bdbcs->target_id)->name_RU, data_x + 30, y + size_y - data_y);}
 				
 				if ((bdbcs->condition_button != NULL) & (true))
 				{
@@ -1376,7 +1474,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 		if (data_y > max_h) { max_h = data_y; }
 
-		if (max_h < 230) { max_h = 130; }
+		if (max_h < 130) { max_h = 130; }
 
 		size_y = max_h;
 
@@ -1506,6 +1604,11 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 				if (bdbcs->main_button != NULL)
 				{
 					bdbcs->main_button->text_pass(_batch);
+				}
+
+				if (bdbcs->remove_button != NULL)
+				{
+					bdbcs->remove_button->text_pass(_batch);
 				}
 
 				if (bdbcs->remove_button != NULL)
@@ -1707,11 +1810,17 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		base_data_button_collection_struct* data_collection = new base_data_button_collection_struct;
 
 		int id = 0;
+		int order_id = 0;
 		for (FilterBlock::filter_block_data_attribute_struct* fbdas : FilterBlock::filter_block_data_attribute_registerer)
 		{
-			if (*fbdas->name == _text)
+			if (*fbdas->data_name == _text)
 			{
-				if (*fbdas->button_type == Enums::FilterBlockButtonType::FBBT_INPUT_FIELD)
+				if
+				(
+					(*fbdas->button_type == Enums::FilterBlockButtonType::FBBT_INPUT_FIELD)
+					||
+					(*fbdas->button_type == Enums::FilterBlockButtonType::FBBT_INPUT_FIELD_ANY)
+				)
 				{
 					EButton* but;
 					but = new EButtonDropCondition(0, 0, 30, 13, Enums::ButtonType::BUTTON_BASE_DATA_CONDITION_REGULAR);
@@ -1719,12 +1828,17 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 					but->master_window = StaticData::window_filter_block;
 					but->is_drop_list = true;
 					data_collection->condition_button = but;
+					but->selected_element = 2;
+					but->text = but->drop_text.at(2);
 
-					but = new EButtonInputBaseData(0, 0, 65, 17, Enums::ButtonType::BUTTON_BASE_DATA_INPUT_REGULAR);
+
+					but = new EButtonInputBaseData(0, 0, 85, 17, Enums::ButtonType::BUTTON_BASE_DATA_INPUT_REGULAR);
 					but->input_auto_clear_text = true;
 					but->master_block = _filter_block;
 					but->master_window = StaticData::window_filter_block;
 					data_collection->main_button = but;
+					if (*fbdas->button_type == Enums::FilterBlockButtonType::FBBT_INPUT_FIELD_ANY) { but->input_only_numbers = false; }
+					but->text = "0";
 					
 				}
 
@@ -1735,8 +1849,10 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 					but->master_block = _filter_block;
 					but->master_window = StaticData::window_filter_block;
 					data_collection->condition_button = but;
+					but->selected_element = 0;
+					but->text = but->drop_text.at(0);
 
-					but = new EButtonDropRarity(0, 0, 65, 17, Enums::ButtonType::BUTTON_BASE_DATA_RARITY_REGULAR);
+					but = new EButtonDropRarity(0, 0, 85, 17, Enums::ButtonType::BUTTON_BASE_DATA_RARITY_REGULAR);
 					but->master_block = _filter_block;
 					but->master_window = StaticData::window_filter_block;
 					data_collection->main_button = but;
@@ -1746,7 +1862,14 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 				_filter_block->base_data_button_collection_list.push_back(data_collection);
 
-				std::cout << "Found math. text:" << _text << " ID:" << id << std::endl;
+				//std::cout << "Found math. text:" << _text << " ID:" << id << std::endl;
+				
+				EButton* but_remove = new EButtonRemove(0, 0, 19, 19, Enums::ButtonType::BUTTON_REMOVE_BASE_DATA);
+				but_remove->master_window = StaticData::window_filter_block;
+				but_remove->master_block = _filter_block;
+				but_remove->data_id = _filter_block->base_data_button_collection_list.size() - 1;
+				data_collection->remove_button = but_remove;
+
 				return data_collection;
 				//break;
 			}

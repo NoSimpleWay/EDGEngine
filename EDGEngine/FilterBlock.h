@@ -305,7 +305,7 @@ public:
 
 	std::vector <EButton*> header_button_list;
 
-	float start_position_draw_x = 370.0f + 95.0f;
+	float start_position_draw_x = 370.0f + 95.0f + 75.0f;
 
 	EButton* link_to_continue_button;
 
@@ -331,7 +331,13 @@ public:
 
 	struct filter_block_data_attribute_struct
 	{
-		std::string* name		= new std::string("");
+		std::string* data_name		= new std::string("");
+
+		std::string* name_RU			= new std::string("");
+		std::string* name_EN			= new std::string("");
+
+		std::string* description_RU		= new std::string("");
+		std::string* description_EN		= new std::string("");
 
 		bool* have_operator		= new bool(false);
 		bool* have_input_field	= new bool(false);
@@ -428,10 +434,11 @@ public:
 	{
 		IM_ALL,
 		IM_ONE_OF,
-		IM_NONE
+		IM_NONE,
+		IM_IGNORE
 	};
 
-	int influence_mode = InfluenceMode::IM_ONE_OF;
+	int influence_mode = InfluenceMode::IM_IGNORE;
 
 	static base_data_button_collection_struct* add_new_base_attribute(std::string _text, FilterBlock* _filter_block);
 	/*int swithed_data_shaper_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;

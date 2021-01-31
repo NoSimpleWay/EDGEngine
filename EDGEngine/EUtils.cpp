@@ -1077,6 +1077,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 		FilterBlock::base_data_button_collection_struct* just_created_base_data_registerer = NULL;
 
+		std::string accumulated_operator = "";
+
 		while ((getline(myfile, line)) && (line_number < 10000))
 		{
 			bool is_base_type_equal_mode = false;
@@ -1189,24 +1191,36 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									parser_mode = Enums::ParserMode::IS_CORRUPTED; 
 								}
 								
-								if (subdata == "AlternateQuality") { parser_mode = Enums::ParserMode::ALTERNATIVE_QUALITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ALTERNATE_QUALITY) = true; }
-								if (subdata == "Replica") { parser_mode = Enums::ParserMode::IS_REPLICA; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IS_REPLICA) = true; }
+								if (subdata == "AlternateQuality")
+								{
+									parser_mode = Enums::ParserMode::ALTERNATIVE_QUALITY;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ALTERNATE_QUALITY) = true;
+								}
+							
+								if (subdata == "Replica")
+								{
+									parser_mode = Enums::ParserMode::IS_REPLICA;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IS_REPLICA) = true;
+								}
 								
 								if (subdata == "CorruptedMods")
 								{
 									parser_mode = Enums::ParserMode::CORRUPTED_MODS;
 									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("CorruptedMods", just_created_block);
 								}
+
 								if (subdata == "LinkedSockets")
 								{
 									parser_mode = Enums::ParserMode::LINKED_SOCKETS;
 									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("LinkedSockets", just_created_block);
 								}
+
 								if (subdata == "Rarity")
 								{
 									parser_mode = Enums::ParserMode::RARITY;
 									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("Rarity", just_created_block);
 								}
+
 								if (subdata == "Class")
 								{
 									//std::cout << "Try get acess to remove button" << std::endl;
@@ -1240,46 +1254,161 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								}
 
 								if (subdata == "SetFontSize") { parser_mode = Enums::ParserMode::FONT_SIZE; just_created_block->is_font_size_active = true; }
+
 								if (subdata == "SetTextColor") { parser_mode = Enums::ParserMode::TEXT_COLOR; just_created_block->is_text_color_active = true; }
+
 								if (subdata == "SetBorderColor") { parser_mode = Enums::ParserMode::BORDER_COLOR; just_created_block->is_rama_color_active = true; }
+
 								if (subdata == "SetBackgroundColor") { parser_mode = Enums::ParserMode::BACKGROUND_COLOR; just_created_block->is_bg_color_active = true; }
 
 								if (subdata == "PlayAlertSound") { parser_mode = Enums::ParserMode::ALERT_SOUND; just_created_block->is_alert_sound = true; just_created_block->is_positional_sound = false; }
+
 								if (subdata == "PlayAlertSoundPositional") { parser_mode = Enums::ParserMode::ALERT_SOUND; just_created_block->is_alert_sound = true;  just_created_block->is_positional_sound = true;}
 
 								if (subdata == "CustomAlertSound") { parser_mode = Enums::ParserMode::CUSTOM_ALERT_SOUND; just_created_block->is_custom_alert_sound = true; }
+
 								if (subdata == "PlayEffect") { parser_mode = Enums::ParserMode::RAY; just_created_block->is_ray = true; just_created_block->ray_is_temp = false; }
+
 								if (subdata == "MinimapIcon") { parser_mode = Enums::ParserMode::MINIMAP_ICON; just_created_block->is_minimap_icon = true; }
 
 								if (subdata == "BaseType") { parser_mode = Enums::ParserMode::BASETYPE; }
 
-								if (subdata == "ShaperItem") { parser_mode = Enums::ParserMode::IS_SHAPER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER) = true; }
+								if (subdata == "ShaperItem")
+								{
+									parser_mode = Enums::ParserMode::IS_SHAPER_ITEM;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER) = true;
+								}
 								
-								if (subdata == "HasInfluence") { parser_mode = Enums::ParserMode::IS_HAVE_INFLUENCE_OR; }
+								if (subdata == "HasInfluence")
+								{
+									parser_mode = Enums::ParserMode::IS_HAVE_INFLUENCE_OR;
+
+									just_created_block->influence_mode = FilterBlock::InfluenceMode::IM_ONE_OF;
+									just_created_block->link_to_all_or_oneof->bg_color->set(EColorCollection::WHITE);
+									just_created_block->link_to_all_or_oneof->text_color->set(EColorCollection::BLACK);
+
+									for (EButton* b : just_created_block->influences_button_list)
+									{
+										b->is_active = true;
+									}
+								}
 								
-								if (subdata == "ItemLevel") { parser_mode = Enums::ParserMode::ITEM_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL) = true; }
+								if (subdata == "ItemLevel")
+								{
+									parser_mode = Enums::ParserMode::ITEM_LEVEL;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("ItemLevel", just_created_block);
+								}
 
-								if (subdata == "HasExplicitMod") { parser_mode = Enums::ParserMode::EXPLICIT_MOD; explicit_group_id++;  just_created_block->is_explicit = true; }
-								if (subdata == "Identified") { parser_mode = Enums::ParserMode::IDENTIFIED; just_created_block->is_identified_active = true; }
-								if (subdata == "ElderItem") { parser_mode = Enums::ParserMode::IS_ELDER_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER) = true; }
-								if (subdata == "Sockets") { parser_mode = Enums::ParserMode::SOCKETS; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS) = true; data_order_start = 1;}
-								if (subdata == "FracturedItem") { parser_mode = Enums::ParserMode::IS_FRACTURED_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_FRACTURED) = true; }
-								if (subdata == "DropLevel") { parser_mode = Enums::ParserMode::DROP_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_REQUIRED_LEVEL) = true; }
+								if (subdata == "HasExplicitMod")
+								{
+									parser_mode = Enums::ParserMode::EXPLICIT_MOD; explicit_group_id++;
+									//just_created_block->is_explicit = true;
+								}
 
-								if (subdata == "Width") { parser_mode = Enums::ParserMode::WIDTH; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_WIDTH) = true; }
-								if (subdata == "Height") { parser_mode = Enums::ParserMode::HEIGHT; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_HEIGHT) = true; }
+								if (subdata == "Identified")
+								{
+									parser_mode = Enums::ParserMode::IDENTIFIED;
+									//just_created_block->is_identified_active = true;
+								}
 
-								if (subdata == "SynthesisedItem") { parser_mode = Enums::ParserMode::IS_SYNTHESISED_ITEM; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SYNTHESISED) = true; }
-								if (subdata == "AnyEnchantment") { parser_mode = Enums::ParserMode::IS_ANY_ENCHANTMENT; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ENCHANTMENT) = true; }
+								if (subdata == "ElderItem")
+								{
+									parser_mode = Enums::ParserMode::IS_ELDER_ITEM;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER) = true;
+								}
 
-								if (subdata == "Quality") { parser_mode = Enums::ParserMode::QUALITY; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_QUALITY) = true; }
-								if (subdata == "SocketGroup") { parser_mode = Enums::ParserMode::SOCKET_GROUP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP) = true; data_order_start = 1;}
-								if (subdata == "StackSize") { parser_mode = Enums::ParserMode::STACK_SIZE; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_STACK_SIZE) = true; }
-								if (subdata == "GemLevel") { parser_mode = Enums::ParserMode::GEM_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_GEM_LEVEL) = true; }
+								if (subdata == "Sockets")
+								{
+									parser_mode = Enums::ParserMode::SOCKETS;
+									accumulated_operator = "=";
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS) = true;
+									//data_order_start = 1;
+								}
 
-								if (subdata == "ElderMap") { parser_mode = Enums::ParserMode::IS_ELDER_MAP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_MAP) = true; }
-								if (subdata == "ShapedMap") { parser_mode = Enums::ParserMode::IS_SHAPER_MAP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_MAP) = true; }
-								if (subdata == "MapTier") { parser_mode = Enums::ParserMode::MAP_TIER; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MAP_TIER) = true; }
+								if (subdata == "FracturedItem")
+								{
+									parser_mode = Enums::ParserMode::IS_FRACTURED_ITEM;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_FRACTURED) = true;
+}
+								if (subdata == "DropLevel")
+								{
+									parser_mode = Enums::ParserMode::DROP_LEVEL;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_REQUIRED_LEVEL) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("DropLevel", just_created_block);
+								}
+
+								if (subdata == "Width")
+								{
+									parser_mode = Enums::ParserMode::WIDTH;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_WIDTH) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("Width", just_created_block);
+								}
+								if (subdata == "Height")
+								{
+									parser_mode = Enums::ParserMode::HEIGHT;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_HEIGHT) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("Height", just_created_block);
+								}
+
+								if (subdata == "SynthesisedItem")
+								{
+									parser_mode = Enums::ParserMode::IS_SYNTHESISED_ITEM;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SYNTHESISED) = true;
+								}
+
+								if (subdata == "AnyEnchantment")
+								{
+									parser_mode = Enums::ParserMode::IS_ANY_ENCHANTMENT;
+									just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ENCHANTMENT) = true;
+								}
+
+								if (subdata == "Quality")
+								{
+									parser_mode = Enums::ParserMode::QUALITY;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_QUALITY) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("Quality", just_created_block);
+								}
+								
+								if (subdata == "SocketGroup")
+								{
+									parser_mode = Enums::ParserMode::SOCKET_GROUP;
+									accumulated_operator = "=";
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP) = true;
+									//data_order_start = 1;
+								}
+								
+								if (subdata == "StackSize")
+								{
+									parser_mode = Enums::ParserMode::STACK_SIZE;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_STACK_SIZE) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("StackSize", just_created_block);
+								}
+
+								if (subdata == "GemLevel")
+								{
+									parser_mode = Enums::ParserMode::GEM_LEVEL;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_GEM_LEVEL) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("GemLevel", just_created_block);
+								}
+
+								if (subdata == "ElderMap")
+								{
+									parser_mode = Enums::ParserMode::IS_ELDER_MAP;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_MAP) = true;
+								}
+
+								if (subdata == "ShapedMap")
+								{
+									parser_mode = Enums::ParserMode::IS_SHAPER_MAP;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_MAP) = true;
+								}
+								if (subdata == "MapTier")
+								{
+									parser_mode = Enums::ParserMode::MAP_TIER;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MAP_TIER) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("MapTier", just_created_block);
+								}
 
 								if (subdata == "DisableDropSound") { parser_mode = Enums::ParserMode::DISABLE_DROP_SOUND; just_created_block->disable_drop_sound = true; }
 								if (subdata == "Prophecy")
@@ -1291,10 +1420,24 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_block->remove_prophecy_button->is_active = true;
 								}
 
-								if (subdata == "BlightedMap") { parser_mode = Enums::ParserMode::IS_BLIGHTED_MAP; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_BLIGHTED) = true; }
-								if (subdata == "Mirrored") { parser_mode = Enums::ParserMode::IS_MIRRORED; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM) = true; }
+								if (subdata == "BlightedMap")
+								{
+									parser_mode = Enums::ParserMode::IS_BLIGHTED_MAP;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_BLIGHTED) = true;
+								}
 
-								if (subdata == "AreaLevel") { parser_mode = Enums::ParserMode::AREA_LEVEL; just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL) = true; }
+								if (subdata == "Mirrored")
+								{
+									parser_mode = Enums::ParserMode::IS_MIRRORED;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM) = true; 
+								}
+
+								if (subdata == "AreaLevel")
+								{
+									parser_mode = Enums::ParserMode::AREA_LEVEL;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("AreaLevel", just_created_block);
+								}
 								//if (subdata == "EnchantmentPassiveNode") { parser_mode = Enums::ParserMode::CLUSTER_ENCHANTMENT; }
 							}
 							else
@@ -1379,6 +1522,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 							}
 
+
+
 							if (parser_mode == Enums::ParserMode::IS_CORRUPTED)
 							{
 								if (data_order == 0)
@@ -1389,7 +1534,24 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (data_order == 1)
 								{
 									if (show_info_to_console) { cout << "set corruption as <" << subdata << ">" << endl; }
-									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_CORRUPTION) = EString::convert_text_to_bool(subdata);
+
+									if (EString::convert_text_to_bool(subdata))
+									{ 
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_CORRUPTED)->gabarite
+										= DefaultGabarite::gabarite_switcher_vaaled;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_CORRUPTED)
+										= FilterBlock::SpecialStatusMode::SSM_ON;
+									}
+									else
+									{ 
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_CORRUPTED)->gabarite
+										= DefaultGabarite::gabarite_switcher_vaaled_off;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_CORRUPTED)
+										= FilterBlock::SpecialStatusMode::SSM_OFF;
+									}
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_CORRUPTION) = EString::convert_text_to_bool(subdata);
 								}
 							}
 
@@ -1403,7 +1565,24 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (data_order == 1)
 								{
 									if (show_info_to_console) { cout << "set alternate quality as as <" << subdata << ">" << endl; }
-									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ALTERNATE_QUALITY) = EString::convert_text_to_bool(subdata);
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ALTERNATE_QUALITY) = EString::convert_text_to_bool(subdata);
+
+									if (EString::convert_text_to_bool(subdata))
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY)->gabarite
+										= DefaultGabarite::gabarite_switcher_alternate_gem;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY)
+										= FilterBlock::SpecialStatusMode::SSM_ON;
+									}
+									else
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY)->gabarite
+										= DefaultGabarite::gabarite_switcher_alternate_gem_off;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY)
+										= FilterBlock::SpecialStatusMode::SSM_OFF;
+									}
 								}
 							}
 
@@ -1417,7 +1596,25 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (data_order == 1)
 								{
 									if (show_info_to_console) { cout << "set replica as <" << subdata << ">" << endl; }
-									just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_REPLICA) = EString::convert_text_to_bool(subdata);
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_REPLICA) = EString::convert_text_to_bool(subdata);
+
+									
+									if (EString::convert_text_to_bool(subdata))
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_REPLICA)->gabarite
+										= DefaultGabarite::gabarite_switcher_replica;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_REPLICA)
+										= FilterBlock::SpecialStatusMode::SSM_ON;
+									}
+									else
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_REPLICA)->gabarite
+										= DefaultGabarite::gabarite_switcher_replica_off;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_REPLICA)
+										= FilterBlock::SpecialStatusMode::SSM_OFF;
+									}
 								}
 							}
 
@@ -1482,6 +1679,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 									if (just_created_base_data_registerer->condition_button != NULL)
 									{just_created_base_data_registerer->condition_button->text = "=";}
+
+									if (EString::to_lower(subdata) == "normal") { just_created_base_data_registerer->main_button->selected_element = 0; }
+									if (EString::to_lower(subdata) == "magic") { just_created_base_data_registerer->main_button->selected_element = 1; }
+									if (EString::to_lower(subdata) == "rare") { just_created_base_data_registerer->main_button->selected_element = 2; }
+									if (EString::to_lower(subdata) == "unique") { just_created_base_data_registerer->main_button->selected_element = 3; }
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
@@ -1490,6 +1692,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									//just_created_block->rarity_condition = subdata;
 									if (just_created_base_data_registerer->condition_button != NULL)
 									{just_created_base_data_registerer->condition_button->text = subdata;}
+
+
 								}
 
 								if (data_order == 2)
@@ -1649,6 +1853,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								
 								}
 							}
+
 							if (parser_mode == Enums::ParserMode::FONT_SIZE)
 							{
 								//if (data_order == 0) { cout << "activate rarity property" << endl; }
@@ -1893,12 +2098,31 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							if (parser_mode == Enums::ParserMode::IS_SHAPER_ITEM)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate shaper item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set shaper item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1)
+								{
+									if (show_info_to_console)
+									{
+										cout << "set shaper item as <" << subdata << ">" << endl; }
+										//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER) = EString::convert_text_to_bool(subdata);
+
+									if (just_created_block->influence_mode == FilterBlock::InfluenceMode::IM_IGNORE)
+									{just_created_block->influence_mode = FilterBlock::InfluenceMode::IM_ONE_OF;}
+
+									just_created_block->vector_influence.at(FilterBlock::InfluenceList::IL_SHAPER) = true;
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_SHAPER)->gabarite = DefaultGabarite::gabarite_switcher_influence_shaper;
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_SHAPER)->rama_color->set(EColorCollection::YELLOW);
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_SHAPER)->bg_color->set(EColorCollection::WHITE);
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_HAVE_INFLUENCE_OR)
 							{
-								if (data_order == 0) { if (show_info_to_console) { cout << "activate shaper item property" << endl; } }
+								if (data_order == 0)
+								{ 
+									if (show_info_to_console) { cout << "activate shaper item property" << endl;}
+
+									
+								}
 
 								if ((data_order == 1) && (subdata == "=="))
 								{
@@ -1909,6 +2133,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									if (show_info_to_console) { cout << "change to AND mode. ID=" << std::to_string(parser_mode) << endl; }
 
 									just_created_block->influence_mode = FilterBlock::InfluenceMode::IM_ALL;
+									just_created_block->link_to_all_or_oneof->bg_color->set(EColorCollection::WHITE);
+									just_created_block->link_to_all_or_oneof->text_color->set(EColorCollection::BLACK);
+
+									for (EButton* b : just_created_block->influences_button_list)
+									{
+										b->is_active = true;
+									}
 									//just_created_block->link_to_all_or_oneof->text = EString::localize_it("influence_all");;
 								}
 
@@ -2073,10 +2304,38 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate item level" << endl; } }
 
 
-								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata))) { if (show_info_to_console) { cout << "set item level as <" << subdata << "> condition autogenerated" << endl; } just_created_block->item_level = std::stoi(subdata); just_created_block->item_level_condition = "="; }
-								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata))) { if (show_info_to_console) { cout << "set item level condition as <" << subdata << "> id of symbol=" << endl; } just_created_block->item_level_condition = subdata; }
+								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set item level as <" << subdata << "> condition autogenerated" << endl; }
+									//just_created_block->item_level = std::stoi(subdata); just_created_block->item_level_condition = "=";
 
-								if (data_order == 2) { if (show_info_to_console) { cout << "set item_level as <" << subdata << ">" << endl; } just_created_block->item_level = std::stoi(subdata); }
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
+								
+								}
+								
+								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set item level condition as <" << subdata << "> id of symbol=" << endl; }
+									//just_created_block->item_level_condition = subdata;
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
+								}
+
+								if (data_order == 2)
+								{
+									if (show_info_to_console)
+									{
+										cout << "set item_level as <" << subdata << ">" << endl; }
+									//just_created_block->item_level = std::stoi(subdata);
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::EXPLICIT_MOD)
@@ -2115,13 +2374,49 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 							if (parser_mode == Enums::ParserMode::IDENTIFIED)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate indetify property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set indetification as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_IDENTIFIED) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console)
+								{
+									cout << "set indetification as <" << subdata << ">" << endl; }
+									//just_created_block->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_IDENTIFIED) = EString::convert_text_to_bool(subdata);
+
+								
+									if (EString::convert_text_to_bool(subdata))
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_IDENTIFIED)->gabarite
+										= DefaultGabarite::gabarite_switcher_identified;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_IDENTIFIED)
+										= FilterBlock::SpecialStatusMode::SSM_ON;
+									}
+									else
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_IDENTIFIED)->gabarite
+										= DefaultGabarite::gabarite_switcher_identified_off;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_IDENTIFIED)
+										= FilterBlock::SpecialStatusMode::SSM_OFF;
+									}
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_ELDER_ITEM)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate elder item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set elder item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1)
+								{
+									if (show_info_to_console)
+									{
+										cout << "set elder item as <" << subdata << ">" << endl; }
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER) = EString::convert_text_to_bool(subdata);
+
+									if (just_created_block->influence_mode == FilterBlock::InfluenceMode::IM_IGNORE)
+									{just_created_block->influence_mode = FilterBlock::InfluenceMode::IM_ONE_OF;}
+
+									just_created_block->vector_influence.at(FilterBlock::InfluenceList::IL_ELDER) = true;
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_ELDER)->gabarite = DefaultGabarite::gabarite_switcher_influence_elder;
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_ELDER)->rama_color->set(EColorCollection::YELLOW);
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_ELDER)->bg_color->set(EColorCollection::WHITE);
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::DROP_LEVEL)
@@ -2129,40 +2424,38 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate required level" << endl; } }
 
 
-								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata))) { if (show_info_to_console) { cout << "set required level as <" << subdata << "> condition autogenerated" << endl; } just_created_block->required_level = std::stoi(subdata); just_created_block->required_level_condition = "="; }
-								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata))) { if (show_info_to_console) { cout << "set required level condition as <" << subdata << "> id of symbol="  << endl; } just_created_block->required_level_condition = subdata; }
-
-								if (data_order == 2) { if (show_info_to_console) { cout << "set required level as <" << subdata << ">" << endl; } just_created_block->required_level = std::stoi(subdata); }
-							}
-
-							/*
-							if (parser_mode == Enums::ParserMode::SOCKETS)
-							{
-								if (data_order == 0)
-								{
-									if (show_info_to_console) { cout << "activate sockets property" << endl; }
-								}
-
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
-									if (show_info_to_console) { cout << "set sockets as <" << subdata << ">" << endl; }
-									just_created_block->socket_count = std::stoi(subdata);
-									just_created_block->socket_condition = "=";
+									if (show_info_to_console)
+									{
+										cout << "set required level as <" << subdata << "> condition autogenerated" << endl; }
+									//just_created_block->required_level = std::stoi(subdata); just_created_block->required_level_condition = "=";
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
-									if (show_info_to_console) { cout << "set sockets condition as <" << subdata << ">" << endl; }
-									just_created_block->socket_condition = subdata;
+									if (show_info_to_console) { cout << "set required level condition as <" << subdata << "> id of symbol="  << endl; }
+									//just_created_block->required_level_condition = subdata;
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
 								}
 
 								if (data_order == 2)
 								{
-									if (show_info_to_console) { cout << "set sockets as <" << subdata << ">" << endl; }
-									just_created_block->socket_count = std::stoi(subdata);
+									if (show_info_to_console){ cout << "set required level as <" << subdata << ">" << endl; }
+									//just_created_block->required_level = std::stoi(subdata);
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
 								}
 							}
-							*/
 
 							if (parser_mode == Enums::ParserMode::WIDTH)
 							{
@@ -2174,20 +2467,34 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set width as <" << subdata << ">" << endl; }
-									just_created_block->item_width = std::stoi(subdata);
-									just_created_block->item_width_condition = "=";
+									//just_created_block->item_width = std::stoi(subdata);
+									//just_created_block->item_width_condition = "=";
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set width condition as <" << subdata << ">" << endl; }
-									just_created_block->item_width_condition = subdata;
+									//just_created_block->item_width_condition = subdata;
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
+
+
 								}
 
 								if (data_order == 2)
 								{
 									if (show_info_to_console) { cout << "set width as <" << subdata << ">" << endl; }
-									just_created_block->item_width = std::stoi(subdata);
+									//just_created_block->item_width = std::stoi(subdata);
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
 								}
 							}
 
@@ -2201,51 +2508,174 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set height as <" << subdata << ">" << endl; }
-									just_created_block->item_height = std::stoi(subdata);
-									just_created_block->item_height_condition = "=";
+									//just_created_block->item_height = std::stoi(subdata);
+									//just_created_block->item_height_condition = "=";
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set height condition as <" << subdata << ">" << endl; }
-									just_created_block->item_height_condition = subdata;
+									//just_created_block->item_height_condition = subdata;
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
 								}
 
 								if (data_order == 2)
 								{
 									if (show_info_to_console) { cout << "set height as <" << subdata << ">" << endl; }
-									just_created_block->item_height = std::stoi(subdata);
+									//just_created_block->item_height = std::stoi(subdata);
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
 								}
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_FRACTURED_ITEM)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate fractured item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set fractured item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_FRACTURED) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1)
+								{
+									if (show_info_to_console){ cout << "set fractured item as <" << subdata << ">" << endl; }
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_FRACTURED) = EString::convert_text_to_bool(subdata);
+
+									
+									if (EString::convert_text_to_bool(subdata))
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_FRACTURED)->gabarite
+										= DefaultGabarite::gabarite_switcher_fractured;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_FRACTURED)
+										= FilterBlock::SpecialStatusMode::SSM_ON;
+									}
+									else
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_FRACTURED)->gabarite
+										= DefaultGabarite::gabarite_switcher_fractured_off;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_FRACTURED)
+										= FilterBlock::SpecialStatusMode::SSM_OFF;
+									}
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_SYNTHESISED_ITEM)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate synthesised item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set synthesised item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SYNTHESISED) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1) { if (show_info_to_console)
+								{
+									cout << "set synthesised item as <" << subdata << ">" << endl; }
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SYNTHESISED) = EString::convert_text_to_bool(subdata);
+
+
+								if (EString::convert_text_to_bool(subdata))
+								{
+									just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_SYNTHESISED)->gabarite
+										= DefaultGabarite::gabarite_switcher_synthesised;
+
+									just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SYNTHESISED)
+										= FilterBlock::SpecialStatusMode::SSM_ON;
+								}
+								else
+								{
+									just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_SYNTHESISED)->gabarite
+										= DefaultGabarite::gabarite_switcher_synthesised_off;
+
+									just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SYNTHESISED)
+										= FilterBlock::SpecialStatusMode::SSM_OFF;
+								}
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_BLIGHTED_MAP)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate blighted map property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set blighted item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_BLIGHTED) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1)
+								{
+									if (show_info_to_console) { cout << "set blighted item as <" << subdata << ">" << endl; }
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_BLIGHTED) = EString::convert_text_to_bool(subdata);
+
+									
+									if (EString::convert_text_to_bool(subdata))
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_BLIGHTED)->gabarite
+										= DefaultGabarite::gabarite_switcher_blighted;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_BLIGHTED)
+										= FilterBlock::SpecialStatusMode::SSM_ON;
+									}
+									else
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_BLIGHTED)->gabarite
+										= DefaultGabarite::gabarite_switcher_blighted_off;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_BLIGHTED)
+										= FilterBlock::SpecialStatusMode::SSM_OFF;
+									}
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_MIRRORED)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate mirrored item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set mirrored item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_MIRRORED_ITEM) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1)
+								{
+									if (show_info_to_console) {cout << "set mirrored item as <" << subdata << ">" << endl; }
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_MIRRORED_ITEM) = EString::convert_text_to_bool(subdata);
+
+									
+									if (EString::convert_text_to_bool(subdata))
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_MIRRORED)->gabarite
+										= DefaultGabarite::gabarite_switcher_mirrored;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_MIRRORED)
+										= FilterBlock::SpecialStatusMode::SSM_ON;
+									}
+									else
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_MIRRORED)->gabarite
+										= DefaultGabarite::gabarite_switcher_mirrored_off;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_MIRRORED)
+										= FilterBlock::SpecialStatusMode::SSM_OFF;
+									}
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_ANY_ENCHANTMENT)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate enchantment item property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set enchantment item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ANY_ENCHANTMENT) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1)
+								{
+									if (show_info_to_console)
+									{
+										cout << "set enchantment item as <" << subdata << ">" << endl; }
+										//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ANY_ENCHANTMENT) = EString::convert_text_to_bool(subdata);
+
+										if (EString::convert_text_to_bool(subdata))
+										{
+											just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_ENCHANTED)->gabarite
+											= DefaultGabarite::gabarite_switcher_enchant;
+
+											just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ENCHANTED)
+											= FilterBlock::SpecialStatusMode::SSM_ON;
+										}
+										else
+										{
+											just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_ENCHANTED)->gabarite
+											= DefaultGabarite::gabarite_switcher_enchant_off;
+
+											just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ENCHANTED)
+											= FilterBlock::SpecialStatusMode::SSM_OFF;
+										}
+									}
 							}
 
 							if (parser_mode == Enums::ParserMode::QUALITY)
@@ -2258,20 +2688,32 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set quality as <" << subdata << ">" << endl; }
-									just_created_block->item_quality = std::stoi(subdata);
-									just_created_block->item_quality_condition = "=";
+									//just_created_block->item_quality = std::stoi(subdata);
+									//just_created_block->item_quality_condition = "=";
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set hqualityeight condition as <" << subdata << ">" << endl; }
-									just_created_block->item_quality_condition = subdata;
+									//just_created_block->item_quality_condition = subdata;
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
 								}
 
 								if (data_order == 2)
 								{
 									if (show_info_to_console) { cout << "set quality as <" << subdata << ">" << endl; }
-									just_created_block->item_quality = std::stoi(subdata);
+									//just_created_block->item_quality = std::stoi(subdata);
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
 								}
 							}
 
@@ -2289,8 +2731,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set socket group condition as <" << subdata << ">" << endl; }
-									just_created_block->socket_group_condition = subdata;
-									data_order_start = 2;
+
+									accumulated_operator = subdata;
+									//just_created_block->socket_group_condition = subdata;
+									//data_order_start = 2;
 								}
 
 								if
@@ -2304,6 +2748,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									(data_order >= 2)
 								)
 								{
+									/*
 									for (int socket = 0; socket < subdata.length(); socket++)
 									{
 										if (subdata.at(socket) == '1') { just_created_block->socket_group_links.at(data_order - data_order_start) = 1; }
@@ -2319,6 +2764,18 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										if (subdata.at(socket) == 'W') { just_created_block->white_sockets_group.at(data_order - data_order_start)++; }
 										if (subdata.at(socket) == 'A') { just_created_block->abyss_sockets_group.at(data_order - data_order_start)++; }
 										if (subdata.at(socket) == 'D') { just_created_block->delve_sockets_group.at(data_order - data_order_start)++; }
+									}
+									*/
+
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("SocketGroup", just_created_block);
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{
+										just_created_base_data_registerer->condition_button->text = accumulated_operator;
+									}
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{
+										just_created_base_data_registerer->main_button->text = subdata;
 									}
 
 									//{ cout << "set RED as <" << just_created_block->red_sockets.at(data_order - data_order_start) << "> set GREEN as <" << just_created_block->green_sockets.at(data_order - data_order_start) << "> set BLUE as <" << just_created_block->blue_sockets.at(data_order - data_order_start) << "> set WHITE as <" << just_created_block->white_sockets.at(data_order - data_order_start) << ">" << endl; }
@@ -2341,8 +2798,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set sockets condition as <" << subdata << ">" << endl; }
-									just_created_block->socket_condition = subdata;
-									data_order_start = 2;
+									//just_created_block->socket_condition = subdata;
+									//data_order_start = 2;
+
+									accumulated_operator = subdata;
 								}
 
 								if
@@ -2356,7 +2815,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									(data_order >= 2)
 								)
 								{
-									for (int socket = 0; socket < subdata.length(); socket++)
+
+									/*for (int socket = 0; socket < subdata.length(); socket++)
 									{
 										if (subdata.at(socket) == '1') { just_created_block->socket_count.at(data_order - data_order_start) = 1; }
 										if (subdata.at(socket) == '2') { just_created_block->socket_count.at(data_order - data_order_start) = 2; }
@@ -2371,6 +2831,17 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										if (subdata.at(socket) == 'W') { just_created_block->white_sockets.at(data_order - data_order_start)++; }
 										if (subdata.at(socket) == 'A') { just_created_block->abyss_sockets.at(data_order - data_order_start)++; }
 										if (subdata.at(socket) == 'D') { just_created_block->delve_sockets.at(data_order - data_order_start)++; }
+									}*/
+
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("Sockets", just_created_block);
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{
+										just_created_base_data_registerer->condition_button->text = accumulated_operator;
+									}
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{
+										just_created_base_data_registerer->main_button->text = subdata;
 									}
 
 									//{ cout << "set RED as <" << just_created_block->red_sockets.at(data_order - data_order_start) << "> set GREEN as <" << just_created_block->green_sockets.at(data_order - data_order_start) << "> set BLUE as <" << just_created_block->blue_sockets.at(data_order - data_order_start) << "> set WHITE as <" << just_created_block->white_sockets.at(data_order - data_order_start) << ">" << endl; }
@@ -2392,20 +2863,29 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set stack size as <" << subdata << ">" << endl; }
-									just_created_block->item_stack_size = std::stoi(subdata);
-									just_created_block->item_stack_size_condition = "=";
+									//just_created_block->item_stack_size = std::stoi(subdata);
+									//just_created_block->item_stack_size_condition = "=";
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set stack size condition as <" << subdata << ">" << endl; }
-									just_created_block->item_stack_size_condition = subdata;
+									//just_created_block->item_stack_size_condition = subdata;
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
 								}
 
 								if (data_order == 2)
 								{
 									if (show_info_to_console) { cout << "set stack size as <" << subdata << ">" << endl; }
-									just_created_block->item_stack_size = std::stoi(subdata);
+									//just_created_block->item_stack_size = std::stoi(subdata);
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
 								}
 							}
 
@@ -2419,33 +2899,71 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
-									just_created_block->gem_level = std::stoi(subdata);
-									just_created_block->gem_level_condition = "=";
+									//just_created_block->gem_level = std::stoi(subdata);
+									//just_created_block->gem_level_condition = "=";
+
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set gem level condition as <" << subdata << ">" << endl; }
-									just_created_block->gem_level_condition = subdata;
+									//just_created_block->gem_level_condition = subdata;
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
 								}
 
 								if (data_order == 2)
 								{
 									if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
-									just_created_block->gem_level = std::stoi(subdata);
+								//	just_created_block->gem_level = std::stoi(subdata);
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
 								}
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_ELDER_MAP)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate elder map property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set elder map item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_MAP) = EString::convert_text_to_bool(subdata); }
+								
+								if (data_order == 1)
+								{
+									if (show_info_to_console)
+									{
+										cout << "set elder map item as <" << subdata << ">" << endl; }
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_MAP) = EString::convert_text_to_bool(subdata);
+
+									if (just_created_block->influence_mode == FilterBlock::InfluenceMode::IM_IGNORE)
+									{just_created_block->influence_mode = FilterBlock::InfluenceMode::IM_ONE_OF;}
+
+									just_created_block->vector_influence.at(FilterBlock::InfluenceList::IL_ELDER) = true;
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_ELDER)->gabarite = DefaultGabarite::gabarite_switcher_influence_elder;
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_ELDER)->rama_color->set(EColorCollection::YELLOW);
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_ELDER)->bg_color->set(EColorCollection::WHITE);
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::IS_SHAPER_MAP)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate shaper map property" << endl; } }
-								if (data_order == 1) { if (show_info_to_console) { cout << "set shaper map item as <" << subdata << ">" << endl; } just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_MAP) = EString::convert_text_to_bool(subdata); }
+								if (data_order == 1)
+								{
+									if (show_info_to_console) { cout << "set shaper map item as <" << subdata << ">" << endl; }
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_MAP) = EString::convert_text_to_bool(subdata);
+
+									if (just_created_block->influence_mode == FilterBlock::InfluenceMode::IM_IGNORE)
+									{just_created_block->influence_mode = FilterBlock::InfluenceMode::IM_ONE_OF;}
+
+									just_created_block->vector_influence.at(FilterBlock::InfluenceList::IL_SHAPER) = true;
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_SHAPER)->gabarite = DefaultGabarite::gabarite_switcher_influence_shaper;
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_SHAPER)->rama_color->set(EColorCollection::YELLOW);
+									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_SHAPER)->bg_color->set(EColorCollection::WHITE);
+								}
 							}
 
 							if (parser_mode == Enums::ParserMode::MAP_TIER)
@@ -2458,20 +2976,29 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
-									just_created_block->map_tier = std::stoi(subdata);
-									just_created_block->map_tier_condition = "=";
+									//just_created_block->map_tier = std::stoi(subdata);
+									//just_created_block->map_tier_condition = "=";
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set map tier condition as < " << subdata << " >" << endl; }
-									just_created_block->map_tier_condition = subdata;
+									//just_created_block->map_tier_condition = subdata;
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
 								}
 
 								if (data_order == 2)
 								{
 									if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
-									just_created_block->map_tier = std::stoi(subdata);
+									//just_created_block->map_tier = std::stoi(subdata);
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
 								}
 							}
 
@@ -2485,20 +3012,29 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set area level as <" << subdata << ">" << endl; }
-									just_created_block->area_level = std::stoi(subdata);
-									just_created_block->area_level_condition = "=";
+									//just_created_block->area_level = std::stoi(subdata);
+									//just_created_block->area_level_condition = "=";
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = "=";}
 								}
 
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
 									if (show_info_to_console) { cout << "set area level condition as < " << subdata << " >" << endl; }
-									just_created_block->area_level_condition = subdata;
+									//just_created_block->area_level_condition = subdata;
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{just_created_base_data_registerer->condition_button->text = subdata;}
 								}
 
 								if (data_order == 2)
 								{
 									if (show_info_to_console) { cout << "set area level as <" << subdata << ">" << endl; }
-									just_created_block->area_level = std::stoi(subdata);
+									//just_created_block->area_level = std::stoi(subdata);
+									if (just_created_base_data_registerer->main_button != NULL)
+									{just_created_base_data_registerer->main_button->text = subdata;}
 								}
 							}
 
@@ -2733,75 +3269,10 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				else { loot_writer += "false\n"; }
 			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_CORRUPTION))
-				{
-					loot_writer += '\t';
-					loot_writer += "Corrupted True";
-					loot_writer += '\n';
-				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "Corrupted False";
-					loot_writer += '\n';
-				}
-			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ALTERNATE_QUALITY))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ALTERNATE_QUALITY))
-				{
-					loot_writer += '\t';
-					loot_writer += "AlternateQuality True";
-					loot_writer += '\n';
-				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "AlternateQuality False";
-					loot_writer += '\n';
-				}
-			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IS_REPLICA))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_REPLICA))
-				{
-					loot_writer += '\t';
-					loot_writer += "Replica True";
-					loot_writer += '\n';
-				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "Replica False";
-					loot_writer += '\n';
-				}
-			}
 			
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_LINKS))
-			{
-				loot_writer += '\t';
-				loot_writer += "LinkedSockets ";
-				loot_writer += fb->links_condition;
-				loot_writer += " ";
-				loot_writer += std::to_string(fb->links_count);
 
-				loot_writer += '\n';
-			}
-
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_RARITY))
-			{
-				loot_writer += '\t';
-				loot_writer += "Rarity ";
-				loot_writer += fb->rarity_condition;
-				loot_writer += " ";
-				loot_writer += fb->item_rarity;
-
-				loot_writer += '\n';
-			}
 
 			if ((fb->is_base_class_active) && (fb->base_class_list.size() > 0))
 			{
@@ -2818,7 +3289,6 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				loot_writer += '\n';
 			}
-
 			if ((fb->is_enchantment_active) && (fb->enchantment_list.size() > 0))
 			{
 				loot_writer += '\t';
@@ -3147,49 +3617,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					loot_writer += '\n';
 			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER))
-				{
-					loot_writer += '\t';
-					loot_writer += "ShaperItem True";
-					loot_writer += '\n';
-				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "ShaperItem False";
-					loot_writer += '\n';
-				}
-			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER))
-				{
-					loot_writer += '\t';
-					loot_writer += "ElderItem True";
-					loot_writer += '\n';
-				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "ElderItem False";
-					loot_writer += '\n';
-				}
-			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL))
-			{
-				loot_writer += '\t';
-				loot_writer += "ItemLevel ";
-
-				loot_writer += fb->item_level_condition;
-				loot_writer += " ";
-				loot_writer += std::to_string(fb->item_level);
-
-				loot_writer += '\n';
-			}
 
 			for (ExplicitGroup* ex : fb->explicit_list)
 			{
@@ -3210,21 +3639,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				}
 			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IDENTIFIED))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_IDENTIFIED))
-				{
-					loot_writer += '\t';
-					loot_writer += "Identified True";
-					loot_writer += '\n';
-				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "Identified False";
-					loot_writer += '\n';
-				}
-			}
+			
+				
 
 			/*
 			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_ITEM))
@@ -3243,17 +3659,6 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				}
 			}*/
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_REQUIRED_LEVEL))
-			{
-				loot_writer += '\t';
-				loot_writer += "DropLevel ";
-
-				loot_writer += fb->required_level_condition;
-				loot_writer += " ";
-				loot_writer += std::to_string(fb->required_level);
-
-				loot_writer += '\n';
-			}
 
 			/*
 			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS))
@@ -3268,284 +3673,174 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += '\n';
 			}*/
 
-
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_FRACTURED))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_FRACTURED))
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_CORRUPTED) == FilterBlock::SpecialStatusMode::SSM_ON)
 				{
 					loot_writer += '\t';
-					loot_writer += "FracturedItem True";
+					loot_writer += "Corrupted True";
 					loot_writer += '\n';
 				}
-				else
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_CORRUPTED) == FilterBlock::SpecialStatusMode::SSM_OFF)
 				{
 					loot_writer += '\t';
-					loot_writer += "FracturedItem False";
+					loot_writer += "Corrupted False";
 					loot_writer += '\n';
 				}
-			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_WIDTH))
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_IDENTIFIED) == FilterBlock::SpecialStatusMode::SSM_ON)
 			{
 				loot_writer += '\t';
-				loot_writer += "Width ";
-
-				loot_writer += fb->item_width_condition;
-				loot_writer += " ";
-				loot_writer += std::to_string(fb->item_width);
-
+				loot_writer += "Identified True";
 				loot_writer += '\n';
 			}
-
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_HEIGHT))
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_IDENTIFIED) == FilterBlock::SpecialStatusMode::SSM_OFF)
 			{
 				loot_writer += '\t';
-				loot_writer += "Height ";
-
-				loot_writer += fb->item_height_condition;
-				loot_writer += " ";
-				loot_writer += std::to_string(fb->item_height);
-
+				loot_writer += "Identified False";
 				loot_writer += '\n';
 			}
-
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SYNTHESISED))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_SYNTHESISED))
-				{
-					loot_writer += '\t';
-					loot_writer += "SynthesisedItem True";
-					loot_writer += '\n';
-				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "SynthesisedItem False";
-					loot_writer += '\n';
-				}
-			}
-
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_BLIGHTED))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_BLIGHTED))
-				{
-					loot_writer += '\t';
-					loot_writer += "BlightedMap True";
-					loot_writer += '\n';
-				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "BlightedMap False";
-					loot_writer += '\n';
-				}
-			}
-
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_MIRRORED_ITEM))
-				{
-					loot_writer += '\t';
-					loot_writer += "Mirrored True";
-					loot_writer += '\n';
-				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "Mirrored False";
-					loot_writer += '\n';
-				}
-			}
-
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ENCHANTMENT))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ANY_ENCHANTMENT))
+				
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ENCHANTED) == FilterBlock::SpecialStatusMode::SSM_ON)
 				{
 					loot_writer += '\t';
 					loot_writer += "AnyEnchantment True";
 					loot_writer += '\n';
 				}
-				else
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ENCHANTED) == FilterBlock::SpecialStatusMode::SSM_OFF)
 				{
 					loot_writer += '\t';
 					loot_writer += "AnyEnchantment False";
 					loot_writer += '\n';
 				}
-			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_QUALITY))
-			{
-				loot_writer += '\t';
-				loot_writer += "Quality ";
 
-				loot_writer += fb->item_quality_condition;
-				loot_writer += " ";
-				loot_writer += std::to_string(fb->item_quality);
-
-				loot_writer += '\n';
-			}
-
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP))
-			{
-				loot_writer += '\t';
-				loot_writer += "SocketGroup ";
-
-				loot_writer += fb->socket_group_condition;
-
-				for (int k = 0; k < fb->red_sockets_group.size(); k++)
-				if
-				(
-					fb->socket_group_links.at(k) +
-					fb->red_sockets_group.at(k)+
-					fb->green_sockets_group.at(k)+
-					fb->blue_sockets_group.at(k)+
-					fb->white_sockets_group.at(k)+
-					fb->abyss_sockets_group.at(k)+
-					fb->delve_sockets_group.at(k)
-					>0
-				)
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SYNTHESISED) == FilterBlock::SpecialStatusMode::SSM_ON)
 				{
-
-
-					loot_writer += " ";
-					loot_writer += '"';
-
-					if (fb->socket_group_links.at(k) > 0) { loot_writer += std::to_string(fb->socket_group_links.at(k)); }
-
-					for (int i = 0; i < fb->red_sockets_group.at(k); i++) { loot_writer += "R"; }
-					for (int i = 0; i < fb->green_sockets_group.at(k); i++) { loot_writer += "G"; }
-					for (int i = 0; i < fb->blue_sockets_group.at(k); i++) { loot_writer += "B"; }
-					for (int i = 0; i < fb->white_sockets_group.at(k); i++) { loot_writer += "W"; }
-
-					for (int i = 0; i < fb->abyss_sockets_group.at(k); i++) { loot_writer += "A"; }
-					for (int i = 0; i < fb->delve_sockets_group.at(k); i++) { loot_writer += "D"; }
-
-					loot_writer += '"';
+					loot_writer += '\t';
+					loot_writer += "SynthesisedItem True";
+					loot_writer += '\n';
+				}
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SYNTHESISED) == FilterBlock::SpecialStatusMode::SSM_OFF)
+				{
+					loot_writer += '\t';
+					loot_writer += "SynthesisedItem False";
+					loot_writer += '\n';
 				}
 
-				loot_writer += '\n';
-			}
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_FRACTURED) == FilterBlock::SpecialStatusMode::SSM_ON)
+				{
+					loot_writer += '\t';
+					loot_writer += "FracturedItem True";
+					loot_writer += '\n';
+				}
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_FRACTURED) == FilterBlock::SpecialStatusMode::SSM_OFF)
+				{
+					loot_writer += '\t';
+					loot_writer += "FracturedItem False";
+					loot_writer += '\n';
+				}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS))
-			{
-				loot_writer += '\t';
-				loot_writer += "Sockets ";
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_BLIGHTED) == FilterBlock::SpecialStatusMode::SSM_ON)
+				{
+					loot_writer += '\t';
+					loot_writer += "BlightedMap True";
+					loot_writer += '\n';
+				}
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_BLIGHTED) == FilterBlock::SpecialStatusMode::SSM_OFF)
+				{
+					loot_writer += '\t';
+					loot_writer += "BlightedMap False";
+					loot_writer += '\n';
+				}
 
-				loot_writer += fb->socket_condition;
 
-				for (int k = 0; k < fb->red_sockets.size(); k++)
-					if
-						(
-							fb->socket_count.at(k) +
-							fb->red_sockets.at(k) +
-							fb->green_sockets.at(k) +
-							fb->blue_sockets.at(k) +
-							fb->white_sockets.at(k) +
-							fb->abyss_sockets.at(k) +
-							fb->delve_sockets.at(k)
-							> 0
-						)
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY) == FilterBlock::SpecialStatusMode::SSM_ON)
+				{
+					loot_writer += '\t';
+					loot_writer += "AlternateQuality True";
+					loot_writer += '\n';
+				}
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY) == FilterBlock::SpecialStatusMode::SSM_OFF)
+				{
+					loot_writer += '\t';
+					loot_writer += "AlternateQuality False";
+					loot_writer += '\n';
+				}
+
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_REPLICA) == FilterBlock::SpecialStatusMode::SSM_ON)
+				{
+					loot_writer += '\t';
+					loot_writer += "Replica True";
+					loot_writer += '\n';
+				}
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_REPLICA) == FilterBlock::SpecialStatusMode::SSM_OFF)
+				{
+					loot_writer += '\t';
+					loot_writer += "Replica False";
+					loot_writer += '\n';
+				}
+
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_MIRRORED) == FilterBlock::SpecialStatusMode::SSM_ON)
+				{
+					loot_writer += '\t';
+					loot_writer += "Mirrored True";
+					loot_writer += '\n';
+				}
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_MIRRORED) == FilterBlock::SpecialStatusMode::SSM_OFF)
+				{
+					loot_writer += '\t';
+					loot_writer += "Mirrored False";
+					loot_writer += '\n';
+				}
+
+				for (FilterBlock::base_data_button_collection_struct* bdbcl : fb->FilterBlock::base_data_button_collection_list)
+				{
+					if (*FilterBlock::filter_block_data_attribute_registerer.at(bdbcl->target_id)->button_type == Enums::FilterBlockButtonType::FBBT_DROP_LIST_RARITY)
 					{
+						loot_writer += '\t';
 
+						//base data name
+						loot_writer += *FilterBlock::filter_block_data_attribute_registerer.at(bdbcl->target_id)->data_name;
+						loot_writer += ' ';
 
-						loot_writer += " ";
-						loot_writer += '"';
+						//condition operator
+						loot_writer += bdbcl->condition_button->text;
+						loot_writer += ' ';
 
-						if (fb->socket_count.at(k) > 0) { loot_writer += std::to_string(fb->socket_count.at(k)); }
-
-						for (int i = 0; i < fb->red_sockets.at(k); i++)		{ loot_writer += "R"; }
-						for (int i = 0; i < fb->green_sockets.at(k); i++)	{ loot_writer += "G"; }
-						for (int i = 0; i < fb->blue_sockets.at(k); i++)	{ loot_writer += "B"; }
-						for (int i = 0; i < fb->white_sockets.at(k); i++)	{ loot_writer += "W"; }
-
-						for (int i = 0; i < fb->abyss_sockets.at(k); i++)	{ loot_writer += "A"; }
-						for (int i = 0; i < fb->delve_sockets.at(k); i++)	{ loot_writer += "D"; }
-
-						loot_writer += '"';
+						//drop list rarity value
+						loot_writer += bdbcl->main_button->drop_text_base.at(bdbcl->main_button->selected_element);
+						loot_writer += '\n';
 					}
 
-				loot_writer += '\n';
-			}
+					if
+					(
+						(*FilterBlock::filter_block_data_attribute_registerer.at(bdbcl->target_id)->button_type == Enums::FilterBlockButtonType::FBBT_INPUT_FIELD)
+						||
+						(*FilterBlock::filter_block_data_attribute_registerer.at(bdbcl->target_id)->button_type == Enums::FilterBlockButtonType::FBBT_INPUT_FIELD_ANY)
+					)
+					{
+						loot_writer += '\t';
+						//base data name
+						loot_writer += *FilterBlock::filter_block_data_attribute_registerer.at(bdbcl->target_id)->data_name;
+						loot_writer += ' ';
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_GEM_LEVEL))
-			{
-				loot_writer += '\t';
-				loot_writer += "GemLevel ";
+						//condition operator
+						loot_writer += bdbcl->condition_button->text;
+						loot_writer += ' ';
 
-				loot_writer += fb->gem_level_condition;
-				loot_writer += " ";
-				loot_writer += std::to_string(fb->gem_level);
-
-				loot_writer += '\n';
-			}
-
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_MAP))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_ELDER_MAP))
-				{
-					loot_writer += '\t';
-					loot_writer += "ElderMap True";
-					loot_writer += '\n';
+						//main button text
+						loot_writer += bdbcl->main_button->text;
+						loot_writer += '\n';
+					}
 				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "ElderMap False";
-					loot_writer += '\n';
-				}
-			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_MAP))
-			{
-				if (fb->base_filter_data_bool.at(Enums::BoolData::BOOL_SHAPER_MAP))
-				{
-					loot_writer += '\t';
-					loot_writer += "ShapedMap True";
-					loot_writer += '\n';
-				}
-				else
-				{
-					loot_writer += '\t';
-					loot_writer += "ShapedMap False";
-					loot_writer += '\n';
-				}
-			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MAP_TIER))
-			{
-				loot_writer += '\t';
-				loot_writer += "MapTier ";
 
-				loot_writer += fb->map_tier_condition;
-				loot_writer += " ";
-				loot_writer += std::to_string(fb->map_tier);
 
-				loot_writer += '\n';
-			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL))
-			{
-				loot_writer += '\t';
-				loot_writer += "AreaLevel ";
 
-				loot_writer += fb->area_level_condition;
-				loot_writer += " ";
-				loot_writer += std::to_string(fb->area_level);
 
-				loot_writer += '\n';
-			}
 
-			if (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTION_MODS))
-			{
-				loot_writer += '\t';
-				loot_writer += "CorruptedMods ";
 
-				loot_writer += fb->corrupted_mods_condition;
-				loot_writer += " ";
-				loot_writer += std::to_string(fb->corrupted_mods_count);
-
-				loot_writer += '\n';
-			}
 
 			if (fb->is_prophecy_active)
 			{

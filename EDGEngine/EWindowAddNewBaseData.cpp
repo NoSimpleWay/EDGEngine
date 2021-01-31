@@ -72,7 +72,9 @@ public:
 			float bpos_max_y = 0.0f;
 
 			float max_size_x = 0.0f;
-			for (bool b : _b->master_block->base_filter_data_active)
+
+			//for (bool b : _b->master_block->base_filter_data_active)
+			for (FilterBlock::filter_block_data_attribute_struct* bdbcs:FilterBlock::filter_block_data_attribute_registerer)
 			{
 				//if (!b)
 				{
@@ -80,11 +82,26 @@ public:
 
 					but->position_mode_x = Enums::PositionMode::LEFT;
 					but->master_window = this;
-					but->text = _b->master_block->base_filter_data_name.at(data_id);
-					but->data_id = data_id;
+
+					if (EString::active_localisation == Enums::LocalisationList::RU)
+					{
+						but->text				=	*bdbcs->name_RU;
+						but->description_text	=	*bdbcs->description_RU;
+					}
+
+					if (EString::active_localisation == Enums::LocalisationList::EN)
+					{
+						but->text				=	*bdbcs->name_EN;
+						but->description_text	=	*bdbcs->description_EN;
+					}
+
+					but->data_string = *bdbcs->data_name;
+
+					but->data_id = *bdbcs->id;
+
 					but->button_x = 0;
 
-					if (b)
+					if (false)
 					{
 						but->bg_color->set_alpha(EColorCollection::DARK_GRAY, 0.5f);
 						but->text_color->set(EColorCollection::GRAY);
@@ -101,7 +118,7 @@ public:
 					but->master_window = this;
 					but->master_block = _b->master_block;
 
-					if (but->master_block->base_filter_separator.at(but->data_id))
+					if (*bdbcs->force_split)
 					{
 						bpos_x += but->button_size_x + 10.0f;
 

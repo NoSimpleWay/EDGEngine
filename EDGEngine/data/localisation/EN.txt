@@ -254,3 +254,20 @@ influence_oneof	One of
 influence_all	All of
 influence_oneof_description	One of these influences
 influence_all_description	All of these influences
+influence_ignore	Ignore
+influence_description	"One of " - Item must have one of these influences\n"All" - Item must have all of these influences\n"Nothing" - Item must have no influence\n"Ignore" - Ignore influences
+description_switcher_influence_crusader	Crusader influence
+description_switcher_influence_elder	Elder influence
+description_switcher_influence_hunter	Hunter influence
+description_switcher_influence_redeemer	Redeemer influence
+description_switcher_influence_shaper	Shaper influence
+description_switcher_influence_warlord	Warlord influence
+description_special_status_alternate_quality	Alternate quality
+description_special_status_blighted	Blighted
+description_special_status_corrupted	Corrupted
+description_special_status_enchanted	Have any enchant
+description_special_status_fractured	Have fractured affix
+description_special_status_identified	Identified
+description_special_status_mirrored	Mirrored item
+description_special_status_replica	Replica of unique item
+description_special_status_synthesised	Have synthesis implicit

@@ -285,9 +285,9 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		have_text = true;
 		have_input_mode = false;
 
-		text = EString::localize_it("influence_oneof");
+		text = EString::localize_it("influence_ignore");
 
-		bg_color->set(EColorCollection::WHITE);
+		bg_color->set(EColorCollection::GRAY);
 		text_color->set(EColorCollection::BLACK);
 	}
 	
@@ -601,6 +601,18 @@ void EButtonText::click_event()
 			}
 			else
 			if (master_block->influence_mode == FilterBlock::InfluenceMode::IM_NONE)
+			{
+				master_block->influence_mode = FilterBlock::InfluenceMode::IM_IGNORE;
+				text = EString::localize_it("influence_ignore");
+
+				for (EButton* b : master_block->influences_button_list)
+				{b->is_active = false;}
+
+				bg_color->set(EColorCollection::GRAY);
+				text_color->set(EColorCollection::BLACK);
+			}
+			else
+			if (master_block->influence_mode == FilterBlock::InfluenceMode::IM_IGNORE)
 			{
 				master_block->influence_mode = FilterBlock::InfluenceMode::IM_ONE_OF;
 				text = EString::localize_it("influence_oneof");

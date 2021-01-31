@@ -254,4 +254,20 @@ base_data_replica	Копия уника
 influence_oneof	Одно из
 influence_all	Все
 influence_none	Ничего
-influence_description	"Одно из" - предмет содержит одно из выбранных вдияний \n"Все" - предмет должен иметь все перечисленные влияния\n"Ничего" - Предмет не должен содержать ни одного влияния
+influence_description	"Одно из" - предмет содержит одно из выбранных влияний \n"Все" - предмет должен иметь все перечисленные влияния\n"Ничего" - Предмет не должен содержать ни одного влияния\n"Игнорировать" - игнорирует наличие или отсутствие влияний
+influence_ignore	Игнор.
+description_switcher_influence_crusader	Влияние Крестоносца
+description_switcher_influence_elder	Влияние Древнего
+description_switcher_influence_hunter	Влияние Охотника
+description_switcher_influence_redeemer	Влияние Искупителя
+description_switcher_influence_shaper	Влияние Создателя
+description_switcher_influence_warlord	Влияние Вождя
+description_special_status_alternate_quality	Альтернативное качество
+description_special_status_blighted	Заражённый прежмет
+description_special_status_corrupted	Осквернено
+description_special_status_enchanted	Любое зачарование
+description_special_status_fractured	Предмет имеет расколотое свойство
+description_special_status_identified	Предмет опознан
+description_special_status_mirrored	Зеркальная копия
+description_special_status_replica	Копия уникального предмета
+description_special_status_synthesised	Синтезированное собственное свойство
