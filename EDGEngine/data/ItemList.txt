@@ -1461,9 +1461,9 @@ item EN name	Stormbind	icon path	Active	item RU name	Электрическое 
 item EN name	Spellslinger	icon path	Active	item RU name	Чароплёт	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low				
 item EN name	Arcane Cloak	icon path	Active	item RU name	Чародейский покров	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low				
 item EN name	Kinetic Bolt	icon path	Active	item RU name	Кинетический заряд	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low				
-item EN name	Blade Blast	icon path	Active	item RU name	Взрыв клинков	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low				
-item EN name	Archmage Support	icon path	Active	item RU name	Архимаг	base class	Support Skill Gem	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low				
-item EN name	Second Wind Support	icon path	Active	item RU name	Второе дыхание	base class	Support Skill Gem	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low				
+item EN name	Blade Blast	icon path	Active	item RU name	Взрыв клинков	base class	Active Skill Gems	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low				
+item EN name	Archmage Support	icon path	Active	item RU name	Архимаг	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low				
+item EN name	Second Wind Support	icon path	Active	item RU name	Второе дыхание	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL	COST_GROUP	low				
 item EN name	Infused Engineer's Orb	icon path	Chargerd_Engineer's_Orb_inventory_icon	item RU name	Заряженная сфера инженера	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low				
 item EN name	Time-light Scroll	icon path	Time-light-Scroll	item RU name	Свиток времени и света	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low				
 item EN name	Fragmentation Scroll	icon path	Fragmentation-Scroll	item RU name	Свиток фрагментации	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	NEW	COST_GROUP	low				
@@ -1564,9 +1564,9 @@ item EN name	Splitting Steel	icon path	Active	item RU name	Раскалываю�
 item EN name	Sigil of Power	icon path	Active	item RU name	Печать силы	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category		COST_GROUP	
 item EN name	Flame Wall	icon path	Active	item RU name	Стена пламени	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category		COST_GROUP	
 item EN name	Hexblast	icon path	Active	item RU name	Взрыв порчи	base class	Active Skill Gem	folder	gem	item category	GEM	item sub category		COST_GROUP	
-item EN name	Elemental Penetration Support	icon path	Active	item RU name	Пронизывающие стихии	base class	Support Skill Gem	folder	gem	item category	GEM	item sub category		COST_GROUP	
-item EN name	Pinpoint Support	icon path	Active	item RU name	Сосредоточение	base class	Support Skill Gem	folder	gem	item category	GEM	item sub category		COST_GROUP	
-item EN name	Impending Doom Support	icon path	Active	item RU name	Обречённость	base class	Support Skill Gem	folder	gem	item category	GEM	item sub category		COST_GROUP	
+item EN name	Elemental Penetration Support	icon path	Active	item RU name	Пронизывающие стихии	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category		COST_GROUP	
+item EN name	Pinpoint Support	icon path	Active	item RU name	Сосредоточение	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category		COST_GROUP	
+item EN name	Impending Doom Support	icon path	Active	item RU name	Обречённость	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category		COST_GROUP	
 item EN name	The Gulf	icon path	Card	item RU name	Пропасть	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW_DIVINATION_CARD	COST_GROUP	
 item EN name	The Bitter Blossom	icon path	Card	item RU name	Колючее соцветие	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW_DIVINATION_CARD	COST_GROUP	
 item EN name	Triskaidekaphobia	icon path	Card	item RU name	Трискайдекафобия	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	NEW_DIVINATION_CARD	COST_GROUP	

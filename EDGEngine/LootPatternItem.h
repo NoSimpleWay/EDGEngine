@@ -16,6 +16,9 @@ public:
 	int min_links = 0;
 	int max_links = 0;
 
+	int min_cluster_passives = 0;
+	int max_cluster_passives = 0;
+
 	int min_quality = 0;
 	int max_quality = 0;
 
@@ -71,6 +74,9 @@ public:
 
 	std::string enchantment;
 	std::string cluster_enchantment;
+
+	int alternate_quality_type = Enums::AlternateQualityType::AQT_NONE;
+	int cluster_small_passives_count = 0;
 
 	std::vector <std::string> explicit_list;
 

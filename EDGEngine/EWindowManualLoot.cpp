@@ -38,7 +38,7 @@ EWindowManualLoot::EWindowManualLoot(int _id, bool _can_be_closed) :EWindow(_id,
 	{
 		but = new EButtonDropSocketColor(100, 200, 120, 20.0f, Enums::ButtonType::BUTTON_NONE);
 		but->update_localisation();
-		but->text = but->drop_text.at(0);
+		//but->text = but->drop_text.at(0);
 		but->data_id = i;
 		add_complex("manual_loot_text_socket_color", but);
 
@@ -56,15 +56,7 @@ EWindowManualLoot::EWindowManualLoot(int _id, bool _can_be_closed) :EWindow(_id,
 	
 	complex_y += 25.0f;
 
-	EButtonCheck* but_check = new EButtonCheck(100, 200, 20, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_ELDER_MAP);
-	but_check->change_state(false);
-	add_complex("manual_loot_text_is_elder_map", but_check);
-
-	but_check = new EButtonCheck(100, 200, 20, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_SHAPER_MAP);
-	but_check->change_state(false);
-	add_complex("manual_loot_text_is_shaper_map", but_check);
-
-	but_check = new EButtonCheck(100, 200, 20, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_BLIGHT_MAP);
+	EButtonCheck* but_check = new EButtonCheck(100, 200, 20, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_BLIGHT_MAP);
 	but_check->change_state(false);
 	add_complex("manual_loot_text_is_blighted_map", but_check);
 
@@ -98,6 +90,15 @@ EWindowManualLoot::EWindowManualLoot(int _id, bool _can_be_closed) :EWindow(_id,
 	but = new EButtonText(100, 200, 120, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_CORRUPTION_COUNT);
 	but->text = "0"; but->have_input_mode = true;
 	add_complex("manual_loot_text_corruption_count", but);
+
+	but = new EButtonText(100, 200, 120, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_CLUSTER_PASSIVES_COUNT);
+	but->text = "0"; but->have_input_mode = true;
+	add_complex("manual_loot_text_cluster_passives_count", but);
+
+	but = new EButtonDropRarity(100, 200, 120, 20.0f, Enums::ButtonType::BUTTON_MANUAL_LOOT_ALTERNATE_QUALITY_TYPE);
+	but->update_localisation();
+	but->text = but->drop_text.at(0);
+	add_complex("manual_loot_text_alternate_quality", but);
 
 	complex_y += 25.0f;
 

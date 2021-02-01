@@ -48,7 +48,18 @@ public:
 	int links = 0;
 	
 
-	std::vector<int> socket_color = { 0,0,0,0,0,0 };
+	std::vector<int> socket_color =
+	{ 
+		0,//none
+
+		0,//red
+		0,//green
+		0,//blue
+
+		0,//white
+		0,//abyss
+		0//delve
+	};
 
 	int quality;
 	int gem_level;
@@ -67,6 +78,9 @@ public:
 
 	bool is_corrupted = false;
 	int corruption_count;
+	int cluster_jewel_small_passives_count;
+	int selected_alternate_quality;
+	bool any_alternate_quality = false;
 
 	bool elder_influence = false;
 	bool shaper_influence = false;

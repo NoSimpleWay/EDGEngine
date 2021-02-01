@@ -213,6 +213,22 @@ void EWindowLootSimulator::update(float _d)
 				if (loot->links > loot->sockets) { loot->links = loot->sockets; }
 			}
 
+			if (p->max_cluster_passives > 0)
+			{
+				if (p->max_cluster_passives > p->min_cluster_passives)
+				{
+					loot->cluster_small_passives_count = p->min_cluster_passives + (rand() % (p->max_cluster_passives - p->min_cluster_passives + 1));
+				}
+				else
+				{
+					loot->cluster_small_passives_count = p->max_cluster_passives;
+				}
+
+				if (loot->cluster_small_passives_count < 0) { loot->cluster_small_passives_count = 0; }
+				//if (loot->links == 1) { loot->links = 2; }
+				//if (loot->links > loot->sockets) { loot->links = loot->sockets; }
+			}
+
 			if (p->max_map_tier > 0)
 			{
 				if (p->max_map_tier > p->min_map_tier)
@@ -785,6 +801,18 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 				move_y++;
 			}
 
+
+			if (loot->cluster_small_passives_count > 0)
+			{
+				_batch->setcolor(EColorCollection::CYAN);
+				EFont::active_font->draw(_batch, cached_cluster_passives + "   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				_batch->setcolor(EColorCollection::WHITE);
+				EFont::active_font->add_draw(_batch, std::to_string(loot->cluster_small_passives_count), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				move_y++;
+			}
+
 			if (loot->map_tier > 0)
 			{
 				_batch->setcolor(EColorCollection::GRAY);
@@ -1008,6 +1036,7 @@ void EWindowLootSimulator::update_localisation()
 	cached_mirrored = EString::localize_it("mirrored_text");
 	cached_replica = EString::localize_it("replica_text");
 	cached_alternate_quality = EString::localize_it("alternate_quality_text");
+	cached_cluster_passives = EString::localize_it("small_cluster_passives");
 }
 
 bool EWindowLootSimulator::check_condition(std::string _condition, int _num_a, int num_b)
@@ -1242,6 +1271,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			std::string attribute_operator = "";
 			int attribute_value_num = 0;
 			std::string attribute_value_string = "";
+			int selected_drop_list = -1;
 
 			if (bdbcs->condition_button != NULL)
 			{ attribute_operator = bdbcs->condition_button->text;}
@@ -1254,6 +1284,11 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if ((bdbcs->main_button != NULL) && (!bdbcs->main_button->input_only_numbers))
 			{
 				attribute_value_string = bdbcs->main_button->text;
+			}
+
+			if (bdbcs->main_button != NULL)
+			{
+				selected_drop_list = bdbcs->main_button->selected_element;
 			}
 
 			/*       RARITY       */
@@ -1319,6 +1354,39 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 				if (!_default) { rejection("links", _l); }
 			}
 
+			/*       SMALL PASSIVES      */
+			if
+			(
+				(target_data == Enums::ParserMode::CLUSTER_PASSIVES_COUNT)
+				&
+				(!check_condition(attribute_operator, _l->cluster_small_passives_count, attribute_value_num))
+				&
+				(match_detect)
+			)
+			{
+				match_detect = false;
+				if (!_default) { rejection("cluster small passives count", _l); }
+			}
+
+			/*       ALTERNATE QUALITY TYPE     */
+			if
+			(
+				(target_data == Enums::ParserMode::ALTERNATE_QUALITY_TYPE)
+				&
+				(
+					((selected_drop_list == 0) & (_l->alternate_quality_type != Enums::AlternateQualityType::AQT_DIVERGENT))
+					||														 
+					((selected_drop_list == 1) & (_l->alternate_quality_type != Enums::AlternateQualityType::AQT_PHANTASMAL))
+					||														 
+					((selected_drop_list == 2) & (_l->alternate_quality_type != Enums::AlternateQualityType::AQT_ANOMALOUS))
+				)
+				&
+				(match_detect)
+			)
+			{
+				match_detect = false;
+				if (!_default) { rejection("alternate quality", _l); }
+			}
 			if ((target_data == Enums::ParserMode::CORRUPTED_MODS) & (!check_condition(attribute_operator, _l->corrupted_mods, attribute_value_num)) & (match_detect))
 			{
 				match_detect = false;
@@ -1351,194 +1419,154 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 				if (!_default) { rejection("width", _l); }
 			}
 
-			if ((target_data == Enums::ParserMode::STACK_SIZE) & (!check_condition(attribute_operator, _l->width, attribute_value_num)) & (match_detect))
+			if ((target_data == Enums::ParserMode::STACK_SIZE) & (!check_condition(attribute_operator, _l->quantity, attribute_value_num)) & (match_detect))
 			{
 				match_detect = false;
-				if (!_default) { rejection("width", _l); }
+				if (!_default) { rejection("stack size", _l); }
 			}
 
+			int red_links_count		= 0;
+			int green_links_count	= 0;
+			int blue_links_count	= 0;
 
+			int white_links_count	= 0;
 
+			int links_count			= 0;
 
-
-
-
-
-		if ((fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_STACK_SIZE)) && (!check_condition(fb->item_stack_size_condition, _l->quantity, fb->item_stack_size)))
-		{
-			match_detect = false;
-			if (!_default) { rejection("data stack size", _l); }
-		}
-
-
-
-
-
-		if ((match_detect) && (fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKET_GROUP)))
+			if ((target_data == Enums::ParserMode::SOCKET_GROUP) & (match_detect))
 			{
-				//bool microreject = true;
-				match_detect = false;
-				for (int i = 0; i < fb->red_sockets_group.size(); i++)
+
+				for (int i = 0; i < attribute_value_string.size(); i++)
+				{
+					if (attribute_value_string.at(i) == '1') { links_count = 1; }
+					if (attribute_value_string.at(i) == '2') { links_count = 2; }
+					if (attribute_value_string.at(i) == '3') { links_count = 3; }
+					if (attribute_value_string.at(i) == '4') { links_count = 4; }
+					if (attribute_value_string.at(i) == '5') { links_count = 5; }
+					if (attribute_value_string.at(i) == '6') { links_count = 6; }
+
+					if ((attribute_value_string.at(i) == 'r') || (attribute_value_string.at(i) == 'R')) { red_links_count++; /*std::cout << "add red:" << red_links_count << std::endl;*/}
+					if ((attribute_value_string.at(i) == 'g') || (attribute_value_string.at(i) == 'G')) { green_links_count++; }
+					if ((attribute_value_string.at(i) == 'b') || (attribute_value_string.at(i) == 'B')) { blue_links_count++; }
+
+					if (EString::to_lower("" + attribute_value_string.at(i)) == "w") { white_links_count++; }
+				}
+
+				if (((links_count)+(red_links_count)+(green_links_count)+(blue_links_count)+(white_links_count) > 0))
+				{
+					/*std::cout << "links count:" << links_count << std::endl;
+
+					std::cout << "red sockets in condition:" << red_links_count << std::endl;
+					std::cout << "green sockets in condition:" << green_links_count << std::endl;
+					std::cout << "blue sockets in condition:" << blue_links_count << std::endl;
+					std::cout << "white sockets in condition:" << white_links_count << std::endl;*/
+
+				}
+				else
+				{
+					//std::cout << "no colours" << std::endl;
+				}
+
 				if
 				(
+					((links_count)+(red_links_count)+(green_links_count)+(blue_links_count)+(white_links_count) > 0)
+					&
 					(
-						(fb->socket_group_links.at(i) > 0) ||
-						(fb->red_sockets_group.at(i)>0)||
-						(fb->green_sockets_group.at(i)>0)||
-						(fb->blue_sockets_group.at(i)>0)||
-						(fb->white_sockets_group.at(i)>0)||
-						(fb->abyss_sockets_group.at(i)>0)||
-						(fb->delve_sockets_group.at(i)>0)
-					)
-					&&
-					(
-					(
-							(
-								check_condition(fb->socket_group_condition, _l->links, fb->socket_group_links.at(i)))
-								||
-								(fb->socket_group_links.at(i) == 0)
-							)
-							&&
-							(
-								(check_condition(fb->socket_group_condition, _l->linked_red_socket, fb->red_sockets_group.at(i)))
-								||
-								(fb->red_sockets_group.at(i) == 0)
-							)
-							&&
-							(
-								(check_condition(fb->socket_group_condition, _l->linked_green_socket, fb->green_sockets_group.at(i)))
-								||
-								(fb->green_sockets_group.at(i) == 0)
-							)
-							&&
-							(
-								(check_condition(fb->socket_group_condition, _l->linked_blue_socket, fb->blue_sockets_group.at(i)))
-								||
-								(fb->blue_sockets_group.at(i) == 0)
-							)
-							&&
-							(
-								(check_condition(fb->socket_group_condition, _l->linked_white_socket, fb->white_sockets_group.at(i)))
-								||
-								(fb->white_sockets_group.at(i) == 0)
-							)
+						((!check_condition(attribute_operator, _l->links, links_count)) & (links_count > 0))
+						||
+						((!check_condition(attribute_operator, _l->linked_red_socket, red_links_count)) & (red_links_count > 0))
+						||
+						((!check_condition(attribute_operator, _l->linked_green_socket, green_links_count)) & (green_links_count > 0))
+						||
+						((!check_condition(attribute_operator, _l->linked_blue_socket, blue_links_count)) & (blue_links_count > 0))
+						||
+						((!check_condition(attribute_operator, _l->linked_white_socket, white_links_count)) & (white_links_count > 0))
 					)
 				)
 				{
-					match_detect = true;
-				}
-
-				if (!match_detect)
-				{
-					if (!_default) { rejection("socket colour", _l); }
+					match_detect = false;
+					if (!_default) { rejection("links group", _l); }
 				}
 			}
 
-		if((match_detect)&&(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SOCKETS)))
-		{
-			
-			/*std::cout << "[" << 0
-				<< "] sockets: " << fb->socket_count.at(0)
-				<< ", red: " << fb->red_sockets.at(0)
-				<< ", green: " << fb->green_sockets.at(0)
-				<< ", blue: " << fb->blue_sockets.at(0)
-				<< ", white: " << fb->white_sockets.at(0)
-				<< ", abyss: " << fb->abyss_sockets.at(0)
-				<< ", delve: " << fb->delve_sockets.at(0)
-				<< ", equation: " << fb->socket_condition
-				<< std::endl;
 
-			std::cout << "[" << "item param"
-				<< "] sockets: " << _l->sockets
-				<< ", red: " << _l->red_socket
-				<< ", green: " << _l->green_socket
-				<< ", blue: " << _l->blue_socket
-				<< ", white: " << _l->white_socket
-				<< ", abyss: " << _l->abyss_socket
-				<< ", delve: " << _l->delve_socket
-				<< std::endl;*/
+			int red_sockets_count = 0;
+			int green_sockets_count = 0;
+			int blue_sockets_count = 0;
 
-			//bool microreject = true;
-			match_detect = false;
-			for (int i = 0; i < fb->socket_count.size(); i++)
+			int white_sockets_count = 0;
+			int abyss_sockets_count = 0;
+			int delve_sockets_count = 0;
+
+			int sockets_count = 0;
+			if ((target_data == Enums::ParserMode::SOCKETS) & (match_detect))
 			{
 
+				for (int i = 0; i < attribute_value_string.size(); i++)
+				{
+					if (attribute_value_string.at(i) == '1') { sockets_count = 1; }
+					if (attribute_value_string.at(i) == '2') { sockets_count = 2; }
+					if (attribute_value_string.at(i) == '3') { sockets_count = 3; }
+					if (attribute_value_string.at(i) == '4') { sockets_count = 4; }
+					if (attribute_value_string.at(i) == '5') { sockets_count = 5; }
+					if (attribute_value_string.at(i) == '6') { sockets_count = 6; }
+
+					if (EString::to_lower("" + attribute_value_string.at(i)) == "r") { red_sockets_count++; }
+					if (EString::to_lower("" + attribute_value_string.at(i)) == "g") { green_sockets_count++; }
+					if (EString::to_lower("" + attribute_value_string.at(i)) == "b") { blue_sockets_count++; }
+
+					if (EString::to_lower("" + attribute_value_string.at(i)) == "w") { white_sockets_count++; }
+					if (EString::to_lower("" + attribute_value_string.at(i)) == "a") { abyss_sockets_count++; }
+					if (EString::to_lower("" + attribute_value_string.at(i)) == "d") { delve_sockets_count++; }
+				}
 
 				if
-					(
-					(
-						(fb->socket_count.at(i) > 0) ||
-						(fb->red_sockets.at(i) > 0) ||
-						(fb->green_sockets.at(i) > 0) ||
-						(fb->blue_sockets.at(i) > 0) ||
-						(fb->white_sockets.at(i) > 0) ||
-						(fb->abyss_sockets.at(i) > 0) ||
-						(fb->delve_sockets.at(i) > 0)
-						)
-						&&
+				(
+					((sockets_count)+(red_sockets_count)+(green_sockets_count)+(blue_sockets_count)+(white_sockets_count)+(abyss_sockets_count)+(delve_sockets_count) > 0)
+						&
 						(
-						(
-							(
-								check_condition(fb->socket_condition, _l->sockets, fb->socket_count.at(i)))
+							((!check_condition(attribute_operator, _l->sockets, sockets_count)) & (sockets_count > 0))
 							||
-							(fb->socket_count.at(i) == 0)
+							((!check_condition(attribute_operator, _l->red_socket, red_sockets_count)) & (red_sockets_count > 0))
+							||
+							((!check_condition(attribute_operator, _l->green_socket, green_sockets_count)) & (green_sockets_count > 0))
+							||
+							((!check_condition(attribute_operator, _l->blue_socket, blue_sockets_count)) & (blue_sockets_count > 0))
+							||
+							((!check_condition(attribute_operator, _l->white_socket, white_sockets_count)) & (white_sockets_count > 0))
+							||
+							((!check_condition(attribute_operator, _l->abyss_socket, abyss_sockets_count)) & (abyss_sockets_count > 0))
+							||
+							((!check_condition(attribute_operator, _l->delve_socket, delve_sockets_count)) & (delve_sockets_count > 0))
 							)
-							&&
-							(
-							(check_condition(fb->socket_condition, _l->red_socket, fb->red_sockets.at(i)))
-								||
-								(fb->red_sockets.at(i) == 0)
-								)
-							&&
-							(
-							(check_condition(fb->socket_condition, _l->green_socket, fb->green_sockets.at(i)))
-								||
-								(fb->green_sockets.at(i) == 0)
-								)
-							&&
-							(
-							(check_condition(fb->socket_condition, _l->blue_socket, fb->blue_sockets.at(i)))
-								||
-								(fb->blue_sockets.at(i) == 0)
-								)
-							&&
-							(
-							(check_condition(fb->socket_condition, _l->white_socket, fb->white_sockets.at(i)))
-								||
-								(fb->white_sockets.at(i) == 0)
-								)
-							&&
-							(
-							(check_condition(fb->socket_condition, _l->abyss_socket, fb->abyss_sockets.at(i)))
-								||
-								(fb->abyss_sockets.at(i) == 0)
-								)
-							&&
-							(
-							(check_condition(fb->socket_condition, _l->delve_socket, fb->delve_sockets.at(i)))
-								||
-								(fb->delve_sockets.at(i) == 0)
-								)
-							)
-						)
+				)
 				{
-					match_detect = true;
-				}
+					match_detect = false;
+				if (!_default) { rejection("socket group", _l); }}
 			}
 
-			if (!match_detect)
-			{
-				if (!_default) { rejection("socket colour", _l); }
-			}
-		}
+
+
+
+
+
+
+
+
+
+
 
 		//std::cout << "is active=" << std::to_string(fb->is_synthesised_item_active) << " is synthesised block=" << std::to_string(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SYNTHESISED)) << "is synthesised item=" << std::to_string(_l->synthesised_item) << std::endl;
 
 		if
 		(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SYNTHESISED))
-			&&
-			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SYNTHESISED) != _l->synthesised_item)
+			(
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SYNTHESISED) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->synthesised_item))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SYNTHESISED) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->synthesised_item))
+			)
+			&
+			(match_detect)
 		)
 		{
 			match_detect = false;
@@ -1546,11 +1574,15 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		}
 
 		if
+		(
 			(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_FRACTURED))
-				&&
-				(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_FRACTURED) != _l->fractured_item)
-				)
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_FRACTURED) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->fractured_item))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_FRACTURED) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->fractured_item))
+			)
+			&
+			(match_detect)
+		)
 		{
 			match_detect = false;
 			if (!_default) { rejection("fractured", _l); }
@@ -1558,27 +1590,6 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 	}
 
 
-		/*
-		for (ExplicitGroup* ex : fb->explicit_list)
-			if (match_detect)
-			{
-				if (ex->is_active)
-				{
-					temp_match = false;
-					for (EButton* b : ex->button_list)
-					{
-						for (std::string el : _l->explicit_list)
-						{
-							if (el == b->data_string)
-							{
-								temp_match = true;
-							}
-						}
-					}
-
-					match_detect = temp_match;
-				}
-			}*/
 
 		if
 		(
@@ -1718,82 +1729,41 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if (!_default) { rejection("condition is 'have no influence', but item have influence", _l); }
 		}
 
-		if
-		(
-			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER))
-				&&
-				(!_l->shaper_item)
-			)
-		)
-		{
-			match_detect = false;
-			if (!_default) { rejection("not shaper item", _l); }
-		}
+
+
 
 		if
 		(
 			(
-				(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER))
-				&&
-				(!_l->elder_item)
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_BLIGHTED) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->is_blighted_map))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_BLIGHTED) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->is_blighted_map))
 			)
+			&
+			(match_detect)
 		)
 		{
 			match_detect = false;
-			if (!_default) { rejection("not elder item", _l); }
+			if (!_default) { rejection("blight map", _l); }
 		}
 
 		if
-		(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_BLIGHTED))
-			&&
-			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_BLIGHTED) != _l->is_blighted_map)
-		)
-		{
-			match_detect = false;
-			if (!_default) { rejection("blight item", _l); }
-		}
-
-		if
-		(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM))
-			&&
-			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM) != _l->is_mirrored)
-		)
+			(
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_MIRRORED) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->is_mirrored))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_MIRRORED) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->is_mirrored))
+			)
 		{
 			match_detect = false;
 			if (!_default) { rejection("mirrored item", _l); }
 		}
 
-		if
-			(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_SHAPER_MAP))
-				&&
-				(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_SHAPER_MAP) != _l->is_shaper_map)
-				)
-		{
-			match_detect = false;
-			if (!_default) { rejection("shaped map", _l); }
-		}
 
 		if
 			(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ELDER_MAP))
-				&&
-				(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_ELDER_MAP) != _l->is_elder_map)
-				)
-		{
-			match_detect = false;
-			if (!_default) { rejection("elder map", _l); }
-		}
-
-
-		if
-			(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_CORRUPTED))
-			&&
-			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_CORRUPTED) != _l->corrupted)
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_CORRUPTED) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->corrupted))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_CORRUPTED) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->corrupted))
 			)
 		{
 			match_detect = false;
@@ -1803,9 +1773,9 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		if
 			(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IS_REPLICA))
-			&&
-			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_IS_REPLICA) != _l->is_replica)
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_REPLICA) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->is_replica))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_REPLICA) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->is_replica))
 			)
 		{
 			match_detect = false;
@@ -1815,9 +1785,9 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		if
 			(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ALTERNATE_QUALITY))
-			&&
-			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_ALTERNATE_QUALITY) != _l->is_alternate_quality)
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->is_alternate_quality))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->is_alternate_quality))
 			)
 		{
 			match_detect = false;
@@ -1827,9 +1797,9 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		if
 			(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ENCHANTMENT))
-			&&
-			(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_ENCHANTMENT) != _l->any_enchantment)
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ENCHANTED) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->any_enchantment))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_ENCHANTED) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->any_enchantment))
 			)
 		{
 			match_detect = false;
@@ -1839,10 +1809,10 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		if
 			(
-			(fb->base_filter_data_active.at(Enums::BaseDataOrder::DATA_IDENTIFIED))
-				&&
-				(fb->base_filter_data_bool.at(Enums::BaseDataOrder::DATA_IDENTIFIED) != _l->identified)
-				)
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_IDENTIFIED) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->identified))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_IDENTIFIED) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->identified))
+			)
 		{
 			match_detect = false;
 			if (!_default) { rejection("identified", _l); }
@@ -2105,6 +2075,11 @@ void EWindowLootSimulator::manual_event()
 			pattern->min_links = pattern_item_list.at(i)->min_links;
 			pattern->max_links = pattern_item_list.at(i)->max_links;
 
+			pattern->max_cluster_passives = pattern_item_list.at(i)->max_cluster_passives;
+			pattern->min_cluster_passives = pattern_item_list.at(i)->min_cluster_passives;
+
+
+
 			pattern->min_map_tier = pattern_item_list.at(i)->min_map_tier;
 			pattern->max_map_tier = pattern_item_list.at(i)->max_map_tier;
 
@@ -2140,6 +2115,8 @@ void EWindowLootSimulator::manual_event()
 
 			pattern->replica_chance = pattern_item_list.at(i)->replica_chance;
 			pattern->alternate_quality_chance = pattern_item_list.at(i)->alternate_quality_chance;
+
+			
 
 
 

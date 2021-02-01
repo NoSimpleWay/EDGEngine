@@ -546,6 +546,16 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					just_created_pattern_item->min_links = std::stoi(subdata_array[i * 2 + 1]);
 				}
 
+				if (EString::to_lower(subdata_array[i * 2], false) == "cluster_passives_min")
+				{
+					just_created_pattern_item->min_cluster_passives = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "cluster_passives_max")
+				{
+					just_created_pattern_item->max_cluster_passives = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "links_max")
 				{
@@ -603,6 +613,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				{
 					just_created_pattern_item->alternate_quality_chance = std::stoi(subdata_array[i * 2 + 1]);
 				}
+
+
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "mirrored_chance")
 				{
@@ -1437,6 +1449,21 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									parser_mode = Enums::ParserMode::AREA_LEVEL;
 									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL) = true;
 									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("AreaLevel", just_created_block);
+
+								}
+
+								if (subdata == "EnchantmentPassiveNum")
+								{
+										parser_mode = Enums::ParserMode::CLUSTER_PASSIVES_COUNT;
+										//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL) = true;
+										just_created_base_data_registerer = FilterBlock::add_new_base_attribute("EnchantmentPassiveNum", just_created_block);
+								}
+
+								if (subdata == "GemQualityType")
+								{
+										parser_mode = Enums::ParserMode::ALTERNATE_QUALITY_TYPE;
+										//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL) = true;
+										just_created_base_data_registerer = FilterBlock::add_new_base_attribute("GemQualityType", just_created_block);
 								}
 								//if (subdata == "EnchantmentPassiveNode") { parser_mode = Enums::ParserMode::CLUSTER_ENCHANTMENT; }
 							}
@@ -3037,6 +3064,103 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									{just_created_base_data_registerer->main_button->text = subdata;}
 								}
 							}
+
+							if (parser_mode == Enums::ParserMode::CLUSTER_PASSIVES_COUNT)
+							{
+								if (data_order == 0)
+								{
+									if (show_info_to_console) { cout << "activate cluster passives count property" << endl; }
+								}
+
+								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set cluster passives count as <" << subdata << ">" << endl; }
+									//just_created_block->area_level = std::stoi(subdata);
+									//just_created_block->area_level_condition = "=";
+									if (just_created_base_data_registerer->main_button != NULL)
+									{
+										just_created_base_data_registerer->main_button->text = subdata;
+									}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{
+										just_created_base_data_registerer->condition_button->text = "=";
+									}
+								}
+
+								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set cluser passives condition as < " << subdata << " >" << endl; }
+									//just_created_block->area_level_condition = subdata;
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{
+										just_created_base_data_registerer->condition_button->text = subdata;
+									}
+								}
+
+								if (data_order == 2)
+								{
+									if (show_info_to_console) { cout << "set cluster passives as <" << subdata << ">" << endl; }
+									//just_created_block->area_level = std::stoi(subdata);
+									if (just_created_base_data_registerer->main_button != NULL)
+									{
+										just_created_base_data_registerer->main_button->text = subdata;
+									}
+								}
+							}
+
+							if (parser_mode == Enums::ParserMode::ALTERNATE_QUALITY_TYPE)
+							{
+								if (data_order == 0)
+								{
+									if (show_info_to_console) { cout << "activate cluster passives count property" << endl; }
+								}
+
+								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set cluster passives count as <" << subdata << ">" << endl; }
+									//just_created_block->area_level = std::stoi(subdata);
+									//just_created_block->area_level_condition = "=";
+									if (just_created_base_data_registerer->main_button != NULL)
+									{
+										just_created_base_data_registerer->main_button->text = subdata;
+
+										if (subdata == "Divergent")		{ just_created_base_data_registerer->main_button->selected_element = 0; }
+										if (subdata == "Phantasmal")	{ just_created_base_data_registerer->main_button->selected_element = 1; }
+										if (subdata == "Anomalous")		{ just_created_base_data_registerer->main_button->selected_element = 2; }
+									}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{
+										just_created_base_data_registerer->condition_button->text = "=";
+									}
+								}
+
+								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set cluser passives condition as < " << subdata << " >" << endl; }
+									//just_created_block->area_level_condition = subdata;
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{
+										just_created_base_data_registerer->condition_button->text = subdata;
+
+										if (subdata == "Divergent") { just_created_base_data_registerer->main_button->selected_element = 0; }
+										if (subdata == "Phantasmal") { just_created_base_data_registerer->main_button->selected_element = 1; }
+										if (subdata == "Anomalous") { just_created_base_data_registerer->main_button->selected_element = 2; }
+									}
+								}
+
+								if (data_order == 2)
+								{
+									if (show_info_to_console) { cout << "set cluster passives as <" << subdata << ">" << endl; }
+									//just_created_block->area_level = std::stoi(subdata);
+									if (just_created_base_data_registerer->main_button != NULL)
+									{
+										just_created_base_data_registerer->main_button->text = subdata;
+									}
+								}
+							}
+
 
 							if (parser_mode == Enums::ParserMode::CORRUPTED_MODS)
 							{

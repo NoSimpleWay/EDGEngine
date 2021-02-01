@@ -1832,7 +1832,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 					but->text = but->drop_text.at(2);
 
 
-					but = new EButtonInputBaseData(0, 0, 85, 17, Enums::ButtonType::BUTTON_BASE_DATA_INPUT_REGULAR);
+					but = new EButtonInputBaseData(0, 0, 110, 17, Enums::ButtonType::BUTTON_BASE_DATA_INPUT_REGULAR);
 					but->input_auto_clear_text = true;
 					but->master_block = _filter_block;
 					but->master_window = StaticData::window_filter_block;
@@ -1852,7 +1852,23 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 					but->selected_element = 0;
 					but->text = but->drop_text.at(0);
 
-					but = new EButtonDropRarity(0, 0, 85, 17, Enums::ButtonType::BUTTON_BASE_DATA_RARITY_REGULAR);
+					but = new EButtonDropRarity(0, 0, 110, 17, Enums::ButtonType::BUTTON_BASE_DATA_RARITY_REGULAR);
+					but->master_block = _filter_block;
+					but->master_window = StaticData::window_filter_block;
+					data_collection->main_button = but;
+				}
+
+				if (*fbdas->button_type == Enums::FilterBlockButtonType::FBBT_DROP_LIST_ALTERNATE_QUALITY)
+				{
+					EButton* but;
+					/*but = new EButtonDropCondition(0, 0, 30, 13, Enums::ButtonType::BUTTON_BASE_DATA_CONDITION_REGULAR);
+					but->master_block = _filter_block;
+					but->master_window = StaticData::window_filter_block;
+					data_collection->condition_button = but;
+					but->selected_element = 0;
+					but->text = but->drop_text.at(0);
+					*/
+					but = new EButtonDropRarity(0, 0, 110, 17, Enums::ButtonType::BUTTON_KIND_OF_ALTERNATE_QUALITY);
 					but->master_block = _filter_block;
 					but->master_window = StaticData::window_filter_block;
 					data_collection->main_button = but;

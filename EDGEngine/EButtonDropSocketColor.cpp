@@ -19,6 +19,7 @@ EButtonDropSocketColor::EButtonDropSocketColor(float _x, float _y, float _sx, fl
 	can_be_removed = false;
 
 	have_list_color = true;
+	//drop_list_color.push_back(EColorCollection::DARK_GRAY);
 	drop_list_color.push_back(EColorCollection::RED);
 	drop_list_color.push_back(EColorCollection::GREEN);
 	drop_list_color.push_back(EColorCollection::BLUE);
@@ -61,6 +62,7 @@ void EButtonDropSocketColor::update_localisation()
 {
 	drop_text.clear();
 
+	//drop_text.push_back(EString::localize_it("socket_color_none"));
 	drop_text.push_back(EString::localize_it("socket_color_red"));
 	drop_text.push_back(EString::localize_it("socket_color_green"));
 	drop_text.push_back(EString::localize_it("socket_color_blue"));

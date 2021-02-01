@@ -63,6 +63,7 @@ public:
 	std::string cached_mirrored;
 	std::string cached_replica;
 	std::string cached_alternate_quality;
+	std::string cached_cluster_passives;
 
 	int area_level = 68;
 

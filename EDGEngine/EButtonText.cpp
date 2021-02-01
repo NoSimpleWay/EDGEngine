@@ -332,13 +332,25 @@ void EButtonText::click_event()
 		{
 			sc = StaticData::window_manual_loot->socket_color.at(i);
 
-			if (sc == 0) { loot->socket_color.push_back(EColorCollection::RED);		loot->red_socket++; if (i < loot->links)	{ loot->linked_red_socket;}}
-			if (sc == 1) { loot->socket_color.push_back(EColorCollection::GREEN);	loot->green_socket++; if (i < loot->links)	{ loot->linked_green_socket;}}
-			if (sc == 2) { loot->socket_color.push_back(EColorCollection::BLUE);	loot->blue_socket++; if (i < loot->links)	{ loot->linked_blue_socket;}}
-			if (sc == 3) { loot->socket_color.push_back(EColorCollection::WHITE);	loot->white_socket++; if (i < loot->links)	{ loot->linked_white_socket;}}
+			if (sc == 0) { loot->socket_color.push_back(EColorCollection::RED);		loot->red_socket++;}
+			if (sc == 1) { loot->socket_color.push_back(EColorCollection::GREEN);	loot->green_socket++;}
+			if (sc == 2) { loot->socket_color.push_back(EColorCollection::BLUE);	loot->blue_socket++;}
+			if (sc == 3) { loot->socket_color.push_back(EColorCollection::WHITE);	loot->white_socket++;}
 			if (sc == 4) { loot->socket_color.push_back(EColorCollection::BLACK);	loot->abyss_socket++;}
 			if (sc == 5) { loot->socket_color.push_back(EColorCollection::YELLOW);	loot->delve_socket++;}
 		}
+
+		loot->red_socket			= min(loot->red_socket,				loot->sockets);
+		loot->green_socket			= min(loot->green_socket,			loot->sockets);
+		loot->blue_socket			= min(loot->blue_socket,			loot->sockets);
+		loot->white_socket			= min(loot->white_socket,			loot->sockets);
+		loot->abyss_socket			= min(loot->abyss_socket,			loot->sockets);
+		loot->delve_socket			= min(loot->delve_socket,			loot->sockets);
+
+		loot->linked_red_socket		= min(loot->linked_red_socket,		loot->links);
+		loot->linked_green_socket	= min(loot->linked_green_socket,	loot->links);
+		loot->linked_blue_socket	= min(loot->linked_blue_socket,		loot->links);
+		loot->linked_white_socket	= min(loot->linked_white_socket,	loot->links);
 
 		loot->quality = StaticData::window_manual_loot->quality;
 		loot->gem_level = StaticData::window_manual_loot->gem_level;
@@ -371,6 +383,10 @@ void EButtonText::click_event()
 
 		loot->any_enchantment = StaticData::window_manual_loot->is_enchanted;
 		loot->is_mirrored = StaticData::window_manual_loot->is_mirrored;
+
+		loot->cluster_small_passives_count = StaticData::window_manual_loot->cluster_jewel_small_passives_count;
+		loot->alternate_quality_type = StaticData::window_manual_loot->selected_alternate_quality;
+		loot->is_alternate_quality = StaticData::window_manual_loot->any_alternate_quality;
 
 		StaticData::window_loot_simulator->put_loot(loot);
 	}
@@ -680,7 +696,7 @@ void EButtonText::input_finish_event()
 
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_QUANTITY)
 	{
-		if ((text != "") && (text.length() <= 2)) { StaticData::window_manual_loot->quantity = std::stoi(text); }
+		if ((text != "") && (text.length() <= 5)) { StaticData::window_manual_loot->quantity = std::stoi(text); }
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_HEIGHT)
@@ -695,7 +711,12 @@ void EButtonText::input_finish_event()
 	
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_CORRUPTION_COUNT)
 	{
-		if ((text != "") && (text.length() <= 2)) { StaticData::window_manual_loot->corruption_count = std::stoi(text); }
+		if ((text != "") && (text.length() <= 1)) { StaticData::window_manual_loot->corruption_count = std::stoi(text); }
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_CLUSTER_PASSIVES_COUNT)
+	{
+		if ((text != "") && (text.length() <= 1)) { StaticData::window_manual_loot->cluster_jewel_small_passives_count = std::stoi(text); }
 	}
 
 

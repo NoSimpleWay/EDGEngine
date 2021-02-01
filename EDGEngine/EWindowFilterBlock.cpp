@@ -117,7 +117,23 @@
 				(blocks_order >= EControl::block_scroll)
 				&&
 				(blocks_count<50)
+				&&
+				(yy < EWindow::SCR_HEIGHT)
+				//this^ line raise FPS from 15 to 60
 			)
+				/*
+							  .-'---`-.
+							,'          `.
+							|             \
+							|              \
+							\           _  \
+							,\  _    ,'-,/-)\
+							( * \ \,' ,' ,'-)
+							 `._,)     -',-')
+							   \/         ''/
+								)        / /
+							   /       ,'-'
+				*/
 			{
 				FilterBlock* f = filter_block_list.at(block_index);
 				
@@ -151,6 +167,20 @@
 					f->y = EWindow::SCR_HEIGHT - f->size_y - yy;
 
 					f->size_x = SCR_WIDTH - 40;
+
+					if ((!f->hided_by_separator) || (f->force_enabled)) { f->update(_delta); }
+
+					for (EButton* b : f->header_button_list)
+					{
+						if (b->is_active)
+						{
+							b->update(0.015f);
+							b->update_additional(0.015f);
+
+							b->default_draw(_batch);
+							b->additional_draw(_batch);
+						}
+					}
 
 					//if (!f->hided_by_separator)
 					{
@@ -204,17 +234,7 @@
 
 						}
 
-						for (EButton* b : f->header_button_list)
-						{
-							if (b->is_active)
-							{
-								b->update(0.015f);
-								b->update_additional(0.015f);
-
-								b->default_draw(_batch);
-								b->additional_draw(_batch);
-							}
-						}
+						
 
 						if ((f->hided_by_separator) && (!f->force_enabled))
 						{
@@ -226,7 +246,7 @@
 						}
 
 						
-						if ((!f->hided_by_separator)|| (f->force_enabled)) { f->update(_delta); }
+						
 						if ((!f->hided_by_separator) || (f->force_enabled)) { f->draw(_batch); }
 
 						blocks_count++;
@@ -320,6 +340,8 @@
 				(blocks_order >= EControl::block_scroll)
 				&&
 				(blocks_count < 50)
+				&&
+				(yy < EWindow::SCR_HEIGHT)
 			)
 			{
 
@@ -388,8 +410,8 @@
 
 			for (FilterBlock::base_data_button_collection_struct* bdbcs : fb->base_data_button_collection_list)
 			{
-				bdbcs->condition_button->update_localisation();
-				bdbcs->main_button->update_localisation();
+				if (bdbcs->condition_button != NULL)	{ bdbcs->condition_button->update_localisation(); }
+				if (bdbcs->main_button != NULL) { bdbcs->main_button->update_localisation(); }
 			}
 		}
 	}

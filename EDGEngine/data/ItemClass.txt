@@ -36,9 +36,7 @@ Base name	Two Hand Axe	RU name	Двуручный топор
 Base name	Two Hand Maces	RU name	Двуручные булавы
 Base name	Two Hand Mace	RU name	Двуручная булава
 Base name	Active Skill Gems	RU name	Камни умений
-Base name	Active Skill Gem	RU name	Камень умения
-Base name	Support Skill Gems	RU name	Камни поддержки
-Base name	Support Skill Gem	RU name	Камень поддержки
+Base name	Support Skill Gems	RU name	Камень поддержки
 Base name	Quivers	RU name	Колчаны
 Base name	Quiver	RU name	Колчан
 Base name	Belts	RU name	Пояса

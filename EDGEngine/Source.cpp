@@ -1274,6 +1274,36 @@ int main()
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
+	//EnchantmentPassiveNum
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "EnchantmentPassiveNum";
+
+
+	*just_created_bdas->name_RU = "Пассивки самоцвета";
+	*just_created_bdas->description_RU = "Количество малых пассивных умений на кластерном самоцвете";
+
+	*just_created_bdas->name_EN = "Cluster passives";
+	*just_created_bdas->description_EN = "Count of small passive point on cluster jewel";
+
+	*just_created_bdas->id = Enums::ParserMode::CLUSTER_PASSIVES_COUNT;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//EnchantmentPassiveNum
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "GemQualityType";
+
+
+	*just_created_bdas->name_RU = "Алтер. качество";
+	*just_created_bdas->description_RU = "Вид альтернативного качества";
+
+	*just_created_bdas->name_EN = "Alt. quality";
+	*just_created_bdas->description_EN = "Kind of alternate quality";
+
+	*just_created_bdas->id = Enums::ParserMode::ALTERNATE_QUALITY_TYPE;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_DROP_LIST_ALTERNATE_QUALITY;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
 
 	 
 

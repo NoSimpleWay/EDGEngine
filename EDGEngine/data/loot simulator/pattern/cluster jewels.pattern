@@ -1,0 +1,9 @@
+item_name	Small Cluster Jewel	count	3	cluster_passives_min	1	cluster_passives_max	2	rarity_min	normal	rarity_max	rare	item_level_min	40	item_level_max	86
+item_name	Medium Cluster Jewel	count	3	cluster_passives_min	4	cluster_passives_max	6	rarity_min	normal	rarity_max	rare	item_level_min	40	item_level_max	86
+item_name	Large Cluster Jewel	count	3	cluster_passives_min	8	cluster_passives_max	12	rarity_min	normal	rarity_max	rare	item_level_min	40	item_level_max	86
+item_name	Small Cluster Jewel	count	1	cluster_passives_min	0	cluster_passives_max	0	rarity_min	unique	rarity_max	unique	item_level_min	40	item_level_max	86
+item_name	Medium Cluster Jewel	count	1	cluster_passives_min	4	cluster_passives_max	4	rarity_min	unique	rarity_max	unique	item_level_min	40	item_level_max	86
+item_name	Large Cluster Jewel	count	1	cluster_passives_min	7	cluster_passives_max	7	rarity_min	unique	rarity_max	unique	item_level_min	40	item_level_max	86
+item_name	Large Cluster Jewel	count	1	cluster_passives_min	5	cluster_passives_max	5	rarity_min	unique	rarity_max	unique	item_level_min	40	item_level_max	86
+item_name	Large Cluster Jewel	count	1	cluster_passives_min	3	cluster_passives_max	3	rarity_min	unique	rarity_max	unique	item_level_min	40	item_level_max	86
+item_name	Large Cluster Jewel	count	1	cluster_passives_min	1	cluster_passives_max	1	rarity_min	unique	rarity_max	unique	item_level_min	40	item_level_max	86

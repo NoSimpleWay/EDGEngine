@@ -1,5 +1,6 @@
 name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Кража"	path	new items	button_color	BLACK	text_color	RED
 name_en	Breach item	name_ru	Предметы "Разлома"	description_en	Generate breach splinters/stone	description_ru	Генерирует осколки/камни разлома	path	breach	button_color	WHITE	text_color	BLACK
+name_en	Cluster jewels	name_ru	Кластерные самоцвета	description_en	Generate cluster jewel	description_ru	Генерирует Кластерыне самоцветы	path	cluster jewels	button_color	WHITE	text_color	BLACK
 name_en	Currency	name_ru	Валюта	description_en	Generate all regular game currency	description_ru	Генерирует всю обычную игровую валюту	path	currency	button_color	WHITE	text_color	BLACK
 name_en	Delirium	name_ru	Делириум	description_en	Generate cluster jewels, and delirium orb, and other delirium items	description_ru	Генерирует премдеты Делириума: самоцветы, сферы, симулякр	path	delirium	button_color	WHITE	text_color	BLACK
 name_en	Delve	name_ru	Шахта	description_en	Generate fossils, resonators, and delve item	description_ru	Генерирует ископаемые, резонаторы, и предметы спуска	path	delve	button_color	WHITE	text_color	BLACK

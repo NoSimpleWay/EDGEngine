@@ -65,8 +65,8 @@ void EButtonItemSearch::click_event()
 					else*/
 					{StaticData::window_manual_loot->link_to_class_button->text = class_text;}
 
-					StaticData::window_manual_loot->link_to_height->text = std::to_string(item->height);
-					StaticData::window_manual_loot->link_to_width->text = std::to_string(item->width);
+					StaticData::window_manual_loot->link_to_height->text	= std::to_string(item->height);
+					StaticData::window_manual_loot->link_to_width->text		= std::to_string(item->width);
 				}
 			}
 

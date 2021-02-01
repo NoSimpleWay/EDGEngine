@@ -85,6 +85,9 @@ public:
 	bool is_replica;
 	bool is_alternate_quality;
 
+	int alternate_quality_type = Enums::AlternateQualityType::AQT_NONE;
+	int cluster_small_passives_count = 0;
+
 	int item_id = -1;
 	EGabarite* gabarite;
 };
