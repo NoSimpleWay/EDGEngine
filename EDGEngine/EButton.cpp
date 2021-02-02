@@ -556,7 +556,7 @@
 				if (flash_line_active)
 				{
 					_batch->setcolor(EColorCollection::BLACK);
-					_batch->draw_rect_with_uv(master_position_x + 3.0f + EFont::get_width(target_font,text)+added_x, master_position_y + (button_size_y - 20.0f) / 2.0f + 4.0f, 3.0f, 17, DefaultGabarite::gabarite_white);
+					_batch->draw_rect_with_uv(master_position_x + 0.0f + EFont::get_width(target_font,text)+added_x, master_position_y + (button_size_y - 20.0f) / 2.0f + 4.0f, 3.0f, 17, DefaultGabarite::gabarite_white);
 				}
 			}
 		}

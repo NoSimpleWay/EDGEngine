@@ -60,6 +60,11 @@
 			but->master_block = master_block;
 			but->master_window = master_window;
 
+			if (master_block->is_exact_match)
+			{
+				but->rama_color->set(EColorCollection::PINK);
+			}
+
 
 			
 

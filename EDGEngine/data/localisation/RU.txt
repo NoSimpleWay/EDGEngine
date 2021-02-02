@@ -150,11 +150,11 @@ description_autogen_check_low	Включить/выключить сохране
 description_autogen_check_default	Включить/выключить сохранение этого блока для "стандартной" версии вашего лут-фильтра
 description_autogen_check_rich	Включить/выключить сохранение этого блока для "богатой" версии вашего лут-фильтра
 description_autogen_check_very_rich	Включить/выключить сохранение этого блока для "очень богатой" версии вашего лут-фильтра
-autogen_very_low	_very_low
-autogen_low	_low
-autogen_default	_default
-autogen_rich	_rich
-autogen_very_rich	_very_rich
+autogen_very_low	_#0[very_low]
+autogen_low	_#1[low]
+autogen_default	_#2[default]
+autogen_rich	_#3[rich]
+autogen_very_rich	_#4[very_rich]
 description_save_autogen_loot_filter	Генерирует "очень низкую", "низкую", "стандартную", "богатую" и "очень богатую" версию вашего лут-фильтра
 button_new_filter_item_equal	Новый предмет с ТОЧНЫМ совпадением по имени\n\nЭто означает, что лут фильтр будет подсвечивать этот предмет только,\nесли имена будут совпадать полностью.\n\nПример: "The Demon" будет подсвечивать только "The Demon"\nи не будет подсвечивать "The Demoness"
 description_open_oil_window	Открыть окно масел
@@ -279,3 +279,6 @@ manual_loot_text_cluster_passives_count	Пассивки кластера
 manual_loot_text_alternate_quality	Альтерн. качество
 alternate_quality_name_none	Нет
 socket_color_none	Без цвета
+exact_match	Полное совпадение
+non_exact_match	Частичное совпадение
+exact_match_description	Переключает между частичным и полным совпадением.\n\nЕсли выбрано частичное совпадение, то блок считается подходящим, даже если совпадает только часть названия.\nНапример, если добавить в блок "Топор",то совпадение будет с "Ржавый топорик", "Коготь-топор" и т.д.\n\n При точном совпадении по именилут фильтр будет подсвечивать предмет только, если имена будут совпадать полностью.\n\nПример: "The Demon" будет подсвечивать только "The Demon", и не будет подсвечивать "The Demoness".

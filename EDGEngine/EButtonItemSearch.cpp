@@ -297,6 +297,8 @@ void EButtonItemSearch::right_click_event()
 			(data_id >= 1)
 			&&
 			(data_id < ESound::default_drop_sound_name.size())
+			&&
+			(ESound::engine != NULL)
 		)
 		{
 			ESound::default_drop_sound.at(data_id)->setDefaultVolume(StaticData::window_filter_block->sound_volume);
@@ -311,6 +313,8 @@ void EButtonItemSearch::right_click_event()
 			(data_id >= 1)
 			&&
 			(data_id < ESound::custom_drop_sound_name.size())
+			&&
+			(ESound::engine != NULL)
 		)
 		{
 			ESound::custom_drop_sound.at(data_id)->setDefaultVolume(StaticData::window_filter_block->sound_volume);

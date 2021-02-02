@@ -290,7 +290,24 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		bg_color->set(EColorCollection::GRAY);
 		text_color->set(EColorCollection::BLACK);
 	}
-	
+
+	if (button_type == Enums::ButtonType::BUTTON_EXACT_MATCH)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		position_mode_x = Enums::PositionMode::LEFT;
+		position_mode_y = Enums::PositionMode::DOWN;
+
+		master_position = Enums::PositionMaster::FILTER_BLOCK;
+
+		have_text = true;
+		have_input_mode = false;
+
+		text = EString::localize_it("non_exact_match");
+
+		bg_color->set(EColorCollection::GRAY);
+		text_color->set(EColorCollection::BLACK);
+	}
 }
 
 void EButtonText::click_event()
@@ -338,6 +355,14 @@ void EButtonText::click_event()
 			if (sc == 3) { loot->socket_color.push_back(EColorCollection::WHITE);	loot->white_socket++;}
 			if (sc == 4) { loot->socket_color.push_back(EColorCollection::BLACK);	loot->abyss_socket++;}
 			if (sc == 5) { loot->socket_color.push_back(EColorCollection::YELLOW);	loot->delve_socket++;}
+		}
+
+		for (int i = 0; i < StaticData::window_manual_loot->links; i++)
+		{
+			if (sc == 0) { loot->socket_color.push_back(EColorCollection::RED);		loot->linked_red_socket++; }
+			if (sc == 1) { loot->socket_color.push_back(EColorCollection::GREEN);	loot->linked_green_socket++; }
+			if (sc == 2) { loot->socket_color.push_back(EColorCollection::BLUE);	loot->linked_blue_socket++; }
+			if (sc == 3) { loot->socket_color.push_back(EColorCollection::WHITE);	loot->linked_white_socket++; }
 		}
 
 		loot->red_socket			= min(loot->red_socket,				loot->sockets);
@@ -642,6 +667,33 @@ void EButtonText::click_event()
 		}
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_EXACT_MATCH)
+	{
+		master_block->is_exact_match = !master_block->is_exact_match;
+
+		if (master_block->is_exact_match)
+		{
+			text_color->set(EColorCollection::PINK);
+			bg_color->set(EColorCollection::SHAPER);
+			text = EString::localize_it("exact_match");
+
+			for (EButton* b : master_block->filter_block_items_button_list)
+			{
+				b->rama_color->set(EColorCollection::PINK);
+			}
+		}
+		else
+		{
+			text_color->set(EColorCollection::LIGHT_GRAY);
+			bg_color->set(EColorCollection::GRAY);
+			text = EString::localize_it("non_exact_match");
+
+			for (EButton* b : master_block->filter_block_items_button_list)
+			{
+				b->rama_color->set(0.4f, 0.3f, 0.1f, 0.6f);
+			}
+		}
+	}
 
 }
 
@@ -919,6 +971,25 @@ void EButtonText::update_localisation()
 		}
 
 		description_text = EString::localize_it("influence_description");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_EXACT_MATCH)
+	{
+
+		if (master_block->is_exact_match)
+		{
+			text_color->set(EColorCollection::PINK);
+			bg_color->set(EColorCollection::SHAPER);
+			text = EString::localize_it("exact_match");
+		}
+		else
+		{
+			text_color->set(EColorCollection::LIGHT_GRAY);
+			bg_color->set(EColorCollection::GRAY);
+			text = EString::localize_it("non_exact_match");
+		}
+
+		description_text = EString::localize_it("exact_match_description");
 	}
 
 }

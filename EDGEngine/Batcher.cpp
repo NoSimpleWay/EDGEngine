@@ -271,7 +271,7 @@ void Batcher::draw_rect_without_color(float _x, float _y, float _w, float _h, in
 	id += 20;
 }
 
-void Batcher::draw_rect_with_uv(float _x, float _y, float _w, float _h, float _start_x, float _start_y, float _end_x, float _end_y)
+void Batcher::draw_gabarite(float _x, float _y, float _w, float _h, float _start_x, float _start_y, float _end_x, float _end_y)
 {
 	//std::cout << "filled rect" << std::endl;
 
