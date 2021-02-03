@@ -119,21 +119,9 @@
 				(blocks_count<50)
 				//&&
 				//(yy < EWindow::SCR_HEIGHT + 500.0f)
-				//this^ line raise FPS from 15 to 60
+				
 			)
-				/*
-							  .-'---`-.
-							,'          `.
-							|             \
-							|              \
-							\           _  \
-							,\  _    ,'-,/-)\
-							( * \ \,' ,' ,'-)
-							 `._,)     -',-')
-							   \/         ''/
-								)        / /
-							   /       ,'-'
-				*/
+				
 			{
 				FilterBlock* f = filter_block_list.at(block_index);
 				
@@ -177,6 +165,20 @@
 						&&
 						(f->y + f->size_y > 0.0f)
 					)
+					//this^ line raise FPS from 15 to 60
+					/*
+								  .-'---`-.
+								,'          `.
+								|             \
+								|              \
+								\           _  \
+								,\  _    ,'-,/-)\
+								( * \ \,' ,' ,'-)
+								 `._,)     -',-')
+								   \/         ''/
+									)        / /
+								   /       ,'-'
+					*/
 					for (EButton* b : f->header_button_list)
 					{
 						if (b->is_active)

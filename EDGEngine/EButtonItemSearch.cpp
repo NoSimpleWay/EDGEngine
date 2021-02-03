@@ -273,6 +273,8 @@ void EButtonItemSearch::click_event()
 		dst << src.rdbuf();
 
 	//	EFile::save_filter(EString::path_to_poe_folder + "/reserve_copy/" + text + "_copy.filter");
+
+		EControl::block_scroll = 0;
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_LOOT_SIMULATOR_PATTERN)

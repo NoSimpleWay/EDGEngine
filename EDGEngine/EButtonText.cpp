@@ -539,7 +539,7 @@ void EButtonText::click_event()
 
 			new_fb->update_localisation();
 
-
+			EControl::block_scroll = 0;
 		}
 
 

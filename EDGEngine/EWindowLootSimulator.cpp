@@ -311,8 +311,8 @@ void EWindowLootSimulator::update(float _d)
 			if (random_elder > max_value)	{	max_value = random_elder;	}
 			if (random_normal > max_value)	{	max_value = random_normal;	}
 
-			if (max_value == random_shaper) { loot->shaper_item = true;	}
-			if (max_value == random_elder) { loot->elder_item = true;	}
+			if ((max_value == random_shaper)	&	(p->shaper_item_weight > 0))	{ loot->shaper_item = true;	}
+			if ((max_value == random_elder)		&	(p->elder_item_weight > 0))		{ loot->elder_item = true;	}
 
 			loot->enchantment = p->enchantment;
 			loot->cluster_enchantment = p->cluster_enchantment;
@@ -854,6 +854,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			{
 				_batch->setcolor(EColorCollection::CYAN);
 				EFont::active_font->draw(_batch, s, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				move_y++;
 			}
 
 			_batch->setcolor(EColorCollection::GRAY);
@@ -1147,26 +1148,48 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if ((!_default) && (!temp_match)) { rejection("base_class", _l); }
 		}
 
+		int matches_count = 0;
+		int need_matches = 1;
+		std::string need_operator = ">=";
+
+		bool have_operator = false;
 		/*			ENCHANTMENT			*/
-		if (match_detect)
+		if ((match_detect) & (fb->is_enchantment_active))
 		{
 			temp_match = false;
 			if (!fb->is_enchantment_active) { temp_match = true; }
 
 			//std::cout << "ench: " << _l->enchantment << std::endl;
 
-			for (EButton* b : fb->enchantment_list)
+			if ((fb->enchantment_list.size() > 0) && (fb->enchantment_list.at(0) != NULL) && (convert_to_condition(fb->enchantment_list.at(0)->data_string) != ""))
 			{
-				if
-					(EString::to_lower(_l->enchantment, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
-				{
-					temp_match = true;
-				}
+				need_operator = convert_to_condition(fb->enchantment_list.at(0)->data_string);
+				need_matches = convert_to_number(fb->enchantment_list.at(0)->data_string);
+
+				have_operator = true;
 			}
 
-			match_detect = temp_match;
+			int oid = 0;
+			for (EButton* b : fb->enchantment_list)
+			{
+				if (EString::to_lower(_l->enchantment, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+				{
+					matches_count++;
+				}
 
-			if ((!_default) && (!temp_match)) { rejection("enchantment", _l); }
+				oid++;
+			}
+
+
+			//match_detect = temp_match;
+
+			if (!check_condition(need_operator, matches_count, need_matches))
+			{
+				//std::cout << "dont match" << std::endl;
+				match_detect = false;
+			}
+
+			if ((!_default) && (!match_detect)) { rejection("enchantment", _l); }
 
 		}
 
@@ -1193,10 +1216,17 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		}
 
+
 		/*			AFFIXES			*/
+		matches_count = 0;
+		need_matches = 1;
+		need_operator = ">=";
+		have_operator = false;
 		if (match_detect)
 		{
 			temp_match = true;
+
+		
 
 			if (!fb->is_explicit)
 			{
@@ -1208,34 +1238,64 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 				for (ExplicitGroup* ex : fb->explicit_list)
 					if (match_detect)
 					{
+						matches_count = 0;
+						have_operator = false;
+						
 						if (ex->button_list.size() > 0)
 						{
 							temp_match = false;
+
+							if (convert_to_condition(ex->button_list.at(0)->text) != "")
+							{
+								need_operator = convert_to_condition(ex->button_list.at(0)->text);
+								need_matches = convert_to_number(ex->button_list.at(0)->text);
+
+								have_operator = true;
+							}
 						}
 						else
 						{
 							temp_match = true;
 						}
 
+						int oid = 0;
 						for (EButton* b : ex->button_list)
 						{
 							for (std::string s : _l->explicit_list)
 							{
-								if (EString::to_lower(s, false).find(EString::to_lower(b->text, false)) != std::string::npos)
+								if ((oid > 0) || (!have_operator))
 								{
-									temp_match = true;
-								}
-								else
-								{
-									if (!_default)
+									if (EString::to_lower(s, false).find(EString::to_lower(b->text, false)) != std::string::npos)
 									{
-										std::cout << "explicit from loot '" << s << "' not equal '" << b->text << "'" << std::endl;
+										//temp_match = true;
+										matches_count++;
+
+										//std::cout << "EQUAL||explicit on item:" << s << "\texplicit on block:" << b->text << std::endl;
+									}
+									else
+									{
+										//std::cout << "!||explicit on item:" << s << "\texplicit on block:" << b->text << std::endl;
+										if (!_default)
+										{
+											//std::cout << "explicit from loot '" << s << "' not equal '" << b->text << "'" << std::endl;
+										}
 									}
 								}
 							}
+
+							oid++;
 						}
 
-						if (!temp_match) { match_detect = false; }
+						if ((ex->is_active) & (ex->button_list.size() > 0))
+						{
+							//std::cout << "operator: " << need_operator << " matches:" << matches_count << " need matches:" << need_matches << std::endl;
+							//if (!temp_match) { match_detect = false; }
+							if (!check_condition(need_operator, matches_count, need_matches))
+							{
+								//std::cout << "dont match" << std::endl;
+								match_detect = false;
+							}
+						}
 
 						//match_detect = temp_match;
 					}
@@ -2166,4 +2226,65 @@ void EWindowLootSimulator::close_action()
 	{
 		f->force_enabled = false;
 	}
+}
+
+std::string EWindowLootSimulator::convert_to_condition(std::string _text)
+{
+	//if ((_text.length() >= 2)&&()) {_text}
+
+	std::string temp_s = "";
+
+	for (int i = 0; i < _text.length(); i++)
+	{
+		if
+			(
+				(_text.at(i) == '<')
+				||
+				(_text.at(i) == '=')
+				||
+				(_text.at(i) == '>')
+			)
+		{
+			temp_s += _text.at(i);
+		}
+	}
+
+	return temp_s;
+}
+
+int EWindowLootSimulator::convert_to_number(std::string _text)
+{
+
+	std::string temp_s = "";
+
+	for (int i = 0; i < _text.length(); i++)
+	{
+		if
+			(
+				(_text.at(i) == '0')
+				||
+				(_text.at(i) == '1')
+				||
+				(_text.at(i) == '2')
+				||
+				(_text.at(i) == '3')
+				||
+				(_text.at(i) == '4')
+				||
+				(_text.at(i) == '5')
+				||
+				(_text.at(i) == '6')
+				||
+				(_text.at(i) == '7')
+				||
+				(_text.at(i) == '8')
+				||
+				(_text.at(i) == '9')
+			)
+		{
+			temp_s += _text.at(i);
+		}
+	}
+
+	return std::stoi(temp_s);
 }

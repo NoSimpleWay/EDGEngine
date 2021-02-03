@@ -556,6 +556,7 @@ void EButtonService::click_event()
 		}
 
 		StaticData::window_filter_block->unsave_change = false;
+		
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
