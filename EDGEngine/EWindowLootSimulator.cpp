@@ -311,8 +311,8 @@ void EWindowLootSimulator::update(float _d)
 			if (random_elder > max_value)	{	max_value = random_elder;	}
 			if (random_normal > max_value)	{	max_value = random_normal;	}
 
-			if (max_value == random_shaper) { loot->shaper_item = true;	}
-			if (max_value == random_elder) { loot->elder_item = true;	}
+			if ((max_value == random_shaper)	&	(p->shaper_item_weight > 0))	{ loot->shaper_item = true;	}
+			if ((max_value == random_elder)		&	(p->elder_item_weight > 0))		{ loot->elder_item = true;	}
 
 			loot->enchantment = p->enchantment;
 			loot->cluster_enchantment = p->cluster_enchantment;
@@ -422,21 +422,24 @@ void EWindowLootSimulator::put_loot(LootItem*& loot)
 
 	if (loot->filter_block_link != NULL)
 	{
-		if ((loot->filter_block_link->is_alert_sound) && (loot->filter_block_link->alert_sound_name != ""))
+		if ((loot->filter_block_link->is_alert_sound) && (loot->filter_block_link->alert_sound_name != "") && (ESound::engine != NULL))
 		{
 			ESound::default_drop_sound.at(loot->filter_block_link->alert_sound_id)->setDefaultVolume(StaticData::window_filter_block->sound_volume);
 			ESound::engine->play2D(ESound::default_drop_sound.at(loot->filter_block_link->alert_sound_id));
 		}
 
-		if ((loot->filter_block_link->is_custom_alert_sound) && (loot->filter_block_link->custom_alert_sound_name != ""))
+		if ((loot->filter_block_link->is_custom_alert_sound) && (loot->filter_block_link->custom_alert_sound_name != "") && (ESound::engine != NULL))
 		{
 			ESound::get_sound_by_name(loot->filter_block_link->custom_alert_sound_name)->setDefaultVolume(StaticData::window_filter_block->sound_volume);
 			ESound::engine->play2D(ESound::get_sound_by_name(loot->filter_block_link->custom_alert_sound_name));
 		}
 	}
 
-	ESound::flip_sound->setDefaultVolume(StaticData::window_filter_block->sound_volume);
-	ESound::engine->play2D(ESound::flip_sound);
+	if (ESound::engine != NULL)
+	{
+		ESound::flip_sound->setDefaultVolume(StaticData::window_filter_block->sound_volume);
+		ESound::engine->play2D(ESound::flip_sound);
+	}
 }
 
 void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
@@ -851,6 +854,7 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 			{
 				_batch->setcolor(EColorCollection::CYAN);
 				EFont::active_font->draw(_batch, s, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				move_y++;
 			}
 
 			_batch->setcolor(EColorCollection::GRAY);
@@ -1092,19 +1096,19 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		for (EButton* b : fb->filter_block_items_button_list)
 		{
 			if
+			(
 				(
-				(
-					(!((EButtonFilterItem*)b)->is_full_equal_mode)
+					(!fb->is_exact_match)
 					&&
 					(EString::to_lower(_l->data_name, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
-					)
-					||
-					(
-					(((EButtonFilterItem*)b)->is_full_equal_mode)
-						&&
-						(_l->data_name == b->data_string)
-						)
-					)
+				)
+				||
+				(
+					(fb->is_exact_match)
+					&&
+					(_l->data_name == b->data_string)
+				)
+			)
 			{
 				match_detect = true;
 			}
@@ -1144,26 +1148,48 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if ((!_default) && (!temp_match)) { rejection("base_class", _l); }
 		}
 
+		int matches_count = 0;
+		int need_matches = 1;
+		std::string need_operator = ">=";
+
+		bool have_operator = false;
 		/*			ENCHANTMENT			*/
-		if (match_detect)
+		if ((match_detect) & (fb->is_enchantment_active))
 		{
 			temp_match = false;
 			if (!fb->is_enchantment_active) { temp_match = true; }
 
 			//std::cout << "ench: " << _l->enchantment << std::endl;
 
-			for (EButton* b : fb->enchantment_list)
+			if ((fb->enchantment_list.size() > 0) && (fb->enchantment_list.at(0) != NULL) && (convert_to_condition(fb->enchantment_list.at(0)->data_string) != ""))
 			{
-				if
-					(EString::to_lower(_l->enchantment, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
-				{
-					temp_match = true;
-				}
+				need_operator = convert_to_condition(fb->enchantment_list.at(0)->data_string);
+				need_matches = convert_to_number(fb->enchantment_list.at(0)->data_string);
+
+				have_operator = true;
 			}
 
-			match_detect = temp_match;
+			int oid = 0;
+			for (EButton* b : fb->enchantment_list)
+			{
+				if (EString::to_lower(_l->enchantment, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+				{
+					matches_count++;
+				}
 
-			if ((!_default) && (!temp_match)) { rejection("enchantment", _l); }
+				oid++;
+			}
+
+
+			//match_detect = temp_match;
+
+			if (!check_condition(need_operator, matches_count, need_matches))
+			{
+				//std::cout << "dont match" << std::endl;
+				match_detect = false;
+			}
+
+			if ((!_default) && (!match_detect)) { rejection("enchantment", _l); }
 
 		}
 
@@ -1190,10 +1216,17 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		}
 
+
 		/*			AFFIXES			*/
+		matches_count = 0;
+		need_matches = 1;
+		need_operator = ">=";
+		have_operator = false;
 		if (match_detect)
 		{
 			temp_match = true;
+
+		
 
 			if (!fb->is_explicit)
 			{
@@ -1205,34 +1238,64 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 				for (ExplicitGroup* ex : fb->explicit_list)
 					if (match_detect)
 					{
+						matches_count = 0;
+						have_operator = false;
+						
 						if (ex->button_list.size() > 0)
 						{
 							temp_match = false;
+
+							if (convert_to_condition(ex->button_list.at(0)->text) != "")
+							{
+								need_operator = convert_to_condition(ex->button_list.at(0)->text);
+								need_matches = convert_to_number(ex->button_list.at(0)->text);
+
+								have_operator = true;
+							}
 						}
 						else
 						{
 							temp_match = true;
 						}
 
+						int oid = 0;
 						for (EButton* b : ex->button_list)
 						{
 							for (std::string s : _l->explicit_list)
 							{
-								if (EString::to_lower(s, false).find(EString::to_lower(b->text, false)) != std::string::npos)
+								if ((oid > 0) || (!have_operator))
 								{
-									temp_match = true;
-								}
-								else
-								{
-									if (!_default)
+									if (EString::to_lower(s, false).find(EString::to_lower(b->text, false)) != std::string::npos)
 									{
-										std::cout << "explicit from loot '" << s << "' not equal '" << b->text << "'" << std::endl;
+										//temp_match = true;
+										matches_count++;
+
+										//std::cout << "EQUAL||explicit on item:" << s << "\texplicit on block:" << b->text << std::endl;
+									}
+									else
+									{
+										//std::cout << "!||explicit on item:" << s << "\texplicit on block:" << b->text << std::endl;
+										if (!_default)
+										{
+											//std::cout << "explicit from loot '" << s << "' not equal '" << b->text << "'" << std::endl;
+										}
 									}
 								}
 							}
+
+							oid++;
 						}
 
-						if (!temp_match) { match_detect = false; }
+						if ((ex->is_active) & (ex->button_list.size() > 0))
+						{
+							//std::cout << "operator: " << need_operator << " matches:" << matches_count << " need matches:" << need_matches << std::endl;
+							//if (!temp_match) { match_detect = false; }
+							if (!check_condition(need_operator, matches_count, need_matches))
+							{
+								//std::cout << "dont match" << std::endl;
+								match_detect = false;
+							}
+						}
 
 						//match_detect = temp_match;
 					}
@@ -1430,6 +1493,8 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			int blue_links_count	= 0;
 
 			int white_links_count	= 0;
+			int abyss_links_count	= 0;
+			int delve_links_count	= 0;
 
 			int links_count			= 0;
 
@@ -1449,10 +1514,12 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 					if ((attribute_value_string.at(i) == 'g') || (attribute_value_string.at(i) == 'G')) { green_links_count++; }
 					if ((attribute_value_string.at(i) == 'b') || (attribute_value_string.at(i) == 'B')) { blue_links_count++; }
 
-					if (EString::to_lower("" + attribute_value_string.at(i)) == "w") { white_links_count++; }
+					if ((attribute_value_string.at(i) == 'w') || (attribute_value_string.at(i) == 'W')) { white_links_count++; }
+					if ((attribute_value_string.at(i) == 'a') || (attribute_value_string.at(i) == 'A')) { abyss_links_count++; }
+					if ((attribute_value_string.at(i) == 'd') || (attribute_value_string.at(i) == 'D')) { delve_links_count++; }
 				}
 
-				if (((links_count)+(red_links_count)+(green_links_count)+(blue_links_count)+(white_links_count) > 0))
+				if (((links_count)+(red_links_count)+(green_links_count)+(blue_links_count)+(white_links_count)+(abyss_links_count)+(delve_links_count) > 0))
 				{
 					/*std::cout << "links count:" << links_count << std::endl;
 
@@ -1469,7 +1536,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 				if
 				(
-					((links_count)+(red_links_count)+(green_links_count)+(blue_links_count)+(white_links_count) > 0)
+					((links_count)+(red_links_count)+(green_links_count)+(blue_links_count)+(white_links_count)+(abyss_links_count)+(delve_links_count) > 0)
 					&
 					(
 						((!check_condition(attribute_operator, _l->links, links_count)) & (links_count > 0))
@@ -1481,6 +1548,10 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 						((!check_condition(attribute_operator, _l->linked_blue_socket, blue_links_count)) & (blue_links_count > 0))
 						||
 						((!check_condition(attribute_operator, _l->linked_white_socket, white_links_count)) & (white_links_count > 0))
+						||
+						((!check_condition(attribute_operator, _l->abyss_socket, abyss_links_count)) & (abyss_links_count > 0))
+						||
+						((!check_condition(attribute_operator, _l->delve_socket, delve_links_count)) & (delve_links_count > 0))
 					)
 				)
 				{
@@ -1502,8 +1573,10 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if ((target_data == Enums::ParserMode::SOCKETS) & (match_detect))
 			{
 
+				//std::cout << "whole string:" << attribute_value_string << "[" << fb->order_id << "]" << std::endl;
 				for (int i = 0; i < attribute_value_string.size(); i++)
 				{
+					//std::cout << "sub char:" << attribute_value_string.at(i) << std::endl;
 					if (attribute_value_string.at(i) == '1') { sockets_count = 1; }
 					if (attribute_value_string.at(i) == '2') { sockets_count = 2; }
 					if (attribute_value_string.at(i) == '3') { sockets_count = 3; }
@@ -1511,20 +1584,22 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 					if (attribute_value_string.at(i) == '5') { sockets_count = 5; }
 					if (attribute_value_string.at(i) == '6') { sockets_count = 6; }
 
-					if (EString::to_lower("" + attribute_value_string.at(i)) == "r") { red_sockets_count++; }
-					if (EString::to_lower("" + attribute_value_string.at(i)) == "g") { green_sockets_count++; }
-					if (EString::to_lower("" + attribute_value_string.at(i)) == "b") { blue_sockets_count++; }
-
-					if (EString::to_lower("" + attribute_value_string.at(i)) == "w") { white_sockets_count++; }
-					if (EString::to_lower("" + attribute_value_string.at(i)) == "a") { abyss_sockets_count++; }
-					if (EString::to_lower("" + attribute_value_string.at(i)) == "d") { delve_sockets_count++; }
+					if ((attribute_value_string.at(i) == 'r')|| (attribute_value_string.at(i) == 'R')) { red_sockets_count++; }
+					if ((attribute_value_string.at(i) == 'g')|| (attribute_value_string.at(i) == 'G')) { green_sockets_count++; }
+					if ((attribute_value_string.at(i) == 'b')|| (attribute_value_string.at(i) == 'B')) { blue_sockets_count++; }
+					   										
+					if ((attribute_value_string.at(i) == 'w')|| (attribute_value_string.at(i) == 'W')) { white_sockets_count++; }
+					if ((attribute_value_string.at(i) == 'a')|| (attribute_value_string.at(i) == 'A')) { abyss_sockets_count++; }
+					if ((attribute_value_string.at(i) == 'd')|| (attribute_value_string.at(i) == 'D')) { delve_sockets_count++; }
 				}
+
+				//std::cout << "abyss sockets" << abyss_sockets_count << std::endl;
 
 				if
 				(
 					((sockets_count)+(red_sockets_count)+(green_sockets_count)+(blue_sockets_count)+(white_sockets_count)+(abyss_sockets_count)+(delve_sockets_count) > 0)
-						&
-						(
+					&
+					(
 							((!check_condition(attribute_operator, _l->sockets, sockets_count)) & (sockets_count > 0))
 							||
 							((!check_condition(attribute_operator, _l->red_socket, red_sockets_count)) & (red_sockets_count > 0))
@@ -1538,7 +1613,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 							((!check_condition(attribute_operator, _l->abyss_socket, abyss_sockets_count)) & (abyss_sockets_count > 0))
 							||
 							((!check_condition(attribute_operator, _l->delve_socket, delve_sockets_count)) & (delve_sockets_count > 0))
-							)
+					)
 				)
 				{
 					match_detect = false;
@@ -2151,4 +2226,65 @@ void EWindowLootSimulator::close_action()
 	{
 		f->force_enabled = false;
 	}
+}
+
+std::string EWindowLootSimulator::convert_to_condition(std::string _text)
+{
+	//if ((_text.length() >= 2)&&()) {_text}
+
+	std::string temp_s = "";
+
+	for (int i = 0; i < _text.length(); i++)
+	{
+		if
+			(
+				(_text.at(i) == '<')
+				||
+				(_text.at(i) == '=')
+				||
+				(_text.at(i) == '>')
+			)
+		{
+			temp_s += _text.at(i);
+		}
+	}
+
+	return temp_s;
+}
+
+int EWindowLootSimulator::convert_to_number(std::string _text)
+{
+
+	std::string temp_s = "";
+
+	for (int i = 0; i < _text.length(); i++)
+	{
+		if
+			(
+				(_text.at(i) == '0')
+				||
+				(_text.at(i) == '1')
+				||
+				(_text.at(i) == '2')
+				||
+				(_text.at(i) == '3')
+				||
+				(_text.at(i) == '4')
+				||
+				(_text.at(i) == '5')
+				||
+				(_text.at(i) == '6')
+				||
+				(_text.at(i) == '7')
+				||
+				(_text.at(i) == '8')
+				||
+				(_text.at(i) == '9')
+			)
+		{
+			temp_s += _text.at(i);
+		}
+	}
+
+	return std::stoi(temp_s);
 }
