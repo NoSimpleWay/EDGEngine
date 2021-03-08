@@ -1399,7 +1399,8 @@ int main()
 		if (sound_order > 0)
 		{
 			string sound_path = "data/sound/default_drop_sound/" + s + ".wav";
-			ESound::default_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(sound_path.c_str()));
+			if (ESound::engine != NULL)
+			{ESound::default_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(sound_path.c_str()));}
 		}
 		else
 		{
@@ -1408,7 +1409,10 @@ int main()
 		sound_order++;
 	}
 
-	ESound::flip_sound = ESound::engine->addSoundSourceFromFile("data/sound/flippy.wav");
+	if (ESound::engine != NULL)
+	{
+		ESound::flip_sound = ESound::engine->addSoundSourceFromFile("data/sound/flippy.wav");
+	}
 
 
 
@@ -2390,7 +2394,7 @@ int main()
 		{
 			batch->setcolor(EColorCollection::WHITE);
 			batch->draw_rect_with_uv(0.0f, 0.0f, 1000.0f, 1000.0f, DefaultGabarite::gabarite_white);
-			batch->draw_rect_with_uv(0.0f, 0.0f, 1000.0f, 1000.0f, 0.0f, 0.0f, 1.0f, 1.0f);
+			batch->draw_gabarite(0.0f, 0.0f, 1000.0f, 1000.0f, 0.0f, 0.0f, 1.0f, 1.0f);
 		}
 
 		batch->reinit();
@@ -2417,7 +2421,7 @@ int main()
 			batch->setcolor(1.0f, 1.0f, 1.0f, 0.9f);
 			batch->reset();
 
-			batch->draw_rect_with_uv(0, 4096.0f/4.0f, 4096.0f/4.0f, 4096/1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
+			batch->draw_gabarite(0, 4096.0f/4.0f, 4096.0f/4.0f, 4096/1.0f, 0.0f, 0.0f, 1.0f, 1.0f);
 			//batch->draw_rect_with_uv(500, 500, 100, 100, ItemList::item_list.at(0)->gabarite);
 
 			batch->reinit();

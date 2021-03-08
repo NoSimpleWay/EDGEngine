@@ -150,11 +150,11 @@ description_autogen_check_low	Enable/disable write this block for "low" version 
 description_autogen_check_default	Enable/disable write this block for "default" version of you loot-filter
 description_autogen_check_rich	Enable/disable write this block for "rich" version of you loot-filter
 description_autogen_check_very_rich	Enable/disable write this block for "very_rich" version of you loot-filter
-autogen_very_low	_very_low
-autogen_low	_low
-autogen_default	_default
-autogen_rich	_rich
-autogen_very_rich	_very_rich
+autogen_very_low	_#0[very_low]
+autogen_low	_#1[low]
+autogen_default	_#2[default]
+autogen_rich	_#3[rich]
+autogen_very_rich	_#4[very_rich]
 description_save_autogen_loot_filter	Generate "very low", "low", "default", "rich" and "very rich" version of you loot-filter
 button_new_filter_item_equal	New item with exact matches.
 description_open_oil_window	Open oil's window
@@ -245,7 +245,7 @@ hint_header_separator	Input commentary
 button_add_cluster_enchantment_list	Add new cluster jewel enchantment
 description_add_enchantment_list	Add new cluster jewel enchantment
 base_data_or_no_influence	(OR)NO influence
-base_data_and_no_influence	(AND)No influence
+base_data_and_no_influence	(AND)No influencex`
 alternate_quality_text	Alternate quality!
 replica_text	Replica of
 base_data_alternate_quality	Alternate quality
@@ -278,3 +278,7 @@ small_cluster_passives	Add small passives:
 manual_loot_text_cluster_passives_count	Cluster passives
 manual_loot_text_alternate_quality	Alternate quality
 alternate_quality_name_none	None
+influence_none	Nothing
+exact_match	Exact match
+non_exact_match	Partial	 match
+exact_match_description	Change mode to exact/partially match

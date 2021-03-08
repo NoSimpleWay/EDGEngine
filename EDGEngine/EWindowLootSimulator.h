@@ -67,4 +67,7 @@ public:
 
 	int area_level = 68;
 
+	std::string convert_to_condition(std::string _text);
+	int convert_to_number(std::string _text);
+
 };

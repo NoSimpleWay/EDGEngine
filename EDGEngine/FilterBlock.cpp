@@ -199,6 +199,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 
 
+		/*
 		button_plus_equal = new EButtonFilterItem(0, 0, 45, 45);
 		button_plus_equal->gabarite = DefaultGabarite::gabarite_plus_equal;
 
@@ -211,7 +212,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 		button_plus_equal->can_be_removed = false;
 
-		button_list.push_back(button_plus_equal);
+		button_list.push_back(button_plus_equal);*/
 
 
 		/*
@@ -670,8 +671,14 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 				b->is_active = false;
 			}
 
-
-
+	/*****************************************/
+		but = new EButtonText(365.0f, 5.0f + 96.0f, 64.0f, 20.0f, Enums::ButtonType::BUTTON_EXACT_MATCH);
+			but->master_block = this;
+			but->master_window = StaticData::window_filter_block;
+			//but->gabarite = DefaultGabarite::gabarite_switcher_influence_hunter_deactivated;
+			button_list.push_back(but);
+			link_to_switch_exact_match = but;
+	/*****************************************/
 			but = new EButtonService(435.0f, 5.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
 				but->master_block = this;
 				but->master_window = StaticData::window_filter_block;
@@ -1064,7 +1071,9 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		_batch->setcolor_alpha(EColorCollection::BLACK, 0.25f);
 		_batch->draw_rama(x + 5.0f, y + 5.0f, 355.0f, size_y - 10.0f, 3.0f, DefaultGabarite::gabarite_white);
 
-		
+		_batch->setcolor_alpha(EColorCollection::BLACK, 0.25f);
+		_batch->draw_rect_with_uv(x + 365.0f, y + 5.0f, 65.0f, 90.0f, DefaultGabarite::gabarite_white);
+		_batch->draw_rama(x + 365.0f, y + 5.0f, 65.0f, 90.0f, 3.0f, DefaultGabarite::gabarite_white);
 		
 
 		
@@ -1170,7 +1179,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 			{
 				temp_pos_x += filter_block_items_button_list.at(i)->button_size_x + 8;
 
-				if (temp_pos_x + 53.0f > size_x - 300.0f)
+				if (temp_pos_x + 53.0f > size_x - 260.0f)
 				{
 					temp_pos_x = start_position_draw_x;
 					temp_pos_y += 53.0f;
@@ -1179,7 +1188,8 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 				}
 			}
 		}
-
+		link_to_switch_exact_match->button_x = start_position_draw_x;
+		link_to_switch_exact_match->button_y = temp_pos_y + 50.0f;
 
 		//max_h += 35;
 
@@ -1187,9 +1197,9 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		button_plus->button_y = temp_pos_y;
 		temp_pos_x += 53.0f;
 
-		button_plus_equal->button_x = temp_pos_x;
-		button_plus_equal->button_y = temp_pos_y;
-		temp_pos_x += 53.0f;
+		//button_plus_equal->button_x = temp_pos_x;
+		//button_plus_equal->button_y = temp_pos_y;
+		//temp_pos_x += 53.0f;
 		
 		for (int i = 0; i < 25; i++)
 		if (temp_pos_x + 53.0f < size_x - 260.0f)

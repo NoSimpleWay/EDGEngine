@@ -1,99 +1,6 @@
 # Item filter downloaded at FilterBLAST - for updates visit:
-# https://filterblast.xyz/Default/1vc87mg
+# https://filterblast.xyz/Default/2jf7ruk
 
-# Currency - Orb of Unmaking 
-Show
-	BaseType "Orb of Unmaking"
-	SetFontSize 42
-	SetTextColor 0 0 0
-	SetBackgroundColor 179 226 255
-	SetBorderColor 0 0 0
-	MinimapIcon 1 Blue Square
-	PlayEffect Blue
-	PlayAlertSound 10 300
-
-# Map Fragment - Crescent Splinter
-Show
-	Class "Currency"
-	BaseType "Crescent Splinter"
-	SetFontSize 38
-	SetTextColor 240 240 240
-	SetBackgroundColor 126 34 103 221
-	SetBorderColor 76 0 153
-	MinimapIcon 0 Purple Square
-	PlayEffect Purple
-	PlayAlertSound 8
-
-# Map - The Maven's Writ
-Show
-	BaseType "The Maven's Writ"
-	SetFontSize 42
-	SetTextColor 255 255 255
-	SetBackgroundColor 126 34 103 255
-	SetBorderColor 76 0 153
-	MinimapIcon 0 Purple Square
-	PlayEffect Purple
-	PlayAlertSound 8
-
-# Ritual Map Fragment - Maven's Invitation
-Show
-	BaseType "Maven's Invitation: The Feared" "Maven's Invitation: The Formed" "Maven's Invitation: The Twisted" "Maven's Invitation: The Forgotten" "Maven's Invitation: The Hidden" "Maven's Invitation: Haewark Hamlet" "Maven's Invitation: Tirn's End" "Maven's Invitation: Lex Proxima" "Maven's Invitation: Lex Ejoris" "Maven's Invitation: New Vastir" "Maven's Invitation: Glennach Cairns" "Maven's Invitation: Valdo's Rest" "Maven's Invitation: Lira Arthai"
-	SetFontSize 38
-	SetTextColor 255 255 255
-	SetBackgroundColor 0 26 255 200
-	SetBorderColor 76 0 153
-	MinimapIcon 0 Purple Square
-	PlayEffect Purple
-	PlayAlertSound 4 200
-
-# Currency - Ritual Splinter
-Show
-	Class "Currency"
-	BaseType "Ritual Splinter"
-	SetFontSize 36
-	SetTextColor 255 0 0
-	SetBackgroundColor 0 0 0
-	SetBorderColor 136 136 255
-	PlayEffect Red Temp
-	PlayAlertSound 7 225
-
-# Currency - Maven's Orb 
-Show
-	Class "Stackable Currency"
-	BaseType "Maven's Orb"
-	SetFontSize 45
-	SetTextColor 255 255 255
-	SetBackgroundColor 0 26 255
-	SetBorderColor 76 0 153
-	MinimapIcon 0 Purple Square
-	PlayEffect Purple
-	PlayAlertSound 10 300
-
-Show  # Ritual Base Types
-	BaseType "Dreamquest Slippers" "Cloudwhisper Boots" "Brimstone Treads" "Nightwind Slippers" "Windbreak Boots" "Darksteel Treads" "Duskwalk Slippers" "Stormrider Boots" "Basemetal Treads" "Debilitation Gauntlets" "Gruelling Gauntlets" "Taxing Gauntlets" "Sinistral Gloves" "Southswing Gloves" "Gauche Gloves" "Nexus Gloves" "Aetherwind Gloves" "Leyline Gloves" "Blizzard Crown" "Winter Crown" "Gale Crown" "Archdemon Crown" "Demon Crown" "Imp Crown" "Atonement Mask" "Penitent Mask" "Sorrow Mask"
-	SetFontSize 38
-	SetTextColor 217 56 16
-	SetBackgroundColor 0 0 0 235
-
-Show  # Ritual Base Types - Blood-Filled Vessel, blood text.
-	BaseType "Blood-filled Vessel"
-	SetFontSize 42
-	SetTextColor 255 0 0
-	SetBackgroundColor 0 0 0
-	SetBorderColor 255 0 0
-	MinimapIcon 2 Red Circle
-	PlayEffect Red
-	PlayAlertSound 11
-
-Show  # Ritual Base Types - Ritual Vessel, empty.
-	BaseType "Ritual Vessel"
-	SetFontSize 42
-	SetTextColor 255 255 255
-	SetBackgroundColor 0 0 0
-	SetBorderColor 148 0 0
-	MinimapIcon 2 Red Circle
-	PlayEffect Red
-	PlayAlertSound 11
 
 Show
 	Class "Hideout Doodads" "Microtransactions"
@@ -108,9 +15,9 @@ Show
 
 # Tabula Rasa Catcher
 Show
-	Rarity = Unique
-	SocketGroup = WWWWWW
+	SocketGroup WWWWWW
 	BaseType "Simple Robe"
+	Rarity = Unique
 	SetFontSize 40
 	SetBorderColor 180 96 0
 	MinimapIcon 2 White Circle
@@ -155,37 +62,6 @@ Show
 	PlayEffect Blue
 	PlayAlertSound 15 300
 
-# Conqueror Items
-Show
-	HasInfluence Crusader Redeemer Hunter Warlord
-	SetFontSize 43
-	SetTextColor 255 255 130
-	SetBorderColor 191 0 0
-	MinimapIcon 1 Yellow Square
-	PlayEffect Yellow
-
-# Fractured Items
-Show
-	FracturedItem True
-	SetFontSize 42
-	SetTextColor 42 42 42
-	SetBackgroundColor 83 169 204
-	SetBorderColor 254 170 0
-	MinimapIcon 0 Blue Circle
-	PlayEffect Blue
-	PlayAlertSound 6 300
-
-# Synthesised Items
-Show
-	SynthesisedItem True
-	SetFontSize 42
-	SetTextColor 42 42 42
-	SetBackgroundColor 247 229 140
-	SetBorderColor 30 144 255
-	MinimapIcon 0 Yellow Circle
-	PlayEffect Yellow
-	PlayAlertSound 6 300
-
 # 6Socket Any
 Show
 	Sockets = 6
@@ -195,6 +71,17 @@ Show
 	MinimapIcon 2 Yellow Hexagon
 	PlayEffect Red Temp
 	PlayAlertSound 1 225
+
+# Enchantment Any
+Show
+	AnyEnchantment True
+	SetFontSize 40
+	SetTextColor 204 0 154
+	SetBackgroundColor 23 23 23 250
+	SetBorderColor 204 0 154
+	MinimapIcon 1 Red Star
+	PlayEffect Red
+	PlayAlertSound 2 300
 
 # Sacrificial Garb
 Show
@@ -248,7 +135,7 @@ Show
 
 # Currency - Exalted 
 Show
-	BaseType == "Exalted Orb"
+	BaseType "Exalted Orb"
 	SetFontSize 42
 	SetTextColor 0 0 0
 	SetBackgroundColor 180 96 0
@@ -256,63 +143,6 @@ Show
 	MinimapIcon 0 Brown Star
 	PlayEffect Brown
 	PlayAlertSound 10 300
-
-# Currency - Conqueror's Orbs 
-Show
-	Class "Stackable Currency"
-	BaseType "Awakener's Orb"
-	SetFontSize 45
-	SetTextColor 86 0 0
-	SetBackgroundColor 255 255 255
-	SetBorderColor 191 0 0
-	MinimapIcon 0 White Star
-	PlayEffect White
-	PlayAlertSound 1 300
-
-Show
-	Class "Stackable Currency"
-	BaseType "Crusader's Exalted Orb" "Redeemer's Exalted Orb" "Hunter's Exalted Orb" "Warlord's Exalted Orb"
-	SetFontSize 40
-	SetTextColor 86 0 0
-	SetBackgroundColor 254 170 0
-	SetBorderColor 191 0 0
-	MinimapIcon 1 Yellow Star
-	PlayEffect Yellow
-	PlayAlertSound 10 300
-
-# Watchstones
-Show
-	Class "Atlas Region Upgrade Item"
-	BaseType "Chromium Haewark Hamlet Watchstone" "Chromium Tirn's End Watchstone" "Chromium Lex Proxima Watchstone" "Chromium Lex Ejoris Watchstone" "Chromium New Vastir Watchstone" "Chromium Glennach Cairns Watchstone" "Chromium Valdo's Rest Watchstone" "Chromium Lira Arthain Watchstone" "Platinum Haewark Hamlet Watchstone" "Platinum Tirn's End Watchstone" "Platinum Lex Proxima Watchstone" "Platinum Lex Ejoris Watchstone" "Platinum New Vastir Watchstone" "Platinum Glennach Cairns Watchstone" "Platinum Valdo's Rest Watchstone" "Platinum Lira Arthain Watchstone" "Titanium Haewark Hamlet Watchstone" "Titanium Tirn's End Watchstone" "Titanium Lex Proxima Watchstone" "Titanium Lex Ejoris Watchstone" "Titanium New Vastir Watchstone" "Titanium Glennach Cairns Watchstone" "Titanium Valdo's Rest Watchstone" "Titanium Lira Arthain Watchstone"
-	SetFontSize 40
-	SetTextColor 173 61 21
-	SetBackgroundColor 255 192 203
-	SetBorderColor 114 0 83
-	MinimapIcon 0 Orange Star
-	PlayEffect Orange
-	PlayAlertSound 14 225
-
-Show
-	Class "Atlas Region Upgrade Item"
-	BaseType "Ivory Watchstone"
-	SetFontSize 40
-	SetTextColor 114 0 83
-	SetBackgroundColor 255 192 203
-	SetBorderColor 114 0 83
-	MinimapIcon 0 White Star
-	PlayEffect White
-	PlayAlertSound 14 225
-
-Show
-	Class "Atlas Region Upgrade Item"
-	BaseType "Watchstone"
-	SetFontSize 38
-	SetTextColor 114 0 83
-	SetBackgroundColor 255 192 203 200
-	SetBorderColor 114 0 83
-	MinimapIcon 1 White Star
-	PlayEffect White
-	PlayAlertSound 14 200
 
 # Abyss Jewels
 Show
@@ -325,7 +155,7 @@ Show
 
 # Currency - Valuable
 Show
-	BaseType "Chaos Orb" "Regal Orb" "Gemcutter's Prism" "Orb of Regret" "Orb of Chance" "Orb of Fusing" "Blessed Orb" "Orb of Scouring" "Orb of Alchemy" "Stacked Deck" "Vaal Orb" "Cartographer's Chisel" "Facetor's Lens" "Infused Engineer's Orb" "Rogue's Marker"
+	BaseType "Chaos Orb" "Regal Orb" "Gemcutter's Prism" "Orb of Regret" "Orb of Chance" "Orb of Fusing" "Blessed Orb" "Orb of Scouring" "Orb of Alchemy" "Stacked Deck" "Vaal Orb" "Cartographer's Chisel"
 	SetFontSize 42
 	SetTextColor 170 158 130
 	SetBackgroundColor 0 0 0
@@ -360,40 +190,8 @@ Show
 
 # Currency - Cartographer's
 Show
-	BaseType "Elevated Sextant"
-	SetFontSize 45
-	SetTextColor 0 0 0
-	SetBackgroundColor 245 219 12 255
-	SetBorderColor 0 0 0
-	MinimapIcon 0 White Star
-	PlayEffect Yellow
-	PlayAlertSound 11 225
-
-Show
 	Class "Currency"
-	BaseType "Awakened Sextant"
-	SetFontSize 45
-	SetTextColor 0 0 0
-	SetBackgroundColor 255 239 0 250
-	SetBorderColor 0 0 0
-	MinimapIcon 1 White Star
-	PlayEffect Yellow
-	PlayAlertSound 11 225
-
-Show
-	Class "Currency"
-	BaseType "Prime Sextant"
-	SetFontSize 40
-	SetTextColor 0 0 0
-	SetBackgroundColor 255 242 46 250
-	SetBorderColor 0 0 0
-	MinimapIcon 1 White Star
-	PlayEffect Yellow
-	PlayAlertSound 11 225
-
-Show
-	Class "Currency"
-	BaseType "Simple Sextant" "Cartographer's Seal" "Unshaping Orb" "Orb of Unmaking"
+	BaseType "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb"
 	SetFontSize 36
 	SetTextColor 0 0 0
 	SetBackgroundColor 255 244 75 250
@@ -467,17 +265,6 @@ Show
 	PlayEffect Red
 	PlayAlertSound 7 225
 
-# Currency - Simulacrum Splinter
-Show
-	BaseType "Simulacrum Splinter"
-	SetFontSize 45
-	SetTextColor 210 0 0
-	SetBackgroundColor 42 42 42
-	SetBorderColor 135 135 135
-	MinimapIcon 0 Red Diamond
-	PlayEffect Grey
-	PlayAlertSound 4 250
-
 # Currency - Incubators
 Show
 	Class "Incubator"
@@ -523,20 +310,9 @@ Show
 	PlayEffect Red
 	PlayAlertSound 2 200
 
-# Maps - Map Fragments - Winged Scarabs
-Show
-	BaseType "Winged Breach Scarab" "Winged Cartography Scarab" "Winged Reliquary Scarab" "Winged Bestiary Scarab" "Winged Shaper Scarab" "Winged Elder Scarab" "Winged Sulphite Scarab" "Winged Divination Scarab" "Winged Torment Scarab" "Winged Ambush Scarab" "Winged Harbinger Scarab" "Winged Perandus Scarab" "Winged Legion Scarab" "Winged Metamorph Scarab"
-	SetFontSize 44
-	SetTextColor 88 0 179
-	SetBackgroundColor 184 218 242
-	SetBorderColor 38 0 86
-	MinimapIcon 0 Purple Diamond
-	PlayEffect Purple
-	PlayAlertSound 8 200
-
 # Maps - Map Fragments - Gilded Scarabs
 Show
-	BaseType "Gilded Breach Scarab" "Gilded Cartography Scarab" "Gilded Reliquary Scarab" "Gilded Bestiary Scarab" "Gilded Shaper Scarab" "Gilded Elder Scarab" "Gilded Sulphite Scarab" "Gilded Divination Scarab" "Gilded Torment Scarab" "Gilded Ambush Scarab" "Gilded Harbinger Scarab" "Gilded Perandus Scarab" "Gilded Legion Scarab" "Gilded Metamorph Scarab"
+	BaseType "Gilded Breach Scarab" "Gilded Cartography Scarab" "Gilded Reliquary Scarab" "Gilded Bestiary Scarab" "Gilded Shaper Scarab" "Gilded Elder Scarab" "Gilded Sulphite Scarab" "Gilded Divination Scarab" "Gilded Torment Scarab" "Gilded Ambush Scarab" "Gilded Harbinger Scarab" "Gilded Perandus Scarab"
 	SetFontSize 40
 	SetTextColor 200 74 0
 	SetBackgroundColor 254 170 0
@@ -547,7 +323,7 @@ Show
 
 # Maps - Map Fragments - Polished Scarabs
 Show
-	BaseType "Polished Breach Scarab" "Polished Cartography Scarab" "Polished Reliquary Scarab" "Polished Bestiary Scarab" "Polished Shaper Scarab" "Polished Elder Scarab" "Polished Sulphite Scarab" "Polished Divination Scarab" "Polished Torment Scarab" "Polished Ambush Scarab" "Polished Harbinger Scarab" "Polished Perandus Scarab" "Polished Legion Scarab" "Polished Metamorph Scarab"
+	BaseType "Polished Breach Scarab" "Polished Cartography Scarab" "Polished Reliquary Scarab" "Polished Bestiary Scarab" "Polished Shaper Scarab" "Polished Elder Scarab" "Polished Sulphite Scarab" "Polished Divination Scarab" "Polished Torment Scarab" "Polished Ambush Scarab" "Polished Harbinger Scarab" "Polished Perandus Scarab"
 	SetFontSize 36
 	SetTextColor 0 0 128
 	SetBackgroundColor 136 136 255
@@ -558,7 +334,7 @@ Show
 
 # Maps - Map Fragments - Rusted Scarabs
 Show
-	BaseType "Rusted Breach Scarab" "Rusted Cartography Scarab" "Rusted Reliquary Scarab" "Rusted Bestiary Scarab" "Rusted Shaper Scarab" "Rusted Elder Scarab" "Rusted Sulphite Scarab" "Rusted Divination Scarab" "Rusted Torment Scarab" "Rusted Ambush Scarab" "Rusted Harbinger Scarab" "Rusted Perandus Scarab" "Rusted Legion Scarab" "Rusted Metamorph Scarab"
+	BaseType "Rusted Breach Scarab" "Rusted Cartography Scarab" "Rusted Reliquary Scarab" "Rusted Bestiary Scarab" "Rusted Shaper Scarab" "Rusted Elder Scarab" "Rusted Sulphite Scarab" "Rusted Divination Scarab" "Rusted Torment Scarab" "Rusted Ambush Scarab" "Rusted Harbinger Scarab" "Rusted Perandus Scarab"
 	SetFontSize 32
 	SetTextColor 0 0 0
 	SetBackgroundColor 200 74 0
@@ -566,30 +342,6 @@ Show
 	MinimapIcon 2 Brown Diamond
 	PlayEffect Brown
 	PlayAlertSound 8 100
-
-# Currency - Quality Alteration
-Show
-	Class "Stackable" "Currency"
-	BaseType "Prime Regrading Lens" "Secondary Regrading Lens"
-	SetFontSize 45
-	SetTextColor 30 144 255
-	SetBackgroundColor 42 42 42 250
-	SetBorderColor 255 255 255
-	MinimapIcon 1 Blue Diamond
-	PlayEffect Blue
-	PlayAlertSound 8 150
-
-# Currency - Enchantment Alteration
-Show
-	Class "Stackable" "Currency"
-	BaseType "Tempering Orb" "Tailoring Orb"
-	SetFontSize 45
-	SetTextColor 74 230 58
-	SetBackgroundColor 42 42 42 250
-	SetBorderColor 255 255 255
-	MinimapIcon 1 Green Diamond
-	PlayEffect Green
-	PlayAlertSound 8 150
 
 # Currency - Harbinger Shards
 Show
@@ -626,410 +378,23 @@ Show
 	PlayEffect Yellow
 	PlayAlertSound 9 225
 
-# Currency - Prime Resonators
+# Currency - Resonators
 Show
-	Class "Delve Stackable Socketable Currency"
-	BaseType "Prime Alchemical Resonator" "Prime Chaotic Resonator"
-	SetFontSize 45
+	Class "Delve Socketable Currency"
+	BaseType "Primitive Alchemical Resonator" "Potent Alchemical Resonator" "Powerful Alchemical Resonator" "Prime Alchemical Resonator" "Primitive Chaotic Resonator" "Potent Chaotic Resonator" "Powerful Chaotic Resonator" "Prime Chaotic Resonator"
+	SetFontSize 40
 	SetTextColor 219 238 255
-	SetBackgroundColor 34 197 225
+	SetBackgroundColor 0 135 255
 	SetBorderColor 191 225 255
 	MinimapIcon 0 Blue Diamond
 	PlayEffect Blue
 	PlayAlertSound 9 225
-
-# Currency - Powerful Resonators
-Show
-	Class "Delve Stackable Socketable Currency"
-	BaseType "Powerful Alchemical Resonator" "Powerful Chaotic Resonator"
-	SetFontSize 41
-	SetTextColor 219 238 255
-	SetBackgroundColor 12 171 200
-	SetBorderColor 191 225 255
-	MinimapIcon 0 Blue Diamond
-	PlayEffect Blue
-	PlayAlertSound 9 225
-
-# Currency - Potent Resonators
-Show
-	Class "Delve Stackable Socketable Currency"
-	BaseType "Potent Alchemical Resonator" "Potent Chaotic Resonator"
-	SetFontSize 38
-	SetTextColor 219 238 255
-	SetBackgroundColor 8 153 184
-	SetBorderColor 191 225 255
-	MinimapIcon 0 Blue Diamond
-	PlayEffect Blue
-	PlayAlertSound 9 225
-
-# Currency - Primitive Resonators
-Show
-	Class "Delve Stackable Socketable Currency"
-	BaseType "Primitive Alchemical Resonator" "Primitive Chaotic Resonator"
-	SetFontSize 35
-	SetTextColor 219 238 255
-	SetBackgroundColor 7 137 173
-	SetBorderColor 191 225 255
-	MinimapIcon 0 Blue Diamond
-	PlayEffect Blue
-	PlayAlertSound 9 225
-
-# Currency - Harbinger Items
-Show
-	Class "Stackable Currency"
-	BaseType "Time-light Scroll" "Fragmentation Scroll" "Deregulation Scroll" "Electroshock Scroll" "Haemocombustion Scroll" "Specularity Scroll"
-	SetFontSize 45
-	SetTextColor 192 128 254
-	SetBackgroundColor 38 0 86
-	SetBorderColor 88 0 179
-	MinimapIcon 1 Purple Moon
-	PlayEffect Purple
-	PlayAlertSound 5 200
-
-# Currency - Oils
-Show
-	Class "Stackable Currency"
-	BaseType "Black Oil" "Opalescent Oil" "Silver Oil" "Golden Oil"
-	SetFontSize 45
-	SetTextColor 11 97 146
-	SetBackgroundColor 216 231 235 250
-	SetBorderColor 15 185 210
-	MinimapIcon 1 Blue Hexagon
-	PlayEffect Blue
-	PlayAlertSound 2 200
-
-# Currency - Delirium Orbs
-Show
-	BaseType "Delirium Orb"
-	SetFontSize 40
-	SetTextColor 0 191 0
-	SetBackgroundColor 42 42 42
-	SetBorderColor 135 135 135
-	MinimapIcon 1 Green Star
-	PlayEffect Grey Temp
-	PlayAlertSound 2 200
-
-Show
-	Class "Stackable Currency"
-	BaseType "Teal Oil" "Azure Oil" "Indigo Oil" "Violet Oil" "Crimson Oil"
-	SetFontSize 40
-	SetTextColor 11 97 146
-	SetBackgroundColor 216 231 235 225
-	SetBorderColor 15 185 210
-	MinimapIcon 2 Blue Hexagon
-	PlayEffect Blue
-	PlayAlertSound 2 200
-
-Show
-	Class "Stackable Currency"
-	BaseType "Clear Oil" "Sepia Oil" "Amber Oil" "Verdant Oil"
-	SetFontSize 35
-	SetTextColor 11 97 146
-	SetBackgroundColor 216 231 235 200
-	SetBorderColor 15 185 210
-	MinimapIcon 2 Blue Hexagon
-	PlayEffect Blue Temp
-	PlayAlertSound 2 200
-
-Show  # Catalysts
-	Class "Stackable Currency"
-	BaseType "Catalyst"
-	SetFontSize 42
-	SetTextColor 235 232 196
-	SetBackgroundColor 243 108 33
-	SetBorderColor 229 2 0
-	MinimapIcon 1 Yellow Triangle
-	PlayEffect Yellow Temp
-	PlayAlertSound 8 200
-
-# Heist Items
-# Heist Items - Heist Objectives
-Show
-	Class "Heist Target"
-	SetFontSize 40
-	SetTextColor 0 191 0
-	SetBackgroundColor 42 42 42
-	SetBorderColor 74 230 58
-	MinimapIcon 0 Green Cross
-	PlayEffect Green
-
-# Heist Items - Trinkets
-Show
-	ItemLevel > 70
-	Class "Trinket"
-	SetFontSize 45
-	SetTextColor 234 85 0
-	SetBackgroundColor 24 22 0 250
-	SetBorderColor 234 128 0
-	MinimapIcon 1 Orange Kite
-	PlayEffect Orange
-	PlayAlertSound 1 200
-
-Show
-	Class "Trinket"
-	SetFontSize 40
-	SetTextColor 189 91 35
-	SetBackgroundColor 24 22 0 250
-	SetBorderColor 184 101 0
-	MinimapIcon 1 Blue Kite
-	PlayEffect Green Temp
-	PlayAlertSound 1 200
-
-# Heist Items - Rogue Equipment
-Show
-	Class "Heist Tool" "Heist Gear" "Heist Brooch" "Heist Cloak"
-	BaseType "Whisper-woven Cloak" "Foliate Brooch" "Master Lockpick" "Steel Bracers" "Thaumaturgical Sensing Charm" "Thaumetic Flashpowder" "Thaumaturgical Ward" "Grandmaster Keyring" "Silkweave Sole" "Regicide Disguise Kit" "Thaumetic Blowtorch" "Obsidian Sharpening Stone" "Precise Arrowhead" "Burst Band"
-	SetFontSize 45
-	SetTextColor 88 0 179
-	SetBackgroundColor 255 245 255
-	SetBorderColor 200 0 100
-	MinimapIcon 0 Pink Star
-	PlayEffect Purple
-	PlayAlertSound 5 200
-
-Show
-	Class "Heist Tool" "Heist Gear" "Heist Brooch" "Heist Cloak"
-	BaseType "Hooded Cloak" "Enamel Brooch" "Fine Lockpick" "Runed Bracers" "Polished Sensing Charm" "Azurite Flashpowder" "Shining Ward" "Skeleton Keyring" "Winged Sole" "Espionage Disguise Kit" "Sulphur Blowtorch" "Fine Sharpening Stone" "Hollowpoint Arrowhead" "Aggregator Charm"
-	SetFontSize 42
-	SetTextColor 88 0 179
-	SetBackgroundColor 254 224 255
-	SetBorderColor 200 0 100
-	MinimapIcon 0 Pink Star
-	PlayEffect Purple
-	PlayAlertSound 5 175
-
-Show
-	Class "Heist Tool" "Heist Gear" "Heist Brooch"
-	BaseType "Tattered Cloak" "Golden Brooch" "Standard Lockpick" "Studded Bracers" "Fine Sensing Charm" "Trarthan Flashpowder" "Lustrous Ward" "Versatile Keyring" "Foxhide Sole" "Theatre Disguise Kit" "Flanged Drill" "Standard Sharpening Stone" "Fragmenting Arrowhead" "Conduit Line"
-	SetFontSize 39
-	SetTextColor 88 0 179
-	SetBackgroundColor 253 211 255
-	SetBorderColor 200 0 100
-	MinimapIcon 0 Pink Star
-	PlayEffect Purple Temp
-	PlayAlertSound 5 150
-
-Show
-	Class "Heist Tool" "Heist Gear" "Heist Brooch" "Heist Cloak"
-	BaseType "Torn Cloak" "Silver Brooch" "Simple Lockpick" "Leather Bracers" "Crude Sensing Charm" "Voltaxic Flashpowder" "Crude Ward" "Essential Keyring" "Eelskin Sole" "Basic Disguise Kit" "Steel Drill" "Rough Sharpening Stone" "Flanged Arrowhead" "Focal Stone"
-	SetFontSize 36
-	SetTextColor 88 0 179
-	SetBackgroundColor 253 205 255
-	SetBorderColor 200 0 100
-	MinimapIcon 0 Pink Star
-	PlayEffect Purple Temp
-	PlayAlertSound 5 125
-
-# Heist Items - Contracts
-Show
-	Class "Contract"
-	BaseType "Forbidden Contract" "Preventative Contract" "Familial Contract" "Vigilante Contract" "Naval Contract" "Vengeful Contract"
-	SetFontSize 36
-	SetTextColor 88 0 179
-	SetBackgroundColor 37 37 37
-	SetBorderColor 200 0 100
-	MinimapIcon 0 Red Pentagon
-	PlayEffect Red
-	PlayAlertSound 5 125
-
-Show
-	Rarity = Rare
-	Class "Contract"
-	SetFontSize 45
-	SetTextColor 149 32 53
-	SetBackgroundColor 255 221 227
-	SetBorderColor 71 0 12
-	MinimapIcon 0 Red Pentagon
-	PlayEffect Red
-
-Show
-	Rarity = Magic
-	Class "Contract"
-	SetFontSize 41
-	SetTextColor 149 32 53
-	SetBackgroundColor 232 204 209
-	SetBorderColor 71 0 12
-	MinimapIcon 1 Red Pentagon
-	PlayEffect Red Temp
-
-Show
-	Rarity = Normal
-	Class "Contract"
-	SetFontSize 37
-	SetTextColor 149 32 53
-	SetBackgroundColor 214 190 194
-	SetBorderColor 71 0 12
-	MinimapIcon 2 Red Pentagon
-	PlayEffect Red Temp
-
-# Heist Items - Blueprints
-Show
-	Rarity = Rare
-	Class "Blueprint"
-	SetFontSize 45
-	SetTextColor 29 105 129
-	SetBackgroundColor 203 240 252
-	SetBorderColor 7 41 52
-	MinimapIcon 0 Cyan Pentagon
-	PlayEffect Cyan
-
-Show
-	Rarity = Magic
-	Class "Blueprint"
-	SetFontSize 41
-	SetTextColor 29 105 129
-	SetBackgroundColor 187 221 232
-	SetBorderColor 7 41 52
-	MinimapIcon 1 Cyan Pentagon
-	PlayEffect Cyan Temp
-
-Show
-	Rarity = Normal
-	Class "Blueprint"
-	SetFontSize 37
-	SetTextColor 29 105 129
-	SetBackgroundColor 174 202 212
-	SetBorderColor 7 41 52
-	MinimapIcon 2 Cyan Pentagon
-	PlayEffect Cyan Temp
-
-# Heist Items - Experimented Base Types
-Show
-	Rarity = Rare
-	BaseType "Accumulator Wand" "Pneumatic Dagger" "Infernal Blade" "Void Fangs" "Psychotic Axe" "Anarchic Spiritblade" "Boom Mace" "Alternating Sceptre" "Solarine Bow" "Battery Staff" "Eventuality Rod" "Apex Cleaver" "Banishing Blade" "Impact Force Propagator" "Transfer-attuned Spirit Shield" "Cold-attuned Buckler" "Heat-attuned Tower Shield"
-	SetFontSize 45
-	SetTextColor 254 170 0
-	SetBackgroundColor 42 42 42
-	SetBorderColor 180 96 0
-	MinimapIcon 0 Orange Moon
-	PlayEffect Orange
-
-Show
-	Rarity = Magic
-	BaseType "Accumulator Wand" "Pneumatic Dagger" "Infernal Blade" "Void Fangs" "Psychotic Axe" "Anarchic Spiritblade" "Boom Mace" "Alternating Sceptre" "Solarine Bow" "Battery Staff" "Eventuality Rod" "Apex Cleaver" "Banishing Blade" "Impact Force Propagator" "Transfer-attuned Spirit Shield" "Cold-attuned Buckler" "Heat-attuned Tower Shield"
-	SetFontSize 45
-	SetTextColor 30 144 255
-	SetBackgroundColor 42 42 42
-	SetBorderColor 180 96 0
-	MinimapIcon 0 Blue Moon
-	PlayEffect Blue
-
-Show
-	Rarity = Normal
-	BaseType "Accumulator Wand" "Pneumatic Dagger" "Infernal Blade" "Void Fangs" "Psychotic Axe" "Anarchic Spiritblade" "Boom Mace" "Alternating Sceptre" "Solarine Bow" "Battery Staff" "Eventuality Rod" "Apex Cleaver" "Banishing Blade" "Impact Force Propagator" "Transfer-attuned Spirit Shield" "Cold-attuned Buckler" "Heat-attuned Tower Shield"
-	SetFontSize 45
-	SetTextColor 200 200 200
-	SetBackgroundColor 42 42 42
-	SetBorderColor 180 96 0
-	MinimapIcon 0 White Moon
-	PlayEffect White
-
-Show
-	Rarity = Rare
-	BaseType "Congregator Wand" "Pressurised Dagger" "Flashfire Blade" "Malign Fangs" "Disapprobation Axe" "Capricious Spiritblade" "Crack Mace" "Stabilising Sceptre" "Foundry Bow" "Reciprocation Staff" "Potentiality Rod" "Honed Cleaver" "Blasting Blade" "Crushing Force Magnifier" "Subsuming Spirit Shield" "Polar Buckler" "Magmatic Tower Shield"
-	SetFontSize 40
-	SetTextColor 254 170 0
-	SetBackgroundColor 42 42 42
-	SetBorderColor 180 65 0
-	MinimapIcon 1 Orange Moon
-	PlayEffect Orange
-
-Show
-	Rarity = Magic
-	BaseType "Congregator Wand" "Pressurised Dagger" "Flashfire Blade" "Malign Fangs" "Disapprobation Axe" "Capricious Spiritblade" "Crack Mace" "Stabilising Sceptre" "Foundry Bow" "Reciprocation Staff" "Potentiality Rod" "Honed Cleaver" "Blasting Blade" "Crushing Force Magnifier" "Subsuming Spirit Shield" "Polar Buckler" "Magmatic Tower Shield"
-	SetFontSize 40
-	SetTextColor 30 144 255
-	SetBackgroundColor 42 42 42
-	SetBorderColor 180 65 0
-	MinimapIcon 1 Blue Moon
-	PlayEffect Blue
-
-Show
-	Rarity = Normal
-	BaseType "Congregator Wand" "Pressurised Dagger" "Flashfire Blade" "Malign Fangs" "Disapprobation Axe" "Capricious Spiritblade" "Crack Mace" "Stabilising Sceptre" "Foundry Bow" "Reciprocation Staff" "Potentiality Rod" "Honed Cleaver" "Blasting Blade" "Crushing Force Magnifier" "Subsuming Spirit Shield" "Polar Buckler" "Magmatic Tower Shield"
-	SetFontSize 40
-	SetTextColor 200 200 200
-	SetBackgroundColor 42 42 42
-	SetBorderColor 180 65 0
-	MinimapIcon 1 White Moon
-	PlayEffect White
-
-Show
-	Rarity = Rare
-	BaseType "Assembler Wand" "Hollowpoint Dagger" "Flickerflame Blade" "Shadow Fangs" "Maltreatment Axe" "Fickle Spiritblade" "Flare Mace" "Oscillating Sceptre" "Hedron Bow" "Transformer Staff" "Capacity Rod" "Prime Cleaver" "Rebuking Blade" "Blunt Force Condenser" "Exhausting Spirit Shield" "Endothermic Buckler" "Exothermic Tower Shield"
-	SetFontSize 35
-	SetTextColor 254 170 0
-	SetBackgroundColor 42 42 42
-	SetBorderColor 137 50 0
-	MinimapIcon 2 Orange Moon
-	PlayEffect Orange
-
-Show
-	Rarity = Magic
-	BaseType "Assembler Wand" "Hollowpoint Dagger" "Flickerflame Blade" "Shadow Fangs" "Maltreatment Axe" "Fickle Spiritblade" "Flare Mace" "Oscillating Sceptre" "Hedron Bow" "Transformer Staff" "Capacity Rod" "Prime Cleaver" "Rebuking Blade" "Blunt Force Condenser" "Exhausting Spirit Shield" "Endothermic Buckler" "Exothermic Tower Shield"
-	SetFontSize 35
-	SetTextColor 30 144 255
-	SetBackgroundColor 42 42 42
-	SetBorderColor 137 50 0
-	MinimapIcon 2 Blue Moon
-	PlayEffect Blue
-
-Show
-	Rarity = Normal
-	BaseType "Assembler Wand" "Hollowpoint Dagger" "Flickerflame Blade" "Shadow Fangs" "Maltreatment Axe" "Fickle Spiritblade" "Flare Mace" "Oscillating Sceptre" "Hedron Bow" "Transformer Staff" "Capacity Rod" "Prime Cleaver" "Rebuking Blade" "Blunt Force Condenser" "Exhausting Spirit Shield" "Endothermic Buckler" "Exothermic Tower Shield"
-	SetFontSize 35
-	SetTextColor 200 200 200
-	SetBackgroundColor 42 42 42
-	SetBorderColor 137 50 0
-	MinimapIcon 2 White Moon
-	PlayEffect White
-
-Show
-	Rarity = Rare
-	BaseType "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring"
-	SetFontSize 45
-	SetTextColor 254 170 0
-	SetBackgroundColor 42 42 42
-	SetBorderColor 180 96 0
-	MinimapIcon 0 Orange Moon
-	PlayEffect Orange
-
-Show
-	Rarity = Magic
-	BaseType "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring"
-	SetFontSize 45
-	SetTextColor 30 144 255
-	SetBackgroundColor 42 42 42
-	SetBorderColor 180 96 0
-	MinimapIcon 0 Blue Moon
-	PlayEffect Blue
-
-Show
-	Rarity = Normal
-	BaseType "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring"
-	SetFontSize 45
-	SetTextColor 200 200 200
-	SetBackgroundColor 42 42 42
-	SetBorderColor 180 96 0
-	MinimapIcon 0 White Moon
-	PlayEffect White
-
-Show  # Organs
-	Class "Metamorph Sample"
-	BaseType "Brain" "Lung" "Liver" "Heart" "Eye"
-	SetFontSize 42
-	SetTextColor 128 254 128
-	SetBackgroundColor 0 73 0
-	SetBorderColor 254 170 0
-	MinimapIcon 1 Green Triangle
-	PlayEffect Green
-	PlayAlertSound 1 200
 
 # Talisman - Rare
 Show
-	Rarity = Rare
 	Class "Amulets"
 	BaseType "Talisman"
+	Rarity = Rare
 	SetTextColor 255 255 119
 	SetBackgroundColor 11 178 57
 	SetBorderColor 170 158 130
@@ -1039,9 +404,9 @@ Show
 
 # Talisman - Magic
 Show
-	Rarity = Magic
 	Class "Amulets"
 	BaseType "Talisman"
+	Rarity = Magic
 	SetTextColor 0 0 255
 	SetBackgroundColor 11 178 57
 	SetBorderColor 170 158 130
@@ -1051,14 +416,49 @@ Show
 
 # Talisman - Normal
 Show
-	Rarity = Normal
 	Class "Amulets"
 	BaseType "Talisman"
+	Rarity = Normal
 	SetTextColor 255 255 255
 	SetBackgroundColor 11 178 57
 	SetBorderColor 170 158 130
 	PlayEffect Green Temp
 	PlayAlertSound 3 80
+
+# Bestiary Nets - Valuable
+Show
+	BaseType "Thaumaturgical Net"
+	SetFontSize 42
+	SetTextColor 215 40 30
+	SetBackgroundColor 0 0 0
+	SetBorderColor 255 255 255
+	PlayAlertSound 9 225
+
+# Bestiary Nets - Medium Value
+Show
+	BaseType "Simple Rope Net" "Reinforced Rope Net" "Strong Rope Net" "Simple Iron Net" "Reinforced Iron Net" "Strong Iron Net" "Simple Steel Net" "Reinforced Steel Net" "Strong Steel Net" "Thaumaturgical Net"
+	SetFontSize 38
+	SetTextColor 215 40 30
+	SetBackgroundColor 0 0 0
+	SetBorderColor 0 0 0
+
+# Bestiary Orb
+Show
+	BaseType "Bestiary Orb"
+	SetFontSize 42
+	SetTextColor 215 40 30
+	SetBackgroundColor 0 0 0
+	SetBorderColor 255 255 255
+	PlayAlertSound 9 225
+
+# Captured Monster
+Show
+	BaseType "Imprinted Bestiary Orb"
+	SetFontSize 42
+	SetTextColor 215 40 30
+	SetBackgroundColor 0 0 0
+	SetBorderColor 255 0 0
+	PlayAlertSound 9 225
 
 # Incursion Bombs/Keys
 Show
@@ -1078,17 +478,6 @@ Show
 	SetBorderColor 255 255 255
 	PlayAlertSound 4 50
 
-Show  # Gems - Awakened
-	Class "Gems"
-	BaseType "Awakened"
-	SetFontSize 40
-	SetTextColor 100 217 210
-	SetBackgroundColor 5 5 5 250
-	SetBorderColor 30 144 255
-	MinimapIcon 1 White Triangle
-	PlayEffect White
-	PlayAlertSound 14 225
-
 Show  # Gems - Empower/Enhance/Enlighten/Portal
 	Class "Gems"
 	BaseType "Empower" "Enhance" "Enlighten" "Portal"
@@ -1105,30 +494,6 @@ Show  # Gems - Portal/DetonateMines/AddedChaos
 	SetTextColor 27 162 155
 	SetBackgroundColor 5 5 5 250
 	SetBorderColor 255 255 255 0
-
-# Alternate Quality Gems - Qual10+
-Show
-	Quality >= 10
-	Class "Gems"
-	AlternateQuality True
-	SetFontSize 45
-	SetTextColor 15 240 228
-	SetBackgroundColor 0 0 0 250
-	SetBorderColor 15 0 255
-	MinimapIcon 0 Cyan Raindrop
-	PlayEffect Cyan
-
-# Alternate Quality Gems - Qual+
-Show
-	Quality >= 1
-	Class "Gems"
-	AlternateQuality True
-	SetFontSize 35
-	SetTextColor 15 240 228
-	SetBackgroundColor 5 5 5 250
-	SetBorderColor 82 72 225
-	MinimapIcon 1 Cyan Raindrop
-	PlayEffect Cyan
 
 # Gems - Qual10+
 Show  # Gems - Qual10+
@@ -1163,17 +528,7 @@ Show  # Gems - All
 	SetTextColor 27 162 155
 	SetBorderColor 5 5 5 129
 
-# Unique
-Show
-	Rarity = Unique
-	Replica True
-	SetFontSize 45
-	SetTextColor 229 114 27
-	SetBackgroundColor 5 5 5 250
-	SetBorderColor 222 119 2
-	PlayEffect Brown
-	PlayAlertSound 5 225
-
+# Unique - All
 Show
 	Rarity = Unique
 	SetFontSize 40
@@ -1184,10 +539,10 @@ Show
 
 # Elder Maps - Tier 16
 Show
-	MapTier = 16
-	Rarity < Rare
-	Class "Maps"
 	ElderMap True
+	Class "Maps"
+	Rarity < Rare
+	MapTier = 16
 	SetFontSize 45
 	SetTextColor 204 0 154
 	SetBackgroundColor 221 221 221
@@ -1198,10 +553,10 @@ Show
 
 # Shaped Maps - Red
 Show
-	MapTier >= 11
-	Rarity < Rare
-	Class "Maps"
 	ShapedMap True
+	Class "Maps"
+	Rarity < Rare
+	MapTier >= 11
 	SetFontSize 45
 	SetTextColor 42 42 42
 	SetBackgroundColor 221 221 221
@@ -1212,10 +567,10 @@ Show
 
 # Shaped Maps - Yellow
 Show
-	MapTier >= 6
-	Rarity < Rare
-	Class "Maps"
 	ShapedMap True
+	Class "Maps"
+	Rarity < Rare
+	MapTier >= 6
 	SetFontSize 40
 	SetTextColor 42 42 42
 	SetBackgroundColor 221 221 221
@@ -1223,49 +578,10 @@ Show
 	MinimapIcon 2 White Square
 	PlayEffect White
 
-# Blighted Maps - Red
-Show
-	BlightedMap True
-	MapTier >= 11
-	Rarity < Rare
-	Class "Maps"
-	SetFontSize 45
-	SetTextColor 17 157 34
-	SetBackgroundColor 255 239 81
-	SetBorderColor 17 157 34
-	MinimapIcon 0 Yellow Square
-	PlayEffect Yellow
-
-# Blighted Maps - Yellow
-Show
-	BlightedMap True
-	MapTier >= 6
-	Rarity < Rare
-	Class "Maps"
-	SetFontSize 40
-	SetTextColor 17 157 34
-	SetBackgroundColor 255 239 81
-	SetBorderColor 17 157 34
-	MinimapIcon 1 Yellow Square
-	PlayEffect Yellow
-
-# Blighted Maps - White
-Show
-	BlightedMap True
-	MapTier >= 1
-	Rarity < Rare
-	Class "Maps"
-	SetFontSize 35
-	SetTextColor 17 157 34
-	SetBackgroundColor 255 239 81
-	SetBorderColor 17 157 34
-	MinimapIcon 2 Yellow Square
-	PlayEffect Yellow
-
 # Maps - Tier 16
 Show
-	MapTier = 16
 	Class "Maps"
+	MapTier = 16
 	SetFontSize 45
 	SetTextColor 254 128 128
 	SetBorderColor 150 0 0
@@ -1275,8 +591,8 @@ Show
 
 # Maps - Red
 Show
-	MapTier >= 11
 	Class "Maps"
+	MapTier >= 11
 	SetFontSize 45
 	SetBorderColor 150 0 0
 	MinimapIcon 1 Red Square
@@ -1285,9 +601,9 @@ Show
 
 # Maps - Yellow
 Show
+	Class "Maps"
 	MapTier >= 6
 	MapTier <= 10
-	Class "Maps"
 	SetFontSize 37
 	SetBackgroundColor 5 5 5 250
 	SetBorderColor 191 91 0
@@ -1297,14 +613,14 @@ Show
 
 # Maps - White
 Show
-	MapTier <= 5
 	Class "Maps"
+	MapTier <= 5
 	SetFontSize 32
 	SetBackgroundColor 5 5 5 250
 
 # Maps - Labyrinth
 Show  # Maps - Labyrinth
-	Class "Map Fragment"
+	Class "Labyrinth"
 	SetTextColor 74 230 58
 
 # Maps - Divine Vessel
@@ -1340,35 +656,14 @@ Show  # Maps - Map Frag - Mortal Hope
 	PlayAlertSound 6 250
 
 # Maps - Map Frag - Shaper Fragments
-Show
+Show  # Maps - Map Frag - Shaper Fragments
 	Class "Map Fragments"
-	BaseType "Fragment of the Phoenix" "Fragment of the Minotaur" "Fragment of the Chimera" "Fragment of the Hydra"
+	BaseType "Fragment of the Phoenix" "Fragment of the Minotaur" "Fragment of the Chimera" "Fragment of the Hydra" "The Shaper's Realm"
 	SetFontSize 40
 	SetBorderColor 74 0 160 200
 	MinimapIcon 0 White Square
 	PlayEffect White
 	PlayAlertSound 4 200
-
-# Maps - Map Frag - Elder Fragments
-Show
-	Class "Map Fragments"
-	BaseType "Fragment of Enslavement" "Fragment of Eradication" "Fragment of Constriction" "Fragment of Purification"
-	SetFontSize 40
-	SetBorderColor 74 0 160 200
-	MinimapIcon 0 White Square
-	PlayEffect White
-	PlayAlertSound 4 200
-
-# Maps - Map Frag - Uber Elder Fragments
-Show
-	Class "Map Fragments"
-	BaseType "Fragment of Shape" "Fragment of Knowledge" "Fragment of Terror" "Fragment of Emptiness"
-	SetFontSize 45
-	SetTextColor 255 255 255
-	SetBorderColor 88 0 179
-	MinimapIcon 0 White Square
-	PlayEffect White
-	PlayAlertSound 10 300
 
 # Maps - Map Frag - Sacrifice at Midnight
 Show  # Maps - Map Frag - Sacrifice at Midnight
@@ -1387,84 +682,17 @@ Show  # Maps - Map Frag - All
 Show  # Maps - All
 	Class "Map"
 
-Show  # Cluster Jewels
-	BaseType "Large Cluster Jewel"
-	SetFontSize 40
-	SetTextColor 88 0 179
-	SetBackgroundColor 254 128 222 190
-	MinimapIcon 0 Red Star
-	PlayAlertSound 12 300
-	Continue
-
-Show
-	BaseType "Medium Cluster Jewel"
-	SetFontSize 36
-	SetTextColor 228 201 255
-	SetBackgroundColor 204 0 154 220
-	MinimapIcon 1 Red Star
-	PlayAlertSound 12 250
-	Continue
-
-Show
-	BaseType "Small Cluster Jewel"
-	SetFontSize 32
-	SetTextColor 228 201 255
-	SetBackgroundColor 114 0 83 250
-	MinimapIcon 1 Yellow Star
-	PlayAlertSound 12 200
-	Continue
-
-Show
-	Rarity = Rare
-	BaseType "Cluster Jewel"
-	SetBorderColor 255 200 0
-	PlayEffect Yellow
-
-Show
-	Rarity = Magic
-	BaseType "Cluster Jewel"
-	SetBorderColor 30 144 255
-	PlayEffect Blue
-
-Show
-	Rarity = Normal
-	BaseType "Cluster Jewel"
-	SetBorderColor 255 255 255
-	PlayEffect White
-
 # Jewels - Rare
 Show
-	Rarity = Rare
 	Class "Jewel"
+	Rarity = Rare
 	SetBorderColor 255 255 119
 
 # Jewels - Normal/Magic
 Show
-	Rarity <= Magic
 	Class "Jewel"
+	Rarity <= Magic
 	SetBorderColor 136 136 255
-
-# Enchantment Any
-Show
-	AnyEnchantment True
-	Rarity = Rare
-	SetFontSize 45
-	SetTextColor 204 0 154
-	SetBackgroundColor 23 23 23 250
-	SetBorderColor 204 0 154
-	MinimapIcon 1 Red Star
-	PlayEffect Red
-	PlayAlertSound 1 300
-
-Show
-	AnyEnchantment True
-	SetFontSize 40
-	SetTextColor 204 0 154
-	SetBackgroundColor 23 23 23 250
-	SetBorderColor 204 0 154
-	MinimapIcon 1 Red Star
-	PlayEffect Red
-	PlayAlertSound 2 300
 
 # Divination Cards - All
 Show  # Divination Cards - All
@@ -1477,47 +705,38 @@ Show  # Divination Cards - All
 
 # Chroma Orb Recipe 
 Show  # Chromatic Orb Recipe - Norm
+	SocketGroup RGB
 	Rarity = Normal
-	SocketGroup = RGB
 	SetFontSize 36
 	SetBackgroundColor 5 5 5 250
 	SetBorderColor 20 150 10
 
 Show  # Chromatic Orb Recipe - Magic
+	SocketGroup RGB
 	Rarity = Magic
-	SocketGroup = RGB
 	SetFontSize 36
 	SetBackgroundColor 5 5 5 250
 	SetBorderColor 20 150 10
 
 Show  # Chromatic Orb Recipe - Rare
+	SocketGroup RGB
 	Rarity = Rare
-	SocketGroup = RGB
 	SetFontSize 36
 	SetBackgroundColor 5 5 5 250
 	SetBorderColor 20 150 10
 
 Show  # Delve Mod Items
 	Identified True
-	HasExplicitMod = "Subterranean" "of the Underground" "of Weaponcraft" "of Spellcraft" "of Crafting"
+	HasExplicitMod "Subterranean" "of the Underground" "of Weaponcraft" "of Spellcraft" "of Crafting"
 	SetFontSize 25
 	SetTextColor 242 198 235
 	SetBackgroundColor 155 23 135
 	SetBorderColor 40 22 38
 	PlayAlertSound 9 225
 
-Show  # Blight Mod Items
-	Identified True
-	HasExplicitMod = "Magister's" "Flame Shaper's" "Lava Conjurer's" "Frost Singer's" "Winter Beckoner's" "Thunderhand's" "Tempest Master's" "Mad Lord's" "Splintermind's" "Lithomancer's" "Tecton's"
-	SetFontSize 25
-	SetTextColor 242 198 235
-	SetBackgroundColor 191 0 0
-	SetBorderColor 40 22 38
-	PlayAlertSound 9 225
-
 Show  # Betrayal Mod Items
 	Identified True
-	HasExplicitMod = "Veiled" "Leo's Veiled" "Catarina's Veiled" "Elreon's Veiled" "Vorici's Veiled" "Haku's Veiled" "Tora's Veiled" "Vagan's Veiled" "Guff's Veiled" "It That Fled's Veiled" "Gravicius' Veiled" "Korell's Veiled" "Rin's Veiled" "of the Veil" "of Janus' Veil" "of Hillock's Veil" "of Jorgin's Veil" "of Cameria's Veil" "of Aisling's Veil" "of Riker's Veil"
+	HasExplicitMod "Veiled" "Leo's Veiled" "Catarina's Veiled" "Elreon's Veiled" "Vorici's Veiled" "Haku's Veiled" "Tora's Veiled" "Vagan's Veiled" "Guff's Veiled" "It That Fled's Veiled" "Gravicius' Veiled" "Korell's Veiled" "Rin's Veiled" "of the Veil" "of Janus' Veil" "of Hillock's Veil" "of Jorgin's Veil" "of Cameria's Veil" "of Aisling's Veil" "of Riker's Veil"
 	SetFontSize 34
 	SetTextColor 254 170 0
 	SetBackgroundColor 0 0 0
@@ -1528,31 +747,26 @@ Show  # Betrayal Mod Items
 
 # Rares - T1 Weapon
 Show
-	Rarity = Rare
-	Class "Claws" "Daggers" "Wands" "One Hand Swords" "Thrusting One Hand Swords" "One Hand Axes" "One Hand Maces" "Bows" "Staves" "Two Hand Swords" "Two Hand Axes" "Two Hand Maces" "Sceptres" "Rune Daggers" "Warstaves"
+	Class "Claws" "Daggers" "Wands" "One Hand Swords" "Thrusting One Hand Swords" "One Hand Axes" "One Hand Maces" "Bows" "Staves" "Two Hand Swords" "Two Hand Axes" "Two Hand Maces" "Sceptres"
 	BaseType "Maraketh Bow" "Gemini Claw" "Sai" "Runic Hatchet" "Behemoth Mace" "Tiger Hook" "Sambar Sceptre" "Eclipse Staff" "Dragoon Sword" "Fleshripper" "Coronal Maul" "Exquisite Blade" "Profane Wand"
+	Rarity = Rare
 	SetBorderColor 255 255 0
 
 # Rares - T1 Armour
 Show
-	Rarity = Rare
 	BaseType "Assassin's Garb" "Zodiac Leather" "Carnal Armour" "Sadist Garb" "Vaal Regalia" "Saintly Chainmail" "Saint's Hauberk" "Glorious Plate" "Astral Plate" "Full Dragonscale" "Triumphant Lamellar" "Slink Boots" "Murder Boots" "Sorcerer Boots" "Crusader Boots" "Titan Greaves" "Dragonscale Boots" "Slink Gloves" "Murder Mitts" "Sorcerer Gloves" "Crusader Gloves" "Titan Gauntlets" "Dragonscale Gauntlets" "Lion Pelt" "Vaal Mask" "Deicide Mask" "Hubris Circlet" "Prophet Crown" "Praetor Crown" "Royal Burgonet" "Pig-Faced Bascinet" "Nightmare Bascinet" "Imperial Buckler" "Supreme Spiked Shield" "Titanium Spirit Shield" "Archon Kite Shield" "Pinnacle Tower Shield" "Elegant Round Shield"
+	Rarity = Rare
 	SetBorderColor 255 255 0
 
 # Rares - Craft Bases - Weapon (Other)
 Show
+	BaseType "Imbued Wand" "Ambusher" "Reaver Sword" "Thicket Bow" "Great White Claw" "Corsair Sword" "Harbinger Bow" "Vaal Axe" "Platinum Kris" "Opal Wand" "Imperial Claw" "Terror Claw" "Jewelled Foil" "Vaal Rapier" "Piledriver"
 	Rarity = Rare
-	BaseType "Imbued Wand" "Ambusher" "Reaver Sword" "Thicket Bow" "Great White Claw" "Corsair Sword" "Harbinger Bow" "Vaal Axe" "Platinum Kris" "Opal Wand" "Imperial Claw" "Terror Claw" "Jewelled Foil" "Vaal Rapier" "Piledriver" "Convoking Wand"
-	SetFontSize 36
-	SetTextColor 255 255 119
-	SetBackgroundColor 70 70 70
-	SetBorderColor 127 127 127
-	PlayEffect White Temp
 
 Show  # Amulets, Rings, Belts - Endgame (Implicit) - Norm
-	Rarity = Normal
 	Class "Rings" "Amulets" "Belts"
-	BaseType "Steel Ring" "Opal Ring" "Vermillion Ring" "Cerulean Ring" "Blue Pearl Amulet" "Marble Amulet" "Vanguard Belt" "Crystal Belt" "Stygian Vise"
+	BaseType "Steel Ring" "Opal Ring" "Blue Pearl Amulet" "Marble Amulet" "Vanguard Belt" "Crystal Belt" "Stygian Vise"
+	Rarity = Normal
 	SetFontSize 38
 	SetTextColor 240 240 240
 	SetBackgroundColor 70 70 70
@@ -1561,9 +775,9 @@ Show  # Amulets, Rings, Belts - Endgame (Implicit) - Norm
 	PlayAlertSound 3 80
 
 Show  # Amulets, Rings, Belts - Endgame (Implicit) - Magic
-	Rarity = Magic
 	Class "Rings" "Amulets" "Belts"
-	BaseType "Steel Ring" "Opal Ring" "Vermillion Ring" "Cerulean Ring" "Blue Pearl Amulet" "Marble Amulet" "Vanguard Belt" "Crystal Belt" "Stygian Vise"
+	BaseType "Steel Ring" "Opal Ring" "Blue Pearl Amulet" "Marble Amulet" "Vanguard Belt" "Crystal Belt" "Stygian Vise"
+	Rarity = Magic
 	SetFontSize 36
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
@@ -1571,9 +785,9 @@ Show  # Amulets, Rings, Belts - Endgame (Implicit) - Magic
 	PlayEffect White Temp
 
 Show  # Amulets, Rings, Belts - Endgame (Implicit) - Rare
-	Rarity = Rare
 	Class "Rings" "Amulets" "Belts"
-	BaseType "Steel Ring" "Opal Ring" "Vermillion Ring" "Cerulean Ring" "Blue Pearl Amulet" "Marble Amulet" "Vanguard Belt" "Crystal Belt" "Stygian Vise"
+	BaseType "Steel Ring" "Opal Ring" "Blue Pearl Amulet" "Marble Amulet" "Vanguard Belt" "Crystal Belt" "Stygian Vise"
+	Rarity = Rare
 	SetFontSize 36
 	SetTextColor 255 255 119
 	SetBackgroundColor 70 70 70
@@ -1585,219 +799,219 @@ Show
 	ItemLevel <= 30
 
 Show  # Lvling Exceptions - Jewelery
-	ItemLevel <= 12
-	Rarity = Normal
 	BaseType "Coral Ring" "Leather Belt" "Iron Ring" "Rustic Sash" "Heavy Belt"
-	SetTextColor 240 240 240
-
-Show  # Lvling Exceptions - Jewelery
+	Rarity = Normal
 	ItemLevel <= 12
-	Rarity = Magic
+	SetTextColor 240 240 240
+
+Show  # Lvling Exceptions - Jewelery
 	BaseType "Coral Ring" "Leather Belt" "Iron Ring" "Rustic Sash" "Heavy Belt"
+	Rarity = Magic
+	ItemLevel <= 12
 	SetTextColor 140 190 255
 
 Show  # Lvling Exceptions - Jewelery
-	ItemLevel <= 20
-	Rarity = Normal
 	BaseType "Jade Amulet" "Lapis Amulet" "Amber Amulet"
-	SetTextColor 240 240 240
-
-Show  # Lvling Exceptions - Jewelery
+	Rarity = Normal
 	ItemLevel <= 20
-	Rarity = Magic
+	SetTextColor 240 240 240
+
+Show  # Lvling Exceptions - Jewelery
 	BaseType "Jade Amulet" "Lapis Amulet" "Amber Amulet"
+	Rarity = Magic
+	ItemLevel <= 20
 	SetTextColor 140 190 255
 
 Show  # Lvling Exceptions - Jewelery
-	ItemLevel <= 30
-	Rarity = Normal
 	BaseType "Citrine Amulet" "Turquoise Amulet" "Agate Amulet"
+	Rarity = Normal
+	ItemLevel <= 30
 	SetTextColor 240 240 240
 
 Show  # Lvling Exceptions - Jewelery
-	ItemLevel <= 30
-	Rarity = Magic
 	BaseType "Citrine Amulet" "Turquoise Amulet" "Agate Amulet"
+	Rarity = Magic
+	ItemLevel <= 30
 	SetTextColor 140 190 255
 
 Show  # Lvling Exceptions - Jewelery
-	ItemLevel <= 40
-	Rarity = Normal
 	BaseType "Ruby Ring" "Sapphire Ring" "Topaz Ring"
+	Rarity = Normal
+	ItemLevel <= 40
 	SetTextColor 240 240 240
 
 Show  # Lvling Exceptions - Jewelery
-	ItemLevel <= 40
-	Rarity = Magic
 	BaseType "Ruby Ring" "Sapphire Ring" "Topaz Ring"
+	Rarity = Magic
+	ItemLevel <= 40
 	SetTextColor 140 190 255
 
 Show  # Lvling Exceptions - Sceptres
 	LinkedSockets = 3
-	ItemLevel <= 65
-	Rarity = Normal
 	BaseType "Quartz Sceptre" "Crystal Sceptre" "Opal Sceptre"
+	Rarity = Normal
+	ItemLevel <= 65
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Lvling Exceptions - Sceptres
 	LinkedSockets = 3
-	ItemLevel <= 65
-	Rarity = Magic
 	BaseType "Quartz Sceptre" "Crystal Sceptre" "Opal Sceptre"
+	Rarity = Magic
+	ItemLevel <= 65
 	SetFontSize 30
 	SetTextColor 140 190 255
 
 Show  # Lvling Exceptions - Quivers - Serrated Arrow Quiver
-	ItemLevel <= 15
-	Rarity = Normal
 	Class "Quivers"
 	BaseType "Serrated Arrow Quiver"
+	Rarity = Normal
+	ItemLevel <= 15
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Lvling Exceptions - Quivers - Serrated Arrow Quiver
-	ItemLevel <= 15
-	Rarity = Magic
 	Class "Quivers"
 	BaseType "Serrated Arrow Quiver"
+	Rarity = Magic
+	ItemLevel <= 15
 	SetFontSize 30
 	SetTextColor 140 190 255
 
 Show  # Lvling Exceptions - Quivers
-	ItemLevel <= 20
-	Rarity <= Magic
 	Class "Quivers"
+	Rarity <= Magic
+	ItemLevel <= 20
 	SetFontSize 30
 
 Hide  # Low Jewelery
-	ItemLevel >= 45
-	Rarity <= Magic
 	BaseType "Coral Amulet" "Paua Ring" "Paua Amulet"
+	Rarity <= Magic
+	ItemLevel >= 45
 	SetFontSize 30
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Low Jewelery
-	ItemLevel >= 45
-	Rarity <= Magic
 	BaseType "Iron Ring"
+	Rarity <= Magic
+	ItemLevel >= 45
 	SetFontSize 30
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Low Jewelery
-	ItemLevel >= 45
-	Rarity <= Magic
 	BaseType "Cloth Belt" "Studded Belt" "Heavy Belt"
+	Rarity <= Magic
+	ItemLevel >= 45
 	SetFontSize 30
 	SetBackgroundColor 0 0 0 250
 
 Show  # Amulets, Rings, Belts - Rare
-	Rarity = Rare
 	Class "Rings" "Amulets" "Belts"
+	Rarity = Rare
 	SetBackgroundColor 0 0 0
 
 Hide  # Amulets, Rings, Belts - 68+ - Norm
-	ItemLevel >= 68
-	Rarity = Normal
 	Class "Rings" "Amulets" "Belts"
+	Rarity = Normal
+	ItemLevel >= 68
 	SetFontSize 25
 	SetTextColor 255 255 255
 	SetBackgroundColor 15 15 15 250
 	SetBorderColor 0 0 0 0
 
 Hide  # Amulets, Rings, Belts - 68+ - Magic
-	ItemLevel >= 68
-	Rarity = Magic
 	Class "Rings" "Amulets" "Belts"
+	Rarity = Magic
+	ItemLevel >= 68
 	SetFontSize 30
 	SetBackgroundColor 15 15 15 250
 
 Show  # Amulets, Rings, Belts - <68 - Norm
-	ItemLevel < 68
-	Rarity = Normal
 	Class "Rings" "Amulets" "Belts"
+	Rarity = Normal
+	ItemLevel < 68
 	SetFontSize 30
 	SetBackgroundColor 15 15 15 250
 
 Show  # Amulets, Rings, Belts - <68 - Magic
-	ItemLevel < 68
-	Rarity = Magic
 	Class "Rings" "Amulets" "Belts"
+	Rarity = Magic
+	ItemLevel < 68
 	SetFontSize 30
 	SetBackgroundColor 15 15 15 250
 
 # Chisel Recipes
 Show  # Misc - Chisel Recipe - Norm
-	Rarity = Normal
 	BaseType "Gavel" "Stone Hammer" "Rock Breaker"
+	Rarity = Normal
 	SetFontSize 30
 	SetBackgroundColor 5 5 5 250
 	SetBorderColor 184 218 242
 
 Show  # Misc - Chisel Recipe - Magic
 	Quality >= 12
-	Rarity = Magic
 	BaseType "Gavel" "Stone Hammer" "Rock Breaker"
+	Rarity = Magic
 	SetFontSize 30
 	SetBackgroundColor 5 5 5 250
 	SetBorderColor 184 218 242
 
 Show  # Misc - Chisel Recipe - Rare
 	Quality >= 16
-	Rarity = Rare
 	BaseType "Gavel" "Stone Hammer" "Rock Breaker"
+	Rarity = Rare
 	SetFontSize 30
 	SetBackgroundColor 5 5 5 250
 	SetBorderColor 184 218 242
 
 Show  # Flasks - Life - Norm
-	Rarity = Normal
 	Class "Life Flasks"
+	Rarity = Normal
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Flasks - Life - Magic
-	Rarity = Magic
 	Class "Life Flasks"
+	Rarity = Magic
 	SetFontSize 30
 	SetTextColor 140 190 255
 
 Show  # Flasks - Mana - Norm
-	Rarity = Normal
 	Class "Mana Flasks"
+	Rarity = Normal
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Flasks - Mana - Magic
-	Rarity = Magic
 	Class "Mana Flasks"
+	Rarity = Magic
 	SetFontSize 30
 	SetTextColor 140 190 255
 
 Show  # Flasks - Hybrid - Norm
-	Rarity = Normal
 	Class "Hybrid Flasks"
+	Rarity = Normal
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Flasks - Hybrid - Magic
-	Rarity = Magic
 	Class "Hybrid Flasks"
+	Rarity = Magic
 	SetFontSize 30
 	SetTextColor 140 190 255
 
 # Utility Flasks
 Show  # Flasks - Utility - Norm
-	Rarity = Normal
 	Class "Utility Flasks"
+	Rarity = Normal
 	SetFontSize 30
 	SetTextColor 240 240 240
 	SetBackgroundColor 5 5 5 250
 	SetBorderColor 163 141 109
 
 Show  # Flasks - Utility - Magic
-	Rarity = Magic
 	Class "Utility Flasks"
+	Rarity = Magic
 	SetFontSize 30
 	SetTextColor 140 190 255
 	SetBackgroundColor 5 5 5 250
@@ -1805,76 +1019,76 @@ Show  # Flasks - Utility - Magic
 
 Show  # Gear - 4 Link Exceptions
 	LinkedSockets = 4
-	ItemLevel < 40
 	DropLevel > 15
-	Rarity = Normal
 	Class "Helmet" "Boots" "Body Armour" "Gloves"
+	Rarity = Normal
+	ItemLevel < 40
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - 4 Link Exceptions
 	LinkedSockets = 4
-	ItemLevel < 50
 	DropLevel > 25
-	Rarity = Normal
 	Class "Helmet" "Boots" "Body Armour" "Gloves"
+	Rarity = Normal
+	ItemLevel < 50
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - 4 Link Exceptions
 	LinkedSockets = 4
-	ItemLevel < 65
 	DropLevel > 40
-	Rarity = Normal
 	Class "Helmet" "Boots" "Body Armour" "Gloves"
+	Rarity = Normal
+	ItemLevel < 65
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - 3 Link Exceptions
 	LinkedSockets = 3
+	Class "Helmet" "Boots" "Body Armour" "Gloves"
+	Rarity = Magic
 	ItemLevel < 25
-	Rarity = Magic
-	Class "Helmet" "Boots" "Body Armour" "Gloves"
 	SetFontSize 30
 	SetTextColor 140 190 255
 
 Show  # Gear - 4 Link Exceptions
 	LinkedSockets = 4
-	ItemLevel < 40
 	DropLevel > 15
-	Rarity = Magic
 	Class "Helmet" "Boots" "Body Armour" "Gloves"
+	Rarity = Magic
+	ItemLevel < 40
 	SetFontSize 30
 	SetTextColor 140 190 255
 
 Show  # Gear - 4 Link Exceptions
 	LinkedSockets = 4
-	ItemLevel < 50
 	DropLevel > 25
-	Rarity = Magic
 	Class "Helmet" "Boots" "Body Armour" "Gloves"
+	Rarity = Magic
+	ItemLevel < 50
 	SetFontSize 30
 	SetTextColor 140 190 255
 
 Show  # Gear - Endgame (Implicit) - Armour Norm
-	Rarity = Normal
 	BaseType "Bone Helmet" "Two-Toned Boots" "Spiked Gloves" "Gripped Gloves" "Fingerless Silk Gloves"
+	Rarity = Normal
 	SetFontSize 30
 	SetTextColor 240 240 240
 	SetBackgroundColor 70 70 70
 	SetBorderColor 127 127 127
 
 Show  # Gear - Endgame (Implicit) - Armour Magic
-	Rarity = Magic
 	BaseType "Bone Helmet" "Two-Toned Boots" "Spiked Gloves" "Gripped Gloves" "Fingerless Silk Gloves"
+	Rarity = Magic
 	SetFontSize 30
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
 	SetBorderColor 127 127 127
 
 Show  # Gear - Endgame (Implicit) - Armour Rare
-	Rarity = Rare
 	BaseType "Bone Helmet" "Two-Toned Boots" "Spiked Gloves" "Gripped Gloves" "Fingerless Silk Gloves"
+	Rarity = Rare
 	SetFontSize 30
 	SetTextColor 255 255 119
 	SetBackgroundColor 70 70 70
@@ -1882,3556 +1096,3556 @@ Show  # Gear - Endgame (Implicit) - Armour Rare
 
 # Hide Magic Endgame
 Hide
+	Class "Helmet" "Gloves" "Boots"
+	Rarity = Magic
 	ItemLevel >= 68
 	ItemLevel <= 83
-	Rarity = Magic
-	Class "Helmet" "Gloves" "Boots"
 	SetFontSize 30
 	SetBorderColor 136 136 255
 
 Hide
+	Class "Axes" "Bows" "Claws" "Daggers" "Maces" "Sceptres" "Staves" "Swords" "Wands"
+	Rarity = Magic
 	ItemLevel >= 70
 	ItemLevel <= 82
-	Rarity = Magic
-	Class "Axes" "Bows" "Claws" "Daggers" "Maces" "Sceptres" "Staves" "Swords" "Wands" "Rune Daggers" "Warstaves"
 	SetFontSize 30
 	SetBorderColor 136 136 255
 
 # Hide Maelstrom Staff Exception
 Hide  # Gear - Outlevelled
-	ItemLevel > 77
 	DropLevel = 64
-	Rarity <= Magic
 	Class "Staves"
+	Rarity <= Magic
+	ItemLevel > 77
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 # Endgame/Crafting Bases
 Show  # Gear - Endgame STR - Armour - Norm
-	ItemLevel >= 68
-	Rarity = Normal
 	BaseType "Glorious Plate" "Astral Plate" "Titan Greaves" "Titan Gauntlets" "Eternal Burgonet" "Royal Burgonet" "Pinnacle Tower Shield"
+	Rarity = Normal
+	ItemLevel >= 68
 	SetFontSize 25
 	SetTextColor 255 255 255
 	SetBackgroundColor 15 15 15 250
 	SetBorderColor 0 0 0 0
 
 Hide  # Gear - Endgame STR - Armour - Magic
-	Rarity = Magic
 	BaseType "Glorious Plate" "Astral Plate" "Titan Greaves" "Titan Gauntlets" "Eternal Burgonet" "Royal Burgonet" "Pinnacle Tower Shield"
+	Rarity = Magic
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
 
 Show  # Gear - Endgame DEX - Armour - Norm
-	ItemLevel >= 68
-	Rarity = Normal
 	BaseType "Assassin's Garb" "Slink Boots" "Slink Gloves" "Lion Pelt" "Imperial Buckler"
+	Rarity = Normal
+	ItemLevel >= 68
 	SetFontSize 25
 	SetTextColor 255 255 255
 	SetBackgroundColor 15 15 15 250
 	SetBorderColor 0 0 0 0
 
 Hide  # Gear - Endgame DEX - Armour - Magic
-	Rarity = Magic
 	BaseType "Assassin's Garb" "Slink Boots" "Slink Gloves" "Lion Pelt" "Imperial Buckler"
+	Rarity = Magic
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
 
 Show  # Gear - Endgame INT - Armour - Norm
-	ItemLevel >= 68
-	Rarity = Normal
 	BaseType "Vaal Regalia" "Sorcerer Boots" "Sorcerer Gloves" "Hubris Circlet" "Titanium Spirit Shield" "Fossilised Spirit Shield"
+	Rarity = Normal
+	ItemLevel >= 68
 	SetFontSize 25
 	SetTextColor 255 255 255
 	SetBackgroundColor 15 15 15 250
 	SetBorderColor 0 0 0 0
 
 Hide  # Gear - Endgame INT - Armour - Magic
-	Rarity = Magic
 	BaseType "Vaal Regalia" "Sorcerer Boots" "Sorcerer Gloves" "Hubris Circlet" "Titanium Spirit Shield" "Fossilised Spirit Shield"
+	Rarity = Magic
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
 
 Show  # Gear - Endgame DEX/INT - Armour - Norm
-	ItemLevel >= 68
-	Rarity = Normal
 	BaseType "Carnal Armour" "Murder Boots" "Murder Mitts" "Deicide Mask" "Supreme Spiked Shield"
+	Rarity = Normal
+	ItemLevel >= 68
 	SetFontSize 25
 	SetTextColor 255 255 255
 	SetBackgroundColor 15 15 15 250
 	SetBorderColor 0 0 0 0
 
 Hide  # Gear - Endgame DEX/INT - Armour - Magic
-	Rarity = Magic
 	BaseType "Carnal Armour" "Murder Boots" "Murder Mitts" "Deicide Mask" "Supreme Spiked Shield"
+	Rarity = Magic
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
 
 Show  # Gear - Endgame STR/INT - Armour - Norm
-	ItemLevel >= 68
-	Rarity = Normal
 	BaseType "Saintly Chainmail" "Crusader Boots" "Crusader Gloves" "Praetor Crown" "Archon Kite Shield"
+	Rarity = Normal
+	ItemLevel >= 68
 	SetFontSize 25
 	SetTextColor 255 255 255
 	SetBackgroundColor 15 15 15 250
 	SetBorderColor 0 0 0 0
 
 Hide  # Gear - Endgame STR/INT - Armour - Magic
-	Rarity = Magic
 	BaseType "Saintly Chainmail" "Crusader Boots" "Crusader Gloves" "Praetor Crown" "Archon Kite Shield"
+	Rarity = Magic
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
 
 Hide  # Gear - Endgame DEX/STR - Armour - Norm
-	ItemLevel >= 68
-	Rarity = Normal
 	BaseType "Triumphant Lamellar" "Dragonscale Boots" "Dragonscale Gauntlets" "Nightmare Bascinet" "Elegant Round Shield"
+	Rarity = Normal
+	ItemLevel >= 68
 	SetFontSize 25
 	SetTextColor 255 255 255
 	SetBackgroundColor 15 15 15 250
 	SetBorderColor 0 0 0 0
 
 Hide  # Gear - Endgame DEX/STR - Armour - Magic
-	Rarity = Magic
 	BaseType "Triumphant Lamellar" "Dragonscale Boots" "Dragonscale Gauntlets" "Nightmare Bascinet" "Elegant Round Shield"
+	Rarity = Magic
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
 
 # Endgame Weapons - One Hand #
 Show  # Gear - Endgame - Weap - One Hand - Norm
-	Rarity = Normal
 	BaseType "Runic Hatchet" "Tiger Hook" "Corsair Sword" "Behemoth Mace" "Platinum Kris" "Ambusher" "Sai" "Jewelled Foil" "Vaal Rapier" "Dragoon Sword" "Sambar Sceptre" "Terror Claw" "Imperial Claw" "Great White Claw" "Gemini Claw" "Opal Wand" "Imbued Wand" "Profane Wand"
+	Rarity = Normal
 	SetFontSize 25
 	SetTextColor 255 255 255
 	SetBackgroundColor 15 15 15 250
 	SetBorderColor 0 0 0 0
 
 Hide  # Gear - Endgame - Weap - One Hand - Magic
-	Rarity = Magic
 	BaseType "Runic Hatchet" "Tiger Hook" "Corsair Sword" "Behemoth Mace" "Platinum Kris" "Ambusher" "Sai" "Jewelled Foil" "Vaal Rapier" "Dragoon Sword" "Sambar Sceptre" "Terror Claw" "Imperial Claw" "Great White Claw" "Gemini Claw" "Opal Wand" "Imbued Wand" "Profane Wand"
+	Rarity = Magic
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
 
 # Endgame Weapons - Two Hand #
 Show  # Gear - Endgame - Weap - Two Hand - Norm
-	Rarity = Normal
 	BaseType "Coronal Maul" "Piledriver" "Reaver Sword" "Exquisite Blade" "Vaal Axe" "Fleshripper" "Eclipse Staff"
+	Rarity = Normal
 	SetFontSize 25
 	SetTextColor 255 255 255
 	SetBackgroundColor 15 15 15 250
 	SetBorderColor 0 0 0 0
 
 Hide  # Gear - Endgame - Weap - Two Hand - Magic
-	Rarity = Magic
 	BaseType "Coronal Maul" "Piledriver" "Reaver Sword" "Exquisite Blade" "Vaal Axe" "Fleshripper" "Eclipse Staff"
+	Rarity = Magic
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
 
 # Endgame Weapons - Bows #
 Show  # Gear - Endgame - Weap - Bows - Norm
-	Rarity = Normal
 	BaseType "Maraketh Bow" "Harbinger Bow" "Thicket Bow"
+	Rarity = Normal
 	SetFontSize 26
 	SetTextColor 255 255 255
 	SetBackgroundColor 15 15 15 250
 	SetBorderColor 0 0 0 0
 
 Hide  # Gear - Endgame - Weap - Bows - Magic
-	Rarity = Magic
 	BaseType "Maraketh Bow" "Harbinger Bow" "Thicket Bow"
+	Rarity = Magic
 	SetTextColor 140 190 255
 	SetBackgroundColor 70 70 70
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 10
 	DropLevel <= 5
 	Rarity <= Magic
+	ItemLevel >= 10
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 15
 	DropLevel <= 10
 	Rarity <= Magic
+	ItemLevel >= 15
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 20
 	DropLevel <= 13
 	Rarity <= Magic
+	ItemLevel >= 20
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 25
 	DropLevel <= 20
 	Rarity <= Magic
+	ItemLevel >= 25
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 30
 	DropLevel <= 25
 	Rarity <= Magic
+	ItemLevel >= 30
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 35
 	DropLevel <= 30
 	Rarity <= Magic
+	ItemLevel >= 35
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 40
 	DropLevel <= 35
 	Rarity <= Magic
+	ItemLevel >= 40
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 45
 	DropLevel <= 40
 	Rarity <= Magic
+	ItemLevel >= 45
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 50
 	DropLevel <= 46
 	Rarity <= Magic
+	ItemLevel >= 50
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 55
 	DropLevel <= 52
 	Rarity <= Magic
+	ItemLevel >= 55
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 60
 	DropLevel < 56
 	Rarity <= Magic
+	ItemLevel >= 60
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Hide  # Gear - Outlevelled
-	ItemLevel >= 65
+	BaseType "Alder Spiked Shield" "Ancestral Club" "Arcanist Gloves" "Arcanist Slippers" "Assassin Bow" "Assassin's Boots" "Assassin's Mitts" "Auric Mace" "Blood Raiment" "Branded Kite Shield" "Butcher Axe" "Cardinal Round Shield" "Carnal Sceptre" "Champion Kite Shield" "Citadel Bow" "Colossal Tower Shield" "Colossus Mallet" "Conquest Chainmail" "Courtesan Sword" "Crusader Buckler" "Crusader Plate" "Crypt Armour" "Demon Dagger" "Demon's Horn" "Desert Brigandine" "Despot Axe" "Destiny Leather" "Dragonbone Rapier" "Dragonscale Doublet" "Ebony Tower Shield" "Elegant Ringmail" "Engraved Hatchet" "Eternal Sword" "Exquisite Leather" "Eye Gouger" "Ezomyte Axe" "Ezomyte Blade" "Ezomyte Burgonet" "Ezomyte Dagger" "Ezomyte Spiked Shield" "Ezomyte Staff" "Ezomyte Tower Shield" "Fluted Bascinet" "Full Dragonscale" "Gavel" "Gemstone Sword" "General's Brigandine" "Gladiator Plate" "Gladius" "Golden Plate" "Gutting Knife" "Harlequin Mask" "Harmonic Spirit Shield" "Harpy Rapier" "Headman's Sword" "Hellion's Paw" "Hydrascale Boots" "Hydrascale Gauntlets" "Imperial Bow" "Imperial Maul" "Imperial Skean" "Imperial Staff" "Infernal Axe" "Infernal Sword" "Ironwood Buckler" "Judgement Staff" "Karui Axe" "Karui Chopper" "Karui Maul" "Karui Sceptre" "Lacewood Spirit Shield" "Lacquered Buckler" "Lathi" "Legion Boots" "Legion Gloves" "Legion Hammer" "Legion Sword" "Lion Sword" "Lithe Blade" "Loricated Ringmail" "Magistrate Crown" "Meatgrinder" "Midnight Blade" "Mind Cage" "Mirrored Spiked Shield" "Moon Staff" "Mosaic Kite Shield" "Necromancer Silks" "Nightmare Mace" "Occultist's Vestment" "Opal Sceptre" "Pecoraro" "Pernarch" "Pig-Faced Bascinet" "Platinum Sceptre" "Primordial Staff" "Prophecy Wand" "Prophet Crown" "Ranger Bow" "Reaver Axe" "Royal Axe" "Sacrificial Garb" "Sadist Garb" "Saint's Hauberk" "Savant's Robe" "Sentinel Jacket" "Shagreen Tower Shield" "Sharkskin Tunic" "Siege Axe" "Silken Hood" "Sinner Tricorne" "Solaris Circlet" "Solar Maul" "Spine Bow" "Spiny Round Shield" "Spiraled Foil" "Stealth Boots" "Stealth Gloves" "Steelwood Bow" "Sundering Axe" "Talon Axe" "Teak Round Shield" "Tempered Foil" "Tenderizer" "Terror Maul" "Throat Stabber" "Tornado Wand" "Twin Claw" "Tyrant's Sekhem" "Vaal Blade" "Vaal Buckler" "Vaal Claw" "Vaal Gauntlets" "Vaal Greatsword" "Vaal Greaves" "Vaal Hatchet" "Vaal Mask" "Vaal Sceptre" "Vaal Spirit Shield" "Varnished Coat" "Void Axe" "Void Sceptre" "Widowsilk Robe" "Zodiac Leather"
 	Rarity <= Magic
-	BaseType "Alder Spiked Shield" "Ancestral Club" "Arcanist Gloves" "Arcanist Slippers" "Assassin Bow" "Assassin's Boots" "Assassin's Mitts" "Auric Mace" "Blood Raiment" "Branded Kite Shield" "Butcher Axe" "Cardinal Round Shield" "Carnal Sceptre" "Champion Kite Shield" "Citadel Bow" "Colossal Tower Shield" "Colossus Mallet" "Conquest Chainmail" "Courtesan Sword" "Crusader Buckler" "Crusader Plate" "Crypt Armour" "Demon Dagger" "Demon's Horn" "Desert Brigandine" "Despot Axe" "Destiny Leather" "Dragonbone Rapier" "Dragonscale Doublet" "Ebony Tower Shield" "Elegant Ringmail" "Engraved Hatchet" "Eternal Sword" "Exquisite Leather" "Eye Gouger" "Ezomyte Axe" "Ezomyte Blade" "Ezomyte Burgonet" "Ezomyte Dagger" "Ezomyte Spiked Shield" "Ezomyte Staff" "Ezomyte Tower Shield" "Fluted Bascinet" "Full Dragonscale" "Gavel" "Gemstone Sword" "General's Brigandine" "Gladiator Plate" "Gladius" "Golden Plate" "Gutting Knife" "Harlequin Mask" "Harmonic Spirit Shield" "Harpy Rapier" "Headman's Sword" "Hellion's Paw" "Hydrascale Boots" "Hydrascale Gauntlets" "Imperial Bow" "Imperial Maul" "Imperial Skean" "Imperial Staff" "Infernal Axe" "Infernal Sword" "Ironwood Buckler" "Judgement Staff" "Karui Axe" "Karui Chopper" "Karui Maul" "Karui Sceptre" "Lacewood Spirit Shield" "Lacquered Buckler" "Lathi" "Legion Boots" "Legion Gloves" "Legion Hammer" "Legion Sword" "Lion Sword" "Lithe Blade" "Loricated Ringmail" "Magistrate Crown" "Meatgrinder" "Midnight Blade" "Mind Cage" "Mirrored Spiked Shield" "Moon Staff" "Mosaic Kite Shield" "Necromancer Silks" "Nightmare Mace" "Occultist's Vestment" "Opal Sceptre" "Pecoraro" "Pernach" "Pig-Faced Bascinet" "Platinum Sceptre" "Primordial Staff" "Prophecy Wand" "Prophet Crown" "Ranger Bow" "Reaver Axe" "Royal Axe" "Sacrificial Garb" "Sadist Garb" "Saint's Hauberk" "Savant's Robe" "Sentinel Jacket" "Shagreen Tower Shield" "Sharkskin Tunic" "Siege Axe" "Silken Hood" "Sinner Tricorne" "Solaris Circlet" "Solar Maul" "Spine Bow" "Spiny Round Shield" "Spiraled Foil" "Stealth Boots" "Stealth Gloves" "Steelwood Bow" "Sundering Axe" "Talon Axe" "Teak Round Shield" "Tempered Foil" "Tenderizer" "Terror Maul" "Throat Stabber" "Tornado Wand" "Twin Claw" "Tyrant's Sekhem" "Vaal Blade" "Vaal Buckler" "Vaal Claw" "Vaal Gauntlets" "Vaal Greatsword" "Vaal Greaves" "Vaal Hatchet" "Vaal Mask" "Vaal Sceptre" "Vaal Spirit Shield" "Varnished Coat" "Void Axe" "Void Sceptre" "Widowsilk Robe" "Zodiac Leather"
+	ItemLevel >= 65
 	SetFontSize 26
 	SetBackgroundColor 0 0 0 250
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Full Plate
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Full Plate"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Arena Plate
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Arena Plate"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Lordly Plate
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Lordly Plate"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Bronze Plate
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Bronze Plate"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Battle Plate
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Battle Plate"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Sun Plate
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Sun Plate"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Colosseum Plate
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Colosseum Plate"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Majestic Plate
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Majestic Plate"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Golden Plate
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Golden Plate"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Crusader Plate
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Crusader Plate"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - STR - Body Armours - Gladiator Plate
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Gladiator Plate"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Full Leather
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Full Leather"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Sun Leather
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Sun Leather"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Thief's Garb
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Thief's Garb"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Eelskin Tunic
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Eelskin Tunic"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Frontier Leather
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Frontier Leather"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Glorious Leather
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Glorious Leather"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Coronal Leather
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Coronal Leather"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Cutthroat's Garb
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Cutthroat's Garb"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Sharkskin Tunic
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Sharkskin Tunic"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Destiny Leather
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Destiny Leather"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Body Armours - Exquisite Leather
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Exquisite Leather"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Mage's Vestment
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Mage's Vestment"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Silk Robe
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Silk Robe"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Cabalist Regalia
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Cabalist Regalia"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Sage's Robe
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Sage's Robe"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Silken Wrap
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Silken Wrap"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Conjurer's Vestment
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Conjurer's Vestment"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Spidersilk Robe
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Spidersilk Robe"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Destroyer Regalia
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Destroyer Regalia"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Savant's Robe
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Savant's Robe"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Necromancer Silks
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Necromancer Silks"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Occultist's Vestment
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Occultist's Vestment"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Armour - INT - Body Armours - Widowsilk Robe
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Widowsilk Robe"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Scarlet Raiment
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Scarlet Raiment"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Waxed Garb
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Waxed Garb"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Bone Armour
-	ItemLevel <= 40
-	Rarity = Rare
 	BaseType "Bone Armour"
+	Rarity = Rare
+	ItemLevel <= 40
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Quilted Jacket
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Quilted Jacket"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Sleek Coat
-	ItemLevel <= 48
-	Rarity = Rare
 	BaseType "Sleek Coat"
+	Rarity = Rare
+	ItemLevel <= 48
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Crimson Raiment
-	ItemLevel <= 52
-	Rarity = Rare
 	BaseType "Crimson Raiment"
+	Rarity = Rare
+	ItemLevel <= 52
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Lacquered Garb
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Lacquered Garb"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Crypt Armour
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Crypt Armour"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Sentinel Jacket
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Sentinel Jacket"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Varnished Coat
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Varnished Coat"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Body Armours - Blood Raiment
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Blood Raiment"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Full Ringmail
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Full Ringmail"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Full Chainmail
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Full Chainmail"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Holy Chainmail
-	ItemLevel <= 39
-	Rarity = Rare
 	BaseType "Holy Chainmail"
+	Rarity = Rare
+	ItemLevel <= 39
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Latticed Ringmail
-	ItemLevel <= 43
-	Rarity = Rare
 	BaseType "Latticed Ringmail"
+	Rarity = Rare
+	ItemLevel <= 43
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Crusader Chainmail
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Crusader Chainmail"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Ornate Ringmail
-	ItemLevel <= 51
-	Rarity = Rare
 	BaseType "Ornate Ringmail"
+	Rarity = Rare
+	ItemLevel <= 51
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Chain Hauberk
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Chain Hauberk"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Devout Chainmail
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Devout Chainmail"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Loricated Ringmail
-	ItemLevel <= 61
-	Rarity = Rare
 	BaseType "Loricated Ringmail"
+	Rarity = Rare
+	ItemLevel <= 61
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Conquest Chainmail
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Conquest Chainmail"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Body Armours - Elegant Ringmail
-	ItemLevel <= 67
-	Rarity = Rare
 	BaseType "Elegant Ringmail"
+	Rarity = Rare
+	ItemLevel <= 67
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - Full Scale Armour
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Full Scale Armour"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - Soldier's Brigandine
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Soldier's Brigandine"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - Field Lamellar
-	ItemLevel <= 38
-	Rarity = Rare
 	BaseType "Field Lamellar"
+	Rarity = Rare
+	ItemLevel <= 38
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - Wyrmscale Doublet
-	ItemLevel <= 42
-	Rarity = Rare
 	BaseType "Wyrmscale Doublet"
+	Rarity = Rare
+	ItemLevel <= 42
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - Hussar Brigandine
-	ItemLevel <= 46
-	Rarity = Rare
 	BaseType "Hussar Brigandine"
+	Rarity = Rare
+	ItemLevel <= 46
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - Full Wyrmscale
-	ItemLevel <= 50
-	Rarity = Rare
 	BaseType "Full Wyrmscale"
+	Rarity = Rare
+	ItemLevel <= 50
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - Commander's Brigandine
-	ItemLevel <= 54
-	Rarity = Rare
 	BaseType "Commander's Brigandine"
+	Rarity = Rare
+	ItemLevel <= 54
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - Battle Lamellar
-	ItemLevel <= 57
-	Rarity = Rare
 	BaseType "Battle Lamellar"
+	Rarity = Rare
+	ItemLevel <= 57
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - Dragonscale Doublet
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Dragonscale Doublet"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - Desert Brigandine
-	ItemLevel <= 63
-	Rarity = Rare
 	BaseType "Desert Brigandine"
+	Rarity = Rare
+	ItemLevel <= 63
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Body Armours - General's Brigandine
-	ItemLevel <= 69
-	Rarity = Rare
 	BaseType "General's Brigandine"
+	Rarity = Rare
+	ItemLevel <= 69
 
 Show  # Gear - Rare - Endgame - Armour - STR - Helms - Eternal Burgonet
-	Rarity = Rare
 	BaseType "Eternal Burgonet"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Armour - STR - Helms - Close Helmet
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Close Helmet"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Armour - STR - Helms - Gladiator Helmet
-	ItemLevel <= 40
-	Rarity = Rare
 	BaseType "Gladiator Helmet"
+	Rarity = Rare
+	ItemLevel <= 40
 
 Show  # Gear - Rare - Lvling - Armour - STR - Helms - Reaver Helmet
-	ItemLevel <= 48
-	Rarity = Rare
 	BaseType "Reaver Helmet"
+	Rarity = Rare
+	ItemLevel <= 48
 
 Show  # Gear - Rare - Lvling - Armour - STR - Helms - Siege Helmet
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Siege Helmet"
-
-Show  # Gear - Rare - Lvling - Armour - STR - Helms - Samnite Helmet
-	ItemLevel <= 60
 	Rarity = Rare
-	BaseType "Samnite Helmet"
+	ItemLevel <= 55
+
+Show  # Gear - Rare - Lvling - Armour - STR - Helms - Samite Helmet
+	BaseType "Samite Helmet"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Armour - STR - Helms - Ezomyte Burgonet
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Ezomyte Burgonet"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Helms - Wolf Pelt
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Wolf Pelt"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Helms - Hunter Hood
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Hunter Hood"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Helms - Noble Tricorne
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Noble Tricorne"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Helms - Ursine Pelt
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Ursine Pelt"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Helms - Silken Hood
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Silken Hood"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Helms - Sinner Tricorne
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Sinner Tricorne"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Lvling - Armour - INT - Helms - Tribal Circlet
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "Tribal Circlet"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Armour - INT - Helms - Bone Circlet
-	ItemLevel <= 39
-	Rarity = Rare
 	BaseType "Bone Circlet"
+	Rarity = Rare
+	ItemLevel <= 39
 
 Show  # Gear - Rare - Lvling - Armour - INT - Helms - Lunaris Circlet
-	ItemLevel <= 48
-	Rarity = Rare
 	BaseType "Lunaris Circlet"
+	Rarity = Rare
+	ItemLevel <= 48
 
 Show  # Gear - Rare - Lvling - Armour - INT - Helms - Steel Circlet
-	ItemLevel <= 54
-	Rarity = Rare
 	BaseType "Steel Circlet"
+	Rarity = Rare
+	ItemLevel <= 54
 
 Show  # Gear - Rare - Lvling - Armour - INT - Helms - Necromancer Circlet
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Necromancer Circlet"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Armour - INT - Helms - Solaris Circlet
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Solaris Circlet"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Armour - INT - Helms - Mind Cage
-	ItemLevel <= 69
-	Rarity = Rare
 	BaseType "Mind Cage"
+	Rarity = Rare
+	ItemLevel <= 69
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Helms - Festival Mask
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Festival Mask"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Helms - Golden Mask
-	ItemLevel <= 38
-	Rarity = Rare
 	BaseType "Golden Mask"
+	Rarity = Rare
+	ItemLevel <= 38
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Helms - Raven Mask
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Raven Mask"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Helms - Callous Mask
-	ItemLevel <= 52
-	Rarity = Rare
 	BaseType "Callous Mask"
+	Rarity = Rare
+	ItemLevel <= 52
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Helms - Regicide Mask
-	ItemLevel <= 57
-	Rarity = Rare
 	BaseType "Regicide Mask"
+	Rarity = Rare
+	ItemLevel <= 57
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Helms - Harlequin Mask
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Harlequin Mask"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Helms - Great Helmet
-	ItemLevel <= 31
-	Rarity = Rare
 	BaseType "Great Helmet"
+	Rarity = Rare
+	ItemLevel <= 31
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Helms - Crusader Helmet
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Crusader Helmet"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Helms - Aventail Helmet
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Aventail Helmet"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Helms - Zealot Helmet
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Zealot Helmet"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Helms - Great Crown
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Great Crown"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Helms - Magistrate Crown
-	ItemLevel <= 63
-	Rarity = Rare
 	BaseType "Magistrate Crown"
+	Rarity = Rare
+	ItemLevel <= 63
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Helms - Visored Sallet
-	ItemLevel <= 33
-	Rarity = Rare
 	BaseType "Visored Sallet"
+	Rarity = Rare
+	ItemLevel <= 33
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Helms - Gilded Sallet
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Gilded Sallet"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Helms - Secutor Helm
-	ItemLevel <= 43
-	Rarity = Rare
 	BaseType "Secutor Helm"
+	Rarity = Rare
+	ItemLevel <= 43
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Helms - Fencer Helm
-	ItemLevel <= 51
-	Rarity = Rare
 	BaseType "Fencer Helm"
+	Rarity = Rare
+	ItemLevel <= 51
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Helms - Lacquered Helmet
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Lacquered Helmet"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Helms - Fluted Bascinet
-	ItemLevel <= 63
-	Rarity = Rare
 	BaseType "Fluted Bascinet"
+	Rarity = Rare
+	ItemLevel <= 63
 
 Show  # Gear - Rare - Lvling - Armour - STR - Glove - Bronze Gauntlets
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Bronze Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Armour - STR - Glove - Steel Gauntlets
-	ItemLevel <= 39
-	Rarity = Rare
 	BaseType "Steel Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 39
 
 Show  # Gear - Rare - Lvling - Armour - STR - Glove - Antique Gauntlets
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Antique Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Armour - STR - Glove - Ancient Gauntlets
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Ancient Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Armour - STR - Glove - Goliath Gauntlets
-	ItemLevel <= 63
-	Rarity = Rare
 	BaseType "Goliath Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 63
 
 Show  # Gear - Rare - Lvling - Armour - STR - Glove - Vaal Gauntlets
-	ItemLevel <= 69
-	Rarity = Rare
 	BaseType "Vaal Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 69
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Glove - Deerskin Gloves
-	ItemLevel <= 33
-	Rarity = Rare
 	BaseType "Deerskin Gloves"
+	Rarity = Rare
+	ItemLevel <= 33
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Glove - Nubuck Gloves
-	ItemLevel <= 38
-	Rarity = Rare
 	BaseType "Nubuck Gloves"
+	Rarity = Rare
+	ItemLevel <= 38
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Glove - Eelskin Gloves
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Eelskin Gloves"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Glove - Sharkskin Gloves
-	ItemLevel <= 54
-	Rarity = Rare
 	BaseType "Sharkskin Gloves"
+	Rarity = Rare
+	ItemLevel <= 54
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Glove - Shagreen Gloves
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Shagreen Gloves"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Glove - Stealth Gloves
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Stealth Gloves"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Lvling - Armour - INT - Glove - Silk Gloves
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Silk Gloves"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Armour - INT - Glove - Embroidered Gloves
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Embroidered Gloves"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Armour - INT - Glove - Satin Gloves
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Satin Gloves"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Armour - INT - Glove - Samite Gloves
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Samite Gloves"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Armour - INT - Glove - Conjurer Gloves
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Conjurer Gloves"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Armour - INT - Glove - Arcanist Gloves
-	ItemLevel <= 69
-	Rarity = Rare
 	BaseType "Arcanist Gloves"
+	Rarity = Rare
+	ItemLevel <= 69
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Glove - Strapped Mitts
-	ItemLevel <= 31
-	Rarity = Rare
 	BaseType "Strapped Mitts"
+	Rarity = Rare
+	ItemLevel <= 31
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Glove - Clasped Mitts
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Clasped Mitts"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Glove - Trapper Mitts
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Trapper Mitts"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Glove - Ambush Mitts
-	ItemLevel <= 50
-	Rarity = Rare
 	BaseType "Ambush Mitts"
+	Rarity = Rare
+	ItemLevel <= 50
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Glove - Carnal Mitts
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Carnal Mitts"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Glove - Assassin's Mitts
-	ItemLevel <= 67
-	Rarity = Rare
 	BaseType "Assassin's Mitts"
+	Rarity = Rare
+	ItemLevel <= 67
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Glove - Ringmail Gloves
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Ringmail Gloves"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Glove - Mesh Gloves
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Mesh Gloves"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Glove - Riveted Gloves
-	ItemLevel <= 43
-	Rarity = Rare
 	BaseType "Riveted Gloves"
+	Rarity = Rare
+	ItemLevel <= 43
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Glove - Zealot Gloves
-	ItemLevel <= 51
-	Rarity = Rare
 	BaseType "Zealot Gloves"
+	Rarity = Rare
+	ItemLevel <= 51
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Glove - Soldier Gloves
-	ItemLevel <= 57
-	Rarity = Rare
 	BaseType "Soldier Gloves"
+	Rarity = Rare
+	ItemLevel <= 57
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Glove - Legion Gloves
-	ItemLevel <= 66
-	Rarity = Rare
 	BaseType "Legion Gloves"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Glove - Bronzescale Gauntlets
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Bronzescale Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Glove - Steelscale Gauntlets
-	ItemLevel <= 43
-	Rarity = Rare
 	BaseType "Steelscale Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 43
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Glove - Serpentscale Gauntlets
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Serpentscale Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Glove - Wyrmscale Gauntlets
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Wyrmscale Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Glove - Hydrascale Gauntlets
-	ItemLevel <= 67
-	Rarity = Rare
 	BaseType "Hydrascale Gauntlets"
+	Rarity = Rare
+	ItemLevel <= 67
 
 Show  # Gear - Rare - Lvling - Armour - STR - Boots - Plated Greaves
-	ItemLevel <= 33
-	Rarity = Rare
 	BaseType "Plated Greaves"
+	Rarity = Rare
+	ItemLevel <= 33
 
 Show  # Gear - Rare - Lvling - Armour - STR - Boots - Reinforced Greaves
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Reinforced Greaves"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Armour - STR - Boots - Antique Greaves
-	ItemLevel <= 46
-	Rarity = Rare
 	BaseType "Antique Greaves"
+	Rarity = Rare
+	ItemLevel <= 46
 
 Show  # Gear - Rare - Lvling - Armour - STR - Boots - Ancient Greaves
-	ItemLevel <= 54
-	Rarity = Rare
 	BaseType "Ancient Greaves"
+	Rarity = Rare
+	ItemLevel <= 54
 
 Show  # Gear - Rare - Lvling - Armour - STR - Boots - Goliath Greaves
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Goliath Greaves"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - STR - Boots - Vaal Greaves
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Vaal Greaves"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Boots - Deerskin Boots
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "Deerskin Boots"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Boots - Nubuck Boots
-	ItemLevel <= 39
-	Rarity = Rare
 	BaseType "Nubuck Boots"
+	Rarity = Rare
+	ItemLevel <= 39
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Boots - Eelskin Boots
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Eelskin Boots"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Boots - Sharkskin Boots
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Sharkskin Boots"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Boots - Shagreen Boots
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Shagreen Boots"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Boots - Stealth Boots
-	ItemLevel <= 69
-	Rarity = Rare
 	BaseType "Stealth Boots"
+	Rarity = Rare
+	ItemLevel <= 69
 
 Show  # Gear - Rare - Lvling - Armour - INT - Boots - Silk Slippers
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Silk Slippers"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Armour - INT - Boots - Scholar Boots
-	ItemLevel <= 38
-	Rarity = Rare
 	BaseType "Scholar Boots"
+	Rarity = Rare
+	ItemLevel <= 38
 
 Show  # Gear - Rare - Lvling - Armour - INT - Boots - Satin Slippers
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Satin Slippers"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Armour - INT - Boots - Samite Slippers
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Samite Slippers"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Armour - INT - Boots - Conjurer Boots
-	ItemLevel <= 61
-	Rarity = Rare
 	BaseType "Conjurer Boots"
+	Rarity = Rare
+	ItemLevel <= 61
 
 Show  # Gear - Rare - Lvling - Armour - INT - Boots - Arcanist Slippers
-	ItemLevel <= 67
-	Rarity = Rare
 	BaseType "Arcanist Slippers"
+	Rarity = Rare
+	ItemLevel <= 67
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Boots - Clasped Boots
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "Clasped Boots"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Boots - Shackled Boots
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Shackled Boots"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Boots - Trapper Boots
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Trapper Boots"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Boots - Ambush Boots
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Ambush Boots"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Boots - Carnal Boots
-	ItemLevel <= 63
-	Rarity = Rare
 	BaseType "Carnal Boots"
+	Rarity = Rare
+	ItemLevel <= 63
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Boots - Assassin's Boots
-	ItemLevel <= 69
-	Rarity = Rare
 	BaseType "Assassin's Boots"
+	Rarity = Rare
+	ItemLevel <= 69
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Boots - Mesh Boots
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Mesh Boots"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Boots - Riveted Boots
-	ItemLevel <= 40
-	Rarity = Rare
 	BaseType "Riveted Boots"
+	Rarity = Rare
+	ItemLevel <= 40
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Boots - Zealot Boots
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Zealot Boots"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Boots - Soldier Boots
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Soldier Boots"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Boots - Legion Boots
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Legion Boots"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Boots - Ironscale Boots
-	ItemLevel <= 30
-	Rarity = Rare
 	BaseType "Ironscale Boots"
+	Rarity = Rare
+	ItemLevel <= 30
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Boots - Bronzescale Boots
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Bronzescale Boots"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Boots - Steelscale Boots
-	ItemLevel <= 42
-	Rarity = Rare
 	BaseType "Steelscale Boots"
+	Rarity = Rare
+	ItemLevel <= 42
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Boots - Serpentscale Boots
-	ItemLevel <= 51
-	Rarity = Rare
 	BaseType "Serpentscale Boots"
+	Rarity = Rare
+	ItemLevel <= 51
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Boots - Wyrmscale Boots
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Wyrmscale Boots"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Boots - Hydrascale Boots
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Hydrascale Boots"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Reinforced Tower Shield
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Reinforced Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Painted Tower Shield
-	ItemLevel <= 39
-	Rarity = Rare
 	BaseType "Painted Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 39
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Buckskin Tower Shield
-	ItemLevel <= 43
-	Rarity = Rare
 	BaseType "Buckskin Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 43
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Mahogany Tower Shield
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Mahogany Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Bronze Tower Shield
-	ItemLevel <= 51
-	Rarity = Rare
 	BaseType "Bronze Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 51
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Girded Tower Shield
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Girded Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Crested Tower Shield
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Crested Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Shagreen Tower Shield
-	ItemLevel <= 61
-	Rarity = Rare
 	BaseType "Shagreen Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 61
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Ebony Tower Shield
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Ebony Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Ezomyte Tower Shield
-	ItemLevel <= 67
-	Rarity = Rare
 	BaseType "Ezomyte Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 67
 
 Show  # Gear - Rare - Lvling - Armour - STR - Shields - Colossal Tower Shield
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Colossal Tower Shield"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - War Buckler
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "War Buckler"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - Gilded Buckler
-	ItemLevel <= 38
-	Rarity = Rare
 	BaseType "Gilded Buckler"
+	Rarity = Rare
+	ItemLevel <= 38
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - Oak Buckler
-	ItemLevel <= 42
-	Rarity = Rare
 	BaseType "Oak Buckler"
+	Rarity = Rare
+	ItemLevel <= 42
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - Enameled Buckler
-	ItemLevel <= 46
-	Rarity = Rare
 	BaseType "Enameled Buckler"
+	Rarity = Rare
+	ItemLevel <= 46
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - Corrugated Buckler
-	ItemLevel <= 50
-	Rarity = Rare
 	BaseType "Corrugated Buckler"
+	Rarity = Rare
+	ItemLevel <= 50
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - Battle Buckler
-	ItemLevel <= 54
-	Rarity = Rare
 	BaseType "Battle Buckler"
+	Rarity = Rare
+	ItemLevel <= 54
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - Golden Buckler
-	ItemLevel <= 57
-	Rarity = Rare
 	BaseType "Golden Buckler"
+	Rarity = Rare
+	ItemLevel <= 57
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - Ironwood Buckler
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Ironwood Buckler"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - Lacquered Buckler
-	ItemLevel <= 63
-	Rarity = Rare
 	BaseType "Lacquered Buckler"
+	Rarity = Rare
+	ItemLevel <= 63
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - Vaal Buckler
-	ItemLevel <= 66
-	Rarity = Rare
 	BaseType "Vaal Buckler"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Lvling - Armour - DEX - Shields - Crusader Buckler
-	ItemLevel <= 69
-	Rarity = Rare
 	BaseType "Crusader Buckler"
+	Rarity = Rare
+	ItemLevel <= 69
 
 Show  # Gear - Rare - Lvling - Armour - INT - Shields - Jingling Spirit Shield
-	ItemLevel <= 33
-	Rarity = Rare
 	BaseType "Jingling Spirit Shield"
+	Rarity = Rare
+	ItemLevel <= 33
 
 Show  # Gear - Rare - Lvling - Armour - INT - Shields - Brass Spirit Shield
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Brass Spirit Shield"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Armour - INT - Shields - Walnut Spirit Shield
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Walnut Spirit Shield"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Armour - INT - Shields - Ivory Spirit Shield
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Ivory Spirit Shield"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Armour - INT - Shields - Ancient Spirit Shield
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Ancient Spirit Shield"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Armour - INT - Shields - Chiming Spirit Shield
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Chiming Spirit Shield"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Armour - INT - Shields - Thorium Spirit Shield
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Thorium Spirit Shield"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Armour - INT - Shields - Lacewood Spirit Shield
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Lacewood Spirit Shield"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Endgame - Armour - INT - Shields - Fossilised Spirit Shield
-	Rarity = Rare
 	BaseType "Fossilised Spirit Shield"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Armour - INT - Shields - Vaal Spirit Shield
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Vaal Spirit Shield"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Armour - INT - Shields - Harmonic Spirit Shield
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Harmonic Spirit Shield"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Shields - Burnished Spiked Shield
-	ItemLevel <= 33
-	Rarity = Rare
 	BaseType "Burnished Spiked Shield"
+	Rarity = Rare
+	ItemLevel <= 33
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Shields - Ornate Spiked Shield
-	ItemLevel <= 39
-	Rarity = Rare
 	BaseType "Ornate Spiked Shield"
+	Rarity = Rare
+	ItemLevel <= 39
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Shields - Redwood Spiked Shield
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Redwood Spiked Shield"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Shields - Compound Spiked Shield
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Compound Spiked Shield"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Shields - Polished Spiked Shield
-	ItemLevel <= 54
-	Rarity = Rare
 	BaseType "Polished Spiked Shield"
+	Rarity = Rare
+	ItemLevel <= 54
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Shields - Sovereign Spiked Shield
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Sovereign Spiked Shield"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Shields - Alder Spiked Shield
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Alder Spiked Shield"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Shields - Ezomyte Spiked Shield
-	ItemLevel <= 66
-	Rarity = Rare
 	BaseType "Ezomyte Spiked Shield"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Lvling - Armour - DEX/INT - Shields - Mirrored Spiked Shield
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Mirrored Spiked Shield"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Shields - Layered Kite Shield
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "Layered Kite Shield"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Shields - Ceremonial Kite Shield
-	ItemLevel <= 40
-	Rarity = Rare
 	BaseType "Ceremonial Kite Shield"
+	Rarity = Rare
+	ItemLevel <= 40
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Shields - Etched Kite Shield
-	ItemLevel <= 46
-	Rarity = Rare
 	BaseType "Etched Kite Shield"
+	Rarity = Rare
+	ItemLevel <= 46
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Shields - Steel Kite Shield
-	ItemLevel <= 50
-	Rarity = Rare
 	BaseType "Steel Kite Shield"
+	Rarity = Rare
+	ItemLevel <= 50
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Shields - Laminated Kite Shield
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Laminated Kite Shield"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Shields - Angelic Kite Shield
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Angelic Kite Shield"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Shields - Branded Kite Shield
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Branded Kite Shield"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Shields - Champion Kite Shield
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Champion Kite Shield"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Armour - STR/INT - Shields - Mosaic Kite Shield
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Mosaic Kite Shield"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Shields - Scarlet Round Shield
-	ItemLevel <= 33
-	Rarity = Rare
 	BaseType "Scarlet Round Shield"
+	Rarity = Rare
+	ItemLevel <= 33
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Shields - Splendid Round Shield
-	ItemLevel <= 39
-	Rarity = Rare
 	BaseType "Splendid Round Shield"
+	Rarity = Rare
+	ItemLevel <= 39
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Shields - Maple Round Shield
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Maple Round Shield"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Shields - Spiked Round Shield
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Spiked Round Shield"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Shields - Crimson Round Shield
-	ItemLevel <= 54
-	Rarity = Rare
 	BaseType "Crimson Round Shield"
+	Rarity = Rare
+	ItemLevel <= 54
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Shields - Baroque Round Shield
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Baroque Round Shield"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Shields - Teak Round Shield
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Teak Round Shield"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Shields - Spiny Round Shield
-	ItemLevel <= 66
-	Rarity = Rare
 	BaseType "Spiny Round Shield"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Lvling - Armour - DEX/STR - Shields - Cardinal Round Shield
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Cardinal Round Shield"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Endgame - Weap - One Hand Axes - Runic Hatchet
-	Rarity = Rare
 	BaseType "Runic Hatchet"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Decorative Axe
-	ItemLevel <= 33
-	Rarity = Rare
 	BaseType "Decorative Axe"
+	Rarity = Rare
+	ItemLevel <= 33
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Spectral Axe
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Spectral Axe"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Etched Hatchet
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Etched Hatchet"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Jasper Axe
-	ItemLevel <= 39
-	Rarity = Rare
 	BaseType "Jasper Axe"
+	Rarity = Rare
+	ItemLevel <= 39
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Tomahawk
-	ItemLevel <= 42
-	Rarity = Rare
 	BaseType "Tomahawk"
+	Rarity = Rare
+	ItemLevel <= 42
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Wrist Chopper
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Wrist Chopper"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - War Axe
-	ItemLevel <= 48
-	Rarity = Rare
 	BaseType "War Axe"
+	Rarity = Rare
+	ItemLevel <= 48
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Chest Splitter
-	ItemLevel <= 51
-	Rarity = Rare
 	BaseType "Chest Splitter"
+	Rarity = Rare
+	ItemLevel <= 51
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Ceremonial Axe
-	ItemLevel <= 54
-	Rarity = Rare
 	BaseType "Ceremonial Axe"
+	Rarity = Rare
+	ItemLevel <= 54
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Wraith Axe
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Wraith Axe"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Engraved Hatchet
-	ItemLevel <= 57
-	Rarity = Rare
 	BaseType "Engraved Hatchet"
+	Rarity = Rare
+	ItemLevel <= 57
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Karui Axe
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Karui Axe"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Siege Axe
-	ItemLevel <= 61
-	Rarity = Rare
 	BaseType "Siege Axe"
+	Rarity = Rare
+	ItemLevel <= 61
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Reaver Axe
-	ItemLevel <= 63
-	Rarity = Rare
 	BaseType "Reaver Axe"
+	Rarity = Rare
+	ItemLevel <= 63
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Butcher Axe
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Butcher Axe"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Vaal Hatchet
-	ItemLevel <= 67
-	Rarity = Rare
 	BaseType "Vaal Hatchet"
+	Rarity = Rare
+	ItemLevel <= 67
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Royal Axe
-	ItemLevel <= 69
-	Rarity = Rare
 	BaseType "Royal Axe"
+	Rarity = Rare
+	ItemLevel <= 69
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Axes - Infernal Axe
-	ItemLevel <= 71
-	Rarity = Rare
 	BaseType "Infernal Axe"
+	Rarity = Rare
+	ItemLevel <= 71
 
 Show  # Gear - Rare - Endgame - Weap - One Hand Swords - Tiger Hook
-	Rarity = Rare
 	BaseType "Tiger Hook"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Elegant Sword
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Elegant Sword"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Dusk Blade
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "Dusk Blade"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Hook Sword
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Hook Sword"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Variscite Blade
-	ItemLevel <= 38
-	Rarity = Rare
 	BaseType "Variscite Blade"
+	Rarity = Rare
+	ItemLevel <= 38
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Cutlass
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Cutlass"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Baselard
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Baselard"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Battle Sword
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Battle Sword"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Elder Sword
-	ItemLevel <= 50
-	Rarity = Rare
 	BaseType "Elder Sword"
+	Rarity = Rare
+	ItemLevel <= 50
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Graceful Sword
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Graceful Sword"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Twilight Blade
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Twilight Blade"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Grappler
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Grappler"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Gemstone Sword
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Gemstone Sword"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Endgame - Weap - One Hand Swords - Corsair Sword
-	Rarity = Rare
 	BaseType "Corsair Sword"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Gladius
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Gladius"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Legion Sword
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Legion Sword"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Vaal Blade
-	ItemLevel <= 66
-	Rarity = Rare
 	BaseType "Vaal Blade"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Eternal Sword
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Eternal Sword"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Swords - Midnight Blade
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Midnight Blade"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Endgame - Weap - Two Hand Maces - Coronal Maul
-	Rarity = Rare
 	BaseType "Coronal Maul"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Driftwood Maul
-	ItemLevel <= 8
-	Rarity = Rare
 	BaseType "Driftwood Maul"
+	Rarity = Rare
+	ItemLevel <= 8
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Brass Maul
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Brass Maul"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Fright Maul
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "Fright Maul"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Morning Star
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Morning Star"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Totemic Maul
-	ItemLevel <= 40
-	Rarity = Rare
 	BaseType "Totemic Maul"
+	Rarity = Rare
+	ItemLevel <= 40
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Great Mallet
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Great Mallet"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Steelhead
-	ItemLevel <= 48
-	Rarity = Rare
 	BaseType "Steelhead"
+	Rarity = Rare
+	ItemLevel <= 48
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Spiny Maul
-	ItemLevel <= 51
-	Rarity = Rare
 	BaseType "Spiny Maul"
+	Rarity = Rare
+	ItemLevel <= 51
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Plated Maul
-	ItemLevel <= 54
-	Rarity = Rare
 	BaseType "Plated Maul"
+	Rarity = Rare
+	ItemLevel <= 54
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Dread Maul
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Dread Maul"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Solar Maul
-	ItemLevel <= 57
-	Rarity = Rare
 	BaseType "Solar Maul"
+	Rarity = Rare
+	ItemLevel <= 57
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Karui Maul
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Karui Maul"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Colossus Mallet
-	ItemLevel <= 61
-	Rarity = Rare
 	BaseType "Colossus Mallet"
+	Rarity = Rare
+	ItemLevel <= 61
 
 Show  # Gear - Rare - Endgame - Weap - Two Hand Maces - Piledriver
-	Rarity = Rare
 	BaseType "Piledriver"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Meatgrinder
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Meatgrinder"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Imperial Maul
-	ItemLevel <= 67
-	Rarity = Rare
 	BaseType "Imperial Maul"
+	Rarity = Rare
+	ItemLevel <= 67
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Maces - Terror Maul
-	ItemLevel <= 69
-	Rarity = Rare
 	BaseType "Terror Maul"
+	Rarity = Rare
+	ItemLevel <= 69
 
 Show  # Gear - Rare - Endgame - Weap - Bows - Maraketh Bow
-	Rarity = Rare
 	BaseType "Maraketh Bow"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Royal Bow
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Royal Bow"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Death Bow
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Death Bow"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Grove Bow
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Grove Bow"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Reflex Bow
-	ItemLevel <= 38
-	Rarity = Rare
 	BaseType "Reflex Bow"
+	Rarity = Rare
+	ItemLevel <= 38
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Decurve Bow
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Decurve Bow"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Compound Bow
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Compound Bow"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Sniper Bow
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Sniper Bow"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Ivory Bow
-	ItemLevel <= 50
-	Rarity = Rare
 	BaseType "Ivory Bow"
+	Rarity = Rare
+	ItemLevel <= 50
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Highborn Bow
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Highborn Bow"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Decimation Bow
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Decimation Bow"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Endgame - Weap - Bows - Thicket Bow
-	Rarity = Rare
 	BaseType "Thicket Bow"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Steelwood Bow
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Steelwood Bow"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Citadel Bow
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Citadel Bow"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Ranger Bow
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Ranger Bow"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Assassin Bow
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Assassin Bow"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Spine Bow
-	ItemLevel <= 66
-	Rarity = Rare
 	BaseType "Spine Bow"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Lvling - Weap - Bows - Imperial Bow
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Imperial Bow"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Endgame - Weap - Bows - Harbinger Bow
-	Rarity = Rare
 	BaseType "Harbinger Bow"
+	Rarity = Rare
 
 Show  # Gear - Rare - Endgame - Weap - Thrusting One Hand Swords - Dragoon Sword
-	Rarity = Rare
 	BaseType "Dragoon Sword"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Antique Rapier
-	ItemLevel <= 30
-	Rarity = Rare
 	BaseType "Antique Rapier"
+	Rarity = Rare
+	ItemLevel <= 30
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Elegant Foil
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "Elegant Foil"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Thorn Rapier
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Thorn Rapier"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Smallsword
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Smallsword"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Wyrmbone Rapier
-	ItemLevel <= 40
-	Rarity = Rare
 	BaseType "Wyrmbone Rapier"
+	Rarity = Rare
+	ItemLevel <= 40
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Burnished Foil
-	ItemLevel <= 43
-	Rarity = Rare
 	BaseType "Burnished Foil"
+	Rarity = Rare
+	ItemLevel <= 43
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Estoc
-	ItemLevel <= 46
-	Rarity = Rare
 	BaseType "Estoc"
+	Rarity = Rare
+	ItemLevel <= 46
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Serrated Foil
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Serrated Foil"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Primeval Rapier
-	ItemLevel <= 52
-	Rarity = Rare
 	BaseType "Primeval Rapier"
+	Rarity = Rare
+	ItemLevel <= 52
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Fancy Foil
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Fancy Foil"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Apex Rapier
-	ItemLevel <= 57
-	Rarity = Rare
 	BaseType "Apex Rapier"
+	Rarity = Rare
+	ItemLevel <= 57
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Courtesan Sword
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Courtesan Sword"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Dragonbone Rapier
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Dragonbone Rapier"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Tempered Foil
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Tempered Foil"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Pecoraro
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Pecoraro"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Spiraled Foil
-	ItemLevel <= 66
-	Rarity = Rare
 	BaseType "Spiraled Foil"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Endgame - Weap - Thrusting One Hand Swords - Vaal Rapier
-	Rarity = Rare
 	BaseType "Vaal Rapier"
+	Rarity = Rare
 
 Show  # Gear - Rare - Endgame - Weap - Thrusting One Hand Swords - Jewelled Foil
-	Rarity = Rare
 	BaseType "Jewelled Foil"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Thrusting One Hand Swords - Harpy Rapier
-	ItemLevel <= 72
-	Rarity = Rare
 	BaseType "Harpy Rapier"
+	Rarity = Rare
+	ItemLevel <= 72
 
 Show  # Gear - Rare - Endgame - Weap - Daggers - Sai
-	Rarity = Rare
 	Class "Daggers"
 	BaseType "Sai"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Skean
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Skean"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Boot Knife
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Boot Knife"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Copper Kris
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Copper Kris"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Imp Dagger
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Imp Dagger"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Flaying Knife
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Flaying Knife"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Prong Dagger
-	ItemLevel <= 38
-	Rarity = Rare
 	BaseType "Prong Dagger"
+	Rarity = Rare
+	ItemLevel <= 38
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Boot Blade
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Boot Blade"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Poignard
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Poignard"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Boot Blade
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Boot Blade"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Skinning Knife
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Skinning Knife"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Stiletto
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Stiletto"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Golden Kris
-	ItemLevel <= 50
-	Rarity = Rare
 	BaseType "Golden Kris"
+	Rarity = Rare
+	ItemLevel <= 50
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Royal Skean
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Royal Skean"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Fiend Dagger
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Fiend Dagger"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Trisula
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Trisula"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Gutting Knife
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Gutting Knife"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Slaughter Knife
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Slaughter Knife"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Endgame - Weap - Daggers - Ambusher
-	Rarity = Rare
 	BaseType "Ambusher"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Ezomyte Dagger
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Ezomyte Dagger"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Endgame - Weap - Daggers - Platinum Kris
-	Rarity = Rare
 	BaseType "Platinum Kris"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Imperial Skean
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Imperial Skean"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Weap - Daggers - Demon Dagger
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Demon Dagger"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Endgame - Weap - One Hand Maces - Behemoth Mace
-	Rarity = Rare
 	BaseType "Behemoth Mace"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Ceremonial Mace
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Ceremonial Mace"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Dream Mace
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "Dream Mace"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Wyrm Mace
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Wyrm Mace"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Petrified Club
-	ItemLevel <= 38
-	Rarity = Rare
 	BaseType "Petrified Club"
+	Rarity = Rare
+	ItemLevel <= 38
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Barbed Club
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Barbed Club"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Rock Breaker
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Rock Breaker"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Battle Hammer
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Battle Hammer"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Flanged Mace
-	ItemLevel <= 50
-	Rarity = Rare
 	BaseType "Flanged Mace"
+	Rarity = Rare
+	ItemLevel <= 50
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Ornate Mace
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Ornate Mace"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Phantom Mace
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Phantom Mace"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Dragon Mace
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Dragon Mace"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Ancestral Club
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Ancestral Club"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Tenderizer
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Tenderizer"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Gavel
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Gavel"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Legion Hammer
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Legion Hammer"
-
-Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Pernach
-	ItemLevel <= 66
 	Rarity = Rare
-	BaseType "Pernach"
+	ItemLevel <= 64
+
+Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Pernarch
+	BaseType "Pernarch"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Auric Mace
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Auric Mace"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Weap - One Hand Maces - Nightmare Mace
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Nightmare Mace"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Endgame - Weap - Two Hand Axes - Fleshripper
-	Rarity = Rare
 	BaseType "Fleshripper"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Gilded Axe
-	ItemLevel <= 33
-	Rarity = Rare
 	BaseType "Gilded Axe"
+	Rarity = Rare
+	ItemLevel <= 33
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Shadow Axe
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Shadow Axe"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Dagger Axe
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Dagger Axe"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Jasper Chopper
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Jasper Chopper"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Timber Axe
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Timber Axe"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Headsman Axe
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Headsman Axe"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Labrys
-	ItemLevel <= 52
-	Rarity = Rare
 	BaseType "Labrys"
+	Rarity = Rare
+	ItemLevel <= 52
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Noble Axe
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Noble Axe"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Abyssal Axe
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Abyssal Axe"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Karui Chopper
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Karui Chopper"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Talon Axe
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Talon Axe"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Sundering Axe
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Sundering Axe"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Ezomyte Axe
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Ezomyte Axe"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Endgame - Weap - Two Hand Axes - Vaal Axe
-	Rarity = Rare
 	BaseType "Vaal Axe"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Despot Axe
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Despot Axe"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Axes - Void Axe
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Void Axe"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Endgame - Weap - Two Hand Swords - Exquisite Blade
-	Rarity = Rare
 	BaseType "Exquisite Blade"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Corroded Blade
-	ItemLevel <= 8
-	Rarity = Rare
 	BaseType "Corroded Blade"
+	Rarity = Rare
+	ItemLevel <= 8
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Ornate Sword
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Ornate Sword"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Spectral Sword
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Spectral Sword"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Curved Blade
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Curved Blade"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Butcher Sword
-	ItemLevel <= 40
-	Rarity = Rare
 	BaseType "Butcher Sword"
+	Rarity = Rare
+	ItemLevel <= 40
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Footman Sword
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Footman Sword"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Highland Blade
-	ItemLevel <= 48
-	Rarity = Rare
 	BaseType "Highland Blade"
+	Rarity = Rare
+	ItemLevel <= 48
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Engraved Greatsword
-	ItemLevel <= 51
-	Rarity = Rare
 	BaseType "Engraved Greatsword"
+	Rarity = Rare
+	ItemLevel <= 51
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Tiger Sword
-	ItemLevel <= 54
-	Rarity = Rare
 	BaseType "Tiger Sword"
+	Rarity = Rare
+	ItemLevel <= 54
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Wraith Sword
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Wraith Sword"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Lithe Blade
-	ItemLevel <= 57
-	Rarity = Rare
 	BaseType "Lithe Blade"
+	Rarity = Rare
+	ItemLevel <= 57
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Headman's Sword
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Headman's Sword"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Endgame - Weap - Two Hand Swords - Reaver Sword
-	Rarity = Rare
 	BaseType "Reaver Sword"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Ezomyte Blade
-	ItemLevel <= 63
-	Rarity = Rare
 	BaseType "Ezomyte Blade"
+	Rarity = Rare
+	ItemLevel <= 63
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Vaal Greatsword
-	ItemLevel <= 65
-	Rarity = Rare
 	BaseType "Vaal Greatsword"
+	Rarity = Rare
+	ItemLevel <= 65
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Lion Sword
-	ItemLevel <= 67
-	Rarity = Rare
 	BaseType "Lion Sword"
+	Rarity = Rare
+	ItemLevel <= 67
 
 Show  # Gear - Rare - Lvling - Weap - Two Hand Swords - Infernal Sword
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Infernal Sword"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Endgame - Weap - Claws - Gemini Claw
-	Rarity = Rare
 	BaseType "Gemini Claw"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Sparkling Claw
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "Sparkling Claw"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Fright Claw
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Fright Claw"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Double Claw
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Double Claw"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Thresher Claw
-	ItemLevel <= 40
-	Rarity = Rare
 	BaseType "Thresher Claw"
+	Rarity = Rare
+	ItemLevel <= 40
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Gouger
-	ItemLevel <= 43
-	Rarity = Rare
 	BaseType "Gouger"
+	Rarity = Rare
+	ItemLevel <= 43
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Tiger's Paw
-	ItemLevel <= 46
-	Rarity = Rare
 	BaseType "Tiger's Paw"
+	Rarity = Rare
+	ItemLevel <= 46
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Gut Ripper
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Gut Ripper"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Prehistoric Claw
-	ItemLevel <= 52
-	Rarity = Rare
 	BaseType "Prehistoric Claw"
+	Rarity = Rare
+	ItemLevel <= 52
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Noble Claw
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Noble Claw"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Eagle Claw
-	ItemLevel <= 57
-	Rarity = Rare
 	BaseType "Eagle Claw"
+	Rarity = Rare
+	ItemLevel <= 57
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Twin Claw
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Twin Claw"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Endgame - Weap - Claws - Great White Claw
-	Rarity = Rare
 	BaseType "Great White Claw"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Throat Stabber
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Throat Stabber"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Hellion's Paw
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Hellion's Paw"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Eye Gouger
-	ItemLevel <= 66
-	Rarity = Rare
 	BaseType "Eye Gouger"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Lvling - Weap - Claws - Vaal Claw
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Vaal Claw"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Endgame - Weap - Claws - Imperial Claw
-	Rarity = Rare
 	BaseType "Imperial Claw"
+	Rarity = Rare
 
 Show  # Gear - Rare - Endgame - Weap - Claws - Terror Claw
-	Rarity = Rare
 	BaseType "Terror Claw"
+	Rarity = Rare
 
 Show  # Gear - Rare - Endgame - Weap - Sceptres - Sambar Sceptre
-	Rarity = Rare
 	BaseType "Sambar Sceptre"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Ritual Sceptre
-	ItemLevel <= 32
-	Rarity = Rare
 	BaseType "Ritual Sceptre"
+	Rarity = Rare
+	ItemLevel <= 32
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Shadow Sceptre
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Shadow Sceptre"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Grinning Fetish
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Grinning Fetish"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Horned Sceptre
-	ItemLevel <= 38
-	Rarity = Rare
 	BaseType "Horned Sceptre"
+	Rarity = Rare
+	ItemLevel <= 38
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Sekhem
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Sekhem"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Crystal Sceptre
-	ItemLevel <= 44
-	Rarity = Rare
 	BaseType "Crystal Sceptre"
+	Rarity = Rare
+	ItemLevel <= 44
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Lead Sceptre
-	ItemLevel <= 47
-	Rarity = Rare
 	BaseType "Lead Sceptre"
+	Rarity = Rare
+	ItemLevel <= 47
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Blood Sceptre
-	ItemLevel <= 50
-	Rarity = Rare
 	BaseType "Blood Sceptre"
+	Rarity = Rare
+	ItemLevel <= 50
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Royal Sceptre
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Royal Sceptre"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Abyssal Sceptre
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Abyssal Sceptre"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Stag Sceptre
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Stag Sceptre"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Karui Sceptre
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Karui Sceptre"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Tyrant's Sekhem
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Tyrant's Sekhem"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Opal Sceptre
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Opal Sceptre"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Platinum Sceptre
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Platinum Sceptre"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Vaal Sceptre
-	ItemLevel <= 66
-	Rarity = Rare
 	BaseType "Vaal Sceptre"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Carnal Sceptre
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Carnal Sceptre"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Weap - Sceptres - Void Sceptre
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Void Sceptre"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Endgame - Weap - Staves - Eclipse Staff
-	Rarity = Rare
 	BaseType "Eclipse Staff"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Royal Staff
-	ItemLevel <= 33
-	Rarity = Rare
 	BaseType "Royal Staff"
+	Rarity = Rare
+	ItemLevel <= 33
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Vile Staff
-	ItemLevel <= 36
-	Rarity = Rare
 	BaseType "Vile Staff"
+	Rarity = Rare
+	ItemLevel <= 36
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Crescent Staff
-	ItemLevel <= 37
-	Rarity = Rare
 	BaseType "Crescent Staff"
+	Rarity = Rare
+	ItemLevel <= 37
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Woodful Staff
-	ItemLevel <= 41
-	Rarity = Rare
 	BaseType "Woodful Staff"
+	Rarity = Rare
+	ItemLevel <= 41
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Quarterstaff
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Quarterstaff"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Military Staff
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Military Staff"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Serpentine Staff
-	ItemLevel <= 52
-	Rarity = Rare
 	BaseType "Serpentine Staff"
+	Rarity = Rare
+	ItemLevel <= 52
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Highborn Staff
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Highborn Staff"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Foul Staff
-	ItemLevel <= 57
-	Rarity = Rare
 	BaseType "Foul Staff"
+	Rarity = Rare
+	ItemLevel <= 57
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Moon Staff
-	ItemLevel <= 58
-	Rarity = Rare
 	BaseType "Moon Staff"
+	Rarity = Rare
+	ItemLevel <= 58
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Primordial Staff
-	ItemLevel <= 60
-	Rarity = Rare
 	BaseType "Primordial Staff"
+	Rarity = Rare
+	ItemLevel <= 60
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Lathi
-	ItemLevel <= 62
-	Rarity = Rare
 	BaseType "Lathi"
+	Rarity = Rare
+	ItemLevel <= 62
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Ezomyte Staff
-	ItemLevel <= 64
-	Rarity = Rare
 	BaseType "Ezomyte Staff"
+	Rarity = Rare
+	ItemLevel <= 64
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Maelström Staff
-	ItemLevel <= 66
 	DropLevel = 64
-	Rarity = Rare
 	Class "Staves"
+	Rarity = Rare
+	ItemLevel <= 66
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Imperial Staff
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Imperial Staff"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Weap - Staves - Judgement Staff
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Judgement Staff"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Endgame - Weap - Wands - Profane Wand
-	Rarity = Rare
 	BaseType "Profane Wand"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Driftwood Wand
-	ItemLevel <= 6
-	Rarity = Rare
 	BaseType "Driftwood Wand"
+	Rarity = Rare
+	ItemLevel <= 6
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Goat's Horn
-	ItemLevel <= 12
-	Rarity = Rare
 	BaseType "Goat's Horn"
+	Rarity = Rare
+	ItemLevel <= 12
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Carved Wand
-	ItemLevel <= 18
-	Rarity = Rare
 	BaseType "Carved Wand"
+	Rarity = Rare
+	ItemLevel <= 18
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Quartz Wand
-	ItemLevel <= 24
-	Rarity = Rare
 	BaseType "Quartz Wand"
+	Rarity = Rare
+	ItemLevel <= 24
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Sage Wand
-	ItemLevel <= 34
-	Rarity = Rare
 	BaseType "Sage Wand"
+	Rarity = Rare
+	ItemLevel <= 34
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Pagan Wand
-	ItemLevel <= 35
-	Rarity = Rare
 	BaseType "Pagan Wand"
+	Rarity = Rare
+	ItemLevel <= 35
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Faun's Horn
-	ItemLevel <= 40
-	Rarity = Rare
 	BaseType "Faun's Horn"
+	Rarity = Rare
+	ItemLevel <= 40
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Engraved Wand
-	ItemLevel <= 45
-	Rarity = Rare
 	BaseType "Engraved Wand"
+	Rarity = Rare
+	ItemLevel <= 45
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Crystal Wand
-	ItemLevel <= 49
-	Rarity = Rare
 	BaseType "Crystal Wand"
+	Rarity = Rare
+	ItemLevel <= 49
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Serpent Wand
-	ItemLevel <= 53
-	Rarity = Rare
 	BaseType "Serpent Wand"
+	Rarity = Rare
+	ItemLevel <= 53
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Omen Wand
-	ItemLevel <= 55
-	Rarity = Rare
 	BaseType "Omen Wand"
+	Rarity = Rare
+	ItemLevel <= 55
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Heathen Wand
-	ItemLevel <= 56
-	Rarity = Rare
 	BaseType "Heathen Wand"
+	Rarity = Rare
+	ItemLevel <= 56
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Demon's Horn
-	ItemLevel <= 59
-	Rarity = Rare
 	BaseType "Demon's Horn"
+	Rarity = Rare
+	ItemLevel <= 59
 
 Show  # Gear - Rare - Endgame - Weap - Wands - Imbued Wand
-	Rarity = Rare
 	BaseType "Imbued Wand"
+	Rarity = Rare
 
 Show  # Gear - Rare - Endgame - Weap - Wands - Opal Wand
-	Rarity = Rare
 	BaseType "Opal Wand"
+	Rarity = Rare
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Tornado Wand
-	ItemLevel <= 68
-	Rarity = Rare
 	BaseType "Tornado Wand"
+	Rarity = Rare
+	ItemLevel <= 68
 
 Show  # Gear - Rare - Lvling - Weap - Wands - Prophecy Wand
-	ItemLevel <= 70
-	Rarity = Rare
 	BaseType "Prophecy Wand"
+	Rarity = Rare
+	ItemLevel <= 70
 
 Show  # Gear - Rare - Endgame - Quiver - Spike - Point Arrow Quiver
-	Rarity = Rare
 	BaseType "Spike-Point Arrow Quiver"
+	Rarity = Rare
 
 # Rares - Staves & Wands
 Show  # Rares - Staves, Wands & Quivers
+	Class "Staves" "Wands" "Quivers"
 	Rarity = Rare
-	Class "Staves" "Wands" "Quivers" "Warstaves"
 
 # Rares - DropLevel <= 45
 Show  # Rares - DropLevel <= 45
-	ItemLevel >= 60
 	DropLevel <= 45
 	Rarity = Rare
+	ItemLevel >= 60
 
 # Rares - DropLevel <= 60
 Show  # Rares - DropLevel <= 60
-	ItemLevel >= 60
 	DropLevel <= 60
 	Rarity = Rare
+	ItemLevel >= 60
 
 # Rares - All 60+
 Show  # Rares - All
-	ItemLevel >= 60
 	Rarity = Rare
+	ItemLevel >= 60
 
 Hide  # Gear - Lvling - Armour - STR - No sockets - Helms
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Helmet"
-	BaseType "Barbute Helmet" "Close Helmet" "Gladiator Helmet" "Reaver Helmet" "Siege Helmet" "Samnite Helmet" "Ezomyte Burgonet" "Royal Burgonet" "Eternal Burgonet"
+	BaseType "Barbute Helmet" "Close Helmet" "Gladiator Helmet" "Reaver Helmet" "Siege Helmet" "Samite Helmet" "Ezomyte Burgonet" "Royal Burgonet" "Eternal Burgonet"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - STR - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Helmet"
-	BaseType "Barbute Helmet" "Close Helmet" "Gladiator Helmet" "Reaver Helmet" "Siege Helmet" "Samnite Helmet" "Ezomyte Burgonet" "Royal Burgonet" "Eternal Burgonet"
+	BaseType "Barbute Helmet" "Close Helmet" "Gladiator Helmet" "Reaver Helmet" "Siege Helmet" "Samite Helmet" "Ezomyte Burgonet" "Royal Burgonet" "Eternal Burgonet"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - STR - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Helmet"
-	BaseType "Barbute Helmet" "Close Helmet" "Gladiator Helmet" "Reaver Helmet" "Siege Helmet" "Samnite Helmet" "Ezomyte Burgonet" "Royal Burgonet" "Eternal Burgonet"
+	BaseType "Barbute Helmet" "Close Helmet" "Gladiator Helmet" "Reaver Helmet" "Siege Helmet" "Samite Helmet" "Ezomyte Burgonet" "Royal Burgonet" "Eternal Burgonet"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - STR - No sockets - Body Armours
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Body Armours"
 	BaseType "Copper Plate" "War Plate" "Full Plate" "Arena Plate" "Lordly Plate" "Bronze Plate" "Battle Plate" "Sun Plate" "Colosseum Plate" "Majestic Plate" "Golden Plate" "Crusader Plate" "Astral Plate" "Gladiator Plate" "Glorious Plate"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - STR - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Body Armours"
 	BaseType "Copper Plate" "War Plate" "Full Plate" "Arena Plate" "Lordly Plate" "Bronze Plate" "Battle Plate" "Sun Plate" "Colosseum Plate" "Majestic Plate" "Golden Plate" "Crusader Plate" "Astral Plate" "Gladiator Plate" "Glorious Plate"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - STR - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Body Armours"
 	BaseType "Copper Plate" "War Plate" "Full Plate" "Arena Plate" "Lordly Plate" "Bronze Plate" "Battle Plate" "Sun Plate" "Colosseum Plate" "Majestic Plate" "Golden Plate" "Crusader Plate" "Astral Plate" "Gladiator Plate" "Glorious Plate"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - STR - No sockets - Gloves
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Gloves"
 	BaseType "Golden Bracers" "Bronze Gauntlets" "Steel Gauntlets" "Antique Gauntlets" "Ancient Gauntlets" "Goliath Gauntlets" "Vaal Gauntlets" "Titan Gauntlets"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - STR - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Gloves"
 	BaseType "Golden Bracers" "Bronze Gauntlets" "Steel Gauntlets" "Antique Gauntlets" "Ancient Gauntlets" "Goliath Gauntlets" "Vaal Gauntlets" "Titan Gauntlets"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - STR - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Gloves"
 	BaseType "Golden Bracers" "Bronze Gauntlets" "Steel Gauntlets" "Antique Gauntlets" "Ancient Gauntlets" "Goliath Gauntlets" "Vaal Gauntlets" "Titan Gauntlets"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - STR - No sockets - Boots
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Boots"
 	BaseType "Plated Greaves" "Reinforced Greaves" "Antique Greaves" "Ancient Greaves" "Goliath Greaves" "Vaal Greaves" "Titan Greaves"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - STR - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Boots"
 	BaseType "Plated Greaves" "Reinforced Greaves" "Antique Greaves" "Ancient Greaves" "Goliath Greaves" "Vaal Greaves" "Titan Greaves"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - STR - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Boots"
 	BaseType "Plated Greaves" "Reinforced Greaves" "Antique Greaves" "Ancient Greaves" "Goliath Greaves" "Vaal Greaves" "Titan Greaves"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - STR - No sockets - Shields
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "Shields"
 	BaseType "Rawhide Tower Shield" "Cedar Tower Shield" "Copper Tower Shield" "Reinforced Tower Shield" "Painted Tower Shield" "Buckskin Tower Shield" "Mahogany Tower Shield" "Bronze Tower Shield" "Girded Tower Shield" "Crested Tower Shield" "Shagreen Tower Shield" "Ebony Tower Shield" "Ezomyte Tower Shield" "Colossal Tower Shield" "Pinnacle Tower Shield"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - STR - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Shields"
 	BaseType "Rawhide Tower Shield" "Cedar Tower Shield" "Copper Tower Shield" "Reinforced Tower Shield" "Painted Tower Shield" "Buckskin Tower Shield" "Mahogany Tower Shield" "Bronze Tower Shield" "Girded Tower Shield" "Crested Tower Shield" "Shagreen Tower Shield" "Ebony Tower Shield" "Ezomyte Tower Shield" "Colossal Tower Shield" "Pinnacle Tower Shield"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - STR - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Shields"
 	BaseType "Rawhide Tower Shield" "Cedar Tower Shield" "Copper Tower Shield" "Reinforced Tower Shield" "Painted Tower Shield" "Buckskin Tower Shield" "Mahogany Tower Shield" "Bronze Tower Shield" "Girded Tower Shield" "Crested Tower Shield" "Shagreen Tower Shield" "Ebony Tower Shield" "Ezomyte Tower Shield" "Colossal Tower Shield" "Pinnacle Tower Shield"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX - No sockets - Helms
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Helmet"
 	BaseType "Leather Hood" "Wolf Pelt" "Hunter Hood" "Noble Tricorne" "Ursine Pelt" "Silken Hood" "Sinner Tricorne" "Lion Pelt"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Helmet"
 	BaseType "Leather Hood" "Wolf Pelt" "Hunter Hood" "Noble Tricorne" "Ursine Pelt" "Silken Hood" "Sinner Tricorne" "Lion Pelt"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Helmet"
 	BaseType "Leather Hood" "Wolf Pelt" "Hunter Hood" "Noble Tricorne" "Ursine Pelt" "Silken Hood" "Sinner Tricorne" "Lion Pelt"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX - No sockets - Body Armours
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Body Armours"
 	BaseType "Buckskin Tunic" "Wild Leather" "Full Leather" "Sun Leather" "Thief's Garb" "Eelskin Tunic" "Frontier Leather" "Glorious Leather" "Coronal Leather" "Cutthroat's Garb" "Sharkskin Tunic" "Destiny Leather" "Exquisite Leather" "Zodiac Leather" "Assassin's Garb"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Body Armours"
 	BaseType "Buckskin Tunic" "Wild Leather" "Full Leather" "Sun Leather" "Thief's Garb" "Eelskin Tunic" "Frontier Leather" "Glorious Leather" "Coronal Leather" "Cutthroat's Garb" "Sharkskin Tunic" "Destiny Leather" "Exquisite Leather" "Zodiac Leather" "Assassin's Garb"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Body Armours"
 	BaseType "Buckskin Tunic" "Wild Leather" "Full Leather" "Sun Leather" "Thief's Garb" "Eelskin Tunic" "Frontier Leather" "Glorious Leather" "Coronal Leather" "Cutthroat's Garb" "Sharkskin Tunic" "Destiny Leather" "Exquisite Leather" "Zodiac Leather" "Assassin's Garb"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX - No sockets - Gloves
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Gloves"
 	BaseType "Golden Bracers" "Deerskin Gloves" "Nubuck Gloves" "Eelskin Gloves" "Sharkskin Gloves" "Shagreen Gloves" "Stealth Gloves" "Slink Gloves"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Gloves"
 	BaseType "Golden Bracers" "Deerskin Gloves" "Nubuck Gloves" "Eelskin Gloves" "Sharkskin Gloves" "Shagreen Gloves" "Stealth Gloves" "Slink Gloves"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Gloves"
 	BaseType "Golden Bracers" "Deerskin Gloves" "Nubuck Gloves" "Eelskin Gloves" "Sharkskin Gloves" "Shagreen Gloves" "Stealth Gloves" "Slink Gloves"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX - No sockets - Boots
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Boots"
 	BaseType "Deerskin Boots" "Nubuck Boots" "Eelskin Boots" "Sharkskin Boots" "Shagreen Boots" "Stealth Boots" "Slink Boots"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Boots"
 	BaseType "Deerskin Boots" "Nubuck Boots" "Eelskin Boots" "Sharkskin Boots" "Shagreen Boots" "Stealth Boots" "Slink Boots"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Boots"
 	BaseType "Deerskin Boots" "Nubuck Boots" "Eelskin Boots" "Sharkskin Boots" "Shagreen Boots" "Stealth Boots" "Slink Boots"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX - No sockets - Shields
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "Shields"
 	BaseType "Painted Buckler" "Hammered Buckler" "War Buckler" "Gilded Buckler" "Oak Buckler" "Enameled Buckler" "Corrugated Buckler" "Battle Buckler" "Golden Buckler" "Ironwood Buckler" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Imperial Buckler"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Shields"
 	BaseType "Painted Buckler" "Hammered Buckler" "War Buckler" "Gilded Buckler" "Oak Buckler" "Enameled Buckler" "Corrugated Buckler" "Battle Buckler" "Golden Buckler" "Ironwood Buckler" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Imperial Buckler"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Shields"
 	BaseType "Painted Buckler" "Hammered Buckler" "War Buckler" "Gilded Buckler" "Oak Buckler" "Enameled Buckler" "Corrugated Buckler" "Battle Buckler" "Golden Buckler" "Ironwood Buckler" "Lacquered Buckler" "Vaal Buckler" "Crusader Buckler" "Imperial Buckler"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - INT - No sockets - Helms
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Helmet"
 	BaseType "Torture Cage" "Tribal Circlet" "Bone Circlet" "Lunaris Circlet" "Steel Circlet" "Necromancer Circlet" "Solaris Circlet" "Mind Cage" "Hubris Circlet"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - INT - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Helmet"
 	BaseType "Torture Cage" "Tribal Circlet" "Bone Circlet" "Lunaris Circlet" "Steel Circlet" "Necromancer Circlet" "Solaris Circlet" "Mind Cage" "Hubris Circlet"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - INT - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Helmet"
 	BaseType "Torture Cage" "Tribal Circlet" "Bone Circlet" "Lunaris Circlet" "Steel Circlet" "Necromancer Circlet" "Solaris Circlet" "Mind Cage" "Hubris Circlet"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - INT - No sockets - Body Armours
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Body Armours"
 	BaseType "Scholar's Robe" "Silken Garb" "Mage's Vestment" "Silk Robe" "Cabalist Regalia" "Sage's Robe" "Silken Wrap" "Conjurer's Vestment" "Spidersilk Robe" "Destroyer Regalia" "Savant's Robe" "Necromancer Silks" "Occultist's Vestment" "Widowsilk Robe" "Vaal Regalia"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - INT - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Body Armours"
 	BaseType "Scholar's Robe" "Silken Garb" "Mage's Vestment" "Silk Robe" "Cabalist Regalia" "Sage's Robe" "Silken Wrap" "Conjurer's Vestment" "Spidersilk Robe" "Destroyer Regalia" "Savant's Robe" "Necromancer Silks" "Occultist's Vestment" "Widowsilk Robe" "Vaal Regalia"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - INT - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Body Armours"
 	BaseType "Scholar's Robe" "Silken Garb" "Mage's Vestment" "Silk Robe" "Cabalist Regalia" "Sage's Robe" "Silken Wrap" "Conjurer's Vestment" "Spidersilk Robe" "Destroyer Regalia" "Savant's Robe" "Necromancer Silks" "Occultist's Vestment" "Widowsilk Robe" "Vaal Regalia"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - INT - No sockets - Gloves
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Gloves"
 	BaseType "Golden Bracers" "Silk Gloves" "Embroidered Gloves" "Satin Gloves" "Samite Gloves" "Conjurer Gloves" "Arcanist Gloves" "Sorcerer Gloves"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - INT - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Gloves"
 	BaseType "Golden Bracers" "Silk Gloves" "Embroidered Gloves" "Satin Gloves" "Samite Gloves" "Conjurer Gloves" "Arcanist Gloves" "Sorcerer Gloves"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - INT - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Gloves"
 	BaseType "Golden Bracers" "Silk Gloves" "Embroidered Gloves" "Satin Gloves" "Samite Gloves" "Conjurer Gloves" "Arcanist Gloves" "Sorcerer Gloves"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - INT - No sockets - Boots
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Boots"
 	BaseType "Silk Slippers" "Scholar Boots" "Satin Slippers" "Samite Slippers" "Conjurer Boots" "Arcanist Slippers" "Sorcerer Boots"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - INT - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Boots"
 	BaseType "Silk Slippers" "Scholar Boots" "Satin Slippers" "Samite Slippers" "Conjurer Boots" "Arcanist Slippers" "Sorcerer Boots"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - INT - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Boots"
 	BaseType "Silk Slippers" "Scholar Boots" "Satin Slippers" "Samite Slippers" "Conjurer Boots" "Arcanist Slippers" "Sorcerer Boots"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - INT - No sockets - Shields
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "Shields"
 	BaseType "Bone Spirit Shield" "Tarnished Spirit Shield" "Jingling Spirit Shield" "Brass Spirit Shield" "Walnut Spirit Shield" "Ivory Spirit Shield" "Ancient Spirit Shield" "Chiming Spirit Shield" "Thorium Spirit Shield" "Lacewood Spirit Shield" "Fossilised Spirit Shield" "Vaal Spirit Shield" "Harmonic Spirit Shield" "Titanium Spirit Shield"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - INT - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Shields"
 	BaseType "Bone Spirit Shield" "Tarnished Spirit Shield" "Jingling Spirit Shield" "Brass Spirit Shield" "Walnut Spirit Shield" "Ivory Spirit Shield" "Ancient Spirit Shield" "Chiming Spirit Shield" "Thorium Spirit Shield" "Lacewood Spirit Shield" "Fossilised Spirit Shield" "Vaal Spirit Shield" "Harmonic Spirit Shield" "Titanium Spirit Shield"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - INT - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Shields"
 	BaseType "Bone Spirit Shield" "Tarnished Spirit Shield" "Jingling Spirit Shield" "Brass Spirit Shield" "Walnut Spirit Shield" "Ivory Spirit Shield" "Ancient Spirit Shield" "Chiming Spirit Shield" "Thorium Spirit Shield" "Lacewood Spirit Shield" "Fossilised Spirit Shield" "Vaal Spirit Shield" "Harmonic Spirit Shield" "Titanium Spirit Shield"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX/INT - No sockets - Helms
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Helmet"
 	BaseType "Iron Mask" "Festival Mask" "Golden Mask" "Raven Mask" "Callous Mask" "Regicide Mask" "Harlequin Mask" "Vaal Mask" "Deicide Mask"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX/INT - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Helmet"
 	BaseType "Iron Mask" "Festival Mask" "Golden Mask" "Raven Mask" "Callous Mask" "Regicide Mask" "Harlequin Mask" "Vaal Mask" "Deicide Mask"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX/INT - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Helmet"
 	BaseType "Iron Mask" "Festival Mask" "Golden Mask" "Raven Mask" "Callous Mask" "Regicide Mask" "Harlequin Mask" "Vaal Mask" "Deicide Mask"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX/INT - No sockets - Body Armours
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Body Armours"
 	BaseType "Padded Jacket" "Oiled Coat" "Scarlet Raiment" "Waxed Garb" "Bone Armour" "Quilted Jacket" "Sleek Coat" "Crimson Raiment" "Lacquered Garb" "Crypt Armour" "Sentinel Jacket" "Varnished Coat" "Blood Raiment" "Sadist Garb" "Carnal Armour"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX/INT - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Body Armours"
 	BaseType "Padded Jacket" "Oiled Coat" "Scarlet Raiment" "Waxed Garb" "Bone Armour" "Quilted Jacket" "Sleek Coat" "Crimson Raiment" "Lacquered Garb" "Crypt Armour" "Sentinel Jacket" "Varnished Coat" "Blood Raiment" "Sadist Garb" "Carnal Armour"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX/INT - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Body Armours"
 	BaseType "Padded Jacket" "Oiled Coat" "Scarlet Raiment" "Waxed Garb" "Bone Armour" "Quilted Jacket" "Sleek Coat" "Crimson Raiment" "Lacquered Garb" "Crypt Armour" "Sentinel Jacket" "Varnished Coat" "Blood Raiment" "Sadist Garb" "Carnal Armour"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX/INT - No sockets - Gloves
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Gloves"
 	BaseType "Clasped Mitts" "Trapper Mitts" "Ambush Mitts" "Carnal Mitts" "Assassin's Mitts" "Murder Mitts"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX/INT - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Gloves"
 	BaseType "Clasped Mitts" "Trapper Mitts" "Ambush Mitts" "Carnal Mitts" "Assassin's Mitts" "Murder Mitts"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX/INT - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Gloves"
 	BaseType "Clasped Mitts" "Trapper Mitts" "Ambush Mitts" "Carnal Mitts" "Assassin's Mitts" "Murder Mitts"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX/INT - No sockets - Boots
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Boots"
 	BaseType "Clasped Boots" "Shackled Boots" "Trapper Boots" "Ambush Boots" "Carnal Boots" "Assassin's Boots" "Murder Boots"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX/INT - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Boots"
 	BaseType "Clasped Boots" "Shackled Boots" "Trapper Boots" "Ambush Boots" "Carnal Boots" "Assassin's Boots" "Murder Boots"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX/INT - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Boots"
 	BaseType "Clasped Boots" "Shackled Boots" "Trapper Boots" "Ambush Boots" "Carnal Boots" "Assassin's Boots" "Murder Boots"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX/INT - No sockets - Shields
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "Shields"
 	BaseType "Alloyed Spiked Shield" "Burnished Spiked Shield" "Ornate Spiked Shield" "Redwood Spiked Shield" "Compound Spiked Shield" "Polished Spiked Shield" "Sovereign Spiked Shield" "Alder Spiked Shield" "Ezomyte Spiked Shield" "Mirrored Spiked Shield" "Supreme Spiked Shield"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX/INT - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Shields"
 	BaseType "Alloyed Spiked Shield" "Burnished Spiked Shield" "Ornate Spiked Shield" "Redwood Spiked Shield" "Compound Spiked Shield" "Polished Spiked Shield" "Sovereign Spiked Shield" "Alder Spiked Shield" "Ezomyte Spiked Shield" "Mirrored Spiked Shield" "Supreme Spiked Shield"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX/INT - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Shields"
 	BaseType "Alloyed Spiked Shield" "Burnished Spiked Shield" "Ornate Spiked Shield" "Redwood Spiked Shield" "Compound Spiked Shield" "Polished Spiked Shield" "Sovereign Spiked Shield" "Alder Spiked Shield" "Ezomyte Spiked Shield" "Mirrored Spiked Shield" "Supreme Spiked Shield"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - STR/INT - No sockets - Helms
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Helmet"
 	BaseType "Great Helmet" "Crusader Helmet" "Aventail Helmet" "Zealot Helmet" "Great Crown" "Magistrate Crown" "Prophet Crown" "Praetor Crown"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - STR/INT - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Helmet"
 	BaseType "Great Helmet" "Crusader Helmet" "Aventail Helmet" "Zealot Helmet" "Great Crown" "Magistrate Crown" "Prophet Crown" "Praetor Crown"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - STR/INT - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Helmet"
 	BaseType "Great Helmet" "Crusader Helmet" "Aventail Helmet" "Zealot Helmet" "Great Crown" "Magistrate Crown" "Prophet Crown" "Praetor Crown"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - STR/INT - No sockets - Body Armours
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Body Armours"
 	BaseType "Ringmail Coat" "Chainmail Doublet" "Full Ringmail" "Full Chainmail" "Holy Chainmail" "Latticed Ringmail" "Crusader Chainmail" "Ornate Ringmail" "Chain Hauberk" "Devout Chainmail" "Loricated Ringmail" "Conquest Chainmail" "Elegant Ringmail" "Saint's Hauberk" "Saintly Chainmail"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - STR/INT - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Body Armours"
 	BaseType "Ringmail Coat" "Chainmail Doublet" "Full Ringmail" "Full Chainmail" "Holy Chainmail" "Latticed Ringmail" "Crusader Chainmail" "Ornate Ringmail" "Chain Hauberk" "Devout Chainmail" "Loricated Ringmail" "Conquest Chainmail" "Elegant Ringmail" "Saint's Hauberk" "Saintly Chainmail"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - STR/INT - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Body Armours"
 	BaseType "Ringmail Coat" "Chainmail Doublet" "Full Ringmail" "Full Chainmail" "Holy Chainmail" "Latticed Ringmail" "Crusader Chainmail" "Ornate Ringmail" "Chain Hauberk" "Devout Chainmail" "Loricated Ringmail" "Conquest Chainmail" "Elegant Ringmail" "Saint's Hauberk" "Saintly Chainmail"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - STR/INT - No sockets - Gloves
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Gloves"
 	BaseType "Mesh Gloves" "Riveted Gloves" "Zealot Gloves" "Soldier Gloves" "Legion Gloves" "Crusader Gloves"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - STR/INT - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Gloves"
 	BaseType "Mesh Gloves" "Riveted Gloves" "Zealot Gloves" "Soldier Gloves" "Legion Gloves" "Crusader Gloves"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - STR/INT - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Gloves"
 	BaseType "Mesh Gloves" "Riveted Gloves" "Zealot Gloves" "Soldier Gloves" "Legion Gloves" "Crusader Gloves"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Show  # Gear - Lvling - Armour - STR/INT - No sockets - Boots
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Boots"
 	BaseType "Mesh Boots" "Riveted Boots" "Zealot Boots" "Soldier Boots" "Legion Boots" "Crusader Boots"
+	Rarity <= Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Show  # Gear - Lvling - Armour - STR/INT - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Boots"
 	BaseType "Mesh Boots" "Riveted Boots" "Zealot Boots" "Soldier Boots" "Legion Boots" "Crusader Boots"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - STR/INT - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Boots"
 	BaseType "Mesh Boots" "Riveted Boots" "Zealot Boots" "Soldier Boots" "Legion Boots" "Crusader Boots"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - STR/INT - No sockets - Shields
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "Shields"
 	BaseType "Reinforced Kite Shield" "Layered Kite Shield" "Ceremonial Kite Shield" "Etched Kite Shield" "Steel Kite Shield" "Laminated Kite Shield" "Angelic Kite Shield" "Branded Kite Shield" "Champion Kite Shield" "Mosaic Kite Shield" "Archon Kite Shield"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - STR/INT - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Shields"
 	BaseType "Reinforced Kite Shield" "Layered Kite Shield" "Ceremonial Kite Shield" "Etched Kite Shield" "Steel Kite Shield" "Laminated Kite Shield" "Angelic Kite Shield" "Branded Kite Shield" "Champion Kite Shield" "Mosaic Kite Shield" "Archon Kite Shield"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - STR/INT - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Shields"
 	BaseType "Reinforced Kite Shield" "Layered Kite Shield" "Ceremonial Kite Shield" "Etched Kite Shield" "Steel Kite Shield" "Laminated Kite Shield" "Angelic Kite Shield" "Branded Kite Shield" "Champion Kite Shield" "Mosaic Kite Shield" "Archon Kite Shield"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX/STR - No sockets - Helms
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Helmet"
 	BaseType "Visored Sallet" "Gilded Sallet" "Secutor Helm" "Fencer Helm" "Lacquered Helmet" "Fluted Bascinet" "Pig-Faced Bascinet" "Nightmare Bascinet"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX/STR - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Helmet"
 	BaseType "Visored Sallet" "Gilded Sallet" "Secutor Helm" "Fencer Helm" "Lacquered Helmet" "Fluted Bascinet" "Pig-Faced Bascinet" "Nightmare Bascinet"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX/STR - 3/4 Linked Sockets - Helms
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Helmet"
 	BaseType "Visored Sallet" "Gilded Sallet" "Secutor Helm" "Fencer Helm" "Lacquered Helmet" "Fluted Bascinet" "Pig-Faced Bascinet" "Nightmare Bascinet"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX/STR - No sockets - Body Armours
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Body Armours"
 	BaseType "Scale Doublet" "Infantry Brigandine" "Full Scale Armour" "Soldier's Brigandine" "Field Lamellar" "Wyrmscale Doublet" "Hussar Brigandine" "Full Wyrmscale" "Commander's Brigandine" "Battle Lamellar" "Dragonscale Doublet" "Desert Brigandine" "Full Dragonscale" "General's Brigandine" "Triumphant Lamellar"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX/STR - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Body Armours"
 	BaseType "Scale Doublet" "Infantry Brigandine" "Full Scale Armour" "Soldier's Brigandine" "Field Lamellar" "Wyrmscale Doublet" "Hussar Brigandine" "Full Wyrmscale" "Commander's Brigandine" "Battle Lamellar" "Dragonscale Doublet" "Desert Brigandine" "Full Dragonscale" "General's Brigandine" "Triumphant Lamellar"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX/STR - 3/4 Linked Sockets - Body Armours
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Body Armours"
 	BaseType "Scale Doublet" "Infantry Brigandine" "Full Scale Armour" "Soldier's Brigandine" "Field Lamellar" "Wyrmscale Doublet" "Hussar Brigandine" "Full Wyrmscale" "Commander's Brigandine" "Battle Lamellar" "Dragonscale Doublet" "Desert Brigandine" "Full Dragonscale" "General's Brigandine" "Triumphant Lamellar"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX/STR - No sockets - Gloves
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Gloves"
 	BaseType "Bronzescale Gauntlets" "Steelscale Gauntlets" "Serpentscale Gauntlets" "Wyrmscale Gauntlets" "Hydrascale Gauntlets" "Dragonscale Gauntlets"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX/STR - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Gloves"
 	BaseType "Bronzescale Gauntlets" "Steelscale Gauntlets" "Serpentscale Gauntlets" "Wyrmscale Gauntlets" "Hydrascale Gauntlets" "Dragonscale Gauntlets"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX/STR - 3/4 Linked Sockets - Gloves
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Gloves"
 	BaseType "Bronzescale Gauntlets" "Steelscale Gauntlets" "Serpentscale Gauntlets" "Wyrmscale Gauntlets" "Hydrascale Gauntlets" "Dragonscale Gauntlets"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX/STR - No sockets - Boots
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Boots"
 	BaseType "Bronzescale Boots" "Steelscale Boots" "Serpentscale Boots" "Wyrmscale Boots" "Hydrascale Boots" "Dragonscale Boots"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX/STR - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Boots"
 	BaseType "Bronzescale Boots" "Steelscale Boots" "Serpentscale Boots" "Wyrmscale Boots" "Hydrascale Boots" "Dragonscale Boots"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX/STR - 3/4 Linked Sockets - Boots
 	LinkedSockets = 4
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Boots"
 	BaseType "Bronzescale Boots" "Steelscale Boots" "Serpentscale Boots" "Wyrmscale Boots" "Hydrascale Boots" "Dragonscale Boots"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Armour - DEX/STR - No sockets - Shields
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "Shields"
 	BaseType "Studded Round Shield" "Scarlet Round Shield" "Splendid Round Shield" "Maple Round Shield" "Spiked Round Shield" "Crimson Round Shield" "Baroque Round Shield" "Teak Round Shield" "Spiny Round Shield" "Cardinal Round Shield" "Elegant Round Shield"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Armour - DEX/STR - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Normal
 	Class "Shields"
 	BaseType "Studded Round Shield" "Scarlet Round Shield" "Splendid Round Shield" "Maple Round Shield" "Spiked Round Shield" "Crimson Round Shield" "Baroque Round Shield" "Teak Round Shield" "Spiny Round Shield" "Cardinal Round Shield" "Elegant Round Shield"
+	Rarity = Normal
+	ItemLevel < 77
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Armour - DEX/STR - 3/4 Linked Sockets - Shields
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity = Magic
 	Class "Shields"
 	BaseType "Studded Round Shield" "Scarlet Round Shield" "Splendid Round Shield" "Maple Round Shield" "Spiked Round Shield" "Crimson Round Shield" "Baroque Round Shield" "Teak Round Shield" "Spiny Round Shield" "Cardinal Round Shield" "Elegant Round Shield"
+	Rarity = Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - One Hand Axes - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "One Hand Axes"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Hide  # Gear - Lvling - Weap - One Hand Swords - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "One Hand Swords"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - One Hand Swords - 3/4 Linked Sockets
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity <= Magic
 	Class "One Hand Swords"
+	Rarity <= Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - Two Hand Maces - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Two Hand Maces"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - Two Hand Maces - 3/4 Linked Sockets
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity <= Magic
 	Class "Two Hand Maces"
+	Rarity <= Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - Bows - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Bows"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - Bows - 3/4 Linked Sockets - Normal
 	LinkedSockets >= 4
-	ItemLevel < 65
-	Rarity = Normal
 	Class "Bows"
+	Rarity = Normal
+	ItemLevel < 65
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Weap - Bows - 3/4 Linked Sockets - Magic
 	LinkedSockets >= 4
-	ItemLevel < 50
-	Rarity = Magic
 	Class "Bows"
+	Rarity = Magic
+	ItemLevel < 50
 	SetFontSize 30
 
 Show  # Gear - Lvling - Weap - Bows - 3/4 Linked Sockets
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity <= Magic
 	Class "Bows"
+	Rarity <= Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - Thrusting One Hand Swords - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "Thrusting One Hand Swords"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - Thrusting One Hand Swords - 3/4 Linked Sockets
 	LinkedSockets >= 3
-	ItemLevel < 77
-	Rarity <= Magic
 	Class "Thrusting One Hand Swords"
+	Rarity <= Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - Daggers - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
-	Class "Daggers" "Rune Daggers"
+	Class "Daggers"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - Daggers - 3/4 Linked Sockets
 	LinkedSockets = 3
-	ItemLevel < 77
+	Class "Daggers"
 	Rarity <= Magic
-	Class "Daggers" "Rune Daggers"
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - One Hand Maces - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "One Hand Maces"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - One Hand Maces - 3/4 Linked Sockets
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity <= Magic
 	Class "One Hand Maces"
+	Rarity <= Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - Two Hand Axes - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Two Hand Axes"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - Two Hand Axes - 3/4 Linked Sockets - Normal
 	LinkedSockets >= 4
-	ItemLevel < 65
-	Rarity = Normal
 	Class "Two Hand Axes"
+	Rarity = Normal
+	ItemLevel < 65
 	SetFontSize 30
 	SetTextColor 240 240 240
 
 Show  # Gear - Lvling - Weap - Two Hand Axes - 3/4 Linked Sockets - Magic
 	LinkedSockets >= 4
-	ItemLevel < 50
-	Rarity = Magic
 	Class "Two Hand Axes"
+	Rarity = Magic
+	ItemLevel < 50
 	SetFontSize 30
 	SetTextColor 140 190 255
 
 Show  # Gear - Lvling - Weap - Two Hand Axes - 3/4 Linked Sockets
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity <= Magic
 	Class "Two Hand Axes"
+	Rarity <= Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - Two Hand Swords - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Two Hand Swords"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - Two Hand Swords - 3/4 Linked Sockets
 	LinkedSockets >= 4
-	ItemLevel < 77
-	Rarity <= Magic
 	Class "Two Hand Swords"
+	Rarity <= Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - Claws - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "Claws"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - Claws - 3/4 Linked Sockets
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity <= Magic
 	Class "Claws"
+	Rarity <= Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - Sceptres - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "Sceptres"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - Sceptres - 3/4 Linked Sockets
 	LinkedSockets = 3
-	ItemLevel < 77
-	Rarity <= Magic
 	Class "Sceptres"
+	Rarity <= Magic
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - Staves - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 4
 	Class "Staves"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Show  # Gear - Lvling - Weap - Staves - 3/4 Linked Sockets
 	LinkedSockets >= 4
-	ItemLevel < 77
+	Class "Staves"
 	Rarity <= Magic
-	Class "Staves" "Warstaves"
+	ItemLevel < 77
 	SetFontSize 30
 
 Hide  # Gear - Lvling - Weap - Wands - No Sockets
-	ItemLevel < 77
-	Rarity <= Magic
 	Sockets < 3
 	Class "Wands"
+	Rarity <= Magic
+	ItemLevel < 77
 
 Hide  # Gear - Lvling - Weap - Wands
-	ItemLevel < 77
-	Rarity <= Magic
 	Class "Wands"
+	Rarity <= Magic
+	ItemLevel < 77

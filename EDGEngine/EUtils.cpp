@@ -867,6 +867,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	void ESound::load_custom_sound()
 	{
+		if (ESound::engine != NULL)
 		for (irrklang::ISoundSource* sound : ESound::custom_drop_sound)
 		{
 			ESound::engine->removeSoundSource(sound);
@@ -898,7 +899,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				ESound::custom_drop_sound_name.push_back(EString::to_cyrillic(p.path().filename().u8string()));
 				//std::cout << "It sound! " << p.path().filename().u8string() << '\n' << '\n';
 
-				ESound::custom_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(custom_sound.c_str()));
+				if (ESound::engine != NULL)
+				{ESound::custom_drop_sound.push_back(ESound::engine->addSoundSourceFromFile(custom_sound.c_str()));}
 			}
 		}
 	}
@@ -1315,7 +1317,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (subdata == "HasExplicitMod")
 								{
 									parser_mode = Enums::ParserMode::EXPLICIT_MOD; explicit_group_id++;
-									//just_created_block->is_explicit = true;
+									just_created_block->is_explicit = true;
 								}
 
 								if (subdata == "Identified")
@@ -2061,6 +2063,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if ((data_order == 1)&&(subdata == "=="))
 								{
 									is_base_type_equal_mode = true;
+
+									just_created_block->is_exact_match = true;
+									just_created_block->link_to_switch_exact_match->update_localisation();
 								}
 
 								if ((data_order > 0)&&(subdata != "=="))
@@ -2110,11 +2115,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										just_created_button->data_id = -1;
 									}
 
-									((EButtonFilterItem*)just_created_button)->is_full_equal_mode = is_base_type_equal_mode;
+									//((EButtonFilterItem*)just_created_button)->is_full_equal_mode = is_base_type_equal_mode;
 
 									if (is_base_type_equal_mode)
 									{
-										((EButtonFilterItem*)just_created_button)->change_color_cheme();
+										//((EButtonFilterItem*)just_created_button)->change_color_cheme();
+										just_created_button->rama_color->set(EColorCollection::PINK);
 									}
 
 									//just_created_button->
@@ -3629,21 +3635,19 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 			bool have_equal_base_type = false;
 
-			for (EButton* b : fb->filter_block_items_button_list)
-			{
-				if (((EButtonFilterItem*)b)->is_full_equal_mode)
-				{
-					have_equal_base_type = true;
-				}
-			}
 
-			if (have_equal_base_type)
+			//if (have_equal_base_type)
+			if (fb->filter_block_items_button_list.size() > 0)
 			{
 				loot_writer += '\t';
-				loot_writer += "BaseType ==";
+
+				if (fb->is_exact_match)
+				{loot_writer += "BaseType ==";}
+				else
+				{loot_writer += "BaseType";}
 
 				for (EButton* b : fb->filter_block_items_button_list)
-				if (((EButtonFilterItem*)b)->is_full_equal_mode)
+				//if (((EButtonFilterItem*)b)->is_full_equal_mode)
 				{
 					loot_writer += ' ';
 					loot_writer += '"';
@@ -3656,30 +3660,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 			bool have_regular_base_type = false;
 
-			for (EButton* b : fb->filter_block_items_button_list)
-			{
-				if (!((EButtonFilterItem*)b)->is_full_equal_mode)
-				{
-					have_regular_base_type = true;
-				}
-			}
-
-			if ((have_regular_base_type) && (fb->filter_block_items_button_list.size() > 0))
-			{
-				loot_writer += '\t';
-				loot_writer += "BaseType";
-
-				for (EButton* b : fb->filter_block_items_button_list)
-				if (!((EButtonFilterItem*)b)->is_full_equal_mode)
-				{
-					loot_writer += ' ';
-					loot_writer += '"';
-					loot_writer += b->data_string;
-					loot_writer += '"';
-				}
-
-				loot_writer += '\n';
-			}
+	
 
 			if
 			(

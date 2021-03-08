@@ -273,6 +273,8 @@ void EButtonItemSearch::click_event()
 		dst << src.rdbuf();
 
 	//	EFile::save_filter(EString::path_to_poe_folder + "/reserve_copy/" + text + "_copy.filter");
+
+		EControl::block_scroll = 0;
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SEARCH_LOOT_SIMULATOR_PATTERN)
@@ -297,6 +299,8 @@ void EButtonItemSearch::right_click_event()
 			(data_id >= 1)
 			&&
 			(data_id < ESound::default_drop_sound_name.size())
+			&&
+			(ESound::engine != NULL)
 		)
 		{
 			ESound::default_drop_sound.at(data_id)->setDefaultVolume(StaticData::window_filter_block->sound_volume);
@@ -311,6 +315,8 @@ void EButtonItemSearch::right_click_event()
 			(data_id >= 1)
 			&&
 			(data_id < ESound::custom_drop_sound_name.size())
+			&&
+			(ESound::engine != NULL)
 		)
 		{
 			ESound::custom_drop_sound.at(data_id)->setDefaultVolume(StaticData::window_filter_block->sound_volume);

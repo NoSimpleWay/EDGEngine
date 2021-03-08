@@ -499,13 +499,13 @@ void EButtonService::click_event()
 
 		//std::cout << "Alert sound name: " << master_block->alert_sound_name << std::endl;
 
-		if ((master_block->is_alert_sound) && (master_block->alert_sound_name != ""))
+		if ((master_block->is_alert_sound) && (master_block->alert_sound_name != "") && (ESound::engine != NULL))
 		{
 			ESound::default_drop_sound.at(master_block->alert_sound_id)->setDefaultVolume (StaticData::window_filter_block->sound_volume);
 			ESound::engine->play2D(ESound::default_drop_sound.at(master_block->alert_sound_id));
 		}
 
-		if ((master_block->is_custom_alert_sound) && (master_block->custom_alert_sound_name != ""))
+		if ((master_block->is_custom_alert_sound) && (master_block->custom_alert_sound_name != "") && (ESound::engine != NULL))
 		{
 			ESound::get_sound_by_name(master_block->custom_alert_sound_name)->setDefaultVolume (StaticData::window_filter_block->sound_volume);
 			ESound::engine->play2D(ESound::get_sound_by_name(master_block->custom_alert_sound_name));
@@ -556,6 +556,7 @@ void EButtonService::click_event()
 		}
 
 		StaticData::window_filter_block->unsave_change = false;
+		
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SAVE_LOOT_FILTER)
@@ -1563,10 +1564,19 @@ void EButtonService::update_localisation()
 		if (master_block->vector_special_status.at(data_id) == FilterBlock::SpecialStatusMode::SSM_DEACTIVATED)
 		{
 			icon_color->set_alpha(EColorCollection::WHITE, 0.5f);
+			bg_color->set(EColorCollection::DARK_GRAY);
 		}
 		else
+		if (master_block->vector_special_status.at(data_id) == FilterBlock::SpecialStatusMode::SSM_OFF)
 		{
 			icon_color->set_alpha(EColorCollection::WHITE, 1.0f);
+			bg_color->set(EColorCollection::RED);
+		}
+		else
+		if (master_block->vector_special_status.at(data_id) == FilterBlock::SpecialStatusMode::SSM_ON)
+		{
+			icon_color->set_alpha(EColorCollection::WHITE, 1.0f);
+			bg_color->set(EColorCollection::WHITE);
 		}
 
 		if (data_id == FilterBlock::SpecialStatusList::SSL_ALTERNATE_QUALITY)		{ description_text = EString::localize_it("description_special_status_alternate_quality"); }

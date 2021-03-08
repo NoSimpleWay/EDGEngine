@@ -1,4 +1,4 @@
-name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Кража"	path	new items	button_color	BLACK	text_color	RED
+name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Ритуал"	path	new items	button_color	BLACK	text_color	RED
 name_en	Breach item	name_ru	Предметы "Разлома"	description_en	Generate breach splinters/stone	description_ru	Генерирует осколки/камни разлома	path	breach	button_color	WHITE	text_color	BLACK
 name_en	Cluster jewels	name_ru	Кластерные самоцвета	description_en	Generate cluster jewel	description_ru	Генерирует Кластерыне самоцветы	path	cluster jewels	button_color	WHITE	text_color	BLACK
 name_en	Currency	name_ru	Валюта	description_en	Generate all regular game currency	description_ru	Генерирует всю обычную игровую валюту	path	currency	button_color	WHITE	text_color	BLACK
@@ -8,6 +8,7 @@ name_en	Divination card	name_ru	Гадальные карты	description_en	Gen
 name_en	Equip	name_ru	Экеперовка	description_en	Generate lot of equip items.\nItems can be shaper/elder	description_ru	Генерирует множество предметов экепировки\nПредметы могут быть шейпера/древнего.	path	only equip	button_color	WHITE	text_color	BLACK
 name_en	Enchantment card	name_ru	Зачаровывания	description_en	Generate lab enchantments	description_ru	Генерирует зачаровывания лабиринта	path	enchantment	button_color	WHITE	text_color	BLACK
 name_en	Essences	name_ru	Сущности	description_en	Generate lab lot of Essences	description_ru	Генерирует множество Сущностей	path	essences	button_color	WHITE	text_color	BLACK
+name_en	Heist	name_ru	Кража	description_en	Generate loot from heist league	description_ru	Генерирует вещи из лиги "Кража"	path	heist	button_color	WHITE	text_color	BLACK
 name_en	Incursion	name_ru	Вмешательство	description_en	Generate incursion items and vials	description_ru	Генерирует предметы вмешательства и фиалы	path	incursion	button_color	WHITE	text_color	BLACK
 name_en	Leveling items (low level)	name_ru	Предметы прокачки	description_en	Generate typical loot from low level areas	description_ru	Генерирует лут с низкоуровневых локаций	path	leveling low	button_color	WHITE	text_color	BLACK
 name_en	Legion items	name_ru	Предметы Легиона	description_en	Generate Legion splinters/emblem/items	description_ru	Генерирует осколки/эмблемы/предметы Легиона	path	legion	button_color	WHITE	text_color	BLACK

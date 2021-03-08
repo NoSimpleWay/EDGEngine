@@ -141,7 +141,7 @@ void EFont::final_draw(Batcher* _batcher, string _s, float _x, float _y)
 		}
 		else
 		{
-			_batcher->draw_rect_with_uv
+			_batcher->draw_gabarite
 			(
 				_x + x_adding + offset_x[target_symbol] * scale,
 				_y - (real_size_y[target_symbol] - 15.0f + offset_y[target_symbol]) * scale - y_adding,

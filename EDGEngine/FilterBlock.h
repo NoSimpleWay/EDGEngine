@@ -441,6 +441,10 @@ public:
 	int influence_mode = InfluenceMode::IM_IGNORE;
 
 	static base_data_button_collection_struct* add_new_base_attribute(std::string _text, FilterBlock* _filter_block);
+
+	EButton* link_to_switch_exact_match;
+
+	bool is_exact_match = false;
 	/*int swithed_data_shaper_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;
 	int swithed_data_elder_influence			= Enums::SwitcherState::SWITCHER_STATE_DEACTIVATE;
 

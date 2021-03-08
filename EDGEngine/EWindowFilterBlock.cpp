@@ -117,23 +117,11 @@
 				(blocks_order >= EControl::block_scroll)
 				&&
 				(blocks_count<50)
-				&&
-				(yy < EWindow::SCR_HEIGHT)
-				//this^ line raise FPS from 15 to 60
+				//&&
+				//(yy < EWindow::SCR_HEIGHT + 500.0f)
+				
 			)
-				/*
-							  .-'---`-.
-							,'          `.
-							|             \
-							|              \
-							\           _  \
-							,\  _    ,'-,/-)\
-							( * \ \,' ,' ,'-)
-							 `._,)     -',-')
-							   \/         ''/
-								)        / /
-							   /       ,'-'
-				*/
+				
 			{
 				FilterBlock* f = filter_block_list.at(block_index);
 				
@@ -170,6 +158,27 @@
 
 					if ((!f->hided_by_separator) || (f->force_enabled)) { f->update(_delta); }
 
+					//if (f->y < 500.0f)
+					if
+					(
+						(f->y < EWindow::SCR_HEIGHT - 0.0f)
+						&&
+						(f->y + f->size_y > 0.0f)
+					)
+					//this^ line raise FPS from 15 to 60
+					/*
+								  .-'---`-.
+								,'          `.
+								|             \
+								|              \
+								\           _  \
+								,\  _    ,'-,/-)\
+								( * \ \,' ,' ,'-)
+								 `._,)     -',-')
+								   \/         ''/
+									)        / /
+								   /       ,'-'
+					*/
 					for (EButton* b : f->header_button_list)
 					{
 						if (b->is_active)
@@ -183,8 +192,17 @@
 					}
 
 					//if (!f->hided_by_separator)
-					{
-						if ((f->hided_by_separator) && (!f->force_enabled))
+					
+						if
+						(
+							(f->hided_by_separator)
+							&&
+							(!f->force_enabled)
+							&&
+							(f->y < EWindow::SCR_HEIGHT - 0.0f)
+							&&
+							(f->y + f->size_y > 0.0f)
+						)
 						{
 							f->size_y = 20.0f;
 							if (f->disabled)
@@ -247,10 +265,17 @@
 
 						
 						
-						if ((!f->hided_by_separator) || (f->force_enabled)) { f->draw(_batch); }
+						if
+						(
+							((!f->hided_by_separator) || (f->force_enabled))
+							&&
+							(f->y < EWindow::SCR_HEIGHT - 0.0f)
+							&&
+							(f->y + f->size_y > 0.0f)
+						) { f->draw(_batch); }
 
 						blocks_count++;
-					}
+					
 
 
 
@@ -309,6 +334,7 @@
 			)
 			{blocks_order++;}
 
+			
 		}
 
 
@@ -340,32 +366,47 @@
 				(blocks_order >= EControl::block_scroll)
 				&&
 				(blocks_count < 50)
-				&&
-				(yy < EWindow::SCR_HEIGHT)
+				//&&
+				//(yy < EWindow::SCR_HEIGHT)
 			)
 			{
 
-				if ((filter_block_list.at(i)->hided_by_separator) && (!filter_block_list.at(i)->force_enabled))
+				if
+				(
+					(filter_block_list.at(i)->hided_by_separator)
+					&&
+					(!filter_block_list.at(i)->force_enabled)
+					&&
+					(filter_block_list.at(i)->y < EWindow::SCR_HEIGHT - 0.0f)
+					&&
+					(filter_block_list.at(i)->y + filter_block_list.at(i)->size_y > 0.0f)
+				)
 				{
 					for (EButton* b : filter_block_list.at(i)->filter_block_items_button_list)
 					{
-
-						b->text_pass(_batch);
+						if (b->is_active)
+						{b->text_pass(_batch);}
 					}
 
 					for (EButton* b : filter_block_list.at(i)->header_button_list)
 					{
 						if (b->is_active)
-						{
-							b->text_pass(_batch);
-						}
+						{b->text_pass(_batch);}
 					}
 				}
 
 				blocks_count++;
 
 
-				if ((!filter_block_list.at(i)->hided_by_separator) || (filter_block_list.at(i)->force_enabled))
+				
+				if
+				(
+					((!filter_block_list.at(i)->hided_by_separator) || (filter_block_list.at(i)->force_enabled))
+					&&
+					(filter_block_list.at(i)->y < EWindow::SCR_HEIGHT - 0.0f)
+					&&
+					(filter_block_list.at(i)->y + filter_block_list.at(i)->size_y > 0.0f)
+				)
 				{
 					filter_block_list.at(block_index)->text_pass(_batch);
 				}

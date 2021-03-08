@@ -99,3 +99,4 @@ Base name	Heist Cloak	RU name	Разбойничья накидка
 Base name	Heist Brooch	RU name	Разбойничья брошь
 Base name	Heist Tool	RU name	Разбойничий инструмент
 Base name	Heist Gear	RU name	Разбойничьи принадлежности
+Base name	Atlas Region Upgrade Item	RU name	Предмет улучшения области Атласа
