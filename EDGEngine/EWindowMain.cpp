@@ -39,9 +39,9 @@ public:
 		but->master_window = this;
 		button_list.push_back(but);
 
-					but = new EButtonService(235, -5, 30, 30, Enums::ButtonType::BUTTON_OPEN_OIL_WINDOW);
-		but->master_window = this;
-		button_list.push_back(but);
+					//but = new EButtonService(235, -5, 30, 30, Enums::ButtonType::BUTTON_OPEN_OIL_WINDOW);
+		//but->master_window = this;
+		//button_list.push_back(but);
 		
 					but = new EButtonService(285, -5, 30, 30, Enums::ButtonType::BUTTON_CONFIGUE_FONT);
 		but->master_window = this;

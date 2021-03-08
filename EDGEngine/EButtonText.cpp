@@ -318,6 +318,8 @@ void EButtonText::click_event()
 		LootItem* loot = new LootItem();
 		loot->base_class = StaticData::window_manual_loot->link_to_class_button->text;
 
+		{loot->name = StaticData::window_manual_loot->link_to_item_button->data_string;; }
+
 		for (DADItem* item : ItemList::item_list)
 		{
 			

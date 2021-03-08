@@ -1947,7 +1947,7 @@ int main()
 	put_texture_to_atlas("data/icon/sys/mirrored_off.png");							DefaultGabarite::gabarite_switcher_mirrored_off = just_created_gabarite;
 
 
-	load_anointing();
+	//load_anointing();
 
 	StaticData::window_filter_block = new EWindowFilterBlock(0, false);
 	StaticData::window_filter_block->name = "Filter block";
