@@ -698,10 +698,30 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 
 			_batch->draw_rama(xx, yy, 434, 300, 3, DefaultGabarite::gabarite_cap);
 
+			std::string final_text = "";
+			
+			//if (loot->is_replica)
+			//{EFont::active_font->draw(_batch, cached_replica + " " + loot->name, xx + 5.0f + 222.0f, yy + 282.0f);}
+			//else
+
+			final_text = loot->name;
 			if (loot->is_replica)
-			{EFont::active_font->draw(_batch, cached_replica + " " + loot->name, xx + 5.0f + 222.0f, yy + 282.0f);}
-			else
-			{EFont::active_font->draw(_batch, loot->name, xx + 5.0f + 222.0f, yy + 282.0f);}
+			{
+				final_text = cached_replica + " " + final_text;
+			}
+
+			if (loot->alternate_quality_type == Enums::AlternateQualityType::AQT_ANOMALOUS)
+			{final_text = cached_alternate_quality_anomalous + " " + final_text;}
+
+			if (loot->alternate_quality_type == Enums::AlternateQualityType::AQT_DIVERGENT)
+			{final_text = cached_alternate_quality_divergent + " " + final_text;}
+
+			if (loot->alternate_quality_type == Enums::AlternateQualityType::AQT_PHANTASMAL)
+			{final_text = cached_alternate_quality_phantasmal + " " + final_text;}
+
+			{EFont::active_font->draw(_batch, final_text, xx + 5.0f + 222.0f, yy + 282.0f);}
+
+
 
 			if (loot->enchantment != "")
 			{
@@ -1031,16 +1051,20 @@ void EWindowLootSimulator::update_localisation()
 	for (EButton* b : button_list)
 	{b->update_localisation();}
 
-	cached_quality_text = EString::localize_it("quality_text");
-	cached_gem_level = EString::localize_it("gem_level_text");
-	cached_item_level = EString::localize_it("item_level_text");
-	cached_map_tier = EString::localize_it("map_tier_text");
-	cached_corrupted = EString::localize_it("corrupted_text");
-	cached_corrupted_mods_count = EString::localize_it("corrupted_text_mods_count");
-	cached_mirrored = EString::localize_it("mirrored_text");
-	cached_replica = EString::localize_it("replica_text");
-	cached_alternate_quality = EString::localize_it("alternate_quality_text");
-	cached_cluster_passives = EString::localize_it("small_cluster_passives");
+	cached_quality_text						= EString::localize_it("quality_text");
+	cached_gem_level						= EString::localize_it("gem_level_text");
+	cached_item_level						= EString::localize_it("item_level_text");
+	cached_map_tier							= EString::localize_it("map_tier_text");
+	cached_corrupted						= EString::localize_it("corrupted_text");
+	cached_corrupted_mods_count				= EString::localize_it("corrupted_text_mods_count");
+	cached_mirrored							= EString::localize_it("mirrored_text");
+	cached_replica							= EString::localize_it("replica_text");
+	cached_alternate_quality				= EString::localize_it("alternate_quality_text");
+	cached_cluster_passives					= EString::localize_it("small_cluster_passives");
+
+	cached_alternate_quality_anomalous		= EString::localize_it("alternate_quality_name_divergent");
+	cached_alternate_quality_divergent		= EString::localize_it("alternate_quality_name_phantasmal");
+	cached_alternate_quality_phantasmal		= EString::localize_it("alternate_quality_name_anomalous");
 }
 
 bool EWindowLootSimulator::check_condition(std::string _condition, int _num_a, int num_b)
@@ -1327,6 +1351,8 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		//std::cout << "data rarity is active =" << std::to_string(true) << std::endl;
 
+		//std::cout << "count of dase data [" << fb->base_data_button_collection_list.size() << "]" << std::endl;
+
 		for (FilterBlock::base_data_button_collection_struct* bdbcs : fb->base_data_button_collection_list)
 		{
 			int target_data = *FilterBlock::filter_block_data_attribute_registerer.at(bdbcs->target_id)->id;
@@ -1450,6 +1476,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 				match_detect = false;
 				if (!_default) { rejection("alternate quality", _l); }
 			}
+
 			if ((target_data == Enums::ParserMode::CORRUPTED_MODS) & (!check_condition(attribute_operator, _l->corrupted_mods, attribute_value_num)) & (match_detect))
 			{
 				match_detect = false;
@@ -1457,10 +1484,26 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			}
 
 			if ((target_data == Enums::ParserMode::QUALITY) & (!check_condition(attribute_operator, _l->quality, attribute_value_num)) & (match_detect))
-			
-			if ((target_data == Enums::ParserMode::GEM_LEVEL) & (!check_condition(attribute_operator, _l->gem_level, attribute_value_num)) & (match_detect))
 			{
 				match_detect = false;
+
+				//std::cout << "QUALITY rejected, because gem quality [" << _l->quality << "] is not [" << attribute_operator << "] than block value [" << attribute_value_num << "]" << std::endl;
+				if (!_default) { rejection("gem quality", _l); }
+			}
+
+			if ((target_data == Enums::ParserMode::GEM_LEVEL))
+			{
+				//std::cout << "target_data " << target_data << std::endl;
+				//std::cout << "Gem level, loot[" << _l->gem_level << "] [" << attribute_operator << "] block[" << attribute_value_num << "]" << std::endl;
+				//std::cout << std::endl;
+			}
+
+			if ((target_data == Enums::ParserMode::GEM_LEVEL) & (!check_condition(attribute_operator, _l->gem_level, attribute_value_num)) & (match_detect))
+			{
+				
+				match_detect = false;
+
+				//std::cout << "GEM LEVEL rejected, because gem level [" << _l->gem_level << "] is not [" << attribute_operator << "] than block value [" << attribute_value_num << "]" << std::endl;
 				if (!_default) { rejection("gem level", _l); }
 			}
 		

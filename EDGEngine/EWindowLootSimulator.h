@@ -65,6 +65,10 @@ public:
 	std::string cached_alternate_quality;
 	std::string cached_cluster_passives;
 
+	std::string cached_alternate_quality_anomalous;
+	std::string cached_alternate_quality_divergent;
+	std::string cached_alternate_quality_phantasmal;
+
 	int area_level = 68;
 
 	std::string convert_to_condition(std::string _text);

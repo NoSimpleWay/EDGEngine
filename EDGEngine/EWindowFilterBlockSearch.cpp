@@ -62,9 +62,9 @@
 						(b->data_id >= 0)
 						&&
 						(
-						(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-						||
-						(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name_ru, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+							(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+							||
+							(EString::to_lower(ItemList::item_list.at(b->data_id)->item_name_ru, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
 						)
 					)
 					{
@@ -88,26 +88,56 @@
 				{
 					if
 						(
-						(b->data_id >= 0)
+							(b->data_id >= 0)
 							&&
 							(
-							(EString::to_lower(EString::base_class_list.at(b->data_id)->base_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+								(EString::to_lower(EString::base_class_list.at(b->data_id)->base_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
 								||
 								(EString::to_lower(EString::base_class_list.at(b->data_id)->ru_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-								)
 							)
+						)
 					{
 						detection = true;
 					}
 
 					if
 						(
-						(b->data_id < 0)
+							(b->data_id < 0)
 							&&
 							(
-							(EString::to_lower(b->data_string, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
-								)
+								(EString::to_lower(b->data_string, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
 							)
+						)
+					{
+						detection = true;
+					}
+				}
+
+
+				for (EButtonExplicit* b : fb->prophecy_list)
+				{
+					if
+						(
+							(b->data_id >= 0)
+							&&
+							(
+								(EString::to_lower(EString::prophecy_list.at(b->data_id)->base_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+								||
+								(EString::to_lower(EString::prophecy_list.at(b->data_id)->ru_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+							)
+						)
+					{
+						detection = true;
+					}
+
+					if
+						(
+							(b->data_id < 0)
+							&&
+							(
+								(EString::to_lower(b->data_string, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+							)
+						)
 					{
 						detection = true;
 					}

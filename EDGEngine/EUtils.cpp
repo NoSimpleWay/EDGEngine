@@ -3663,27 +3663,35 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 	
 
 			if
-			(
-				(fb->vector_influence.at(0))
-				||
-				(fb->vector_influence.at(1))
-				||
-				(fb->vector_influence.at(2))
-				||
-				(fb->vector_influence.at(3))
-				||
-				(fb->vector_influence.at(4))
-				||
-				(fb->vector_influence.at(5))
-			)
+				(
+					(fb->vector_influence.at(0))
+					||
+					(fb->vector_influence.at(1))
+					||
+					(fb->vector_influence.at(2))
+					||
+					(fb->vector_influence.at(3))
+					||
+					(fb->vector_influence.at(4))
+					||
+					(fb->vector_influence.at(5))
+					||
+					(fb->influence_mode == FilterBlock::InfluenceMode::IM_NONE)
+					)
 			{
-					loot_writer += '\t';
+				loot_writer += '\t';
 
-					if (fb->influence_mode == FilterBlock::InfluenceMode::IM_ALL)
-					{loot_writer += "HasInfluence ==";}
-					else
-					{loot_writer += "HasInfluence";}
+				if (fb->influence_mode == FilterBlock::InfluenceMode::IM_ALL)
+				{
+					loot_writer += "HasInfluence ==";
+				}
+				else
+				{
+					loot_writer += "HasInfluence";
+				}
 
+				if (fb->influence_mode != FilterBlock::InfluenceMode::IM_NONE)
+				{
 					if (fb->vector_influence.at(FilterBlock::InfluenceList::IL_ELDER))
 					{
 						loot_writer += " Elder";
@@ -3713,6 +3721,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					{
 						loot_writer += " Warlord";
 					}
+				}
+
 
 					if (fb->influence_mode == FilterBlock::InfluenceMode::IM_NONE)
 					{
@@ -3936,6 +3946,21 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 						loot_writer += bdbcl->main_button->text;
 						loot_writer += '\n';
 					}
+					
+					if (*FilterBlock::filter_block_data_attribute_registerer.at(bdbcl->target_id)->button_type == Enums::FilterBlockButtonType::FBBT_DROP_LIST_ALTERNATE_QUALITY)
+					{
+						loot_writer += '\t';
+
+						//base data name
+						loot_writer += *FilterBlock::filter_block_data_attribute_registerer.at(bdbcl->target_id)->data_name;
+						loot_writer += ' ';
+
+						//drop list rarity value
+						loot_writer += bdbcl->main_button->drop_text_base.at(bdbcl->main_button->selected_element);
+						loot_writer += '\n';
+					}
+
+
 				}
 
 

@@ -942,6 +942,12 @@ void EButtonService::click_event()
 		fb->is_identified = master_block->is_identified;
 
 		
+		fb->is_exact_match = master_block->is_exact_match;
+		fb->link_to_switch_exact_match->text = master_block->link_to_switch_exact_match->text;
+		fb->link_to_switch_exact_match->text_color->set(master_block->link_to_switch_exact_match->text_color);
+		fb->link_to_switch_exact_match->bg_color->set(master_block->link_to_switch_exact_match->bg_color);
+		fb->link_to_switch_exact_match->rama_color->set(master_block->link_to_switch_exact_match->rama_color);
+
 		for (EButton* b : master_block->filter_block_items_button_list)
 		{
 			EButton* but = new EButtonFilterItem(0,0,45.0f, 45.0f);
@@ -950,6 +956,8 @@ void EButtonService::click_event()
 			but->data_id = b->data_id;
 			but->data_string = b->data_string;
 			but->gabarite = b->gabarite;
+
+			but->rama_color->set(b->rama_color);
 			
 
 			but->master_block = fb;

@@ -282,3 +282,6 @@ influence_none	Nothing
 exact_match	Exact match
 non_exact_match	Partial	 match
 exact_match_description	Change mode to exact/partially match
+alternate_quality_anomalous	Anomalous
+alternate_quality_divergent	Divergent
+alternate_quality_phantasmal	Phantasmal

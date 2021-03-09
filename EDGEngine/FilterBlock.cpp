@@ -1064,8 +1064,8 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 		if ((is_continue) && (!disabled))
 		{
-			_batch->setcolor_alpha(EColorCollection::CYAN, 0.33f);
-			_batch->draw_rect_with_uv(x, y, size_x, size_y, DefaultGabarite::gabarite_white);
+			_batch->setcolor_alpha(EColorCollection::CYAN, 1.00f);
+			_batch->draw_rama(x, y, size_x, size_y, 5.0f, DefaultGabarite::gabarite_white);
 		}
 
 		_batch->setcolor_alpha(EColorCollection::BLACK, 0.25f);
@@ -1233,15 +1233,19 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 				for (EButton* b : ex->button_list)
 				{
-					b->button_x = ex_x;
-					b->button_y = ex_y;
 
-					ex_x += b->button_size_x + 5;
-					if (b->button_x + b->button_size_x > size_x - 270.0f)
+
+					
+					if (ex_x + b->button_size_x > size_x - 270.0f)
 					{
 						ex_x = start_position_draw_x;
 						ex_y -= 22.0f;
 					}
+
+					b->button_x = ex_x;
+					b->button_y = ex_y;
+
+					ex_x += b->button_size_x + 5;
 
 				}
 
@@ -1271,15 +1275,17 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 			for (EButtonExplicit* b : base_class_list)
 			{
-				b->button_x = ex_x;
-				b->button_y = ex_y;
-
-				ex_x += b->button_size_x + 5;
-				if (b->button_x + b->button_size_x > size_x - 270.0f)
+				
+				if (ex_x + b->button_size_x > size_x - 270.0f)
 				{
 					ex_x = start_position_draw_x;
 					ex_y -= 22.0f;
 				}
+
+				b->button_x = ex_x;
+				b->button_y = ex_y;
+
+				ex_x += b->button_size_x + 5;
 			}
 
 			plus_class_button_link->button_x = ex_x;
@@ -1304,15 +1310,17 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 			for (EButtonExplicit* b : prophecy_list)
 			{
-				b->button_x = ex_x;
-				b->button_y = ex_y;
-
-				ex_x += b->button_size_x + 5;
-				if (b->button_x + b->button_size_x > size_x - 270.0f)
+				
+				if (ex_x + b->button_size_x > size_x - 270.0f)
 				{
 					ex_x = start_position_draw_x;
 					ex_y -= 22.0f;
 				}
+
+				b->button_x = ex_x;
+				b->button_y = ex_y;
+
+				ex_x += b->button_size_x + 5;
 			}
 
 			plus_prophecy_button_link->button_x = ex_x;
@@ -1334,11 +1342,8 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 			for (EButtonExplicit* b : enchantment_list)
 			{
-				b->button_x = ex_x;
-				b->button_y = ex_y;
-
-				ex_x += b->button_size_x + 5;
-				if (b->button_x + b->button_size_x > size_x - 270.0f)
+				
+				if (ex_x + b->button_size_x > size_x - 270.0f)
 				{
 					ex_x = start_position_draw_x;
 					ex_y -= 22.0f;
@@ -1348,6 +1353,11 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 					ex_x += b->button_size_x + 5;
 				}
+
+				b->button_x = ex_x;
+				b->button_y = ex_y;
+
+				ex_x += b->button_size_x + 5;
 			}
 
 			plus_enchantment_button_link->button_x = ex_x;
