@@ -22,7 +22,7 @@
 #include "EInit.h"
 #include "EFont.h"
        
-#include <ctime>
+#include <ctime> 
 #include "Helper.h";  
 
 #include "FilterBlock.h"
@@ -361,15 +361,15 @@ void load_prophecy_list()
 		for (int i = 0; i < 40; i++)
 		{
 
-			if (subdata_array[i * 2] == "name")
+			if (subdata_array[i] == "name")
 			{
-				just_created_prophecy->base_name = subdata_array[i * 2 + 1];
+				just_created_prophecy->base_name = subdata_array[i + 1];
 			}
 
-			if (subdata_array[i * 2] == "RU name")
+			if (subdata_array[i] == "RU name")
 			{
 				char sInvalid[1024];
-				strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
+				strcpy_s(sInvalid, subdata_array[i + 1].c_str());
 				//комментарии
 
 				int size = strlen(sInvalid) + 1;
@@ -384,18 +384,18 @@ void load_prophecy_list()
 				just_created_prophecy->ru_name = sValid;
 			}
 
-			if (subdata_array[i * 2] == "tier")
+			if (subdata_array[i] == "tier")
 			{
-				if (subdata_array[i * 2 + 1]=="TRASH")
+				if (subdata_array[i + 1]=="TRASH")
 				{ just_created_prophecy->cost=Enums::CostList::TRASH; }
 
-				if (subdata_array[i * 2 + 1]=="LOW COST")
+				if (subdata_array[i + 1]=="LOW COST")
 				{ just_created_prophecy->cost=Enums::CostList::LOW_COST; }
 
-				if (subdata_array[i * 2 + 1]=="MID COST")
+				if (subdata_array[i + 1]=="MID COST")
 				{ just_created_prophecy->cost=Enums::CostList::MID_COST; }
 
-				if (subdata_array[i * 2 + 1]=="HIGH COST")
+				if (subdata_array[i + 1]=="HIGH COST")
 				{ just_created_prophecy->cost=Enums::CostList::HIGH_COST; }
 
 				if (subdata_array[i * 2 + 1]=="TOP COST")
@@ -404,6 +404,24 @@ void load_prophecy_list()
 
 
 		}
+
+		std::cout
+		<<
+		"PROPHECY: base name ["
+		<<
+		just_created_prophecy->base_name
+		<<
+		"] RU name ["
+		<<
+		just_created_prophecy->ru_name
+		<<
+		"] tier: ["
+		<<
+		just_created_prophecy->cost
+		<<
+		"]"
+		<<
+		std::endl;
 
 		EString::prophecy_list.push_back(just_created_prophecy);
 

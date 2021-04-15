@@ -3463,11 +3463,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				(
 					(
 						(!fb->autogen_include.at(_save_mode))
-						&&
-						(!_ignore_autogen)
+						||
+						(!fb->is_show)
+						
 					)
-					||
-					(!fb->is_show)
+					&&
+					(!_ignore_autogen)
 				)
 				{
 					string_for_autogen_data = "16";

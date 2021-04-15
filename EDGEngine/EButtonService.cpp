@@ -582,7 +582,7 @@ void EButtonService::click_event()
 			EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + EString::localize_it("autogen_rich") + ".filter", Enums::AutogenSaveMode::RICH, false);
 			EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + EString::localize_it("autogen_very_rich") + ".filter", Enums::AutogenSaveMode::VERY_RICH, false);
 
-			EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + ".filter", Enums::AutogenSaveMode::SOURCE, false);
+			EFile::save_filter(EString::path_to_poe_folder + StaticData::window_main->tab_list.at(StaticData::active_tab)->text + ".filter", Enums::AutogenSaveMode::SOURCE, true);
 
 			StaticData::filter_block_tab.at(StaticData::active_tab)->unsave_change = false;
 		}

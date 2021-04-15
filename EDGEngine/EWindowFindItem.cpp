@@ -265,7 +265,7 @@ public:
 						(order > 0)
 						)
 				{
-					if ((search_count < ESound::custom_drop_sound_name.size()) && (search_count < 50))
+					if ((search_count < ESound::custom_drop_sound_name.size()) && (search_count < 100))
 					{
 						b->is_active = true;
 

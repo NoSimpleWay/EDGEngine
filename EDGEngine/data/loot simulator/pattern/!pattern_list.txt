@@ -18,3 +18,4 @@ name_en	Skill gems	name_ru	Камни умений	description_en	Generate skill
 name_en	Syndicate	name_ru	Синдикат	description_en	Generate item with veiled mods, and lot of scarabs	description_ru	Генерирует вещи с завуалированными свойствами, а так же скарабеев	path	syndicate	button_color	WHITE	text_color	BLACK
 name_en	Prophecy	name_ru	Пророчества	description_en	Generate lot of prophecies	description_ru	Генерирует множество пророчеств	path	prophecy	button_color	WHITE	text_color	BLACK
 name_en	Harvest	name_ru	Жатва	description_en	Generate lot of harvest item	description_ru	Генерирует предметы из лиги "Жатва"	path	harvest	button_color	WHITE	text_color	BLACK
+name_en	Ritual	name_ru	Ритуал	description_en	Generate lot of ritual item	description_ru	Генерирует предметы из лиги "Ритуал"	path	league[ritual]	button_color	WHITE	text_color	BLACK
