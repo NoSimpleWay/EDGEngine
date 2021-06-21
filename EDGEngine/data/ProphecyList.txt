@@ -1,234 +1,234 @@
-name	A Call into the Void	A Call into the Void	tier	TRASH	RU name	РџСЂРёР·С‹РІ РІ РЅРµР±С‹С‚РёРµ
-name	A Dishonourable Death	A Dishonourable Death	tier	MID COST	RU name	РџРѕР·РѕСЂРЅР°СЏ СЃРјРµСЂС‚СЊ
-name	A Firm Foothold	A Firm Foothold	tier	TRASH	RU name	РўРІС‘СЂРґР°СЏ РѕРїРѕСЂР°
-name	A Forest of False Idols	A Forest of False Idols	tier	TRASH	RU name	Р›РµСЃ Р»РѕР¶РЅС‹С… Р±РѕР¶РєРѕРІ
-name	A Master Seeks Help	A Master Seeks Help	tier	LOW COST	RU name	РњР°СЃС‚РµСЂСѓ РЅСѓР¶РЅР° РїРѕРјРѕС‰СЊ
-name	A Prodigious Hand	A Prodigious Hand	tier	TRASH	RU name	РСЃРїСЂР°РІР»РµРЅРЅС‹Р№ РёР·СЉСЏРЅ
-name	A Regal Death	A Regal Death	tier	TRASH	RU name	РЎРІРµСЂР¶РµРЅРёРµ
-name	A Rift in Time	A Rift in Time	tier	TRASH	RU name	Р Р°Р·СЂС‹РІ РІРѕ РІСЂРµРјРµРЅРё
-name	A Valuable Combination	A Valuable Combination	tier	TRASH	RU name	Р¦РµРЅРЅРѕРµ СЃРѕС‡РµС‚Р°РЅРёРµ 
-name	A Vision of Ice and Fire	A Vision of Ice and Fire	tier	TRASH	RU name	Р’РёРґРµРЅРёРµ Р»СЊРґР° Рё РїР»Р°РјРµРЅРё
-name	A Whispered Prayer	A Whispered Prayer	tier	TRASH	RU name	РЁС‘РїРѕС‚ РјРѕР»РёС‚РІ
-name	Abnormal Effulgence	Abnormal Effulgence	tier	TRASH	RU name	РќРµРµСЃС‚РµСЃС‚РІРµРЅРЅС‹Р№ Р±Р»РµСЃРє
-name	Against the Tide	Against the Tide	tier	TRASH	RU name	РќР°РїРµСЂРµРєРѕСЂ РІРѕР»РЅРµ
-name	Agony at Dusk	Agony at Dusk	tier	TRASH	RU name	РђРіРѕРЅРёСЏ РІ СЃСѓРјРµСЂРєР°С…
-name	An Unseen Peril	An Unseen Peril	tier	TRASH	RU name	РќРµРІРёРґР°РЅРЅР°СЏ РЅР°РїР°СЃС‚СЊ
-name	Anarchy's End I	Anarchy's End I	tier	TRASH	RU name	РљРѕРЅРµС† Р°РЅР°СЂС…РёРё 1
-name	Anarchy's End II	Anarchy's End II	tier	TRASH	RU name	РєРѕРЅРµС† Р°РЅР°СЂС…РёРё 2
-name	Anarchy's End III	Anarchy's End III	tier	TRASH	RU name	РєРѕРЅРµС† Р°РЅР°СЂС…РёРё 3
-name	Anarchy's End IV	Anarchy's End IV	tier	TRASH	RU name	РєРѕРЅРµС† Р°РЅР°СЂС…РёРё 4
-name	Ancient Doom	Ancient Doom	tier	HIGH COST	RU name	Р”СЂРµРІРЅРёР№ СЂРѕРє
-name	Ancient Rivalries I		tier	TRASH	RU name	РЎС‚Р°СЂС‹Рµ СЂР°СЃРїСЂРё I
-name	Ancient Rivalries II		tier	TRASH	RU name	РЎС‚Р°СЂС‹Рµ СЂР°СЃРїСЂРё II
-name	Ancient Rivalries III		tier	TRASH	RU name	РЎС‚Р°СЂС‹Рµ СЂР°СЃРїСЂРё III
-name	Ancient Rivalries IV		tier	TRASH	RU name	РЎС‚Р°СЂС‹Рµ СЂР°СЃРїСЂРё IV
-name	Baptism by Death	Baptism by Death	tier	TRASH	RU name	РљСЂРµС‰РµРЅРёРµ СЃРјРµСЂС‚СЊСЋ
-name	Battle Hardened	Battle Hardened	tier	TRASH	RU name	Р—Р°РєР°Р»С‘РЅРЅС‹Р№ РІ Р±РѕСЋ
-name	Beyond Sight I	Beyond Sight I	tier	LOW COST	RU name	Р—Р°РїСЂРµРґРµР»СЊРµ 1
-name	Beyond Sight II	Beyond Sight II	tier	TRASH	RU name	Р—Р°РїСЂРµРґРµР»СЊРµ 2
-name	Beyond Sight III	Beyond Sight III	tier	LOW COST	RU name	Р—Р°РїСЂРµРґРµР»СЊРµ 3
-name	Beyond Sight IV	Beyond Sight IV	tier	MID COST	RU name	Р—Р°РїСЂРµРґРµР»СЊРµ 4
-name	Black Devotion	Black Devotion	tier	TRASH	RU name	Р§С‘СЂРЅР°СЏ РїСЂРµРґР°РЅРЅРѕСЃС‚СЊ
-name	Blind Faith	Blind Faith	tier	TRASH	RU name	РЎР»РµРїР°СЏ РІРµСЂР°
-name	Blinding Light	Blinding Light	tier	TRASH	RU name	РЎР»РµРїСЏС‰РёР№ СЃРІРµС‚ 
-name	Blood in the Eyes	Blood in the Eyes	tier	TRASH	RU name	РљСЂРѕРІР°РІР°СЏ РїРµР»РµРЅР°
-name	Blood of the Betrayed	Blood of the Betrayed	tier	MID COST	RU name	РљСЂРѕРІСЊ РїСЂРµРґР°РЅРЅРѕРіРѕ
-name	Bountiful Traps	Bountiful Traps	tier	TRASH	RU name	РЎРѕР±Р»Р°Р·РЅРёС‚РµР»СЊРЅС‹Рµ Р»РѕРІСѓС€РєРё
-name	Burning Dread	Burning Dread	tier	TRASH	RU name	Р“РѕСЂСЏС‰РёР№ СѓР¶Р°СЃ
-name	Cleanser of Sins	Cleanser of Sins	tier	TRASH	RU name	РћС‚РїСѓС‰РµРЅРёРµ РіСЂРµС…РѕРІ
-name	Cold Blooded Fury	Cold Blooded Fury	tier	TRASH	RU name	РҐР»Р°РґРЅРѕРєСЂРѕРІРЅР°СЏ СЏСЂРѕСЃС‚СЊ
-name	Cold Greed	Cold Greed	tier	TRASH	RU name	РҐРѕР»РѕРґРЅР°СЏ Р¶Р°РґРЅРѕСЃС‚СЊ
-name	Crimson Hues	Crimson Hues	tier	TRASH	RU name	Р‘Р°РіСЂСЏРЅС‹Рµ С†РІРµС‚Р°
-name	Crushing Squall	Crushing Squall	tier	TRASH	RU name	Р”СЂРѕР±СЏС‰РёР№ С€РєРІР°Р»
-name	Custodians of Silence	Custodians of Silence	tier	TRASH	RU name	РҐСЂР°РЅРёС‚РµР»Рё С‚РёС€РёРЅС‹
-name	Dance of Steel	Dance of Steel	tier	TRASH	RU name	РџР»СЏСЃРєР° СЃС‚Р°Р»Рё
-name	Dark Instincts	Dark Instincts	tier	TRASH	RU name	РўС‘РјРЅС‹Рµ РёРЅСЃС‚РёРЅРєС‚С‹
-name	Darktongue's Shriek	Darktongue's Shriek	tier	LOW COST	RU name	Р’РѕРїР»СЊ РўС‘РјРЅРѕРіРѕ РѕСЂР°С‚РѕСЂР°
-name	Day of Sacrifice I	Day of Sacrifice I	tier	TRASH	RU name	Р”РµРЅСЊ Р¶РµСЂС‚РІРѕРїСЂРёРЅРѕС€РµРЅРёСЏ 1
-name	Day of Sacrifice II	Day of Sacrifice II	tier	TRASH	RU name	Р”РµРЅСЊ Р¶РµСЂС‚РІРѕРїСЂРёРЅРѕС€РµРЅРёСЏ 2
-name	Day of Sacrifice III	Day of Sacrifice III	tier	TRASH	RU name	РґРµРЅСЊ Р¶РµСЂС‚РІРѕРїСЂРёРЅРѕС€РµРЅРёСЏ 3
-name	Day of Sacrifice IV	Day of Sacrifice IV	tier	TRASH	RU name	РґРµРЅСЊ Р¶РµСЂС‚РІРѕРїСЂРёРЅРѕС€РµРЅРёСЏ 4
-name	Deadly Rivalry I	Deadly Rivalry I	tier	TRASH	RU name	РЎРјРµСЂС‚РµР»СЊРЅР°СЏ РІСЂР°Р¶РґР° 1
-name	Deadly Rivalry II	Deadly Rivalry II	tier	TRASH	RU name	СЃРјРµСЂС‚РµР»СЊРЅР°СЏ РІСЂР°Р¶РґР° 2
-name	Deadly Rivalry III	Deadly Rivalry III	tier	TRASH	RU name	РЎРјРµСЂС‚РµР»СЊРЅР°СЏ РІСЂР°Р¶РґР° 3
-name	Deadly Rivalry IV	Deadly Rivalry IV	tier	TRASH	RU name	РЎРјРµСЂС‚РµР»СЊРЅР°СЏ РІСЂР°Р¶РґР° 4
-name	Deadly Rivalry V	Deadly Rivalry V	tier	TRASH	RU name	СЃРјРµСЂС‚РµР»СЊРЅР°СЏ РІСЂР°Р¶РґР° 5
-name	Deadly Twins	Deadly Twins	tier	TRASH	RU name	РЈР±РѕР№РЅС‹Рµ РїР°СЂРѕС‡РєРё
-name	Defiled in the Sceptre	Defiled in the Sceptre	tier	TRASH	RU name	Р Р°СЃС‚Р»РµРЅРёРµ РџРµСЂСЃС‚РѕРј 
-name	Dying Cry	Dying Cry	tier	TRASH	RU name	РџРѕС…РѕСЂРѕРЅРЅС‹Р№ Р·РІРѕРЅ
-name	Echoes of Witchcraft	Echoes of Witchcraft	tier	TRASH	RU name	РћС‚Р·РІСѓРє РІРµРґСЊРјРѕРІСЃС‚РІР°
-name	End of the Light	End of the Light	tier	TRASH	RU name	РљРѕРЅРµС† СЃРІРµС‚Р°
-name	Ending the Torment	Ending the Torment	tier	TRASH	RU name	РљРѕРЅРµС† СЃС‚СЂР°РґР°РЅРёСЏРј
-name	Erased from Memory	Erased from Memory	tier	TRASH	RU name	Р’С‹РєРёРЅСѓС‚СЊ РёР· РїР°РјСЏС‚Рё
-name	Erasmus' Gift	Erasmus' Gift	tier	TOP COST	RU name	Р”Р°СЂ Р­СЂР°Р·РјСѓСЃР°
-name	Faith Exhumed	Faith Exhumed	tier	TRASH	RU name	Р­РєСЃРіСѓРјР°С†РёСЏ РІРµСЂС‹
-name	Fallow At Last	Fallow At Last	tier	TRASH	RU name	Р’СЂРµРјСЏ РїР°С…РѕС‚С‹
-name	Fated Connections	Fated Connections	tier	TRASH	RU name	РћР±СЉРµРґРёРЅСЏСЋС‰Р°СЏ СЃСѓРґСЊР±Р°
-name	Fear's Wide Reach	Fear's Wide Reach	tier	TRASH	RU name	РџРѕР»Р·СѓС‡РёР№ СѓР¶Р°СЃ
-name	Fire and Brimstone	Fire and Brimstone	tier	TRASH	RU name	РћРіРѕРЅСЊ Рё СЃРµСЂР°
-name	Fire and Ice	Fire and Ice	tier	TRASH	RU name	Р›С‘Рґ Рё РїР»Р°РјСЏ
-name	Fire from the Sky	Fire from the Sky	tier	TRASH	RU name	РћРіРѕРЅСЊ СЃ РЅРµР±РµСЃ
-name	Fire, Wood and Stone	Fire, Wood and Stone	tier	TRASH	RU name	РћРіРѕРЅСЊ, РґРµСЂРµРІРѕ Рё РєР°РјРµРЅСЊ
-name	Flesh of the Beast	Flesh of the Beast	tier	TRASH	RU name	РџР»РѕС‚СЊ Р·РІРµСЂСЏ
-name	Forceful Exorcism	Forceful Exorcism	tier	TRASH	RU name	РР·РіРЅР°РЅРёРµ СЃРёР»РѕР№
-name	From Death Springs Life	From Death Springs Life	tier	TRASH	RU name	РљСЂСѓРіРѕРІРѕСЂРѕС‚ РІРµС‰РµР№
-name	From The Void	From The Void	tier	TRASH	RU name	РР· РїСѓСЃС‚РѕС‚С‹
-name	Gilded Within	Gilded Within	tier	TRASH	RU name	Р—РѕР»РѕС‚РѕРµ СЃРµСЂРґС†Рµ
-name	Golden Touch	Golden Touch	tier	TRASH	RU name	Р Р°Р±РѕС‚Р° РјР°СЃС‚РµСЂР°
-name	Graceful Flames	Graceful Flames	tier	TRASH	RU name	РўР°РЅС†СѓСЋС‰РёРµ РѕРіРѕРЅСЊРєРё
-name	Greed's Folly	Greed's Folly	tier	TRASH	RU name	Р“Р»СѓРїРѕСЃС‚СЊ Р°Р»С‡РЅРѕСЃС‚Рё
-name	Heart of the Fire	Heart of the Fire	tier	TRASH	RU name	РЎРµСЂРґС†Рµ РїР»Р°РјРµРЅРё
-name	Heavy Blows	Heavy Blows	tier	TRASH	RU name	 РЈРІРµСЃРёСЃС‚С‹Рµ С‚СѓРјР°РєРё
-name	Hidden Reinforcements	Hidden Reinforcements	tier	TRASH	RU name	РЎРєСЂС‹С‚С‹Рµ СЂРµР·РµСЂРІС‹
-name	Hidden Vaal Pathways	Hidden Vaal Pathways	tier	TRASH	RU name	РўР°Р№РЅС‹Рµ С‚СЂРѕРїС‹ РІР°Р°Р»
-name	Holding the Bridge	Holding the Bridge	tier	TRASH	RU name	РЎСЂР°Р¶РµРЅРёРµ Р·Р° РјРѕСЃС‚
-name	Hunter's Lesson	Hunter's Lesson	tier	LOW COST	RU name	РЈСЂРѕРє РѕС…РѕС‚РЅРёРєР°
-name	Ice from Above	Ice from Above	tier	TRASH	RU name	РЎРЅРµРі РЅР° РіРѕР»РѕРІСѓ
-name	In the Grasp of Corruption	In the Grasp of Corruption	tier	TRASH	RU name	Р’ С‚РёСЃРєР°С… РїРѕСЂС‡Рё
-name	Kalandra's Craft	Kalandra's Craft	tier	TRASH	RU name	Р РµРјРµСЃР»Рѕ РљР°Р»Р°РЅРґСЂС‹
-name	Last of the Wildmen	Last of the Wildmen	tier	TRASH	RU name	РџРѕСЃР»РµРґРЅРёР№ РґРёРєР°СЂСЊ
-name	Lasting Impressions	Lasting Impressions	tier	LOW COST	RU name	Р”РµР»Р° РјРёРЅСѓРІС€РёРµ
-name	Lightning Falls	Lightning Falls	tier	HIGH COST	RU name	Р“СЂРѕРј Рё РјРѕР»РЅРёРё
-name	Living Fires	Living Fires	tier	TRASH	RU name	Р–РёРІРѕРµ РїР»Р°РјСЏ
-name	Lost in the Pages	Lost in the Pages	tier	TRASH	RU name	РљРЅРёР¶РЅС‹Р№ С‡РµСЂРІСЊ
-name	Monstrous Treasure	Monstrous Treasure	tier	TRASH	RU name	Р§СѓРґРѕРІРёС‰РЅРѕРµ СЃРѕРєСЂРѕРІРёС‰Рµ
-name	Mouth of Horrors	Mouth of Horrors	tier	TRASH	RU name	РЈСЃС‚Р° РєРѕС€РјР°СЂРѕРІ
-name	Mysterious Invaders	Mysterious Invaders	tier	TRASH	RU name	РўР°РёРЅСЃС‚РІРµРЅРЅС‹Рµ С‡СѓР¶Р°РєРё 
-name	Nature's Resilience	Nature's Resilience	tier	TRASH	RU name	РџСЂРёСЂРѕРґРЅР°СЏ СЃС‚РѕР№РєРѕСЃС‚СЊ
-name	Nemesis of Greed	Nemesis of Greed	tier	TRASH	RU name	Р“СѓР±РёС‚РµР»СЊРЅР°СЏ Р¶Р°РґРЅРѕСЃС‚СЊ
-name	Notched Flesh	Notched Flesh	tier	TRASH	RU name	Р©РµСЂР±Р°С‚РѕРµ Р»РёС†Рѕ
-name	Overflowing Riches	Overflowing Riches	tier	TRASH	RU name	Р›РёС€РЅРµРµ Р±СЂРµРјСЏ
-name	Path of Betrayal	Path of Betrayal	tier	TRASH	RU name	Р¦РµРЅР° РїСЂРµРґР°С‚РµР»СЊСЃС‚РІР°
-name	Plague of Frogs	Plague of Frogs	tier	TRASH	RU name	РќР°С€РµСЃС‚РІРёРµ Р»СЏРіСѓС€РµРє
-name	Plague of Rats	Plague of Rats	tier	TRASH	RU name	РќР°С€РµСЃС‚РІРёРµ РєСЂС‹СЃ
-name	Pleasure and Pain	Pleasure and Pain	tier	TRASH	RU name	РЈРґРѕРІРѕР»СЊСЃС‚РІРёРµ С‡РµСЂРµР· Р±РѕР»СЊ
-name	Pools of Wealth	Pools of Wealth	tier	TRASH	RU name	РСЃС‚РѕС‡РЅРёРєРё РґРѕС…РѕРґР°
-name	Possessed Foe	Possessed Foe	tier	TRASH	RU name	РћРґРµСЂР¶РёРјС‹Р№ РІСЂР°Рі
-name	Power Magnified	Power Magnified	tier	TRASH	RU name	Р’РѕР·СЂРѕСЃС€Р°СЏ РјРѕС‰СЊ
-name	Rebirth	Rebirth	tier	TRASH	RU name	РџРµСЂРµСЂРѕР¶РґРµРЅРёРµ
-name	Reforged Bonds	Reforged Bonds	tier	TRASH	RU name	Р Р°Р·РѕСЂРІР°РЅРЅС‹Рµ СѓР·С‹
-name	Resistant to Change	Resistant to Change	tier	TRASH	RU name	РџРѕС…РІР°Р»СЊРЅР°СЏ СЃС‚РѕР№РєРѕСЃС‚СЊ
-name	Risen Blood	Risen Blood	tier	TRASH	RU name	РќРµРїРѕРєРѕСЂРЅР°СЏ РєСЂРѕРІСЊ
-name	Roth's Legacy	Roth's Legacy	tier	TRASH	RU name	РџРѕРґСЂСѓР±Р»РµРЅРЅС‹Р№ РґСѓР±
-name	Severed Limbs	Severed Limbs	tier	MID COST	RU name	Р›РёС€РЅРёРµ СЂСѓРєРё
-name	Smothering Tendrils	Smothering Tendrils	tier	TRASH	RU name	РЈРґСѓС€Р°СЋС‰РёРµ РїРѕР±РµРіРё 
-name	Soil, Worms and Blood	Soil, Worms and Blood	tier	TRASH	RU name	Р—РµРјР»СЏ, С‡РµСЂРІРё Рё РєСЂРѕРІСЊ
-name	Song of the Sekhema	Song of the Sekhema	tier	TRASH	RU name	РџРµСЃРЅСЊ СЃРµС…РµРјС‹
-name	Storm on the Horizon	Storm on the Horizon	tier	TRASH	RU name	РџСЂРёР±Р»РёР¶РµРЅРёРµ С€С‚РѕСЂРјР°
-name	Storm on the Reef	Storm on the Reef	tier	TRASH	RU name	РЁС‚РѕСЂРј РЅР° СЂРёС„Рµ
-name	Strong as a Bull	Strong as a Bull	tier	TRASH	RU name	Р Р°Р·СЉСЏСЂС‘РЅРЅС‹Р№ Р±С‹Рє
-name	Sun's Punishment	Sun's Punishment	tier	TRASH	RU name	РљР°СЂР° СЃРѕР»РЅС†Р°
-name	Thaumaturgical History I	Thaumaturgical History I	tier	TRASH	RU name	Р’РѕР»С€РµР±РЅР°СЏ РёСЃС‚РѕСЂРёСЏ 1
-name	Thaumaturgical History II	Thaumaturgical History II	tier	TRASH	RU name	Р’РѕР»С€РµР±РЅР°СЏ РёСЃС‚РѕСЂРёСЏ 2
-name	Thaumaturgical History III	Thaumaturgical History III	tier	TRASH	RU name	Р’РѕР»С€РµР±РЅР°СЏ РёСЃС‚РѕСЂРёСЏ 3
-name	Thaumaturgical History IV	Thaumaturgical History IV	tier	TRASH	RU name	Р’РѕР»С€РµР±РЅР°СЏ РёСЃС‚РѕСЂРёСЏ 4
-name	The Alchemist	The Alchemist	tier	TRASH	RU name	РђР»С…РёРјРёРє
-name	The Ambitious Bandit I	The Ambitious Bandit I	tier	LOW COST	RU name	РќР°С…Р°Р»СЊРЅС‹Рµ СЂР°Р·Р±РѕР№РЅРёРєРё 1
-name	The Ambitious Bandit II	The Ambitious Bandit II	tier	TRASH	RU name	РќР°С…Р°Р»СЊРЅС‹Рµ СЂР°Р·Р±РѕР№РЅРёРєРё 2
-name	The Ambitious Bandit III	The Ambitious Bandit III	tier	TRASH	RU name	РЅР°С…Р°Р»СЊРЅС‹Рµ СЂР°Р·Р±РѕР№РЅРёРєРё 3
-name	The Apex Predator	The Apex Predator	tier	TRASH	RU name	РРґРµР°Р»СЊРЅС‹Р№ С…РёС‰РЅРёРє
-name	The Beautiful Guide	The Beautiful Guide	tier	TRASH	RU name	РЈРјРµР»С‹Р№ РїСЂРѕРІРѕРґРЅРёРє 
-name	The Beginning and the End	The Beginning and the End	tier	TRASH	RU name	РќР°С‡Р°Р»Рѕ РєРѕРЅС†Р°
-name	The Bishop's Legacy	The Bishop's Legacy	tier	TRASH	RU name	РќР°СЃР»РµРґРёРµ Р±Р»СЋСЃС‚РёС‚РµР»СЏ
-name	The Bloody Flowers Redux	The Bloody Flowers Redux	tier	TRASH	RU name	Р”РµРЅСЊ РљСЂРѕРІР°РІС‹С… С†РІРµС‚РѕРІ
-name	The Bowstring's Music	The Bowstring's Music	tier	TRASH	RU name	РњРµР»РѕРґРёСЏ С‚РµС‚РёРІС‹
-name	The Brothers of Necromancy	The Brothers of Necromancy	tier	TRASH	RU name	Р‘СЂР°С‚СЃС‚РІРѕ РЅРµРєСЂРѕРјР°РЅС‚РѕРІ
-name	The Brutal Enforcer	The Brutal Enforcer	tier	TRASH	RU name	Р“СЂСѓР±С‹Р№ СЃРѕР»РґР°С„РѕРЅ
-name	The Child of Lunaris	The Child of Lunaris	tier	TRASH	RU name	Р”РёС‚СЏ Р›СѓРЅР°СЂРёСЃ
-name	The Corrupt	The Corrupt	tier	TRASH	RU name	Р—Р°СЂР°Р¶РµРЅРЅС‹Р№ 
-name	The Cursed Choir	The Cursed Choir	tier	TRASH	RU name	РџСЂРѕРєР»СЏС‚С‹Р№ С…РѕСЂ
-name	The Dreaded Rhoa	The Dreaded Rhoa	tier	TRASH	RU name	Р§СѓРґРѕРІРёС‰РЅС‹Р№ СЂРѕР°
-name	The Dream Trial	The Dream Trial	tier	TRASH	RU name	РСЃРїС‹С‚Р°РЅРёРµ РІРѕ СЃРЅРµ
-name	The Dreamer's Dream	The Dreamer's Dream	tier	TRASH	RU name	РЎРѕРЅ СЃРЅРѕРІРёРґС†Р°
-name	The Eagle's Cry	The Eagle's Cry	tier	TRASH	RU name	РљР»С‘РєРѕС‚ РѕСЂР»Р°
-name	The Fall of an Empire	The Fall of an Empire	tier	TRASH	RU name	РџР°РґРµРЅРёРµ РёРјРµСЂРёРё
-name	The Feral Lord I	The Feral Lord I	tier	TRASH	RU name	Р”РёРєРёР№ РІРѕР¶РґСЊ 1
-name	The Feral Lord II	The Feral Lord II	tier	LOW COST	RU name	Р”РёРєРёР№ РІРѕР¶РґСЊ 2
-name	The Feral Lord III	The Feral Lord III	tier	TRASH	RU name	Р”РёРєРёР№ РІРѕР¶РґСЊ 3
-name	The Feral Lord IV	The Feral Lord IV	tier	TRASH	RU name	Р”РёРєРёР№ РІРѕР¶РґСЊ 4
-name	The Feral Lord V	The Feral Lord V	tier	TRASH	RU name	РґРёРєРёР№ РІРѕР¶РґСЊ 5
-name	The Flayed Man	The Flayed Man	tier	TRASH	RU name	Р“РѕР»РѕРґСЂР°РЅРµС†
-name	The Flow of Energy	The Flow of Energy	tier	TRASH	RU name	РџРѕС‚РѕРє СЌРЅРµСЂРіРёРё
-name	The Forgotten Garrison	The Forgotten Garrison	tier	TRASH	RU name	РЎС‚РѕР№РєРёР№ РіР°СЂРЅРёР·РѕРЅ
-name	The Forgotten Soldiers	The Forgotten Soldiers	tier	TRASH	RU name	Р—Р°Р±С‹С‚С‹Рµ СЃРѕР»РґР°С‚С‹
-name	The Fortune Teller's Collection	The Fortune Teller's Collection	tier	MID COST	RU name	РљРѕР»Р»РµРєС†РёСЏ РіР°РґР°Р»РєРё
-name	The Four Feral Exiles	The Four Feral Exiles	tier	MID COST	RU name	РћРґРёС‡Р°РІС€Р°СЏ С‡РµС‚РІС‘СЂРєР°
-name	The God of Misfortune	The God of Misfortune	tier	TRASH	RU name	Р‘РѕРі РЅРµСѓРґР°С‡Рё
-name	The Great Leader of the North	The Great Leader of the North	tier	LOW COST	RU name	Р’РµР»РёРєРёР№ РІРѕР¶РґСЊ СЃРµРІРµСЂР°
-name	The Great Mind of the North	The Great Mind of the North	tier	TRASH	RU name	Р’РµР»РёРєРёР№ СЂР°Р·СѓРј СЃРµРІРµСЂР°
-name	The Hardened Armour	The Hardened Armour	tier	TRASH	RU name	РљСЂРµРїРєРёР№ РґРѕСЃРїРµС…
-name	The Hollow Pledge	The Hollow Pledge	tier	MID COST	RU name	РџСѓСЃС‚РѕРµ РѕР±РµС‰Р°РЅРёРµ
-name	The Hungering Swarm	The Hungering Swarm	tier	LOW COST	RU name	РЎС‚Р°СЏ СЃР°СЂР°РЅС‡Рё
-name	The Invader	The Invader	tier	TRASH	RU name	Р—Р°РІРѕРµРІР°С‚РµР»СЊ
-name	The Jeweller's Touch	The Jeweller's Touch	tier	LOW COST	RU name	Р—РѕР»РѕС‚С‹Рµ СЂСѓРєРё
-name	The Karui Rebellion	The Karui Rebellion	tier	TRASH	RU name	Р’РѕСЃСЃС‚Р°РЅРёРµ РєР°СЂСѓРё
-name	The King and the Brambles	The King and the Brambles	tier	TRASH	RU name	Р“РёР±РµР»СЊ РІ С‚РµСЂРЅРѕРІРЅРёРєРµ
-name	The King's Path	The King's Path	tier	TRASH	RU name	РџСѓС‚СЊ Р’РµР»РёРєРѕРіРѕ РІРѕР¶РґСЏ
-name	The Lady in Black	The Lady in Black	tier	TRASH	RU name	Р”Р°РјР° РІ С‡С‘СЂРЅРѕРј
-name	The Last Watch	The Last Watch	tier	TRASH	RU name	РџРѕСЃР»РµРґРЅРёР№ РґРѕР·РѕСЂ
-name	The Lost Maps	The Lost Maps	tier	TRASH	RU name	РџРѕС‚РµСЂСЏРЅРЅС‹Рµ РєР°СЂС‚С‹
-name	The Lost Undying	The Lost Undying	tier	TRASH	RU name	РџРѕС‡С‚Рё Р±РµСЃСЃРјРµСЂС‚РЅС‹Р№
-name	The Malevolent Witch	The Malevolent Witch	tier	TRASH	RU name	Р—Р»Р°СЏ РІРµРґСЊРјР°
-name	The Mentor	The Mentor	tier	TRASH	RU name	РќР°СЃС‚Р°РІРЅРёРє
-name	The Misunderstood Queen	The Misunderstood Queen	tier	LOW COST	RU name	РќРµРґРѕРїРѕРЅСЏС‚Р°СЏ С†Р°СЂРёС†Р°
-name	The Mysterious Gift	The Mysterious Gift	tier	TRASH	RU name	РўР°РёРЅСЃС‚РІРµРЅРЅС‹Р№ РїРѕРґР°СЂРѕРє
-name	The Nest	The Nest	tier	TRASH	RU name	Р“РЅРµР·РґРѕ
-name	The Nightmare Awakens	The Nightmare Awakens	tier	TRASH	RU name	РџСЂРѕР±СѓР¶РґРµРЅРёРµ РєРѕС€РјР°СЂР°
-name	The Petrified	The Petrified	tier	TRASH	RU name	РСЃС‚СѓРєР°РЅ
-name	The Plaguemaw I	The Plaguemaw I	tier	TRASH	RU name	РњРѕСЂРѕРІР°СЏ РџР°СЃС‚СЊ 1
-name	The Plaguemaw II	The Plaguemaw II	tier	LOW COST	RU name	РњРѕСЂРѕРІР°СЏ РџР°СЃС‚СЊ 2
-name	The Plaguemaw III	The Plaguemaw III	tier	TRASH	RU name	РњРѕСЂРѕРІР°СЏ РџР°СЃС‚СЊ 3
-name	The Plaguemaw IV	The Plaguemaw IV	tier	TRASH	RU name	РњРѕСЂРѕРІР°СЏ РїР°СЃС‚СЊ 4
-name	The Plaguemaw V	The Plaguemaw V	tier	TOP COST	RU name	РјРѕСЂРѕРІР°СЏ РџР°СЃС‚СЊ 5
-name	The Prison Guard	The Prison Guard	tier	TRASH	RU name	РўСЋСЂРµРјС‰РёРє
-name	The Prison Key	The Prison Key	tier	TRASH	RU name	РљР»СЋС‡ Рє СЃРІРѕР±РѕРґРµ
-name	The Queen's Sacrifice	The Queen's Sacrifice	tier	TRASH	RU name	Р–РµСЂС‚РІР° С†Р°СЂРёС†С‹
-name	The Queen's Vaults	The Queen's Vaults	tier	TRASH	RU name	Р¦Р°СЂСЃРєРёР№ РєР»Р°Рґ
-name	The Scout	The Scout	tier	LOW COST	RU name	Р Р°Р·РІРµРґС‡РёРє
-name	The Servant's Heart	The Servant's Heart	tier	TRASH	RU name	РЎРµСЂРґС†Рµ СЃР»СѓРіРё
-name	The Sharpened Blade	The Sharpened Blade	tier	TRASH	RU name	РћСЃС‚СЂС‹Р№ РєР»РёРЅРѕРє
-name	The Silverwood	The Silverwood	tier	TRASH	RU name	РЎРµСЂРµР±СЂСЏРЅС‹Р№ Р»РµСЃ
-name	The Singular Spirit	The Singular Spirit	tier	TRASH	RU name	РЎС‚СЂР°РЅРЅС‹Р№ РґСѓС…
-name	The Sinner's Stone	The Sinner's Stone	tier	TRASH	RU name	РљР°РјРµРЅСЊ РіСЂРµС…РѕРІРѕРґ
-name	The Snuffed Flame	The Snuffed Flame	tier	TRASH	RU name	Р—Р°С‚РѕРїС‚Р°РЅРЅС‹Р№ РєРѕСЃС‚С‘СЂ
-name	The Soulless Beast	The Soulless Beast	tier	TRASH	RU name	Р‘РµР·РґСѓС€РЅР°СЏ С‚РІР°СЂСЊ
-name	The Stockkeeper	The Stockkeeper	tier	TRASH	RU name	РљР»Р°РґРѕРІС‰РёРє
-name	The Storm Spire	The Storm Spire	tier	TRASH	RU name	РЁС‚РѕСЂРјРѕРІРѕР№ С€РїРёР»СЊ
-name	The Sword King's Passion	The Sword King's Passion	tier	TRASH	RU name	Р”Р°РЅСЊ Р’РµРЅС†РµРЅРѕСЃС†Р° РјРµС‡РµР№
-name	The Trembling Earth	The Trembling Earth	tier	TRASH	RU name	Р”СЂРѕР¶СЊ Р·РµРјР»Рё
-name	The Twins	The Twins	tier	TRASH	RU name	Р‘Р»РёР·РЅРµС†С‹
-name	The Unbreathing Queen I	The Unbreathing Queen I	tier	TRASH	RU name	Р‘РµР·РґС‹С…Р°РЅРЅР°СЏ С†Р°СЂРёС†Р° 1
-name	The Unbreathing Queen II	The Unbreathing Queen II	tier	LOW COST	RU name	Р‘РµР·РґС‹С…Р°РЅРЅР°СЏ С†Р°СЂРёС†Р° 2
-name	The Unbreathing Queen III	The Unbreathing Queen III	tier	TRASH	RU name	Р‘РµР·РґС‹С…Р°РЅРЅР°СЏ С†Р°СЂРёС†Р° 3
-name	The Unbreathing Queen IV	The Unbreathing Queen IV	tier	TRASH	RU name	Р±РµР·РґС‹С…Р°РЅРЅР°СЏ С†Р°СЂРёС†Р° 4
-name	The Unbreathing Queen V	The Unbreathing Queen V	tier	TRASH	RU name	Р±РµР·РґС‹С…Р°РЅРЅР°СЏ С†Р°СЂРёС†Р° 5
-name	The Undead Brutes	The Undead Brutes	tier	TRASH	RU name	РњС‘СЂС‚РІС‹Рµ РєСЂРµРїС‹С€Рё
-name	The Undead Storm	The Undead Storm	tier	TRASH	RU name	Р‘СѓСЂСЏ РЅРµР¶РёС‚Рё
-name	The Vanguard	The Vanguard	tier	TRASH	RU name	РџСЂРѕСЃС‡С‘С‚ СЂР°Р·РІРµРґРєРё
-name	The Walking Mountain	The Walking Mountain	tier	TRASH	RU name	РҐРѕРґСЏС‡Р°СЏ РіРѕСЂР°
-name	The Ward's Ward	The Ward's Ward	tier	TRASH	RU name	РЈРґР°СЂ РІ Р±СѓР±РµРЅ
-name	The Warmongers I	The Warmongers I	tier	TRASH	RU name	РџСЃС‹ РІРѕР№РЅС‹ 1
-name	The Warmongers II	The Warmongers II	tier	TRASH	RU name	РџСЃС‹ РІРѕР№РЅС‹ 2
-name	The Warmongers III	The Warmongers III	tier	TRASH	RU name	РџСЃС‹ РІРѕР№РЅС‹ 3
-name	The Warmongers IV	The Warmongers IV	tier	TRASH	RU name	РџСЃС‹ РІРѕР№РЅС‹ 4
-name	The Watcher's Watcher	The Watcher's Watcher	tier	TRASH	RU name	РќР°Р±Р»СЋРґРµРЅРёРµ Р·Р° РЅР°Р±Р»СЋРґР°С‚РµР»РµРј
-name	The Wealthy Exile	The Wealthy Exile	tier	TOP COST	RU name	Р‘РѕРіР°С‚С‹Р№ Р±РµРіР»РµС†
-name	Touched by the Wind	Touched by the Wind	tier	MID COST	RU name	РџРѕРїСѓС‚РЅС‹Р№ РІРµС‚РµСЂ
-name	Trapped in the Tower	Trapped in the Tower	tier	TRASH	RU name	Р’ РїР»РµРЅСѓ Р±Р°С€РЅРё
-name	Trash to Treasure	Trash to Treasure	tier	TRASH	RU name	РЎРѕРєСЂРѕРІРёС‰Рµ РёР· С…Р»Р°РјР°
-name	Twice Enchanted	Twice Enchanted	tier	TRASH	RU name	Р”РІР°Р¶РґС‹ Р·Р°С‡Р°СЂРѕРІР°РЅРЅС‹Рµ
-name	Unbearable Whispers I	Unbearable Whispers I	tier	TRASH	RU name	РќРµРІС‹РЅРѕСЃРёРјС‹Р№ С€С‘РїРѕС‚ 1
-name	Unbearable Whispers II	Unbearable Whispers II	tier	LOW COST	RU name	РќРµРІС‹РЅРѕСЃРёРјС‹Р№ С€С‘РїРѕС‚ 2
-name	Unbearable Whispers III	Unbearable Whispers III	tier	TRASH	RU name	РќРµРІС‹РЅРѕСЃРёРјС‹Р№ С€С‘РїРѕС‚ 3
-name	Unbearable Whispers IV	Unbearable Whispers IV	tier	TRASH	RU name	РќРµРІС‹РЅРѕСЃРёРјС‹Р№ С€С‘РїРѕС‚ 4
-name	Unbearable Whispers V	Unbearable Whispers V	tier	TRASH	RU name	РЅРµРІС‹РЅРѕСЃРёРјС‹Р№ С€С‘РїРѕС‚ 5
-name	Undead Uprising	Undead Uprising	tier	MID COST	RU name	Р‘СѓРЅС‚ РЅРµР¶РёС‚Рё
-name	Unnatural Energy	Unnatural Energy	tier	TRASH	RU name	РџСЂРѕС‚РёРІРѕРµСЃС‚РµСЃС‚РІРµРЅРЅР°СЏ СЌРЅРµСЂРіРёСЏ
-name	Vaal Invasion	Vaal Invasion	tier	TRASH	RU name	Р’С‚РѕСЂР¶РµРЅРёРµ Р’Р°Р°Р»
-name	Vaal Winds	Vaal Winds	tier	TRASH	RU name	Р’РµС‚СЂР° РІР°Р°Р»
-name	Visions of the Drowned	Visions of the Drowned	tier	TRASH	RU name	Р’РёРґРµРЅРёСЏ СѓС‚РѕРїР»РµРЅРЅРёРєРѕРІ
-name	Vital Transformation	Vital Transformation	tier	HIGH COST	RU name	Р›СЋР±РѕРІСЊ Рє Р¶РёР·РЅРё
-name	Waiting in Ambush	Waiting in Ambush	tier	TRASH	RU name	Р’ Р·Р°СЃР°РґРµ
-name	Weeping Death	Weeping Death	tier	TRASH	RU name	РҐР»СЋРїР°СЋС‰Р°СЏ СЃРјРµСЂС‚СЊ
-name	Wind and Thunder	Wind and Thunder	tier	TRASH	RU name	Р’РµС‚РµСЂ Рё РіСЂРѕРј
-name	Winter's Mournful Melodies	Winter's Mournful Melodies	tier	TRASH	RU name	РџРµС‡Р°Р»СЊРЅС‹Рµ РјРµР»РѕРґРёРё Р·РёРјС‹
+name	A Call into the Void	A Call into the Void	tier	TRASH	RU name	Призыв в небытие
+name	A Dishonourable Death	A Dishonourable Death	tier	MID COST	RU name	Позорная смерть
+name	A Firm Foothold	A Firm Foothold	tier	TRASH	RU name	Твёрдая опора
+name	A Forest of False Idols	A Forest of False Idols	tier	TRASH	RU name	Лес ложных божков
+name	A Master Seeks Help	A Master Seeks Help	tier	LOW COST	RU name	Мастеру нужна помощь
+name	A Prodigious Hand	A Prodigious Hand	tier	TRASH	RU name	Исправленный изъян
+name	A Regal Death	A Regal Death	tier	TRASH	RU name	Свержение
+name	A Rift in Time	A Rift in Time	tier	TRASH	RU name	Разрыв во времени
+name	A Valuable Combination	A Valuable Combination	tier	TRASH	RU name	Ценное сочетание 
+name	A Vision of Ice and Fire	A Vision of Ice and Fire	tier	TRASH	RU name	Видение льда и пламени
+name	A Whispered Prayer	A Whispered Prayer	tier	TRASH	RU name	Шёпот молитв
+name	Abnormal Effulgence	Abnormal Effulgence	tier	TRASH	RU name	Неестественный блеск
+name	Against the Tide	Against the Tide	tier	TRASH	RU name	Наперекор волне
+name	Agony at Dusk	Agony at Dusk	tier	TRASH	RU name	Агония в сумерках
+name	An Unseen Peril	An Unseen Peril	tier	TRASH	RU name	Невиданная напасть
+name	Anarchy's End I	Anarchy's End I	tier	TRASH	RU name	Конец анархии 1
+name	Anarchy's End II	Anarchy's End II	tier	TRASH	RU name	конец анархии 2
+name	Anarchy's End III	Anarchy's End III	tier	TRASH	RU name	конец анархии 3
+name	Anarchy's End IV	Anarchy's End IV	tier	TRASH	RU name	конец анархии 4
+name	Ancient Doom	Ancient Doom	tier	HIGH COST	RU name	Древний рок
+name	Ancient Rivalries I		tier	TRASH	RU name	Старые распри I
+name	Ancient Rivalries II		tier	TRASH	RU name	Старые распри II
+name	Ancient Rivalries III		tier	TRASH	RU name	Старые распри III
+name	Ancient Rivalries IV		tier	TRASH	RU name	Старые распри IV
+name	Baptism by Death	Baptism by Death	tier	TRASH	RU name	Крещение смертью
+name	Battle Hardened	Battle Hardened	tier	TRASH	RU name	Закалённый в бою
+name	Beyond Sight I	Beyond Sight I	tier	LOW COST	RU name	Запределье 1
+name	Beyond Sight II	Beyond Sight II	tier	TRASH	RU name	Запределье 2
+name	Beyond Sight III	Beyond Sight III	tier	LOW COST	RU name	Запределье 3
+name	Beyond Sight IV	Beyond Sight IV	tier	MID COST	RU name	Запределье 4
+name	Black Devotion	Black Devotion	tier	TRASH	RU name	Чёрная преданность
+name	Blind Faith	Blind Faith	tier	TRASH	RU name	Слепая вера
+name	Blinding Light	Blinding Light	tier	TRASH	RU name	Слепящий свет 
+name	Blood in the Eyes	Blood in the Eyes	tier	TRASH	RU name	Кровавая пелена
+name	Blood of the Betrayed	Blood of the Betrayed	tier	MID COST	RU name	Кровь преданного
+name	Bountiful Traps	Bountiful Traps	tier	TRASH	RU name	Соблазнительные ловушки
+name	Burning Dread	Burning Dread	tier	TRASH	RU name	Горящий ужас
+name	Cleanser of Sins	Cleanser of Sins	tier	TRASH	RU name	Отпущение грехов
+name	Cold Blooded Fury	Cold Blooded Fury	tier	TRASH	RU name	Хладнокровная ярость
+name	Cold Greed	Cold Greed	tier	TRASH	RU name	Холодная жадность
+name	Crimson Hues	Crimson Hues	tier	TRASH	RU name	Багряные цвета
+name	Crushing Squall	Crushing Squall	tier	TRASH	RU name	Дробящий шквал
+name	Custodians of Silence	Custodians of Silence	tier	TRASH	RU name	Хранители тишины
+name	Dance of Steel	Dance of Steel	tier	TRASH	RU name	Пляска стали
+name	Dark Instincts	Dark Instincts	tier	TRASH	RU name	Тёмные инстинкты
+name	Darktongue's Shriek	Darktongue's Shriek	tier	LOW COST	RU name	Вопль Тёмного оратора
+name	Day of Sacrifice I	Day of Sacrifice I	tier	TRASH	RU name	День жертвоприношения 1
+name	Day of Sacrifice II	Day of Sacrifice II	tier	TRASH	RU name	День жертвоприношения 2
+name	Day of Sacrifice III	Day of Sacrifice III	tier	TRASH	RU name	день жертвоприношения 3
+name	Day of Sacrifice IV	Day of Sacrifice IV	tier	TRASH	RU name	день жертвоприношения 4
+name	Deadly Rivalry I	Deadly Rivalry I	tier	TRASH	RU name	Смертельная вражда 1
+name	Deadly Rivalry II	Deadly Rivalry II	tier	TRASH	RU name	смертельная вражда 2
+name	Deadly Rivalry III	Deadly Rivalry III	tier	TRASH	RU name	Смертельная вражда 3
+name	Deadly Rivalry IV	Deadly Rivalry IV	tier	TRASH	RU name	Смертельная вражда 4
+name	Deadly Rivalry V	Deadly Rivalry V	tier	TRASH	RU name	смертельная вражда 5
+name	Deadly Twins	Deadly Twins	tier	TRASH	RU name	Убойные парочки
+name	Defiled in the Sceptre	Defiled in the Sceptre	tier	TRASH	RU name	Растление Перстом 
+name	Dying Cry	Dying Cry	tier	TRASH	RU name	Похоронный звон
+name	Echoes of Witchcraft	Echoes of Witchcraft	tier	TRASH	RU name	Отзвук ведьмовства
+name	End of the Light	End of the Light	tier	TRASH	RU name	Конец света
+name	Ending the Torment	Ending the Torment	tier	TRASH	RU name	Конец страданиям
+name	Erased from Memory	Erased from Memory	tier	TRASH	RU name	Выкинуть из памяти
+name	Erasmus' Gift	Erasmus' Gift	tier	TOP COST	RU name	Дар Эразмуса
+name	Faith Exhumed	Faith Exhumed	tier	TRASH	RU name	Эксгумация веры
+name	Fallow At Last	Fallow At Last	tier	TRASH	RU name	Время пахоты
+name	Fated Connections	Fated Connections	tier	TRASH	RU name	Объединяющая судьба
+name	Fear's Wide Reach	Fear's Wide Reach	tier	TRASH	RU name	Ползучий ужас
+name	Fire and Brimstone	Fire and Brimstone	tier	TRASH	RU name	Огонь и сера
+name	Fire and Ice	Fire and Ice	tier	TRASH	RU name	Лёд и пламя
+name	Fire from the Sky	Fire from the Sky	tier	TRASH	RU name	Огонь с небес
+name	Fire, Wood and Stone	Fire, Wood and Stone	tier	TRASH	RU name	Огонь, дерево и камень
+name	Flesh of the Beast	Flesh of the Beast	tier	TRASH	RU name	Плоть зверя
+name	Forceful Exorcism	Forceful Exorcism	tier	TRASH	RU name	Изгнание силой
+name	From Death Springs Life	From Death Springs Life	tier	TRASH	RU name	Круговорот вещей
+name	From The Void	From The Void	tier	TRASH	RU name	Из пустоты
+name	Gilded Within	Gilded Within	tier	TRASH	RU name	Золотое сердце
+name	Golden Touch	Golden Touch	tier	TRASH	RU name	Работа мастера
+name	Graceful Flames	Graceful Flames	tier	TRASH	RU name	Танцующие огоньки
+name	Greed's Folly	Greed's Folly	tier	TRASH	RU name	Глупость алчности
+name	Heart of the Fire	Heart of the Fire	tier	TRASH	RU name	Сердце пламени
+name	Heavy Blows	Heavy Blows	tier	TRASH	RU name	 Увесистые тумаки
+name	Hidden Reinforcements	Hidden Reinforcements	tier	TRASH	RU name	Скрытые резервы
+name	Hidden Vaal Pathways	Hidden Vaal Pathways	tier	TRASH	RU name	Тайные тропы ваал
+name	Holding the Bridge	Holding the Bridge	tier	TRASH	RU name	Сражение за мост
+name	Hunter's Lesson	Hunter's Lesson	tier	LOW COST	RU name	Урок охотника
+name	Ice from Above	Ice from Above	tier	TRASH	RU name	Снег на голову
+name	In the Grasp of Corruption	In the Grasp of Corruption	tier	TRASH	RU name	В тисках порчи
+name	Kalandra's Craft	Kalandra's Craft	tier	TRASH	RU name	Ремесло Каландры
+name	Last of the Wildmen	Last of the Wildmen	tier	TRASH	RU name	Последний дикарь
+name	Lasting Impressions	Lasting Impressions	tier	LOW COST	RU name	Дела минувшие
+name	Lightning Falls	Lightning Falls	tier	HIGH COST	RU name	Гром и молнии
+name	Living Fires	Living Fires	tier	TRASH	RU name	Живое пламя
+name	Lost in the Pages	Lost in the Pages	tier	TRASH	RU name	Книжный червь
+name	Monstrous Treasure	Monstrous Treasure	tier	TRASH	RU name	Чудовищное сокровище
+name	Mouth of Horrors	Mouth of Horrors	tier	TRASH	RU name	Уста кошмаров
+name	Mysterious Invaders	Mysterious Invaders	tier	TRASH	RU name	Таинственные чужаки 
+name	Nature's Resilience	Nature's Resilience	tier	TRASH	RU name	Природная стойкость
+name	Nemesis of Greed	Nemesis of Greed	tier	TRASH	RU name	Губительная жадность
+name	Notched Flesh	Notched Flesh	tier	TRASH	RU name	Щербатое лицо
+name	Overflowing Riches	Overflowing Riches	tier	TRASH	RU name	Лишнее бремя
+name	Path of Betrayal	Path of Betrayal	tier	TRASH	RU name	Цена предательства
+name	Plague of Frogs	Plague of Frogs	tier	TRASH	RU name	Нашествие лягушек
+name	Plague of Rats	Plague of Rats	tier	TRASH	RU name	Нашествие крыс
+name	Pleasure and Pain	Pleasure and Pain	tier	TRASH	RU name	Удовольствие через боль
+name	Pools of Wealth	Pools of Wealth	tier	TRASH	RU name	Источники дохода
+name	Possessed Foe	Possessed Foe	tier	TRASH	RU name	Одержимый враг
+name	Power Magnified	Power Magnified	tier	TRASH	RU name	Возросшая мощь
+name	Rebirth	Rebirth	tier	TRASH	RU name	Перерождение
+name	Reforged Bonds	Reforged Bonds	tier	TRASH	RU name	Разорванные узы
+name	Resistant to Change	Resistant to Change	tier	TRASH	RU name	Похвальная стойкость
+name	Risen Blood	Risen Blood	tier	TRASH	RU name	Непокорная кровь
+name	Roth's Legacy	Roth's Legacy	tier	TRASH	RU name	Подрубленный дуб
+name	Severed Limbs	Severed Limbs	tier	MID COST	RU name	Лишние руки
+name	Smothering Tendrils	Smothering Tendrils	tier	TRASH	RU name	Удушающие побеги 
+name	Soil, Worms and Blood	Soil, Worms and Blood	tier	TRASH	RU name	Земля, черви и кровь
+name	Song of the Sekhema	Song of the Sekhema	tier	TRASH	RU name	Песнь сехемы
+name	Storm on the Horizon	Storm on the Horizon	tier	TRASH	RU name	Приближение шторма
+name	Storm on the Reef	Storm on the Reef	tier	TRASH	RU name	Шторм на рифе
+name	Strong as a Bull	Strong as a Bull	tier	TRASH	RU name	Разъярённый бык
+name	Sun's Punishment	Sun's Punishment	tier	TRASH	RU name	Кара солнца
+name	Thaumaturgical History I	Thaumaturgical History I	tier	TRASH	RU name	Волшебная история 1
+name	Thaumaturgical History II	Thaumaturgical History II	tier	TRASH	RU name	Волшебная история 2
+name	Thaumaturgical History III	Thaumaturgical History III	tier	TRASH	RU name	Волшебная история 3
+name	Thaumaturgical History IV	Thaumaturgical History IV	tier	TRASH	RU name	Волшебная история 4
+name	The Alchemist	The Alchemist	tier	TRASH	RU name	Алхимик
+name	The Ambitious Bandit I	The Ambitious Bandit I	tier	LOW COST	RU name	Нахальные разбойники 1
+name	The Ambitious Bandit II	The Ambitious Bandit II	tier	TRASH	RU name	Нахальные разбойники 2
+name	The Ambitious Bandit III	The Ambitious Bandit III	tier	TRASH	RU name	нахальные разбойники 3
+name	The Apex Predator	The Apex Predator	tier	TRASH	RU name	Идеальный хищник
+name	The Beautiful Guide	The Beautiful Guide	tier	TRASH	RU name	Умелый проводник 
+name	The Beginning and the End	The Beginning and the End	tier	TRASH	RU name	Начало конца
+name	The Bishop's Legacy	The Bishop's Legacy	tier	TRASH	RU name	Наследие блюстителя
+name	The Bloody Flowers Redux	The Bloody Flowers Redux	tier	TRASH	RU name	День Кровавых цветов
+name	The Bowstring's Music	The Bowstring's Music	tier	TRASH	RU name	Мелодия тетивы
+name	The Brothers of Necromancy	The Brothers of Necromancy	tier	TRASH	RU name	Братство некромантов
+name	The Brutal Enforcer	The Brutal Enforcer	tier	TRASH	RU name	Грубый солдафон
+name	The Child of Lunaris	The Child of Lunaris	tier	TRASH	RU name	Дитя Лунарис
+name	The Corrupt	The Corrupt	tier	TRASH	RU name	Зараженный 
+name	The Cursed Choir	The Cursed Choir	tier	TRASH	RU name	Проклятый хор
+name	The Dreaded Rhoa	The Dreaded Rhoa	tier	TRASH	RU name	Чудовищный роа
+name	The Dream Trial	The Dream Trial	tier	TRASH	RU name	Испытание во сне
+name	The Dreamer's Dream	The Dreamer's Dream	tier	TRASH	RU name	Сон сновидца
+name	The Eagle's Cry	The Eagle's Cry	tier	TRASH	RU name	Клёкот орла
+name	The Fall of an Empire	The Fall of an Empire	tier	TRASH	RU name	Падение имерии
+name	The Feral Lord I	The Feral Lord I	tier	TRASH	RU name	Дикий вождь 1
+name	The Feral Lord II	The Feral Lord II	tier	LOW COST	RU name	Дикий вождь 2
+name	The Feral Lord III	The Feral Lord III	tier	TRASH	RU name	Дикий вождь 3
+name	The Feral Lord IV	The Feral Lord IV	tier	TRASH	RU name	Дикий вождь 4
+name	The Feral Lord V	The Feral Lord V	tier	TRASH	RU name	дикий вождь 5
+name	The Flayed Man	The Flayed Man	tier	TRASH	RU name	Голодранец
+name	The Flow of Energy	The Flow of Energy	tier	TRASH	RU name	Поток энергии
+name	The Forgotten Garrison	The Forgotten Garrison	tier	TRASH	RU name	Стойкий гарнизон
+name	The Forgotten Soldiers	The Forgotten Soldiers	tier	TRASH	RU name	Забытые солдаты
+name	The Fortune Teller's Collection	The Fortune Teller's Collection	tier	MID COST	RU name	Коллекция гадалки
+name	The Four Feral Exiles	The Four Feral Exiles	tier	MID COST	RU name	Одичавшая четвёрка
+name	The God of Misfortune	The God of Misfortune	tier	TRASH	RU name	Бог неудачи
+name	The Great Leader of the North	The Great Leader of the North	tier	LOW COST	RU name	Великий вождь севера
+name	The Great Mind of the North	The Great Mind of the North	tier	TRASH	RU name	Великий разум севера
+name	The Hardened Armour	The Hardened Armour	tier	TRASH	RU name	Крепкий доспех
+name	The Hollow Pledge	The Hollow Pledge	tier	MID COST	RU name	Пустое обещание
+name	The Hungering Swarm	The Hungering Swarm	tier	LOW COST	RU name	Стая саранчи
+name	The Invader	The Invader	tier	TRASH	RU name	Завоеватель
+name	The Jeweller's Touch	The Jeweller's Touch	tier	LOW COST	RU name	Золотые руки
+name	The Karui Rebellion	The Karui Rebellion	tier	TRASH	RU name	Восстание каруи
+name	The King and the Brambles	The King and the Brambles	tier	TRASH	RU name	Гибель в терновнике
+name	The King's Path	The King's Path	tier	TRASH	RU name	Путь Великого вождя
+name	The Lady in Black	The Lady in Black	tier	TRASH	RU name	Дама в чёрном
+name	The Last Watch	The Last Watch	tier	TRASH	RU name	Последний дозор
+name	The Lost Maps	The Lost Maps	tier	TRASH	RU name	Потерянные карты
+name	The Lost Undying	The Lost Undying	tier	TRASH	RU name	Почти бессмертный
+name	The Malevolent Witch	The Malevolent Witch	tier	TRASH	RU name	Злая ведьма
+name	The Mentor	The Mentor	tier	TRASH	RU name	Наставник
+name	The Misunderstood Queen	The Misunderstood Queen	tier	LOW COST	RU name	Недопонятая царица
+name	The Mysterious Gift	The Mysterious Gift	tier	TRASH	RU name	Таинственный подарок
+name	The Nest	The Nest	tier	TRASH	RU name	Гнездо
+name	The Nightmare Awakens	The Nightmare Awakens	tier	TRASH	RU name	Пробуждение кошмара
+name	The Petrified	The Petrified	tier	TRASH	RU name	Истукан
+name	The Plaguemaw I	The Plaguemaw I	tier	TRASH	RU name	Моровая Пасть 1
+name	The Plaguemaw II	The Plaguemaw II	tier	LOW COST	RU name	Моровая Пасть 2
+name	The Plaguemaw III	The Plaguemaw III	tier	TRASH	RU name	Моровая Пасть 3
+name	The Plaguemaw IV	The Plaguemaw IV	tier	TRASH	RU name	Моровая пасть 4
+name	The Plaguemaw V	The Plaguemaw V	tier	TOP COST	RU name	моровая Пасть 5
+name	The Prison Guard	The Prison Guard	tier	TRASH	RU name	Тюремщик
+name	The Prison Key	The Prison Key	tier	TRASH	RU name	Ключ к свободе
+name	The Queen's Sacrifice	The Queen's Sacrifice	tier	TRASH	RU name	Жертва царицы
+name	The Queen's Vaults	The Queen's Vaults	tier	TRASH	RU name	Царский клад
+name	The Scout	The Scout	tier	LOW COST	RU name	Разведчик
+name	The Servant's Heart	The Servant's Heart	tier	TRASH	RU name	Сердце слуги
+name	The Sharpened Blade	The Sharpened Blade	tier	TRASH	RU name	Острый клинок
+name	The Silverwood	The Silverwood	tier	TRASH	RU name	Серебряный лес
+name	The Singular Spirit	The Singular Spirit	tier	TRASH	RU name	Странный дух
+name	The Sinner's Stone	The Sinner's Stone	tier	TRASH	RU name	Камень греховод
+name	The Snuffed Flame	The Snuffed Flame	tier	TRASH	RU name	Затоптанный костёр
+name	The Soulless Beast	The Soulless Beast	tier	TRASH	RU name	Бездушная тварь
+name	The Stockkeeper	The Stockkeeper	tier	TRASH	RU name	Кладовщик
+name	The Storm Spire	The Storm Spire	tier	TRASH	RU name	Штормовой шпиль
+name	The Sword King's Passion	The Sword King's Passion	tier	TRASH	RU name	Дань Венценосца мечей
+name	The Trembling Earth	The Trembling Earth	tier	TRASH	RU name	Дрожь земли
+name	The Twins	The Twins	tier	TRASH	RU name	Близнецы
+name	The Unbreathing Queen I	The Unbreathing Queen I	tier	TRASH	RU name	Бездыханная царица 1
+name	The Unbreathing Queen II	The Unbreathing Queen II	tier	LOW COST	RU name	Бездыханная царица 2
+name	The Unbreathing Queen III	The Unbreathing Queen III	tier	TRASH	RU name	Бездыханная царица 3
+name	The Unbreathing Queen IV	The Unbreathing Queen IV	tier	TRASH	RU name	бездыханная царица 4
+name	The Unbreathing Queen V	The Unbreathing Queen V	tier	TRASH	RU name	бездыханная царица 5
+name	The Undead Brutes	The Undead Brutes	tier	TRASH	RU name	Мёртвые крепыши
+name	The Undead Storm	The Undead Storm	tier	TRASH	RU name	Буря нежити
+name	The Vanguard	The Vanguard	tier	TRASH	RU name	Просчёт разведки
+name	The Walking Mountain	The Walking Mountain	tier	TRASH	RU name	Ходячая гора
+name	The Ward's Ward	The Ward's Ward	tier	TRASH	RU name	Удар в бубен
+name	The Warmongers I	The Warmongers I	tier	TRASH	RU name	Псы войны 1
+name	The Warmongers II	The Warmongers II	tier	TRASH	RU name	Псы войны 2
+name	The Warmongers III	The Warmongers III	tier	TRASH	RU name	Псы войны 3
+name	The Warmongers IV	The Warmongers IV	tier	TRASH	RU name	Псы войны 4
+name	The Watcher's Watcher	The Watcher's Watcher	tier	TRASH	RU name	Наблюдение за наблюдателем
+name	The Wealthy Exile	The Wealthy Exile	tier	TOP COST	RU name	Богатый беглец
+name	Touched by the Wind	Touched by the Wind	tier	MID COST	RU name	Попутный ветер
+name	Trapped in the Tower	Trapped in the Tower	tier	TRASH	RU name	В плену башни
+name	Trash to Treasure	Trash to Treasure	tier	TRASH	RU name	Сокровище из хлама
+name	Twice Enchanted	Twice Enchanted	tier	TRASH	RU name	Дважды зачарованные
+name	Unbearable Whispers I	Unbearable Whispers I	tier	TRASH	RU name	Невыносимый шёпот 1
+name	Unbearable Whispers II	Unbearable Whispers II	tier	LOW COST	RU name	Невыносимый шёпот 2
+name	Unbearable Whispers III	Unbearable Whispers III	tier	TRASH	RU name	Невыносимый шёпот 3
+name	Unbearable Whispers IV	Unbearable Whispers IV	tier	TRASH	RU name	Невыносимый шёпот 4
+name	Unbearable Whispers V	Unbearable Whispers V	tier	TRASH	RU name	невыносимый шёпот 5
+name	Undead Uprising	Undead Uprising	tier	MID COST	RU name	Бунт нежити
+name	Unnatural Energy	Unnatural Energy	tier	TRASH	RU name	Противоестественная энергия
+name	Vaal Invasion	Vaal Invasion	tier	TRASH	RU name	Вторжение Ваал
+name	Vaal Winds	Vaal Winds	tier	TRASH	RU name	Ветра ваал
+name	Visions of the Drowned	Visions of the Drowned	tier	TRASH	RU name	Видения утопленников
+name	Vital Transformation	Vital Transformation	tier	HIGH COST	RU name	Любовь к жизни
+name	Waiting in Ambush	Waiting in Ambush	tier	TRASH	RU name	В засаде
+name	Weeping Death	Weeping Death	tier	TRASH	RU name	Хлюпающая смерть
+name	Wind and Thunder	Wind and Thunder	tier	TRASH	RU name	Ветер и гром
+name	Winter's Mournful Melodies	Winter's Mournful Melodies	tier	TRASH	RU name	Печальные мелодии зимы

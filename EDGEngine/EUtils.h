@@ -109,7 +109,7 @@ public:
 
 	static Enums::LocalisationList active_localisation;
 
-	static std::string to_cyrillic(std::string _text);
+	static std::string to_cyrillic(std::string _text, bool _degub=false);
 
 	static void save_config();
 	static void load_config();

@@ -1,56 +1,56 @@
-Base name	Axe Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% СѓСЂРѕРЅР° РґР»СЏ С‚РѕРїРѕСЂРѕРІ
-Base name	Sword Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% СѓСЂРѕРЅР° РґР»СЏ РјРµС‡РµР№
-Base name	Mace or Sceptre Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% СѓСЂРѕРЅР° РґР»СЏ Р±СѓР»Р°РІ
-Base name	Staff Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% СѓСЂРѕРЅР° РґР»СЏ РїРѕСЃРѕС…РѕРІ
-Base name	Dagger Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% СѓСЂРѕРЅР° РґР»СЏ РєРёРЅР¶Р°Р»РѕРІ
-Base name	Claw Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% СѓСЂРѕРЅР° РґР»СЏ РєРѕРіС‚РµР№
-Base name	12% increased Damage with Bows	RU name	12% СѓСЂРѕРЅР° РґР»СЏ Р»СѓРєРѕРІ
-Base name	12% increased Damage Over Time with Bow Skills	RU name	12% РїРѕСЃС‚РµРїРµРЅРЅРѕРіРѕ СѓСЂРѕРЅР° РґР»СЏ Р»СѓРєРѕРІ
-Base name	Wand Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% СѓСЂРѕРЅР° РґР»СЏ Р¶РµР·Р»РѕРІ
-Base name	12% increased Damage with Two Handed Weapons	RU name	12% СѓСЂРѕРЅР° РґР»СЏ РґРІСѓСЂСѓС‡РЅРѕРіРѕ РѕСЂСѓР¶РёСЏ
-Base name	12% increased Attack Damage while Dual Wielding	RU name	12% СѓСЂРѕРЅР° РґР»СЏ РїР°СЂРЅРѕРіРѕ РѕСЂСѓР¶РёСЏ
-Base name	12% increased Attack Damage while holding a Shield	RU name	12% СѓСЂРѕРЅР° СЃ С‰РёС‚РѕРј РІ СЂСѓРєР°С…
-Base name	10% increased Attack Damage	RU name	10% СѓСЂРѕРЅР° РѕС‚ Р°С‚Р°Рє
-Base name	10% increased Spell Damage	RU name	10% СѓСЂРѕРЅР° РѕС‚ Р·Р°РєР»РёРЅР°РЅРёР№
-Base name	10% increased Elemental Damage	RU name	10% СѓСЂРѕРЅР° РѕС‚ СЃС‚РёС…РёР№
-Base name	12% increased Physical Damage	RU name	12% С„РёР·РёС‡РµСЃРєРѕРіРѕ СѓСЂРѕРЅР°
-Base name	12% increased Fire Damage	RU name	12% СѓСЂРѕРЅР° РѕС‚ РѕРіРЅСЏ
-Base name	12% increased Lightning Damage	RU name	12% СѓСЂРѕРЅР° РѕС‚ РјРѕР»РЅРёРё
-Base name	12% increased Cold Damage	RU name	12% СѓСЂРѕРЅР° РѕС‚ С…РѕР»РѕРґР°
-Base name	12% increased Chaos Damage	RU name	12% СѓСЂРѕРЅР° РѕС‚ С…Р°РѕСЃР°
-Base name	Minions deal 10% increased Damage	RU name	10% СѓСЂРѕРЅ РїСЂРёСЃРїРµС€РЅРёРєРѕРІ
-Base name	+5% to Fire Damage over Time Multiplier	RU name	+5% РїРѕСЃС‚РµРїРµРЅРЅС‹Р№ СѓСЂРѕРЅ РѕС‚ РѕРіРЅСЏ
-Base name	+5% to Chaos Damage over Time Multiplier	RU name	+5% РїРѕСЃС‚РµРїРµРЅРЅС‹Р№ СѓСЂРѕРЅ РѕС‚ С…Р°РѕСЃР°
-Base name	+5% to Physical Damage over Time Multiplier	RU name	+5% РїРѕСЃС‚РµРїРµРЅРЅС‹Р№ С„РёР·РёС‡РµСЃРєРёР№ СѓСЂРѕРЅ
-Base name	+5% to Cold Damage over Time Multiplier	RU name	+5% РїРѕСЃС‚РµРїРµРЅРЅС‹Р№ СѓСЂРѕРЅ РѕС‚ С…РѕР»РѕРґР°
-Base name	+4% to Damage over Time Multiplier	RU name	+4% РїРѕСЃС‚РµРїРµРЅРЅС‹Р№ СѓСЂРѕРЅ РѕС‚ РѕРіРЅСЏ
-Base name	10% increased Effect of Non-Damaging Ailments	RU name	10% РЅРµ РЅР°РЅРѕСЃСЏС‰РёС… СѓСЂРѕРЅ СЃРѕСЃС‚РѕСЏРЅРёР№
-Base name	6% increased effect of Non-Curse Auras from your Skills	RU name	6% СѓСЃРёР»РµРЅРёРµ Р°СѓСЂ РЅРµ-РїСЂРѕРєР»СЏС‚РёР№
-Base name	5% increased Effect of your Curses	RU name	5% СѓСЃРёР»РµРЅРёРµ СЌС„С„РµРєС‚Р° РїСЂРѕРєР»СЏС‚РёР№
-Base name	10% increased Damage while affected by a Herald	RU name	10% СѓСЃРёР»РµРЅРёРµ СѓСЂРѕРЅР° РїРѕРґ РІРµСЃС‚РЅРёРєРѕРј
-Base name	Minions deal 10% increased Damage while you are affected by a Herald	RU name	10% СѓСЂРѕРЅР° РїСЂРёСЃРїРµС€РЅРёРєРѕРІ РїРѕРґ РІРµСЃС‚РЅРёРєРѕРј
-Base name	15% increased Warcry Buff Effect	RU name	15% СѓСЃРёР»РµРЅРёРµ СЌС„С„РµРєС‚Р° Р±РѕРµРІРѕРіРѕ РєР»РёС‡Р°
-Base name	15% increased Critical Strike Chance	RU name	15% С€Р°РЅСЃ РєСЂРёС‚Р°
-Base name	Minions have 12% increased maximum Life	RU name	12% Р·РґРѕСЂРѕРІСЊСЏ РїСЂРёСЃРїРµС€РЅРёРєРѕРІ
-Base name	10% increased Area Damage	RU name	10% СѓСЂРѕРЅР° РїРѕ РѕР±Р»Р°СЃС‚Рё
-Base name	10% increased Projectile Damage	RU name	10% СѓСЃРёР»РµРЅРёРµ СѓСЂРѕРЅР° СЃРЅР°СЂСЏРґРѕРІ
-Base name	12% increased Trap Damage	RU name	12% СѓСЂРѕРЅ РѕС‚ Р»РѕРІСѓС€РµРє
-Base name	12% increased Mine Damage	RU name	12% СѓСЂРѕРЅ РѕС‚ РјРёРЅ
-Base name	12% increased Totem Damage	RU name	12% СѓСЃРёР»РµРЅРёРµ СѓСЂРѕРЅР° РѕС‚ С‚РѕС‚РµРјРѕРІ
-Base name	12% increased Damage with Brand Skills	RU name	12% СѓСЃРёР»РµРЅРёРµ СѓСЂРѕРЅР° РѕС‚ РєР»РµР№Рј
-Base name	Channelling Skills deal 12% increased Damage	RU name	РџРѕРґРґРµСЂР¶РёРІР°РµРјС‹Рµ СѓРјРµРЅРёСЏ РёРјРµСЋС‚ 12% СѓРІРµР»РёС‡РµРЅРёРµ СѓСЂРѕРЅР°
-Base name	6% increased Flask Effect Duration	RU name	6% СѓРІРµР»РёС‡РµРЅРёРµ РґР»РёС‚РµР»СЊРЅРѕСЃС‚Рё С„Р»Р°РєРѕРЅРѕРІ
-Base name	10% increased Life Recovery from Flasks	RU name	10% РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ Р·РґРѕСЂРѕРІСЊСЏ СЃ С„Р»Р°РєРѕРЅРѕРІ
-Base name	10% increased Mana Recovery from Flasks	RU name	10% СѓРІРµР»РёС‡РµРЅРёРµ РІРѕСЃСЃС‚Р°РЅРІРѕР»РµРЅРёСЏ РјР°РЅС‹ СЃ С„Р»Р°РєРѕРЅР°
-Base name	4% increased maximum Life	RU name	4% Р·РґРѕСЂРѕРІСЊСЏ
-Base name	6% increased maximum Energy Shield	RU name	6% РјР°РєСЃРёРјСѓРј СЌРЅРµСЂРіРѕС‰РёС‚
-Base name	6% increased maximum Mana	RU name	6% РјР°РєСЃРёРјСѓРј РјР°РЅС‹
-Base name	15% increased Armour	RU name	15% Р·Р°С‰РёС‚С‹
-Base name	15% increased Evasion Rating	RU name	15% СѓРєР»РѕРЅРµРЅРёСЏ
-Base name	1% Chance to Block Attack Damage	RU name	1% С€Р°РЅСЃ Р±Р»РѕРєР° Р°С‚Р°Рє
-Base name	1% Chance to Block Spell Damage	RU name	1% С€Р°РЅСЃ Р±Р»РѕРєР° Р·Р°РєР»РёРЅР°РЅРёР№
-Base name	+15% to Fire Resistance	RU name	15% СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ РѕРіРЅСЋ
-Base name	+15% to Cold Resistance	RU name	15% СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ С…РѕР»РѕРґСѓ
-Base name	+15% to Lightning Resistance	RU name	15% СЃРѕРїСЂРѕС‚РёРІР»РµРёРµ РјРѕР»РЅРёРё
-Base name	+12% to Chaos Resistance	RU name	12% СЃРїРѕСЂРѕС‚РёРІР»РµРЅРёРµ С…Р°РѕСЃСѓ
-Base name	1% chance to Dodge Attack Hits	RU name	1% С€Р°РЅСЃ СѓРєР»РѕРЅРёС‚СЊСЃСЏ РѕС‚ Р°С‚Р°Рє
+Base name	Axe Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% урона для топоров
+Base name	Sword Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% урона для мечей
+Base name	Mace or Sceptre Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% урона для булав
+Base name	Staff Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% урона для посохов
+Base name	Dagger Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% урона для кинжалов
+Base name	Claw Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% урона для когтей
+Base name	12% increased Damage with Bows	RU name	12% урона для луков
+Base name	12% increased Damage Over Time with Bow Skills	RU name	12% постепенного урона для луков
+Base name	Wand Attacks deal 12% increased Damage with Hits and Ailments	RU name	12% урона для жезлов
+Base name	12% increased Damage with Two Handed Weapons	RU name	12% урона для двуручного оружия
+Base name	12% increased Attack Damage while Dual Wielding	RU name	12% урона для парного оружия
+Base name	12% increased Attack Damage while holding a Shield	RU name	12% урона с щитом в руках
+Base name	10% increased Attack Damage	RU name	10% урона от атак
+Base name	10% increased Spell Damage	RU name	10% урона от заклинаний
+Base name	10% increased Elemental Damage	RU name	10% урона от стихий
+Base name	12% increased Physical Damage	RU name	12% физического урона
+Base name	12% increased Fire Damage	RU name	12% урона от огня
+Base name	12% increased Lightning Damage	RU name	12% урона от молнии
+Base name	12% increased Cold Damage	RU name	12% урона от холода
+Base name	12% increased Chaos Damage	RU name	12% урона от хаоса
+Base name	Minions deal 10% increased Damage	RU name	10% урон приспешников
+Base name	+5% to Fire Damage over Time Multiplier	RU name	+5% постепенный урон от огня
+Base name	+5% to Chaos Damage over Time Multiplier	RU name	+5% постепенный урон от хаоса
+Base name	+5% to Physical Damage over Time Multiplier	RU name	+5% постепенный физический урон
+Base name	+5% to Cold Damage over Time Multiplier	RU name	+5% постепенный урон от холода
+Base name	+4% to Damage over Time Multiplier	RU name	+4% постепенный урон от огня
+Base name	10% increased Effect of Non-Damaging Ailments	RU name	10% не наносящих урон состояний
+Base name	6% increased effect of Non-Curse Auras from your Skills	RU name	6% усиление аур не-проклятий
+Base name	5% increased Effect of your Curses	RU name	5% усиление эффекта проклятий
+Base name	10% increased Damage while affected by a Herald	RU name	10% усиление урона под вестником
+Base name	Minions deal 10% increased Damage while you are affected by a Herald	RU name	10% урона приспешников под вестником
+Base name	15% increased Warcry Buff Effect	RU name	15% усиление эффекта боевого клича
+Base name	15% increased Critical Strike Chance	RU name	15% шанс крита
+Base name	Minions have 12% increased maximum Life	RU name	12% здоровья приспешников
+Base name	10% increased Area Damage	RU name	10% урона по области
+Base name	10% increased Projectile Damage	RU name	10% усиление урона снарядов
+Base name	12% increased Trap Damage	RU name	12% урон от ловушек
+Base name	12% increased Mine Damage	RU name	12% урон от мин
+Base name	12% increased Totem Damage	RU name	12% усиление урона от тотемов
+Base name	12% increased Damage with Brand Skills	RU name	12% усиление урона от клейм
+Base name	Channelling Skills deal 12% increased Damage	RU name	Поддерживаемые умения имеют 12% увеличение урона
+Base name	6% increased Flask Effect Duration	RU name	6% увеличение длительности флаконов
+Base name	10% increased Life Recovery from Flasks	RU name	10% восстановления здоровья с флаконов
+Base name	10% increased Mana Recovery from Flasks	RU name	10% увеличение восстанволения маны с флакона
+Base name	4% increased maximum Life	RU name	4% здоровья
+Base name	6% increased maximum Energy Shield	RU name	6% максимум энергощит
+Base name	6% increased maximum Mana	RU name	6% максимум маны
+Base name	15% increased Armour	RU name	15% защиты
+Base name	15% increased Evasion Rating	RU name	15% уклонения
+Base name	1% Chance to Block Attack Damage	RU name	1% шанс блока атак
+Base name	1% Chance to Block Spell Damage	RU name	1% шанс блока заклинаний
+Base name	+15% to Fire Resistance	RU name	15% сопротивление огню
+Base name	+15% to Cold Resistance	RU name	15% сопротивление холоду
+Base name	+15% to Lightning Resistance	RU name	15% сопротивлеие молнии
+Base name	+12% to Chaos Resistance	RU name	12% споротивление хаосу
+Base name	1% chance to Dodge Attack Hits	RU name	1% шанс уклониться от атак

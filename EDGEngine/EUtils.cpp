@@ -298,9 +298,19 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 			localisation_key.push_back(subdata_array[0]);
 
-			localisation_text.push_back(to_cyrillic(subdata_array[1]));
+			//std::wstring wsTmp((subdata_array[1]).begin(), (subdata_array[1]).end());
+			//localisation_text.push_back(wsTmp);
 
-			//std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << subdata_array[1] << std::endl;
+			if (line_id <= 0)
+			{
+				localisation_text.push_back(to_cyrillic(subdata_array[1], true));
+			}
+			else
+			{
+				localisation_text.push_back(to_cyrillic(subdata_array[1], false));
+			}
+
+			//std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << localisation_text.at(localisation_text.size() - 1) << ")" << std::endl;
 
 			line_id++;
 		}
@@ -978,7 +988,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		return _text;
 	}
 
-	std::string EString::to_cyrillic(std::string _text)
+	std::string EString::to_cyrillic(std::string _text, bool _debug)
 	{
 		char sInvalid[1024];
 		strcpy_s(sInvalid, _text.c_str());
@@ -988,10 +998,62 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		wchar_t* wsValid = new wchar_t[size];
 		char* sValid = new char[size];
 
-		MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
-		WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
+		//MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
+		//WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
+		/*if (_debug) std::cout << "### " << _text << std::endl;
+		if (_debug) std::cout << "==== INPUT method: MB_COMPOSITE" << std::endl;
+		MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_COMPOSITECHECK, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_COMPOSITECHECK}" << std::endl;
+			
+		MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_ERR_INVALID_CHARS, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_ERR_INVALID_CHARS}" << std::endl;
+			
+		MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_NO_BEST_FIT_CHARS, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_NO_BEST_FIT_CHARS}" << std::endl;
 
-		return sValid;
+		if (_debug) std::cout << "==== INPUT method: MB_ERR_INVALID_CHARS" << std::endl;
+		MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_COMPOSITECHECK, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_COMPOSITECHECK}" << std::endl;
+			
+		MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_ERR_INVALID_CHARS, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_ERR_INVALID_CHARS}" << std::endl;
+			
+		MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_NO_BEST_FIT_CHARS, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_NO_BEST_FIT_CHARS}" << std::endl;
+
+		if (_debug) std::cout << "==== INPUT method: MB_PRECOMPOSED" << std::endl;
+		MultiByteToWideChar(CP_UTF8, MB_PRECOMPOSED, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_COMPOSITECHECK, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_COMPOSITECHECK}" << std::endl;
+			
+		MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_ERR_INVALID_CHARS, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_ERR_INVALID_CHARS}" << std::endl;
+			
+		MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_NO_BEST_FIT_CHARS, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_NO_BEST_FIT_CHARS}" << std::endl;
+
+		if (_debug) std::cout << "==== INPUT method: MB_USEGLYPHCHARS" << std::endl;
+		MultiByteToWideChar(CP_UTF8, MB_USEGLYPHCHARS, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_COMPOSITECHECK, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_COMPOSITECHECK}" << std::endl;
+			
+		MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_ERR_INVALID_CHARS, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_ERR_INVALID_CHARS}" << std::endl;
+			
+		MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, sInvalid, -1, wsValid, size);
+			WideCharToMultiByte(CP_ACP, WC_NO_BEST_FIT_CHARS, wsValid, -1, sValid, size, NULL, NULL);
+			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_NO_BEST_FIT_CHARS}" << std::endl;*/
+
+		return _text;
 	}
 
 	void EString::save_config()

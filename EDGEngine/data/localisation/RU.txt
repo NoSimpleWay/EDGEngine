@@ -1,287 +1,287 @@
-button_text_increase_value	РЈРІРµР»РёС‡РёС‚СЊ Р·РЅР°С‡РµРЅРёРµ
-button_text_decrease_value	РЈРјРµРЅСЊС€РёС‚СЊ Р·РЅР°С‡РµРЅРёРµ
-button_text_close_window	Р—Р°РєСЂС‹С‚СЊ РѕРєРЅРѕ
-rarity_name_normal	РћР±С‹С‡РЅС‹Р№
-rarity_name_magic	РњР°РіРёС‡.
-rarity_name_rare	Р РµРґРєРёР№
-rarity_name_unique	РЈРЅРёРє.
-name_of_suffix/prefix	РќР°Р·РІР°РЅРёРµ СЃСѓС„С„РёРєСЃР°/РїСЂРµС„РёРєСЃР°
-name_of_class	РќР°Р·РІР°РЅРёРµ РєР»Р°СЃСЃР°
-name_of_prophecy	РќР°Р·РІР°РЅРёРµ РїСЂРѕСЂРѕС‡РµСЃС‚РІР°
-press_me	=РќР°Р¶РјРё РјРµРЅСЏ=
-open_loot_filter	РћС‚РєСЂС‹С‚СЊ Р»СѓС‚-С„РёР»СЊС‚СЂ
-save_loot_filter	РЎРѕС…СЂР°РЅРёС‚СЊ Р»СѓС‚ С„РёР»СЊС‚СЂ
-create_new_loot_filter	РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ Р»СѓС‚-С„РёР»СЊС‚СЂ
-text_hue	Р¦РІРµС‚РѕРІРѕР№ С‚РѕРЅ
-text_saturation	РќР°СЃС‹С‰РµРЅРЅРѕСЃС‚СЊ
-text_brightness	РЇСЂРєРѕСЃС‚СЊ
-text_alpha	РџСЂРѕР·СЂР°С‡РЅРѕСЃС‚СЊ
-text_font_size	РћР°Р·РјРµСЂ С€СЂРёС„С‚Р°
-text_sound_volume	Р“СЂРѕРјРєРѕСЃС‚СЊ Р·РІСѓРєРѕРІ
-text_scroll	РџСЂРѕРєСЂСѓС‚РєР°
-text_default_sound	РЎС‚Р°РЅРґР°СЂС‚РЅС‹Р№ Р·РІСѓРє
-description_default_sound	Р’С‹Р±СЂР°С‚СЊ РѕРґРёРЅ Р·РІСѓРєРѕРІ, РїРѕСЃС‚Р°РІР»СЏРµРјС‹С… РІРјРµСЃС‚Рµ СЃ РёРіСЂРѕР№
-text_custom_sound	РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ Р·РІСѓРє
-desciption_custom_sound	Р’С‹Р±СЂР°С‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ Р·РІСѓРє РёР· РїР°РїРєРё "my games/Path of Exile"
-button_add_explicit_group	РЎРїРёСЃРѕРє СЃСѓС„С„РёРєСЃРѕРІ/РїСЂРµС„РёРєСЃРѕРІ
-description_add_explicit_group	Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ СЃРїРёСЃРѕРє СЃСѓС„С„РёРєСЃРѕРІ/РїСЂРµС„РёРєСЃРѕРІ
-button_activate_class	РЎРїРёСЃРѕРє РєР»Р°СЃСЃРѕРІ
-description_activate_class	Р”РѕР±Р°РІРёС‚СЊ СЃРїРёСЃРѕРє РєР»Р°СЃСЃРѕРІ РїСЂРµРґРјРµС‚РѕРІ (СЃР°РїРѕРіРё, РґРІСѓСЂСѓС‡РЅРѕРµ РѕСЂСѓР¶РёРµ, РІР°Р»СЋС‚Р° Рё С‚.Рґ.)
-button_activate_prophecy	РЎРїРёСЃРѕРє РїСЂРѕСЂРѕС‡РµСЃС‚РІ
-description_activate_prophecy	Р”РѕР±Р°РІРёС‚СЊ СЃРїРёСЃРѕРє РЅР°Р·РІР°РЅРёСЏ РїСЂРѕСЂРѕС‡РµСЃС‚РІ
-button_new_filter_item	Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ РїСЂРµРґРјРµС‚
-description_button_visual_mode	РќР°СЃС‚СЂРѕРёС‚СЊ С†РІРµС‚Р°, Р·РІСѓРєРё, СЂР°Р·РјРµСЂ С€СЂРёС„С‚Р°
-description_play_sound	Р’РѕСЃРїСЂРѕРёР·РІРµСЃС‚Рё Р·РІСѓРє РґСЂРѕРїР°
-description_new_base_data_vertical_list	Р”РѕР±Р°РІРёС‚СЊ РїР°СЂР°РјРµС‚СЂ Р±Р»РѕРєР° (СЂРµРґРєРѕСЃС‚СЊ, СѓСЂРѕРІРµРЅСЊ, РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРІСЏР·РµР№ Рё С‚.Рґ.)
-description_new_EPC	Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ СЃСѓС„С„РёРєСЃ/РїСЂРµС„РёРєСЃ, РєР»Р°СЃСЃ, РёР»Рё РїСЂРѕСЂРѕС‡РµСЃС‚РІРѕ
-base_data_text_rarity	Р РµРґРєРѕСЃС‚СЊ
-base_data_text_level	РЈСЂРѕРІРµРЅСЊ
-base_data_text_req_level	РўСЂРµР±СѓРµРјС‹Р№ СѓСЂРѕРІРµРЅСЊ
-base_data_text_sockets	Р“РЅС‘Р·РґР°
-base_data_text_links	РЎРІСЏР·Рё
-base_data_text_sockets_colour	Р¦РІРµС‚Р° РіРЅС‘Р·Рґ
-base_data_text_quality	РљР°С‡РµСЃС‚РІРѕ
-base_data_text_gem_level	РЈСЂРѕРІРµРЅСЊ РєР°РјРЅСЏ
-base_data_text_map_tier	РўРёСЂ РєР°СЂС‚С‹
-base_data_text_shaper_map	РљР°СЂС‚Р° РЁРµР№РїРµСЂР°
-base_data_text_elder_map	РљР°СЂС‚Р° Р”СЂРµРІРЅРµРіРѕ
-base_data_text_height	Р’С‹СЃРѕС‚Р° РїСЂРµРґРјРµС‚Р°
-base_data_text_width	РЁРёСЂРёРЅР° РїСЂРµРґРјРµС‚Р°
-base_data_text_quantity	РљРѕР»РёС‡РµСЃС‚РІРѕ
-base_data_text_corrupted	РћСЃРєРІРµСЂРЅС‘РЅРЅС‹Р№
-base_data_text_shaper_item	РџСЂРµРґРјРµС‚ РЁРµР№РїРµСЂР°
-base_data_text_elder_item	РџСЂРµРґРјРµС‚ Р”СЂРµРІРЅРµРіРѕ
-base_data_text_synthesis	РЎРёРЅС‚РµР·РёСЂРѕРІР°РЅРЅС‹Р№
-base_data_text_fractured	Р Р°СЃРєРѕР»РѕС‚С‹Р№
-base_data_text_enchanted	РРјРµРµС‚ Р·Р°С‡Р°СЂРѕРІР°РЅРёРµ
-base_data_text_identified	РћРїРѕР·РЅР°РЅРЅС‹Р№
-description_remove_explicit_group	РЈРґР°Р»РёС‚СЊ СЃРїРёСЃРѕРє РїСЂРµС„РёРєСЃРѕРІ/СЃСѓС„С„РёРєСЃРѕРІ
-description_add_new_explicit_group_list	Р”РѕР±Р°РІРёС‚СЊ СЃРїРёСЃРѕРє СЃСѓС„С„РёРєСЃРѕРІ/РїСЂРµС„РёРєСЃРѕРІ
-description_add_new_class	Р”РѕР±Р°РІРёС‚СЊ РєР»Р°СЃСЃ РІ СЃРїРёСЃРѕРє (РїРµСЂС‡Р°С‚РєРё, РєР°СЂС‚С‹, РІР°Р»СЋС‚Р° Рё С‚.Рґ.)
-description_add_new_prophecy	Р”РѕР±Р°РІРёС‚СЊ РїСЂРѕСЂРѕС‡РµСЃС‚РІРѕ РІ СЃРїРёСЃРѕРє
-description_remove_class	РЈРґР°Р»РёС‚СЊ СЃРїРёСЃРѕРє РєР»Р°СЃСЃРѕРІ
-description_remove_prophecies	РЈРґР°Р»РёС‚СЊ СЃРїРёСЃРѕРє РїСЂРѕСЂРѕС‡РµСЃС‚РІ
-description_show_hide_block	РџРѕРєР°Р·Р°С‚СЊ/СЃРєСЂС‹С‚СЊ
-description_raise_block	РџРѕРґРЅСЏС‚СЊ Р±Р»РѕРє РІС‹С€Рµ
-description_lower_block	РћРїСѓСЃС‚РёС‚СЊ Р±Р»РѕРє РЅРёР¶Рµ
-description_add_new_filter_block	Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ Р±Р»РѕРє
-description_remove_block	РЈР”РђР›РРўР¬ Р±Р»РѕРє
-description_click_to_edit	РќР°Р¶РјРёС‚Рµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ
-description_new_base_data	Р”РѕР±Р°РІРёС‚СЊ РїР°СЂР°РјРµС‚СЂ Р±Р»РѕРєР° (СЂРµРґРєРѕСЃС‚СЊ, СѓСЂРѕРІРµРЅСЊ, РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРІСЏР·РµР№ Рё С‚.Рґ.)
-button_set_ray_is_tempotary	Р’СЂРµРјРµРЅРЅС‹Р№ Р»СѓС‡
-description_tempotary_ray	РЎРґРµР»Р°С‚СЊ Р»СѓС‡ РІСЂРµРјРµРЅРЅС‹Рј
-button_add_explicit_group	Р”РѕР±Р°РІРёС‚СЊ СЃСѓС„С„РёРєСЃ/РїСЂРµС„РёРєСЃ
-description_add_explicit_group	Р”РѕР±Р°РІРёС‚СЊ СЃРїРёСЃРѕРє СЃСѓС„С„РёРєСЃРѕРІ/РїСЂРµС„РёРєСЃРѕРІ
-button_set_ray_is_constant	РџРѕСЃС‚РѕСЏРЅРЅС‹Р№ Р»СѓС‡
-description_set_ray_is_constant	РЎРґРµР»Р°С‚СЊ Р»СѓС‡ РїРѕСЃС‚РѕСЏРЅРЅС‹Рј
-button_cancel_remove_filter_block	РћРўРњР•РќРРўР¬ РЈР”РђР›Р•РќРР•!
-description_cancel_remove_filter_block	РћС‚РјРµРЅСЏРµС‚ СѓРґР°Р»РµРЅРёРµ
-description_new_loot_filter_name	РќР°Р·РІР°РЅРёРµ РЅРѕРІРѕРіРѕ Р»СѓС‚-С„РёР»СЊС‚СЂР°
-hint_new_loot_filter_name	РџСЂРёРґСѓРјР°Р№С‚Рµ РЅР°Р·РІР°РЅРёРµ
-button_new_loot_filter_ok	РћРљ
-description_new_loot_filter_ok	РЎРѕР·РґР°С‚СЊ РЅРѕРІС‹Р№ Р»СѓС‚-С„РёР»СЊС‚СЂ
-description_minimap_icon_select_shape	Р’С‹Р±СЂР°С‚СЊ С„РѕСЂРјСѓ РёРєРѕРЅРєРё РјРёРЅРёРєР°СЂС‚С‹
-description_minimap_icon_select_color	Р’С‹Р±СЂР°С‚СЊ С†РІРµС‚ РёРєРѕРЅРєРё РјРёРЅРёРєР°СЂС‚С‹
-description_minimap_icon_select_size	Р’С‹Р±СЂР°С‚СЊ СЂР°Р·РјРµСЂ РёРєРѕРЅРєРё РјРёРЅРёРєР°СЂС‚С‹
-text_minimap_icon_select_size_big	Р‘РѕР»СЊС€РѕР№
-description_minimap_icon_select_size_big	Р‘РѕР»СЊС€РѕР№ СЂР°Р·РјРµСЂ РёРєРѕРЅРєРё
-text_minimap_icon_select_size_medium	РЎСЂРµРґРЅРёР№
-description_minimap_icon_select_size_medium	РЎСЂРµРґРЅРёР№ СЂР°Р·РјРµСЂ РёРєРѕРЅРєРё
-text_minimap_icon_select_size_small	РњР°Р»РµРЅСЊРєРёР№
-description_minimap_icon_select_size_small	РњР°Р»РµРЅСЊРєРёР№ СЂР°Р·РјРµСЂ РёРєРѕРЅРєРё
-description_set_ray_color	Р¦РІРµС‚ Р»СѓС‡Р°
-description_set_ray_deactivate	РћС‚РєР»СЋС‡РёС‚СЊ Р»СѓС‡
-text_border_color	Р¦РІРµС‚ СЂР°РјРєРё
-text_text_color	Р¦РІРµС‚ С‚РµРєСЃС‚Р°
-text_bg_color	Р¦РІРµС‚ С„РѕРЅР°
-text_text_size	Р Р°Р·РјРµСЂ С€СЂРёС„С‚Р°
-description_increase_red_socket	РЈРІРµР»РёС‡РёС‚СЊ С‡РёСЃР»Рѕ РєСЂР°СЃРЅС‹С… РіРЅС‘Р·Рґ
-description_increase_green_socket	РЈРІРµР»РёС‡РёС‚СЊ С‡РёСЃР»Рѕ Р·РµР»С‘РЅС‹С… РіРЅС‘Р·Рґ
-description_increase_blue_socket	РЈРІРµР»РёС‡РёС‚СЊ С‡РёСЃР»Рѕ СЃРёРЅРёС… РіРЅС‘Р·Рґ
-description_increase_white_socket	РЈРІРµР»РёС‡РёС‚СЊ С‡РёСЃР»Рѕ Р±РµР»С‹С… РіРЅС‘Р·Рґ
-description_decrease_red_socket	РЈРІРµР»РёС‡РёС‚СЊ С‡РёСЃР»Рѕ РєСЂР°СЃРЅС‹С… РіРЅС‘Р·Рґ
-description_decrease_green_socket	РЈРјРµРЅСЊС€РёС‚СЊ С‡РёСЃР»Рѕ Р·РµР»С‘РЅС‹С… РіРЅС‘Р·Рґ
-description_decrease_blue_socket	РЈРјРµРЅСЊС€РёС‚СЊ С‡РёСЃР»Рѕ СЃРёРЅРёС… РіРЅС‘Р·Рґ
-description_decrease_white_socket	РЈРјРµРЅСЊС€РёС‚СЊ С‡РёСЃР»Рѕ Р±РµР»С‹С… РіРЅС‘Р·Рґ
-description_scroll	Р—РЅР°С‡РµРЅРёРµ РїСЂРѕРєСЂСѓС‚РєРё
-hint_input_search_item	Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРµРґРјРµС‚Р°
-cached_text_search	РџРѕРёСЃРє
-hint_default_sound	Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р·РІСѓРєР°
-hint_custom_sound	Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р·РІСѓРєР°
-hint_input_base_class_name	Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєР»Р°СЃСЃР°
-hint_input_prophecy_name	Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРѕСЂРѕС‡РµСЃС‚РІР°
-help_right_click_play_sound	РќР°Р¶РјРёС‚Рµ РїСЂР°РІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё РґР»СЏ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёСЏ
-help_open_loot_filter_window	РЎРїРёСЃРѕРє Р»СѓС‚-С„РёР»СЊС‚СЂРѕРІ РёР· "my games/Path of Exile"
-hint_input_filter_block_search	РџРѕРёСЃРє РїРѕ С‚РµРєСЃС‚Сѓ
-description_open_loot_simulator_window	РћС‚РєСЂС‹С‚СЊ РѕРєРЅРѕ СЃРёРјСѓР»СЏС‚РѕСЂР° Р»СѓС‚Р°
-description_configue_font	РќР°СЃС‚СЂРѕРёС‚СЊ С€СЂРёС„С‚
-description_configue_language	РќР°СЃС‚СЂРѕРёС‚СЊ СЏР·С‹Рє
-text_open_loot_simulator_pattern_window	Р’С‹Р±СЂР°С‚СЊ С€Р°Р±Р»РѕРЅ
-description_open_loot_simulator_pattern_window	Р’С‹Р±СЂР°С‚СЊ С€Р°Р±Р»РѕРЅ Р»СѓС‚Р° РёР· СЃРїРёСЃРєР°
-description_bright_bg	РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЏСЂРєРёР№ С„РѕРЅ
-description_dark_bg	РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С‚С‘РјРЅС‹Р№ С„РѕРЅ
-description_refresh_loot_simulator	РџРµСЂРµСЃРѕР·РґР°С‚СЊ Р»СѓС‚
-text_accept	РџСЂРёРЅСЏС‚СЊ
-text_cancel	РћС‚РјРµРЅРёС‚СЊ
-window_text_unsaved_changes	Р’РќРРњРђРќРР•! РќРµСЃРѕС…СЂР°РЅС‘РЅРЅС‹Рµ РґР°РЅРЅС‹Рµ! Р•СЃР»Рё РІС‹ РїСЂРѕРґРѕР»Р¶РёС‚Рµ, РІС‹ РїРѕС‚РµСЂСЏРµС‚Рµ РёС…!
-base_data_text_blighted	Р—Р°СЂР°Р¶. РєР°СЂС‚Р°
-window_text_remove_separator	Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СѓРґР°Р»РёС‚СЊ СЂР°Р·РґРµР»РёС‚РµР»СЊ?
-description_clone_filter_block	РљРѕРїРёСЂРѕРІР°С‚СЊ Р±Р»РѕРє
-description_add_separator	Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ СЂР°Р·РґРµР»РёС‚РµР»СЊ
-description_cut_filter_block	РџРµСЂРµРјРµСЃС‚РёС‚СЊ Р±Р»РѕРє РІ РЅРѕРІРѕРµ РјРµСЃС‚Рѕ
-button_add_enchantment_list	Р”РѕР±Р°РІРёС‚СЊ Р·Р°С‡Р°СЂРѕРІР°РЅРёРµ
-description_add_enchantment_list	Р”РѕР±Р°РІРёС‚СЊ СЃРїРёСЃРѕРє Р·Р°С‡Р°СЂРѕРІР°РЅРёР№
-hint_input_search_passives	РџРѕРёСЃРє РІ РїР°СЃСЃРёРІРЅС‹С… СѓРјРµРЅРёСЏС…
-oil_name_clear	РџСЂРѕР·СЂР°С‡РЅРѕРµ РјР°СЃР»Рѕ
-oil_name_sepia	РљРѕСЂРёС‡РЅРµРІРѕРµ РјР°СЃР»Рѕ
-oil_name_amber	РЇРЅС‚Р°СЂРЅРѕРµ РњР°СЃР»Рѕ
-oil_name_verdant	РР·СѓРјСЂСѓРґРЅРѕРµ РјР°СЃР»Рѕ
-oil_name_teal	Р‘РёСЂСЋР·РѕРІРѕРµ РјР°СЃР»Рѕ
-oil_name_azure	Р›Р°Р·СѓСЂРЅРѕРµ РјР°СЃР»Рѕ
-oil_name_violet	Р¤РёРѕР»РµС‚РѕРІРѕРµ РјР°СЃР»Рѕ
-oil_name_crimson	РђР»РѕРµ РјР°СЃР»Рѕ
-oil_name_black	Р§С‘СЂРЅРѕРµ РјР°СЃР»Рѕ
-oil_name_opalescent	РџРµСЂР»Р°РјСѓС‚СЂРѕРІРѕРµ РјР°СЃР»Рѕ
-oil_name_silver	РЎРµСЂРµР±СЂСЏРЅРѕРµ РјР°СЃР»Рѕ
-oil_name_golden	Р—РѕР»РѕС‚РѕРµ РјР°СЃР»Рѕ
-hint_input_search_loot_filter	Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р»СѓС‚-С„РёР»СЊС‚СЂР°
-description_autogen_check_very_low	Р’РєР»СЋС‡РёС‚СЊ/РІС‹РєР»СЋС‡РёС‚СЊ СЃРѕС…СЂР°РЅРµРЅРёРµ СЌС‚РѕРіРѕ Р±Р»РѕРєР° РґР»СЏ "РѕС‡РµРЅСЊ РЅРёР·РєРѕР№" РІРµСЂСЃРёРё РІР°С€РµРіРѕ Р»СѓС‚-С„РёР»СЊС‚СЂР°
-description_autogen_check_low	Р’РєР»СЋС‡РёС‚СЊ/РІС‹РєР»СЋС‡РёС‚СЊ СЃРѕС…СЂР°РЅРµРЅРёРµ СЌС‚РѕРіРѕ Р±Р»РѕРєР° РґР»СЏ "РЅРёР·РєРѕР№" РІРµСЂСЃРёРё РІР°С€РµРіРѕ Р»СѓС‚-С„РёР»СЊС‚СЂР°
-description_autogen_check_default	Р’РєР»СЋС‡РёС‚СЊ/РІС‹РєР»СЋС‡РёС‚СЊ СЃРѕС…СЂР°РЅРµРЅРёРµ СЌС‚РѕРіРѕ Р±Р»РѕРєР° РґР»СЏ "СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№" РІРµСЂСЃРёРё РІР°С€РµРіРѕ Р»СѓС‚-С„РёР»СЊС‚СЂР°
-description_autogen_check_rich	Р’РєР»СЋС‡РёС‚СЊ/РІС‹РєР»СЋС‡РёС‚СЊ СЃРѕС…СЂР°РЅРµРЅРёРµ СЌС‚РѕРіРѕ Р±Р»РѕРєР° РґР»СЏ "Р±РѕРіР°С‚РѕР№" РІРµСЂСЃРёРё РІР°С€РµРіРѕ Р»СѓС‚-С„РёР»СЊС‚СЂР°
-description_autogen_check_very_rich	Р’РєР»СЋС‡РёС‚СЊ/РІС‹РєР»СЋС‡РёС‚СЊ СЃРѕС…СЂР°РЅРµРЅРёРµ СЌС‚РѕРіРѕ Р±Р»РѕРєР° РґР»СЏ "РѕС‡РµРЅСЊ Р±РѕРіР°С‚РѕР№" РІРµСЂСЃРёРё РІР°С€РµРіРѕ Р»СѓС‚-С„РёР»СЊС‚СЂР°
+button_text_increase_value	Увеличить значение
+button_text_decrease_value	Уменьшить значение
+button_text_close_window	Закрыть окно
+rarity_name_normal	Обычный
+rarity_name_magic	Магич.
+rarity_name_rare	Редкий
+rarity_name_unique	Уник.
+name_of_suffix/prefix	Название суффикса/префикса
+name_of_class	Название класса
+name_of_prophecy	Название пророчества
+press_me	=Нажми меня=
+open_loot_filter	Открыть лут-фильтр
+save_loot_filter	Сохранить лут фильтр
+create_new_loot_filter	Создать новый лут-фильтр
+text_hue	Цветовой тон
+text_saturation	Насыщенность
+text_brightness	Яркость
+text_alpha	Прозрачность
+text_font_size	Оазмер шрифта
+text_sound_volume	Громкость звуков
+text_scroll	Прокрутка
+text_default_sound	Стандартный звук
+description_default_sound	Выбрать один звуков, поставляемых вместе с игрой
+text_custom_sound	Пользовательский звук
+desciption_custom_sound	Выбрать пользовательский звук из папки "my games/Path of Exile"
+button_add_explicit_group	Список суффиксов/префиксов
+description_add_explicit_group	Добавить новый список суффиксов/префиксов
+button_activate_class	Список классов
+description_activate_class	Добавить список классов предметов (сапоги, двуручное оружие, валюта и т.д.)
+button_activate_prophecy	Список пророчеств
+description_activate_prophecy	Добавить список названия пророчеств
+button_new_filter_item	Добавить новый предмет
+description_button_visual_mode	Настроить цвета, звуки, размер шрифта
+description_play_sound	Воспроизвести звук дропа
+description_new_base_data_vertical_list	Добавить параметр блока (редкость, уровень, количество связей и т.д.)
+description_new_EPC	Добавить новый суффикс/префикс, класс, или пророчество
+base_data_text_rarity	Редкость
+base_data_text_level	Уровень
+base_data_text_req_level	Требуемый уровень
+base_data_text_sockets	Гнёзда
+base_data_text_links	Связи
+base_data_text_sockets_colour	Цвета гнёзд
+base_data_text_quality	Качество
+base_data_text_gem_level	Уровень камня
+base_data_text_map_tier	Тир карты
+base_data_text_shaper_map	Карта Шейпера
+base_data_text_elder_map	Карта Древнего
+base_data_text_height	Высота предмета
+base_data_text_width	Ширина предмета
+base_data_text_quantity	Количество
+base_data_text_corrupted	Осквернённый
+base_data_text_shaper_item	Предмет Шейпера
+base_data_text_elder_item	Предмет Древнего
+base_data_text_synthesis	Синтезированный
+base_data_text_fractured	Расколотый
+base_data_text_enchanted	Имеет зачарование
+base_data_text_identified	Опознанный
+description_remove_explicit_group	Удалить список префиксов/суффиксов
+description_add_new_explicit_group_list	Добавить список суффиксов/префиксов
+description_add_new_class	Добавить класс в список (перчатки, карты, валюта и т.д.)
+description_add_new_prophecy	Добавить пророчество в список
+description_remove_class	Удалить список классов
+description_remove_prophecies	Удалить список пророчеств
+description_show_hide_block	Показать/скрыть
+description_raise_block	Поднять блок выше
+description_lower_block	Опустить блок ниже
+description_add_new_filter_block	Добавить новый блок
+description_remove_block	УДАЛИТЬ блок
+description_click_to_edit	Нажмите для редактирования
+description_new_base_data	Добавить параметр блока (редкость, уровень, количество связей и т.д.)
+button_set_ray_is_tempotary	Временный луч
+description_tempotary_ray	Сделать луч временным
+button_add_explicit_group	Добавить суффикс/префикс
+description_add_explicit_group	Добавить список суффиксов/префиксов
+button_set_ray_is_constant	Постоянный луч
+description_set_ray_is_constant	Сделать луч постоянным
+button_cancel_remove_filter_block	ОТМЕНИТЬ УДАЛЕНИЕ!
+description_cancel_remove_filter_block	Отменяет удаление
+description_new_loot_filter_name	Название нового лут-фильтра
+hint_new_loot_filter_name	Придумайте название
+button_new_loot_filter_ok	ОК
+description_new_loot_filter_ok	Создать новый лут-фильтр
+description_minimap_icon_select_shape	Выбрать форму иконки миникарты
+description_minimap_icon_select_color	Выбрать цвет иконки миникарты
+description_minimap_icon_select_size	Выбрать размер иконки миникарты
+text_minimap_icon_select_size_big	Большой
+description_minimap_icon_select_size_big	Большой размер иконки
+text_minimap_icon_select_size_medium	Средний
+description_minimap_icon_select_size_medium	Средний размер иконки
+text_minimap_icon_select_size_small	Маленький
+description_minimap_icon_select_size_small	Маленький размер иконки
+description_set_ray_color	Цвет луча
+description_set_ray_deactivate	Отключить луч
+text_border_color	Цвет рамки
+text_text_color	Цвет текста
+text_bg_color	Цвет фона
+text_text_size	Размер шрифта
+description_increase_red_socket	Увеличить число красных гнёзд
+description_increase_green_socket	Увеличить число зелёных гнёзд
+description_increase_blue_socket	Увеличить число синих гнёзд
+description_increase_white_socket	Увеличить число белых гнёзд
+description_decrease_red_socket	Увеличить число красных гнёзд
+description_decrease_green_socket	Уменьшить число зелёных гнёзд
+description_decrease_blue_socket	Уменьшить число синих гнёзд
+description_decrease_white_socket	Уменьшить число белых гнёзд
+description_scroll	Значение прокрутки
+hint_input_search_item	Введите название предмета
+cached_text_search	Поиск
+hint_default_sound	Введите название звука
+hint_custom_sound	Введите название звука
+hint_input_base_class_name	Введите название класса
+hint_input_prophecy_name	Введите название пророчества
+help_right_click_play_sound	Нажмите правую кнопку мыши для воспроизведения
+help_open_loot_filter_window	Список лут-фильтров из "my games/Path of Exile"
+hint_input_filter_block_search	Поиск по тексту
+description_open_loot_simulator_window	Открыть окно симулятора лута
+description_configue_font	Настроить шрифт
+description_configue_language	Настроить язык
+text_open_loot_simulator_pattern_window	Выбрать шаблон
+description_open_loot_simulator_pattern_window	Выбрать шаблон лута из списка
+description_bright_bg	Установить яркий фон
+description_dark_bg	Установить тёмный фон
+description_refresh_loot_simulator	Пересоздать лут
+text_accept	Принять
+text_cancel	Отменить
+window_text_unsaved_changes	ВНИМАНИЕ! Несохранённые данные! Если вы продолжите, вы потеряете их!
+base_data_text_blighted	Зараж. карта
+window_text_remove_separator	Вы уверены, что хотите удалить разделитель?
+description_clone_filter_block	Копировать блок
+description_add_separator	Добавить новый разделитель
+description_cut_filter_block	Переместить блок в новое место
+button_add_enchantment_list	Добавить зачарование
+description_add_enchantment_list	Добавить список зачарований
+hint_input_search_passives	Поиск в пассивных умениях
+oil_name_clear	Прозрачное масло
+oil_name_sepia	Коричневое масло
+oil_name_amber	Янтарное Масло
+oil_name_verdant	Изумрудное масло
+oil_name_teal	Бирюзовое масло
+oil_name_azure	Лазурное масло
+oil_name_violet	Фиолетовое масло
+oil_name_crimson	Алое масло
+oil_name_black	Чёрное масло
+oil_name_opalescent	Перламутровое масло
+oil_name_silver	Серебряное масло
+oil_name_golden	Золотое масло
+hint_input_search_loot_filter	Введите название лут-фильтра
+description_autogen_check_very_low	Включить/выключить сохранение этого блока для "очень низкой" версии вашего лут-фильтра
+description_autogen_check_low	Включить/выключить сохранение этого блока для "низкой" версии вашего лут-фильтра
+description_autogen_check_default	Включить/выключить сохранение этого блока для "стандартной" версии вашего лут-фильтра
+description_autogen_check_rich	Включить/выключить сохранение этого блока для "богатой" версии вашего лут-фильтра
+description_autogen_check_very_rich	Включить/выключить сохранение этого блока для "очень богатой" версии вашего лут-фильтра
 autogen_very_low	_#0[very_low]
 autogen_low	_#1[low]
 autogen_default	_#2[default]
 autogen_rich	_#3[rich]
 autogen_very_rich	_#4[very_rich]
-description_save_autogen_loot_filter	Р“РµРЅРµСЂРёСЂСѓРµС‚ "РѕС‡РµРЅСЊ РЅРёР·РєСѓСЋ", "РЅРёР·РєСѓСЋ", "СЃС‚Р°РЅРґР°СЂС‚РЅСѓСЋ", "Р±РѕРіР°С‚СѓСЋ" Рё "РѕС‡РµРЅСЊ Р±РѕРіР°С‚СѓСЋ" РІРµСЂСЃРёСЋ РІР°С€РµРіРѕ Р»СѓС‚-С„РёР»СЊС‚СЂР°
-button_new_filter_item_equal	РќРѕРІС‹Р№ РїСЂРµРґРјРµС‚ СЃ РўРћР§РќР«Рњ СЃРѕРІРїР°РґРµРЅРёРµРј РїРѕ РёРјРµРЅРё\n\nР­С‚Рѕ РѕР·РЅР°С‡Р°РµС‚, С‡С‚Рѕ Р»СѓС‚ С„РёР»СЊС‚СЂ Р±СѓРґРµС‚ РїРѕРґСЃРІРµС‡РёРІР°С‚СЊ СЌС‚РѕС‚ РїСЂРµРґРјРµС‚ С‚РѕР»СЊРєРѕ,\nРµСЃР»Рё РёРјРµРЅР° Р±СѓРґСѓС‚ СЃРѕРІРїР°РґР°С‚СЊ РїРѕР»РЅРѕСЃС‚СЊСЋ.\n\nРџСЂРёРјРµСЂ: "The Demon" Р±СѓРґРµС‚ РїРѕРґСЃРІРµС‡РёРІР°С‚СЊ С‚РѕР»СЊРєРѕ "The Demon"\nРё РЅРµ Р±СѓРґРµС‚ РїРѕРґСЃРІРµС‡РёРІР°С‚СЊ "The Demoness"
-description_open_oil_window	РћС‚РєСЂС‹С‚СЊ РѕРєРЅРѕ РјР°СЃРµР»
-description_oil_check_button	РќР°Р¶РјРёС‚Рµ Р»РµРІСѓСЋ РєР»Р°РІРёС€Сѓ РјС‹С€Рё, С‡С‚Рѕ Р±С‹ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ 3 РјР°СЃР»Р°.\nРќР°Р¶РјРёС‚Рµ РїСЂР°РІСѓСЋ РєР»Р°РІРёС€Сѓ РјС‹С€Рё, С‡С‚Рѕ Р±С‹ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ 0 РјР°СЃРµР».
-description_press_rmb_to_play_sound	РќР°Р¶РјРёС‚Рµ РїСЂР°РІСѓСЋ РєРЅРѕРїРєСѓ РјС‹С€Рё, С‡С‚Рѕ Р±С‹ РІРѕСЃРїСЂРѕРёР·РІРµСЃС‚Рё Р·РІСѓРє.
-description_drop_list_autogen_loot_simulator	Р‘С‹Р±СЂР°С‚СЊ РІРµСЂСЃРёСЋ РІР°С€РµРіРѕ Р»СѓС‚-С„РёР»СЊС‚СЂР°
-drop_list_element_very_low	РћС‡РµРЅСЊ РЅРёР·РєР°СЏ
-drop_list_element_low	РќРёР·РєР°СЏ
-drop_list_element_default	РћР±С‹С‡РЅР°СЏ
-drop_list_element_rich	Р‘РѕРіР°С‚Р°СЏ
-drop_list_element_very_rich	РћС‡РµРЅСЊ Р±РѕРіР°С‚Р°СЏ
-quality_text	РљР°С‡РµСЃС‚РІРѕ:
-gem_level_text	РЈСЂРѕРІРµРЅСЊ РєР°РјРЅСЏ:
-item_level_text	РЈСЂРѕРІРµРЅСЊ РїСЂРµРґРјРµС‚Р°:
-map_tier_text	РўРёСЂ РєР°СЂС‚С‹:
-corrupted_text	РћСЃРєРІРµСЂРЅС‘РЅРЅС‹Р№:
-base_data_text_and_shaper	(Р) РџСЂ. РЁРµР№РїРµСЂР°
-base_data_text_or_shaper	(РР›Р) РџСЂ. РЁРµР№РїРµСЂР°
-base_data_text_and_elder	(Р) РџСЂ. Р”СЂРµРІРЅРµРіРѕ
-base_data_text_or_elder	(РР›Р) РџСЂ. Р”СЂРµРІРЅРµРіРѕ
-base_data_text_and_crusader	(Р) РљСЂРµСЃС‚РѕРЅРѕСЃС†Р°
-base_data_text_or_crusader	(РР›Р) РљСЂРµСЃС‚РѕРЅРѕСЃС†Р°
-base_data_text_and_redeemer	(Р) РР·Р±Р°РІРёС‚РµР»СЏ
-base_data_text_or_redeemer	(РР›Р) РР·Р±Р°РІРёС‚РµР»СЏ
-base_data_text_and_hunter	(Р) РћС…РѕС‚РЅРёРєР°
-base_data_text_or_hunter	(РР›Р) РћС…РѕС‚РЅРёРєР°
-base_data_text_and_warlord	(Р) Р’РѕР¶РґСЏ
-base_data_text_or_warlord	(РР›Р) Р’РѕР¶РґСЏ
-socket_group_button_description	РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРІСЏР·РµР№ Рё РѕРїСЂРµРґРµР»РµРЅРЅС‹С… С†РІРµС‚РѕРІ РіРЅРµР·Рґ\nР’С‹ РјРѕР¶РµС‚Рµ СѓРєР°Р·С‹РІР°С‚СЊ СЃСЂР°Р·Сѓ РЅРµСЃРєРѕР»СЊРєРѕ РіСЂСѓРїРї СЃРІСЏР·РµР№ С†РІРµС‚РѕРІ\nРќР°Р¶РјРёС‚Рµ, С‡С‚Рѕ Р±С‹ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРІСЏР·РµР№/С†РІРµС‚РѕРІ
-socket_group_button_linked_sockets	РЎРІСЏР·Р°РЅРЅС‹Рµ РіРЅС‘Р·РґР°: 
-socket_group_button_color_red	РљСЂР°СЃРЅС‹Рµ РіРЅС‘Р·РґР°: 
-socket_group_button_color_green	Р—РµР»С‘РЅС‹Рµ РіРЅС‘Р·РґР°: 
-socket_group_button_color_blue	РЎРёРЅРёРµ РіРЅС‘Р·РґР°: 
-socket_group_button_color_white	Р‘РµР»С‹Рµ РіРЅС‘Р·РґР°: 
-socket_group_button_color_abyssal	Р“РЅС‘Р·РґР° Р‘РµР·РґРЅС‹ (С‡С‘СЂРЅС‹Рµ): 
-socket_group_button_color_delve	Р“РЅС‘Р·РґР° РЎРїСѓСЃРєР° (Р¶РµР»С‚С‹Рµ): 
-socket_count_button_description	РљРѕР»РёС‡РµСЃС‚РІРѕ РіРЅС‘Р·Рґ Рё РѕРїСЂРµРґРµР»РµРЅРЅС‹С… С†РІРµС‚РѕРІ РіРЅС‘Р·Рґ\nР’С‹ РјРѕР¶РµС‚Рµ СѓРєР°Р·С‹РІР°С‚СЊ СЃСЂР°Р·Сѓ РЅРµСЃРєРѕР»СЊРєРѕ РіСЂСѓРїРї С†РІРµС‚РѕРІ\nРќР°Р¶РјРёС‚Рµ, С‡С‚Рѕ Р±С‹ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РіРЅС‘Р·Рґ/С†РІРµС‚РѕРІ
-socket_group_button_sockets_count	Р“РЅС‘Р·РґР°: 
-base_data_text_area_level	РЈСЂРѕРІРµРЅСЊ РѕР±Р»Р°СЃС‚Рё
-base_data_text_corruption_implicites	РћСЃРєРІРµСЂРЅС‘РЅРЅС‹Рµ СЃРІРѕР№СЃС‚РІР°
-corrupted_text_mods_count	РљРѕР»РёС‡РµСЃС‚РІРѕ РѕСЃРєРІРµСЂРЅС‘РЅРЅС‹С… СЃРІРѕР№СЃС‚РІ: 
-hint_input_enchantment	Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р·Р°С‡Р°СЂРѕРІР°РЅРёСЏ
-description_area_level_for_loot_simulator	Р’РІРµРґРёС‚Рµ СѓСЂРѕРІРµРЅСЊ Р»РѕРєР°С†РёРё.
-base_data_text_mirrored_item	РћС‚СЂР°Р¶С‘РЅРЅС‹Р№ РїСЂРµРґРјРµС‚
-mirrored_text	-РћРўР РђР–Р•РќРћ-
-manual_loot_text_class	РљР»Р°СЃСЃ РїСЂРµРґРјРµС‚Р°
-manual_loot_text_add_loot_to_simulator	Р”РѕР±Р°РІРёС‚СЊ РїСЂРµРґРјРµС‚
-manual_loot_text_rarity	Р РµРґРєРѕСЃС‚СЊ РїСЂРµРґРјРµС‚Р°
-socket_color_red	РљСЂР°СЃРЅС‹Р№
-socket_color_green	Р—РµР»С‘РЅС‹Р№
-socket_color_blue	РЎРёРЅРёР№
-socket_color_white	Р‘РµР»С‹Р№
-socket_color_abyss	Р‘РµР·РґРЅР°
-socket_color_delve	РЎРїСѓСЃРє
-manual_loot_text_item_level	РЈСЂРѕРІРµРЅСЊ РїСЂРµРґРјРµС‚Р°
-manual_loot_text_sockets	РљРѕР»РёС‡РµСЃС‚РІРѕ РіРЅС‘Р·Рґ
-manual_loot_text_links	РЎРІСЏР·Р°РЅРЅС‹Рµ РіРЅС‘Р·РґР°
-manual_loot_text_socket_color	Р¦РІРµС‚ РіРЅРµР·РґР°
-manual_loot_text_quality	РљР°С‡РµСЃС‚РІРѕ
-manual_loot_text_gem_level	РЈСЂРѕРІРµРЅСЊ РєР°РјРЅСЏ
-manual_loot_text_is_elder_map	РљР°СЂС‚Р° Р”СЂРµРІРЅРµРіРѕ
-manual_loot_text_is_shaper_map	РљР°СЂС‚Р° РЎРѕР·РґР°С‚РµР»СЏ
-manual_loot_text_is_blighted_map	Р—Р°СЂР°Р¶С‘РЅРЅР°СЏ РєР°СЂС‚Р°
-manual_loot_text_is_identified	РћРїРѕР·РЅР°РЅРЅС‹Р№
-manual_loot_text_quantity	РљРѕР»РёС‡РµСЃС‚РІРѕ
-manual_loot_text_height	Р’С‹СЃРѕС‚Р°
-manual_loot_text_width	РЁРёСЂРёРЅР°
-manual_loot_text_is_corrupted	РџСЂРµРґРјРµС‚ РѕСЃРєРІРµСЂРЅС‘РЅ
-manual_loot_text_corruption_count	РћСЃРєРІРµСЂРЅ. СЃРІРѕР№СЃС‚РІР°
-manual_loot_text_is_shaper_item	Р’Р»РёСЏРЅРёРµ РЎРѕР·РґР°С‚РµР»СЏ
-manual_loot_text_is_elder_item	Р’Р»РёСЏРЅРёРµ Р”СЂРµРІРЅРµРіРѕ
-manual_loot_text_is_crusader_item	Р’Р»РёСЏРЅРёРµ РљСЂРµСЃС‚РѕРЅРѕСЃС†Р°
-manual_loot_text_is_redeemer_item	Р’Р»РёСЏРЅРёРµ РР·Р±Р°РІРёС‚РµР»СЏ
-manual_loot_text_is_hunter_item	Р’Р»РёСЏРЅРёРµ РћС…РѕС‚РЅРёРєР°
-manual_loot_text_is_warlord_item	Р’Р»РёСЏРЅРёРµ РІРѕР¶РґСЏ
-manual_loot_text_is_fractured_item	Р Р°СЃРєРѕР»РѕС‚С‹Р№ РїСЂРµРґРјРµС‚
-manual_loot_text_is_synthesised_item	РЎРёРЅС‚РµР·. РїСЂРµРґРјРµС‚
-manual_loot_text_is_enchanted_item	Р—Р°С‡Р°СЂРѕРІР°РЅРёРµ Р»Р°Р±РёСЂРёРЅС‚Р°
-manual_loot_text_is_mirrored_item	Р—РµСЂРєР°Р»СЊРЅР°СЏ РєРѕРїРёСЏ
-open_manual_window_localisation	РћС‚РєСЂС‹С‚СЊ РѕРєРЅРѕ СЂСѓС‡РЅРѕРіРѕ РґРѕР±Р°РІР»РµРЅРёСЏ Р»СѓС‚Р°
-clear_loot_from_simulator	РћС‡РёСЃС‚РёС‚СЊ СЌРєСЂР°РЅ, СѓРґР°Р»РёРІ РІРµСЃСЊ Р»СѓС‚.
-description_continue	Р’РєР»СЋС‡РёС‚СЊ РёР»Рё РІС‹РєР»СЋС‡РёС‚СЊ РїР°СЂР°РјРµС‚СЂ "continue".\nР•СЃР»Рё РїР°СЂР°РјРµС‚СЂ РІРєР»СЋС‡С‘РЅ, РїРѕРёСЃРє Р±Р»РѕРєР° РЅРµ РїСЂРµРєСЂР°С‰Р°РµС‚СЃСЏ\nРїСЂРё РїРѕРґС…РѕРґСЏС‰РёС… СѓСЃР»РѕРІРёСЏС….\nР’РјРµСЃС‚Рѕ СЌС‚РѕРіРѕ Р·Р°РїРѕРјРёРЅР°РµС‚СЃСЏ РїРѕСЃР»РµРґРЅРёР№ РїРѕРґС…РѕРґСЏС‰РёР№ Р±Р»РѕРє,\n Р° Р·Р°С‚РµРј РїРѕРёСЃРє РїСЂРѕРґРѕР»Р¶Р°РµС‚СЃСЏ.
-description_deactivate_block	Р’С‹РєР»СЋС‡Р°РµС‚ РІСЃРµ Р±Р»РѕРєРё РјРµР¶РґСѓ 2 СЂР°Р·РґРµР»РёС‚РµР»СЏРјРё. Р’С‹РєР»СЋС‡РµРЅРЅС‹Рµ Р±Р»РѕРєРё РЅРµ СЃРѕС…СЂР°РЅСЏСЋС‚СЃСЏ РІ Р»СѓС‚-С„РёР»СЊС‚СЂ
-description_activate_block	Р’РєР»СЋС‡Р°РµС‚ РІСЃРµ Р±Р»РѕРєРё РјРµР¶РґСѓ СЂР°Р·РґРµР»РёС‚РµР»СЏРјРё.
-description_remove_separator	РЈРґР°Р»РёС‚СЊ СЂР°Р·РґРµР»РёС‚РµР»СЊ
-description_header_separator	РљРѕРјРјРµРЅС‚Р°СЂРёР№ РґР»СЏ СЂР°Р·РґРµР»РёС‚РµР»СЏ. РќР°Р¶РјРёС‚Рµ, С‡С‚Рѕ Р±С‹ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ.
-description_collapse_separator	РЎРєСЂС‹С‚СЊ/СЂР°СЃРєСЂС‹С‚СЊ Р±Р»РѕРєРё РјРµР¶РґСѓ 2 СЂР°Р·РґРµР»РёС‚РµР»СЏРјРё\n\nРќР°Р¶РјРёС‚Рµ РџРљРњ, С‡С‚Рѕ Р±С‹ СЃРІРµСЂРЅСѓС‚СЊ Р’РЎР• Р±Р»РѕРєРё.\n\nРќР°Р¶РјРёС‚Рµ СЃ РЅР°Р¶Р°С‚С‹Рј SHIFT, С‡С‚Рѕ Р±С‹ СЂР°СЃРєСЂС‹С‚СЊ Р’РЎР• Р±Р»РѕРєРё
-hint_header_separator	Р’РІРµРґРёС‚Рµ РєРѕРјРјРµРЅС‚Р°СЂРёР№
-button_add_cluster_enchantment_list	РќРѕРІС‹Р№ СЃРїРёСЃРѕРє Р·Р°С‡Р°СЂРѕРІР°РЅРёР№ СЃР°РјРѕС†РІРµС‚Р°
-Add new cluster jewel enchantment	Р”РѕР±Р°РІР»СЏРµС‚ СЃРїРёСЃРѕРє Р·Р°С‡Р°СЂРѕРІР°РЅРёР№, РєРѕС‚РѕСЂС‹Рµ РјРѕРіСѓС‚ Р±С‹С‚СЊ РЅР° РєР»Р°СЃС‚РµСЂРЅРѕРј СЃР°РјРѕС†РІРµС‚Рµ
-base_data_or_no_influence	(РР›Р)Р‘РµР· РІР»РёСЏРЅРёСЏ
-base_data_and_no_influence	(Р)Р‘РµР· РІР»РёСЏРЅРёСЏ
-alternate_quality_text	РР·РјРµРЅС‘РЅРЅРѕРµ РєР°С‡РµСЃС‚РІРѕ!
-replica_text	РљРѕРїРёСЏ
-base_data_alternate_quality	РђР»СЊС‚РµСЂРЅ. РєР°С‡РµСЃС‚РІРѕ
-base_data_replica	РљРѕРїРёСЏ СѓРЅРёРєР°
-influence_oneof	РћРґРЅРѕ РёР·
-influence_all	Р’СЃРµ
-influence_none	РќРёС‡РµРіРѕ
-influence_description	"РћРґРЅРѕ РёР·" - РїСЂРµРґРјРµС‚ СЃРѕРґРµСЂР¶РёС‚ РѕРґРЅРѕ РёР· РІС‹Р±СЂР°РЅРЅС‹С… РІР»РёСЏРЅРёР№ \n"Р’СЃРµ" - РїСЂРµРґРјРµС‚ РґРѕР»Р¶РµРЅ РёРјРµС‚СЊ РІСЃРµ РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹Рµ РІР»РёСЏРЅРёСЏ\n"РќРёС‡РµРіРѕ" - РџСЂРµРґРјРµС‚ РЅРµ РґРѕР»Р¶РµРЅ СЃРѕРґРµСЂР¶Р°С‚СЊ РЅРё РѕРґРЅРѕРіРѕ РІР»РёСЏРЅРёСЏ\n"РРіРЅРѕСЂРёСЂРѕРІР°С‚СЊ" - РёРіРЅРѕСЂРёСЂСѓРµС‚ РЅР°Р»РёС‡РёРµ РёР»Рё РѕС‚СЃСѓС‚СЃС‚РІРёРµ РІР»РёСЏРЅРёР№
-influence_ignore	РРіРЅРѕСЂ.
-description_switcher_influence_crusader	Р’Р»РёСЏРЅРёРµ РљСЂРµСЃС‚РѕРЅРѕСЃС†Р°
-description_switcher_influence_elder	Р’Р»РёСЏРЅРёРµ Р”СЂРµРІРЅРµРіРѕ
-description_switcher_influence_hunter	Р’Р»РёСЏРЅРёРµ РћС…РѕС‚РЅРёРєР°
-description_switcher_influence_redeemer	Р’Р»РёСЏРЅРёРµ РСЃРєСѓРїРёС‚РµР»СЏ
-description_switcher_influence_shaper	Р’Р»РёСЏРЅРёРµ РЎРѕР·РґР°С‚РµР»СЏ
-description_switcher_influence_warlord	Р’Р»РёСЏРЅРёРµ Р’РѕР¶РґСЏ
-description_special_status_alternate_quality	РђР»СЊС‚РµСЂРЅР°С‚РёРІРЅРѕРµ РєР°С‡РµСЃС‚РІРѕ
-description_special_status_blighted	Р—Р°СЂР°Р¶С‘РЅРЅС‹Р№ РїСЂРµРґРјРµС‚
-description_special_status_corrupted	РћСЃРєРІРµСЂРЅРµРЅРѕ
-description_special_status_enchanted	Р›СЋР±РѕРµ Р·Р°С‡Р°СЂРѕРІР°РЅРёРµ
-description_special_status_fractured	РџСЂРµРґРјРµС‚ РёРјРµРµС‚ СЂР°СЃРєРѕР»РѕС‚РѕРµ СЃРІРѕР№СЃС‚РІРѕ
-description_special_status_identified	РџСЂРµРґРјРµС‚ РѕРїРѕР·РЅР°РЅ
-description_special_status_mirrored	Р—РµСЂРєР°Р»СЊРЅР°СЏ РєРѕРїРёСЏ
-description_special_status_replica	РљРѕРїРёСЏ СѓРЅРёРєР°Р»СЊРЅРѕРіРѕ РїСЂРµРґРјРµС‚Р°
-description_special_status_synthesised	РЎРёРЅС‚РµР·РёСЂРѕРІР°РЅРЅРѕРµ СЃРѕР±СЃС‚РІРµРЅРЅРѕРµ СЃРІРѕР№СЃС‚РІРѕ
-alternate_quality_name_divergent	РСЃРєСЂРёРІР»С‘РЅРЅС‹Р№
-alternate_quality_name_phantasmal	Р¤Р°РЅС‚РѕРјРЅС‹Р№
-alternate_quality_name_anomalous	РђРЅРѕРјР°Р»СЊРЅС‹Р№
-small_cluster_passives	Р”РѕР±Р°РІР»СЏРµС‚ РјР°Р»С‹С… РїР°СЃСЃРёРІРЅС‹С… СѓРјРµРЅРёР№:
-manual_loot_text_cluster_passives_count	РџР°СЃСЃРёРІРєРё РєР»Р°СЃС‚РµСЂР°
-manual_loot_text_alternate_quality	РђР»СЊС‚РµСЂРЅ. РєР°С‡РµСЃС‚РІРѕ
-alternate_quality_name_none	РќРµС‚
-socket_color_none	Р‘РµР· С†РІРµС‚Р°
-exact_match	РџРѕР»РЅРѕРµ СЃРѕРІРїР°РґРµРЅРёРµ
-non_exact_match	Р§Р°СЃС‚РёС‡РЅРѕРµ СЃРѕРІРїР°РґРµРЅРёРµ
-exact_match_description	РџРµСЂРµРєР»СЋС‡Р°РµС‚ РјРµР¶РґСѓ С‡Р°СЃС‚РёС‡РЅС‹Рј Рё РїРѕР»РЅС‹Рј СЃРѕРІРїР°РґРµРЅРёРµРј.\n\nР•СЃР»Рё РІС‹Р±СЂР°РЅРѕ С‡Р°СЃС‚РёС‡РЅРѕРµ СЃРѕРІРїР°РґРµРЅРёРµ, С‚Рѕ Р±Р»РѕРє СЃС‡РёС‚Р°РµС‚СЃСЏ РїРѕРґС…РѕРґСЏС‰РёРј, РґР°Р¶Рµ РµСЃР»Рё СЃРѕРІРїР°РґР°РµС‚ С‚РѕР»СЊРєРѕ С‡Р°СЃС‚СЊ РЅР°Р·РІР°РЅРёСЏ.\nРќР°РїСЂРёРјРµСЂ, РµСЃР»Рё РґРѕР±Р°РІРёС‚СЊ РІ Р±Р»РѕРє "РўРѕРїРѕСЂ",С‚Рѕ СЃРѕРІРїР°РґРµРЅРёРµ Р±СѓРґРµС‚ СЃ "Р Р¶Р°РІС‹Р№ С‚РѕРїРѕСЂРёРє", "РљРѕРіРѕС‚СЊ-С‚РѕРїРѕСЂ" Рё С‚.Рґ.\n\n РџСЂРё С‚РѕС‡РЅРѕРј СЃРѕРІРїР°РґРµРЅРёРё РїРѕ РёРјРµРЅРёР»СѓС‚ С„РёР»СЊС‚СЂ Р±СѓРґРµС‚ РїРѕРґСЃРІРµС‡РёРІР°С‚СЊ РїСЂРµРґРјРµС‚ С‚РѕР»СЊРєРѕ, РµСЃР»Рё РёРјРµРЅР° Р±СѓРґСѓС‚ СЃРѕРІРїР°РґР°С‚СЊ РїРѕР»РЅРѕСЃС‚СЊСЋ.\n\nРџСЂРёРјРµСЂ: "The Demon" Р±СѓРґРµС‚ РїРѕРґСЃРІРµС‡РёРІР°С‚СЊ С‚РѕР»СЊРєРѕ "The Demon", Рё РЅРµ Р±СѓРґРµС‚ РїРѕРґСЃРІРµС‡РёРІР°С‚СЊ "The Demoness".
-alternate_quality_anomalous	РђРЅРѕРјР°Р»СЊРЅС‹Р№
-alternate_quality_divergent	РСЃРєСЂРёРІР»РµРЅРЅС‹Р№
-alternate_quality_phantasmal	Р¤Р°РЅС‚РѕРјРЅС‹Р№
+description_save_autogen_loot_filter	Генерирует "очень низкую", "низкую", "стандартную", "богатую" и "очень богатую" версию вашего лут-фильтра
+button_new_filter_item_equal	Новый предмет с ТОЧНЫМ совпадением по имени\n\nЭто означает, что лут фильтр будет подсвечивать этот предмет только,\nесли имена будут совпадать полностью.\n\nПример: "The Demon" будет подсвечивать только "The Demon"\nи не будет подсвечивать "The Demoness"
+description_open_oil_window	Открыть окно масел
+description_oil_check_button	Нажмите левую клавишу мыши, что бы установить 3 масла.\nНажмите правую клавишу мыши, что бы установить 0 масел.
+description_press_rmb_to_play_sound	Нажмите правую кнопку мыши, что бы воспроизвести звук.
+description_drop_list_autogen_loot_simulator	Быбрать версию вашего лут-фильтра
+drop_list_element_very_low	Очень низкая
+drop_list_element_low	Низкая
+drop_list_element_default	Обычная
+drop_list_element_rich	Богатая
+drop_list_element_very_rich	Очень богатая
+quality_text	Качество:
+gem_level_text	Уровень камня:
+item_level_text	Уровень предмета:
+map_tier_text	Тир карты:
+corrupted_text	Осквернённый:
+base_data_text_and_shaper	(И) Пр. Шейпера
+base_data_text_or_shaper	(ИЛИ) Пр. Шейпера
+base_data_text_and_elder	(И) Пр. Древнего
+base_data_text_or_elder	(ИЛИ) Пр. Древнего
+base_data_text_and_crusader	(И) Крестоносца
+base_data_text_or_crusader	(ИЛИ) Крестоносца
+base_data_text_and_redeemer	(И) Избавителя
+base_data_text_or_redeemer	(ИЛИ) Избавителя
+base_data_text_and_hunter	(И) Охотника
+base_data_text_or_hunter	(ИЛИ) Охотника
+base_data_text_and_warlord	(И) Вождя
+base_data_text_or_warlord	(ИЛИ) Вождя
+socket_group_button_description	Количество связей и определенных цветов гнезд\nВы можете указывать сразу несколько групп связей цветов\nНажмите, что бы отредактировать количество связей/цветов
+socket_group_button_linked_sockets	Связанные гнёзда: 
+socket_group_button_color_red	Красные гнёзда: 
+socket_group_button_color_green	Зелёные гнёзда: 
+socket_group_button_color_blue	Синие гнёзда: 
+socket_group_button_color_white	Белые гнёзда: 
+socket_group_button_color_abyssal	Гнёзда Бездны (чёрные): 
+socket_group_button_color_delve	Гнёзда Спуска (желтые): 
+socket_count_button_description	Количество гнёзд и определенных цветов гнёзд\nВы можете указывать сразу несколько групп цветов\nНажмите, что бы отредактировать количество гнёзд/цветов
+socket_group_button_sockets_count	Гнёзда: 
+base_data_text_area_level	Уровень области
+base_data_text_corruption_implicites	Осквернённые свойства
+corrupted_text_mods_count	Количество осквернённых свойств: 
+hint_input_enchantment	Введите название зачарования
+description_area_level_for_loot_simulator	Введите уровень локации.
+base_data_text_mirrored_item	Отражённый предмет
+mirrored_text	-ОТРАЖЕНО-
+manual_loot_text_class	Класс предмета
+manual_loot_text_add_loot_to_simulator	Добавить предмет
+manual_loot_text_rarity	Редкость предмета
+socket_color_red	Красный
+socket_color_green	Зелёный
+socket_color_blue	Синий
+socket_color_white	Белый
+socket_color_abyss	Бездна
+socket_color_delve	Спуск
+manual_loot_text_item_level	Уровень предмета
+manual_loot_text_sockets	Количество гнёзд
+manual_loot_text_links	Связанные гнёзда
+manual_loot_text_socket_color	Цвет гнезда
+manual_loot_text_quality	Качество
+manual_loot_text_gem_level	Уровень камня
+manual_loot_text_is_elder_map	Карта Древнего
+manual_loot_text_is_shaper_map	Карта Создателя
+manual_loot_text_is_blighted_map	Заражённая карта
+manual_loot_text_is_identified	Опознанный
+manual_loot_text_quantity	Количество
+manual_loot_text_height	Высота
+manual_loot_text_width	Ширина
+manual_loot_text_is_corrupted	Предмет осквернён
+manual_loot_text_corruption_count	Оскверн. свойства
+manual_loot_text_is_shaper_item	Влияние Создателя
+manual_loot_text_is_elder_item	Влияние Древнего
+manual_loot_text_is_crusader_item	Влияние Крестоносца
+manual_loot_text_is_redeemer_item	Влияние Избавителя
+manual_loot_text_is_hunter_item	Влияние Охотника
+manual_loot_text_is_warlord_item	Влияние вождя
+manual_loot_text_is_fractured_item	Расколотый предмет
+manual_loot_text_is_synthesised_item	Синтез. предмет
+manual_loot_text_is_enchanted_item	Зачарование лабиринта
+manual_loot_text_is_mirrored_item	Зеркальная копия
+open_manual_window_localisation	Открыть окно ручного добавления лута
+clear_loot_from_simulator	Очистить экран, удалив весь лут.
+description_continue	Включить или выключить параметр "continue".\nЕсли параметр включён, поиск блока не прекращается\nпри подходящих условиях.\nВместо этого запоминается последний подходящий блок,\n а затем поиск продолжается.
+description_deactivate_block	Выключает все блоки между 2 разделителями. Выключенные блоки не сохраняются в лут-фильтр
+description_activate_block	Включает все блоки между разделителями.
+description_remove_separator	Удалить разделитель
+description_header_separator	Комментарий для разделителя. Нажмите, что бы отредактировать.
+description_collapse_separator	Скрыть/раскрыть блоки между 2 разделителями\n\nНажмите ПКМ, что бы свернуть ВСЕ блоки.\n\nНажмите с нажатым SHIFT, что бы раскрыть ВСЕ блоки
+hint_header_separator	Введите комментарий
+button_add_cluster_enchantment_list	Новый список зачарований самоцвета
+Add new cluster jewel enchantment	Добавляет список зачарований, которые могут быть на кластерном самоцвете
+base_data_or_no_influence	(ИЛИ)Без влияния
+base_data_and_no_influence	(И)Без влияния
+alternate_quality_text	Изменённое качество!
+replica_text	Копия
+base_data_alternate_quality	Альтерн. качество
+base_data_replica	Копия уника
+influence_oneof	Одно из
+influence_all	Все
+influence_none	Ничего
+influence_description	"Одно из" - предмет содержит одно из выбранных влияний \n"Все" - предмет должен иметь все перечисленные влияния\n"Ничего" - Предмет не должен содержать ни одного влияния\n"Игнорировать" - игнорирует наличие или отсутствие влияний
+influence_ignore	Игнор.
+description_switcher_influence_crusader	Влияние Крестоносца
+description_switcher_influence_elder	Влияние Древнего
+description_switcher_influence_hunter	Влияние Охотника
+description_switcher_influence_redeemer	Влияние Искупителя
+description_switcher_influence_shaper	Влияние Создателя
+description_switcher_influence_warlord	Влияние Вождя
+description_special_status_alternate_quality	Альтернативное качество
+description_special_status_blighted	Заражённый предмет
+description_special_status_corrupted	Осквернено
+description_special_status_enchanted	Любое зачарование
+description_special_status_fractured	Предмет имеет расколотое свойство
+description_special_status_identified	Предмет опознан
+description_special_status_mirrored	Зеркальная копия
+description_special_status_replica	Копия уникального предмета
+description_special_status_synthesised	Синтезированное собственное свойство
+alternate_quality_name_divergent	Искривлённый
+alternate_quality_name_phantasmal	Фантомный
+alternate_quality_name_anomalous	Аномальный
+small_cluster_passives	Добавляет малых пассивных умений:
+manual_loot_text_cluster_passives_count	Пассивки кластера
+manual_loot_text_alternate_quality	Альтерн. качество
+alternate_quality_name_none	Нет
+socket_color_none	Без цвета
+exact_match	Полное совпадение
+non_exact_match	Частичное совпадение
+exact_match_description	Переключает между частичным и полным совпадением.\n\nЕсли выбрано частичное совпадение, то блок считается подходящим, даже если совпадает только часть названия.\nНапример, если добавить в блок "Топор",то совпадение будет с "Ржавый топорик", "Коготь-топор" и т.д.\n\n При точном совпадении по именилут фильтр будет подсвечивать предмет только, если имена будут совпадать полностью.\n\nПример: "The Demon" будет подсвечивать только "The Demon", и не будет подсвечивать "The Demoness".
+alternate_quality_anomalous	Аномальный
+alternate_quality_divergent	Искривленный
+alternate_quality_phantasmal	Фантомный

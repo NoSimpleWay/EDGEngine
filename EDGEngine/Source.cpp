@@ -368,20 +368,11 @@ void load_prophecy_list()
 
 			if (subdata_array[i] == "RU name")
 			{
-				char sInvalid[1024];
-				strcpy_s(sInvalid, subdata_array[i + 1].c_str());
-				//комментарии
-
-				int size = strlen(sInvalid) + 1;
-				wchar_t* wsValid = new wchar_t[size];
-				char* sValid = new char[size];
-
-				MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
-				WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
+				
 
 				//cout << "A: " << wsValid << " B: " << sValid << endl;
 
-				just_created_prophecy->ru_name = sValid;
+				just_created_prophecy->ru_name = EString::to_cyrillic(subdata_array[i + 1]);
 			}
 
 			if (subdata_array[i] == "tier")
@@ -405,7 +396,7 @@ void load_prophecy_list()
 
 		}
 
-		std::cout
+		/*std::cout
 		<<
 		"PROPHECY: base name ["
 		<<
@@ -421,7 +412,7 @@ void load_prophecy_list()
 		<<
 		"]"
 		<<
-		std::endl;
+		std::endl;*/
 
 		EString::prophecy_list.push_back(just_created_prophecy);
 
@@ -728,20 +719,7 @@ void load_base_class()
 
 			if (subdata_array[i * 2] == "RU name")
 			{
-				char sInvalid[1024];
-				strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
-				//комментарии
-
-				int size = strlen(sInvalid) + 1;
-				wchar_t* wsValid = new wchar_t[size];
-				char* sValid = new char[size];
-
-				MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
-				WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
-
-				//cout << "A: " << wsValid << " B: " << sValid << endl;
-
-				just_created_base_class->ru_name = sValid;
+				just_created_base_class->ru_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
 			}
 
 			
@@ -814,20 +792,9 @@ void load_enchantment()
 
 			if (subdata_array[i * 2] == "RU name")
 			{
-				char sInvalid[1024];
-				strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
-				//комментарии
+				
 
-				int size = strlen(sInvalid) + 1;
-				wchar_t* wsValid = new wchar_t[size];
-				char* sValid = new char[size];
-
-				MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
-				WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
-
-				//cout << "A: " << wsValid << " B: " << sValid << endl;
-
-				just_created_enchantment->ru_name = sValid;
+				just_created_enchantment->ru_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
 			}
 
 
@@ -901,20 +868,9 @@ void load_cluster_enchantment()
 
 			if (subdata_array[i * 2] == "RU name")
 			{
-				char sInvalid[1024];
-				strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
-				//комментарии
 
-				int size = strlen(sInvalid) + 1;
-				wchar_t* wsValid = new wchar_t[size];
-				char* sValid = new char[size];
 
-				MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
-				WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
-
-				//cout << "A: " << wsValid << " B: " << sValid << endl;
-
-				just_created_struct->ru_name = sValid;
+				just_created_struct->ru_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
 			}
 
 
@@ -996,20 +952,10 @@ void parse_item_data()
 
 				if (subdata_array[i * 2] == "item RU name")
 				{
-					char sInvalid[1024];
-					strcpy_s(sInvalid, subdata_array[i * 2 + 1].c_str());
-					//комментарии
-
-					int size = strlen(sInvalid) + 1;
-					wchar_t* wsValid = new wchar_t[size];
-					char* sValid = new char[size];
-
-					MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
-					WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
 
 					//cout << "A: " << wsValid << " B: " << sValid << endl;
 
-					just_created_item->item_name_ru = sValid;
+					just_created_item->item_name_ru = EString::to_cyrillic(subdata_array[i * 2 + 1]);
 				}
 
 				if (subdata_array[i * 2] == "base class") { just_created_item->base_class = subdata_array[i * 2 + 1]; }
@@ -2119,7 +2065,7 @@ int main()
 	{
 		w->update_localisation();
 	}
-
+	//std::cout << to_cyrillic("ЙЦУКЕНГШ) <<
 	while (!StaticData::need_exit)
 	{
 		///////////////////////////////////////////////////////////////////////////////

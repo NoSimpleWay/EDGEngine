@@ -1,102 +1,102 @@
-Base name	Life Flasks	RU name	Р¤Р»Р°РєРѕРЅС‹ Р¶РёР·РЅРё
-Base name	Mana Flasks	RU name	Р¤Р»Р°РєРѕРЅС‹ РјР°РЅС‹
-Base name	Hybrid Flasks	RU name	Р¤Р»Р°РєРѕРЅС‹ СЂР°РІРЅРѕРІРµСЃРёСЏ
-Base name	Life Flask	RU name	Р¤Р»Р°РєРѕРЅ Р¶РёР·РЅРё
-Base name	Mana Flask	RU name	Р¤Р»Р°РєРѕРЅ РјР°РЅС‹
-Base name	Hybrid Flask	RU name	Р¤Р»Р°РєРѕРЅ СЂР°РІРЅРѕРІРµСЃРёСЏ
-Base name	Currency	RU name	Р’Р°Р»СЋС‚Р°
-Base name	Amulets	RU name	РђРјСѓР»РµС‚С‹
-Base name	Amulet	RU name	РђРјСѓР»РµС‚
-Base name	Rings	RU name	РљРѕР»СЊС†Р°
-Base name	Ring	RU name	РљРѕР»СЊС†Рѕ
-Base name	Claws	RU name	РљРѕРіС‚Рё
-Base name	Claw	RU name	РљРѕРіС‚Рё
-Base name	Daggers	RU name	РљРёРЅР¶Р°Р»С‹
-Base name	Dagger	RU name	РљРёРЅР¶Р°Р»
-Base name	Wands	RU name	Р–РµР·Р»С‹
-Base name	Wand	RU name	Р–РµР·Р»
-Base name	One Hand	RU name	РћРґРЅРѕСЂСѓС‡РЅС‹Рµ
-Base name	One Hand Swords	RU name	РћРґРЅРѕСЂСѓС‡РЅС‹Рµ РјРµС‡Рё
-Base name	One Hand Sword	RU name	РћРґРЅРѕСЂСѓС‡РЅС‹Р№ РјРµС‡
-Base name	Thrusting One Hand Swords	RU name	РЁРїР°РіРё
-Base name	Thrusting One Hand Sword	RU name	РЁРїР°РіР°
-Base name	One Hand Axes	RU name	РћРґРЅРѕСЂСѓС‡РЅС‹Рµ С‚РѕРїРѕСЂС‹
-Base name	One Hand Axe	RU name	РћРґРЅРѕСЂСѓС‡РЅС‹Р№ С‚РѕРїРѕСЂ
-Base name	One Hand Maces	RU name	РћРґРЅРѕСЂСѓС‡РЅС‹Рµ Р±СѓР»Р°РІС‹
-Base name	One Hand Mace	RU name	РћРґРЅРѕСЂСѓС‡РЅР°СЏ Р±СѓР»Р°РІР°
-Base name	Bows	RU name	Р›СѓРєРё
-Base name	Bow	RU name	Р›СѓРє
-Base name	Staves	RU name	РџРѕСЃРѕС…Рё
-Base name	Stave	RU name	РџРѕСЃРѕС…
-Base name	Two Hand	RU name	Р”РІСѓСЂСѓС‡РЅС‹Рµ
-Base name	Two Hand Swords	RU name	Р”РІСѓСЂСѓС‡РЅС‹Рµ РјРµС‡Рё
-Base name	Two Hand Sword	RU name	Р”РІСѓСЂСѓС‡РЅС‹Р№ РјРµС‡
-Base name	Two Hand Axes	RU name	Р”РІСѓСЂСѓС‡РЅС‹Рµ С‚РѕРїРѕСЂС‹
-Base name	Two Hand Axe	RU name	Р”РІСѓСЂСѓС‡РЅС‹Р№ С‚РѕРїРѕСЂ
-Base name	Two Hand Maces	RU name	Р”РІСѓСЂСѓС‡РЅС‹Рµ Р±СѓР»Р°РІС‹
-Base name	Two Hand Mace	RU name	Р”РІСѓСЂСѓС‡РЅР°СЏ Р±СѓР»Р°РІР°
-Base name	Active Skill Gems	RU name	РљР°РјРЅРё СѓРјРµРЅРёР№
-Base name	Support Skill Gems	RU name	РљР°РјРµРЅСЊ РїРѕРґРґРµСЂР¶РєРё
-Base name	Quivers	RU name	РљРѕР»С‡Р°РЅС‹
-Base name	Quiver	RU name	РљРѕР»С‡Р°РЅ
-Base name	Belts	RU name	РџРѕСЏСЃР°
-Base name	Belt	RU name	РџРѕСЏСЃ
-Base name	Gloves	RU name	РџРµСЂС‡Р°С‚РєРё
-Base name	Boots	RU name	РћР±СѓРІСЊ
-Base name	Body Armours	RU name	РќР°С‚РµР»СЊРЅС‹Рµ РґРѕСЃРїРµС…Рё
-Base name	Body Armour	RU name	РќР°С‚РµР»СЊРЅС‹Р№ РґРѕСЃРїРµС…
-Base name	Helmets	RU name	РЁР»РµРјС‹
-Base name	Helmet	RU name	РЁР»РµРј
-Base name	Shields	RU name	Р©РёС‚С‹
-Base name	Shield	RU name	Р©РёС‚
-Base name	Stackable Currency	RU name	РЎРєР»Р°РґС‹РІР°РµРјР°СЏ РІР°Р»СЋС‚Р°
-Base name	Quest Items	RU name	Р’РµС‰Рё РґР»СЏ Р·Р°РґР°РЅРёР№
-Base name	Quest Item	RU name	Р’РµС‰СЊ РґР»СЏ Р·Р°РґР°РЅРёСЏ
-Base name	Sceptres	RU name	РЎРєРёРїРµС‚СЂС‹
-Base name	Sceptre	RU name	РЎРєРёРїРµС‚СЂ
-Base name	Utility Flasks	RU name	РћСЃРѕР±С‹Рµ С„Р»Р°РєРѕРЅС‹
-Base name	Utility Flask	RU name	РћСЃРѕР±С‹Р№ С„Р»Р°РєРѕРЅ
-Base name	Critical Utility Flasks	RU name	Р’Р°Р¶РЅС‹Рµ РѕСЃРѕР±С‹Рµ С„Р»Р°РєРѕРЅС‹
-Base name	Critical Utility Flask	RU name	Р’Р°Р¶РЅС‹Р№ РѕСЃРѕР±С‹Р№ С„Р»Р°РєРѕРЅ
-Base name	Maps	RU name	РљР°СЂС‚С‹
-Base name	Map	RU name	РљР°СЂС‚Р°
-Base name	Unarmed	RU name	Р‘РµР· РѕСЂСѓР¶РёСЏ
-Base name	Fishing Rods	RU name	РЈРґРѕС‡РєРё
-Base name	Fishing Rod	RU name	РЈРґРѕС‡РєР°
-Base name	Map Fragments	RU name	РћР±СЂС‹РІРєРё РєР°СЂС‚
-Base name	Map Fragment	RU name	РћР±СЂС‹РІРѕРє РєР°СЂС‚С‹
-Base name	Hideout Doodads	RU name	РџСЂРµРґРјРµС‚С‹ СѓР±РµР¶РёС‰Р°
-Base name	Hideout Doodad	RU name	РџСЂРµРґРјРµС‚ СѓР±РµР¶РёС‰Р°
-Base name	Microtransactions	RU name	РњРёРєСЂРѕС‚СЂР°РЅР·Р°РєС†РёРё
-Base name	Microtransaction	RU name	РњРёРєСЂРѕС‚СЂР°РЅР·Р°РєС†РёСЏ
-Base name	Jewel	RU name	РЎР°РјРѕС†РІРµС‚С‹
-Base name	Divination Card	RU name	Р“Р°РґР°Р»СЊРЅР°СЏ РєР°СЂС‚Р°
-Base name	Divination Cards	RU name	Р“Р°РґР°Р»СЊРЅС‹Рµ РєР°СЂС‚С‹
-Base name	Labyrinth Item	RU name	РџСЂРµРґРјРµС‚ Р»Р°Р±РёСЂРёРЅС‚Р°
-Base name	Labyrinth Trinket	RU name	Р‘СЂРµР»РѕРє Р»Р°Р±РёСЂРёРЅС‚Р°
-Base name	Labyrinth Map Item	RU name	РџСЂРµРґРјРµС‚ РєР°СЂС‚С‹ Р»Р°Р±РёСЂРёРЅС‚Р°
-Base name	Leaguestones	RU name	РљР°РјРЅРё Р»РёРіРё
-Base name	Leaguestone	RU name	РљР°РјРµРЅСЊ Р»РёРіРё
-Base name	Pantheon Soul	RU name	Р”СѓС€Р° РџР°РЅС‚РµРѕРЅР°
-Base name	Piece	RU name	Р§Р°СЃС‚СЊ
-Base name	Abyss Jewel	RU name	РЎР°РјРѕС†РІРµС‚ Р‘РµР·РґРЅС‹
-Base name	Incursion Item	RU name	РџСЂРµРґРјРµС‚ Р’РјРµС€Р°С‚РµР»СЊСЃС‚РІР°
-Base name	Delve Socketable Currency	RU name	Р’Р°Р»СЋС‚Р° РЎРїСѓСЃРєР°
-Base name	Incubator	RU name	РРЅРєСѓР±Р°С‚РѕСЂ
-Base name	Divination	RU name	Р“Р°РґР°Р»СЊРЅС‹Рµ
-Base name	Misc Map Item	RU name	РџСЂРѕС‡РёР№ РїСЂРµРґРјРµС‚ РєР°СЂС‚С‹
-Base name	Rune Dagger	RU name	Р СѓРЅРёС‡РµСЃРєРёР№ РєРёРЅР¶Р°Р»
-Base name	Warstaves	RU name	Р’РѕРёРЅСЃРєРёР№ РїРѕСЃРѕС…
-Base name	Delve Stackable Socketable Currency	RU name	РЎРєР»Р°РґС‹РІР°РµРјР°СЏ РІР°Р»СЋС‚Р° СЃРїСѓСЃРєР°
-Base name	Metamorph Sample	RU name	РћР±СЂР°Р·РµС† РњРµС‚Р°РјРѕСЂС„Р°
-Base name	Atlas Region Upgrade Item	RU name	РџСЂРµРґРјРµС‚ СѓР»СѓС‡С€РµРЅРёСЏ РѕР±Р»Р°СЃС‚Рё РђС‚Р»Р°СЃР°
-Base name	Harvest Seed	RU name	РЎРµРјСЏ Р¶Р°С‚РІС‹
-Base name	Heist Target	RU name	РџСЂРµРґРјРµС‚ РєСЂР°Р¶Рё
-Base name	Trinket	RU name	РЈРєСЂР°С€РµРЅРёСЏ
-Base name	Contract	RU name	РљРѕРЅС‚СЂР°РєС‚
-Base name	Blueprint	RU name	Р§РµСЂС‚С‘Р¶
-Base name	Heist Cloak	RU name	Р Р°Р·Р±РѕР№РЅРёС‡СЊСЏ РЅР°РєРёРґРєР°
-Base name	Heist Brooch	RU name	Р Р°Р·Р±РѕР№РЅРёС‡СЊСЏ Р±СЂРѕС€СЊ
-Base name	Heist Tool	RU name	Р Р°Р·Р±РѕР№РЅРёС‡РёР№ РёРЅСЃС‚СЂСѓРјРµРЅС‚
-Base name	Heist Gear	RU name	Р Р°Р·Р±РѕР№РЅРёС‡СЊРё РїСЂРёРЅР°РґР»РµР¶РЅРѕСЃС‚Рё
-Base name	Atlas Region Upgrade Item	RU name	РџСЂРµРґРјРµС‚ СѓР»СѓС‡С€РµРЅРёСЏ РѕР±Р»Р°СЃС‚Рё РђС‚Р»Р°СЃР°
+Base name	Life Flasks	RU name	Флаконы жизни
+Base name	Mana Flasks	RU name	Флаконы маны
+Base name	Hybrid Flasks	RU name	Флаконы равновесия
+Base name	Life Flask	RU name	Флакон жизни
+Base name	Mana Flask	RU name	Флакон маны
+Base name	Hybrid Flask	RU name	Флакон равновесия
+Base name	Currency	RU name	Валюта
+Base name	Amulets	RU name	Амулеты
+Base name	Amulet	RU name	Амулет
+Base name	Rings	RU name	Кольца
+Base name	Ring	RU name	Кольцо
+Base name	Claws	RU name	Когти
+Base name	Claw	RU name	Когти
+Base name	Daggers	RU name	Кинжалы
+Base name	Dagger	RU name	Кинжал
+Base name	Wands	RU name	Жезлы
+Base name	Wand	RU name	Жезл
+Base name	One Hand	RU name	Одноручные
+Base name	One Hand Swords	RU name	Одноручные мечи
+Base name	One Hand Sword	RU name	Одноручный меч
+Base name	Thrusting One Hand Swords	RU name	Шпаги
+Base name	Thrusting One Hand Sword	RU name	Шпага
+Base name	One Hand Axes	RU name	Одноручные топоры
+Base name	One Hand Axe	RU name	Одноручный топор
+Base name	One Hand Maces	RU name	Одноручные булавы
+Base name	One Hand Mace	RU name	Одноручная булава
+Base name	Bows	RU name	Луки
+Base name	Bow	RU name	Лук
+Base name	Staves	RU name	Посохи
+Base name	Stave	RU name	Посох
+Base name	Two Hand	RU name	Двуручные
+Base name	Two Hand Swords	RU name	Двуручные мечи
+Base name	Two Hand Sword	RU name	Двуручный меч
+Base name	Two Hand Axes	RU name	Двуручные топоры
+Base name	Two Hand Axe	RU name	Двуручный топор
+Base name	Two Hand Maces	RU name	Двуручные булавы
+Base name	Two Hand Mace	RU name	Двуручная булава
+Base name	Active Skill Gems	RU name	Камни умений
+Base name	Support Skill Gems	RU name	Камень поддержки
+Base name	Quivers	RU name	Колчаны
+Base name	Quiver	RU name	Колчан
+Base name	Belts	RU name	Пояса
+Base name	Belt	RU name	Пояс
+Base name	Gloves	RU name	Перчатки
+Base name	Boots	RU name	Обувь
+Base name	Body Armours	RU name	Нательные доспехи
+Base name	Body Armour	RU name	Нательный доспех
+Base name	Helmets	RU name	Шлемы
+Base name	Helmet	RU name	Шлем
+Base name	Shields	RU name	Щиты
+Base name	Shield	RU name	Щит
+Base name	Stackable Currency	RU name	Складываемая валюта
+Base name	Quest Items	RU name	Вещи для заданий
+Base name	Quest Item	RU name	Вещь для задания
+Base name	Sceptres	RU name	Скипетры
+Base name	Sceptre	RU name	Скипетр
+Base name	Utility Flasks	RU name	Особые флаконы
+Base name	Utility Flask	RU name	Особый флакон
+Base name	Critical Utility Flasks	RU name	Важные особые флаконы
+Base name	Critical Utility Flask	RU name	Важный особый флакон
+Base name	Maps	RU name	Карты
+Base name	Map	RU name	Карта
+Base name	Unarmed	RU name	Без оружия
+Base name	Fishing Rods	RU name	Удочки
+Base name	Fishing Rod	RU name	Удочка
+Base name	Map Fragments	RU name	Обрывки карт
+Base name	Map Fragment	RU name	Обрывок карты
+Base name	Hideout Doodads	RU name	Предметы убежища
+Base name	Hideout Doodad	RU name	Предмет убежища
+Base name	Microtransactions	RU name	Микротранзакции
+Base name	Microtransaction	RU name	Микротранзакция
+Base name	Jewel	RU name	Самоцветы
+Base name	Divination Card	RU name	Гадальная карта
+Base name	Divination Cards	RU name	Гадальные карты
+Base name	Labyrinth Item	RU name	Предмет лабиринта
+Base name	Labyrinth Trinket	RU name	Брелок лабиринта
+Base name	Labyrinth Map Item	RU name	Предмет карты лабиринта
+Base name	Leaguestones	RU name	Камни лиги
+Base name	Leaguestone	RU name	Камень лиги
+Base name	Pantheon Soul	RU name	Душа Пантеона
+Base name	Piece	RU name	Часть
+Base name	Abyss Jewel	RU name	Самоцвет Бездны
+Base name	Incursion Item	RU name	Предмет Вмешательства
+Base name	Delve Socketable Currency	RU name	Валюта Спуска
+Base name	Incubator	RU name	Инкубатор
+Base name	Divination	RU name	Гадальные
+Base name	Misc Map Item	RU name	Прочий предмет карты
+Base name	Rune Dagger	RU name	Рунический кинжал
+Base name	Warstaves	RU name	Воинский посох
+Base name	Delve Stackable Socketable Currency	RU name	Складываемая валюта спуска
+Base name	Metamorph Sample	RU name	Образец Метаморфа
+Base name	Atlas Region Upgrade Item	RU name	Предмет улучшения области Атласа
+Base name	Harvest Seed	RU name	Семя жатвы
+Base name	Heist Target	RU name	Предмет кражи
+Base name	Trinket	RU name	Украшения
+Base name	Contract	RU name	Контракт
+Base name	Blueprint	RU name	Чертёж
+Base name	Heist Cloak	RU name	Разбойничья накидка
+Base name	Heist Brooch	RU name	Разбойничья брошь
+Base name	Heist Tool	RU name	Разбойничий инструмент
+Base name	Heist Gear	RU name	Разбойничьи принадлежности
+Base name	Atlas Region Upgrade Item	RU name	Предмет улучшения области Атласа
