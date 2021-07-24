@@ -50,6 +50,8 @@ public:
 					but = new EButtonService(325, -5, 30, 30, Enums::ButtonType::BUTTON_CONFIGUE_LANGUAGE);
 		but->master_window = this;
 		button_list.push_back(but);
+		
+					
 
 		for (int i = 0; i < 5; i++)
 		{
@@ -70,7 +72,10 @@ public:
 
 		but = new EButtonSlider(-5.0f, -5.0f, 274, 32.0f, Enums::ButtonType::BUTTON_GLOBAL_DROP_SOUND_VOLUME);
 		but->master_window = this;
+		button_list.push_back(but);
 
+		but = new EButtonText(-500, -15, 200, 20, Enums::ButtonType::BUTTON_REMOVE_ALL_SOUND);
+		but->master_window = this;
 		button_list.push_back(but);
 
 		have_bg = false;

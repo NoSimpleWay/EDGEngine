@@ -285,3 +285,12 @@ exact_match_description	Переключает между частичным и полным совпадением.\n\nЕсл
 alternate_quality_anomalous	Аномальный
 alternate_quality_divergent	Искривленный
 alternate_quality_phantasmal	Фантомный
+remove_all_sound	Удалить ВСЕ звуки
+remove_all_sound_description	Удаляет все звуки из всех блоков
+window_text_remove_all_sound	Вы действительно хотите удалить все звуки из ВСЕХ блоков?
+text_disable_drop_sound	Убрать звук дропа
+description_disable_drop_sound	Убрать звук дропа, который воспроизводится по умолчанию для предметов
+text_disable_drop_sound_if_alert_sound	[?]DisableDropSoundIfAlertSound
+text_enable_drop_sound_if_alert_sound	[?]EnableDropSoundIfAlertSound
+description_disable_drop_sound_if_alert_sound	Экспериментальное нововведение, свойства неизвестны
+description_enable_drop_sound_if_alert_sound	Экспериментальное нововведение, свойства неизвестны

@@ -435,7 +435,7 @@ void EWindowLootSimulator::put_loot(LootItem*& loot)
 		}
 	}
 
-	if (ESound::engine != NULL)
+	if ((ESound::engine != NULL) & (!loot->filter_block_link->disable_drop_sound))
 	{
 		ESound::flip_sound->setDefaultVolume(StaticData::window_filter_block->sound_volume);
 		ESound::engine->play2D(ESound::flip_sound);

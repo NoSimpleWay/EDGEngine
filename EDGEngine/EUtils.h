@@ -109,7 +109,8 @@ public:
 
 	static Enums::LocalisationList active_localisation;
 
-	static std::string to_cyrillic(std::string _text, bool _degub=false);
+	static std::string UTF8_to_ANSI(std::string _text, bool _degub=false);
+	static std::string to_cyryllic(std::string _text, bool _degub=false);
 
 	static void save_config();
 	static void load_config();

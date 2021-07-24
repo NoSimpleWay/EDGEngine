@@ -10,6 +10,9 @@ public:
 	std::string cached_text_color;
 	std::string cached_text_bg_color;
 	std::string cached_text_size;
+	std::string cached_text_disable_drop_sound;
+	std::string cached_text_disable_drop_sound_if_alert_sound;
+	std::string cached_text_enable_drop_sound_if_alert_sound;
 	//std::vector<FilterBlock*> filter_block_list;
 	FilterBlock* master_block;
 
@@ -34,6 +37,11 @@ public:
 	std::vector<EButton*> link_to_ray_type;
 
 	EButton* link_to_icon_checker;
+
+	EButton* link_to_disable_drop_sound;
+	EButton* link_to_disable_drop_if_alert_sound;
+	EButton* link_to_enable_drop_if_alert_sound;
+
 	EButton* link_to_ray_checker;
 
 	EButton* link_to_ray_constant;

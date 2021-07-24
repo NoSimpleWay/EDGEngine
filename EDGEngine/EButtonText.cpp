@@ -308,6 +308,26 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		bg_color->set(EColorCollection::GRAY);
 		text_color->set(EColorCollection::BLACK);
 	}
+
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_ALL_SOUND)
+	{
+		text_align_x = Enums::PositionMode::MID;
+
+		master_position = Enums::PositionMaster::WINDOW;
+
+		position_mode_x = Enums::PositionMode::RIGHT;
+		position_mode_y = Enums::PositionMode::UP;
+
+		have_text = true;
+		have_input_mode = false;
+
+		bg_color->set_alpha(EColorCollection::BLACK, 0.85f);
+		text_color->set(EColorCollection::RED);
+
+		text = EString::localize_it("remove_all_sound");
+		description_text = EString::localize_it("remove_all_sound_description");
+	}
+
 }
 
 void EButtonText::click_event()
@@ -697,6 +717,13 @@ void EButtonText::click_event()
 		}
 	}
 
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_ALL_SOUND)
+	{
+		StaticData::window_accept_cancel->window_mode = Enums::WindowAcceptCancelMode::AC_remove_all_sound;
+		StaticData::window_accept_cancel->is_active = true;
+		StaticData::window_accept_cancel->update_localisation();
+	}
+
 }
 
 void EButtonText::input_event()
@@ -992,6 +1019,14 @@ void EButtonText::update_localisation()
 		}
 
 		description_text = EString::localize_it("exact_match_description");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_ALL_SOUND)
+	{
+
+
+		text = EString::localize_it("remove_all_sound");
+		description_text = EString::localize_it("remove_all_sound_description");
 	}
 
 }

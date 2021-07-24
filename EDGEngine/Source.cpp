@@ -30,7 +30,7 @@
 #include "EButtonFilterItem.h"
 #include "EButtonExplicit.h"
 #include "ExplicitGroup.h"
-
+ 
  
 #include "EWindow.h"
 #include "StaticData.h"    
@@ -372,7 +372,7 @@ void load_prophecy_list()
 
 				//cout << "A: " << wsValid << " B: " << sValid << endl;
 
-				just_created_prophecy->ru_name = EString::to_cyrillic(subdata_array[i + 1]);
+				just_created_prophecy->ru_name = EString::to_cyryllic(subdata_array[i + 1]);
 			}
 
 			if (subdata_array[i] == "tier")
@@ -532,11 +532,11 @@ void load_notable_passives_ru()
 			{
 
 
-				EString::notable_passives_ru_name.push_back(EString::to_cyrillic(subdata_array[i * 2 + 1]));
+				EString::notable_passives_ru_name.push_back(EString::to_cyryllic(subdata_array[i * 2 + 1]));
 			}
 
 			if (subdata_array[i * 2] == "description")
-			{EString::notable_passives_ru_description.push_back(EString::to_cyrillic(subdata_array[i * 2 + 1]));}
+			{EString::notable_passives_ru_description.push_back(EString::to_cyryllic(subdata_array[i * 2 + 1]));}
 		}
 
 		line_id++;
@@ -623,11 +623,11 @@ void load_anointing()
 
 			if (subdata_array[i * 2] == "name ru")
 			{
-				just_created_passive->passive_ru_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+				just_created_passive->passive_ru_name = EString::to_cyryllic(subdata_array[i * 2 + 1]);
 				//name
 				for (int j = 0; j < EString::notable_passives_ru_name.size(); j++)
 				{
-					if (EString::notable_passives_ru_name.at(j) == EString::to_cyrillic(subdata_array[i * 2 + 1]))
+					if (EString::notable_passives_ru_name.at(j) == EString::to_cyryllic(subdata_array[i * 2 + 1]))
 					{
 						just_created_passive->passive_ru_description = EString::notable_passives_ru_description.at(j);
 					}
@@ -649,7 +649,7 @@ void load_anointing()
 
 			if (subdata_array[i * 2] == "description_ru")
 			{
-				just_created_passive->passive_ru_description = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+				just_created_passive->passive_ru_description = EString::to_cyryllic(subdata_array[i * 2 + 1]);
 			}
 
 
@@ -719,7 +719,7 @@ void load_base_class()
 
 			if (subdata_array[i * 2] == "RU name")
 			{
-				just_created_base_class->ru_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+				just_created_base_class->ru_name = EString::to_cyryllic(subdata_array[i * 2 + 1]);
 			}
 
 			
@@ -794,7 +794,7 @@ void load_enchantment()
 			{
 				
 
-				just_created_enchantment->ru_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+				just_created_enchantment->ru_name = EString::to_cyryllic(subdata_array[i * 2 + 1]);
 			}
 
 
@@ -870,7 +870,7 @@ void load_cluster_enchantment()
 			{
 
 
-				just_created_struct->ru_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+				just_created_struct->ru_name = EString::to_cyryllic(subdata_array[i * 2 + 1]);
 			}
 
 
@@ -955,7 +955,7 @@ void parse_item_data()
 
 					//cout << "A: " << wsValid << " B: " << sValid << endl;
 
-					just_created_item->item_name_ru = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+					just_created_item->item_name_ru = EString::to_cyryllic(subdata_array[i * 2 + 1]);
 				}
 
 				if (subdata_array[i * 2] == "base class") { just_created_item->base_class = subdata_array[i * 2 + 1]; }
@@ -1424,7 +1424,7 @@ int main()
 
 	if (GetUserName(name, &size))
 	{
-		username = EString::to_cyrillic(name);
+		username = EString::UTF8_to_ANSI(name);
 		cout << "Hello, " << username << "!\n";
 	}
 	else

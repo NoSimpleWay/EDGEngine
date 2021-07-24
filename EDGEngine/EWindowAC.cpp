@@ -102,6 +102,33 @@ void EWindowAC::button_event(EButton* _b)
 		is_active = false;
 	}
 	
+	if (window_mode == Enums::WindowAcceptCancelMode::AC_remove_all_sound)
+	{
+		if (_b->button_type == Enums::ButtonType::BUTTON_ACCEPT)
+		{
+			for (FilterBlock* fb : StaticData::window_filter_block->filter_block_list)
+			{
+				//if ((!fb->is_alert_sound) && (!fb->is_custom_alert_sound))
+				{
+					fb->sound_button_link->deactivate();
+				}
+
+				fb->is_custom_alert_sound = false;
+				fb->custom_alert_sound_name = "";
+
+				fb->is_alert_sound = false;
+
+				fb->alert_sound_id = Enums::DefaultAlertSound(0);
+				fb->alert_sound_name = "";
+			}
+
+			StaticData::window_filter_block->unsave_change = false;
+		}
+
+		is_active = false;
+	}
+
+
 }
 
 void EWindowAC::update_localisation()
@@ -124,6 +151,14 @@ void EWindowAC::update_localisation()
 	)
 	{
 		window_text = EString::localize_it("window_text_remove_separator");
+	}
+
+	if
+		(
+			(window_mode == Enums::WindowAcceptCancelMode::AC_remove_all_sound)
+		)
+	{
+		window_text = EString::localize_it("window_text_remove_all_sound");
 	}
 }
 

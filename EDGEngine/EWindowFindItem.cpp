@@ -226,7 +226,7 @@ public:
 						)
 						&&
 						(order > 0)
-						)
+					)
 				{
 					if (search_count < ESound::default_drop_sound_name.size())
 					{

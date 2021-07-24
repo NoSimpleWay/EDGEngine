@@ -151,6 +151,7 @@ public:
 	bool ray_is_temp=false;
 
 	bool is_minimap_icon = false;
+	//bool is_disable_drop_sound = false;
 	Enums::IconColor minimap_icon_color = Enums::IconColor::WHITE;
 	Enums::IconShape minimap_icon_shape = Enums::IconShape::CIRCLE;
 	Enums::IconSize minimap_icon_size = Enums::IconSize::SMALL;
@@ -175,6 +176,8 @@ public:
 	bool is_show = true;
 	bool is_continue = false;
 	bool disable_drop_sound = false;
+	bool disable_drop_sound_if_alert_sound = false;
+	bool enable_drop_sound_if_alert_sound = false;
 
 	//EButton* idiot=NULL;
 	//EButton* zzz=NULL;

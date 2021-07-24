@@ -142,14 +142,45 @@
 
 		but->position_mode_x = Enums::PositionMode::LEFT;
 		but->position_mode_y = Enums::PositionMode::DOWN;
-
 		link_to_icon_checker = but;
+		button_list.push_back(but);
+
+
+
+		but = new EButtonCheck(5.0f, 95.0f, 25.0f, 25.0f, Enums::ButtonType::BUTTON_CHECKER_DISABLE_DROP_SOUND);
+		but->master_block = master_block;
+		but->master_window = this;
+		but->master_position = Enums::PositionMaster::WINDOW;
+		but->description_text = true;
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::DOWN;
+		link_to_disable_drop_sound = but;
+		button_list.push_back(but);
+
+		but = new EButtonCheck(5.0f, 125.0f, 25.0f, 25.0f, Enums::ButtonType::BUTTON_CHECKER_DISABLE_DROP_SOUND_IF_ALERT_SOUND);
+		but->master_block = master_block;
+		but->master_window = this;
+		but->master_position = Enums::PositionMaster::WINDOW;
+		but->description_text = true;
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::DOWN;
+		link_to_disable_drop_if_alert_sound = but;
+		button_list.push_back(but);
+
+		but = new EButtonCheck(5.0f, 155.0f, 25.0f, 25.0f, Enums::ButtonType::BUTTON_CHECKER_ENABLE_DROP_SOUND_IF_ALERT_SOUND);
+		but->master_block = master_block;
+		but->master_window = this;
+		but->master_position = Enums::PositionMaster::WINDOW;
+		but->description_text = true;
+		but->position_mode_x = Enums::PositionMode::LEFT;
+		but->position_mode_y = Enums::PositionMode::DOWN;
+		link_to_enable_drop_if_alert_sound = but;
 		button_list.push_back(but);
 
 		for (int j = 0; j < 2; j++)
 		for (int i = 0; i < 6; i++)
 		{
-			but = new EButtonService(255.0f + (i)*49.0f, icon_button_base_y + 25.0f + j * 65.0f, 30.0f, 60.0f, Enums::ButtonType::BUTTON_SELECT_RAY_COLOR);
+			but = new EButtonService(305.0f + (i)*49.0f, icon_button_base_y + 25.0f + j * 65.0f, 30.0f, 60.0f, Enums::ButtonType::BUTTON_SELECT_RAY_COLOR);
 
 			but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
 
@@ -180,7 +211,7 @@
 			button_list.push_back(but);
 		}
 
-		but = new EButtonText(255.0f, icon_button_base_y + 0.0f, 135.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY);
+		but = new EButtonText(305.0f, icon_button_base_y + 0.0f, 135.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY);
 		but->master_window = this;
 		but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
 		but->master_block = master_block;
@@ -194,12 +225,12 @@
 		link_to_ray_tempotary = but;
 
 
-		but = new EButtonText(395.0f, icon_button_base_y + 0.0f, 135.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT);
+		but = new EButtonText(445.0f, icon_button_base_y + 0.0f, 135.0f, 20.0f, Enums::ButtonType::BUTTON_SET_RAY_IS_CONSTANT);
 		but->master_window = this;
 		but->bg_color->set(0.2f, 0.2f, 0.2f, 0.8f);
 		but->master_block = master_block;
 		but->master_window = this;
-		but->text_color = EColorCollection::WHITE;
+		but->text_color = EColorCollection::RED;
 
 		but->master_position = Enums::PositionMaster::WINDOW;
 		but->position_mode_x = Enums::PositionMode::LEFT;
@@ -391,6 +422,40 @@
 			default_position_y + pos_y + distance_between_y * 4.0f+100.0f+7.0f
 		);
 
+
+		EFont::active_font->scale = 1.0f;
+		_batch->setcolor(EColorCollection::WHITE);
+		EFont::active_font->draw
+		(
+			_batch,
+			cached_text_disable_drop_sound,
+
+			link_to_disable_drop_sound->master_position_x + 27.0f,
+			link_to_disable_drop_sound->master_position_y + 3.0f
+		);
+
+		_batch->setcolor(EColorCollection::RED);
+		EFont::active_font->draw
+		(
+			_batch,
+			cached_text_disable_drop_sound_if_alert_sound,
+
+			link_to_disable_drop_if_alert_sound->master_position_x + 27.0f,
+			link_to_disable_drop_if_alert_sound->master_position_y + 3.0f
+		);
+
+		EFont::active_font->draw
+		(
+			_batch,
+			cached_text_enable_drop_sound_if_alert_sound,
+
+			link_to_enable_drop_if_alert_sound->master_position_x + 27.0f,
+			link_to_enable_drop_if_alert_sound->master_position_y + 3.0f
+		);
+
+
+
+
 		_batch->setcolor_255(master_block->rama_red, master_block->rama_green, master_block->rama_blue, master_block->rama_alpha / 2.55f);
 		_batch->draw_rama
 		(
@@ -446,6 +511,10 @@
 
 		((EButtonCheck*)link_to_icon_checker)->change_state(master_block->is_minimap_icon);
 
+		((EButtonCheck*)link_to_disable_drop_sound)->change_state(master_block->disable_drop_sound);
+		((EButtonCheck*)link_to_disable_drop_if_alert_sound)->change_state(master_block->disable_drop_sound_if_alert_sound);
+		((EButtonCheck*)link_to_enable_drop_if_alert_sound)->change_state(master_block->enable_drop_sound_if_alert_sound);
+
 
 
 		for (EButton* b : link_to_sliders)
@@ -489,10 +558,14 @@
 			b->update_localisation();
 		}
 
-		cached_text_border_color	=	EString::localize_it("text_border_color");
-		cached_text_color			=	EString::localize_it("text_text_color");
-		cached_text_bg_color		=	EString::localize_it("text_bg_color");
-		cached_text_size			=	EString::localize_it("text_text_size");
+		cached_text_border_color								=	EString::localize_it("text_border_color");
+		cached_text_color										=	EString::localize_it("text_text_color");
+		cached_text_bg_color									=	EString::localize_it("text_bg_color");
+		cached_text_size										=	EString::localize_it("text_text_size");
+			
+		cached_text_disable_drop_sound							=	EString::localize_it("text_disable_drop_sound");
+		cached_text_disable_drop_sound_if_alert_sound			=	EString::localize_it("text_disable_drop_sound_if_alert_sound");
+		cached_text_enable_drop_sound_if_alert_sound			=	EString::localize_it("text_enable_drop_sound_if_alert_sound");
 
 
 	}

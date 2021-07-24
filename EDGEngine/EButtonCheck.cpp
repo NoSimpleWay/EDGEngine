@@ -122,7 +122,20 @@ void EButtonCheck::click_event()
 	if (button_type == Enums::ButtonType::BUTTON_MANUAL_LOOT_MIRRORED)
 	{StaticData::window_manual_loot->is_mirrored = is_checked;}
 
+	if (button_type == Enums::ButtonType::BUTTON_CHECKER_DISABLE_DROP_SOUND)
+	{
+		master_block->disable_drop_sound = is_checked;
+	}
 
+	if (button_type == Enums::ButtonType::BUTTON_CHECKER_DISABLE_DROP_SOUND_IF_ALERT_SOUND)
+	{
+		master_block->disable_drop_sound_if_alert_sound = is_checked;
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHECKER_ENABLE_DROP_SOUND_IF_ALERT_SOUND)
+	{
+		master_block->enable_drop_sound_if_alert_sound = is_checked;
+	}
 
 	/*BUTTON_CORRUPTION,
 	BUTTON_SHAPER_ITEM,
@@ -156,6 +169,21 @@ void EButtonCheck::update_localisation()
 		if (data_id == 2) { description_text = EString::localize_it("description_autogen_check_default"); }
 		if (data_id == 3) { description_text = EString::localize_it("description_autogen_check_rich"); }
 		if (data_id == 4) { description_text = EString::localize_it("description_autogen_check_very_rich"); }
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHECKER_DISABLE_DROP_SOUND)
+	{
+		description_text = EString::localize_it("description_disable_drop_sound");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHECKER_DISABLE_DROP_SOUND_IF_ALERT_SOUND)
+	{
+		description_text = EString::localize_it("description_disable_drop_sound_if_alert_sound");
+	}
+
+	if (button_type == Enums::ButtonType::BUTTON_CHECKER_ENABLE_DROP_SOUND_IF_ALERT_SOUND)
+	{
+		description_text = EString::localize_it("description_enable_drop_sound_if_alert_sound");
 	}
 }
 

@@ -303,11 +303,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 			if (line_id <= 0)
 			{
-				localisation_text.push_back(to_cyrillic(subdata_array[1], true));
+				localisation_text.push_back(to_cyryllic(subdata_array[1], true));
 			}
 			else
 			{
-				localisation_text.push_back(to_cyrillic(subdata_array[1], false));
+				localisation_text.push_back(to_cyryllic(subdata_array[1], false));
 			}
 
 			//std::cout << "KEY (" << subdata_array[0] << ")   VALUE (" << localisation_text.at(localisation_text.size() - 1) << ")" << std::endl;
@@ -385,13 +385,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				{EString::loot_pattern_name.push_back(subdata_array[i * 2 + 1]);}
 
 				if (subdata_array[i * 2] == "name_ru")
-				{EString::loot_pattern_name_ru.push_back(EString::to_cyrillic(subdata_array[i * 2 + 1]));}
+				{EString::loot_pattern_name_ru.push_back(EString::to_cyryllic(subdata_array[i * 2 + 1]));}
 
 				if (subdata_array[i * 2] == "description_en")
 				{EString::loot_pattern_description.push_back(subdata_array[i * 2 + 1]);}
 
 				if (subdata_array[i * 2] == "description_ru")
-				{EString::loot_pattern_description_ru.push_back(EString::to_cyrillic(subdata_array[i * 2 + 1]));}
+				{EString::loot_pattern_description_ru.push_back(EString::to_cyryllic(subdata_array[i * 2 + 1]));}
 
 				if (subdata_array[i * 2] == "path")
 				{EString::loot_pattern_path.push_back(subdata_array[i * 2 + 1]);}
@@ -495,13 +495,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 			{
 				if (EString::to_lower(subdata_array[i * 2], false) == "item_name")
 				{
-					just_created_pattern_item->item_name = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+					just_created_pattern_item->item_name = EString::to_cyryllic(subdata_array[i * 2 + 1]);
 				}
 
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "class")
 				{
-					just_created_pattern_item->base_class = EString::to_cyrillic(subdata_array[i * 2 + 1]);
+					just_created_pattern_item->base_class = EString::to_cyryllic(subdata_array[i * 2 + 1]);
 				}
 
 
@@ -836,8 +836,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				//cout <<"It sound!" << '\n'<<'\n';
 
-				EString::loot_simulator_pattern_path_list.push_back(to_cyrillic(loot_filter_name));
-				EString::loot_simulator_pattern_name_list.push_back(to_cyrillic(p.path().filename().u8string().substr(0, p.path().filename().u8string().length() - 8)));
+				EString::loot_simulator_pattern_path_list.push_back(UTF8_to_ANSI(loot_filter_name));
+				EString::loot_simulator_pattern_name_list.push_back(UTF8_to_ANSI(p.path().filename().u8string().substr(0, p.path().filename().u8string().length() - 8)));
 
 				//std::cout << "It filter! " << p.path().filename().u8string() << '\n' << '\n';
 
@@ -865,8 +865,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				//cout <<"It sound!" << '\n'<<'\n';
 
-				EString::loot_filter_path_list.push_back(to_cyrillic(loot_filter_name));
-				EString::loot_filter_name_list.push_back(to_cyrillic(p.path().filename().u8string().substr(0, p.path().filename().u8string().length() - 7)));
+				EString::loot_filter_path_list.push_back(UTF8_to_ANSI(loot_filter_name));
+				EString::loot_filter_name_list.push_back(UTF8_to_ANSI(p.path().filename().u8string().substr(0, p.path().filename().u8string().length() - 7)));
 
 				//std::cout << "It filter! " << p.path().filename().u8string() << '\n' << '\n';
 
@@ -906,7 +906,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 				//cout <<"It sound!" << '\n'<<'\n';
 
-				ESound::custom_drop_sound_name.push_back(EString::to_cyrillic(p.path().filename().u8string()));
+				ESound::custom_drop_sound_name.push_back(EString::UTF8_to_ANSI(p.path().filename().u8string()));
 				//std::cout << "It sound! " << p.path().filename().u8string() << '\n' << '\n';
 
 				if (ESound::engine != NULL)
@@ -988,7 +988,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		return _text;
 	}
 
-	std::string EString::to_cyrillic(std::string _text, bool _debug)
+	std::string EString::UTF8_to_ANSI(std::string _text, bool _debug)
 	{
 		char sInvalid[1024];
 		strcpy_s(sInvalid, _text.c_str());
@@ -997,6 +997,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		int size = strlen(sInvalid) + 1;
 		wchar_t* wsValid = new wchar_t[size];
 		char* sValid = new char[size];
+
+		MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
+		WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
 
 		//MultiByteToWideChar(CP_UTF8, 0, sInvalid, -1, wsValid, size);
 		//WideCharToMultiByte(CP_ACP, NULL, wsValid, -1, sValid, size, NULL, NULL);
@@ -1052,6 +1055,27 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 		MultiByteToWideChar(CP_UTF8, MB_COMPOSITE, sInvalid, -1, wsValid, size);
 			WideCharToMultiByte(CP_ACP, WC_NO_BEST_FIT_CHARS, wsValid, -1, sValid, size, NULL, NULL);
 			if (_debug) std::cout << "convert from [" << _text << "] to [" << sValid << "] using method: {WC_NO_BEST_FIT_CHARS}" << std::endl;*/
+
+		std::string _t = "";
+		for (int i = 0; i < _text.length(); i++)
+		{
+			int inputed_c = (int)_text.at(i);
+
+
+			if (inputed_c == 1025) { inputed_c = 168; }
+			else
+				if (inputed_c == 1105) { inputed_c = 184; }
+				else
+					if (inputed_c > 255) { inputed_c -= 848; }
+
+			_t += (char)inputed_c;
+		}
+
+		return sValid;
+	}
+
+	std::string EString::to_cyryllic(std::string _text, bool _degub)
+	{
 
 		return _text;
 	}
@@ -1486,7 +1510,11 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("MapTier", just_created_block);
 								}
 
-								if (subdata == "DisableDropSound") { parser_mode = Enums::ParserMode::DISABLE_DROP_SOUND; just_created_block->disable_drop_sound = true; }
+								if (subdata == "DisableDropSound") { parser_mode = Enums::ParserMode::DISABLE_DROP_SOUND;  just_created_block->disable_drop_sound = true;}
+								if (subdata == "DisableDropSoundIfAlertSound") { parser_mode = Enums::ParserMode::DISABLE_DROP_SOUND_IF_ALERT_SOUND;  just_created_block->disable_drop_sound_if_alert_sound = true;}
+								if (subdata == "EnableDropSoundIfAlertSound") { parser_mode = Enums::ParserMode::ENABLE_DROP_SOUND_IF_ALERT_SOUND;  just_created_block->enable_drop_sound_if_alert_sound = true;}
+
+
 								if (subdata == "Prophecy")
 								{
 									parser_mode = Enums::ParserMode::PROPHECY;
@@ -2773,6 +2801,71 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									}
 							}
 
+							if (parser_mode == Enums::ParserMode::DISABLE_DROP_SOUND)
+							{
+								if (data_order == 0) { if (show_info_to_console) { cout << "activate disable drop sound" << endl; } }
+								if (data_order == 1)
+								{
+									if (show_info_to_console)
+									{
+										cout << "set disable drop sound as <" << subdata << ">" << endl; }
+										//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ANY_ENCHANTMENT) = EString::convert_text_to_bool(subdata);
+
+										if (EString::convert_text_to_bool(subdata))
+										{
+											just_created_block->disable_drop_sound = true;
+										}
+										else
+										{
+											just_created_block->disable_drop_sound = false;
+										}
+									}
+							}
+
+							if (parser_mode == Enums::ParserMode::DISABLE_DROP_SOUND_IF_ALERT_SOUND)
+							{
+								if (data_order == 0) { if (show_info_to_console) { cout << "activate disable drop sound" << endl; } }
+								if (data_order == 1)
+								{
+									if (show_info_to_console)
+									{
+										cout << "set disable drop sound as <" << subdata << ">" << endl;
+									}
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ANY_ENCHANTMENT) = EString::convert_text_to_bool(subdata);
+
+									if (EString::convert_text_to_bool(subdata))
+									{
+										just_created_block->disable_drop_sound_if_alert_sound = true;
+									}
+									else
+									{
+										just_created_block->disable_drop_sound_if_alert_sound = false;
+									}
+								}
+							}
+
+							if (parser_mode == Enums::ParserMode::ENABLE_DROP_SOUND_IF_ALERT_SOUND)
+							{
+								if (data_order == 0) { if (show_info_to_console) { cout << "activate disable drop sound" << endl; } }
+								if (data_order == 1)
+								{
+									if (show_info_to_console)
+									{
+										cout << "set disable drop sound as <" << subdata << ">" << endl;
+									}
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_ANY_ENCHANTMENT) = EString::convert_text_to_bool(subdata);
+
+									if (EString::convert_text_to_bool(subdata))
+									{
+										just_created_block->enable_drop_sound_if_alert_sound = true;
+									}
+									else
+									{
+										just_created_block->enable_drop_sound_if_alert_sound = false;
+									}
+								}
+							}
+
 							if (parser_mode == Enums::ParserMode::QUALITY)
 							{
 								if (data_order == 0)
@@ -3060,6 +3153,8 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_block->influences_button_list.at(FilterBlock::InfluenceList::IL_SHAPER)->bg_color->set(EColorCollection::WHITE);
 								}
 							}
+
+
 
 							if (parser_mode == Enums::ParserMode::MAP_TIER)
 							{
@@ -3645,6 +3740,27 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				loot_writer += fb->custom_alert_sound_name;
 				loot_writer += '"';
 
+				loot_writer += '\n';
+			}
+
+			if (fb->disable_drop_sound)
+			{
+				loot_writer += '\t';
+				loot_writer += "DisableDropSound True";
+				loot_writer += '\n';
+			}
+
+			if (fb->disable_drop_sound_if_alert_sound)
+			{
+				loot_writer += '\t';
+				loot_writer += "DisableDropSoundIfAlertSound True";
+				loot_writer += '\n';
+			}
+
+			if (fb->enable_drop_sound_if_alert_sound)
+			{
+				loot_writer += '\t';
+				loot_writer += "EnableDropSoundIfAlertSound True";
 				loot_writer += '\n';
 			}
 

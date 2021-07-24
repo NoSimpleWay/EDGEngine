@@ -285,3 +285,12 @@ exact_match_description	Change mode to exact/partially match
 alternate_quality_anomalous	Anomalous
 alternate_quality_divergent	Divergent
 alternate_quality_phantasmal	Phantasmal
+remove_all_sound	Delete AL sounds
+remove_all_sound_description	Delete sound from ALL filter blocks
+window_text_remove_all_sound	You want delete sounds from ALL filter blocks. You sure?
+text_disable_drop_sound	Disable drop sound
+description_disable_drop_sound	Disabel default item drop sound
+text_disable_drop_sound_if_alert_sound	[?]DisableDropSoundIfAlertSound
+text_enable_drop_sound_if_alert_sound	[?]EnableDropSoundIfAlertSound
+description_disable_drop_sound_if_alert_sound	Experimental data, properties unknown
+description_enable_drop_sound_if_alert_sound	Experimental data, properties unknown

@@ -1,4 +1,4 @@
-name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Ритуал"	path	new items	button_color	BLACK	text_color	RED
+name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Экспедиция"	path	new items	button_color	BLACK	text_color	RED
 name_en	Breach item	name_ru	Предметы "Разлома"	description_en	Generate breach splinters/stone	description_ru	Генерирует осколки/камни разлома	path	breach	button_color	WHITE	text_color	BLACK
 name_en	Cluster jewels	name_ru	Кластерные самоцвета	description_en	Generate cluster jewel	description_ru	Генерирует Кластерыне самоцветы	path	cluster jewels	button_color	WHITE	text_color	BLACK
 name_en	Currency	name_ru	Валюта	description_en	Generate all regular game currency	description_ru	Генерирует всю обычную игровую валюту	path	currency	button_color	WHITE	text_color	BLACK
@@ -19,3 +19,4 @@ name_en	Syndicate	name_ru	Синдикат	description_en	Generate item with veiled mods
 name_en	Prophecy	name_ru	Пророчества	description_en	Generate lot of prophecies	description_ru	Генерирует множество пророчеств	path	prophecy	button_color	WHITE	text_color	BLACK
 name_en	Harvest	name_ru	Жатва	description_en	Generate lot of harvest item	description_ru	Генерирует предметы из лиги "Жатва"	path	harvest	button_color	WHITE	text_color	BLACK
 name_en	Ritual	name_ru	Ритуал	description_en	Generate lot of ritual item	description_ru	Генерирует предметы из лиги "Ритуал"	path	league[ritual]	button_color	WHITE	text_color	BLACK
+name_en	Ultimatum	name_ru	Ультиматум	description_en	Generate lot of Ultimatum item	description_ru	Генерирует предметы из лиги "Ультиматум"	path	league[ultimatum]	button_color	WHITE	text_color	BLACK

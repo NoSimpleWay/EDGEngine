@@ -227,15 +227,12 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		but->master_window = StaticData::window_filter_block;
 		button_list.push_back(but);
 		
-
 		but = new EButtonService(-155.0f - right_side_buttons_offset, 9.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SYS_PLAY_SOUND);
 		but->master_block = this;
 		but->master_window = StaticData::window_filter_block;
 		sound_button_link = but;
 		button_list.push_back(but);
 		
-
-
 		button_add_new_base_data = new EButtonPlusWide(0, 0, 19, 19,Enums::ButtonType::BUTTON_OPEN_BASE_DATA_WINDOW);
 
 		button_add_new_base_data->master_block = this;
