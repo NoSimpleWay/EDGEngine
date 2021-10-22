@@ -162,6 +162,14 @@ public:
 	static EGabarite* gabarite_switcher_mirrored_deactivated;
 	static EGabarite* gabarite_switcher_mirrored_off;
 
+	static EGabarite* gabarite_switcher_scourged;
+	static EGabarite* gabarite_switcher_scourged_deactivated;
+	static EGabarite* gabarite_switcher_scourged_off;
+
+	static EGabarite* gabarite_switcher_uber_blight;
+	static EGabarite* gabarite_switcher_uber_blight_deactivated;
+	static EGabarite* gabarite_switcher_uber_blight_off;
+
 	static EGabarite* gabarite_switcher_influence_shaper;
 	static EGabarite* gabarite_switcher_influence_shaper_deactivated;
 

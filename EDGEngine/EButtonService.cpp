@@ -1368,6 +1368,8 @@ void EButtonService::click_event()
 			if (data_id == FilterBlock::SpecialStatusList::SSL_MIRRORED)			{ gabarite = DefaultGabarite::gabarite_switcher_mirrored; }
 			if (data_id == FilterBlock::SpecialStatusList::SSL_REPLICA)				{ gabarite = DefaultGabarite::gabarite_switcher_replica; }
 			if (data_id == FilterBlock::SpecialStatusList::SSL_SYNTHESISED)			{ gabarite = DefaultGabarite::gabarite_switcher_synthesised; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_SCOURGED)			{ gabarite = DefaultGabarite::gabarite_switcher_scourged; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT)			{ gabarite = DefaultGabarite::gabarite_switcher_uber_blight; }
 
 			icon_color->set_alpha(EColorCollection::WHITE, 1.0f);
 			bg_color->set(EColorCollection::WHITE);
@@ -1386,6 +1388,8 @@ void EButtonService::click_event()
 			if (data_id == FilterBlock::SpecialStatusList::SSL_MIRRORED)			{ gabarite = DefaultGabarite::gabarite_switcher_mirrored_off; }
 			if (data_id == FilterBlock::SpecialStatusList::SSL_REPLICA)				{ gabarite = DefaultGabarite::gabarite_switcher_replica_off; }
 			if (data_id == FilterBlock::SpecialStatusList::SSL_SYNTHESISED)			{ gabarite = DefaultGabarite::gabarite_switcher_synthesised_off; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_SCOURGED)			{ gabarite = DefaultGabarite::gabarite_switcher_scourged_off; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT)			{ gabarite = DefaultGabarite::gabarite_switcher_uber_blight_off; }
 
 			bg_color->set(EColorCollection::RED);
 		}
@@ -1402,6 +1406,8 @@ void EButtonService::click_event()
 			if (data_id == FilterBlock::SpecialStatusList::SSL_MIRRORED)			{ gabarite = DefaultGabarite::gabarite_switcher_mirrored_deactivated; }
 			if (data_id == FilterBlock::SpecialStatusList::SSL_REPLICA)				{ gabarite = DefaultGabarite::gabarite_switcher_replica_deactivated; }
 			if (data_id == FilterBlock::SpecialStatusList::SSL_SYNTHESISED)			{ gabarite = DefaultGabarite::gabarite_switcher_synthesised_deactivated; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_SCOURGED)			{ gabarite = DefaultGabarite::gabarite_switcher_scourged_deactivated; }
+			if (data_id == FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT)			{ gabarite = DefaultGabarite::gabarite_switcher_uber_blight_deactivated; }
 			
 			icon_color->set_alpha(EColorCollection::WHITE, 0.5f);
 			bg_color->set(EColorCollection::DARK_GRAY);
@@ -1598,6 +1604,9 @@ void EButtonService::update_localisation()
 		if (data_id == FilterBlock::SpecialStatusList::SSL_MIRRORED)				{ description_text = EString::localize_it("description_special_status_mirrored"); }
 		if (data_id == FilterBlock::SpecialStatusList::SSL_REPLICA)					{ description_text = EString::localize_it("description_special_status_replica"); }
 		if (data_id == FilterBlock::SpecialStatusList::SSL_SYNTHESISED)				{ description_text = EString::localize_it("description_special_status_synthesised"); }
+
+		if (data_id == FilterBlock::SpecialStatusList::SSL_SCOURGED)				{ description_text = EString::localize_it("description_special_status_scourged"); }
+		if (data_id == FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT)				{ description_text = EString::localize_it("description_special_status_uberblight"); }
 
 
 

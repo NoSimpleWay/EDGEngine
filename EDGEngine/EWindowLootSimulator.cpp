@@ -1760,7 +1760,7 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		if
 		(
 			(fb->influence_mode == FilterBlock::InfluenceMode::IM_ONE_OF)
-			&
+			&&
 			!(
 				(
 					(fb->vector_influence.at(FilterBlock::InfluenceList::IL_ELDER))

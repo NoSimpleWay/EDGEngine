@@ -1268,6 +1268,19 @@ int main()
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_DROP_LIST_ALTERNATE_QUALITY;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
+	//Base defence
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "BaseDefencePercentile";
+
+	*just_created_bdas->name_RU = "Базовая защита";
+	*just_created_bdas->description_RU = "Множитель защиты на экипировке";
+
+	*just_created_bdas->name_EN = "Base defence";
+	*just_created_bdas->description_EN = "Defence multiplier on armour";
+
+	*just_created_bdas->id = Enums::ParserMode::BASE_DEFENCE_PERCENTILE;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
 	 
 
@@ -1909,6 +1922,14 @@ int main()
 	put_texture_to_atlas("data/icon/sys/mirrored.png");								DefaultGabarite::gabarite_switcher_mirrored = just_created_gabarite;
 	put_texture_to_atlas("data/icon/sys/mirrored_deactivated.png");					DefaultGabarite::gabarite_switcher_mirrored_deactivated = just_created_gabarite;
 	put_texture_to_atlas("data/icon/sys/mirrored_off.png");							DefaultGabarite::gabarite_switcher_mirrored_off = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/scourged.png");								DefaultGabarite::gabarite_switcher_scourged = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/scourged_deactivated.png");					DefaultGabarite::gabarite_switcher_scourged_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/scourged_off.png");							DefaultGabarite::gabarite_switcher_scourged_off = just_created_gabarite;
+
+	put_texture_to_atlas("data/icon/sys/uber_blight.png");							DefaultGabarite::gabarite_switcher_uber_blight = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/uber_blight_deactivated.png");				DefaultGabarite::gabarite_switcher_uber_blight_deactivated = just_created_gabarite;
+	put_texture_to_atlas("data/icon/sys/uber_blight_off.png");						DefaultGabarite::gabarite_switcher_uber_blight_off = just_created_gabarite;
 
 
 	//load_anointing();

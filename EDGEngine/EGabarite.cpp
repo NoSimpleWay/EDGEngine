@@ -159,6 +159,14 @@ EGabarite* DefaultGabarite::gabarite_switcher_vaaled = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_vaaled_deactivated = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_vaaled_off = NULL;
 
+EGabarite* DefaultGabarite::gabarite_switcher_scourged = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_scourged_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_scourged_off = NULL;
+
+EGabarite* DefaultGabarite::gabarite_switcher_uber_blight = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_uber_blight_deactivated = NULL;
+EGabarite* DefaultGabarite::gabarite_switcher_uber_blight_off = NULL;
+
 /*EGabarite* DefaultGabarite::gabarite_switcher_identified = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_identified_deactivated = NULL;
 EGabarite* DefaultGabarite::gabarite_switcher_identified_off = NULL;*/

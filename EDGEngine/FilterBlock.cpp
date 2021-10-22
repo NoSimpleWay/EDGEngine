@@ -747,6 +747,22 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 				but->gabarite = DefaultGabarite::gabarite_switcher_mirrored_deactivated;
 				button_list.push_back(but);
 				special_status_button_list.push_back(but);
+				/*-------*/
+			but = new EButtonService(435.0f, 5.0f + 96.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_SCOURGED;
+				but->gabarite = DefaultGabarite::gabarite_switcher_scourged_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);	
+
+			but = new EButtonService(435.0f + 32.0f, 5.0f + 96.0f, 30.0f, 30.0f, Enums::ButtonType::BUTTON_SWITCHER_SPECIAL_STATUS);
+				but->master_block = this;
+				but->master_window = StaticData::window_filter_block;
+				but->data_id = SpecialStatusList::SSL_UBER_BLIGHT;
+				but->gabarite = DefaultGabarite::gabarite_switcher_uber_blight_deactivated;
+				button_list.push_back(but);
+				special_status_button_list.push_back(but);
 	}
 
 	FilterBlock::~FilterBlock()

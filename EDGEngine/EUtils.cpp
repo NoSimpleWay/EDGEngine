@@ -1557,6 +1557,25 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 										//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL) = true;
 										just_created_base_data_registerer = FilterBlock::add_new_base_attribute("GemQualityType", just_created_block);
 								}
+
+								if (subdata == "BaseDefencePercentile")
+								{
+										parser_mode = Enums::ParserMode::BASE_DEFENCE_PERCENTILE;
+										//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_AREA_LEVEL) = true;
+										just_created_base_data_registerer = FilterBlock::add_new_base_attribute("BaseDefencePercentile", just_created_block);
+								}
+
+								if (subdata == "Scourged")
+								{
+									parser_mode = Enums::ParserMode::IS_SCOURGED;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM) = true; 
+								}
+
+								if (subdata == "UberBlightedMap")
+								{
+									parser_mode = Enums::ParserMode::IS_UBER_BLIGHT_MAP;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_MIRRORED_ITEM) = true; 
+								}
 								//if (subdata == "EnchantmentPassiveNode") { parser_mode = Enums::ParserMode::CLUSTER_ENCHANTMENT; }
 							}
 							else
@@ -2772,6 +2791,62 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								}
 							}
 
+							if (parser_mode == Enums::ParserMode::IS_SCOURGED)
+							{
+								if (data_order == 0) { if (show_info_to_console) { cout << "activate scourged item property" << endl; } }
+								if (data_order == 1)
+								{
+									if (show_info_to_console) {cout << "set scourged item as <" << subdata << ">" << endl; }
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_MIRRORED_ITEM) = EString::convert_text_to_bool(subdata);
+
+									
+									if (EString::convert_text_to_bool(subdata))
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_SCOURGED)->gabarite
+										= DefaultGabarite::gabarite_switcher_scourged;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SCOURGED)
+										= FilterBlock::SpecialStatusMode::SSM_ON;
+									}
+									else
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_SCOURGED)->gabarite
+										= DefaultGabarite::gabarite_switcher_scourged_off;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SCOURGED)
+										= FilterBlock::SpecialStatusMode::SSM_OFF;
+									}
+								}
+							}
+
+							if (parser_mode == Enums::ParserMode::IS_UBER_BLIGHT_MAP)
+							{
+								if (data_order == 0) { if (show_info_to_console) { cout << "activate uber blight item property" << endl; } }
+								if (data_order == 1)
+								{
+									if (show_info_to_console) { cout << "set uber blight item as <" << subdata << ">" << endl; }
+									//just_created_block->base_filter_data_bool.at(Enums::BoolData::BOOL_MIRRORED_ITEM) = EString::convert_text_to_bool(subdata);
+
+
+									if (EString::convert_text_to_bool(subdata))
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT)->gabarite
+											= DefaultGabarite::gabarite_switcher_uber_blight;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT)
+											= FilterBlock::SpecialStatusMode::SSM_ON;
+									}
+									else
+									{
+										just_created_block->special_status_button_list.at(FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT)->gabarite
+											= DefaultGabarite::gabarite_switcher_uber_blight_off;
+
+										just_created_block->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT)
+											= FilterBlock::SpecialStatusMode::SSM_OFF;
+									}
+								}
+							}
+
 							if (parser_mode == Enums::ParserMode::IS_ANY_ENCHANTMENT)
 							{
 								if (data_order == 0) { if (show_info_to_console) { cout << "activate enchantment item property" << endl; } }
@@ -3165,7 +3240,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
-									if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
+									if (show_info_to_console) { cout << "set map tier as <" << subdata << ">" << endl; }
 									//just_created_block->map_tier = std::stoi(subdata);
 									//just_created_block->map_tier_condition = "=";
 									if (just_created_base_data_registerer->main_button != NULL)
@@ -3185,10 +3260,54 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 								if (data_order == 2)
 								{
-									if (show_info_to_console) { cout << "set gem level as <" << subdata << ">" << endl; }
+									if (show_info_to_console) { cout << "set maptier as <" << subdata << ">" << endl; }
 									//just_created_block->map_tier = std::stoi(subdata);
 									if (just_created_base_data_registerer->main_button != NULL)
 									{just_created_base_data_registerer->main_button->text = subdata;}
+								}
+							}
+
+							if (parser_mode == Enums::ParserMode::BASE_DEFENCE_PERCENTILE)
+							{
+								if (data_order == 0)
+								{
+									if (show_info_to_console) { cout << "activate base defence property" << endl; }
+								}
+
+								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set base defence as <" << subdata << ">" << endl; }
+									//just_created_block->map_tier = std::stoi(subdata);
+									//just_created_block->map_tier_condition = "=";
+									if (just_created_base_data_registerer->main_button != NULL)
+									{
+										just_created_base_data_registerer->main_button->text = subdata;
+									}
+
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{
+										just_created_base_data_registerer->condition_button->text = "=";
+									}
+								}
+
+								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
+								{
+									if (show_info_to_console) { cout << "set base defence condition as < " << subdata << " >" << endl; }
+									//just_created_block->map_tier_condition = subdata;
+									if (just_created_base_data_registerer->condition_button != NULL)
+									{
+										just_created_base_data_registerer->condition_button->text = subdata;
+									}
+								}
+
+								if (data_order == 2)
+								{
+									if (show_info_to_console) { cout << "set base defence as <" << subdata << ">" << endl; }
+									//just_created_block->map_tier = std::stoi(subdata);
+									if (just_created_base_data_registerer->main_button != NULL)
+									{
+										just_created_base_data_registerer->main_button->text = subdata;
+									}
 								}
 							}
 
@@ -3973,6 +4092,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					loot_writer += "Corrupted True";
 					loot_writer += '\n';
 				}
+
 				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_CORRUPTED) == FilterBlock::SpecialStatusMode::SSM_OFF)
 				{
 					loot_writer += '\t';
@@ -3980,7 +4100,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					loot_writer += '\n';
 				}
 
-				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_IDENTIFIED) == FilterBlock::SpecialStatusMode::SSM_ON)
+			if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_IDENTIFIED) == FilterBlock::SpecialStatusMode::SSM_ON)
 			{
 				loot_writer += '\t';
 				loot_writer += "Identified True";
@@ -4083,6 +4203,33 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				{
 					loot_writer += '\t';
 					loot_writer += "Mirrored False";
+					loot_writer += '\n';
+				}
+
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SCOURGED) == FilterBlock::SpecialStatusMode::SSM_ON)
+				{
+					loot_writer += '\t';
+					loot_writer += "Scourged True";
+					loot_writer += '\n';
+				}
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SCOURGED) == FilterBlock::SpecialStatusMode::SSM_OFF)
+				{
+					loot_writer += '\t';
+					loot_writer += "Scourged False";
+					loot_writer += '\n';
+				}
+
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT) == FilterBlock::SpecialStatusMode::SSM_ON)
+				{
+					loot_writer += '\t';
+					loot_writer += "UberBlightedMap True";
+					loot_writer += '\n';
+				}
+
+				if (fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT) == FilterBlock::SpecialStatusMode::SSM_OFF)
+				{
+					loot_writer += '\t';
+					loot_writer += "UberBlightedMap False";
 					loot_writer += '\n';
 				}
 

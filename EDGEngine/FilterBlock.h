@@ -397,7 +397,10 @@ public:
 
 		SSL_ALTERNATE_QUALITY,
 		SSL_REPLICA,
-		SSL_MIRRORED
+		SSL_MIRRORED,
+
+		SSL_SCOURGED,
+		SSL_UBER_BLIGHT
 	};
 
 	enum SpecialStatusMode
@@ -430,7 +433,11 @@ public:
 
 		SpecialStatusMode::SSM_DEACTIVATED,	//alternate_quality
 		SpecialStatusMode::SSM_DEACTIVATED,	//replica
-		SpecialStatusMode::SSM_DEACTIVATED	//mirrored
+		SpecialStatusMode::SSM_DEACTIVATED,	//mirrored
+
+		SpecialStatusMode::SSM_DEACTIVATED,	//scourged
+		SpecialStatusMode::SSM_DEACTIVATED	//uber blight
+
 	};
 
 	enum InfluenceMode
