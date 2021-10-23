@@ -20,7 +20,8 @@ item_name	Tainted Jeweller's Orb	count	1
 item_name	Kalguuran Delirium Orb	count	1
 item_name	Deft Fossil	count	1
 item_name	Fundamental Fossil	count	1
-item_name	Fundamental Fossil	count	1
+item_name	Deft Fossil	count	1
+item_name	Tainted Exalted Orb	count	1
 item_name	Tainted Mythic Orb	count	1
 item_name	Tainted Blacksmith's Whetstone	count	1
 item_name	Tainted Armourer's Scrap	count	1
@@ -41,5 +42,5 @@ item_name	Polished Expedition Scarab	count	1
 item_name	Gilded Expedition Scarab	count	1
 item_name	Winged Expedition Scarab	count	1
 item_name	Kalguuran Incubator	count	1
-item_name	Unset Amulet	count	1
+item_name	Unset Amulet	count	5	rarity_min	normal	rarity_max	rare	item_level_min	1	item_level_max	90
 
