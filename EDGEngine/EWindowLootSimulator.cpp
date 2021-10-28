@@ -122,6 +122,8 @@ void EWindowLootSimulator::update(float _d)
 			loot->is_shaper_map = p->shaped_map;
 			loot->is_elder_map = p->elder_map;
 			loot->is_blighted_map = p->blighted_map;
+			loot->is_uber_blighted_map = p->uber_blighted_map;
+			loot->is_scourged = p->scourged;
 			loot->is_mirrored = p->mirrored;
 
 			loot->item_id = p->item_id;
@@ -194,6 +196,20 @@ void EWindowLootSimulator::update(float _d)
 				}
 
 				if (loot->sockets < 0) { loot->sockets = 0; }
+			}
+
+			if (p->defence_pertentile_max > 0)
+			{
+				if (p->defence_pertentile_max > p->defence_pertentile_min)
+				{
+					loot->defence_pertentile = p->defence_pertentile_min + (rand() % (p->defence_pertentile_max - p->defence_pertentile_min + 1));
+				}
+				else
+				{
+					loot->defence_pertentile = p->defence_pertentile_max;
+				}
+
+				if (loot->defence_pertentile < 0) { loot->defence_pertentile = 0; }
 			}
 
 
@@ -435,7 +451,7 @@ void EWindowLootSimulator::put_loot(LootItem*& loot)
 		}
 	}
 
-	if ((ESound::engine != NULL) & (!loot->filter_block_link->disable_drop_sound))
+	if ((ESound::engine != NULL) && (!loot->filter_block_link->disable_drop_sound))
 	{
 		ESound::flip_sound->setDefaultVolume(StaticData::window_filter_block->sound_volume);
 		ESound::engine->play2D(ESound::flip_sound);
@@ -676,6 +692,12 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 				_batch->draw_rect_with_uv(xx, yy, 434, 300, DefaultGabarite::gabarite_blighted_small);
 			}
 			else
+			if ((loot->is_uber_blighted_map))
+			{
+				_batch->setcolor_alpha(EColorCollection::RED, 0.95f);
+				_batch->draw_rect_with_uv(xx, yy, 434, 300, DefaultGabarite::gabarite_blighted_small);
+			}
+			else
 			{
 				_batch->setcolor_alpha(EColorCollection::BLACK, 0.95f);
 				_batch->draw_simple_rect(xx, yy, 434, 300);
@@ -855,6 +877,14 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 				move_y++;
 
 				EFont::active_font->draw(_batch, cached_corrupted_mods_count + std::to_string(loot->corrupted_mods), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+				move_y++;
+			}
+
+			if (loot->is_scourged)
+			{
+				_batch->setcolor(EColorCollection::ORANGE);
+				EFont::active_font->draw(_batch, cached_scourged, xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
 				move_y++;
 			}
 
@@ -1057,6 +1087,7 @@ void EWindowLootSimulator::update_localisation()
 	cached_map_tier							= EString::localize_it("map_tier_text");
 	cached_corrupted						= EString::localize_it("corrupted_text");
 	cached_corrupted_mods_count				= EString::localize_it("corrupted_text_mods_count");
+	cached_scourged							= EString::localize_it("is_scourged");
 	cached_mirrored							= EString::localize_it("mirrored_text");
 	cached_replica							= EString::localize_it("replica_text");
 	cached_alternate_quality				= EString::localize_it("alternate_quality_text");
@@ -1665,7 +1696,19 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 
 
-
+			/*       DEFENCE PROCENTILE       */
+			if
+				(
+					(target_data == Enums::ParserMode::BASE_DEFENCE_PERCENTILE)
+					&
+					(!check_condition(attribute_operator, _l->defence_pertentile, attribute_value_num))
+					&
+					(match_detect)
+				)
+			{
+				match_detect = false;
+				if (!_default) { rejection("Defence percentile", _l); }
+			}
 
 
 
@@ -1866,6 +1909,36 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 		}
 
 		if
+		(
+			(
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->is_uber_blighted_map))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_UBER_BLIGHT) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->is_uber_blighted_map))
+			)
+			&
+			(match_detect)
+		)
+		{
+			match_detect = false;
+			if (!_default) { rejection("uber blight map", _l); }
+		}
+
+		if
+		(
+			(
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SCOURGED) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->is_scourged))
+				||
+				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_SCOURGED) == FilterBlock::SpecialStatusMode::SSM_OFF) & (_l->is_scourged))
+			)
+			&
+			(match_detect)
+		)
+		{
+			match_detect = false;
+			if (!_default) { rejection("scourged", _l); }
+		}
+
+		if
 			(
 				((fb->vector_special_status.at(FilterBlock::SpecialStatusList::SSL_MIRRORED) == FilterBlock::SpecialStatusMode::SSM_ON) & (!_l->is_mirrored))
 				||
@@ -1935,6 +2008,8 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			match_detect = false;
 			if (!_default) { rejection("identified", _l); }
 		}
+
+		
 
 
 
@@ -2220,6 +2295,8 @@ void EWindowLootSimulator::manual_event()
 			pattern->shaped_map = pattern_item_list.at(i)->shaped_map;
 			pattern->elder_map = pattern_item_list.at(i)->elder_map;
 			pattern->blighted_map = pattern_item_list.at(i)->blighted_map;
+			pattern->uber_blighted_map = pattern_item_list.at(i)->uber_blighted_map;
+			pattern->scourged = pattern_item_list.at(i)->scourged;
 			pattern->mirrored = pattern_item_list.at(i)->mirrored;
 
 			pattern->enchantment = pattern_item_list.at(i)->enchantment;
@@ -2234,6 +2311,8 @@ void EWindowLootSimulator::manual_event()
 			pattern->replica_chance = pattern_item_list.at(i)->replica_chance;
 			pattern->alternate_quality_chance = pattern_item_list.at(i)->alternate_quality_chance;
 
+			pattern->defence_pertentile_min = pattern_item_list.at(i)->defence_pertentile_min;
+			pattern->defence_pertentile_max = pattern_item_list.at(i)->defence_pertentile_max;
 			
 
 

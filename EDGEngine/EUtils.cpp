@@ -664,6 +664,17 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					
 				}
 
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "defence_pertencile_min")
+				{
+					just_created_pattern_item->defence_pertentile_min = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "defence_pertencile_max")
+				{
+					just_created_pattern_item->defence_pertentile_max = std::stoi(subdata_array[i * 2 + 1]);
+				}
+
 				if (EString::to_lower(subdata_array[i * 2], false) == "count")
 				{
 					just_created_pattern_item->count = std::stoi(subdata_array[i * 2 + 1]);
@@ -688,9 +699,20 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				{
 					just_created_pattern_item->elder_map = true;
 				}
+
 				if (EString::to_lower(subdata_array[i * 2], false) == "blighted_map")
 				{
 					just_created_pattern_item->blighted_map = true;
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "uber_blighted_map")
+				{
+					just_created_pattern_item->uber_blighted_map = true;
+				}
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "scourged")
+				{
+					just_created_pattern_item->scourged = true;
 				}
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "random_category")

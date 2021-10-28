@@ -18,6 +18,8 @@ public:
 	int sockets;
 	int links;
 
+	int defence_pertentile;
+
 	int corruption_chance = 0;
 
 	int numeric_rarity;
@@ -47,6 +49,8 @@ public:
 	bool is_shaper_map = false;
 	bool is_elder_map = false;
 	bool is_blighted_map = false;
+	bool is_uber_blighted_map = false;
+	bool is_scourged = false;
 	bool is_mirrored = false;
 
 	int height;

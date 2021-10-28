@@ -59,6 +59,7 @@ public:
 	std::string cached_item_level;
 	std::string cached_map_tier;
 	std::string cached_corrupted;
+	std::string cached_scourged;
 	std::string cached_corrupted_mods_count;
 	std::string cached_mirrored;
 	std::string cached_replica;

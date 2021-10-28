@@ -31,6 +31,9 @@ public:
 	int min_rarity;
 	int max_rarity;
 
+	int defence_pertentile_min = 0;
+	int defence_pertentile_max = 0;
+
 	int numeric_rarity = 0;
 
 	bool is_legacy;
@@ -52,6 +55,8 @@ public:
 	bool shaped_map = false;
 	bool elder_map = false;
 	bool blighted_map = false;
+	bool uber_blighted_map = false;
+	bool scourged = false;
 	bool mirrored = false;
 
 

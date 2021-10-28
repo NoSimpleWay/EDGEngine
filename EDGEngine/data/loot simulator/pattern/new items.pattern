@@ -42,5 +42,6 @@ item_name	Polished Expedition Scarab	count	1
 item_name	Gilded Expedition Scarab	count	1
 item_name	Winged Expedition Scarab	count	1
 item_name	Kalguuran Incubator	count	1
-item_name	Unset Amulet	count	5	rarity_min	normal	rarity_max	rare	item_level_min	1	item_level_max	90
-
+item_name	Unset Amulet	count	1	rarity_min	normal	rarity_max	rare	item_level_min	1	item_level_max	90
+random_category	EQUIP	count	5	scourged	!	corruption_chance	777
+item_name	Uber blight map	base_class	Maps	count	1	uber_blighted_map	!

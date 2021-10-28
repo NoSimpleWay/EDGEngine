@@ -294,3 +294,4 @@ text_disable_drop_sound_if_alert_sound	[?]DisableDropSoundIfAlertSound
 text_enable_drop_sound_if_alert_sound	[?]EnableDropSoundIfAlertSound
 description_disable_drop_sound_if_alert_sound	Ёкспериментальное нововведение, свойства неизвестны
 description_enable_drop_sound_if_alert_sound	Ёкспериментальное нововведение, свойства неизвестны
+is_scourged	ѕреобразовано
