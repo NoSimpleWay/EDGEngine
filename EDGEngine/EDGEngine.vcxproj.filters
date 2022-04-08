@@ -150,7 +150,7 @@
     <ClCompile Include="BaseClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProphecyList.cpp">
+    <ClCompile Include="ArchnemesisList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EWindowFilterBlockSearch.cpp">
@@ -326,7 +326,7 @@
     <ClInclude Include="EButtonRemove.h">
       <Filter>Header Files\Button</Filter>
     </ClInclude>
-    <ClInclude Include="ProphecyList.h">
+    <ClInclude Include="ArchnemesisList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EWindowMain.cpp">

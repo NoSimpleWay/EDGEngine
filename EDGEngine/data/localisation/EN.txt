@@ -28,7 +28,9 @@ description_add_explicit_group	Add new list of suffix/prefix name
 button_activate_class	Enable class list
 description_activate_class	Enable list of base class (boot, currency, map, etc.)
 button_activate_prophecy	Enable prophecy list
+button_activate_nemesis	Enable nemesis affixes list
 description_activate_prophecy	Enable list of prophecies names
+description_activate_nemesis	Enable list of nemesis names
 button_new_filter_item	Add new item
 description_button_visual_mode	Configue text size, colors, minimap icon, and sounds
 description_play_sound	Play drop sound
@@ -59,6 +61,7 @@ description_remove_explicit_group	Remove explicit list
 description_add_new_explicit_group_list	Add new list of suffixes/affixes
 description_add_new_class	Add new list of item classes (gloves/currency/map/etc.)
 description_add_new_prophecy	Add new list of prophecies name
+description_add_new_archnemesis	Add new list of nemesis
 description_remove_class	Remove list of item class
 description_remove_prophecies	Remove list of prophecies name
 description_show_hide_block	Show/hide filter block
@@ -110,6 +113,7 @@ hint_default_sound	Input default sound name
 hint_custom_sound	Input user sound name
 hint_input_base_class_name	Input base class name
 hint_input_prophecy_name	Input prophecy name
+hint_input_archnemesis_name	Input nemesis mode
 help_right_click_play_sound	Press right mouse button on button to play sound
 help_open_loot_filter_window	List of lootfilter's from "my games/Path of Exile"
 hint_input_filter_block_search	Search text
@@ -285,7 +289,7 @@ exact_match_description	Change mode to exact/partially match
 alternate_quality_anomalous	Anomalous
 alternate_quality_divergent	Divergent
 alternate_quality_phantasmal	Phantasmal
-remove_all_sound	Delete AL sounds
+remove_all_sound	Delete ALL sounds
 remove_all_sound_description	Delete sound from ALL filter blocks
 window_text_remove_all_sound	You want delete sounds from ALL filter blocks. You sure?
 text_disable_drop_sound	Disable drop sound
@@ -295,3 +299,5 @@ text_enable_drop_sound_if_alert_sound	[?]EnableDropSoundIfAlertSound
 description_disable_drop_sound_if_alert_sound	Experimental data, properties unknown
 description_enable_drop_sound_if_alert_sound	Experimental data, properties unknown
 is_scourged	Scourged
+exarch_level_text	Searing Exarch implicit level
+eater_level_text	Eater of the World implicit level

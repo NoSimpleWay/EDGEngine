@@ -28,27 +28,27 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -197,7 +197,7 @@
     <ClCompile Include="ItemList.cpp" />
     <ClCompile Include="LootItem.cpp" />
     <ClCompile Include="NotablePassive.cpp" />
-    <ClCompile Include="ProphecyList.cpp" />
+    <ClCompile Include="ArchnemesisList.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="EFont.cpp" />
     <ClCompile Include="EButton.cpp" />
@@ -260,7 +260,7 @@
     <ClInclude Include="LootItem.h" />
     <ClInclude Include="LootPatternItem.h" />
     <ClInclude Include="NotablePassive.h" />
-    <ClInclude Include="ProphecyList.h" />
+    <ClInclude Include="ArchnemesisList.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="StaticData.h" />
   </ItemGroup>

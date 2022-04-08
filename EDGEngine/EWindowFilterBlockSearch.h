@@ -10,7 +10,7 @@ public:
 	EButton* checker_item_name_link;
 	EButton* checker_class_name_link;
 	EButton* checker_explicit_name_link;
-	EButton* checker_prophecy_name_link;
+	EButton* checker_archnemesis_name_link;
 	
 	std::string cached_text_search;
 

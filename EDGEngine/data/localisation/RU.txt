@@ -28,7 +28,9 @@ description_add_explicit_group	Добавить новый список суффиксов/префиксов
 button_activate_class	Список классов
 description_activate_class	Добавить список классов предметов (сапоги, двуручное оружие, валюта и т.д.)
 button_activate_prophecy	Список пророчеств
+button_activate_nemesis	Список свойств немезиды
 description_activate_prophecy	Добавить список названия пророчеств
+description_activate_nemesis	Добавить список названия свойств немезиды
 button_new_filter_item	Добавить новый предмет
 description_button_visual_mode	Настроить цвета, звуки, размер шрифта
 description_play_sound	Воспроизвести звук дропа
@@ -59,6 +61,7 @@ description_remove_explicit_group	Удалить список префиксов/суффиксов
 description_add_new_explicit_group_list	Добавить список суффиксов/префиксов
 description_add_new_class	Добавить класс в список (перчатки, карты, валюта и т.д.)
 description_add_new_prophecy	Добавить пророчество в список
+description_add_new_archnemesis	Добавить свойства немезиды в список
 description_remove_class	Удалить список классов
 description_remove_prophecies	Удалить список пророчеств
 description_show_hide_block	Показать/скрыть
@@ -110,6 +113,7 @@ hint_default_sound	Введите название звука
 hint_custom_sound	Введите название звука
 hint_input_base_class_name	Введите название класса
 hint_input_prophecy_name	Введите название пророчества
+hint_input_archnemesis_name	Введите название свойства немезиды
 help_right_click_play_sound	Нажмите правую кнопку мыши для воспроизведения
 help_open_loot_filter_window	Список лут-фильтров из "my games/Path of Exile"
 hint_input_filter_block_search	Поиск по тексту
@@ -295,3 +299,5 @@ text_enable_drop_sound_if_alert_sound	[?]EnableDropSoundIfAlertSound
 description_disable_drop_sound_if_alert_sound	Экспериментальное нововведение, свойства неизвестны
 description_enable_drop_sound_if_alert_sound	Экспериментальное нововведение, свойства неизвестны
 is_scourged	Преобразовано
+exarch_level_text	Уровень Обжигающего Экзарха
+eater_level_text	Уровень Пожирателя Миров

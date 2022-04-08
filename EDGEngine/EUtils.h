@@ -2,7 +2,7 @@
 #include <vector>
 #include <irr/irrKlang.h>
 #include "BaseClass.h"
-#include "ProphecyList.h"
+#include "ArchnemesisList.h"
 #include "LabEnchantment.h"
 #include "NotablePassive.h"
 #include "EColor.h"
@@ -73,7 +73,7 @@ public:
 	static std::vector<LabEnchantment*> enchantment_list;
 	static std::vector<BaseClass*> base_class_list;
 
-	static std::vector<ProphecyList*> prophecy_list;
+	static std::vector<ArchnemesisList*> archnemesis_list;
 
 	static void load_loot_filter_list();
 

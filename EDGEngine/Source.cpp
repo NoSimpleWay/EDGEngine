@@ -21,7 +21,7 @@
 #include <vector>
 #include "EInit.h"
 #include "EFont.h"
-       
+	   
 #include <ctime> 
 #include "Helper.h";  
 
@@ -50,7 +50,7 @@
 using namespace std;
 using namespace Helper;
 //Helper helper_object; 
-              
+			  
  
 
 static int im_static = 0;
@@ -313,13 +313,13 @@ bool convert_text_to_bool(string _text)
 }
 
 #include <codecvt>
-void load_prophecy_list()
+void load_archnemesis_list()
 {
 	//ofstream myfile_open;
 	//myfile_open.open("gemor.txt");
 
 	ifstream myfile;
-	myfile.open("data/ProphecyList.txt");
+	myfile.open("data/ArchnemesisList.txt");
 	string line;
 
 	string subdata;
@@ -328,14 +328,14 @@ void load_prophecy_list()
 	int line_id = 0;
 	int data_order;
 
-	ProphecyList* just_created_prophecy = NULL;
+	ArchnemesisList* just_created_archnemesis = NULL;
 
 	//cout << EMath::rgb::r << endl;
 
 
 	while ((getline(myfile, line)) && (line_id < 1000))
 	{
-		just_created_prophecy = new ProphecyList();
+		just_created_archnemesis = new ArchnemesisList();
 
 		data_order = 0;
 		subdata = "";
@@ -360,37 +360,33 @@ void load_prophecy_list()
 
 		for (int i = 0; i < 40; i++)
 		{
-
+			
 			if (subdata_array[i] == "name")
 			{
-				just_created_prophecy->base_name = subdata_array[i + 1];
+				just_created_archnemesis->base_name = subdata_array[i + 1];
 			}
-
+			
 			if (subdata_array[i] == "RU name")
 			{
-				
-
-				//cout << "A: " << wsValid << " B: " << sValid << endl;
-
-				just_created_prophecy->ru_name = EString::to_cyryllic(subdata_array[i + 1]);
+				just_created_archnemesis->ru_name = EString::to_cyryllic(subdata_array[i + 1]);
 			}
 
 			if (subdata_array[i] == "tier")
 			{
 				if (subdata_array[i + 1]=="TRASH")
-				{ just_created_prophecy->cost=Enums::CostList::TRASH; }
+				{ just_created_archnemesis->cost=Enums::CostList::TRASH; }
 
 				if (subdata_array[i + 1]=="LOW COST")
-				{ just_created_prophecy->cost=Enums::CostList::LOW_COST; }
+				{ just_created_archnemesis->cost=Enums::CostList::LOW_COST; }
 
 				if (subdata_array[i + 1]=="MID COST")
-				{ just_created_prophecy->cost=Enums::CostList::MID_COST; }
+				{ just_created_archnemesis->cost=Enums::CostList::MID_COST; }
 
 				if (subdata_array[i + 1]=="HIGH COST")
-				{ just_created_prophecy->cost=Enums::CostList::HIGH_COST; }
+				{ just_created_archnemesis->cost=Enums::CostList::HIGH_COST; }
 
 				if (subdata_array[i * 2 + 1]=="TOP COST")
-				{ just_created_prophecy->cost=Enums::CostList::TOP_COST; }
+				{ just_created_archnemesis->cost=Enums::CostList::TOP_COST; }
 			}
 
 
@@ -414,7 +410,7 @@ void load_prophecy_list()
 		<<
 		std::endl;*/
 
-		EString::prophecy_list.push_back(just_created_prophecy);
+		EString::archnemesis_list.push_back(just_created_archnemesis);
 
 	}
 
@@ -1282,6 +1278,34 @@ int main()
 	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
 	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
 
+	//HasSearingExarchImplicit 
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "HasSearingExarchImplicit";
+
+	*just_created_bdas->name_RU = "Ур. Экзараха";
+	*just_created_bdas->description_RU = "Уровень собственного свойства Опаляющего Экзарха";
+
+	*just_created_bdas->name_EN = "Exarch lvl";
+	*just_created_bdas->description_EN = "Level of implicit of Searing Exarch";
+
+	*just_created_bdas->id = Enums::ParserMode::SEARING_EXARCH;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
+	//HasEaterOfWorldsImplicit 
+	just_created_bdas = new FilterBlock::filter_block_data_attribute_struct;
+	*just_created_bdas->data_name = "HasEaterOfWorldsImplicit";
+
+	*just_created_bdas->name_RU = "Ур. Пожирателя";
+	*just_created_bdas->description_RU = "Уровень собственного свойства Пожирателя миров";
+
+	*just_created_bdas->name_EN = "Eater lvl";
+	*just_created_bdas->description_EN = "Level of implicit of Eater of the World";
+
+	*just_created_bdas->id = Enums::ParserMode::EATER_OF_THE_WORLD;
+	*just_created_bdas->button_type = Enums::FilterBlockButtonType::FBBT_INPUT_FIELD;
+	FilterBlock::filter_block_data_attribute_registerer.push_back(just_created_bdas);
+
 	 
 
 
@@ -1620,7 +1644,7 @@ int main()
 	load_base_class();
 	load_enchantment();
 	load_cluster_enchantment();
-	load_prophecy_list();
+	load_archnemesis_list();
 	load_notable_passives();
 	load_notable_passives_ru();
 	EString::load_loot_pattern_list("!pattern_list");

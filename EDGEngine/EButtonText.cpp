@@ -67,7 +67,7 @@ EButtonText::EButtonText(float _x, float _y, float _sx, float _sy, Enums::Button
 		bg_color->set(0.5f, 1.0f, 0.5f, 0.85f);
 	}
 	
-	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_PROPHECY_LIST)
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_ARCHNEMESIS_LIST)
 	{
 		text_align_x = Enums::PositionMode::MID;
 		position_mode_x = Enums::PositionMode::MID;
@@ -482,11 +482,11 @@ void EButtonText::click_event()
 		StaticData::window_add_new_base_data->is_active = false;
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_PROPHECY_LIST)
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_ARCHNEMESIS_LIST)
 	{
-		master_block->plus_prophecy_button_link->is_active = true;
-		master_block->remove_prophecy_button->is_active = true;
-		master_block->is_prophecy_active = true;
+		master_block->plus_archnemesis_button_link->is_active = true;
+		master_block->remove_archnemesis_button->is_active = true;
+		master_block->is_archnemesis_active = true;
 
 		StaticData::window_add_new_base_data->is_active = false;
 	}
@@ -860,10 +860,10 @@ void EButtonText::update_localisation()
 		description_text = EString::localize_it("description_activate_class");
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_PROPHECY_LIST)
+	if (button_type == Enums::ButtonType::BUTTON_ACTIVE_ARCHNEMESIS_LIST)
 	{
-		text = EString::localize_it("button_activate_prophecy");
-		description_text = EString::localize_it("description_activate_prophecy");
+		text = EString::localize_it("button_activate_nemesis");
+		description_text = EString::localize_it("description_activate_nemesis");
 	}
 
 	if (button_type == Enums::ButtonType::BUTTON_SET_RAY_IS_TEMPOTARY)

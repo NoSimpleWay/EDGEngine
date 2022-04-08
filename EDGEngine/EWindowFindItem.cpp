@@ -469,8 +469,11 @@ public:
 				order++;
 			}
 		}
-		if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST)
+		
+		if (window_searchs_mode == Enums::WindowSearchMode::ARCHNEMESIS_LIST)
 		{
+			//std::cout << "D: 0" << std::endl;
+
 			if (input_button->text != "")
 			{
 				button_list.at(0)->is_active = true;
@@ -483,14 +486,17 @@ public:
 			{
 				button_list.at(0)->is_active = false;
 			}
-
+			//std::cout << "D: 1" << std::endl;
 			for (int i = 1; i < button_list.size(); i++)
 			{
 				button_list.at(i)->is_active = false;
 			}
-
+			//std::cout << "D: 2" << std::endl;
 			int search_count = 1;
 			int order = -1;
+
+			search_count = 1;
+			//std::cout << "search count:" << std::to_string(search_count) << std::endl;
 			for (EButton* b : button_list)
 			{
 				//std::cout << "item_list_name |" << item->item_name << "| button description |" <<  _b->text << "|" << std::endl;
@@ -501,17 +507,20 @@ public:
 					(
 						(order >= 0)
 						&&
+						(order < EString::archnemesis_list.size())
+						&&
 						(
-							(EString::to_lower(EString::prophecy_list.at(order)->base_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+							(EString::to_lower(EString::archnemesis_list.at(order)->base_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
 							||
-							(EString::to_lower(EString::prophecy_list.at(order)->ru_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
+							(EString::to_lower(EString::archnemesis_list.at(order)->ru_name, false).find(EString::to_lower(_b->text, false)) != std::string::npos)
 						)
 						&&
 						(search_count<30)
 					)
 				{
-					if (search_count < EString::prophecy_list.size())
+					if (search_count < EString::archnemesis_list.size())
 					{
+						//std::cout << "D: 3" << std::endl;
 						b->is_active = true;
 
 						search_count++;
@@ -917,7 +926,8 @@ public:
 			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_CLUSTER_ENCHANTMENT;
 			input_button->is_input_mode_active = true;
 		}
-		if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST)
+		
+		if (window_searchs_mode == Enums::WindowSearchMode::ARCHNEMESIS_LIST)
 		{
 			help_text = "";
 
@@ -926,7 +936,7 @@ public:
 
 			for (EButton* b : button_list)
 			{
-				if (data_index < EString::prophecy_list.size())
+				if (data_index < EString::archnemesis_list.size())
 				{
 					b->button_size_y = 21;
 
@@ -937,15 +947,24 @@ public:
 
 					if (data_index >= 1)
 					{
-						b->text = EString::prophecy_list.at(data_index - 1)->ru_name;
-						b->data_string = EString::prophecy_list.at(data_index - 1)->base_name;
+
+						if (EString::active_localisation == Enums::LocalisationList::EN)
+						{
+							b->text = EString::archnemesis_list.at(data_index - 1)->base_name;
+						}
+
+						if (EString::active_localisation == Enums::LocalisationList::RU)
+						{
+							b->text = EString::archnemesis_list.at(data_index - 1)->ru_name;
+						}
+						b->data_string = EString::archnemesis_list.at(data_index - 1)->base_name;
 						b->data_id = data_index - 1;
 
-						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::TRASH) { b->text_color->set(0.6f, 0.6f, 0.6f, 0.5f); }
-						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::LOW_COST) { b->text_color->set(0.4f, 0.8f, 0.4f, 0.6f); }
-						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::MID_COST) { b->text_color->set(0.4f, 0.8f, 0.8f, 0.7f); }
-						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::HIGH_COST) { b->text_color->set(0.8f, 0.4f, 0.8f, 0.8f); }
-						if (EString::prophecy_list.at(data_index - 1)->cost == Enums::CostList::TOP_COST) { b->text_color->set(1.0f, 1.0f, 0.4f, 0.9f); }
+						if (EString::archnemesis_list.at(data_index - 1)->cost == Enums::CostList::TRASH) { b->text_color->set(0.6f, 0.6f, 0.6f, 0.5f); }
+						if (EString::archnemesis_list.at(data_index - 1)->cost == Enums::CostList::LOW_COST) { b->text_color->set(0.4f, 0.8f, 0.4f, 0.6f); }
+						if (EString::archnemesis_list.at(data_index - 1)->cost == Enums::CostList::MID_COST) { b->text_color->set(0.4f, 0.8f, 0.8f, 0.7f); }
+						if (EString::archnemesis_list.at(data_index - 1)->cost == Enums::CostList::HIGH_COST) { b->text_color->set(0.8f, 0.4f, 0.8f, 0.8f); }
+						if (EString::archnemesis_list.at(data_index - 1)->cost == Enums::CostList::TOP_COST) { b->text_color->set(1.0f, 1.0f, 0.4f, 0.9f); }
 					}
 					else
 					{
@@ -957,7 +976,7 @@ public:
 
 					if (data_index<30)
 					{b->is_active = true;} else { b->is_active = false; }
-					b->button_type = Enums::ButtonType::BUTTON_SEARCH_PROPHECY;
+					b->button_type = Enums::ButtonType::BUTTON_SEARCH_ARCHNEMESIS;
 					b->data_id = data_index - 1;
 
 					
@@ -972,7 +991,7 @@ public:
 				}
 			}
 
-			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_PROPHECY;
+			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_ARCHNEMESIS;
 			input_button->is_input_mode_active = true;
 		}
 
@@ -1028,10 +1047,12 @@ public:
 			input_button->button_type = Enums::ButtonType::BUTTON_SEARCH_LOOT_SIMULATOR_PATTERN;
 		}
 
+		
 		input_button->text = "";
 		fill_search_array(input_button);
-
+		
 		update_localisation();
+		
 	}
 
 	virtual void text_pass(Batcher* _batch)
@@ -1135,7 +1156,7 @@ public:
 		{
 			if (window_searchs_mode == Enums::WindowSearchMode::ITEM) { target_button->need_remove = true; }
 			if (window_searchs_mode == Enums::WindowSearchMode::BASE_CLASS_SEARCH_LIST) { target_button->need_remove = true; }
-			if (window_searchs_mode == Enums::WindowSearchMode::PROPHECY_SEARCH_LIST) { target_button->need_remove = true; }
+			if (window_searchs_mode == Enums::WindowSearchMode::ARCHNEMESIS_LIST) { target_button->need_remove = true; }
 		}
 	}
 

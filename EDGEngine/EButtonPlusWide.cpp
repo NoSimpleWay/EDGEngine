@@ -27,7 +27,7 @@ EButtonPlusWide::EButtonPlusWide(float _x, float _y, float _sx, float _sy, Enums
 
 	button_type = _type;
 
-	if (button_type==Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	if (button_type==Enums::ButtonType::BUTTON_OPEN_EXPLICIT_ARCHNEMESIS_CLASS_WINDOW)
 	{
 		position_mode_y = Enums::PositionMode::UP;
 	}
@@ -46,9 +46,9 @@ void EButtonPlusWide::click_event()
 		StaticData::window_add_new_base_data->button_event(this);
 	}
 
-	if (button_type==Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	if (button_type==Enums::ButtonType::BUTTON_OPEN_EXPLICIT_ARCHNEMESIS_CLASS_WINDOW)
 	{
-		StaticData::window_add_new_base_data->window_searchs_mode = Enums::WindowSearchMode::EXPLICIT_PROPHECY_CLASS_VERTICAL_LIST;
+		StaticData::window_add_new_base_data->window_searchs_mode = Enums::WindowSearchMode::EXPLICIT_ARCHNEMESIS_CLASS_VERTICAL_LIST;
 		StaticData::window_add_new_base_data->button_event(this);
 	}
 
@@ -63,7 +63,7 @@ void EButtonPlusWide::click_event()
 
 void EButtonPlusWide::update_localisation()
 {
-	if (button_type == Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_EXPLICIT_ARCHNEMESIS_CLASS_WINDOW)
 	{description_text = EString::localize_it("description_new_EPC");}
 
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_BASE_DATA_WINDOW)

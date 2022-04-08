@@ -114,16 +114,16 @@
 				}
 
 
-				for (EButtonExplicit* b : fb->prophecy_list)
+				for (EButtonExplicit* b : fb->archnemesis_list)
 				{
 					if
 						(
 							(b->data_id >= 0)
 							&&
 							(
-								(EString::to_lower(EString::prophecy_list.at(b->data_id)->base_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+								(EString::to_lower(EString::archnemesis_list.at(b->data_id)->base_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
 								||
-								(EString::to_lower(EString::prophecy_list.at(b->data_id)->ru_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
+								(EString::to_lower(EString::archnemesis_list.at(b->data_id)->ru_name, false).find(EString::to_lower(input_button_link->text, false)) != std::string::npos)
 							)
 						)
 					{

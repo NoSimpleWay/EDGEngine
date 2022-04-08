@@ -26,6 +26,10 @@ public:
 
 	std::string rarity = "normal";
 	int item_level;
+
+	int exarch_level;
+	int eater_level;
+
 	int req_level;
 
 	int red_socket;
@@ -84,7 +88,7 @@ public:
 
 	std::string enchantment;
 	std::string cluster_enchantment;
-	std::string prophecy;
+	std::string archnemesis;
 
 	bool is_replica;
 	bool is_alternate_quality;

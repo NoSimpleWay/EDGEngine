@@ -993,12 +993,12 @@ void EButtonService::click_event()
 			but->update_localisation();
 		}
 
-		fb->is_prophecy_active = master_block->is_prophecy_active;
-		fb->remove_prophecy_button->is_active = master_block->remove_prophecy_button->is_active;
-		fb->plus_prophecy_button_link->is_active = master_block->plus_prophecy_button_link->is_active;
-		for (EButton* b : master_block->prophecy_list)
+		fb->is_archnemesis_active = master_block->is_archnemesis_active;
+		fb->remove_archnemesis_button->is_active = master_block->remove_archnemesis_button->is_active;
+		fb->plus_archnemesis_button_link->is_active = master_block->plus_archnemesis_button_link->is_active;
+		for (EButton* b : master_block->archnemesis_list)
 		{
-			EButtonExplicit* but = new EButtonExplicit(0, 0, 45.0f, 45.0f, Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST);
+			EButtonExplicit* but = new EButtonExplicit(0, 0, 45.0f, 45.0f, Enums::ButtonType::BUTTON_ARCHNEMESIS_FILTER_BLOCK_LIST);
 			but->text = b->text;
 			but->description_text = b->description_text;
 			but->data_id = b->data_id;
@@ -1011,7 +1011,7 @@ void EButtonService::click_event()
 			but->master_block = fb;
 			but->master_window = StaticData::window_filter_block;
 
-			fb->prophecy_list.push_back(but);
+			fb->archnemesis_list.push_back(but);
 			fb->button_list.push_back(but);
 
 			but->update_localisation();
@@ -1463,7 +1463,7 @@ void EButtonService::update_localisation()
 	if (button_type == Enums::ButtonType::BUTTON_OPEN_BASE_DATA_WINDOW)
 	{description_text = EString::localize_it("description_new_base_data_vertical_list");}
 	
-	if (button_type == Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW)
+	if (button_type == Enums::ButtonType::BUTTON_OPEN_EXPLICIT_ARCHNEMESIS_CLASS_WINDOW)
 	{description_text = EString::localize_it("description_new_EPC");}
 
 	if (button_type == Enums::ButtonType::BUTTON_SHOW_HIDE)

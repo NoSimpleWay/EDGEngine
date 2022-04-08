@@ -8,7 +8,7 @@ public:
 	std::string item_name;
 	std::string item_base_name;
 	//std::string item_class;
-	std::string prophecy_name;
+	std::string archnemesis_name;
 
 	int min_sockets = 0;
 	int max_sockets = 0;
@@ -27,6 +27,12 @@ public:
 
 	int min_item_level;
 	int max_item_level;
+
+	int min_exarch_level;
+	int max_exarch_level;
+
+	int min_eater_level;
+	int max_eater_level;
 
 	int min_rarity;
 	int max_rarity;

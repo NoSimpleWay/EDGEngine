@@ -190,7 +190,7 @@ public:
 			window_size_x = max_size_x + 80.0f;
 		}
 
-		if (window_searchs_mode == Enums::WindowSearchMode::EXPLICIT_PROPHECY_CLASS_VERTICAL_LIST)
+		if (window_searchs_mode == Enums::WindowSearchMode::EXPLICIT_ARCHNEMESIS_CLASS_VERTICAL_LIST)
 		{
 			bool free_space_detected = false;
 
@@ -230,9 +230,9 @@ public:
 
 
 
-			if (!_b->master_block->is_prophecy_active)
+			if (!_b->master_block->is_archnemesis_active)
 			{
-				EButton* but = new EButtonText(0, 0, 300, 20, Enums::ButtonType::BUTTON_ACTIVE_PROPHECY_LIST);
+				EButton* but = new EButtonText(0, 0, 300, 20, Enums::ButtonType::BUTTON_ACTIVE_ARCHNEMESIS_LIST);
 
 				but->master_window = this;
 				but->button_x = 0;

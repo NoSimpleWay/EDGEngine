@@ -24,7 +24,7 @@ EButtonExplicit::EButtonExplicit(float _x, float _y, float _sx, float _sy, Enums
 		
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST)
+	if (button_type == Enums::ButtonType::BUTTON_ARCHNEMESIS_FILTER_BLOCK_LIST)
 	{
 		have_input_mode = false;
 
@@ -104,27 +104,31 @@ void EButtonExplicit::click_event()
 		}
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST)
+	if (button_type == Enums::ButtonType::BUTTON_ARCHNEMESIS_FILTER_BLOCK_LIST)
 	{
+
 		StaticData::window_find_item->is_active = true;
-		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::PROPHECY_SEARCH_LIST;
+		StaticData::window_find_item->window_searchs_mode = Enums::WindowSearchMode::ARCHNEMESIS_LIST;
 
 		StaticData::window_find_item->target_button = this;
+
 		StaticData::window_find_item->button_event(this);
+
 
 		if (is_plus)
 		{
-			EButtonExplicit* prophecy_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST);
-			prophecy_button->text = cached_text_press_me;
-			prophecy_button->have_input_mode = false;
-			prophecy_button->master_block = master_block;
-			prophecy_button->master_window = StaticData::window_filter_block;
-			prophecy_button->button_size_x = EFont::get_width(EFont::active_font, prophecy_button->text) + 5.0f;
-			master_block->prophecy_list.push_back(prophecy_button);
+			
+			EButtonExplicit* archnemesis_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_ARCHNEMESIS_FILTER_BLOCK_LIST);
+			archnemesis_button->text = cached_text_press_me;
+			archnemesis_button->have_input_mode = false;
+			archnemesis_button->master_block = master_block;
+			archnemesis_button->master_window = StaticData::window_filter_block;
+			archnemesis_button->button_size_x = EFont::get_width(EFont::active_font, archnemesis_button->text) + 5.0f;
+			master_block->archnemesis_list.push_back(archnemesis_button);
 
-			master_block->button_list.push_back(prophecy_button);
+			master_block->button_list.push_back(archnemesis_button);
 
-			StaticData::window_find_item->target_button = prophecy_button;
+			StaticData::window_find_item->target_button = archnemesis_button;
 		}
 
 
@@ -197,8 +201,8 @@ void EButtonExplicit::update_localisation()
 	if (button_type == Enums::ButtonType::BUTTON_CLASS_FILTER_BLOCK_LIST)
 	{description_text = EString::localize_it("name_of_class");}
 
-	if (button_type == Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST)
-	{description_text = EString::localize_it("name_of_prophecy");}
+	if (button_type == Enums::ButtonType::BUTTON_ARCHNEMESIS_FILTER_BLOCK_LIST)
+	{description_text = EString::localize_it("name_of_nemesis");}
 
 	if (button_type == Enums::ButtonType::BUTTON_EXPLICIT_FILTER_BLOCK_LIST)
 	{
@@ -225,11 +229,11 @@ void EButtonExplicit::update_localisation()
 			}
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST)
+	if (button_type == Enums::ButtonType::BUTTON_ARCHNEMESIS_FILTER_BLOCK_LIST)
 	{
 			if (is_plus)
 			{
-				description_text = EString::localize_it("description_add_new_prophecy");
+				description_text = EString::localize_it("description_add_new_archnemesis");
 			}
 			else
 			{

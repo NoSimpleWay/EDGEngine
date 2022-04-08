@@ -1,0 +1,10 @@
+name	Siphoning Ring	tier	TRASH	RU name	123Сифоновое кольцо
+name	Ice Prison	tier	TRASH	RU name	Ледяная клетка
+name	Hasted	tier	TRASH	RU name	Ускоренный
+name	Incendiary	tier	TRASH	RU name	Зажигательный
+name	Toxic	tier	TRASH	RU name	Токсичный
+name	Echoist	tier	TRASH	RU name	Эхоист
+name	Berserker	tier	TRASH	RU name	Берсеркер
+name	Mirror Image	tier	TRASH	RU name	Зеркальная копия
+name	Flame Walker	tier	TRASH	RU name	Огнеход
+name	Innocence-Touched	tier	TRASH	RU name	Касание невинности

@@ -57,6 +57,8 @@ public:
 	std::string cached_quality_text;
 	std::string cached_gem_level;
 	std::string cached_item_level;
+	std::string cached_exarch_level;
+	std::string cached_eater_level;
 	std::string cached_map_tier;
 	std::string cached_corrupted;
 	std::string cached_scourged;

@@ -47,7 +47,7 @@ void EButtonInputSearchItem::input_event()
 		||
 		(button_type == Enums::ButtonType::BUTTON_SEARCH_BASE_CLASS)
 		||
-		(button_type == Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
+		(button_type == Enums::ButtonType::BUTTON_SEARCH_ARCHNEMESIS)
 		||
 		(button_type == Enums::ButtonType::BUTTON_SEARCH_LOOT_FILTER)
 		||
@@ -91,8 +91,8 @@ void EButtonInputSearchItem::input_event()
 		if (button_type == Enums::ButtonType::BUTTON_SEARCH_ENCHANTMENT)
 		{input_hint = EString::localize_it("hint_input_enchantment");}
 
-		if (button_type == Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
-		{input_hint = EString::localize_it("hint_input_prophecy_name");}
+		if (button_type == Enums::ButtonType::BUTTON_SEARCH_ARCHNEMESIS)
+		{input_hint = EString::localize_it("hint_input_archnemesis_name");}
 
 		if (button_type == Enums::ButtonType::BUTTON_SEARCH_INPUT_FOR_FILTER_BLOCK)
 		{input_hint = EString::localize_it("hint_input_filter_block_search");}

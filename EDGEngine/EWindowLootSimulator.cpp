@@ -334,23 +334,23 @@ void EWindowLootSimulator::update(float _d)
 			loot->cluster_enchantment = p->cluster_enchantment;
 
 
-			loot->prophecy = p->prophecy_name;
+			loot->archnemesis = p->archnemesis_name;
 
-			if ((loot->prophecy == "%random%") && (EString::prophecy_list.size() > 0))
+			if ((loot->archnemesis == "%random%") && (EString::archnemesis_list.size() > 0))
 			{
-				loot->prophecy = EString::prophecy_list.at(rand() % EString::prophecy_list.size())->base_name;
+				loot->archnemesis = EString::archnemesis_list.at(rand() % EString::archnemesis_list.size())->base_name;
 			}
 
-			if (loot->prophecy != "")
+			if (loot->archnemesis != "")
 			{
-				loot->name = loot->prophecy;
+				loot->name = loot->archnemesis;
 
 				if (EString::active_localisation == Enums::RU)
-				for (int i=0; i < EString::prophecy_list.size(); i++)
+				for (int i=0; i < EString::archnemesis_list.size(); i++)
 				{
-					if (EString::to_lower(EString::prophecy_list.at(i)->base_name) == EString::to_lower(loot->prophecy))
+					if (EString::to_lower(EString::archnemesis_list.at(i)->base_name) == EString::to_lower(loot->archnemesis))
 					{
-						loot->name = EString::prophecy_list.at(i)->ru_name;
+						loot->name = EString::archnemesis_list.at(i)->ru_name;
 					}
 				}
 			}
@@ -381,6 +381,36 @@ void EWindowLootSimulator::update(float _d)
 				}
 
 				if (loot->item_level < 1) { loot->item_level = 1; }
+				//if (loot->item_level > loot->iteml) { loot->links = loot->sockets; }
+			}
+
+			if (p->max_exarch_level > 0)
+			{
+				if (p->max_exarch_level > p->min_exarch_level)
+				{
+					loot->exarch_level = p->min_exarch_level + (rand() % (p->max_exarch_level - p->min_exarch_level + 1));
+				}
+				else
+				{
+					loot->exarch_level = p->max_exarch_level;
+				}
+
+				if (loot->exarch_level < 0) { loot->exarch_level = 1; }
+				//if (loot->item_level > loot->iteml) { loot->links = loot->sockets; }
+			}
+
+			if (p->max_eater_level > 0)
+			{
+				if (p->max_eater_level > p->min_eater_level)
+				{
+					loot->eater_level = p->min_eater_level + (rand() % (p->max_eater_level - p->min_eater_level + 1));
+				}
+				else
+				{
+					loot->eater_level = p->max_eater_level;
+				}
+
+				if (loot->eater_level < 0) { loot->eater_level = 0; }
 				//if (loot->item_level > loot->iteml) { loot->links = loot->sockets; }
 			}
 
@@ -846,6 +876,28 @@ void EWindowLootSimulator::draw(Batcher* _batch, float _delta)
 				move_y++;
 			}
 
+			if (loot->exarch_level > 0)
+			{
+				_batch->setcolor(EColorCollection::GRAY);
+				EFont::active_font->draw(_batch, cached_exarch_level + "   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				_batch->setcolor(EColorCollection::WHITE);
+				EFont::active_font->add_draw(_batch, std::to_string(loot->exarch_level), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				move_y++;
+			}
+
+			if (loot->eater_level > 0)
+			{
+				_batch->setcolor(EColorCollection::GRAY);
+				EFont::active_font->draw(_batch, cached_eater_level + "   ", xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				_batch->setcolor(EColorCollection::WHITE);
+				EFont::active_font->add_draw(_batch, std::to_string(loot->eater_level), xx + 5.0f + 210.0f, yy + 270.0f - dy * move_y);
+
+				move_y++;
+			}
+
 
 			if (loot->cluster_small_passives_count > 0)
 			{
@@ -1084,6 +1136,10 @@ void EWindowLootSimulator::update_localisation()
 	cached_quality_text						= EString::localize_it("quality_text");
 	cached_gem_level						= EString::localize_it("gem_level_text");
 	cached_item_level						= EString::localize_it("item_level_text");
+
+	cached_exarch_level						= EString::localize_it("exarch_level_text");
+	cached_eater_level						= EString::localize_it("eater_level_text");
+
 	cached_map_tier							= EString::localize_it("map_tier_text");
 	cached_corrupted						= EString::localize_it("corrupted_text");
 	cached_corrupted_mods_count				= EString::localize_it("corrupted_text_mods_count");
@@ -1360,23 +1416,23 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 
 		}
 
-		/*			PROPHECY			*/
+		/*			ARCHNEMESIS			*/
 		if (match_detect)
 		{
 			temp_match = false;
-			if (!fb->is_prophecy_active) { temp_match = true; }
+			if (!fb->is_archnemesis_active) { temp_match = true; }
 
-			for (EButton* b : fb->prophecy_list)
+			for (EButton* b : fb->archnemesis_list)
 			{
 				if
-					(EString::to_lower(_l->prophecy, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
+					(EString::to_lower(_l->archnemesis, false).find(EString::to_lower(b->data_string, false)) != std::string::npos)
 				{
 					temp_match = true;
 				}
 			}
 
 			match_detect = temp_match;
-			if ((!_default) && (!match_detect)) { rejection("prophecy", _l); }
+			if ((!_default) && (!match_detect)) { rejection("archnemesis", _l); }
 		}
 
 
@@ -1429,14 +1485,42 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if
 			(
 				(target_data == Enums::ParserMode::ITEM_LEVEL)
-				&
+				&&
 				(!check_condition(attribute_operator, _l->item_level, attribute_value_num))
-				&
+				&&
 				(match_detect)
 			)
 			{
 				match_detect = false;
 				if (!_default) { rejection("item level", _l); }
+			}
+
+			/*       EXARCH       */
+			if
+			(
+				(target_data == Enums::ParserMode::SEARING_EXARCH)
+				&&
+				(!check_condition(attribute_operator, _l->exarch_level, attribute_value_num))
+				&&
+				(match_detect)
+			)
+			{
+				match_detect = false;
+				if (!_default) { rejection("exarch", _l); }
+			}
+
+			/*       EATER       */
+			if
+			(
+				(target_data == Enums::ParserMode::EATER_OF_THE_WORLD)
+				&&
+				(!check_condition(attribute_operator, _l->eater_level, attribute_value_num))
+				&&
+				(match_detect)
+			)
+			{
+				match_detect = false;
+				if (!_default) { rejection("eater", _l); }
 			}
 
 			/*       AREA LEVEL       */
@@ -2285,6 +2369,14 @@ void EWindowLootSimulator::manual_event()
 			pattern->min_item_level = pattern_item_list.at(i)->min_item_level;
 			pattern->max_item_level = pattern_item_list.at(i)->max_item_level;
 
+
+			pattern->min_exarch_level = pattern_item_list.at(i)->min_exarch_level;
+			pattern->max_exarch_level = pattern_item_list.at(i)->max_exarch_level;
+
+
+			pattern->min_eater_level = pattern_item_list.at(i)->min_eater_level;
+			pattern->max_eater_level = pattern_item_list.at(i)->max_eater_level;
+
 			pattern->min_rarity = pattern_item_list.at(i)->min_rarity;
 			pattern->max_rarity = pattern_item_list.at(i)->max_rarity;
 
@@ -2302,7 +2394,7 @@ void EWindowLootSimulator::manual_event()
 			pattern->enchantment = pattern_item_list.at(i)->enchantment;
 			pattern->cluster_enchantment = pattern_item_list.at(i)->cluster_enchantment;
 
-			pattern->prophecy_name = pattern_item_list.at(i)->prophecy_name;
+			pattern->archnemesis_name = pattern_item_list.at(i)->archnemesis_name;
 
 
 			pattern->corruption_chance = pattern_item_list.at(i)->corruption_chance;

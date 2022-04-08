@@ -161,7 +161,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 	std::vector<BaseClass*> EString::base_class_list;
 	std::vector<LabEnchantment*> EString::enchantment_list;
-	std::vector<ProphecyList*> EString::prophecy_list;
+	std::vector<ArchnemesisList*> EString::archnemesis_list;
 
 	std::vector<std::string> EString::loot_filter_name_list;
 	std::vector<std::string> EString::loot_simulator_pattern_name_list;
@@ -534,6 +534,7 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					just_created_pattern_item->max_gem_level = std::stoi(subdata_array[i * 2 + 1]);
 				}
 
+				///
 				if (EString::to_lower(subdata_array[i * 2], false) == "item_level_min")
 				{
 					
@@ -546,6 +547,40 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 				if (EString::to_lower(subdata_array[i * 2], false) == "item_level_max")
 				{
 					just_created_pattern_item->max_item_level = std::stoi(subdata_array[i * 2 + 1]);
+
+					//std::cout << "max item level=" << just_created_pattern_item->max_item_level << std::endl;
+				}
+
+				///
+				if (EString::to_lower(subdata_array[i * 2], false) == "exarch_level_min")
+				{
+
+					just_created_pattern_item->min_exarch_level = std::stoi(subdata_array[i * 2 + 1]);
+
+					//std::cout << "min item level=" << just_created_pattern_item->min_item_level << std::endl;
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "exarch_level_max")
+				{
+					just_created_pattern_item->max_exarch_level = std::stoi(subdata_array[i * 2 + 1]);
+
+					//std::cout << "max item level=" << just_created_pattern_item->max_item_level << std::endl;
+				}
+
+				///
+				if (EString::to_lower(subdata_array[i * 2], false) == "eater_level_min")
+				{
+
+					just_created_pattern_item->min_eater_level = std::stoi(subdata_array[i * 2 + 1]);
+
+					//std::cout << "min item level=" << just_created_pattern_item->min_item_level << std::endl;
+				}
+
+
+				if (EString::to_lower(subdata_array[i * 2], false) == "eater_level_max")
+				{
+					just_created_pattern_item->max_eater_level = std::stoi(subdata_array[i * 2 + 1]);
 
 					//std::cout << "max item level=" << just_created_pattern_item->max_item_level << std::endl;
 				}
@@ -725,9 +760,9 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					just_created_pattern_item->random_cost_group = subdata_array[i * 2 + 1];
 				}
 
-				if (EString::to_lower(subdata_array[i * 2], false) == "prophecy_name")
+				if (EString::to_lower(subdata_array[i * 2], false) == "archnemesis_name")
 				{
-					just_created_pattern_item->prophecy_name = subdata_array[i * 2 + 1];
+					just_created_pattern_item->archnemesis_name = subdata_array[i * 2 + 1];
 				}
 
 				if (EString::to_lower(subdata_array[i * 2], false) == "base_class")
@@ -1422,6 +1457,20 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("ItemLevel", just_created_block);
 								}
 
+								if (subdata == "HasSearingExarchImplicit")
+								{
+									parser_mode = Enums::ParserMode::SEARING_EXARCH;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("HasSearingExarchImplicit", just_created_block);
+								}
+
+								if (subdata == "HasEaterOfWorldsImplicit")
+								{
+									parser_mode = Enums::ParserMode::EATER_OF_THE_WORLD;
+									//just_created_block->base_filter_data_active.at(Enums::BaseDataOrder::DATA_ITEM_LEVEL) = true;
+									just_created_base_data_registerer = FilterBlock::add_new_base_attribute("HasEaterOfWorldsImplicit", just_created_block);
+								}
+
 								if (subdata == "HasExplicitMod")
 								{
 									parser_mode = Enums::ParserMode::EXPLICIT_MOD; explicit_group_id++;
@@ -1537,13 +1586,13 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								if (subdata == "EnableDropSoundIfAlertSound") { parser_mode = Enums::ParserMode::ENABLE_DROP_SOUND_IF_ALERT_SOUND;  just_created_block->enable_drop_sound_if_alert_sound = true;}
 
 
-								if (subdata == "Prophecy")
+								if (subdata == "ArchnemesisMod")
 								{
-									parser_mode = Enums::ParserMode::PROPHECY;
-									just_created_block->is_prophecy_active = true;
+									parser_mode = Enums::ParserMode::ARCHNEMESIS;
+									just_created_block->is_archnemesis_active = true;
 
-									just_created_block->plus_prophecy_button_link->is_active = true;
-									just_created_block->remove_prophecy_button->is_active = true;
+									just_created_block->plus_archnemesis_button_link->is_active = true;
+									just_created_block->remove_archnemesis_button->is_active = true;
 								}
 
 								if (subdata == "BlightedMap")
@@ -2463,38 +2512,34 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								}
 							}
 
-							if (parser_mode == Enums::ParserMode::ITEM_LEVEL)
+							if
+							(
+								(parser_mode == Enums::ParserMode::ITEM_LEVEL)
+								||
+								(parser_mode == Enums::ParserMode::SEARING_EXARCH)
+								||
+								(parser_mode == Enums::ParserMode::EATER_OF_THE_WORLD)
+							)
 							{
-								if (data_order == 0) { if (show_info_to_console) { cout << "activate item level" << endl; } }
+								if (data_order == 0) { if (show_info_to_console) { cout << "activate: " << just_created_base_data_registerer->target_id << endl; } }
 
 
 								if ((data_order == 1) && (!EString::check_is_condition_symbols(subdata)))
 								{
-									if (show_info_to_console) { cout << "set item level as <" << subdata << "> condition autogenerated" << endl; }
-									//just_created_block->item_level = std::stoi(subdata); just_created_block->item_level_condition = "=";
 
-									if (just_created_base_data_registerer->main_button != NULL)
-									{just_created_base_data_registerer->main_button->text = subdata;}
+									if (just_created_base_data_registerer->main_button != NULL) {just_created_base_data_registerer->main_button->text = subdata;}
 
-									if (just_created_base_data_registerer->condition_button != NULL)
-									{just_created_base_data_registerer->condition_button->text = "=";}
+									if (just_created_base_data_registerer->condition_button != NULL) {just_created_base_data_registerer->condition_button->text = "=";}
 								
 								}
 								
 								if ((data_order == 1) && (EString::check_is_condition_symbols(subdata)))
 								{
-									if (show_info_to_console) { cout << "set item level condition as <" << subdata << "> id of symbol=" << endl; }
-									//just_created_block->item_level_condition = subdata;
-
-									if (just_created_base_data_registerer->condition_button != NULL)
-									{just_created_base_data_registerer->condition_button->text = subdata;}
+									if (just_created_base_data_registerer->condition_button != NULL) {just_created_base_data_registerer->condition_button->text = subdata;}
 								}
 
 								if (data_order == 2)
 								{
-									if (show_info_to_console)
-									{
-										cout << "set item_level as <" << subdata << ">" << endl; }
 									//just_created_block->item_level = std::stoi(subdata);
 
 									if (just_created_base_data_registerer->main_button != NULL)
@@ -3504,43 +3549,43 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 								}
 							}
 
-							if (parser_mode == Enums::ParserMode::PROPHECY)
+							if (parser_mode == Enums::ParserMode::ARCHNEMESIS)
 							{
 								//if (data_order == 0) { cout << "activate rarity property" << endl; }
 								if (data_order > 0) {
 									if (show_info_to_console)
 									{
-										cout << "add new prophecy mod <" << subdata << ">" << endl;
+										cout << "add new archnemsis mod <" << subdata << ">" << endl;
 									}
-									EButtonExplicit* prophecy_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST);
-									prophecy_button->text = subdata;
-									prophecy_button->data_string = subdata;
+									EButtonExplicit* archnemesis_button = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_ARCHNEMESIS_FILTER_BLOCK_LIST);
+									archnemesis_button->text = subdata;
+									archnemesis_button->data_string = subdata;
 
-									prophecy_button->master_block = just_created_block;
-									prophecy_button->master_window = StaticData::window_filter_block;
+									archnemesis_button->master_block = just_created_block;
+									archnemesis_button->master_window = StaticData::window_filter_block;
 								
 
-									prophecy_button->data_id = -1;
+									archnemesis_button->data_id = -1;
 
-									for (int sr = 0; sr < EString::prophecy_list.size(); sr++)
+									for (int sr = 0; sr < EString::archnemesis_list.size(); sr++)
 									{
-										if (EString::prophecy_list.at(sr)->base_name == subdata)
+										if (EString::archnemesis_list.at(sr)->base_name == subdata)
 										{
-											prophecy_button->data_id = sr;
+											archnemesis_button->data_id = sr;
 
 											if (EString::active_localisation == Enums::LocalisationList::EN)
-											{prophecy_button->text = EString::prophecy_list.at(sr)->base_name;}
+											{archnemesis_button->text = EString::archnemesis_list.at(sr)->base_name;}
 
 											if (EString::active_localisation == Enums::LocalisationList::RU)
-											{prophecy_button->text = EString::prophecy_list.at(sr)->ru_name;}
+											{archnemesis_button->text = EString::archnemesis_list.at(sr)->ru_name;}
 										}
 									}
 
-									prophecy_button->button_size_x = EFont::get_width(EFont::active_font, prophecy_button->text) + 5.0f;
-									prophecy_button->button_min_size_x = 30.0f;
+									archnemesis_button->button_size_x = EFont::get_width(EFont::active_font, archnemesis_button->text) + 5.0f;
+									archnemesis_button->button_min_size_x = 30.0f;
 
-									just_created_block->button_list.push_back(prophecy_button);
-									just_created_block->prophecy_list.push_back(prophecy_button);
+									just_created_block->button_list.push_back(archnemesis_button);
+									just_created_block->archnemesis_list.push_back(archnemesis_button);
 								}
 
 
@@ -4062,12 +4107,28 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 					loot_writer += '\t';
 					loot_writer += "HasExplicitMod";
 
+
 					for (EButton* b : ex->button_list)
 					{
-						loot_writer += ' ';
-						loot_writer += '"';
-						loot_writer += b->text;
-						loot_writer += '"';
+						if
+						(
+							(b->text.at(0) != '<')
+							&
+							(b->text.at(0) != '>')
+							&
+							(b->text.at(0) != '=')
+						)
+						{
+							loot_writer += ' ';
+							loot_writer += '"';
+							loot_writer += b->text;
+							loot_writer += '"';
+						}
+						else
+						{
+							loot_writer += ' ';
+							loot_writer += b->text;
+						}
 					}
 
 					loot_writer += '\n';
@@ -4320,12 +4381,12 @@ EMath::rgb EMath::hsv2rgb(EMath::hsv in)
 
 
 
-			if (fb->is_prophecy_active)
+			if (fb->is_archnemesis_active)
 			{
 				loot_writer += '\t';
-				loot_writer += "Prophecy";
+				loot_writer += "ArchnemesisMod";
 
-				for (EButton* b : fb->prophecy_list)
+				for (EButton* b : fb->archnemesis_list)
 				{
 					loot_writer += " ";
 					loot_writer += '"';

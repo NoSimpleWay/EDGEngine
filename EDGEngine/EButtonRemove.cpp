@@ -21,7 +21,7 @@ EButtonRemove::EButtonRemove(float _x, float _y, float _sx, float _sy, Enums::Bu
 		position_mode_y = Enums::PositionMode::UP;
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_REMOVE_PROPHECY)
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_ARCHNEMESIS)
 	{
 		position_mode_x = Enums::PositionMode::LEFT;
 		position_mode_y = Enums::PositionMode::UP;
@@ -107,13 +107,13 @@ void EButtonRemove::click_event()
 		is_active = false;
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_REMOVE_PROPHECY)
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_ARCHNEMESIS)
 	{
-		master_block->is_prophecy_active = false;
+		master_block->is_archnemesis_active = false;
 
-		master_block->plus_prophecy_button_link->is_active = false;
+		master_block->plus_archnemesis_button_link->is_active = false;
 
-		for (EButton* b : master_block->prophecy_list)
+		for (EButton* b : master_block->archnemesis_list)
 		{
 			b->need_remove = true;
 		}
@@ -162,7 +162,7 @@ void EButtonRemove::update_localisation()
 		description_text = EString::localize_it("description_remove_class");
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_REMOVE_PROPHECY)
+	if (button_type == Enums::ButtonType::BUTTON_REMOVE_ARCHNEMESIS)
 	{
 		description_text = EString::localize_it("description_remove_prophecies");
 	}

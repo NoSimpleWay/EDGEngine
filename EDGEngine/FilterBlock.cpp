@@ -244,7 +244,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 
 
-		button_add_new_EPC = new EButtonPlusWide(0, 0, 19, 19, Enums::ButtonType::BUTTON_OPEN_EXPLICIT_PROPHECY_CLASS_WINDOW);
+		button_add_new_EPC = new EButtonPlusWide(0, 0, 19, 19, Enums::ButtonType::BUTTON_OPEN_EXPLICIT_ARCHNEMESIS_CLASS_WINDOW);
 		button_add_new_EPC->master_block = this;
 		button_add_new_EPC->master_window = StaticData::window_filter_block;
 		button_list.push_back(button_add_new_EPC);
@@ -381,20 +381,20 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 
 
-		plus_prophecy_button_link = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_PROPHECY_FILTER_BLOCK_LIST);
-		plus_prophecy_button_link->text = "+";
-		plus_prophecy_button_link->master_block = this;
-		plus_prophecy_button_link->master_window = StaticData::window_filter_block;
+		plus_archnemesis_button_link = new EButtonExplicit(0, 0, 100, 20, Enums::ButtonType::BUTTON_ARCHNEMESIS_FILTER_BLOCK_LIST);
+		plus_archnemesis_button_link->text = "+";
+		plus_archnemesis_button_link->master_block = this;
+		plus_archnemesis_button_link->master_window = StaticData::window_filter_block;
 
-		plus_prophecy_button_link->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
-		plus_prophecy_button_link->button_min_size_x = plus_prophecy_button_link->button_size_x;
+		plus_archnemesis_button_link->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
+		plus_archnemesis_button_link->button_min_size_x = plus_archnemesis_button_link->button_size_x;
 
-		plus_prophecy_button_link->can_be_removed = false;
-		plus_prophecy_button_link->have_input_mode = false;
-		plus_prophecy_button_link->is_plus = true;
-		plus_prophecy_button_link->is_active = false;
+		plus_archnemesis_button_link->can_be_removed = false;
+		plus_archnemesis_button_link->have_input_mode = false;
+		plus_archnemesis_button_link->is_plus = true;
+		plus_archnemesis_button_link->is_active = false;
 
-		button_list.push_back(plus_prophecy_button_link);
+		button_list.push_back(plus_archnemesis_button_link);
 
 
 
@@ -404,7 +404,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		plus_enchantment_button_link->master_window = StaticData::window_filter_block;
 		
 		plus_enchantment_button_link->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
-		plus_enchantment_button_link->button_min_size_x = plus_prophecy_button_link->button_size_x;
+		plus_enchantment_button_link->button_min_size_x = plus_archnemesis_button_link->button_size_x;
 		
 		plus_enchantment_button_link->can_be_removed = false;
 		plus_enchantment_button_link->have_input_mode = false;
@@ -420,7 +420,7 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		plus_cluster_enchantment_button_link->master_window = StaticData::window_filter_block;
 
 		plus_cluster_enchantment_button_link->button_size_x = EFont::get_width(EFont::active_font, "+") + 5.0f;
-		plus_cluster_enchantment_button_link->button_min_size_x = plus_prophecy_button_link->button_size_x;
+		plus_cluster_enchantment_button_link->button_min_size_x = plus_archnemesis_button_link->button_size_x;
 
 		plus_cluster_enchantment_button_link->can_be_removed = false;
 		plus_cluster_enchantment_button_link->have_input_mode = false;
@@ -443,13 +443,13 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 
 
 
-		remove_prophecy_button = new EButtonRemove(0, 0, 17, 17, Enums::ButtonType::BUTTON_REMOVE_PROPHECY);
+		remove_archnemesis_button = new EButtonRemove(0, 0, 17, 17, Enums::ButtonType::BUTTON_REMOVE_ARCHNEMESIS);
 
-		remove_prophecy_button->master_block = this;
-		remove_prophecy_button->master_window = StaticData::window_filter_block;
-		remove_prophecy_button->is_active = false;
+		remove_archnemesis_button->master_block = this;
+		remove_archnemesis_button->master_window = StaticData::window_filter_block;
+		remove_archnemesis_button->is_active = false;
 
-		button_list.push_back(remove_prophecy_button);
+		button_list.push_back(remove_archnemesis_button);
 
 
 		remove_enchantment_button = new EButtonRemove(0, 0, 17, 17, Enums::ButtonType::BUTTON_REMOVE_ENCHANTEMENT);
@@ -849,11 +849,11 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		}
 
 		if (remove_timer < 0)
-		for (int i = 0; i < prophecy_list.size(); i++)
+		for (int i = 0; i < archnemesis_list.size(); i++)
 		{
-			if (prophecy_list.at(i)->need_remove)
+			if (archnemesis_list.at(i)->need_remove)
 			{
-				prophecy_list.erase(prophecy_list.begin() + i);
+				archnemesis_list.erase(archnemesis_list.begin() + i);
 				i--;
 			}
 		}
@@ -1314,14 +1314,14 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 		ex_x = start_position_draw_x;
 
 
-		if ((is_prophecy_active) && (remove_timer < 0))
+		if ((is_archnemesis_active) && (remove_timer < 0))
 		{
-			remove_prophecy_button->button_x = ex_x;
-			remove_prophecy_button->button_y = ex_y;
+			remove_archnemesis_button->button_x = ex_x;
+			remove_archnemesis_button->button_y = ex_y;
 
 			ex_x += 20;
 
-			for (EButtonExplicit* b : prophecy_list)
+			for (EButtonExplicit* b : archnemesis_list)
 			{
 				
 				if (ex_x + b->button_size_x > size_x - 270.0f)
@@ -1336,11 +1336,11 @@ std::vector<FilterBlock::filter_block_data_attribute_struct*> FilterBlock::filte
 				ex_x += b->button_size_x + 5;
 			}
 
-			plus_prophecy_button_link->button_x = ex_x;
-			plus_prophecy_button_link->button_y = ex_y;
+			plus_archnemesis_button_link->button_x = ex_x;
+			plus_archnemesis_button_link->button_y = ex_y;
 
 			_batch->setcolor_alpha(EColorCollection::PINK, 0.15f);
-			_batch->draw_rect_with_uv(plus_prophecy_button_link->master_position_x, plus_prophecy_button_link->master_position_y, size_x - plus_prophecy_button_link->master_position_x - 270.0f, 20.0f, DefaultGabarite::gabarite_white);
+			_batch->draw_rect_with_uv(plus_archnemesis_button_link->master_position_x, plus_archnemesis_button_link->master_position_y, size_x - plus_archnemesis_button_link->master_position_x - 270.0f, 20.0f, DefaultGabarite::gabarite_white);
 
 			ex_y -= 30.0f;
 		}

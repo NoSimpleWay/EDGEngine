@@ -11,7 +11,7 @@
 #include "BaseClass.h"
 #include "LabEnchantment.h"
 
-#include "ProphecyList.h"
+#include "ArchnemesisList.h"
 #include "EUtils.h"
 
 //#include "ExplicitGroup.h"
@@ -83,7 +83,7 @@ public:
 	std::vector<int> abyss_sockets_group = { 0,0,0,0,0 };
 	std::vector<int> delve_sockets_group = { 0,0,0,0,0 };
 
-	bool is_prophecy_active = false;
+	bool is_archnemesis_active = false;
 	bool is_enchantment_active = false;
 	bool is_cluster_enchantment_active = false;
 
@@ -166,7 +166,7 @@ public:
 	std::vector<string*> class_list;
 	std::vector<string*> base_type_list;
 	std::vector<string*> explicit_mod_list;
-	std::vector<EButtonExplicit*> prophecy_list;
+	std::vector<EButtonExplicit*> archnemesis_list;
 
 	bool is_explicit = false;
 
@@ -258,8 +258,8 @@ public:
 	EButtonExplicit* plus_cluster_enchantment_button_link;
 	EButton* remove_cluster_enchantment_button;
 
-	EButtonExplicit* plus_prophecy_button_link;
-	EButton* remove_prophecy_button;
+	EButtonExplicit* plus_archnemesis_button_link;
+	EButton* remove_archnemesis_button;
 
 	vector <ExplicitGroup*> explicit_list;
 	vector <EButtonExplicit*> base_class_list;

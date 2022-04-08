@@ -9,8 +9,8 @@ item_name	Timeless Vaal Emblem	count	1
 item_name	Timeless Eternal Emblem	count	1
 item_name	Timeless Templar Emblem	count	1
 item_name	Timeless Maraketh Emblem	count	1
-item_name	Glorius Vanity	count	1
-item_name	Lethal Pride	count	1
-item_name	Elegant Hubris	count	1
-item_name	Militant Faith	count	1
-item_name	Brutal Restraint	count	1
+item_name	Glorius Vanity	count	1	rarity_min	unique	rarity_max	unique
+item_name	Lethal Pride	count	1	rarity_min	unique	rarity_max	unique
+item_name	Elegant Hubris	count	1	rarity_min	unique	rarity_max	unique
+item_name	Militant Faith	count	1	rarity_min	unique	rarity_max	unique
+item_name	Brutal Restraint	count	1	rarity_min	unique	rarity_max	unique

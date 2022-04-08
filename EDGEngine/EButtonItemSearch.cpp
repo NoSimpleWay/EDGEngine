@@ -147,7 +147,7 @@ void EButtonItemSearch::click_event()
 		StaticData::window_find_item->is_active = false;
 	}
 
-	if (button_type == Enums::ButtonType::BUTTON_SEARCH_PROPHECY)
+	if (button_type == Enums::ButtonType::BUTTON_SEARCH_ARCHNEMESIS)
 	{
 		StaticData::window_find_item->target_button->text = text;
 		StaticData::window_find_item->target_button->data_string = data_string;

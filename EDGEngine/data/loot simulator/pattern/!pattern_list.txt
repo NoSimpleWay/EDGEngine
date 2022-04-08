@@ -1,4 +1,8 @@
-name_en	=New items=	name_ru	=Новые предметы=	description_en	Generate lot of new league items	description_ru	Генерирует множество новых предметов, добавленных в Лигу "Нашествие"	path	new items	button_color	BLACK	text_color	RED
+name_en	=New currency=	name_ru	=Новая валюта=	description_en	Generate currency from new league	description_ru	Генерирует валюту, добавленных в Лигу "Возмездие"	path	new currency	button_color	BLACK	text_color	RED
+name_en	=New divination=	name_ru	=Новые гадалки=	description_en	Generate divination cards from new league	description_ru	Генерирует гадальные карточки, добавленные в Лигу "Возмездие"	path	new divinations	button_color	BLACK	text_color	RED
+name_en	=New implicits=	name_ru	=Новые имплиситы=	description_en	Generate new implicits on items from new league	description_ru	Генерирует вещи с имплиситами экзарха/пожирателя, добавленные в Лигу "Возмездие"	path	new implicits	button_color	BLACK	text_color	RED
+name_en	=New atlas=	name_ru	=Новый атлас=	description_en	Generate new atlas items (fragments, invitations, etc.) from new league	description_ru	Генерирует вещи атласа (фрагменты, приглашения, и т.д.), добавленные в Лигу "Возмездие"	path	new atlas	button_color	BLACK	text_color	RED
+name_en	=New bases=	name_ru	=Новые базы=	description_en	Generate new item bases from new league	description_ru	Генерирует ноые базы вещей, добавленные в Лигу "Возмездие"	path	new bases	button_color	BLACK	text_color	RED
 name_en	Breach item	name_ru	Предметы "Разлома"	description_en	Generate breach splinters/stone	description_ru	Генерирует осколки/камни разлома	path	breach	button_color	WHITE	text_color	BLACK
 name_en	Cluster jewels	name_ru	Кластерные самоцвета	description_en	Generate cluster jewel	description_ru	Генерирует Кластерыне самоцветы	path	cluster jewels	button_color	WHITE	text_color	BLACK
 name_en	Currency	name_ru	Валюта	description_en	Generate all regular game currency	description_ru	Генерирует всю обычную игровую валюту	path	currency	button_color	WHITE	text_color	BLACK
@@ -17,7 +21,6 @@ name_en	Map items	name_ru	Предметы карт	description_en	Generate maps and map fra
 name_en	Oils	name_ru	Масла	description_en	Generate lot of oils	description_ru	Генерирует множество масел	path	oils	button_color	WHITE	text_color	BLACK
 name_en	Skill gems	name_ru	Камни умений	description_en	Generate skill gems with different gem level and quality	description_ru	Генерирует камни умений	path	skill gems	button_color	WHITE	text_color	BLACK
 name_en	Syndicate	name_ru	Синдикат	description_en	Generate item with veiled mods, and lot of scarabs	description_ru	Генерирует вещи с завуалированными свойствами, а так же скарабеев	path	syndicate	button_color	WHITE	text_color	BLACK
-name_en	Prophecy	name_ru	Пророчества	description_en	Generate lot of prophecies	description_ru	Генерирует множество пророчеств	path	prophecy	button_color	WHITE	text_color	BLACK
 name_en	Harvest	name_ru	Жатва	description_en	Generate lot of harvest item	description_ru	Генерирует предметы из лиги "Жатва"	path	harvest	button_color	WHITE	text_color	BLACK
 name_en	Ritual	name_ru	Ритуал	description_en	Generate lot of ritual item	description_ru	Генерирует предметы из лиги "Ритуал"	path	league[ritual]	button_color	WHITE	text_color	BLACK
 name_en	Ultimatum	name_ru	Ультиматум	description_en	Generate lot of Ultimatum item	description_ru	Генерирует предметы из лиги "Ультиматум"	path	league[ultimatum]	button_color	WHITE	text_color	BLACK
