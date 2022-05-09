@@ -2104,12 +2104,12 @@ void EWindowLootSimulator::find_filter_block(LootItem* _l, EWindowFilterBlock* _
 			if (_default)
 			{
 				_l->default_filter_block_link = fb;
-				std::cout << "Match detect [default]! (" << _l->name << ")" << std::endl;
+				//std::cout << "Match detect [default]! (" << _l->name << ")" << std::endl;
 			}
 			else
 			{
 				_l->filter_block_link = fb;
-				std::cout << "Match detect! (" << _l->name << ")" << std::endl;
+				//std::cout << "Match detect! (" << _l->name << ")" << std::endl;
 			}
 
 			//_l->name += " " + std::to_string(fb_id);

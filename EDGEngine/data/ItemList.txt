@@ -1681,9 +1681,9 @@ item EN name	Awakened Void Manipulation Support	icon path	Awakened	item RU name	
 item EN name	Ballista Totem Support	icon path	Awakened	item RU name	Тотем-баллиста	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	high
 item EN name	Barrage Support	icon path	Awakened	item RU name	Стрельба очередями	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	high
 item EN name	Elemental Penetration Support	icon path	Active	item RU name	Пронизывающие стихии	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category		COST_GROUP					
-item EN name	Empower	icon path	Empower_Support_inventory_icon	item RU name	Усилитель	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
-item EN name	Enhance	icon path	Eternal_Mana_Flask_inventory_icon	item RU name	Улучшитель	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
-item EN name	Enlighten	icon path	Enlighten_Support_inventory_icon	item RU name	Наставник	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
+item EN name	Empower Support	icon path	Empower_Support_inventory_icon	item RU name	Усилитель	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
+item EN name	Enhance Support	icon path	Enhance_gem	item RU name	Улучшитель	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
+item EN name	Enlighten Support	icon path	Enlighten_Support_inventory_icon	item RU name	Наставник	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
 item EN name	Greater Volley Support	icon path	Awakened	item RU name	Большой залп	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	high
 item EN name	Impending Doom Support	icon path	Active	item RU name	Обречённость	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category		COST_GROUP					
 item EN name	Pinpoint Support	icon path	Active	item RU name	Сосредоточение	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category		COST_GROUP					
@@ -2021,3 +2021,51 @@ item EN name	Writhing Invitation	icon path	Writhing_Invitation_quest	item RU nam
 item EN name	Screaming Invitation	icon path	Screaming_Invitation_quest	item RU name	Кричащее приглашение	base class	Quest Items	folder	quest	item category	QUEST	item sub category	ALL					COST_GROUP	low
 item EN name	Polaric Invitation	icon path	Polaric_Invitation_quest	item RU name	Полярное приглашение	base class	Quest Items	folder	quest	item category	QUEST	item sub category	ALL					COST_GROUP	low
 item EN name	Incandescent Invitation	icon path	Incandescent_Invitation_quest	item RU name	Сияющее приглашение	base class	Quest Items	folder	quest	item category	QUEST	item sub category	ALL					COST_GROUP	low
+item EN name	Rusted Stalker Sentinel	icon path	rusted_stalker_sentinel	item RU name	Ржавый Часовой-охотник	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Bronze Stalker Sentinel	icon path	bronze_stalker_sentinel	item RU name	Бронзовый Часовой-охотник	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Cobalt Stalker Sentinel	icon path	cobalt_stalker_sentinel	item RU name	Кобальтовый Часовой-охотник	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Brimstone Stalker Sentinel	icon path	brimstone_stalker_sentinel	item RU name	Сернистый Часовой-охотник	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Emberstone Stalker Sentinel	icon path	emberstone_stalker_sentinel	item RU name	Каменноугольный Часовой-охотник	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Obsidian Stalker Sentinel	icon path	obsidian_stalker_sentinel	item RU name	Обсидиановый Часовой-охотник	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Cryptic Stalker Sentinel	icon path	cryptic_stalker_sentinel	item RU name	Скрытый Часовой-охотник	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Primeval Stalker Sentinel	icon path	primeval_stalker_sentinel	item RU name	Первобытный Часовой-охотник	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Ancient Stalker Sentinel	icon path	ancient_stalker_sentinel	item RU name	Древний Часовой-охотник	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Bronze Pandemonium Sentinel	icon path	bronze_pandemonium_sentinel	item RU name	Бронзовый Часовой-пандемоний	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Cobalt Pandemonium Sentinel	icon path	cobalt_pandemonium_sentinel	item RU name	Кобальтовый Часовой-пандемоний	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Brimstone Pandemonium Sentinel	icon path	brimstone_pandemonium_sentinel	item RU name	Сернистый Часовой-пандемоний	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Emberstone Pandemonium Sentinel	icon path	emberstone_pandemonium_sentinel	item RU name	Каменноугольный Часовой-пандемоний	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Obsidian Pandemonium Sentinel	icon path	obsidian_pandemonium_sentinel	item RU name	Обсидиановый Часовой-пандемоний	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Cryptic Pandemonium Sentinel	icon path	cryptic_pandemonium_sentinel	item RU name	Скрытый Часовой-пандемоний	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Primeval Pandemonium Sentinel	icon path	primeval_pandemonium_sentinel	item RU name	Первобытный Часовой-пандемоний	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Ancient Pandemonium Sentinel	icon path	ancient_pandemonium_sentinel	item RU name	Древний Часовой-пандемоний	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Bronze Apex Sentinel	icon path	bronze_apex_sentinel	item RU name	Бронзовый Апекс-Часовой	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Cobalt Apex Sentinel	icon path	cobalt_apex_sentinel	item RU name	Кобальтовый Апекс-Часовой	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Brimstone Apex Sentinel	icon path	brimstone_apex_sentinel	item RU name	Сернистый Апекс-Часовой	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Emberstone Apex Sentinel	icon path	emberstone_apex_sentinel	item RU name	Каменноугольный Апекс-Часовой	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Obsidian Apex Sentinel	icon path	obsidian_apex_sentinel	item RU name	Обсидиановый Апекс-Часовой	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Cryptic Apex Sentinel	icon path	cryptic_apex_sentinel	item RU name	Скрытый Апекс-Часовой	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Primeval Apex Sentinel	icon path	primeval_apex_sentinel	item RU name	Первобытный Апекс-Часовой	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Ancient Apex Sentinel	icon path	ancient_apex_sentinel	item RU name	Древний Апекс-Часовой	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Cosmic Apex Sentinel	icon path	cosmic_apex_sentinel	item RU name	Космический Апекс-Часовой	base class	Sentinel Drone	folder	drones	item category	SENTINEL	item sub category	NEW ITEM
+item EN name	Awakened Empower Support	icon path	Uber_empower_gem	item RU name	Усилитель	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
+item EN name	Awakened Enhance Support	icon path	Uber_enhance_gem	item RU name	Улучшитель	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
+item EN name	Awakened Enlighten Support	icon path	Uber_enlighten_gem	item RU name	Наставник	base class	Support Skill Gems	folder	gem	item category	GEM	item sub category	ALL					COST_GROUP	low
+item EN name	Altered Perception	icon path	Card	item RU name	Изменённое восприятие	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	high
+item EN name	Further Invention	icon path	Card	item RU name	Новое изобретение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	mid
+item EN name	The Brawny Battle Mage	icon path	Card	item RU name	Дюжий волшебник	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	low
+item EN name	A Fate Worse Than Death	icon path	Card	item RU name	Участь хуже смерти	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	high
+item EN name	The Destination	icon path	Card	item RU name	Цель путешествия	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	high
+item EN name	Rebirth and Renewal	icon path	Card	item RU name	Возрождение и обновление	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	mid
+item EN name	The Forward Gaze	icon path	Card	item RU name	Взгляд вперёд	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	mid
+item EN name	The Apothecary	icon path	Card	item RU name	Аптекарь	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	top
+item EN name	Home	icon path	Card	item RU name	Дом	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	high
+item EN name	The Dungeon Master	icon path	Card	item RU name	Тюремщик	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	mid
+item EN name	From Bone to Ashes	icon path	Card	item RU name	От костей к пеплу	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	mid
+item EN name	Darker Half	icon path	Card	item RU name	Тёмная половина	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL	COST_GROUP	mid
+item EN name	Power Core	icon path	PowerCore	item RU name	Энергоядро	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SENTINEL_CURRENCY	COST_GROUP	low
+item EN name	Transforming Power Core	icon path	TransformingPowerCore	item RU name	Преобразующее энергоядро	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SENTINEL_CURRENCY	COST_GROUP	low
+item EN name	Amplifying Power Core	icon path	AmplifyingPowerCore	item RU name	Усиливающее энергоядро	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SENTINEL_CURRENCY	COST_GROUP	low
+item EN name	Augmenting Power Core	icon path	AugmentingPowerCore	item RU name	Дополняющее энергоядро	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SENTINEL_CURRENCY	COST_GROUP	low
+item EN name	Armour Recombinator	icon path	ArmourRecombinator	item RU name	Рекомбинатор бронника	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SENTINEL_CURRENCY	COST_GROUP	low
+item EN name	Weapon Recombinator	icon path	WeaponRecombinator	item RU name	Рекомбинатор оружейника	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SENTINEL_CURRENCY	COST_GROUP	low
+item EN name	Jewellery Recombinator	icon path	JewelleryRecombinator	item RU name	Рекомбинатор ювелира	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SENTINEL_CURRENCY	COST_GROUP	low

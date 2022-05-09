@@ -102,3 +102,4 @@ Base name	Heist Gear	RU name	Разбойничьи принадлежности
 Base name	Atlas Region Upgrade Item	RU name	Предмет улучшения области Атласа
 Base name	Expedition Logbook	RU name	Журнал экспедиции
 Base name	Archnemesis Mod	RU name	Свойства Возмездия
+Base name	Sentinel Drone	RU name	Часовые

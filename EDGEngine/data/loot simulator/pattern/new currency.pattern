@@ -1,18 +1,7 @@
-item_name	Surveyor's Compass	count	1
-item_name	Charged Compass	count	1
-item_name	Lesser Eldritch Ember	count	1
-item_name	Greater Eldritch Ember	count	1
-item_name	Grand Eldritch Ember	count	1
-item_name	Exceptional Eldritch Ember	count	1
-item_name	Lesser Eldritch Ichor	count	1
-item_name	Greater Eldritch Ichor	count	1
-item_name	Grand Eldritch Ichor	count	1
-item_name	Exceptional Eldritch Ichor	count	1
-item_name	Orb of Conflict	count	1
-item_name	Orb of Dominance	count	1
-item_name	Eldritch Chaos Orb		count	1
-item_name	Eldritch Exalted Orb	count	1
-item_name	Eldritch Orb of Annulment	count	1
-item_name	Oil Extractor	count	1
-item_name	Atlas Book of Skill	count	1
-item_name	Archnemesis	class	Archnemesis Mod	archnemesis_name	%random%	count	3
+item_name	Power Core	count	1
+item_name	Transforming Power Core	count	1
+item_name	Amplifying Power Core	count	1
+item_name	Augmenting Power Core	count	1
+item_name	Armour Recombinator	count	1
+item_name	Weapon Recombinator	count	1
+item_name	Jewellery Recombinator	count	1
