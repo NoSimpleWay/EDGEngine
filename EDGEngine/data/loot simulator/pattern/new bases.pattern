@@ -1,5 +1,9 @@
-item_name	Feathered Arrow Quiver	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
-item_name	Blazing Arrow Quiver	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
-item_name	Vile Arrow Quiver	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
-item_name	Heavy Arrow Quiver	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
-item_name	Primal Arrow Quiver	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
+item_name	Dusk Ring	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
+item_name	Penumbra Ring	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
+item_name	Gloam Ring	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
+item_name	Tenebrous Ring	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
+item_name	Shadowed Ring	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
+item_name	Bone Ring	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
+item_name	Ring	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
+item_name	Calling Wand	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique
+item_name	Convening Wand	count	1	item_level_min	24	item_level_max	90	rarity_min	normal	rarity_max	unique

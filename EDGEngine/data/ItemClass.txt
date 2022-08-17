@@ -78,7 +78,7 @@ Base name	Labyrinth Map Item	RU name	Предмет карты лабиринта
 Base name	Leaguestones	RU name	Камни лиги
 Base name	Leaguestone	RU name	Камень лиги
 Base name	Pantheon Soul	RU name	Душа Пантеона
-Base name	Piece	RU name	Часть
+Base name	Pieces	RU name	Часть
 Base name	Abyss Jewel	RU name	Самоцвет Бездны
 Base name	Incursion Item	RU name	Предмет Вмешательства
 Base name	Delve Socketable Currency	RU name	Валюта Спуска
@@ -103,3 +103,4 @@ Base name	Atlas Region Upgrade Item	RU name	Предмет улучшения области Атласа
 Base name	Expedition Logbook	RU name	Журнал экспедиции
 Base name	Archnemesis Mod	RU name	Свойства Возмездия
 Base name	Sentinel Drone	RU name	Часовые
+Base name	Memory	RU name	Воспоминания

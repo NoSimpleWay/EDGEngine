@@ -1,7 +1,8 @@
-name_en	=New currency=	name_ru	=Новая валюта=	description_en	Generate currency from new league	description_ru	Генерирует валюту, добавленную в лигу "Дозор"	path	new currency	button_color	BLACK	text_color	RED
-name_en	=New gems=	name_ru	=Новые камни=	description_en	Generate gems from new league	description_ru	Генерирует камни умений/поддержки, добавленных в лигу "Дозор"	path	new gems	button_color	BLACK	text_color	RED
-name_en	=New divination=	name_ru	=Новые гадалки=	description_en	Generate divination cards from new league	description_ru	Генерирует гадальные карточки, добавленные в лигу "дозор"	path	new divinations	button_color	BLACK	text_color	RED
-name_en	=New items(sentinels)=	name_ru	=Новые предметы(часовые)=	description_en	Generate sentinels from new league	description_ru	Генерирует дозорных, добавленные в лигу "Дозор"	path	new sentinels	button_color	BLACK	text_color	RED
+name_en	=New divination=	name_ru	=Новые гадалки=	description_en	Generate divination cards from new league	description_ru	Генерирует гадальные карточки, добавленные в лигу "Каландра"	path	new divinations	button_color	BLACK	text_color	RED
+name_en	=New item bases=	name_ru	=Новые базы предметов=	description_en	Generate item bases from new league	description_ru	Генерирует базы предметов, добавленные в лигу "Каландра"	path	new bases	button_color	BLACK	text_color	RED
+name_en	=New currency=	name_ru	=Новая валюта=	description_en	Generate currency from new league	description_ru	Генерирует валюту, добавленную в лигу "Каландра"	path	new currency	button_color	BLACK	text_color	RED
+name_en	=New map items=	name_ru	=Новые предметы карт=	description_en	Generate map items from new league	description_ru	Генерирует предметы карт, добавленные в лигу "Каландра"	path	new maps	button_color	BLACK	text_color	RED
+name_en	=Corrupted currency=	name_ru	=Осквернённая валюта=	description_en	Currency, returned from scourge league	description_ru	Валютаб из лиги "Нашествие"	path	corrupted currency	button_color	BLACK	text_color	RED
 name_en	Breach item	name_ru	Предметы "Разлома"	description_en	Generate breach splinters/stone	description_ru	Генерирует осколки/камни разлома	path	breach	button_color	WHITE	text_color	BLACK
 name_en	Cluster jewels	name_ru	Кластерные самоцвета	description_en	Generate cluster jewel	description_ru	Генерирует Кластерыне самоцветы	path	cluster jewels	button_color	WHITE	text_color	BLACK
 name_en	Currency	name_ru	Валюта	description_en	Generate all regular game currency	description_ru	Генерирует всю обычную игровую валюту	path	currency	button_color	WHITE	text_color	BLACK
@@ -23,3 +24,4 @@ name_en	Syndicate	name_ru	Синдикат	description_en	Generate item with veiled mods
 name_en	Harvest	name_ru	Жатва	description_en	Generate lot of harvest item	description_ru	Генерирует предметы из лиги "Жатва"	path	harvest	button_color	WHITE	text_color	BLACK
 name_en	Ritual	name_ru	Ритуал	description_en	Generate lot of ritual item	description_ru	Генерирует предметы из лиги "Ритуал"	path	league[ritual]	button_color	WHITE	text_color	BLACK
 name_en	Ultimatum	name_ru	Ультиматум	description_en	Generate lot of Ultimatum item	description_ru	Генерирует предметы из лиги "Ультиматум"	path	league[ultimatum]	button_color	WHITE	text_color	BLACK
+name_en	Reports	name_ru	Доклады	description_en	Generate lot of reports item	description_ru	Генерирует доклады разведки Кирака	path	reports	button_color	WHITE	text_color	BLACK

@@ -1808,6 +1808,8 @@ item EN name	Assembler Wand	icon path	SuperWand	item RU name	Собирающий жезл	bas
 item EN name	Carved Wand	icon path	Imbued_Wand_inventory_icon	item RU name	Оструганный жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND	width	1	height	3	COST_GROUP	none
 item EN name	Congregator Wand	icon path	SuperWand	item RU name	Накопляющий жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	HEIST_EQUIP	COST_GROUP					
 item EN name	Convoking Wand	icon path	Convoking_Wand_inventory_icon	item RU name	Жезл призыва	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND					COST_GROUP	none
+item EN name	Calling Wand	icon path	Convoking_Wand_inventory_icon	item RU name	Жезл зова	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND					COST_GROUP	none
+item EN name	Convening Wand	icon path	Convoking_Wand_inventory_icon	item RU name	Жезл вызова	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND					COST_GROUP	none
 item EN name	Crystal Wand	icon path	Quartz_Wand_inventory_icon	item RU name	Кристальный жезл	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND	width	1	height	3	COST_GROUP	none
 item EN name	Demon's Horn	icon path	Goat's_Horn_inventory_icon	item RU name	Рог демона	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND	width	1	height	3	COST_GROUP	none
 item EN name	Driftwood Wand	icon path	Driftwood_Wand_inventory_icon	item RU name	Жезл из плавника	base class	Wands	folder	equip	item category	EQUIP	item sub category	WAND	width	1	height	3	COST_GROUP	none
@@ -2069,3 +2071,44 @@ item EN name	Augmenting Power Core	icon path	AugmentingPowerCore	item RU name	До
 item EN name	Armour Recombinator	icon path	ArmourRecombinator	item RU name	Рекомбинатор бронника	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SENTINEL_CURRENCY	COST_GROUP	low
 item EN name	Weapon Recombinator	icon path	WeaponRecombinator	item RU name	Рекомбинатор оружейника	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SENTINEL_CURRENCY	COST_GROUP	low
 item EN name	Jewellery Recombinator	icon path	JewelleryRecombinator	item RU name	Рекомбинатор ювелира	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	SENTINEL_CURRENCY	COST_GROUP	low
+item EN name	Broken Truce	icon path	Card	item RU name	Нарушенное перемирие	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
+item EN name	Doryani's Epiphany	icon path	Card	item RU name	Прозрение Дориани	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
+item EN name	Endless Night	icon path	Card	item RU name	Бесконечная ночь	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
+item EN name	The Shieldbearer	icon path	Card	item RU name	Щитоносец	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	high
+item EN name	Choking Guilt	icon path	Card	item RU name	Удушающая вина	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	very high
+item EN name	The Enforcer	icon path	Card	item RU name	Исполнитель	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	high
+item EN name	The Shepherd's Sandals	icon path	Card	item RU name	Сандалии пастуха	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
+item EN name	Azure Rage	icon path	Card	item RU name	Лазурная ярость	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
+item EN name	The Leviathan	icon path	Card	item RU name	Левиафан	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
+item EN name	The Price of Devotion	icon path	Card	item RU name	Цена преданности	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	top
+item EN name	Astral Protection	icon path	Card	item RU name	Астральная защита	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	low
+item EN name	Gemcutter's Mercy	icon path	Card	item RU name	Счастье камнереза	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
+item EN name	Checkmate	icon path	Card	item RU name	Шах и мат	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
+item EN name	Lethean Temptation	icon path	Card	item RU name	Летейское искушение	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
+item EN name	Something Dark	icon path	Card	item RU name	Нечто тёмное	base class	Divination Card	folder	divination	item category	DIVINATION CARD	item sub category	ALL					COST_GROUP	mid
+item EN name	Dusk Ring	icon path	DuskRing	item RU name	Сумеречное кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING					COST_GROUP	none
+item EN name	Penumbra Ring	icon path	PenumbraRing	item RU name	Кольцо полутени	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING					COST_GROUP	none
+item EN name	Gloam Ring	icon path	GloamRing	item RU name	Мглистое кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING					COST_GROUP	none
+item EN name	Tenebrous Ring	icon path	TenebrousRing	item RU name	Тусклое кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING					COST_GROUP	none
+item EN name	Shadowed Ring	icon path	ShadowedRing	item RU name	Затенённое кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING					COST_GROUP	none
+item EN name	Bone Ring	icon path	BoneRing	item RU name	Костяное кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING					COST_GROUP	none
+item EN name	Ring	icon path	Ring	item RU name	Кольцо	base class	Rings	folder	equip	item category	EQUIP	item sub category	RING					COST_GROUP	none
+item EN name	Reflective Oil	icon path	MirrorOil	item RU name	Зеркальное масло	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	OIL					COST_GROUP	very high
+item EN name	Wild Crystallised Lifeforce	icon path	WildCrystallisedLifeforce	item RU name	Дикая кристализованная жизненная сила	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	HARVEST_CURRENCY					COST_GROUP	mid
+item EN name	Vivid Crystallised Lifeforce	icon path	VividCrystallisedLifeforce	item RU name	Буйная кристализованная жизненная сила	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	HARVEST_CURRENCY					COST_GROUP	mid
+item EN name	Primal Crystallised Lifeforce	icon path	PrimalCrystallisedLifeforce	item RU name	Первобытная кристализованная жизненная сила	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	HARVEST_CURRENCY					COST_GROUP	mid
+item EN name	Sacred Crystallised Lifeforce	icon path	SacredCrystallisedLifeforce	item RU name	Священная кристализованная жизненная сила	base class	Stackable Currency	folder	currency	item category	STACKABLE_CURRENCY	item sub category	HARVEST_CURRENCY					COST_GROUP	high
+item EN name	Ultimatum Aspect	icon path	UltimatumAspect	item RU name	Аспект Ультиматума	base class	Pieces	folder	fragment	item category	MAP	item sub category	MAP_FRAGMENT					COST_GROUP	high
+item EN name	Mirrored Tablet	icon path	MirroredTablet	item RU name	Зеркальная табличка	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	MAP					COST_GROUP	very high
+item EN name	Forgotten Reliquary Key	icon path	ForgottenReliquaryKey	item RU name	Ключ от Забытого Реликвария	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	MAP					COST_GROUP	very high
+item EN name	Visceral Reliquary Key	icon path	VisceralReliquaryKey	item RU name	Ключ от Внутриутробного Реликвария	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	MAP					COST_GROUP	very high
+item EN name	Shiny Reliquary Key	icon path	ShinyReliquaryKey	item RU name	Ключ от Сверкающего Реликвария	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	MAP					COST_GROUP	very high
+item EN name	Archive Reliquary Key	icon path	ArchiveReliquaryKey	item RU name	Ключ от Архивного Реликвария	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	MAP					COST_GROUP	very high
+item EN name	Oubliette Reliquary Key	icon path	OublietteReliquaryKey	item RU name	Ключ от Реликвария забвения	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	MAP					COST_GROUP	very high
+item EN name	Cosmic Reliquary Key	icon path	CosmicReliquaryKey	item RU name	Ключ от Космического Реликвария	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	MAP					COST_GROUP	very high
+item EN name	Decaying Reliquary Key	icon path	DecayingReliquaryKey	item RU name	Ключ от Разлагающегося Реликвария	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	MAP					COST_GROUP	very high
+item EN name	Engraved Ultimatum	icon path	Inscribed_Ultimatum	item RU name	Гравированный ультиматум	base class	Map Fragments	folder	fragment	item category	MAP	item sub category	BREACH					COST_GROUP	high
+item EN name	Niko's Memory	icon path	NikoMemory	item RU name	Воспоминание Нико	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	BREACH					COST_GROUP	high
+item EN name	Alva's Memory	icon path	AlvaMemory	item RU name	Воспоминание Альвы	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	BREACH					COST_GROUP	high
+item EN name	Kirac's Memory	icon path	KiracMemory	item RU name	Воспоминание Кирака	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	BREACH					COST_GROUP	high
+item EN name	Einhar's Memory	icon path	EinharMemory	item RU name	Воспоминание Эйнара	base class	Misc Map Items	folder	misc map item	item category	MAP	item sub category	BREACH					COST_GROUP	high
